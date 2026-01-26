@@ -23,8 +23,10 @@ export function MethodSection() {
     <section id="method" className="py-24">
       <div className="container">
         <div className="text-center mb-16">
-          <p className="text-sm font-medium text-primary mb-3">The Method</p>
-          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4">
+          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
+            <span className="text-sm font-medium text-accent">The Method</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
             The Weight Permanence Triangle™
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
@@ -39,7 +41,7 @@ export function MethodSection() {
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                 <principle.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">{principle.title}</h3>
+              <h3 className="text-xl font-semibold text-primary mb-2">{principle.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{principle.description}</p>
             </div>
           ))}
@@ -47,8 +49,10 @@ export function MethodSection() {
 
         {/* Core principle */}
         <div className="max-w-2xl mx-auto text-center bg-card rounded-3xl p-8 md:p-12 border border-border">
-          <p className="text-sm font-medium text-primary mb-3">The Core Principle</p>
-          <h3 className="text-2xl md:text-3xl font-serif font-normal mb-2">
+          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
+            <span className="text-sm font-medium text-accent">The Core Principle</span>
+          </div>
+          <h3 className="text-2xl md:text-3xl font-serif font-normal mb-2 text-primary">
             Low Starch. Low Sugar.
           </h3>
           <p className="text-muted-foreground italic mb-6">(Simple, but not easy.)</p>

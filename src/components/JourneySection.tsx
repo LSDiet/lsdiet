@@ -66,7 +66,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
       
       <div className="mt-4 text-center">
         <p className="text-sm text-muted-foreground mb-1">{card.date} • Tap to toggle</p>
-        <h3 className="font-semibold text-foreground">{card.label}</h3>
+        <h3 className="font-semibold text-primary">{card.label}</h3>
         <p className="text-sm text-muted-foreground mt-1">{card.description}</p>
       </div>
     </div>
@@ -78,9 +78,11 @@ export function JourneySection() {
     <section id="journey" className="py-24 bg-secondary/30">
       <div className="container">
         <div className="text-center mb-16">
-          <p className="text-sm font-medium text-primary mb-3">My Transformation Journey</p>
-          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4">
-            Lost 60 Pounds. Three Times.
+          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
+            <span className="text-sm font-medium text-accent">My Transformation Journey</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
+            Lost 60 Pounds. <span className="text-accent">Three Times.</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Each journey taught me something new. The third time, I discovered the method that made it permanent. Hover or tap to see the transformations.

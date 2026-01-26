@@ -59,8 +59,10 @@ export function BookSection() {
 
           {/* Book info */}
           <div>
-            <p className="text-sm font-medium text-primary mb-3">Pre-Order Now Available</p>
-            <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4">
+            <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
+              <span className="text-sm font-medium text-accent">Pre-Order Now Available</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
               Weight Permanence
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">

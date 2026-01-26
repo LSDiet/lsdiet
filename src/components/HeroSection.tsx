@@ -20,16 +20,16 @@ export function HeroSection() {
 
       <div className="container relative z-10 text-center max-w-4xl mx-auto px-4">
         {/* Badge */}
-        <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
-          <span className="text-sm font-medium text-primary">
+        <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-8">
+          <span className="text-sm font-medium text-accent">
             Lost 60 lbs – Three Times. Now It's Forever.
           </span>
         </div>
 
         {/* Main heading */}
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-normal leading-tight mb-6">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-normal leading-tight mb-6 text-primary">
           The Secret to{" "}
-          <span className="text-primary font-semibold">Permanent</span> Weight Loss
+          <span className="text-accent font-semibold">Permanent</span> Weight Loss
         </h1>
 
         {/* Description */}
