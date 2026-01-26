@@ -5,10 +5,10 @@ import { useProducts } from "@/hooks/useProducts";
 import { toast } from "sonner";
 
 const features = [
-  "Step-by-step Triangle Method implementation",
-  "100+ low starch, low sugar recipes",
-  "Meal planning templates & grocery lists",
-  "Mindset shifts for permanent change",
+  "The Weight Permanence Triangle™ Method explained step-by-step",
+  "Working with emotion instead of fighting it",
+  "Making low starch, low sugar food decisions in any environment",
+  "Shifting from short term weight loss to long term permanence",
 ];
 
 export function BookSection() {
