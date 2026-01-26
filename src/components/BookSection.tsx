@@ -5,7 +5,7 @@ import { useProducts } from "@/hooks/useProducts";
 import { toast } from "sonner";
 
 const features = [
-  "The Weight Permanence Triangle™ Method explained step-by-step",
+  "The Weight Permanence Triangle™ Implementation",
   "Working with emotion instead of fighting it",
   "Making low starch, low sugar food decisions in any environment",
   "Shifting from short term weight loss to long term permanence",
