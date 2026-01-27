@@ -12,8 +12,8 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="container flex h-16 items-center justify-between">
         <a href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-            <Triangle className="w-5 h-5 text-primary-foreground fill-primary-foreground" />
+          <div className="w-9 h-9 rounded-full border-2 border-primary flex items-center justify-center">
+            <Triangle className="w-4 h-4 text-primary fill-primary" />
           </div>
           <span className="text-lg font-semibold text-foreground">Weight Permanence</span>
         </a>
