@@ -84,27 +84,29 @@ export function MissingPieceSection() {
           </div>
 
           {/* Personal Story */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6">
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all. Every method worked until it stopped working. That's when I made a clear decision to stop chasing short-term weight loss and start building a lifelong health state.
+              Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all.
+              <br />
+              Every method worked until it stopped working. That's when I made a clear decision to stop chasing short-term weight loss and start building a lifelong health state.
             </p>
           </div>
 
           {/* Visual Statistic Callout */}
-          <div className="flex items-center gap-6 my-6">
-            <div className="text-5xl md:text-6xl font-bold text-primary">40%</div>
-            <div className="text-muted-foreground">
+          <div className="flex items-center justify-center gap-6 my-6">
+            <div className="text-5xl md:text-6xl font-bold text-accent">40%</div>
+            <div className="text-muted-foreground text-left">
               <p className="text-base md:text-lg">of adults struggle with obesity.</p>
-              <p className="text-sm mt-1">This isn't just a personal problem—it's biological and environmental.</p>
+              <p className="text-sm mt-1">This is more than a willpower problem. Biology and environment both play a role.</p>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground italic mb-6">
-            I began studying how the body responds to food and grounded that understanding in my own repeated cycles.
-          </p>
 
           {/* The Result */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6">
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              I began studying how the body responds to food and grounded that understanding in my own repeated cycles.
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mt-3">
               The result: a practical framework to eat less naturally and eat right in an environment not built for health. That framework became the <span className="text-primary font-medium">Weight Permanence Triangle™ Method</span>.
             </p>
           </div>
