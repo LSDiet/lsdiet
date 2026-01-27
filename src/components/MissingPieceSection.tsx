@@ -84,7 +84,7 @@ export function MissingPieceSection() {
           </div>
 
           {/* Personal Story */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-8 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all.
               <br />
@@ -93,16 +93,25 @@ export function MissingPieceSection() {
           </div>
 
           {/* Visual Statistic Callout */}
-          <div className="flex items-center justify-center gap-6 my-6">
+          <div className="flex items-center justify-center gap-6 my-8">
             <div className="text-5xl md:text-6xl font-bold text-accent">40%</div>
             <div className="text-muted-foreground text-left">
-              <p className="text-base md:text-lg">of adults struggle with obesity.</p>
+              <p className="text-base md:text-lg">of adults struggle with <span className="font-semibold">obesity</span>.</p>
               <p className="text-sm mt-1">This is more than a willpower problem. Biology and environment both play a role.</p>
             </div>
           </div>
 
+          {/* Visual Separator */}
+          <div className="flex justify-center">
+            <div className="flex items-center gap-2">
+              <div className="w-1 h-1 rounded-full bg-accent/40" />
+              <div className="w-1.5 h-1.5 rounded-full bg-accent/60" />
+              <div className="w-1 h-1 rounded-full bg-accent/40" />
+            </div>
+          </div>
+
           {/* Equation Intro */}
-          <p className="text-center text-sm md:text-base text-primary/80 mb-5">
+          <p className="text-center text-sm md:text-base text-primary/80 mb-6">
             When weight loss feels like fighting hunger and yourself at the same time, a low starch, low sugar lifestyle solves the problem by changing the biology behind it.
           </p>
         </div>
@@ -118,7 +127,7 @@ export function MissingPieceSection() {
         </div>
 
         {/* Clarifier */}
-        <p className="text-center text-sm text-muted-foreground italic max-w-2xl mx-auto mb-6">
+        <p className="text-center text-sm text-muted-foreground italic max-w-2xl mx-auto mb-8">
           (Calories still matter. But when hunger is regulated, food intake naturally decreases.)
         </p>
 
