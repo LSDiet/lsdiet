@@ -1,102 +1,102 @@
 
 
-## Making the Page Pop: Diagram Fix + Engagement Improvements
+## Contact Section Implementation
 
-I've analyzed your landing page and identified several opportunities to make it more engaging. Here's my assessment and plan:
-
----
-
-### 1. Smaller Triangle Diagram
-
-**The Fix:** Reduce the diagram container from `max-w-2xl` (672px) to `max-w-md` (448px) — about 33% smaller. This keeps it visually prominent without dominating the section.
+This plan adds a "Have a Question?" contact form section after the book pre-order section, matching the existing design language.
 
 ---
 
-### 2. What's Missing: The "Pop" Factor
+### Section Placement
 
-After reviewing your page, here's what I believe is holding it back:
-
-| Issue | Impact | Solution |
-|-------|--------|----------|
-| **Static content** | Page feels flat | Add scroll-triggered fade-in animations |
-| **No urgency** | No reason to act now | Add scarcity/limited availability messaging |
-| **Book image floats** | Feels detached | Add subtle floating animation + glow effect |
-| **Sections blend together** | Hard to scan | Add visual separators between sections |
-| **Pre-order button blends in** | Doesn't stand out | Add pulse/glow animation to draw attention |
+```text
+[BookSection] - Pre-order CTA
+       ↓
+[NEW: ContactSection] - Contact form
+       ↓
+[FooterSimple] - Copyright
+```
 
 ---
 
-### Recommended Enhancements
+### Design Approach
 
-#### A. Scroll Animations (Biggest Impact)
-Add smooth fade-in-up animations as sections scroll into view. This creates a sense of discovery and keeps users engaged as they scroll.
-
-**Sections to animate:**
-- Journey cards (staggered entrance)
-- Triangle diagram
-- Method principle cards
-- Book section
-
-#### B. Pre-Order Button Enhancement
-Make the button impossible to ignore:
-- Subtle pulse animation on idle
-- Warm glow effect matching the accent colour
-- Optional: Add a "Limited Pre-Order" badge above it
-
-#### C. Book Section Polish
-- Add floating animation to the book mockup (gentle up/down)
-- Add a soft shadow/glow beneath the book
-- Consider a "sparkle" effect on hover
-
-#### D. Visual Section Breaks
-Add subtle dividers or gradient transitions between sections to create clearer visual rhythm.
-
-#### E. Social Proof (Optional but Powerful)
-A small "Join 500+ pre-orders" or testimonial snippet near the book section builds trust.
+The contact section will:
+- Follow the warm, inviting aesthetic with the cream background (`bg-secondary/30`)
+- Use the same scroll-triggered fade-in animation as other sections
+- Include a card-based form layout matching the existing design patterns
+- Provide direct email mention (info@whataboutweight.com) as an alternative
 
 ---
 
-### Technical Approach
+### Form Fields
 
-**Option 1: CSS-Only (Lightweight)**
-- Use Tailwind's built-in animation utilities
-- Add custom keyframes for float/pulse effects
-- Use Intersection Observer for scroll triggers
-
-**Option 2: Framer Motion (Richer Animations)**
-- Install `framer-motion` package
-- Wrap sections in animated components
-- Smoother, more professional transitions
-
-I recommend **Option 1** first since it doesn't require new dependencies, and we can upgrade to Framer Motion later if you want more sophisticated effects.
+| Field | Type | Validation |
+|-------|------|------------|
+| Name | Text input | Required, max 100 characters |
+| Email | Email input | Required, valid email format |
+| Phone | Tel input | Optional |
+| Message | Textarea | Required, max 1000 characters |
 
 ---
 
-### Implementation Order
+### Technical Details
 
-1. **Shrink the triangle diagram** (quick win)
-2. **Add scroll-triggered fade-ins** (biggest visual impact)
-3. **Enhance the pre-order button** (conversion focus)
-4. **Polish the book section** (premium feel)
-5. **Add section dividers** (visual rhythm)
+**New File: `src/components/ContactSection.tsx`**
 
----
+1. Create a new component following existing patterns
+2. Use `react-hook-form` with `zod` for form validation (already installed)
+3. Apply the `useScrollAnimation` hook for entrance animation
+4. Use existing UI components: `Input`, `Textarea`, `Button`, `Label`
+5. Include toast notifications for form submission feedback
+6. Add a note directing users to email info@whataboutweight.com directly
 
-### Files to Modify
+**File: `src/pages/Index.tsx`**
 
-- `src/components/MethodSection.tsx` — Smaller diagram
-- `tailwind.config.ts` — Add animation keyframes (fade-in, float, pulse-glow)
-- `src/components/HeroSection.tsx` — Animate hero elements
-- `src/components/JourneySection.tsx` — Staggered card animations
-- `src/components/BookSection.tsx` — Floating book + button glow
-- `src/index.css` — Custom animation utilities
+1. Import the new `ContactSection` component
+2. Add it between `BookSection` and `FooterSimple`
 
 ---
 
-### What You'll Feel After
+### Form Behaviour
 
-- **More dynamic** — Elements reveal as you scroll
-- **More premium** — Subtle animations feel polished
-- **More urgent** — Button draws the eye
-- **More trustworthy** — Professional presentation builds confidence
+Since there's no backend configured for form submissions:
+- Display a success message on submit with instructions to email directly
+- Clear the form after submission
+- Mention that users can also email info@whataboutweight.com directly in the section header
+
+---
+
+### Visual Layout
+
+```text
+┌─────────────────────────────────────────────┐
+│         [Have a Question? badge]            │
+│                                             │
+│    We'd Love to Hear From You               │
+│    (subtitle with email mention)            │
+│                                             │
+│  ┌─────────────────────────────────────┐    │
+│  │  Name: [________________]           │    │
+│  │  Email: [________________]          │    │
+│  │  Phone: [________________]          │    │
+│  │  Message:                           │    │
+│  │  [                               ]  │    │
+│  │  [                               ]  │    │
+│  │                                     │    │
+│  │  [Send Message]                     │    │
+│  └─────────────────────────────────────┘    │
+│                                             │
+│  Or email us directly at                    │
+│  info@whataboutweight.com                   │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+### Files to Create/Modify
+
+| File | Action |
+|------|--------|
+| `src/components/ContactSection.tsx` | Create new component |
+| `src/pages/Index.tsx` | Import and add ContactSection |
 
