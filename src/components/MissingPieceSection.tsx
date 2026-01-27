@@ -5,7 +5,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const equationSteps = [
   { text: "Lower starch & sugar", variant: "start" },
   { text: "Lower insulin", variant: "middle" },
-  { text: "Fat burning", variant: "middle" },
+  { text: "Fat burning", subtitle: "(fat mobilization and oxidation)", variant: "middle" },
   { text: "Less hunger", variant: "key" },
   { text: "Eat less naturally", variant: "end" },
 ];
@@ -42,7 +42,10 @@ function EquationFlow() {
             }`}
             style={{ transitionDelay: `${index * 80}ms` }}
           >
-            {step.text}
+            <span className="block">{step.text}</span>
+            {step.subtitle && (
+              <span className="block text-[10px] md:text-xs opacity-70 font-normal">{step.subtitle}</span>
+            )}
           </span>
           {index < equationSteps.length - 1 && (
             <span
