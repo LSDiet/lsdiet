@@ -136,7 +136,7 @@ export function MissingPieceSection() {
         </div>
 
         {/* Transition to Method */}
-        <div className="text-center mt-4">
+        <div className="text-center mt-3">
           <div className="inline-flex flex-col items-center gap-2">
             <p className="text-sm text-muted-foreground italic">
               This insight became an actionable framework and a step-by-step guide.
