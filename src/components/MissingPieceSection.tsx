@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -67,8 +68,35 @@ function EquationFlow() {
   );
 }
 
+function CountUpNumber({ target, isVisible }: { target: number; isVisible: boolean }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    let start = 0;
+    const duration = 1500;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [isVisible, target]);
+
+  return <span>{count}%</span>;
+}
+
 export function MissingPieceSection() {
   const { ref, isVisible } = useScrollAnimation();
+  const { ref: statRef, isVisible: statVisible } = useScrollAnimation();
 
   return (
     <section className="py-5 bg-secondary/30">
@@ -96,8 +124,10 @@ export function MissingPieceSection() {
           </div>
 
           {/* Visual Statistic Callout */}
-          <div className="flex items-center justify-center gap-6 my-8">
-            <div className="text-5xl md:text-6xl font-bold text-accent">40%</div>
+          <div ref={statRef} className="flex items-center justify-center gap-6 my-8">
+            <div className="text-5xl md:text-6xl font-bold text-accent">
+              <CountUpNumber target={40} isVisible={statVisible} />
+            </div>
             <div className="text-muted-foreground text-left">
               <p className="text-base md:text-lg">of adults struggle with <span className="font-semibold">obesity</span>.</p>
               <p className="text-sm mt-1">This is more than a willpower problem. Biology and environment both play a role.</p>
