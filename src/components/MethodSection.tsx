@@ -15,7 +15,7 @@ const principles = [
   {
     icon: Lock,
     title: "Permanence",
-    description: "Internalized systems that keep decisions stable so behaviour follows structure rather than emotion when external cues change.",
+    description: "Tools to establish an internal alert system that flags deviations and stabilizes decisions when context, emotion, or environment changes.",
   },
 ];
 
