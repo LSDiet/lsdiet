@@ -4,6 +4,7 @@ import { useCartStore } from "@/stores/cartStore";
 import { useProducts } from "@/hooks/useProducts";
 import { toast } from "sonner";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import bookCover from "@/assets/book-cover.png";
 
 const features = [
   "The Weight Permanence Triangle™ Implementation",
