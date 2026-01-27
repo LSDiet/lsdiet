@@ -145,7 +145,7 @@ export function MissingPieceSection() {
 
           {/* Equation Intro */}
           <p className="text-center text-sm md:text-base text-primary/80 mb-6">
-            When weight loss feels like fighting hunger and yourself at the same time, a low starch, low sugar lifestyle solves the problem by changing the biology behind it.
+            When weight loss feels like fighting hunger and yourself at the same time, a low-starch, low-sugar lifestyle solves the problem by changing the biology behind it.
           </p>
         </div>
 

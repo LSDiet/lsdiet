@@ -34,7 +34,7 @@ export function HeroSection() {
 
         {/* Description */}
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
-          Discover the Weight Permanence Triangle™ Method — a neurobehavioural approach to losing weight, keeping it off, and living freely with a low starch, low sugar lifestyle.
+          Discover the Weight Permanence Triangle™ Method — a neurobehavioural approach to losing weight, keeping it off, and living freely with a low-starch, low-sugar lifestyle.
         </p>
 
         {/* CTA Buttons */}
