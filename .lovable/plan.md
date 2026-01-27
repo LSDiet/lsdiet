@@ -1,98 +1,81 @@
 
 
-## Journey Labels + Core Principle Revamp
+## Add Early Access Bonus Announcement
 
-This plan updates the journey card labels and restructures the core principle section with your scientifically accurate content in a scannable format.
-
----
-
-### Part 1: Journey Card Label Updates
-
-| Current | New |
-|---------|-----|
-| The Gain | Stress |
-| Attempt #1 | Sustainability |
-| Attempt #2 | Disruption |
-
-**File:** `src/components/JourneySection.tsx` (lines 20, 30, 40)
+This plan adds a visually distinct "Early Access Bonus" announcement card to the pre-order section, highlighting the 12-month free Guided Questions platform access.
 
 ---
 
-### Part 2: Core Principle Section Revamp
+### Placement Decision
 
-**Visual Decision:** I'll emphasise "biological, social, and environmental" as three distinct inline badges/pills rather than the full sentence. This creates a stronger visual anchor and makes the takeaway instantly scannable. The full sentence becomes the lead-in.
+The bonus announcement will appear **between the feature list and the Pre-Order button**. This creates a natural flow:
 
-**Challenges:** Removing travel, keeping 3 items:
-- Restaurants
-- Family meals  
-- A food system favouring shelf-stable carbohydrates
+1. Book features (what's in the book)
+2. Early access bonus (what you get extra)
+3. Pre-order button (action)
 
 ---
 
-### Proposed Layout
+### Visual Design
 
 ```text
 ┌─────────────────────────────────────────────────────────┐
-│              [The Core Principle badge]                  │
+│  🎁  EARLY ACCESS BONUS                                 │
 │                                                         │
-│              Low Starch. Low Sugar.                     │
-│              (Simple, but not easy.)                    │
+│  Pre-order the book and receive 12 months of free      │
+│  access to the Guided Questions platform — a           │
+│  structured, conversational tool that walks you        │
+│  through the five stages of Awareness in the           │
+│  Weight Permanence Triangle.                           │
 │                                                         │
-│  ┌─────────────────────────────────────────────────────┐│
-│  │  THE BIOLOGY                                        ││
-│  │                                                     ││
-│  │  When starch and sugar keep insulin elevated:       ││
-│  │  • Your body favours fat storage                    ││
-│  │  • Fat access is blocked                            ││
-│  │  • Hunger stays high                                ││
-│  │                                                     ││
-│  │  Hunger is biological, not a lack of discipline.   ││
-│  │  When this biology is amplified by a multibillion- ││
-│  │  dollar industry designed for repeat consumption,  ││
-│  │  willpower alone was never going to win.           ││
-│  └─────────────────────────────────────────────────────┘│
-│                                                         │
-│  ┌─────────────────────────────────────────────────────┐│
-│  │  THE CHALLENGE                                      ││
-│  │                                                     ││
-│  │  Low starch and low sugar looks like a food swap   ││
-│  │  on the surface. In reality, it reshapes:          ││
-│  │                                                     ││
-│  │  🍽️  How you eat in restaurants                    ││
-│  │  👨‍👩‍👧  How you navigate family meals                 ││
-│  │  🏪  How you work within a food system where       ││
-│  │      shelf-stable carbohydrates are cheaper and    ││
-│  │      easier than fresh protein and vegetables      ││
-│  │                                                     ││
-│  │  ───────────────────────────────────────────────── ││
-│  │                                                     ││
-│  │  This is not just a diet change. It is a          ││
-│  │                                                     ││
-│  │  [Biological] [Social] [Environmental]             ││
-│  │                                                     ││
-│  │  challenge.                                        ││
-│  └─────────────────────────────────────────────────────┘│
+│  After the first year, access is $10/month.            │
 └─────────────────────────────────────────────────────────┘
 ```
 
-The three words appear as coloured badge pills (similar to the existing accent badges) creating immediate visual impact.
+- Uses a subtle accent-tinted card background to stand out
+- Gift icon to signal "bonus"
+- "EARLY ACCESS BONUS" as a small uppercase header
+- The $10/month note in a softer muted colour
 
 ---
 
 ### Technical Approach
 
-- Two side-by-side cards on desktop, stacked on mobile
-- Lucide icons: `Utensils` (restaurants), `Users` (family), `Store` (food system)
-- Three inline badges for "Biological", "Social", "Environmental" using the existing badge styling
-- Canadian English: "favours" throughout
-- Scroll animation with `useScrollAnimation` hook
+- Add a new card component after the features `<ul>` (line 89)
+- Use `Gift` icon from Lucide (already installed)
+- Apply `bg-accent/10 border border-accent/20 rounded-xl p-4` for the card styling
+- Keep the announcement concise and scannable
+- Maintain the scroll animation context (already wrapped)
 
 ---
 
-### Files to Modify
+### File to Modify
 
 | File | Changes |
 |------|---------|
-| `src/components/JourneySection.tsx` | Update 3 label values (lines 20, 30, 40) |
-| `src/components/MethodSection.tsx` | Replace core principle content (lines 178-198) with new two-card layout |
+| `src/components/BookSection.tsx` | Add Early Access Bonus card between features list and button (after line 89) |
+
+---
+
+### New Component Structure
+
+```tsx
+{/* Early Access Bonus */}
+<div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mb-6">
+  <div className="flex items-start gap-3">
+    <Gift className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+    <div>
+      <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-2">
+        Early Access Bonus
+      </p>
+      <p className="text-foreground text-sm leading-relaxed mb-2">
+        Pre-order the book and receive 12 months of free access to the Guided Questions platform — a structured, conversational tool that walks you through the five stages of Awareness in the Weight Permanence Triangle.
+      </p>
+      <p className="text-muted-foreground text-xs">
+        After the first year, access is $10/month.
+      </p>
+    </div>
+  </div>
+</div>
+```
 
