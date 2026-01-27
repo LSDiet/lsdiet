@@ -1,4 +1,5 @@
 import { Eye, Activity, Lock } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const principles = [
   {
@@ -19,8 +20,14 @@ const principles = [
 ];
 
 function TriangleDiagram() {
+  const { ref, isVisible } = useScrollAnimation();
   return (
-    <div className="max-w-2xl mx-auto mb-16">
+    <div 
+      ref={ref}
+      className={`max-w-md mx-auto mb-12 transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+    >
       <svg
         viewBox="0 0 400 320"
         className="w-full h-auto"
@@ -128,6 +135,9 @@ function TriangleDiagram() {
 }
 
 export function MethodSection() {
+  const { ref: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
+  const { ref: coreRef, isVisible: coreVisible } = useScrollAnimation();
+
   return (
     <section id="method" className="py-16">
       <div className="container">
@@ -147,9 +157,15 @@ export function MethodSection() {
         <TriangleDiagram />
 
         {/* Triangle visualization */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-20">
+        <div ref={principlesRef} className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-20">
           {principles.map((principle, index) => (
-            <div key={principle.title} className="text-center group">
+            <div 
+              key={principle.title} 
+              className={`text-center group transition-all duration-700 ${
+                principlesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                 <principle.icon className="w-8 h-8 text-primary" />
               </div>
@@ -160,7 +176,12 @@ export function MethodSection() {
         </div>
 
         {/* Core principle */}
-        <div className="max-w-2xl mx-auto text-center bg-card rounded-3xl p-8 md:p-12 border border-border">
+        <div 
+          ref={coreRef}
+          className={`max-w-2xl mx-auto text-center bg-card rounded-3xl p-8 md:p-12 border border-border transition-all duration-700 ${
+            coreVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
             <span className="text-sm font-medium text-accent">The Core Principle</span>
           </div>

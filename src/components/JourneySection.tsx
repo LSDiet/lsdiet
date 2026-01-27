@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface JourneyCard {
   id: number;
@@ -79,6 +80,25 @@ function JourneyCard({ card }: { card: JourneyCard }) {
   );
 }
 
+function JourneyCardsGrid() {
+  const { ref, isVisible } = useScrollAnimation();
+  return (
+    <div ref={ref} className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+      {journeyCards.map((card, index) => (
+        <div
+          key={card.id}
+          className={`transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: `${index * 150}ms` }}
+        >
+          <JourneyCard card={card} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function JourneySection() {
   return (
     <section id="journey" className="py-16 bg-secondary/30">
@@ -114,11 +134,7 @@ export function JourneySection() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-          {journeyCards.map((card) => (
-            <JourneyCard key={card.id} card={card} />
-          ))}
-        </div>
+        <JourneyCardsGrid />
 
         {/* Quote */}
         <blockquote className="max-w-3xl mx-auto text-center">
