@@ -65,14 +65,26 @@ function JourneyCard({ card }: { card: JourneyCard }) {
       onMouseLeave={() => setShowAfter(false)}
     >
       <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-secondary relative">
+        {/* Render both images and toggle visibility for instant switching */}
         <img
-          src={showAfter ? card.afterImage : card.beforeImage}
+          src={card.beforeImage}
           alt={card.description}
-          className="w-full h-full object-cover transition-opacity duration-500"
+          className={cn(
+            "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
+            showAfter ? "opacity-0" : "opacity-100"
+          )}
+        />
+        <img
+          src={card.afterImage}
+          alt={card.afterDescription}
+          className={cn(
+            "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
+            showAfter ? "opacity-100" : "opacity-0"
+          )}
         />
         
         {/* Weight badge */}
-        <div className="absolute top-4 right-4 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
+        <div className="absolute top-4 right-4 bg-background/90 backdrop-blur px-3 py-1 rounded-full z-10">
           <span className="text-sm font-semibold text-destructive">{card.weight}</span>
         </div>
       </div>
