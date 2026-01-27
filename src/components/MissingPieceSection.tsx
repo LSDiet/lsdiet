@@ -126,7 +126,7 @@ export function MissingPieceSection() {
         <div className="max-w-3xl mx-auto">
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Weight loss is not about eating less and exercising more. It is about{" "}
+              Weight loss is more than just eating less and exercising more. It is about{" "}
               <span className="font-semibold text-primary">
                 eating and moving in ways that support functional goals within the environment you live in.
               </span>{" "}
@@ -136,10 +136,10 @@ export function MissingPieceSection() {
         </div>
 
         {/* Transition to Method */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-4">
           <div className="inline-flex flex-col items-center gap-2">
             <p className="text-sm text-muted-foreground italic">
-              This insight became a framework.
+              This insight became an actionable framework and a step-by-step guide.
             </p>
             <ChevronDown className="w-5 h-5 text-accent animate-bounce" />
           </div>
