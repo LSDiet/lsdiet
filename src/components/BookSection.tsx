@@ -8,7 +8,7 @@ const features = [
   "The Weight Permanence Triangle™ Implementation",
   "Working with emotion instead of fighting it",
   "Making low starch, low sugar food decisions in any environment",
-  "Shifting from short term weight loss to long term permanence",
+  "Shifting from short-term weight loss to long-term permanence",
 ];
 
 export function BookSection() {
@@ -66,7 +66,7 @@ export function BookSection() {
               Weight Permanence
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              The complete guide to the Triangle Method. Learn exactly how I lost 60 pounds three times and finally discovered how to keep it off forever using low starch, low sugar principles.
+              The complete guide to the Weight Permanence Triangle™ Method. Learn how to build an identity that naturally prioritizes low starch, low sugar eating without relying on rigid plans or daily scripts.
             </p>
 
             <ul className="space-y-3 mb-8">
