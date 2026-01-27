@@ -7,6 +7,7 @@ interface JourneyCard {
   label: string;
   weight: string;
   description: string;
+  afterDescription: string;
   beforeImage: string;
   afterImage: string;
 }
@@ -18,6 +19,7 @@ const journeyCards: JourneyCard[] = [
     label: "The Gain",
     weight: "+60 lbs",
     description: "Graduation weight with a lean and mobile body",
+    afterDescription: "Desk job and stress eating led to rapid weight gain",
     beforeImage: "https://freedom-weight-triangle.lovable.app/assets/201710-graduation-D0y4bW6y.jpg",
     afterImage: "https://freedom-weight-triangle.lovable.app/assets/201908-before1-B0sQ-8SM.jpg",
   },
@@ -27,6 +29,7 @@ const journeyCards: JourneyCard[] = [
     label: "Attempt #1",
     weight: "+80 lbs",
     description: "Lost 60 lbs with veggie & smoothie cleanse",
+    afterDescription: "Regained the weight once I returned to eating normally",
     beforeImage: "https://freedom-weight-triangle.lovable.app/assets/202012-after1-CIoyoFRh.jpg",
     afterImage: "https://freedom-weight-triangle.lovable.app/assets/202204-before2-BGRKYuZM.jpg",
   },
@@ -36,6 +39,7 @@ const journeyCards: JourneyCard[] = [
     label: "Attempt #2",
     weight: "+60 lbs",
     description: "Lost 60 lbs with carnivore, IF & daily exercise",
+    afterDescription: "Regained the weight as frequent travel turned flexibility into old habits",
     beforeImage: "https://freedom-weight-triangle.lovable.app/assets/202311-after2-dLU-qBSC.jpg",
     afterImage: "https://freedom-weight-triangle.lovable.app/assets/202405-before3-CziVz2Hi.jpg",
   },
@@ -67,7 +71,9 @@ function JourneyCard({ card }: { card: JourneyCard }) {
       <div className="mt-4 text-center">
         <p className="text-sm text-muted-foreground mb-1">{card.date} • Tap to toggle</p>
         <h3 className="font-semibold text-primary">{card.label}</h3>
-        <p className="text-sm text-muted-foreground mt-1">{card.description}</p>
+        <p className="text-sm text-muted-foreground mt-1 transition-opacity duration-300">
+          {showAfter ? card.afterDescription : card.description}
+        </p>
       </div>
     </div>
   );
