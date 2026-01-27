@@ -98,7 +98,7 @@ export function BookSection() {
                     Early Access Bonus
                   </p>
                   <p className="text-foreground text-sm leading-relaxed mb-2">
-                    Pre-order the book and receive 12 months of free access to Awareness Compass, a proprietary conversational platform that guides you through the five stages of Awareness to identify the gap between where you are and where you want to be, and to establish clear internal push and pull motivation.
+                    Pre-order the book and receive 12 months of free access to <span className="font-semibold">Awareness Compass</span>, a proprietary conversational platform that guides you through the five stages of Awareness to identify the gap between where you are and where you want to be, and to establish clear internal push and pull motivation.
                   </p>
                   <p className="text-muted-foreground text-xs">
                     After the first year, access is $10/month.
