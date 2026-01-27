@@ -3,6 +3,7 @@ import { Check, ShoppingCart, Loader2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 import { useProducts } from "@/hooks/useProducts";
 import { toast } from "sonner";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const features = [
   "The Weight Permanence Triangle™ Implementation",
@@ -12,6 +13,7 @@ const features = [
 ];
 
 export function BookSection() {
+  const { ref, isVisible } = useScrollAnimation();
   const { data: products, isLoading: productsLoading } = useProducts(1);
   const addItem = useCartStore((state) => state.addItem);
   const isLoading = useCartStore((state) => state.isLoading);
@@ -45,14 +47,20 @@ export function BookSection() {
   return (
     <section id="book" className="py-24 bg-secondary/30">
       <div className="container">
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+        <div 
+          ref={ref}
+          className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           {/* Book mockup */}
           <div className="flex justify-center">
-            <div className="relative">
+            <div className="relative animate-float">
+              <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl" />
               <img
                 src="https://freedom-weight-triangle.lovable.app/assets/book-mockup-B-p98AEg.png"
                 alt="Weight Permanence Book"
-                className="max-w-sm w-full drop-shadow-2xl"
+                className="relative max-w-sm w-full drop-shadow-2xl"
               />
             </div>
           </div>
@@ -82,7 +90,7 @@ export function BookSection() {
 
             <Button 
               size="lg" 
-              className="w-full sm:w-auto px-8"
+              className="w-full sm:w-auto px-8 animate-pulse-glow"
               onClick={handlePreOrder}
               disabled={isLoading || productsLoading || !bookProduct}
             >
