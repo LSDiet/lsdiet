@@ -150,7 +150,7 @@ export function MissingPieceSection() {
         </div>
 
         {/* Equation Label */}
-        <p className="text-center text-sm text-muted-foreground mb-5">
+        <p className="text-center text-base md:text-lg text-muted-foreground mb-5">
           Here's how:
         </p>
 
