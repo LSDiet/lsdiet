@@ -139,7 +139,7 @@ export function MethodSection() {
   const { ref: coreRef, isVisible: coreVisible } = useScrollAnimation();
 
   return (
-    <section id="method" className="py-10">
+    <section id="method" className="py-7">
       <div className="container">
         <div className="text-center mb-8">
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">

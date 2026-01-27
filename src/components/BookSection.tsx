@@ -46,7 +46,7 @@ export function BookSection() {
   };
 
   return (
-    <section id="book" className="py-14 bg-secondary/30">
+    <section id="book" className="py-10 bg-secondary/30">
       <div className="container">
         <div 
           ref={ref}
