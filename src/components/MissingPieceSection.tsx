@@ -149,7 +149,7 @@ export function MissingPieceSection() {
               Feeling hungry all the time?
             </p>
             <p className="text-sm md:text-base text-primary/80">
-              A low-starch, low-sugar lifestyle solves the problem.
+              A low-starch, low-sugar lifestyle lets you eat until full — and still lose weight.
             </p>
           </div>
         </div>
