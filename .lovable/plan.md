@@ -1,81 +1,98 @@
 
 
-## Add Early Access Bonus Announcement
+# The Missing Piece Section + Equation Diagram
 
-This plan adds a visually distinct "Early Access Bonus" announcement card to the pre-order section, highlighting the 12-month free Guided Questions platform access.
-
----
-
-### Placement Decision
-
-The bonus announcement will appear **between the feature list and the Pre-Order button**. This creates a natural flow:
-
-1. Book features (what's in the book)
-2. Early access bonus (what you get extra)
-3. Pre-order button (action)
+## Overview
+This plan adds a new standalone section called "The Missing Piece" positioned between the Journey and Method sections. It will contain Oscar's extended narrative and a visual flow diagram showing the weight loss equation.
 
 ---
 
-### Visual Design
+## Content Structure
 
+### Section Header
+- Badge: "The Missing Piece"
+- No main heading (the narrative speaks for itself)
+
+### Extended Narrative (3 paragraphs)
+1. "Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all. Every method worked until it stopped working. That's when I made a clear decision to stop chasing short-term weight loss and start building a lifelong health state."
+
+2. "With over 40 percent of adults struggling with obesity, this isn't just a personal problem. It's a biological and environmental one. I began studying how the body responds to food and pressure, and grounded that understanding in my own repeated weight loss and regain."
+
+3. "The result is a practical, step-by-step framework designed to serve one goal: how to eat less naturally and eat right in an environment that is not built for health. That framework became the Weight Permanence Triangle™ Method."
+
+### Equation Flow Diagram
+**Header text (critical context):**
+> "If weight loss has always felt like fighting hunger and yourself at the same time, this is why."
+
+**Visual flow (5 connected pill-shaped boxes):**
 ```text
-┌─────────────────────────────────────────────────────────┐
-│  🎁  EARLY ACCESS BONUS                                 │
-│                                                         │
-│  Pre-order the book and receive 12 months of free      │
-│  access to the Guided Questions platform — a           │
-│  structured, conversational tool that walks you        │
-│  through the five stages of Awareness in the           │
-│  Weight Permanence Triangle.                           │
-│                                                         │
-│  After the first year, access is $10/month.            │
-└─────────────────────────────────────────────────────────┘
+Lower starch    →    Lower    →    Easier fat         →    Less    →    Eating less
+and sugar            insulin       mobilization and        hunger       naturally
+                                   oxidation (fat burning)
 ```
 
-- Uses a subtle accent-tinted card background to stand out
-- Gift icon to signal "bonus"
-- "EARLY ACCESS BONUS" as a small uppercase header
-- The $10/month note in a softer muted colour
+**Clarifier underneath:**
+> "(Calories still matter. But when hunger is regulated, food intake naturally decreases.)"
 
 ---
 
-### Technical Approach
+## Visual Design
 
-- Add a new card component after the features `<ul>` (line 89)
-- Use `Gift` icon from Lucide (already installed)
-- Apply `bg-accent/10 border border-accent/20 rounded-xl p-4` for the card styling
-- Keep the announcement concise and scannable
-- Maintain the scroll animation context (already wrapped)
+### Flow Diagram Styling
+- Horizontal layout on desktop, vertical stack on mobile
+- Pill-shaped boxes using the brand colors:
+  - Primary green (`bg-primary/10 border-primary/20`) for first and last boxes
+  - Teal-ish green (`bg-primary/15 border-primary/25`) for middle boxes
+  - Amber accent (`bg-accent/15 border-accent/30`) for the "Less hunger" box (the key insight)
+- Arrow connectors between boxes using ChevronRight icons (rotated down on mobile)
+- Fade-in scroll animation with staggered delays
+
+### Section Container
+- Cream/beige background (`bg-secondary/30`) to match JourneySection
+- Compact padding (`py-10`) per existing spacing preferences
+- Max-width constraint for readability
 
 ---
 
-### File to Modify
+## Technical Implementation
 
+### Files to Create
+| File | Purpose |
+|------|---------|
+| `src/components/MissingPieceSection.tsx` | New standalone section with narrative and equation diagram |
+
+### Files to Modify
 | File | Changes |
 |------|---------|
-| `src/components/BookSection.tsx` | Add Early Access Bonus card between features list and button (after line 89) |
+| `src/pages/Index.tsx` | Import and add MissingPieceSection between JourneySection and MethodSection |
+| `src/components/JourneySection.tsx` | Remove the blockquote (content moves to new section) |
+
+### Component Structure
+```text
+MissingPieceSection
+├── Container with scroll animation
+├── Section badge ("The Missing Piece")
+├── Narrative card (3 paragraphs)
+├── Equation intro text (italic, centered)
+├── EquationFlow (inline sub-component)
+│   ├── 5 pill boxes with staggered animations
+│   └── ChevronRight arrows between boxes
+└── Clarifier text (muted, centered)
+```
+
+### Responsive Behavior
+- Desktop (`md:` and up): Horizontal flow with `flex-row`
+- Mobile: Vertical stack with `flex-col`, arrows rotate 90 degrees
 
 ---
 
-### New Component Structure
-
-```tsx
-{/* Early Access Bonus */}
-<div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mb-6">
-  <div className="flex items-start gap-3">
-    <Gift className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-    <div>
-      <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-2">
-        Early Access Bonus
-      </p>
-      <p className="text-foreground text-sm leading-relaxed mb-2">
-        Pre-order the book and receive 12 months of free access to the Guided Questions platform — a structured, conversational tool that walks you through the five stages of Awareness in the Weight Permanence Triangle.
-      </p>
-      <p className="text-muted-foreground text-xs">
-        After the first year, access is $10/month.
-      </p>
-    </div>
-  </div>
-</div>
+## Page Flow After Implementation
+```text
+Hero → Journey → The Missing Piece → Method → Book → Contact → Footer
 ```
+
+This creates a natural narrative bridge:
+- Journey shows the repeated failure pattern
+- "The Missing Piece" explains the insight and introduces the biological equation
+- Method presents the solution (Weight Permanence Triangle)
 
