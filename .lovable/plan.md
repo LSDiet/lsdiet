@@ -1,102 +1,51 @@
 
 
-## Contact Section Implementation
+## Reduce Section Spacing
 
-This plan adds a "Have a Question?" contact form section after the book pre-order section, matching the existing design language.
-
----
-
-### Section Placement
-
-```text
-[BookSection] - Pre-order CTA
-       ↓
-[NEW: ContactSection] - Contact form
-       ↓
-[FooterSimple] - Copyright
-```
+This plan reduces the vertical blank space above all sections for a tighter, more compact layout.
 
 ---
 
-### Design Approach
+### Current vs Proposed Spacing
 
-The contact section will:
-- Follow the warm, inviting aesthetic with the cream background (`bg-secondary/30`)
-- Use the same scroll-triggered fade-in animation as other sections
-- Include a card-based form layout matching the existing design patterns
-- Provide direct email mention (info@whataboutweight.com) as an alternative
+| Section | Current | Proposed | Change |
+|---------|---------|----------|--------|
+| HeroSection | `pt-16 pb-8` | `pt-16 pb-4` | Reduce bottom padding |
+| JourneySection | `py-16` | `py-10` | 64px → 40px |
+| MethodSection | `py-16` | `py-10` | 64px → 40px |
+| BookSection | `py-24` | `py-14` | 96px → 56px |
+| ContactSection | `py-24` | `py-14` | 96px → 56px |
 
----
-
-### Form Fields
-
-| Field | Type | Validation |
-|-------|------|------------|
-| Name | Text input | Required, max 100 characters |
-| Email | Email input | Required, valid email format |
-| Phone | Tel input | Optional |
-| Message | Textarea | Required, max 1000 characters |
+This reduces overall vertical spacing by approximately 40% while maintaining visual breathing room.
 
 ---
 
-### Technical Details
+### Files to Modify
 
-**New File: `src/components/ContactSection.tsx`**
-
-1. Create a new component following existing patterns
-2. Use `react-hook-form` with `zod` for form validation (already installed)
-3. Apply the `useScrollAnimation` hook for entrance animation
-4. Use existing UI components: `Input`, `Textarea`, `Button`, `Label`
-5. Include toast notifications for form submission feedback
-6. Add a note directing users to email info@whataboutweight.com directly
-
-**File: `src/pages/Index.tsx`**
-
-1. Import the new `ContactSection` component
-2. Add it between `BookSection` and `FooterSimple`
-
----
-
-### Form Behaviour
-
-Since there's no backend configured for form submissions:
-- Display a success message on submit with instructions to email directly
-- Clear the form after submission
-- Mention that users can also email info@whataboutweight.com directly in the section header
-
----
-
-### Visual Layout
-
-```text
-┌─────────────────────────────────────────────┐
-│         [Have a Question? badge]            │
-│                                             │
-│    We'd Love to Hear From You               │
-│    (subtitle with email mention)            │
-│                                             │
-│  ┌─────────────────────────────────────┐    │
-│  │  Name: [________________]           │    │
-│  │  Email: [________________]          │    │
-│  │  Phone: [________________]          │    │
-│  │  Message:                           │    │
-│  │  [                               ]  │    │
-│  │  [                               ]  │    │
-│  │                                     │    │
-│  │  [Send Message]                     │    │
-│  └─────────────────────────────────────┘    │
-│                                             │
-│  Or email us directly at                    │
-│  info@whataboutweight.com                   │
-└─────────────────────────────────────────────┘
-```
-
----
-
-### Files to Create/Modify
-
-| File | Action |
+| File | Change |
 |------|--------|
-| `src/components/ContactSection.tsx` | Create new component |
-| `src/pages/Index.tsx` | Import and add ContactSection |
+| `src/components/HeroSection.tsx` | Change `pb-8` to `pb-4` |
+| `src/components/JourneySection.tsx` | Change `py-16` to `py-10` |
+| `src/components/MethodSection.tsx` | Change `py-16` to `py-10` |
+| `src/components/BookSection.tsx` | Change `py-24` to `py-14` |
+| `src/components/ContactSection.tsx` | Change `py-24` to `py-14` |
+
+---
+
+### Additional Internal Spacing Reduction
+
+Some sections also have large internal margins that add to the "empty" feeling:
+
+| Location | Current | Proposed |
+|----------|---------|----------|
+| JourneySection intro `mb-12` | 48px | `mb-8` (32px) |
+| MethodSection header `mb-12` | 48px | `mb-8` (32px) |
+| MethodSection principles grid `mb-20` | 80px | `mb-12` (48px) |
+| ContactSection header `mb-10` | 40px | `mb-6` (24px) |
+
+---
+
+### Domain Setup Note
+
+For your `www.whataboutweight.com` domain issue, you need to add the www subdomain separately in Lovable. See the instructions above or refer to the Lovable documentation on connecting domains.
 
