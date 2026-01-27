@@ -1,4 +1,4 @@
-import { Eye, Activity, Lock } from "lucide-react";
+import { Eye, Activity, Lock, Utensils, Users, Store } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const principles = [
@@ -178,23 +178,73 @@ export function MethodSection() {
         {/* Core principle */}
         <div 
           ref={coreRef}
-          className={`max-w-2xl mx-auto text-center bg-card rounded-3xl p-8 md:p-12 border border-border transition-all duration-700 ${
+          className={`max-w-4xl mx-auto transition-all duration-700 ${
             coreVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
-            <span className="text-sm font-medium text-accent">The Core Principle</span>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
+              <span className="text-sm font-medium text-accent">The Core Principle</span>
+            </div>
+            <h3 className="text-2xl md:text-3xl font-serif font-normal mb-2 text-primary">
+              Low Starch. Low Sugar.
+            </h3>
+            <p className="text-muted-foreground italic">(Simple, but not easy.)</p>
           </div>
-          <h3 className="text-2xl md:text-3xl font-serif font-normal mb-2 text-primary">
-            Low Starch. Low Sugar.
-          </h3>
-          <p className="text-muted-foreground italic mb-6">(Simple, but not easy.)</p>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            No complicated formulas. No expensive supplements. Just understanding how starch and sugar influence fat storage, and choosing food accordingly.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            Hunger is biological, not a lack of discipline. And when a multibillion-dollar ultra-processed food industry amplifies it, willpower alone is never going to win.
-          </p>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* The Biology Card */}
+            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border">
+              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Biology</h4>
+              <p className="text-muted-foreground mb-4">When starch and sugar keep insulin elevated:</p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span className="text-primary">Your body favours fat storage</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span className="text-primary">Fat access is blocked</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-accent mt-1">•</span>
+                  <span className="text-primary">Hunger stays high</span>
+                </li>
+              </ul>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Hunger is biological, not a lack of discipline. When this biology is amplified by a multibillion-dollar industry designed for repeat consumption, willpower alone was never going to win.
+              </p>
+            </div>
+
+            {/* The Challenge Card */}
+            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border">
+              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Challenge</h4>
+              <p className="text-muted-foreground mb-4">Low starch and low sugar looks like a food swap on the surface. In reality, it reshapes:</p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <Utensils className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span className="text-primary">How you eat in restaurants</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Users className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span className="text-primary">How you navigate family meals</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Store className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span className="text-primary text-sm">How you work within a food system where shelf-stable carbohydrates are cheaper and easier than fresh protein and vegetables</span>
+                </li>
+              </ul>
+              <div className="border-t border-border pt-4">
+                <p className="text-muted-foreground text-sm mb-3">This is not just a diet change. It is a</p>
+                <div className="flex flex-wrap gap-2 mb-2">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary">Biological</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-accent/15 border border-accent/25 text-xs font-medium text-accent">Social</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-secondary border border-border text-xs font-medium text-primary">Environmental</span>
+                </div>
+                <p className="text-muted-foreground text-sm">challenge.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
