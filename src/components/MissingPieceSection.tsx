@@ -101,18 +101,8 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* The Result */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              I began studying how the body responds to food and grounded that understanding in my own repeated cycles.
-            </p>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mt-3">
-              The result: a practical framework to eat less naturally and eat right in an environment not built for health. That framework became the <span className="text-primary font-medium">Weight Permanence Triangle™ Method</span>.
-            </p>
-          </div>
-
           {/* Equation Intro */}
-          <p className="text-center text-sm md:text-base text-primary/80 italic mb-5">
+          <p className="text-center text-sm md:text-base text-primary/80 mb-5">
             When weight loss feels like fighting hunger and yourself at the same time, a low starch, low sugar lifestyle solves the problem by changing the biology behind it.
           </p>
         </div>
@@ -123,9 +113,18 @@ export function MissingPieceSection() {
         </div>
 
         {/* Clarifier */}
-        <p className="text-center text-sm text-muted-foreground italic max-w-2xl mx-auto">
+        <p className="text-center text-sm text-muted-foreground italic max-w-2xl mx-auto mb-6">
           (Calories still matter. But when hunger is regulated, food intake naturally decreases.)
         </p>
+
+        {/* The Result */}
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 text-center">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              I studied this biology—and tested it through my own repeated cycles. The result: a framework to eat less naturally in an environment not built for health. That became the <span className="text-primary font-medium">Weight Permanence Triangle™ Method</span>.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
