@@ -134,10 +134,10 @@ export function JourneySection() {
           
           {/* Personal Story */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 text-center">
-            <p className="text-lg md:text-xl text-primary font-medium mb-4">
+            <p className="text-base md:text-lg text-primary font-medium mb-4">
               Hi, this is Oscar Poon from Vancouver, Canada.
             </p>
-            <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
               <p>
                 Over the last 10 years, I went through repeated and extreme weight transformations. Each cycle followed the same pattern: discipline, results, life disruption, and regain.
               </p>
