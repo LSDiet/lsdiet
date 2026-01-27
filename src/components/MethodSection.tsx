@@ -5,7 +5,7 @@ const principles = [
   {
     icon: Eye,
     title: "Awareness",
-    description: "Five stages of awareness to clarify why weight loss matters beyond the scale and encode it as an internal priority.",
+    description: "Five stages of awareness that clarify why weight loss matters beyond the scale and use emotion to create internal push and pull motivation.",
   },
   {
     icon: Activity,
