@@ -10,7 +10,7 @@ const features = [
   "The Weight Permanence Triangle™ Implementation",
   "Working with emotion instead of fighting it",
   "Making low-starch, low-sugar food decisions in any environment",
-  "Shifting from short-term weight loss to long-term permanence",
+  "Replacing short-term weight loss with a permanent approach",
 ];
 
 export function BookSection() {
@@ -75,7 +75,7 @@ export function BookSection() {
               Weight Permanence
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              The complete guide to the Weight Permanence Triangle™ Method. Learn how to build an identity that naturally prioritizes low-starch, low-sugar eating without relying on rigid plans or daily scripts.
+              A step-by-step guide to the Weight Permanence Triangle™ Method. Learn how to build a low-starch, low-sugar lifestyle designed to resist weight regain.
             </p>
 
             <ul className="space-y-3 mb-6">
@@ -98,7 +98,7 @@ export function BookSection() {
                     Early Access Bonus
                   </p>
                   <p className="text-foreground text-sm leading-relaxed mb-2">
-                    Pre-order the book and receive 12 months of free access to the Guided Questions platform — a structured, conversational tool that walks you through the five stages of Awareness in the Weight Permanence Triangle.
+                    Pre-order the book and receive 12 months of free access to Awareness Compass, a proprietary conversational platform that guides you through the five stages of Awareness to identify the gap between where you are and where you want to be, and to establish clear internal push and pull motivation.
                   </p>
                   <p className="text-muted-foreground text-xs">
                     After the first year, access is $10/month.
