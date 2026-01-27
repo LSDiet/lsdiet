@@ -1,51 +1,98 @@
 
 
-## Reduce Section Spacing
+## Journey Labels + Core Principle Revamp
 
-This plan reduces the vertical blank space above all sections for a tighter, more compact layout.
+This plan updates the journey card labels and restructures the core principle section with your scientifically accurate content in a scannable format.
 
 ---
 
-### Current vs Proposed Spacing
+### Part 1: Journey Card Label Updates
 
-| Section | Current | Proposed | Change |
-|---------|---------|----------|--------|
-| HeroSection | `pt-16 pb-8` | `pt-16 pb-4` | Reduce bottom padding |
-| JourneySection | `py-16` | `py-10` | 64px → 40px |
-| MethodSection | `py-16` | `py-10` | 64px → 40px |
-| BookSection | `py-24` | `py-14` | 96px → 56px |
-| ContactSection | `py-24` | `py-14` | 96px → 56px |
+| Current | New |
+|---------|-----|
+| The Gain | Stress |
+| Attempt #1 | Sustainability |
+| Attempt #2 | Disruption |
 
-This reduces overall vertical spacing by approximately 40% while maintaining visual breathing room.
+**File:** `src/components/JourneySection.tsx` (lines 20, 30, 40)
+
+---
+
+### Part 2: Core Principle Section Revamp
+
+**Visual Decision:** I'll emphasise "biological, social, and environmental" as three distinct inline badges/pills rather than the full sentence. This creates a stronger visual anchor and makes the takeaway instantly scannable. The full sentence becomes the lead-in.
+
+**Challenges:** Removing travel, keeping 3 items:
+- Restaurants
+- Family meals  
+- A food system favouring shelf-stable carbohydrates
+
+---
+
+### Proposed Layout
+
+```text
+┌─────────────────────────────────────────────────────────┐
+│              [The Core Principle badge]                  │
+│                                                         │
+│              Low Starch. Low Sugar.                     │
+│              (Simple, but not easy.)                    │
+│                                                         │
+│  ┌─────────────────────────────────────────────────────┐│
+│  │  THE BIOLOGY                                        ││
+│  │                                                     ││
+│  │  When starch and sugar keep insulin elevated:       ││
+│  │  • Your body favours fat storage                    ││
+│  │  • Fat access is blocked                            ││
+│  │  • Hunger stays high                                ││
+│  │                                                     ││
+│  │  Hunger is biological, not a lack of discipline.   ││
+│  │  When this biology is amplified by a multibillion- ││
+│  │  dollar industry designed for repeat consumption,  ││
+│  │  willpower alone was never going to win.           ││
+│  └─────────────────────────────────────────────────────┘│
+│                                                         │
+│  ┌─────────────────────────────────────────────────────┐│
+│  │  THE CHALLENGE                                      ││
+│  │                                                     ││
+│  │  Low starch and low sugar looks like a food swap   ││
+│  │  on the surface. In reality, it reshapes:          ││
+│  │                                                     ││
+│  │  🍽️  How you eat in restaurants                    ││
+│  │  👨‍👩‍👧  How you navigate family meals                 ││
+│  │  🏪  How you work within a food system where       ││
+│  │      shelf-stable carbohydrates are cheaper and    ││
+│  │      easier than fresh protein and vegetables      ││
+│  │                                                     ││
+│  │  ───────────────────────────────────────────────── ││
+│  │                                                     ││
+│  │  This is not just a diet change. It is a          ││
+│  │                                                     ││
+│  │  [Biological] [Social] [Environmental]             ││
+│  │                                                     ││
+│  │  challenge.                                        ││
+│  └─────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────┘
+```
+
+The three words appear as coloured badge pills (similar to the existing accent badges) creating immediate visual impact.
+
+---
+
+### Technical Approach
+
+- Two side-by-side cards on desktop, stacked on mobile
+- Lucide icons: `Utensils` (restaurants), `Users` (family), `Store` (food system)
+- Three inline badges for "Biological", "Social", "Environmental" using the existing badge styling
+- Canadian English: "favours" throughout
+- Scroll animation with `useScrollAnimation` hook
 
 ---
 
 ### Files to Modify
 
-| File | Change |
-|------|--------|
-| `src/components/HeroSection.tsx` | Change `pb-8` to `pb-4` |
-| `src/components/JourneySection.tsx` | Change `py-16` to `py-10` |
-| `src/components/MethodSection.tsx` | Change `py-16` to `py-10` |
-| `src/components/BookSection.tsx` | Change `py-24` to `py-14` |
-| `src/components/ContactSection.tsx` | Change `py-24` to `py-14` |
-
----
-
-### Additional Internal Spacing Reduction
-
-Some sections also have large internal margins that add to the "empty" feeling:
-
-| Location | Current | Proposed |
-|----------|---------|----------|
-| JourneySection intro `mb-12` | 48px | `mb-8` (32px) |
-| MethodSection header `mb-12` | 48px | `mb-8` (32px) |
-| MethodSection principles grid `mb-20` | 80px | `mb-12` (48px) |
-| ContactSection header `mb-10` | 40px | `mb-6` (24px) |
-
----
-
-### Domain Setup Note
-
-For your `www.whataboutweight.com` domain issue, you need to add the www subdomain separately in Lovable. See the instructions above or refer to the Lovable documentation on connecting domains.
+| File | Changes |
+|------|---------|
+| `src/components/JourneySection.tsx` | Update 3 label values (lines 20, 30, 40) |
+| `src/components/MethodSection.tsx` | Replace core principle content (lines 178-198) with new two-card layout |
 
