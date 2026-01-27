@@ -144,9 +144,14 @@ export function MissingPieceSection() {
           </div>
 
           {/* Equation Intro */}
-          <p className="text-center text-sm md:text-base text-primary/80 mb-6">
-            When weight loss feels like fighting hunger and yourself at the same time, a low-starch, low-sugar lifestyle solves the problem by changing the biology behind it.
-          </p>
+          <div className="text-center mb-6">
+            <p className="text-base md:text-lg text-primary font-medium mb-1">
+              Feeling hungry all the time?
+            </p>
+            <p className="text-sm md:text-base text-primary/80">
+              A low-starch, low-sugar lifestyle solves the problem.
+            </p>
+          </div>
         </div>
 
         {/* Equation Label */}
