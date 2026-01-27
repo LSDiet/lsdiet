@@ -17,7 +17,7 @@ function EquationFlow() {
   const getVariantClasses = (variant: string) => {
     switch (variant) {
       case "start":
-        return "bg-primary/8 text-primary/90";
+        return "bg-primary/8 text-primary/90 font-medium";
       case "middle":
         return "bg-muted/60 text-muted-foreground";
       case "key":
@@ -83,24 +83,35 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* Extended Narrative */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 mb-8">
-            <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-relaxed">
-              <p>
-                Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all. Every method worked until it stopped working. That's when I made a clear decision to stop chasing short-term weight loss and start building a lifelong health state.
-              </p>
-              <p>
-                With over 40 percent of adults struggling with obesity, this isn't just a personal problem. It's a biological and environmental one. I began studying how the body responds to food and pressure, and grounded that understanding in my own repeated weight loss and regain.
-              </p>
-              <p>
-                The result is a practical, step-by-step framework designed to serve one goal: how to eat less naturally and eat right in an environment that is not built for health. That framework became the <span className="text-primary font-medium">Weight Permanence Triangle™ Method</span>.
-              </p>
+          {/* Personal Story */}
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all. Every method worked until it stopped working. That's when I made a clear decision to stop chasing short-term weight loss and start building a lifelong health state.
+            </p>
+          </div>
+
+          {/* Visual Statistic Callout */}
+          <div className="flex items-center gap-6 my-6">
+            <div className="text-5xl md:text-6xl font-bold text-primary">40%</div>
+            <div className="text-muted-foreground">
+              <p className="text-base md:text-lg">of adults struggle with obesity.</p>
+              <p className="text-sm mt-1">This isn't just a personal problem—it's biological and environmental.</p>
             </div>
+          </div>
+          <p className="text-sm text-muted-foreground italic mb-6">
+            I began studying how the body responds to food and grounded that understanding in my own repeated cycles.
+          </p>
+
+          {/* The Result */}
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              The result: a practical framework to eat less naturally and eat right in an environment not built for health. That framework became the <span className="text-primary font-medium">Weight Permanence Triangle™ Method</span>.
+            </p>
           </div>
 
           {/* Equation Intro */}
-          <p className="text-center text-base md:text-lg text-primary/80 italic mb-5">
-            If weight loss has always felt like fighting hunger and yourself at the same time, this is why.
+          <p className="text-center text-sm md:text-base text-primary/80 italic mb-5">
+            When weight loss feels like fighting hunger and yourself at the same time, a low starch, low sugar lifestyle solves the problem by changing the biology behind it.
           </p>
         </div>
 
