@@ -1,98 +1,116 @@
 
 
-# The Missing Piece Section + Equation Diagram
+# Refinements to The Missing Piece Section
 
 ## Overview
-This plan adds a new standalone section called "The Missing Piece" positioned between the Journey and Method sections. It will contain Oscar's extended narrative and a visual flow diagram showing the weight loss equation.
+This plan addresses the feedback about the equation diagram styling, text hierarchy, and the overly academic narrative structure. The key change is transforming the dense paragraph 2 into a visual statistic callout.
 
 ---
 
-## Content Structure
+## Changes Summary
 
-### Section Header
-- Badge: "The Missing Piece"
-- No main heading (the narrative speaks for itself)
+### 1. Equation Diagram Fixes
+- Add `font-medium` to "Lower starch & sugar" (start variant) to match the bold styling of the end steps
 
-### Extended Narrative (3 paragraphs)
-1. "Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all. Every method worked until it stopped working. That's when I made a clear decision to stop chasing short-term weight loss and start building a lifelong health state."
-
-2. "With over 40 percent of adults struggling with obesity, this isn't just a personal problem. It's a biological and environmental one. I began studying how the body responds to food and pressure, and grounded that understanding in my own repeated weight loss and regain."
-
-3. "The result is a practical, step-by-step framework designed to serve one goal: how to eat less naturally and eat right in an environment that is not built for health. That framework became the Weight Permanence Triangle™ Method."
-
-### Equation Flow Diagram
-**Header text (critical context):**
+### 2. Intro Text Update
+**Current:**
 > "If weight loss has always felt like fighting hunger and yourself at the same time, this is why."
 
-**Visual flow (5 connected pill-shaped boxes):**
+**New:**
+> "When weight loss feels like fighting hunger and yourself at the same time, a low starch, low sugar lifestyle solves the problem by changing the biology behind it."
+
+- Reduce text size to match surrounding content (`text-sm md:text-base` instead of `text-base md:text-lg`)
+
+### 3. Restructure Narrative - Visual Statistic Approach
+
+Instead of 3 dense paragraphs, restructure as:
+
 ```text
-Lower starch    →    Lower    →    Easier fat         →    Less    →    Eating less
-and sugar            insulin       mobilization and        hunger       naturally
-                                   oxidation (fat burning)
+┌─────────────────────────────────────────────────────────────────┐
+│ Paragraph 1 (Personal Story - shorter, punchier)                │
+│ "Veggie cleanses, carnivore, intermittent fasting...            │
+│  I made a clear decision to stop chasing short-term weight      │
+│  loss and start building a lifelong health state."              │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│  VISUAL STATISTIC CALLOUT                                       │
+│  ┌──────────────┐                                               │
+│  │     40%      │  "of adults struggle with obesity.            │
+│  │   (large)    │   This isn't just a personal problem—         │
+│  └──────────────┘   it's a biological and environmental one."   │
+│                                                                 │
+│  Small text: "I began studying how the body responds to food    │
+│  and grounded that understanding in my own repeated cycles."    │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ Paragraph 3 (The Result - leading to method)                    │
+│ "The result: a practical framework to eat less naturally...     │
+│  That framework became the Weight Permanence Triangle™ Method." │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-**Clarifier underneath:**
-> "(Calories still matter. But when hunger is regulated, food intake naturally decreases.)"
-
----
-
-## Visual Design
-
-### Flow Diagram Styling
-- Horizontal layout on desktop, vertical stack on mobile
-- Pill-shaped boxes using the brand colors:
-  - Primary green (`bg-primary/10 border-primary/20`) for first and last boxes
-  - Teal-ish green (`bg-primary/15 border-primary/25`) for middle boxes
-  - Amber accent (`bg-accent/15 border-accent/30`) for the "Less hunger" box (the key insight)
-- Arrow connectors between boxes using ChevronRight icons (rotated down on mobile)
-- Fade-in scroll animation with staggered delays
-
-### Section Container
-- Cream/beige background (`bg-secondary/30`) to match JourneySection
-- Compact padding (`py-10`) per existing spacing preferences
-- Max-width constraint for readability
+### Visual Design for Statistic Callout
+- Large "40%" number in primary/accent color (eye-catching)
+- Supporting text alongside explaining the significance
+- Creates visual break in the reading flow
+- More scannable than a wall of text
 
 ---
 
 ## Technical Implementation
 
-### Files to Create
-| File | Purpose |
-|------|---------|
-| `src/components/MissingPieceSection.tsx` | New standalone section with narrative and equation diagram |
-
-### Files to Modify
+### File to Modify
 | File | Changes |
 |------|---------|
-| `src/pages/Index.tsx` | Import and add MissingPieceSection between JourneySection and MethodSection |
-| `src/components/JourneySection.tsx` | Remove the blockquote (content moves to new section) |
+| `src/components/MissingPieceSection.tsx` | All changes below |
 
-### Component Structure
-```text
-MissingPieceSection
-├── Container with scroll animation
-├── Section badge ("The Missing Piece")
-├── Narrative card (3 paragraphs)
-├── Equation intro text (italic, centered)
-├── EquationFlow (inline sub-component)
-│   ├── 5 pill boxes with staggered animations
-│   └── ChevronRight arrows between boxes
-└── Clarifier text (muted, centered)
+### Specific Code Changes
+
+1. **Equation step styling** - Add `font-medium` to start variant:
+```typescript
+case "start":
+  return "bg-primary/8 text-primary/90 font-medium";
 ```
 
-### Responsive Behavior
-- Desktop (`md:` and up): Horizontal flow with `flex-row`
-- Mobile: Vertical stack with `flex-col`, arrows rotate 90 degrees
+2. **Intro text** - Update content and reduce size:
+```tsx
+<p className="text-center text-sm md:text-base text-primary/80 italic mb-5">
+  When weight loss feels like fighting hunger and yourself at the same time, 
+  a low starch, low sugar lifestyle solves the problem by changing the biology behind it.
+</p>
+```
+
+3. **Restructure narrative** - Replace single card with:
+   - Paragraph 1 card (personal story, tightened)
+   - Statistic callout (40% with visual emphasis)
+   - Paragraph 3 (the result)
+
+4. **Statistic callout component** - New inline structure:
+```tsx
+<div className="flex items-center gap-6 my-6">
+  <div className="text-5xl md:text-6xl font-bold text-primary">40%</div>
+  <div className="text-muted-foreground">
+    <p className="text-base md:text-lg">of adults struggle with obesity.</p>
+    <p className="text-sm mt-1">This isn't just a personal problem—it's biological and environmental.</p>
+  </div>
+</div>
+<p className="text-sm text-muted-foreground italic">
+  I began studying how the body responds to food and grounded that understanding in my own repeated cycles.
+</p>
+```
 
 ---
 
-## Page Flow After Implementation
-```text
-Hero → Journey → The Missing Piece → Method → Book → Contact → Footer
-```
+## Visual Result
 
-This creates a natural narrative bridge:
-- Journey shows the repeated failure pattern
-- "The Missing Piece" explains the insight and introduces the biological equation
-- Method presents the solution (Weight Permanence Triangle)
+The section will now have a more scannable, less academic flow:
+- **Story hook** (short paragraph)
+- **Visual statistic** (eye-catching 40% number)
+- **Context** (brief explanation)
+- **Result** (leads to the method)
+- **Equation diagram** (unchanged except for bold fix)
+
+This breaks up the wall of text and gives readers a visual anchor point.
 
