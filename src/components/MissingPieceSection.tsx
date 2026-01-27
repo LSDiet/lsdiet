@@ -68,7 +68,7 @@ export function MissingPieceSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-7 bg-secondary/30">
+    <section className="py-5 bg-secondary/30">
       <div className="container">
         <div
           ref={ref}
