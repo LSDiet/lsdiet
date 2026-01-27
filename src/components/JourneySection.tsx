@@ -2,6 +2,14 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+// Import journey images
+import img201710 from "@/assets/journey/201710-graduation.jpg";
+import img201908 from "@/assets/journey/201908-after-stress.jpg";
+import img202012 from "@/assets/journey/202012-after-attempt1.jpg";
+import img202204 from "@/assets/journey/202204-regain1.jpg";
+import img202311 from "@/assets/journey/202311-after-attempt2.jpg";
+import img202405 from "@/assets/journey/202405-regain2.jpg";
+
 interface JourneyCard {
   id: number;
   date: string;
@@ -21,8 +29,8 @@ const journeyCards: JourneyCard[] = [
     weight: "+60 lbs",
     description: "Graduation weight with a lean and mobile body",
     afterDescription: "Desk job and stress eating led to rapid weight gain",
-    beforeImage: "https://freedom-weight-triangle.lovable.app/assets/201710-graduation-D0y4bW6y.jpg",
-    afterImage: "https://freedom-weight-triangle.lovable.app/assets/201908-before1-B0sQ-8SM.jpg",
+    beforeImage: img201710,
+    afterImage: img201908,
   },
   {
     id: 2,
@@ -31,8 +39,8 @@ const journeyCards: JourneyCard[] = [
     weight: "+80 lbs",
     description: "Lost 60 lbs with veggie & smoothie cleanse",
     afterDescription: "Regained the weight once I returned to eating normally",
-    beforeImage: "https://freedom-weight-triangle.lovable.app/assets/202012-after1-CIoyoFRh.jpg",
-    afterImage: "https://freedom-weight-triangle.lovable.app/assets/202204-before2-BGRKYuZM.jpg",
+    beforeImage: img202012,
+    afterImage: img202204,
   },
   {
     id: 3,
@@ -41,8 +49,8 @@ const journeyCards: JourneyCard[] = [
     weight: "+60 lbs",
     description: "Lost 60 lbs with carnivore, IF & daily exercise",
     afterDescription: "Regained the weight as frequent travel turned flexibility into old habits",
-    beforeImage: "https://freedom-weight-triangle.lovable.app/assets/202311-after2-dLU-qBSC.jpg",
-    afterImage: "https://freedom-weight-triangle.lovable.app/assets/202405-before3-CziVz2Hi.jpg",
+    beforeImage: img202311,
+    afterImage: img202405,
   },
 ];
 
