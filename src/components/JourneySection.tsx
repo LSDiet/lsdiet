@@ -147,7 +147,7 @@ export function JourneySection() {
         {/* Quote */}
         <blockquote className="max-w-3xl mx-auto text-center">
           <p className="text-lg md:text-xl text-muted-foreground italic leading-relaxed">
-            "Veggie cleanses, carnivore, intermittent fasting, and daily exercise - I tried everything. Each time I lost the weight, I could not keep it off. That changed when I understood my relationship with food and my real reasons for losing weight. From there, weight loss became a functional achievement rather than a number I rebounded from."
+            "Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all. Every method worked until it stopped working. That's when I realized I was chasing short-term results without building something that could last a lifetime. That shift in perspective led to the creation of the Weight Permanence Triangle™ Method."
           </p>
         </blockquote>
       </div>
