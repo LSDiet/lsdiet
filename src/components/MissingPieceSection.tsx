@@ -107,6 +107,11 @@ export function MissingPieceSection() {
           </p>
         </div>
 
+        {/* Equation Label */}
+        <p className="text-center text-sm text-muted-foreground mb-3">
+          Here's how:
+        </p>
+
         {/* Equation Flow Diagram */}
         <div className="max-w-4xl mx-auto mb-5">
           <EquationFlow />
@@ -117,12 +122,26 @@ export function MissingPieceSection() {
           (Calories still matter. But when hunger is regulated, food intake naturally decreases.)
         </p>
 
-        {/* The Result */}
+        {/* The Insight */}
         <div className="max-w-3xl mx-auto">
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              I studied this biology—and tested it through my own repeated cycles. The result: a framework to eat less naturally in an environment not built for health. That became the <span className="text-primary font-medium">Weight Permanence Triangle™ Method</span>.
+              Weight loss is not about eating less and exercising more. It is about{" "}
+              <span className="font-semibold text-primary">
+                eating and moving in ways that support functional goals within the environment you live in.
+              </span>{" "}
+              That insight changed how I view willpower, food access, and everyday choices.
             </p>
+          </div>
+        </div>
+
+        {/* Transition to Method */}
+        <div className="text-center mt-8">
+          <div className="inline-flex flex-col items-center gap-2">
+            <p className="text-sm text-muted-foreground italic">
+              This insight became a framework.
+            </p>
+            <ChevronDown className="w-5 h-5 text-accent animate-bounce" />
           </div>
         </div>
       </div>
