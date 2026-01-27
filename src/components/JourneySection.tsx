@@ -87,7 +87,7 @@ export function JourneySection() {
           </h2>
           
           {/* Personal Story */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 text-left">
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 text-center">
             <p className="text-lg md:text-xl text-primary font-medium mb-4">
               Hi, I'm Oscar Poon from Vancouver, Canada.
             </p>
