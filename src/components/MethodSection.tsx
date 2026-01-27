@@ -166,8 +166,8 @@ export function MethodSection() {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                <principle.icon className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
+                <principle.icon className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
               </div>
               <h3 className="text-xl font-semibold text-primary mb-2">{principle.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{principle.description}</p>
