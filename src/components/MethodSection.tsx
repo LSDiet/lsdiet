@@ -235,13 +235,10 @@ export function MethodSection() {
                 </li>
               </ul>
               <div className="border-t border-border pt-4">
-                <p className="text-muted-foreground text-sm mb-3">This is not just a diet change. It is a</p>
-                <div className="flex flex-wrap gap-2 mb-2">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-medium text-primary">Biological</span>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-accent/15 border border-accent/25 text-xs font-medium text-accent">Social</span>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-secondary border border-border text-xs font-medium text-primary">Environmental</span>
-                </div>
-                <p className="text-muted-foreground text-sm">challenge.</p>
+                <p className="text-muted-foreground text-sm mb-2">This is not just a diet change.</p>
+                <p className="text-primary text-sm">
+                  It is a <span className="font-semibold text-primary">biological</span>, <span className="font-semibold text-accent">social</span>, and <span className="font-semibold text-primary">environmental</span> challenge.
+                </p>
               </div>
             </div>
           </div>
