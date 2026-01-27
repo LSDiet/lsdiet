@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, ShoppingCart, Loader2 } from "lucide-react";
+import { Check, ShoppingCart, Loader2, Gift } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 import { useProducts } from "@/hooks/useProducts";
 import { toast } from "sonner";
@@ -77,7 +77,7 @@ export function BookSection() {
               The complete guide to the Weight Permanence Triangle™ Method. Learn how to build an identity that naturally prioritizes low starch, low sugar eating without relying on rigid plans or daily scripts.
             </p>
 
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-6">
               {features.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -88,7 +88,25 @@ export function BookSection() {
               ))}
             </ul>
 
-            <Button 
+            {/* Early Access Bonus */}
+            <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mb-6">
+              <div className="flex items-start gap-3">
+                <Gift className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-2">
+                    Early Access Bonus
+                  </p>
+                  <p className="text-foreground text-sm leading-relaxed mb-2">
+                    Pre-order the book and receive 12 months of free access to the Guided Questions platform — a structured, conversational tool that walks you through the five stages of Awareness in the Weight Permanence Triangle.
+                  </p>
+                  <p className="text-muted-foreground text-xs">
+                    After the first year, access is $10/month.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <Button
               size="lg" 
               className="w-full sm:w-auto px-8 animate-pulse-glow"
               onClick={handlePreOrder}
