@@ -101,10 +101,10 @@ function JourneyCardsGrid() {
 
 export function JourneySection() {
   return (
-    <section id="journey" className="py-16 bg-secondary/30">
+    <section id="journey" className="py-10 bg-secondary/30">
       <div className="container">
         {/* Personal Introduction */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-8">
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
             <span className="text-sm font-medium text-accent">My Transformation Journey</span>
           </div>

@@ -139,9 +139,9 @@ export function MethodSection() {
   const { ref: coreRef, isVisible: coreVisible } = useScrollAnimation();
 
   return (
-    <section id="method" className="py-16">
+    <section id="method" className="py-10">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
             <span className="text-sm font-medium text-accent">The Method</span>
           </div>
@@ -157,7 +157,7 @@ export function MethodSection() {
         <TriangleDiagram />
 
         {/* Triangle visualization */}
-        <div ref={principlesRef} className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-20">
+        <div ref={principlesRef} className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
           {principles.map((principle, index) => (
             <div 
               key={principle.title} 
