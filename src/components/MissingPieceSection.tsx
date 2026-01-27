@@ -173,11 +173,10 @@ export function MissingPieceSection() {
         <div className="max-w-3xl mx-auto">
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Weight loss is more than just eating less and exercising more. It is about{" "}
+              Weight loss is not just about eating less and exercising more, but about{" "}
               <span className="font-semibold text-primary">
-                eating and moving in ways that support functional goals within the environment you live in.
-              </span>{" "}
-              That insight changed how I view willpower, food access, and everyday choices.
+                eating right and moving in ways that make sense within your culture, access, and physical reality.
+              </span>
             </p>
           </div>
         </div>
@@ -186,7 +185,7 @@ export function MissingPieceSection() {
         <div className="text-center mt-3">
           <div className="inline-flex flex-col items-center gap-2">
             <p className="text-sm text-muted-foreground italic">
-              This insight also became an actionable framework and a step-by-step guide.
+              How does this insight actually turn into something usable?
             </p>
             <ChevronDown className="w-5 h-5 text-accent animate-bounce" />
           </div>
