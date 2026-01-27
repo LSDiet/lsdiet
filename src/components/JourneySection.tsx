@@ -77,16 +77,35 @@ export function JourneySection() {
   return (
     <section id="journey" className="py-16 bg-secondary/30">
       <div className="container">
-        <div className="text-center mb-16">
+        {/* Personal Introduction */}
+        <div className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
             <span className="text-sm font-medium text-accent">My Transformation Journey</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
+          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-6 text-primary">
             Lost 60 Pounds. <span className="text-accent">Three Times.</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Each journey taught me something new. The third time, I discovered the method that made it permanent. Hover or tap to see the transformations.
-          </p>
+          
+          {/* Personal Story */}
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 text-left">
+            <p className="text-lg md:text-xl text-primary font-medium mb-4">
+              Hi, I'm Oscar Poon from Vancouver, Canada.
+            </p>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Over the last 10 years, I went through repeated and extreme weight transformations. Each cycle followed the same pattern: discipline, results, life disruption, and regain.
+              </p>
+              <p>
+                It wasn't the weight loss that failed. <span className="text-primary font-medium">It was what happened after.</span>
+              </p>
+              <p>
+                By the third time, I stopped chasing the scale and started studying why weight always came back. That shift led to the method that finally made change hold.
+              </p>
+            </div>
+            <p className="text-sm text-muted-foreground mt-6 italic">
+              Hover or tap to see the transformations.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
