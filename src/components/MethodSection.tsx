@@ -20,7 +20,7 @@ const principles = [
 
 export function MethodSection() {
   return (
-    <section id="method" className="py-24">
+    <section id="method" className="py-16">
       <div className="container">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
