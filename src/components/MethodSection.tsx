@@ -187,7 +187,7 @@ export function MethodSection() {
               <span className="text-sm font-medium text-accent">The Core Principle</span>
             </div>
             <h3 className="text-2xl md:text-3xl font-serif font-normal mb-2 text-primary">
-              Low Starch. Low Sugar.
+              Low-Starch. Low-Sugar.
             </h3>
             <p className="text-muted-foreground italic">(Simple, but not easy.)</p>
           </div>
@@ -219,7 +219,7 @@ export function MethodSection() {
             {/* The Challenge Card */}
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border">
               <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Challenge</h4>
-              <p className="text-muted-foreground mb-4">Low starch and low sugar looks like a food swap on the surface. In reality, it reshapes:</p>
+              <p className="text-muted-foreground mb-4">Low-starch and low-sugar looks like a food swap on the surface. In reality, it reshapes:</p>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3">
                   <Utensils className="w-5 h-5 text-accent mt-0.5 shrink-0" />
