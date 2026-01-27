@@ -212,7 +212,7 @@ export function MethodSection() {
                 </li>
               </ul>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Hunger is biological, not a lack of discipline. When this biology is amplified by a multibillion-dollar industry designed for repeat consumption, willpower alone was never going to win.
+                Hunger is biological, not a lack of discipline. When that biology is deliberately amplified by a multibillion-dollar ultra-processed food industry built for repeat consumption, willpower alone will never win.
               </p>
             </div>
 
