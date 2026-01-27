@@ -46,7 +46,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-background">
+    <section id="contact" className="py-14 bg-background">
       <div className="container">
         <div
           ref={ref}
@@ -55,7 +55,7 @@ export function ContactSection() {
           }`}
         >
           {/* Header */}
-          <div className="text-center mb-10">
+          <div className="text-center mb-6">
             <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
               <span className="text-sm font-medium text-accent">Have a Question?</span>
             </div>
