@@ -37,7 +37,7 @@ function EquationFlow() {
       {equationSteps.map((step, index) => (
         <div key={index} className="flex flex-col md:flex-row items-center gap-1.5 md:gap-2">
           <span
-            className={`px-3 py-1.5 rounded-md text-xs md:text-sm transition-all duration-700 ${getVariantClasses(step.variant)} ${
+            className={`px-3 py-1.5 rounded-md text-xs md:text-sm transition-all duration-700 text-center ${getVariantClasses(step.variant)} ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: `${index * 80}ms` }}
