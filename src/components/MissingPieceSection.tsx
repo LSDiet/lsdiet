@@ -181,7 +181,7 @@ export function MissingPieceSection() {
         <div className="text-center mt-3">
           <div className="inline-flex flex-col items-center gap-2">
             <p className="text-sm text-muted-foreground italic">
-              This insight became an actionable framework and a step-by-step guide.
+              This insight also became an actionable framework and a step-by-step guide.
             </p>
             <ChevronDown className="w-5 h-5 text-accent animate-bounce" />
           </div>
