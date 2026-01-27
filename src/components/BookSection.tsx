@@ -59,7 +59,7 @@ export function BookSection() {
             <div className="relative animate-float">
               <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl" />
               <img
-                src="https://freedom-weight-triangle.lovable.app/assets/book-mockup-B-p98AEg.png"
+                src={bookCover}
                 alt="Weight Permanence Book"
                 className="relative max-w-sm w-full drop-shadow-2xl"
               />
