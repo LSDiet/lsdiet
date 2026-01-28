@@ -54,21 +54,21 @@ export function CorePrincipleSection() {
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-3">
                   <Utensils className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-primary">How you eat in restaurants</span>
+                  <span className="text-primary">What to eat and when — meal timing, food choices, and portion instincts</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Users className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-primary">How you navigate family meals</span>
+                  <span className="text-primary">How you navigate cultural traditions and family expectations around food</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Store className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-primary text-sm">How you work within a food system where shelf-stable carbohydrates are cheaper and easier than fresh protein and vegetables</span>
+                  <span className="text-primary">A food environment where ultra-processed products outnumber whole foods on every shelf</span>
                 </li>
               </ul>
               <div className="border-t border-border pt-4 text-center">
-                <p className="text-muted-foreground text-sm mb-2">This is not just a diet change.</p>
+                <p className="text-muted-foreground text-sm mb-2">Weight loss is not just a diet change.</p>
                 <p className="text-primary text-sm">
-                  It is a <span className="font-semibold text-primary">biological</span>, <span className="font-semibold text-accent">social</span>, and <span className="font-semibold text-primary">environmental</span> challenge.
+                  It is a <span className="font-semibold text-primary">personal</span>, <span className="font-semibold text-accent">social</span>, and <span className="font-semibold text-primary">environmental</span> challenge.
                 </p>
               </div>
             </div>
