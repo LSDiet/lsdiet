@@ -1,81 +1,92 @@
 
 
-# Revise "The Missing Piece" Section Narrative
+# Circular Hunger Cycle Diagram
 
 ## Overview
 
-Update the MissingPieceSection component to replace the current personal story with a multi-part narrative that clearly articulates what was "missing" — the biological understanding of how fat functions — and creates a logical flow to the 40% obesity statistic and the hunger/equation diagram.
+Replace the current linear 8-step `HungerCycleFlow` with a clean, circular diagram inspired by the reference images. The diagram will have 4 nodes positioned around a circle with curved arrows connecting them in a complete loop (including the missing arrow from the last node back to the first).
 
 ## Estimated Credits: 1 message
+
+## The 4 Nodes (consolidated from 8 steps)
+
+| Position | Label | Sublabel (optional) |
+|----------|-------|---------------------|
+| **Top** | Wrong foods | High-sugar, refined-starch |
+| **Right** | Blood sugar chaos | Glucose spike, insulin surge |
+| **Bottom** | Hunger takes over | Cravings, low satiety |
+| **Left** | Weight regain | Increased intake |
+
+## Visual Design
+
+Inspired by your reference images:
+
+```text
+                    ┌─────────────────┐
+         ┌─────────►│   Wrong foods   │─────────┐
+         │          └─────────────────┘          │
+         │                                       ▼
+┌────────┴────────┐                    ┌─────────────────┐
+│  Weight regain  │                    │ Blood sugar     │
+│                 │                    │ chaos           │
+└────────┬────────┘                    └─────────┬───────┘
+         ▲                                       │
+         │          ┌─────────────────┐          │
+         └──────────│  Hunger takes   │◄─────────┘
+                    │  over           │
+                    └─────────────────┘
+```
+
+## Implementation Approach
+
+**CSS/HTML-based circular layout** (no complex SVG):
+- Use absolute positioning to place 4 nodes at cardinal points around a centre
+- Use SVG curved arrows (`<path>` with bezier curves) connecting each node
+- Arrows form a complete clockwise loop: Top → Right → Bottom → Left → Top
+
+**Node styling**:
+- Rounded card/pill shapes with subtle borders
+- "Wrong foods" highlighted in destructive/warning colour (entry point)
+- "Weight regain" highlighted in destructive colour (consequence)
+- Middle nodes in muted/neutral styling
+
+**Arrow styling**:
+- Smooth curved paths with arrowheads
+- Subtle animation on scroll (fade in sequentially)
+
+**Mobile responsive**:
+- Maintain circular layout but scale down proportionally
+- Or stack vertically with straight arrows on very small screens
+
+## Animation
+
+1. Nodes fade in sequentially (staggered 150ms) on scroll
+2. Arrows fade in after their source node appears
+3. The complete loop visually reinforces the "cycle" concept
 
 ## File Changes
 
 ### Edit: `src/components/MissingPieceSection.tsx`
 
-**Replace the Personal Story card (lines ~89-96) with:**
+**Replace:**
+- `hungerCycleSteps` array (lines 6-15) with 4 consolidated cycle nodes
+- `HungerCycleFlow` component (lines 17-55) with new `CircularHungerCycle` component
 
-1. **Opening Card** - The problem statement:
-   > Veggie cleanses, carnivore, intermittent fasting, daily exercise — I followed the "eat less, exercise more" rule for years. They all worked until they stopped working.
+**New `CircularHungerCycle` features:**
+- Relative container with fixed aspect ratio
+- 4 absolutely positioned node cards at top, right, bottom, left
+- SVG overlay with 4 curved arrow paths (including the missing loop-back arrow)
+- Scroll-triggered animations via `useScrollAnimation`
 
-2. **Lightbulb Moment** - Accent-styled insight block:
-   > In 2025, while interviewing a surgeon about ESD — a minimally invasive procedure that reduces stomach capacity by 70–80% — a thought struck me: *"I rebound not because I lack willpower, but because I had zero understanding of how fat actually functions in my body."*
+**Keep unchanged:**
+- `HeroSolutionReveal` component (the breakthrough reveal after the cycle)
+- All other section content
 
-3. **The Discovery** - Brief conclusion:
-   > I spent eight months learning how fat is formed, stored, and burned — testing variables until I found the pattern. When I ate the right foods at the right times, paired with the right calorie expenditure, I stayed full every day and watched my weight drop consistently every month.
+## Technical Details
 
-4. **Transitional Bridge Line** (new element before the 40% statistic):
-   > And I'm not alone in this.
-
-**Visual Treatment:**
-- Opening paragraph: Standard `bg-card/50` styling (existing)
-- Lightbulb insight: Accent border-left with italicised quote styling
-- Discovery: Same card, second paragraph
-- Bridge line: Centered, muted text, leads into statistic
-
-**Canadian English Applied:**
-- "realisation" spelling
-- "minimally invasive" (standard medical term)
-- "behaviour" where applicable
-
-## Narrative Flow After Revision
-
-```text
-┌─────────────────────────────────────────┐
-│        Badge: "The Missing Piece"        │
-├─────────────────────────────────────────┤
-│  Opening: Tried everything, all worked   │
-│           until they stopped working     │
-├─────────────────────────────────────────┤
-│  Lightbulb: ESD interview → realisation  │
-│  "I had zero understanding of how fat    │
-│   actually functions in my body"         │
-├─────────────────────────────────────────┤
-│  Discovery: 8 months testing → pattern   │
-│  "Eat right, stay full, lose weight"     │
-├─────────────────────────────────────────┤
-│      Bridge: "And I'm not alone."        │
-├─────────────────────────────────────────┤
-│          40% Obesity Statistic           │
-│  "This is more than a willpower problem" │
-├─────────────────────────────────────────┤
-│        Separator + Equation Intro        │
-├─────────────────────────────────────────┤
-│         Equation Flow Diagram            │
-├─────────────────────────────────────────┤
-│            Insight Card                  │
-├─────────────────────────────────────────┤
-│        Transition to Method              │
-└─────────────────────────────────────────┘
-```
-
-## Logical Connections Created
-
-| Element | Connects To | How |
-|---------|-------------|-----|
-| Personal story | Lightbulb moment | "They all worked until they stopped" → "Why?" |
-| Lightbulb moment | Discovery | Zero understanding → 8 months learning |
-| Discovery | Bridge line | Personal pattern found → "I'm not alone" |
-| Bridge line | 40% statistic | Personal → Systemic (40% of adults) |
-| 40% statistic | Equation diagram | Biology plays a role → Here's how |
-| Equation diagram | Insight card | Mechanism → Philosophy |
+The circular layout uses:
+- A container with `relative` positioning and `aspect-square` (or fixed height)
+- Nodes positioned with `absolute` and percentage-based offsets
+- SVG paths for arrows using quadratic/cubic bezier curves
+- CSS transforms for centring nodes at their positions
 
