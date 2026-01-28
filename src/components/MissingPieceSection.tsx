@@ -3,86 +3,52 @@ import { ChevronRight, ChevronDown, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
 
-const cycleSteps = [
-  "High glucose food",
-  "Body craves more",
-  "Hungry more often",
-  "More starch & processed food",
+const hungerCycleSteps = [
+  "High-sugar & refined-starch foods",
+  "Rapid glucose spikes",
+  "Exaggerated insulin response",
+  "Reactive hypoglycemia",
+  "Increased hunger & cravings",
+  "Reduced satiety hormone effectiveness",
+  "Increased intake",
+  "Weight regain",
 ];
 
-function GlucoseCycleDiagram() {
+function HungerCycleFlow() {
   const { ref, isVisible } = useScrollAnimation();
+  const isMobile = useIsMobile();
 
   return (
-    <div ref={ref} className="flex justify-center mb-8">
-      <div className="relative w-64 h-64 md:w-80 md:h-80">
-        {/* Center text */}
-        <div 
-          className={`absolute inset-0 flex items-center justify-center transition-all duration-700 delay-500 ${
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
-          }`}
-        >
-          <div className="text-center">
-            <span className="text-sm md:text-base font-semibold text-destructive/80">The Vicious</span>
-            <br />
-            <span className="text-lg md:text-xl font-bold text-destructive">Cycle</span>
-          </div>
-        </div>
-        
-        {/* Circular arrows/path */}
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
-          <circle
-            cx="100"
-            cy="100"
-            r="70"
-            fill="none"
-            stroke="hsl(var(--destructive) / 0.2)"
-            strokeWidth="2"
-            strokeDasharray="8 4"
-            className={`transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
-          />
-        </svg>
-
-        {/* Cycle steps positioned around the circle */}
-        {cycleSteps.map((step, index) => {
-          const angle = (index * 90 - 45) * (Math.PI / 180);
-          const radius = 42;
-          const x = 50 + radius * Math.cos(angle);
-          const y = 50 + radius * Math.sin(angle);
-          
-          return (
-            <div
-              key={index}
-              className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
-                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
-              }`}
-              style={{
-                left: `${x}%`,
-                top: `${y}%`,
-                transitionDelay: `${index * 150}ms`,
-              }}
+    <div ref={ref} className="mb-8">
+      <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2 max-w-3xl mx-auto">
+        {hungerCycleSteps.map((step, index) => (
+          <div key={index} className="flex items-center gap-1.5 md:gap-2">
+            <span
+              className={`px-2.5 py-1.5 md:px-3 md:py-2 rounded-lg text-xs md:text-sm transition-all duration-500 ${
+                index === 0 ? "bg-destructive/15 text-destructive font-medium border border-destructive/20" :
+                index === hungerCycleSteps.length - 1 ? "bg-destructive/20 text-destructive font-semibold border border-destructive/30" :
+                "bg-muted/60 text-muted-foreground border border-border/50"
+              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="bg-destructive/10 border border-destructive/30 rounded-lg px-2 py-1.5 md:px-3 md:py-2 text-center max-w-[90px] md:max-w-[110px]">
-                <span className="text-[10px] md:text-xs text-destructive/90 font-medium leading-tight block">
-                  {step}
-                </span>
-              </div>
-              {/* Arrow to next step */}
-              <div 
-                className="absolute text-destructive/50"
-                style={{
-                  transform: `rotate(${index * 90 + 45}deg)`,
-                  right: index === 0 || index === 3 ? '-12px' : 'auto',
-                  left: index === 1 || index === 2 ? '-12px' : 'auto',
-                  top: '50%',
-                  marginTop: '-6px',
-                }}
+              {step}
+            </span>
+            {index < hungerCycleSteps.length - 1 && (
+              <span
+                className={`text-muted-foreground/50 transition-all duration-500 ${
+                  isVisible ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ transitionDelay: `${index * 100 + 50}ms` }}
               >
-                <ChevronRight className="w-3 h-3" />
-              </div>
-            </div>
-          );
-        })}
+                {isMobile && (index === 2 || index === 5) ? (
+                  <ChevronDown className="w-3 h-3" />
+                ) : (
+                  <ChevronRight className="w-3 h-3" />
+                )}
+              </span>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -266,20 +232,30 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* The Problem */}
+          {/* The Problem - Guide to photos */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Veggie cleanses, carnivore, intermittent fasting, daily exercise. I followed the <strong>"eat less, exercise more"</strong> rule for years. They all worked until they stopped working...
+              It wasn't the weight loss that failed. It was what happened after.
             </p>
           </div>
 
-          {/* The Lightbulb Moment */}
-          <div className="bg-accent/5 border border-accent/20 rounded-xl p-5 md:p-6 mb-4 text-center">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
-              In 2025, after interviewing a bariatric surgeon for a project, he explained the pros and cons of different bariatric surgeries. He confirmed that surgery alone isn't a permanent fix — if patients continue their old eating habits, they will gain the weight back. That's when a thought struck me.
+          {/* The Surgeon Story */}
+          <div className="bg-accent/5 border-l-4 border-accent/40 rounded-r-xl p-5 md:p-6 mb-4">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
+              In 2025, I interviewed a bariatric surgeon for a project. He walked me through how certain foods interact with post-surgery physiology — hunger hormones, glucose regulation, and reward pathways.
             </p>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
+              Research shows that weight regain after bariatric surgery is strongly associated with a return to high-sugar, high-starch, ultra-processed diets — because these foods override the surgery's hormonal benefits.
+            </p>
+            <p className="text-sm text-muted-foreground/80 italic">
+              That conversation planted a seed...
+            </p>
+          </div>
+
+          {/* The Wonder Moment */}
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 md:p-6 mb-4 text-center">
             <p className="text-base md:text-lg leading-relaxed">
-              <em className="text-primary font-medium">"I hate being hungry when I lose weight... what if there is a way to stay full and burn fat? Is that biologically possible?"</em>
+              <em className="text-primary font-medium">"I hate being hungry when I lose weight... is there a way to stay full and burn fat by changing the things I eat?"</em>
             </p>
           </div>
 
@@ -292,7 +268,7 @@ export function MissingPieceSection() {
 
           {/* Transitional Bridge Line */}
           <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
-            The latest data shows this is a widespread challenge:
+            During my research, these numbers stopped me in my tracks:
           </p>
 
           {/* Health Statistics Grid */}
@@ -338,15 +314,15 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* The Vicious Cycle */}
+          {/* The Hunger Cycle */}
           <div className="text-center mb-4">
             <p className="text-base md:text-lg text-muted-foreground mb-6">
-              For most, the missing link is <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">eating the wrong food</span>. Here's the cycle:
+              For most, the missing link is <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">eating the wrong food</span>:
             </p>
           </div>
 
-          {/* Circular Glucose Cycle Diagram */}
-          <GlucoseCycleDiagram />
+          {/* Linear Hunger Cycle Flow */}
+          <HungerCycleFlow />
 
           {/* Hero Solution Reveal */}
           <HeroSolutionReveal />
