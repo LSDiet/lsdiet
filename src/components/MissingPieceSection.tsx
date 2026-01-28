@@ -26,17 +26,17 @@ function HeroSolutionReveal() {
           isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
         }`}
       >
-        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-          After months of trial and error, I realised that{" "}
-          <span 
-            className={`inline-block font-bold text-primary text-lg md:text-xl transition-all duration-500 delay-500 ${
-              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
-            }`}
-          >
-            low-starch, low-sugar
-          </span>{" "}
-          is the healthiest and most sustainable method to lose weight and build muscle simultaneously — without starvation for a single day.
-        </p>
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            After months of trial and error, I realised that{" "}
+            <span 
+              className={`inline-block font-bold text-primary text-lg md:text-xl transition-all duration-500 delay-500 ${
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+              }`}
+            >
+              low-starch, low-sugar
+            </span>{" "}
+            is the healthiest and most sustainable method to lose weight and build muscle simultaneously — without starvation for a single day. Here's what that journey uncovered:
+          </p>
       </div>
     </div>
   );
@@ -194,7 +194,7 @@ export function MissingPieceSection() {
             {/* The surprise */}
             <div className="bg-accent/5 border-l-4 border-accent/40 rounded-r-xl p-5 md:p-6 ml-4 md:ml-8">
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                What surprised me wasn't the surgery itself — <span className="text-primary font-medium">it was what happened after.</span>
+                Of all the clinical insights he shared, <span className="text-primary font-medium">one dataset struck me like thunder:</span>
               </p>
             </div>
             
@@ -223,10 +223,6 @@ export function MissingPieceSection() {
             </p>
           </div>
 
-          {/* Transitional Bridge Line */}
-          <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
-            Of all the clinical insights he shared, one dataset struck me like thunder:
-          </p>
 
           {/* Health Statistics Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -246,7 +242,7 @@ export function MissingPieceSection() {
                 <CountUpNumber target={23} isVisible={stat2Visible} />
               </div>
               <p className="text-sm md:text-base text-muted-foreground">
-                of U.S. adults with obesity have diagnosed <span className="font-semibold">diabetes</span>.
+                of adults with obesity have diagnosed <span className="font-semibold">diabetes</span>.
               </p>
             </div>
 
