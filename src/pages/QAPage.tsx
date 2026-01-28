@@ -11,7 +11,7 @@ import {
 
 const faqCategories = [
   {
-    title: "How Obesity is Making You Sick",
+    title: "Obesity is Making You Sick",
     questions: [
       {
         question: "With obesity, why are you more likely to develop type 2 diabetes?",
