@@ -5,6 +5,7 @@ import { MissingPieceSection } from "@/components/MissingPieceSection";
 import { MethodSection } from "@/components/MethodSection";
 import { BookSection } from "@/components/BookSection";
 import { ContactSection } from "@/components/ContactSection";
+import { AboutAuthorSection } from "@/components/AboutAuthorSection";
 import { FooterSimple } from "@/components/FooterSimple";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <MethodSection />
       <BookSection />
       <ContactSection />
+      <AboutAuthorSection />
       <FooterSimple />
     </div>
   );
