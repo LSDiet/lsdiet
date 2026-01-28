@@ -230,6 +230,61 @@ const faqCategories = [
       },
     ],
   },
+  {
+    title: "The Book",
+    questions: [
+      {
+        question: "Is Weight Permanence a diet book?",
+        answer:
+          "No. Weight Permanence is not a diet book because it does not prescribe rigid food rules, meal plans, or temporary restrictions. Instead, it teaches a system for making food and lifestyle decisions that hold under real-life conditions, so weight loss becomes sustainable rather than something that collapses once a diet ends.",
+      },
+      {
+        question: "Who is the Weight Permanence book for?",
+        answer:
+          "While the Weight Permanence method applies to anyone who wants to lose weight, readers aged 35 and up often resonate most because of metabolic changes, accumulated life stress, and repeated experiences of weight regain that make willpower-based approaches less effective.",
+      },
+      {
+        question: "Does Weight Permanence require tracking?",
+        answer:
+          "Yes, but minimally. Oscar tracks body weight once per week and uses DEXA scans every three to six months to assess body composition, focusing on long-term trends rather than daily fluctuations or obsessive tracking.",
+      },
+      {
+        question: "Can Weight Permanence work without meal plans?",
+        answer:
+          "Absolutely. Weight Permanence is designed to work without meal plans by teaching decision frameworks that allow you to choose foods confidently in any environment, including restaurants, travel, and family gatherings.",
+      },
+      {
+        question: "How is Weight Permanence different from keto or carnivore?",
+        answer:
+          "Weight Permanence differs from keto and carnivore by focusing on low-starch, low-sugar rather than eliminating entire food groups. Keto restricts total carbohydrates to under 20–50 grams daily to maintain ketosis, excluding most fruits, legumes, and grains. Carnivore eliminates all plant foods entirely, relying exclusively on animal products. Weight Permanence allows non-starchy vegetables, legumes, some fruits, and complex carbohydrates in moderation—acknowledging that muscle building, performance, and long-term metabolic health often require some carbohydrates. Biologically, this approach reduces insulin spikes while preserving flexibility and nutritional variety, making it more sustainable for most people.",
+      },
+      {
+        question: "Is Weight Permanence suitable for busy professionals?",
+        answer:
+          "Yes. Weight Permanence was specifically designed for busy professionals. Oscar developed the method, wrote the book, and recorded all low-starch, low-sugar educational videos while working full time as a surgical market data consultant, ensuring the system works under real workload and time constraints.",
+      },
+      {
+        question: "Can Weight Permanence work with family and social life?",
+        answer:
+          "Yes. Weight Permanence accounts for cultural traditions, shared meals, and social settings by prioritising structure over perfection, allowing you to maintain direction without isolating yourself or abandoning relationships.",
+      },
+      {
+        question: "Does Weight Permanence require intense exercise?",
+        answer:
+          "No. Weight Permanence recognises that every body is different, and functional goals, calorie needs, and physical capacity are unique to each individual. The method provides directional guidance to help you design your own movement and nutrition approach. Future Phase 2 tools will connect users with local dietitians, nutrition scientists, and trainers in Canada and the United States for personalised support.",
+      },
+      {
+        question: "How long does it take to see results with Weight Permanence?",
+        answer:
+          "Most people experience a weight reduction of five to ten pounds per month during the first three months, after which adjustments to food intake and calorie output may be needed if a plateau occurs.",
+      },
+      {
+        question: "Is Weight Permanence about restriction or structure?",
+        answer:
+          "Weight Permanence is about structure, not restriction. It focuses on building systems that regulate hunger, guide decisions, and maintain progress without relying on constant control or deprivation.",
+      },
+    ],
+  },
 ];
 
 export default function QAPage() {
