@@ -11,13 +11,13 @@ function HeroSolutionReveal() {
     <div ref={ref} className="text-center mb-8">
       {/* Breaking the cycle */}
       <div 
-        className={`inline-flex items-center gap-2 mb-4 transition-all duration-500 ${
+        className={`inline-flex items-center gap-3 mb-5 transition-all duration-500 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >
-        <Zap className="w-5 h-5 text-accent" />
-        <span className="text-sm font-medium text-muted-foreground">Breaking the cycle</span>
-        <Zap className="w-5 h-5 text-accent" />
+        <Zap className="w-6 h-6 text-accent" />
+        <span className="text-lg md:text-xl font-semibold text-accent">Breaking the Cycle</span>
+        <Zap className="w-6 h-6 text-accent" />
       </div>
 
       {/* Hero reveal */}
@@ -201,7 +201,7 @@ export function MissingPieceSection() {
             {/* The insight */}
             <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50">
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                He explained that when people regain weight, it's rarely because the surgery failed. It's because certain foods <span className="text-primary font-medium">re-trigger hunger hormones and reward pathways</span>, overriding the biological advantages of the procedure.
+                He explained that 20–35% of patients experience significant weight regain within 2–10 years — not because the surgery failed, but because certain foods <span className="text-primary font-medium">re-trigger hunger hormones and reward pathways</span>, overriding the biological advantages of the procedure.
               </p>
             </div>
             
