@@ -142,10 +142,7 @@ export function JourneySection() {
                 Over the last 10 years, I went through repeated and extreme weight transformations. Each cycle followed the same pattern: discipline, results, life disruption, and regain.
               </p>
               <p>
-                It wasn't the weight loss that failed. <span className="text-primary font-medium">It was what happened after.</span>
-              </p>
-              <p>
-                By the third time, I stopped chasing the scale and started studying why weight always came back. That shift led to the method that finally made change hold.
+                Every time, something different derailed me — a stressful job, travel, emotional overwhelm. <span className="text-primary font-medium">The weight loss worked. Life just got in the way.</span>
               </p>
             </div>
             <p className="text-sm text-muted-foreground mt-6 italic">
