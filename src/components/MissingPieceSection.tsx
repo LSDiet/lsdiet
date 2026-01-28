@@ -182,35 +182,21 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* The Surgeon Story - Visual Narrative */}
-          <div className="space-y-4 mb-6">
-            {/* Story opener */}
-            <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50">
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                In 2025, I interviewed a bariatric surgeon for a project.
-              </p>
-            </div>
+          {/* The Surgeon Story - Unified Container */}
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 space-y-4">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              In 2025, I interviewed a bariatric surgeon for a project. Of all the clinical insights he shared, <span className="text-primary font-medium">one dataset struck me like thunder</span> <Zap className="inline w-4 h-4 text-accent" />
+            </p>
             
-            {/* The surprise */}
-            <div className="bg-accent/5 border-l-4 border-accent/40 rounded-r-xl p-5 md:p-6 ml-4 md:ml-8">
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Of all the clinical insights he shared, <span className="text-primary font-medium">one dataset struck me like thunder <Zap className="inline w-4 h-4" /></span>
-              </p>
-            </div>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              He explained that <span className="font-bold text-primary">20–35%</span> of patients experience significant weight regain within 2–10 years. Not because the surgery failed, but because certain foods re-trigger hunger hormones and reward pathways, overriding the biological advantages of the procedure.
+            </p>
             
-            {/* The insight */}
-            <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50">
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                He explained that <span className="font-bold text-primary">20–35%</span> of patients experience significant weight regain within 2–10 years. Not because the surgery failed, but because certain foods <span className="text-primary font-medium">re-trigger hunger hormones and reward pathways</span>, overriding the biological advantages of the procedure.
-              </p>
-            </div>
-            
-            {/* The seed */}
-            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 md:p-6 text-center">
-              <p className="text-sm text-muted-foreground/80 italic mb-3">
+            <div className="pt-2 border-t border-border/30">
+              <p className="text-sm text-muted-foreground/80 italic mb-2">
                 That conversation planted a simple but uncomfortable question:
               </p>
-              <p className="text-lg md:text-xl leading-relaxed">
+              <p className="text-lg md:text-xl leading-relaxed text-center">
                 <em className="text-primary font-semibold">"Why does every weight loss method eventually turn into a fight with hunger?"</em>
               </p>
             </div>
@@ -280,12 +266,9 @@ export function MissingPieceSection() {
           </p>
 
           {/* The Hunger Cycle */}
-          <div className="text-center mb-4">
-            <p className="text-base md:text-lg text-muted-foreground mb-3">
-              The pattern behind these numbers? It's not laziness or lack of willpower.
-            </p>
-            <p className="text-base md:text-lg text-muted-foreground mb-6">
-              It's a cycle driven by <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">the wrong foods</span>:
+          <div className="text-center mb-6">
+            <p className="text-base md:text-lg text-muted-foreground">
+              What's driving these numbers? Not laziness — a cycle of <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">wrong foods</span>:
             </p>
           </div>
 
