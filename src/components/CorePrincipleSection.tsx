@@ -67,7 +67,7 @@ export function CorePrincipleSection() {
               </ul>
               <div className="border-t border-border pt-4 text-center">
                 <p className="text-muted-foreground text-sm mb-2">Weight loss is not just a diet change.</p>
-                <p className="text-primary text-base md:text-lg font-medium">
+                <p className="text-primary text-sm md:text-base font-medium">
                   It is a <span className="font-semibold text-primary">personal</span>, <span className="font-semibold text-accent">social</span>, and <span className="font-semibold text-primary">environmental</span> challenge.
                 </p>
               </div>
