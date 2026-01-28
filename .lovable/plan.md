@@ -1,42 +1,62 @@
 
+# Create SEO-Optimized Q&A Page
 
-# Update Equation Intro Text
+## Overview
 
-## Change
+Build a dedicated `/qa` page designed to capture search intent from people struggling with weight issues. The FAQ content will use natural language questions that match what real people type into search engines and AI chat interfaces.
 
-Update the second line of the equation intro in the Missing Piece section to emphasize that you can still eat until full while losing weight.
+## Estimated Credits: 2-4 messages
 
-## File to Modify
+## Technical Implementation
 
-`src/components/MissingPieceSection.tsx`
+### Step 1: Create the Q&A Page
 
-## Current Text
-```
-Feeling hungry all the time?
-A low-starch, low-sugar lifestyle solves the problem.
-```
+**New file: `src/pages/QAPage.tsx`**
+- Hero section with "Questions About Weight Loss?" heading
+- Four accordion categories:
+  - Weight Regain
+  - Hunger & Biology  
+  - The Low-Starch, Low-Sugar Approach
+  - The Method
+- Reuses Navbar and FooterSimple components
+- Scroll animations using existing `useScrollAnimation` hook
+- SEO meta tags for search engine optimization
 
-## New Text
-```
-Feeling hungry all the time?
-A low-starch, low-sugar lifestyle lets you eat until full — and still lose weight.
-```
+### Step 2: Update Routing
 
-## Technical Details
+**Edit: `src/App.tsx`**
+- Add `/qa` route pointing to QAPage component
 
-Change line 151 from:
-```tsx
-<p className="text-sm md:text-base text-primary/80">
-  A low-starch, low-sugar lifestyle solves the problem.
-</p>
-```
+### Step 3: Update Navigation
 
-To:
-```tsx
-<p className="text-sm md:text-base text-primary/80">
-  A low-starch, low-sugar lifestyle lets you eat until full — and still lose weight.
-</p>
-```
+**Edit: `src/components/Navbar.tsx`**
+- Add "Q&A" link to navigation
+- New flow: My Journey | The Method | The Book | Q&A
 
-The styling and centering remain unchanged. Only the text content is updated to include the fullness benefit.
+## FAQ Content Categories
 
+**Weight Regain:**
+- "Why do I regain weight even when I eat less?"
+- "Why can't I keep weight off long term?"
+- "Why does every diet work until it doesn't?"
+
+**Hunger & Biology:**
+- "Is hunger biological or just willpower?"
+- "Why am I always hungry even after eating?"
+- "Why do I crave carbs and sugar?"
+
+**Low-Starch, Low-Sugar Approach:**
+- "What is a low-starch, low-sugar diet?"
+- "How is low-starch, low-sugar different from keto?"
+- "Can I eat until full and still lose weight?"
+
+**The Method:**
+- "What is the Weight Permanence Triangle?"
+- "Why do I need more than just a meal plan?"
+
+## Design Consistency
+
+- Uses existing color palette and typography
+- Compact padding (py-10) per project memory
+- Accordion styling matches site aesthetic
+- Fade-in animations on scroll
