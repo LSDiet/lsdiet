@@ -194,7 +194,7 @@ export function MissingPieceSection() {
             {/* The surprise */}
             <div className="bg-accent/5 border-l-4 border-accent/40 rounded-r-xl p-5 md:p-6 ml-4 md:ml-8">
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                Of all the clinical insights he shared, <span className="text-primary font-medium">one dataset struck me like thunder:</span>
+                Of all the clinical insights he shared, <span className="text-primary font-medium">one dataset struck me like thunder <Zap className="inline w-4 h-4" /></span>
               </p>
             </div>
             
