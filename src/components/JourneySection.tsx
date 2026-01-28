@@ -103,7 +103,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
 function JourneyCardsGrid() {
   const { ref, isVisible } = useScrollAnimation();
   return (
-    <div ref={ref} className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+    <div ref={ref} className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-8">
       {journeyCards.map((card, index) => (
         <div
           key={card.id}

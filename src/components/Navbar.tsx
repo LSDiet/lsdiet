@@ -2,7 +2,7 @@ import { Triangle, ShoppingCart } from "lucide-react";
 import { CartDrawer } from "./CartDrawer";
 
 const navLinks = [
-  { label: "My Journey", href: "/#journey" },
+  { label: "The Weight Problem", href: "/#journey" },
   { label: "The Method", href: "/#method" },
   { label: "The Book", href: "/#book" },
   { label: "Q&A", href: "/qa" },
