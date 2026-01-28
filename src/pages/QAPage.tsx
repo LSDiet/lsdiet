@@ -124,19 +124,54 @@ const faqCategories = [
     title: "The Low-Starch, Low-Sugar Approach",
     questions: [
       {
-        question: "What is a low-starch, low-sugar diet?",
+        question: "What does a low-starch, low-sugar lifestyle actually mean?",
         answer:
-          "A low-starch, low-sugar diet focuses on reducing foods that spike blood sugar and insulin — primarily grains, potatoes, bread, pasta, and added sugars. Instead, meals center on proteins, healthy fats, and non-starchy vegetables. This approach naturally regulates hunger hormones, making it easier to eat less without feeling deprived.",
+          "A low-starch, low-sugar lifestyle means prioritizing foods that minimize insulin spikes—primarily proteins, healthy fats, and non-starchy vegetables—to restore your body's access to stored fat and naturally regulate hunger. It's not about eliminating all carbohydrates, but about choosing foods that keep blood sugar stable and allow fat to be used for energy.",
       },
       {
-        question: "How is low-starch, low-sugar different from keto?",
+        question: "Is low-starch, low-sugar sustainable long term?",
         answer:
-          "While both reduce carbohydrates, low-starch, low-sugar is more flexible than strict keto. Keto requires very low carbs (typically under 20-50g) to maintain ketosis. A low-starch, low-sugar approach focuses on eliminating the most problematic foods without requiring ketosis, making it more sustainable for many people long-term.",
+          "Yes, when paired with a structure that adapts to real-life conditions. Most weight loss programmes ignore intersectionality—your culture, financial status, accessibility, and social environment. The Weight Permanence Triangle™ method teaches you when and how to be resourceful so you can navigate life's challenges without abandoning your approach.",
       },
       {
-        question: "Can I eat until full and still lose weight?",
+        question: "Why is low-starch, low-sugar hard in restaurants?",
         answer:
-          "Yes — when eating the right foods. Low-starch, low-sugar meals with adequate protein and healthy fats trigger satiety hormones that tell your brain you're satisfied. Because hunger is naturally regulated, you eat less without counting calories or fighting constant cravings. This is why the approach feels sustainable rather than restrictive.",
+          "Restaurants are designed around starch-based foods because they are cheap to source, filling for customers, and highly profitable. Bread, pasta, rice, and potatoes form the foundation of most menus because they cost less than protein and fresh vegetables. Additionally, starchy sides bulk up portions without increasing food costs, making low-starch options harder to find and often more expensive.",
+      },
+      {
+        question: "How do you eat low-starch, low-sugar with family meals?",
+        answer:
+          "This is one of the toughest challenges. Growing up in an Asian household, carbohydrates were daily staples—rice with every meal. The Weight Permanence Triangle™ method teaches you how to communicate your situation with family so they can support your decision to look after yourself. It's not easy and requires practice. Remember: practice doesn't make perfection, but permanence.",
+      },
+      {
+        question: "Can you follow low-starch, low-sugar without a meal plan?",
+        answer:
+          "Yes, when food decisions are guided by structure and principles instead of rigid scripts. Oscar doesn't follow any meal plans. You can find his monthly challenges—where he eats low-starch, low-sugar in all different environments—on his YouTube channel at youtube.com/@WhatAboutWeight.",
+      },
+      {
+        question: "Do you need to give up all carbohydrates to lose weight?",
+        answer:
+          "No. Weight loss depends on insulin regulation, not eliminating all carbohydrates. Complex carbohydrates from vegetables, legumes, and some whole grains provide essential fibre, vitamins, and energy for muscle function and recovery. When you lose weight, you want to burn fat—not lean muscle. Protein and some carbohydrates support muscle protein synthesis and prevent muscle breakdown, especially during physical activity. The goal is reducing refined starches and sugars that spike insulin, not eliminating every carbohydrate.",
+      },
+      {
+        question: "How do culture and food traditions affect weight loss?",
+        answer:
+          "Culture shapes your default food choices, social eating patterns, and emotional connections to food. Any sustainable approach must account for these realities rather than ignore them. The Weight Permanence Triangle™ method teaches you how to integrate cultural traditions with low-starch, low-sugar principles—so you can honour your heritage while supporting your health goals.",
+      },
+      {
+        question: "Why is eating low-starch, low-sugar more expensive?",
+        answer:
+          "Protein and fresh foods are less subsidized by governments and more perishable than refined carbohydrates, which drives up their cost. Processed grains have long shelf lives and lower transportation costs, making them cheaper at the supermarket. Check out Oscar's YouTube channel (youtube.com/@WhatAboutWeight) to watch how he cooks at home to overcome the cost hurdle while eating well.",
+      },
+      {
+        question: "How do you eat low-starch, low-sugar while travelling?",
+        answer:
+          "You rely on principles and fallback rules rather than ideal food options. Perfect choices are rarely available when travelling, but good-enough choices usually are. The Permanence stage of the Weight Permanence Triangle™ method addresses this with tools that stabilize decisions when your environment, context, or routine changes.",
+      },
+      {
+        question: "Is low-starch, low-sugar a diet or a lifestyle?",
+        answer:
+          "It becomes a lifestyle when it's integrated into your identity rather than treated as a temporary phase. A diet is something you go on and off. A lifestyle is who you are—how you naturally make food decisions without constant deliberation. The Weight Permanence Triangle™ method is designed to build that identity-level change.",
       },
     ],
   },
