@@ -484,6 +484,86 @@ export default function QAPage() {
           </div>
         </section>
 
+        {/* References Section */}
+        <section className="py-10 border-t border-border">
+          <div className="container max-w-3xl mx-auto px-4">
+            <h2 className="text-xl font-semibold text-primary mb-6">
+              Core Government Sources on Obesity Risks
+            </h2>
+            <div className="space-y-6 text-sm text-muted-foreground">
+              <div>
+                <h3 className="font-medium text-primary mb-2">CDC – Health Consequences of Obesity</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.cdc.gov/obesity/basics/consequences.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cdc.gov/obesity/basics/consequences.html</a></li>
+                  <li><a href="https://www.cdc.gov/obesity/php/about/index.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cdc.gov/obesity/php/about/index.html</a></li>
+                  <li><a href="https://www.cdc.gov/obesity/php/about/consequences.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cdc.gov/obesity/php/about/consequences.html</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">CDC – Heart Disease, Stroke, Blood Pressure</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.cdc.gov/heart-disease/risk-factors/index.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cdc.gov/heart-disease/risk-factors/index.html</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">CDC – Chronic Disease & Obesity</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.cdc.gov/chronic-disease/about/index.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cdc.gov/chronic-disease/about/index.html</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">NIDDK (NIH) – Health Risks of Overweight & Obesity</h3>
+                <p className="text-xs text-muted-foreground/80 mb-1">One of the most comprehensive and clinically solid sources.</p>
+                <ul className="space-y-1">
+                  <li><a href="https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">NIDDK – Diabetes, Insulin Resistance</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">NIDDK – Fatty Liver Disease</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">NIDDK – Kidney Disease & Obesity</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.niddk.nih.gov/health-information/kidney-disease" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.niddk.nih.gov/health-information/kidney-disease</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">NIH / National Cancer Institute – Obesity & Cancer</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.cancer.gov/about-cancer/causes-prevention/risk/obesity/obesity-fact-sheet" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cancer.gov/about-cancer/causes-prevention/risk/obesity/obesity-fact-sheet</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">CDC – Mental Health & Quality of Life</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.cdc.gov/obesity/basics/consequences.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cdc.gov/obesity/basics/consequences.html</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">CDC – Mobility, Joint Health, Osteoarthritis</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.cdc.gov/arthritis/basics/osteoarthritis.htm" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cdc.gov/arthritis/basics/osteoarthritis.htm</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-medium text-primary mb-2">CDC – Sleep Apnea & Respiratory Impact</h3>
+                <ul className="space-y-1">
+                  <li><a href="https://www.cdc.gov/sleep/apnea.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline break-all">https://www.cdc.gov/sleep/apnea.html</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-10 bg-secondary/30">
           <div className="container max-w-3xl mx-auto px-4 text-center">
