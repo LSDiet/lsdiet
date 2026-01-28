@@ -2,57 +2,7 @@ import { useState, useEffect } from "react";
 import { ChevronRight, ChevronDown, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
-
-const hungerCycleSteps = [
-  "High-sugar & refined-starch foods",
-  "Rapid glucose spikes",
-  "Exaggerated insulin response",
-  "Reactive hypoglycemia",
-  "Increased hunger & cravings",
-  "Reduced satiety hormone effectiveness",
-  "Increased intake",
-  "Weight regain",
-];
-
-function HungerCycleFlow() {
-  const { ref, isVisible } = useScrollAnimation();
-  const isMobile = useIsMobile();
-
-  return (
-    <div ref={ref} className="mb-8">
-      <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2 max-w-3xl mx-auto">
-        {hungerCycleSteps.map((step, index) => (
-          <div key={index} className="flex items-center gap-1.5 md:gap-2">
-            <span
-              className={`px-2.5 py-1.5 md:px-3 md:py-2 rounded-lg text-xs md:text-sm transition-all duration-500 ${
-                index === 0 ? "bg-destructive/15 text-destructive font-medium border border-destructive/20" :
-                index === hungerCycleSteps.length - 1 ? "bg-destructive/20 text-destructive font-semibold border border-destructive/30" :
-                "bg-muted/60 text-muted-foreground border border-border/50"
-              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {step}
-            </span>
-            {index < hungerCycleSteps.length - 1 && (
-              <span
-                className={`text-muted-foreground/50 transition-all duration-500 ${
-                  isVisible ? "opacity-100" : "opacity-0"
-                }`}
-                style={{ transitionDelay: `${index * 100 + 50}ms` }}
-              >
-                {isMobile && (index === 2 || index === 5) ? (
-                  <ChevronDown className="w-3 h-3" />
-                ) : (
-                  <ChevronRight className="w-3 h-3" />
-                )}
-              </span>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { CircularHungerCycle } from "./CircularHungerCycle";
 
 function HeroSolutionReveal() {
   const { ref, isVisible } = useScrollAnimation();
@@ -321,8 +271,8 @@ export function MissingPieceSection() {
             </p>
           </div>
 
-          {/* Linear Hunger Cycle Flow */}
-          <HungerCycleFlow />
+          {/* Circular Hunger Cycle */}
+          <CircularHungerCycle />
 
           {/* Hero Solution Reveal */}
           <HeroSolutionReveal />
