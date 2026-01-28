@@ -94,9 +94,38 @@ function CountUpNumber({ target, isVisible }: { target: number; isVisible: boole
   return <span>{count}%</span>;
 }
 
+function CountUpMultiplier({ target, isVisible }: { target: number; isVisible: boolean }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    let start = 0;
+    const duration = 1500;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [isVisible, target]);
+
+  return <span>{count}×</span>;
+}
+
 export function MissingPieceSection() {
   const { ref, isVisible } = useScrollAnimation();
   const { ref: statRef, isVisible: statVisible } = useScrollAnimation();
+  const { ref: stat2Ref, isVisible: stat2Visible } = useScrollAnimation();
+  const { ref: stat3Ref, isVisible: stat3Visible } = useScrollAnimation();
+  const { ref: stat4Ref, isVisible: stat4Visible } = useScrollAnimation();
 
   return (
     <section className="py-5 bg-secondary/30">
@@ -124,17 +153,17 @@ export function MissingPieceSection() {
           {/* The Lightbulb Moment */}
           <div className="border-l-4 border-accent/60 bg-accent/5 rounded-r-xl p-5 md:p-6 mb-4">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
-              In 2025, after interviewing a surgeon for an Endoscopic Sleeve Gastroplasty (ESG) project, a minimally invasive procedure that reduces stomach capacity by 70–80%, a thought struck me.
+              In 2025, after interviewing a bariatric surgeon for a project, he explained the pros and cons of different bariatric surgeries. He confirmed that surgery alone isn't a permanent fix — if patients continue their old eating habits, they will gain the weight back. That's when a thought struck me.
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              <em className="text-primary font-medium">"I rebound not because I lack willpower, but because I had zero understanding of how fat actually functions in my body. I hate being hungry when I lose weight... what if there is a way to stay full and burn fat? Is that biologically possible?"</em>
+              <em className="text-primary font-medium">"I rebound not because I lack willpower. I hate being hungry when I lose weight... what if there is a way to stay full and burn fat? Is that biologically possible?"</em>
             </p>
           </div>
 
           {/* The Discovery */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              I spent eight months learning how fat is formed, stored, and burned. I tested variables until I found the pattern. When I ate the right foods at the right times, paired with the right calorie expenditure, I stayed full every day and watched my weight drop consistently every month.
+              So I began learning how fat is formed, stored, and burned. I spent more than eight months testing the variables until I found a pattern where I see my weight drops without starvation.
             </p>
           </div>
 
@@ -143,20 +172,52 @@ export function MissingPieceSection() {
             And I'm not alone in this.
           </p>
 
-          {/* Visual Statistic Callout */}
-          <div ref={statRef} className="flex items-center justify-center gap-6 my-8">
-            <div className="text-5xl md:text-6xl font-bold text-accent">
-              <CountUpNumber target={40} isVisible={statVisible} />
+          {/* Health Statistics Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            {/* 40% Obesity */}
+            <div ref={statRef} className="flex items-center gap-4 bg-card/30 rounded-xl p-4 border border-border/30">
+              <div className="text-4xl md:text-5xl font-bold text-accent shrink-0">
+                <CountUpNumber target={40} isVisible={statVisible} />
+              </div>
+              <p className="text-sm md:text-base text-muted-foreground">
+                of adults struggle with <span className="font-semibold">obesity</span>.
+              </p>
             </div>
-            <div className="text-muted-foreground text-left">
-              <p className="text-base md:text-lg">of adults struggle with <span className="font-semibold">obesity</span>.</p>
-              <p className="text-sm mt-1">This is more than a willpower problem. Biology and environment both play a role.</p>
+
+            {/* 23% Diabetes */}
+            <div ref={stat2Ref} className="flex items-center gap-4 bg-card/30 rounded-xl p-4 border border-border/30">
+              <div className="text-4xl md:text-5xl font-bold text-accent shrink-0">
+                <CountUpNumber target={23} isVisible={stat2Visible} />
+              </div>
+              <p className="text-sm md:text-base text-muted-foreground">
+                of U.S. adults with obesity have diagnosed <span className="font-semibold">diabetes</span>.
+              </p>
+            </div>
+
+            {/* 58% High Blood Pressure */}
+            <div ref={stat3Ref} className="flex items-center gap-4 bg-card/30 rounded-xl p-4 border border-border/30">
+              <div className="text-4xl md:text-5xl font-bold text-accent shrink-0">
+                <CountUpNumber target={58} isVisible={stat3Visible} />
+              </div>
+              <p className="text-sm md:text-base text-muted-foreground">
+                of adults with obesity have <span className="font-semibold">high blood pressure</span>.
+              </p>
+            </div>
+
+            {/* 4x Knee Osteoarthritis */}
+            <div ref={stat4Ref} className="flex items-center gap-4 bg-card/30 rounded-xl p-4 border border-border/30">
+              <div className="text-4xl md:text-5xl font-bold text-accent shrink-0">
+                <CountUpMultiplier target={4} isVisible={stat4Visible} />
+              </div>
+              <p className="text-sm md:text-base text-muted-foreground">
+                more likely to develop <span className="font-semibold">knee osteoarthritis</span>.
+              </p>
             </div>
           </div>
 
           {/* Bridging Sentence */}
           <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
-            For most, the missing link is <span className="font-semibold text-primary">hunger itself</span>. When hunger wins, diets fail.
+            For most, the missing link is <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">eating the wrong food</span>. When hunger wins and the wrong food is chosen, diets fail.
           </p>
 
           {/* Visual Separator */}
@@ -170,14 +231,8 @@ export function MissingPieceSection() {
 
           {/* Equation Intro - The Discovery Reveal */}
           <div className="text-center mb-6">
-            <p className="text-base md:text-lg text-muted-foreground mb-2">
-              Feeling hungry all the time?
-            </p>
-            <p className="text-lg md:text-xl text-primary font-semibold">
-              Here's what I discovered:
-            </p>
-            <p className="text-base md:text-lg text-primary/90 mt-2 max-w-xl mx-auto">
-              A <span className="font-bold">low-starch, low-sugar</span> lifestyle lets you eat until full — and still lose weight.
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              After months of trial and error, I realised that <span className="font-bold text-primary">low-starch, low-sugar</span> is the healthiest and most sustainable method to lose weight and build muscle simultaneously — without starvation for a single day.
             </p>
           </div>
         </div>
@@ -209,11 +264,11 @@ export function MissingPieceSection() {
           </div>
         </div>
 
-        {/* Transition to Method */}
+        {/* Transition to Core Principle */}
         <div className="text-center mt-3">
           <div className="inline-flex flex-col items-center gap-2">
             <p className="text-sm text-muted-foreground italic">
-              How does this insight actually turn into something usable?
+              What does this actually look like in practice?
             </p>
             <ChevronDown className="w-5 h-5 text-accent animate-bounce" />
           </div>
