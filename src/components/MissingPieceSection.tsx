@@ -182,24 +182,21 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* The Surgeon Story - Unified Container */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 space-y-4">
+          {/* The Surgeon Story */}
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              In 2025, I interviewed a bariatric surgeon for a project. Of all the clinical insights he shared, <span className="text-primary font-medium">one dataset struck me like thunder</span> <Zap className="inline w-4 h-4 text-accent" />
+              In 2025, I interviewed a bariatric surgeon who shared a striking insight <Zap className="inline w-4 h-4 text-accent" /> — <span className="font-bold text-primary">20–35%</span> of patients regain significant weight within 2–10 years. Not because the surgery failed, but because certain foods re-trigger hunger hormones, overriding the procedure's benefits.
             </p>
-            
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              He explained that <span className="font-bold text-primary">20–35%</span> of patients experience significant weight regain within 2–10 years. Not because the surgery failed, but because certain foods re-trigger hunger hormones and reward pathways, overriding the biological advantages of the procedure.
+          </div>
+
+          {/* The Key Question - Distinct Highlight */}
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 md:p-6 text-center mb-6">
+            <p className="text-sm text-muted-foreground/80 italic mb-2">
+              That conversation planted an uncomfortable question:
             </p>
-            
-            <div className="pt-2 border-t border-border/30">
-              <p className="text-sm text-muted-foreground/80 italic mb-2">
-                That conversation planted a simple but uncomfortable question:
-              </p>
-              <p className="text-lg md:text-xl leading-relaxed text-center">
-                <em className="text-primary font-semibold">"Why does every weight loss method eventually turn into a fight with hunger?"</em>
-              </p>
-            </div>
+            <p className="text-lg md:text-xl leading-relaxed">
+              <em className="text-primary font-semibold">"Why does every weight loss method eventually turn into a fight with hunger?"</em>
+            </p>
           </div>
 
           {/* The Discovery */}
