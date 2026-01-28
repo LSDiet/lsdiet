@@ -43,16 +43,16 @@ export function CircularHungerCycle() {
   };
 
   // SVG arrow paths for desktop circular layout (viewBox 0 0 400 260)
-  // Nodes are at: top (200, 30), right (330, 130), bottom (200, 230), left (70, 130)
+  // Arrows curve outside the nodes to avoid text overlap
   const arrowPaths = [
-    // Top to Right (clockwise curve)
-    { d: "M 240 40 Q 320 40, 320 90", id: "top-right" },
-    // Right to Bottom (clockwise curve)
-    { d: "M 320 170 Q 320 220, 240 225", id: "right-bottom" },
-    // Bottom to Left (clockwise curve)
-    { d: "M 160 225 Q 80 220, 80 170", id: "bottom-left" },
-    // Left to Top (clockwise curve - the loop back!)
-    { d: "M 80 90 Q 80 40, 160 40", id: "left-top" },
+    // Top to Right (start further right from top node, end above right node)
+    { d: "M 270 25 Q 355 25, 355 85", id: "top-right" },
+    // Right to Bottom (start below right node, end further right from bottom node)
+    { d: "M 355 175 Q 355 240, 270 240", id: "right-bottom" },
+    // Bottom to Left (start further left from bottom node, end below left node)
+    { d: "M 130 240 Q 45 240, 45 175", id: "bottom-left" },
+    // Left to Top (start above left node, end further left from top node)
+    { d: "M 45 85 Q 45 25, 130 25", id: "left-top" },
   ];
 
   // Mobile vertical arrow paths
