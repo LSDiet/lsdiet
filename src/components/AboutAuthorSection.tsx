@@ -35,7 +35,7 @@ export const AboutAuthorSection = () => {
               </p>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
-                But just to prove Oscar isn't an AI — he has a degree in psychology, spent over a year helping clients at a substance abuse centre in Vancouver, and worked a decade as a surgical market data consultant specializing in Video Endoscopy and Integrated Operating Room Equipment. He shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
+                But just so you know Oscar isn't an AI — he has a degree in psychology, spent over a year helping clients at a substance abuse centre in Vancouver, and worked a decade as a surgical market data consultant specializing in Video Endoscopy and Integrated Operating Room Equipment. He shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
                 <a 
                   href="https://www.youtube.com/@WhatAboutWeight" 
                   target="_blank" 
