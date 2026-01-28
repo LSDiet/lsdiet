@@ -182,37 +182,44 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* The Problem - Guide to photos */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4 text-center">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              It wasn't the weight loss that failed. It was what happened after.
-            </p>
-          </div>
-
-          {/* The Surgeon Story */}
-          <div className="bg-accent/5 border-l-4 border-accent/40 rounded-r-xl p-5 md:p-6 mb-4">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
-              In 2025, I interviewed a bariatric surgeon for a project. He walked me through how certain foods interact with post-surgery physiology — hunger hormones, glucose regulation, and reward pathways.
-            </p>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
-              Research shows that weight regain after bariatric surgery is strongly associated with a return to high-sugar, high-starch, ultra-processed diets — because these foods override the surgery's hormonal benefits.
-            </p>
-            <p className="text-sm text-muted-foreground/80 italic">
-              That conversation planted a seed...
-            </p>
-          </div>
-
-          {/* The Wonder Moment */}
-          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 md:p-6 mb-4 text-center">
-            <p className="text-base md:text-lg leading-relaxed">
-              <em className="text-primary font-medium">"I hate being hungry when I lose weight... is there a way to stay full and burn fat by changing the things I eat?"</em>
-            </p>
+          {/* The Surgeon Story - Visual Narrative */}
+          <div className="space-y-4 mb-6">
+            {/* Story opener */}
+            <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                In 2025, I interviewed a bariatric surgeon for a project.
+              </p>
+            </div>
+            
+            {/* The surprise */}
+            <div className="bg-accent/5 border-l-4 border-accent/40 rounded-r-xl p-5 md:p-6 ml-4 md:ml-8">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                What surprised me wasn't the surgery itself — <span className="text-primary font-medium">it was what happened after.</span>
+              </p>
+            </div>
+            
+            {/* The insight */}
+            <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                He explained that when people regain weight, it's rarely because the surgery failed. It's because certain foods <span className="text-primary font-medium">re-trigger hunger hormones and reward pathways</span>, overriding the biological advantages of the procedure.
+              </p>
+            </div>
+            
+            {/* The seed */}
+            <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 md:p-6 text-center">
+              <p className="text-sm text-muted-foreground/80 italic mb-3">
+                That conversation planted a simple but uncomfortable question:
+              </p>
+              <p className="text-lg md:text-xl leading-relaxed">
+                <em className="text-primary font-semibold">"Why does every weight loss method eventually turn into a fight with hunger?"</em>
+              </p>
+            </div>
           </div>
 
           {/* The Discovery */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              So I began learning how fat is formed, stored, and burned. I spent more than eight months testing the variables until I found a pattern where I see my weight drops without starvation.
+              So I began learning how fat is formed, stored, and burned. I spent more than eight months testing the variables until I found a pattern — one where my weight dropped without ever feeling starved.
             </p>
           </div>
 
@@ -266,8 +273,11 @@ export function MissingPieceSection() {
 
           {/* The Hunger Cycle */}
           <div className="text-center mb-4">
+            <p className="text-base md:text-lg text-muted-foreground mb-3">
+              The pattern behind these numbers? It's not laziness or lack of willpower.
+            </p>
             <p className="text-base md:text-lg text-muted-foreground mb-6">
-              For most, the missing link is <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">eating the wrong food</span>:
+              It's a cycle driven by <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">the wrong foods</span>:
             </p>
           </div>
 
