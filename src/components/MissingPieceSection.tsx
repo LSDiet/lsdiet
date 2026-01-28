@@ -265,7 +265,7 @@ export function MissingPieceSection() {
           {/* The Hunger Cycle */}
           <div className="text-center mb-6">
             <p className="text-base md:text-lg text-muted-foreground">
-              What's driving these numbers? Not laziness — a cycle of <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">wrong foods</span>:
+              These numbers are driven by a repeatable biological cycle of <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">food choice</span>.
             </p>
           </div>
 
