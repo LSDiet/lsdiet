@@ -201,7 +201,7 @@ export function MissingPieceSection() {
             {/* The insight */}
             <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50">
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                He explained that 20–35% of patients experience significant weight regain within 2–10 years — not because the surgery failed, but because certain foods <span className="text-primary font-medium">re-trigger hunger hormones and reward pathways</span>, overriding the biological advantages of the procedure.
+                He explained that <span className="font-bold text-primary">20–35%</span> of patients experience significant weight regain within 2–10 years. Not because the surgery failed, but because certain foods <span className="text-primary font-medium">re-trigger hunger hormones and reward pathways</span>, overriding the biological advantages of the procedure.
               </p>
             </div>
             
@@ -225,7 +225,7 @@ export function MissingPieceSection() {
 
           {/* Transitional Bridge Line */}
           <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
-            During my research, these numbers stopped me in my tracks:
+            Of all the clinical insights he shared, one dataset struck me like thunder:
           </p>
 
           {/* Health Statistics Grid */}
@@ -270,6 +270,13 @@ export function MissingPieceSection() {
               </p>
             </div>
           </div>
+
+          {/* Q&A Reference */}
+          <p className="text-center text-sm text-muted-foreground mb-8">
+            <a href="/qa" className="text-accent hover:text-accent/80 underline underline-offset-2 transition-colors">
+              See the full list of how obesity is making you sick →
+            </a>
+          </p>
 
           {/* The Hunger Cycle */}
           <div className="text-center mb-4">
