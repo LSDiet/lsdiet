@@ -4,7 +4,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 const cycleNodes = [
   { id: "wrong-foods", label: "Wrong foods", sublabel: "High-sugar, refined-starch", position: "top" },
   { id: "blood-sugar", label: "Blood sugar chaos", sublabel: "Glucose spike, insulin surge", position: "right" },
-  { id: "hunger", label: "Hunger takes over", sublabel: "Cravings, low satiety", position: "bottom" },
+  { id: "hunger", label: "Hunger takes over", sublabel: "Snacking with low satiety", position: "bottom" },
   { id: "weight-regain", label: "Weight regain", sublabel: "Increased intake", position: "left" },
 ];
 
@@ -32,12 +32,12 @@ export function CircularHungerCycle() {
       return positions[position] || {};
     }
     
-    // Circular layout for desktop
+    // Circular layout for desktop - all nodes centered with consistent transforms
     const positions: Record<string, React.CSSProperties> = {
-      top: { top: "0%", left: "50%", transform: "translate(-50%, 0)" },
-      right: { top: "50%", right: "0%", transform: "translate(0, -50%)" },
-      bottom: { bottom: "0%", left: "50%", transform: "translate(-50%, 0)" },
-      left: { top: "50%", left: "0%", transform: "translate(0, -50%)" },
+      top: { top: "0", left: "50%", transform: "translateX(-50%)" },
+      right: { top: "50%", right: "0", transform: "translateY(-50%)" },
+      bottom: { bottom: "0", left: "50%", transform: "translateX(-50%)" },
+      left: { top: "50%", left: "0", transform: "translateY(-50%)" },
     };
     return positions[position] || {};
   };
