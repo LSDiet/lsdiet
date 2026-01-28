@@ -121,7 +121,7 @@ function JourneyCardsGrid() {
 
 export function JourneySection() {
   return (
-    <section id="journey" className="py-7 bg-secondary/30">
+    <section id="journey" className="py-5 bg-secondary/30">
       <div className="container">
         {/* Personal Introduction */}
         <div className="max-w-3xl mx-auto text-center mb-8">

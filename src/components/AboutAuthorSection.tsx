@@ -5,17 +5,17 @@ export const AboutAuthorSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section ref={ref} className="py-10 bg-secondary/30">
+    <section ref={ref} className="py-5 bg-secondary/30">
       <div className="container max-w-3xl mx-auto px-4">
         <div
           className={`transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="inline-block px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
-              About Oscar
-            </span>
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
+              <span className="text-sm font-medium text-accent">About Oscar</span>
+            </div>
           </div>
 
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
@@ -31,19 +31,20 @@ export const AboutAuthorSection = () => {
               </div>
               
               <p className="text-base text-primary/80 leading-relaxed">
-                But none of that matters as much as what we can figure out together: a path where weight doesn't hold you back from living life to its full potential.
+                To lose weight isn't about just reaching a number. It's about avoiding a future where your choices shrink.
               </p>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Oscar has a degree in psychology and spent over a year helping clients at a substance abuse centre in Vancouver. He also worked a decade as a surgical market data consultant, specializing in endoscopy and laparoscopy. Today, he shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
+                But just to prove Oscar isn't an AI — he has a degree in psychology, spent over a year helping clients at a substance abuse centre in Vancouver, and worked a decade as a surgical market data consultant specializing in Video Endoscopy and Integrated Operating Room Equipment. He shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
                 <a 
-                  href="https://youtube.com/@WhatAboutWeight" 
+                  href="https://www.youtube.com/@WhatAboutWeight" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-accent hover:underline"
                 >
-                  YouTube
-                </a>.
+                  YouTube (@WhatAboutWeight)
+                </a>
+                {" "}— where the book's principles come to life.
               </p>
             </div>
 
