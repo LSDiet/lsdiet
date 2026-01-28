@@ -5,7 +5,7 @@ export function CorePrincipleSection() {
   const { ref: coreRef, isVisible: coreVisible } = useScrollAnimation();
 
   return (
-    <section className="py-7">
+    <section className="py-5">
       <div className="container">
         <div 
           ref={coreRef}

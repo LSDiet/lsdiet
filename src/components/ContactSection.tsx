@@ -46,7 +46,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-10 bg-background">
+    <section id="contact" className="py-5 bg-background">
       <div className="container">
         <div
           ref={ref}
