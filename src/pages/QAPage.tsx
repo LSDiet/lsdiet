@@ -120,9 +120,6 @@ export default function QAPage() {
               <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3">
                 Questions About Weight Loss?
               </h1>
-              <p className="text-lg text-muted-foreground">
-                Common questions, real answers backed by biology.
-              </p>
             </div>
           </div>
         </section>
