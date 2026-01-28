@@ -142,13 +142,13 @@ export function MethodSection() {
       <div className="container">
         <div className="text-center mb-8">
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
-            <span className="text-sm font-medium text-accent">The Method</span>
+            <span className="text-sm font-medium text-accent">The Solution</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
-            The Weight Permanence Triangle™
+            The Solution: Weight Permanence Triangle™
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            Three interconnected principles that keep weight loss prioritized even when life gets busy. When it becomes the primary reference point in your brain, daily choices around food, movement, and recovery align without external reminders.
+            A guided neurobehavioural training to automatically prioritize weight loss, establish daily practices, and build an internal alert system when things get derailed. Three interconnected principles to optimize weight and avoid a future where your choices shrink.
           </p>
         </div>
 
