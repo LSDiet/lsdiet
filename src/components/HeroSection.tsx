@@ -49,7 +49,6 @@ export function HeroSection() {
 
         {/* Scroll indicator */}
         <a href="#journey" className="inline-flex flex-col items-center text-muted-foreground hover:text-foreground transition-colors opacity-0 animate-fade-in-up animate-delay-400">
-          <span className="text-sm mb-2">Scroll to explore</span>
           <ChevronDown className="w-5 h-5 animate-bounce" />
         </a>
       </div>
