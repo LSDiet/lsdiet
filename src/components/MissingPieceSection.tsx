@@ -223,6 +223,10 @@ export function MissingPieceSection() {
             </p>
           </div>
 
+          {/* Transition to stats */}
+          <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
+            Here's what that journey uncovered:
+          </p>
 
           {/* Health Statistics Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
