@@ -11,6 +11,151 @@ import {
 
 const faqCategories = [
   {
+    title: "How Obesity is Making You Sick",
+    questions: [
+      {
+        question: "With obesity, why are you more likely to develop type 2 diabetes?",
+        answer:
+          "Excess body fat, especially around the abdomen, leads to insulin resistance, which makes blood sugar harder to regulate and increases the risk of type 2 diabetes. Losing weight lowers insulin resistance and risk over time.",
+      },
+      {
+        question: "With obesity, why are you more likely to have high blood pressure?",
+        answer:
+          "Obesity increases the workload on the heart and blood vessels, raising the pressure needed to circulate blood. Losing weight reduces this strain and often lowers blood pressure.",
+      },
+      {
+        question: "With obesity, why are you more likely to develop heart disease?",
+        answer:
+          "Obesity contributes to high blood pressure, unhealthy cholesterol levels, and inflammation, all of which accelerate plaque buildup and raise heart disease risk. Weight loss improves these metabolic markers and reduces cardiac risk.",
+      },
+      {
+        question: "With obesity, why are you more likely to experience stroke?",
+        answer:
+          "Because obesity raises blood pressure, promotes atherosclerosis, and increases clot formation, it elevates the likelihood of blood flow interruption to the brain. Reducing weight lowers these risk factors and lowers stroke risk.",
+      },
+      {
+        question: "With obesity, why are you more likely to have insulin resistance?",
+        answer:
+          "Excess adipose tissue releases inflammatory chemicals and disrupts insulin signalling, resulting in insulin resistance. Weight reduction improves insulin sensitivity and decreases this risk.",
+      },
+      {
+        question: "With obesity, why are you more likely to experience chronic inflammation?",
+        answer:
+          "Fat cells produce inflammatory cytokines that sustain low-grade inflammation, which contributes to metabolic disease. Losing weight reduces fat cell mass and inflammatory signalling.",
+      },
+      {
+        question: "With obesity, why are you more likely to develop metabolic syndrome?",
+        answer:
+          "Obesity is central to metabolic syndrome because it promotes high blood pressure, dysregulated blood sugar, and abnormal lipids. Weight loss improves all of these components.",
+      },
+      {
+        question: "With obesity, why are you more likely to have abnormal cholesterol levels?",
+        answer:
+          "Obesity increases triglycerides and lowers good HDL cholesterol while promoting LDL retention. Weight loss helps normalise lipid profiles and reduce cardiovascular risk.",
+      },
+      {
+        question: "With obesity, why are you more likely to experience hormonal imbalance?",
+        answer:
+          "Excess body fat alters hormone production and regulation (including leptin, oestrogen, and insulin). Losing weight helps restore hormonal balance and healthy signalling.",
+      },
+      {
+        question: "With obesity, why are you more likely to have impaired fat metabolism?",
+        answer:
+          "Obesity interferes with normal fat mobilisation and oxidation through insulin resistance and chronic inflammation. Weight loss improves metabolic flexibility and fat oxidation.",
+      },
+      {
+        question: "With obesity, why are you more likely to develop fatty liver disease?",
+        answer:
+          "Excess calories and adipose overflow cause fat to accumulate in the liver (NAFLD), impairing liver function. Weight loss reduces liver fat and lowers disease progression.",
+      },
+      {
+        question: "With obesity, why are you more likely to have gallbladder disease?",
+        answer:
+          "High cholesterol and excess bile saturation from obesity increase gallstone formation risk. Reducing weight can reduce cholesterol saturation and the incidence of gallbladder problems.",
+      },
+      {
+        question: "With obesity, why are you more likely to experience breathing problems like sleep apnoea?",
+        answer:
+          "Fat deposits around the neck and torso narrow airways and restrict lung function, increasing sleep apnoea risk. Losing weight often improves airway patency and breathing quality.",
+      },
+      {
+        question: "With obesity, why are you more likely to have reduced lung function?",
+        answer:
+          "Excess weight compresses the diaphragm and chest wall, impairing full lung expansion. Weight loss eases this mechanical restriction, improving breathing.",
+      },
+      {
+        question: "With obesity, why are you more likely to develop osteoarthritis?",
+        answer:
+          "Extra body weight increases mechanical load on joints, accelerating cartilage breakdown and inflammation. Losing weight reduces joint stress and pain progression.",
+      },
+      {
+        question: "With obesity, why are you more likely to have chronic back pain?",
+        answer:
+          "Additional torso weight alters posture and increases spinal loading, leading to pain and dysfunction. Weight reduction eases spinal stress and can improve comfort.",
+      },
+      {
+        question: "With obesity, why are you more likely to develop gallstones?",
+        answer:
+          "Obesity increases cholesterol in bile, which forms gallstones. Weight loss reduces cholesterol saturation, reducing stone formation risk.",
+      },
+      {
+        question: "With obesity, why are you more likely to develop chronic kidney disease?",
+        answer:
+          "Obesity increases blood pressure and diabetes risk, both main causes of kidney damage. Losing weight reduces these conditions and helps protect kidneys.",
+      },
+      {
+        question: "With obesity, why are you more likely to have pregnancy complications?",
+        answer:
+          "Obesity raises the risk of gestational diabetes and high blood pressure in pregnancy, which threaten maternal and foetal health. Weight loss before pregnancy lowers these risks.",
+      },
+      {
+        question: "With obesity, why are you more likely to develop certain cancers?",
+        answer:
+          "Obesity-associated inflammation and hormone imbalances contribute to increased risk of at least 13 cancers. Weight reduction lowers these inflammatory and hormonal drivers.",
+      },
+      {
+        question: "With obesity, why are you more likely to experience anxiety or depression?",
+        answer:
+          "Obesity is associated with chronic disease stress, social stigma, and inflammatory processes that affect brain chemistry. Losing weight improves self-perception and overall mental health.",
+      },
+      {
+        question: "With obesity, why are you more likely to have lower quality of life?",
+        answer:
+          "Because obesity increases disease burden, physical limitation, and social stigma, losing weight improves mobility, confidence, and life function.",
+      },
+      {
+        question: "With obesity, why are you more likely to be diagnosed with multiple chronic diseases?",
+        answer:
+          "Obesity contributes to metabolic, cardiovascular, respiratory, and musculoskeletal dysregulation, so weight loss reduces the cumulative risk of multiple chronic conditions.",
+      },
+      {
+        question: "With obesity, why are you more likely to have early onset chronic disease?",
+        answer:
+          "Excess adiposity accelerates metabolic dysfunction and inflammation over time, so losing weight slows disease progression and delays onset.",
+      },
+      {
+        question: "With obesity, why are you more likely to have reduced life expectancy?",
+        answer:
+          "Obesity increases the risk of fatal chronic diseases like heart disease and diabetes. Intentional weight loss reduces these risks and improves longevity.",
+      },
+      {
+        question: "With obesity, why are you more likely to experience fatigue and low energy?",
+        answer:
+          "Chronic inflammation and metabolic inefficiency in obesity impair energy metabolism. Losing weight improves insulin sensitivity and cellular energy use.",
+      },
+      {
+        question: "With obesity, why are you more likely to struggle with daily physical function?",
+        answer:
+          "Excess weight increases mechanical and metabolic strain on muscles and joints. Weight loss improves mobility and endurance for daily activities.",
+      },
+      {
+        question: "With obesity, why are you more likely to struggle in environments with ultra-processed foods?",
+        answer:
+          "Obesity is worsened where high-insulin foods are abundant because frequent insulin spikes favour fat storage. Weight reduction combined with low-starch, low-sugar eating reduces these metabolic drivers.",
+      },
+    ],
+  },
+  {
     title: "Weight Regain",
     questions: [
       {
@@ -282,151 +427,6 @@ const faqCategories = [
         question: "Is Weight Permanence about restriction or structure?",
         answer:
           "Weight Permanence is about structure, not restriction. It focuses on building systems that regulate hunger, guide decisions, and maintain progress without relying on constant control or deprivation.",
-      },
-    ],
-  },
-  {
-    title: "How Obesity is Making You Sick",
-    questions: [
-      {
-        question: "With obesity, why are you more likely to develop type 2 diabetes?",
-        answer:
-          "Excess body fat, especially around the abdomen, leads to insulin resistance, which makes blood sugar harder to regulate and increases the risk of type 2 diabetes. Losing weight lowers insulin resistance and risk over time.",
-      },
-      {
-        question: "With obesity, why are you more likely to have high blood pressure?",
-        answer:
-          "Obesity increases the workload on the heart and blood vessels, raising the pressure needed to circulate blood. Losing weight reduces this strain and often lowers blood pressure.",
-      },
-      {
-        question: "With obesity, why are you more likely to develop heart disease?",
-        answer:
-          "Obesity contributes to high blood pressure, unhealthy cholesterol levels, and inflammation, all of which accelerate plaque buildup and raise heart disease risk. Weight loss improves these metabolic markers and reduces cardiac risk.",
-      },
-      {
-        question: "With obesity, why are you more likely to experience stroke?",
-        answer:
-          "Because obesity raises blood pressure, promotes atherosclerosis, and increases clot formation, it elevates the likelihood of blood flow interruption to the brain. Reducing weight lowers these risk factors and lowers stroke risk.",
-      },
-      {
-        question: "With obesity, why are you more likely to have insulin resistance?",
-        answer:
-          "Excess adipose tissue releases inflammatory chemicals and disrupts insulin signalling, resulting in insulin resistance. Weight reduction improves insulin sensitivity and decreases this risk.",
-      },
-      {
-        question: "With obesity, why are you more likely to experience chronic inflammation?",
-        answer:
-          "Fat cells produce inflammatory cytokines that sustain low-grade inflammation, which contributes to metabolic disease. Losing weight reduces fat cell mass and inflammatory signalling.",
-      },
-      {
-        question: "With obesity, why are you more likely to develop metabolic syndrome?",
-        answer:
-          "Obesity is central to metabolic syndrome because it promotes high blood pressure, dysregulated blood sugar, and abnormal lipids. Weight loss improves all of these components.",
-      },
-      {
-        question: "With obesity, why are you more likely to have abnormal cholesterol levels?",
-        answer:
-          "Obesity increases triglycerides and lowers good HDL cholesterol while promoting LDL retention. Weight loss helps normalise lipid profiles and reduce cardiovascular risk.",
-      },
-      {
-        question: "With obesity, why are you more likely to experience hormonal imbalance?",
-        answer:
-          "Excess body fat alters hormone production and regulation (including leptin, oestrogen, and insulin). Losing weight helps restore hormonal balance and healthy signalling.",
-      },
-      {
-        question: "With obesity, why are you more likely to have impaired fat metabolism?",
-        answer:
-          "Obesity interferes with normal fat mobilisation and oxidation through insulin resistance and chronic inflammation. Weight loss improves metabolic flexibility and fat oxidation.",
-      },
-      {
-        question: "With obesity, why are you more likely to develop fatty liver disease?",
-        answer:
-          "Excess calories and adipose overflow cause fat to accumulate in the liver (NAFLD), impairing liver function. Weight loss reduces liver fat and lowers disease progression.",
-      },
-      {
-        question: "With obesity, why are you more likely to have gallbladder disease?",
-        answer:
-          "High cholesterol and excess bile saturation from obesity increase gallstone formation risk. Reducing weight can reduce cholesterol saturation and the incidence of gallbladder problems.",
-      },
-      {
-        question: "With obesity, why are you more likely to experience breathing problems like sleep apnoea?",
-        answer:
-          "Fat deposits around the neck and torso narrow airways and restrict lung function, increasing sleep apnoea risk. Losing weight often improves airway patency and breathing quality.",
-      },
-      {
-        question: "With obesity, why are you more likely to have reduced lung function?",
-        answer:
-          "Excess weight compresses the diaphragm and chest wall, impairing full lung expansion. Weight loss eases this mechanical restriction, improving breathing.",
-      },
-      {
-        question: "With obesity, why are you more likely to develop osteoarthritis?",
-        answer:
-          "Extra body weight increases mechanical load on joints, accelerating cartilage breakdown and inflammation. Losing weight reduces joint stress and pain progression.",
-      },
-      {
-        question: "With obesity, why are you more likely to have chronic back pain?",
-        answer:
-          "Additional torso weight alters posture and increases spinal loading, leading to pain and dysfunction. Weight reduction eases spinal stress and can improve comfort.",
-      },
-      {
-        question: "With obesity, why are you more likely to develop gallstones?",
-        answer:
-          "Obesity increases cholesterol in bile, which forms gallstones. Weight loss reduces cholesterol saturation, reducing stone formation risk.",
-      },
-      {
-        question: "With obesity, why are you more likely to develop chronic kidney disease?",
-        answer:
-          "Obesity increases blood pressure and diabetes risk, both main causes of kidney damage. Losing weight reduces these conditions and helps protect kidneys.",
-      },
-      {
-        question: "With obesity, why are you more likely to have pregnancy complications?",
-        answer:
-          "Obesity raises the risk of gestational diabetes and high blood pressure in pregnancy, which threaten maternal and foetal health. Weight loss before pregnancy lowers these risks.",
-      },
-      {
-        question: "With obesity, why are you more likely to develop certain cancers?",
-        answer:
-          "Obesity-associated inflammation and hormone imbalances contribute to increased risk of at least 13 cancers. Weight reduction lowers these inflammatory and hormonal drivers.",
-      },
-      {
-        question: "With obesity, why are you more likely to experience anxiety or depression?",
-        answer:
-          "Obesity is associated with chronic disease stress, social stigma, and inflammatory processes that affect brain chemistry. Losing weight improves self-perception and overall mental health.",
-      },
-      {
-        question: "With obesity, why are you more likely to have lower quality of life?",
-        answer:
-          "Because obesity increases disease burden, physical limitation, and social stigma, losing weight improves mobility, confidence, and life function.",
-      },
-      {
-        question: "With obesity, why are you more likely to be diagnosed with multiple chronic diseases?",
-        answer:
-          "Obesity contributes to metabolic, cardiovascular, respiratory, and musculoskeletal dysregulation, so weight loss reduces the cumulative risk of multiple chronic conditions.",
-      },
-      {
-        question: "With obesity, why are you more likely to have early onset chronic disease?",
-        answer:
-          "Excess adiposity accelerates metabolic dysfunction and inflammation over time, so losing weight slows disease progression and delays onset.",
-      },
-      {
-        question: "With obesity, why are you more likely to have reduced life expectancy?",
-        answer:
-          "Obesity increases the risk of fatal chronic diseases like heart disease and diabetes. Intentional weight loss reduces these risks and improves longevity.",
-      },
-      {
-        question: "With obesity, why are you more likely to experience fatigue and low energy?",
-        answer:
-          "Chronic inflammation and metabolic inefficiency in obesity impair energy metabolism. Losing weight improves insulin sensitivity and cellular energy use.",
-      },
-      {
-        question: "With obesity, why are you more likely to struggle with daily physical function?",
-        answer:
-          "Excess weight increases mechanical and metabolic strain on muscles and joints. Weight loss improves mobility and endurance for daily activities.",
-      },
-      {
-        question: "With obesity, why are you more likely to struggle in environments with ultra-processed foods?",
-        answer:
-          "Obesity is worsened where high-insulin foods are abundant because frequent insulin spikes favour fat storage. Weight reduction combined with low-starch, low-sugar eating reduces these metabolic drivers.",
       },
     ],
   },
