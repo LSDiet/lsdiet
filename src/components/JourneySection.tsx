@@ -142,10 +142,10 @@ export function JourneySection() {
                 Over the last 10 years, I went through multiple extreme weight transformations. Each cycle followed the same pattern: discipline, results, life disruption, and regain.
               </p>
               <p>
-                Every time, something different derailed me — a demanding job, frequent travel, or emotional overwhelm. <span className="text-primary font-medium">The weight loss worked. Life just got in the way.</span>
+                <span className="text-primary font-medium">The weight loss worked. Life just got in the way.</span>
               </p>
               <p className="text-sm text-muted-foreground/80 italic mt-2">
-                (Quite helpless honestly...)
+                (At least that's how I felt)
               </p>
             </div>
             <p className="text-sm text-muted-foreground mt-6 italic">
