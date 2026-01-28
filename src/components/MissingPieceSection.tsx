@@ -1,7 +1,130 @@
 import { useState, useEffect } from "react";
-import { ChevronRight, ChevronDown } from "lucide-react";
+import { ChevronRight, ChevronDown, Zap } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
+
+const cycleSteps = [
+  "High glucose food",
+  "Body craves more",
+  "Hungry more often",
+  "More starch & processed food",
+];
+
+function GlucoseCycleDiagram() {
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <div ref={ref} className="flex justify-center mb-8">
+      <div className="relative w-64 h-64 md:w-80 md:h-80">
+        {/* Center text */}
+        <div 
+          className={`absolute inset-0 flex items-center justify-center transition-all duration-700 delay-500 ${
+            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+          }`}
+        >
+          <div className="text-center">
+            <span className="text-sm md:text-base font-semibold text-destructive/80">The Vicious</span>
+            <br />
+            <span className="text-lg md:text-xl font-bold text-destructive">Cycle</span>
+          </div>
+        </div>
+        
+        {/* Circular arrows/path */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+          <circle
+            cx="100"
+            cy="100"
+            r="70"
+            fill="none"
+            stroke="hsl(var(--destructive) / 0.2)"
+            strokeWidth="2"
+            strokeDasharray="8 4"
+            className={`transition-all duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
+          />
+        </svg>
+
+        {/* Cycle steps positioned around the circle */}
+        {cycleSteps.map((step, index) => {
+          const angle = (index * 90 - 45) * (Math.PI / 180);
+          const radius = 42;
+          const x = 50 + radius * Math.cos(angle);
+          const y = 50 + radius * Math.sin(angle);
+          
+          return (
+            <div
+              key={index}
+              className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+              }`}
+              style={{
+                left: `${x}%`,
+                top: `${y}%`,
+                transitionDelay: `${index * 150}ms`,
+              }}
+            >
+              <div className="bg-destructive/10 border border-destructive/30 rounded-lg px-2 py-1.5 md:px-3 md:py-2 text-center max-w-[90px] md:max-w-[110px]">
+                <span className="text-[10px] md:text-xs text-destructive/90 font-medium leading-tight block">
+                  {step}
+                </span>
+              </div>
+              {/* Arrow to next step */}
+              <div 
+                className="absolute text-destructive/50"
+                style={{
+                  transform: `rotate(${index * 90 + 45}deg)`,
+                  right: index === 0 || index === 3 ? '-12px' : 'auto',
+                  left: index === 1 || index === 2 ? '-12px' : 'auto',
+                  top: '50%',
+                  marginTop: '-6px',
+                }}
+              >
+                <ChevronRight className="w-3 h-3" />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function HeroSolutionReveal() {
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <div ref={ref} className="text-center mb-8">
+      {/* Breaking the cycle */}
+      <div 
+        className={`inline-flex items-center gap-2 mb-4 transition-all duration-500 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
+        <Zap className="w-5 h-5 text-accent" />
+        <span className="text-sm font-medium text-muted-foreground">Breaking the cycle</span>
+        <Zap className="w-5 h-5 text-accent" />
+      </div>
+
+      {/* Hero reveal */}
+      <div 
+        className={`bg-gradient-to-r from-primary/10 via-accent/15 to-primary/10 border border-accent/30 rounded-2xl p-5 md:p-6 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      >
+        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+          After months of trial and error, I realised that{" "}
+          <span 
+            className={`inline-block font-bold text-primary text-lg md:text-xl transition-all duration-500 delay-500 ${
+              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
+            }`}
+          >
+            low-starch, low-sugar
+          </span>{" "}
+          is the healthiest and most sustainable method to lose weight and build muscle simultaneously — without starvation for a single day.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 const equationSteps = [
   { text: "Lower starch & sugar", variant: "start" },
@@ -151,12 +274,12 @@ export function MissingPieceSection() {
           </div>
 
           {/* The Lightbulb Moment */}
-          <div className="border-l-4 border-accent/60 bg-accent/5 rounded-r-xl p-5 md:p-6 mb-4">
+          <div className="bg-accent/5 border border-accent/20 rounded-xl p-5 md:p-6 mb-4 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
               In 2025, after interviewing a bariatric surgeon for a project, he explained the pros and cons of different bariatric surgeries. He confirmed that surgery alone isn't a permanent fix — if patients continue their old eating habits, they will gain the weight back. That's when a thought struck me.
             </p>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              <em className="text-primary font-medium">"I rebound not because I lack willpower. I hate being hungry when I lose weight... what if there is a way to stay full and burn fat? Is that biologically possible?"</em>
+            <p className="text-base md:text-lg leading-relaxed">
+              <em className="text-primary font-medium">"I hate being hungry when I lose weight... what if there is a way to stay full and burn fat? Is that biologically possible?"</em>
             </p>
           </div>
 
@@ -169,7 +292,7 @@ export function MissingPieceSection() {
 
           {/* Transitional Bridge Line */}
           <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
-            And I'm not alone in this.
+            The latest data shows this is a widespread challenge:
           </p>
 
           {/* Health Statistics Grid */}
@@ -215,26 +338,18 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* Bridging Sentence */}
-          <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
-            For most, the missing link is <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">eating the wrong food</span>. When hunger wins and the wrong food is chosen, diets fail.
-          </p>
-
-          {/* Visual Separator */}
-          <div className="flex justify-center mb-6">
-            <div className="flex items-center gap-2">
-              <div className="w-1 h-1 rounded-full bg-accent/40" />
-              <div className="w-1.5 h-1.5 rounded-full bg-accent/60" />
-              <div className="w-1 h-1 rounded-full bg-accent/40" />
-            </div>
-          </div>
-
-          {/* Equation Intro - The Discovery Reveal */}
-          <div className="text-center mb-6">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              After months of trial and error, I realised that <span className="font-bold text-primary">low-starch, low-sugar</span> is the healthiest and most sustainable method to lose weight and build muscle simultaneously — without starvation for a single day.
+          {/* The Vicious Cycle */}
+          <div className="text-center mb-4">
+            <p className="text-base md:text-lg text-muted-foreground mb-6">
+              For most, the missing link is <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">eating the wrong food</span>. Here's the cycle:
             </p>
           </div>
+
+          {/* Circular Glucose Cycle Diagram */}
+          <GlucoseCycleDiagram />
+
+          {/* Hero Solution Reveal */}
+          <HeroSolutionReveal />
         </div>
 
         {/* Equation Label */}
