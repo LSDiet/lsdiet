@@ -114,14 +114,32 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* Personal Story */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-8 text-center">
+          {/* The Problem */}
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Veggie cleanses, carnivore, intermittent fasting, and daily exercise — I tried them all.
-              <br />
-              Every method worked until it stopped working. That's when I made a clear decision to stop chasing short-term weight loss and start building a lifelong health state.
+              Veggie cleanses, carnivore, intermittent fasting, daily exercise — I followed the "eat less, exercise more" rule for years. They all worked until they stopped working.
             </p>
           </div>
+
+          {/* The Lightbulb Moment */}
+          <div className="border-l-4 border-accent/60 bg-accent/5 rounded-r-xl p-5 md:p-6 mb-4">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              In 2025, while interviewing a surgeon about ESD — a minimally invasive procedure that reduces stomach capacity by 70–80% — a thought struck me:{" "}
+              <em className="text-primary font-medium">"I rebound not because I lack willpower, but because I had zero understanding of how fat actually functions in my body."</em>
+            </p>
+          </div>
+
+          {/* The Discovery */}
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              I spent eight months learning how fat is formed, stored, and burned — testing variables until I found the pattern. When I ate the right foods at the right times, paired with the right calorie expenditure, I stayed full every day and watched my weight drop consistently every month.
+            </p>
+          </div>
+
+          {/* Transitional Bridge Line */}
+          <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
+            And I'm not alone in this.
+          </p>
 
           {/* Visual Statistic Callout */}
           <div ref={statRef} className="flex items-center justify-center gap-6 my-8">
