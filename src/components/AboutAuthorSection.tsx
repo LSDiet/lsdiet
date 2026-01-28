@@ -1,4 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import oscarPhoto from "@/assets/oscar-photo.jpeg";
 
 export const AboutAuthorSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -11,19 +12,33 @@ export const AboutAuthorSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <div className="space-y-2">
+          <div className="flex items-center justify-center gap-3">
+            <img 
+              src={oscarPhoto} 
+              alt="Oscar" 
+              className="w-12 h-12 rounded-full object-cover"
+            />
             <span className="inline-block px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full">
               About Oscar
             </span>
           </div>
 
           <div className="space-y-4">
-            <p className="text-lg text-primary leading-relaxed">
-              Well... this really isn't about me. It's about you — life has enough burdens, don't let weight be another one.
-            </p>
+            <div className="space-y-2">
+              <p className="text-lg text-primary leading-relaxed">
+                Well... this really isn't about me. It's about you.
+              </p>
+              <p className="text-base text-primary/90 leading-relaxed">
+                Life has enough burdens, don't let weight be another one.
+              </p>
+            </div>
             
+            <p className="text-base text-primary/80 leading-relaxed">
+              But none of that matters as much as what we can figure out together: a path where weight doesn't hold you back from living life to its full potential.
+            </p>
+
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Oscar has a degree in psychology and spent years helping clients at a substance abuse centre in Vancouver. He also worked a decade as a surgical market data consultant, specializing in endoscopy and laparoscopy. Today, he shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
+              Oscar has a degree in psychology and spent over a year helping clients at a substance abuse centre in Vancouver. He also worked a decade as a surgical market data consultant, specializing in endoscopy and laparoscopy. Today, he shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
               <a 
                 href="https://youtube.com/@WhatAboutWeight" 
                 target="_blank" 
@@ -32,10 +47,6 @@ export const AboutAuthorSection = () => {
               >
                 YouTube
               </a>.
-            </p>
-            
-            <p className="text-base text-primary/80 leading-relaxed">
-              But none of that matters as much as what we can figure out together: a path where weight doesn't hold you back from living life to its full potential.
             </p>
           </div>
         </div>
