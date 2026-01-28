@@ -42,16 +42,17 @@ export function CircularHungerCycle() {
     return positions[position] || {};
   };
 
-  // SVG arrow paths for desktop circular layout
+  // SVG arrow paths for desktop circular layout (viewBox 0 0 400 260)
+  // Nodes are at: top (200, 30), right (330, 130), bottom (200, 230), left (70, 130)
   const arrowPaths = [
     // Top to Right (clockwise curve)
-    { d: "M 200 45 Q 290 45, 290 120", id: "top-right" },
+    { d: "M 240 40 Q 320 40, 320 90", id: "top-right" },
     // Right to Bottom (clockwise curve)
-    { d: "M 290 180 Q 290 255, 200 255", id: "right-bottom" },
+    { d: "M 320 170 Q 320 220, 240 225", id: "right-bottom" },
     // Bottom to Left (clockwise curve)
-    { d: "M 100 255 Q 10 255, 10 180", id: "bottom-left" },
+    { d: "M 160 225 Q 80 220, 80 170", id: "bottom-left" },
     // Left to Top (clockwise curve - the loop back!)
-    { d: "M 10 120 Q 10 45, 100 45", id: "left-top" },
+    { d: "M 80 90 Q 80 40, 160 40", id: "left-top" },
   ];
 
   // Mobile vertical arrow paths
@@ -67,11 +68,11 @@ export function CircularHungerCycle() {
 
   return (
     <div ref={ref} className="mb-8">
-      <div className={`relative mx-auto ${isMobile ? "h-[320px] w-[200px]" : "h-[300px] w-[300px] md:h-[340px] md:w-[340px]"}`}>
+      <div className={`relative mx-auto ${isMobile ? "h-[320px] w-[200px]" : "h-[260px] w-[400px] md:h-[280px] md:w-[440px]"}`}>
         {/* SVG Arrows */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none"
-          viewBox={isMobile ? "0 0 200 280" : "0 0 300 300"}
+          viewBox={isMobile ? "0 0 200 280" : "0 0 400 260"}
           fill="none"
         >
           <defs>
