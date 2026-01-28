@@ -154,8 +154,13 @@ export function MissingPieceSection() {
             </div>
           </div>
 
+          {/* Bridging Sentence */}
+          <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
+            For most, the missing link is <span className="font-semibold text-primary">hunger itself</span>. When hunger wins, diets fail.
+          </p>
+
           {/* Visual Separator */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-6">
             <div className="flex items-center gap-2">
               <div className="w-1 h-1 rounded-full bg-accent/40" />
               <div className="w-1.5 h-1.5 rounded-full bg-accent/60" />
@@ -163,13 +168,16 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* Equation Intro */}
+          {/* Equation Intro - The Discovery Reveal */}
           <div className="text-center mb-6">
-            <p className="text-base md:text-lg text-primary font-medium mb-1">
+            <p className="text-base md:text-lg text-muted-foreground mb-2">
               Feeling hungry all the time?
             </p>
-            <p className="text-sm md:text-base text-primary/80">
-              A low-starch, low-sugar lifestyle lets you eat until full — and still lose weight.
+            <p className="text-lg md:text-xl text-primary font-semibold">
+              Here's what I discovered:
+            </p>
+            <p className="text-base md:text-lg text-primary/90 mt-2 max-w-xl mx-auto">
+              A <span className="font-bold">low-starch, low-sugar</span> lifestyle lets you eat until full — and still lose weight.
             </p>
           </div>
         </div>
