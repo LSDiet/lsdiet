@@ -14,19 +14,54 @@ const faqCategories = [
     title: "Weight Regain",
     questions: [
       {
-        question: "Why do I regain weight even when I eat less?",
+        question: "Why do I lose weight but always gain it back?",
         answer:
-          "Eating less often backfires because it triggers hormonal responses — cortisol rises, metabolic rate drops, and hunger intensifies. If insulin stays elevated from starch and sugar, your body remains in fat-storage mode even at lower calories. Sustainable weight loss requires addressing the biology of hunger, not just portion sizes.",
+          "Most people lose weight by forcing short-term behaviours without building a system that holds when life and hunger return. Sustainable weight management requires a framework that adapts to changing circumstances, not just temporary restriction.",
       },
       {
-        question: "Why can't I keep weight off long term?",
+        question: "Why does weight loss feel so hard even when I eat less?",
         answer:
-          "Long-term weight maintenance fails when the approach relies on willpower rather than biology. When you diet without changing what triggers hunger and cravings, your body fights back with increased appetite and reduced energy expenditure. The key is finding an eating pattern that naturally regulates hunger so maintenance doesn't feel like constant restriction.",
+          "Weight loss feels hard because hunger is biologically driven and intensified by modern ultra-processed food environments—not simply due to poor discipline. When your body perceives restriction, it amplifies hunger signals to protect against perceived starvation.",
       },
       {
-        question: "Why does every diet work until it doesn't?",
+        question: "Why does traditional dieting rely on hunger to work?",
         answer:
-          "Most diets create a calorie deficit that produces initial results, but they don't address the underlying drivers of overeating. Once the novelty wears off and hunger hormones adapt, the diet becomes unsustainable. A lasting approach must work with your biology — reducing hunger signals so eating less happens naturally.",
+          "Traditional dieting works by forcing caloric restriction instead of restoring access to stored fat, which keeps hunger elevated throughout the process. A low-starch, low-sugar approach lowers insulin, allowing your body to use fat for fuel and naturally reducing appetite.",
+      },
+      {
+        question: "Why does willpower stop working for weight loss?",
+        answer:
+          "Willpower fails because it is a finite resource that collapses under stress, hunger, and environmental pressure. The Weight Permanence Triangle™ aligns your goals with internal motivation so you don't rely on mental power alone.",
+      },
+      {
+        question: "Why does weight loss fail when life gets busy?",
+        answer:
+          "When life gets busy, you revert to default habits because they're familiar and require no effort. Without a system designed for real-life conditions, temporary diets collapse under pressure. Building sustainable behaviours during the Practice stage ensures your approach survives disruption.",
+      },
+      {
+        question: "Why do most diets stop working over time?",
+        answer:
+          "Most diets address food rules and biology but ignore social and environmental factors. The five Awareness stages in the book guide you through all of these. Monthly subscribers gain access to the Awareness Compass™—a proprietary conversational platform that identifies the gap between where you are and where you want to be, establishing clear internal push and pull motivation.",
+      },
+      {
+        question: "Why does stress cause weight gain even when I eat carefully?",
+        answer:
+          "Stress elevates cortisol, a hormone that increases appetite (especially for high-calorie foods), promotes abdominal fat storage, and disrupts insulin sensitivity. Environmental cues—such as food availability, social eating, and comfort-seeking behaviours—compound the effect, making weight gain occur even when you believe your intake is controlled.",
+      },
+      {
+        question: "Why does travelling make me regain weight?",
+        answer:
+          "Travel disrupts routine, food access, and decision structure, exposing the lack of a fallback system. The Permanence stage of the Weight Permanence Triangle™ addresses this with tools that establish an internal alert system, flagging deviations and stabilizing decisions when context, emotion, or environment changes.",
+      },
+      {
+        question: "Why does weight loss feel like fighting hunger all day?",
+        answer:
+          "Weight loss feels like a fight when fat access is blocked and hunger remains the dominant signal. Oscar hates losing weight using hunger—it's unsustainable. A low-starch, low-sugar approach doesn't mean starving; it changes what your body is working against so hunger quiets down instead of screaming all day.",
+      },
+      {
+        question: "Why do I regain weight after reaching my goal?",
+        answer:
+          "Weight regain happens because the system that created weight loss is often a temporary intervention rather than an adaptable lifestyle—so it's abandoned once the goal is reached. The Weight Permanence Triangle™ builds identity-level change that persists beyond any single goal.",
       },
     ],
   },
