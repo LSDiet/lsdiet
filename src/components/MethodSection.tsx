@@ -145,7 +145,7 @@ export function MethodSection() {
             <span className="text-sm font-medium text-accent">The Solution</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
-            The Solution: Weight Permanence Triangle™
+            Weight Permanence Triangle™
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
             A guided neurobehavioural training to automatically prioritize weight loss, establish daily practices, and build an internal alert system when things get derailed. Three interconnected principles to optimize weight and avoid a future where your choices shrink.
