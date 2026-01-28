@@ -144,6 +144,9 @@ export function JourneySection() {
               <p>
                 Every time, something different derailed me — a demanding job, frequent travel, or emotional overwhelm. <span className="text-primary font-medium">The weight loss worked. Life just got in the way.</span>
               </p>
+              <p className="text-sm text-muted-foreground/80 italic mt-2">
+                (Quote helpless honestly...)
+              </p>
             </div>
             <p className="text-sm text-muted-foreground mt-6 italic">
               Hover or tap to see the transformations.
