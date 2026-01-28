@@ -69,19 +69,54 @@ const faqCategories = [
     title: "Hunger & Biology",
     questions: [
       {
-        question: "Is hunger biological or just willpower?",
+        question: "Is hunger biological or a lack of discipline?",
         answer:
-          "Hunger is primarily biological, driven by hormones like ghrelin, leptin, and insulin. Willpower can override hunger temporarily, but it's exhausting and unsustainable. The most effective weight management strategies reduce biological hunger signals rather than relying on mental discipline to ignore them.",
+          "Hunger is biological, not a personal failure of discipline. It is regulated primarily by hormones: ghrelin stimulates appetite, leptin signals satiety, and insulin controls blood sugar and fat storage. When these hormones are dysregulated—often by ultra-processed foods—hunger intensifies regardless of willpower. Understanding this biology is the first step toward sustainable weight management.",
       },
       {
-        question: "Why am I always hungry even after eating?",
+        question: "Why does reducing sugar reduce hunger?",
         answer:
-          "Constant hunger despite eating usually signals insulin and blood sugar dysregulation. High-starch and high-sugar foods spike blood sugar, trigger insulin release, and often lead to a crash that signals hunger again within hours. Stabilizing blood sugar with lower-starch, lower-sugar meals helps you feel satisfied longer.",
+          "When you eat starch or sugar, glucose enters your bloodstream. Your pancreas responds by secreting insulin, which directs glucose into cells for energy or stores it as glycogen in the liver and muscles. Excess glucose is converted to triglycerides (fat). Chronically high insulin blocks fat mobilisation and oxidation, keeping you dependent on glucose for energy. When you reduce starch and sugar, insulin levels drop, allowing your liver to produce ketones that enable your body to burn stored fat for fuel instead of constantly demanding more sugar—naturally calming hunger.",
       },
       {
-        question: "Why do I crave carbs and sugar?",
+        question: "How does insulin affect fat burning and hunger?",
         answer:
-          "Carb and sugar cravings are often driven by blood sugar instability and dopamine responses. When blood sugar drops after a high-carb meal, your brain signals you to eat more quick-energy foods. Breaking this cycle requires stabilizing blood sugar with protein, healthy fats, and non-starchy vegetables, which gradually reduces cravings over time.",
+          "Insulin suppresses fat mobilisation (releasing fat from storage) and oxidation (burning fat for energy). When insulin is elevated, your body cannot efficiently access stored fat, so it signals hunger to obtain energy from food instead. Lowering insulin through reduced starch and sugar intake restores fat access and reduces hunger signals.",
+      },
+      {
+        question: "Why does eating less not always lead to weight loss?",
+        answer:
+          "Calories represent energy, but the composition of those calories matters enormously. One thousand calories of grilled chicken affects your hormones differently than one thousand calories of apple pie or chocolate. Eating less does not guarantee weight loss if your biology remains in fat storage mode due to elevated insulin. What you eat—and the resulting glucose and insulin response—determines whether your body stores or burns fat.",
+      },
+      {
+        question: "Why does calorie counting fail for long-term weight loss?",
+        answer:
+          "Calorie counting doesn't always fail, but people often overlook the composition of those calories. Five slices of bread made from flour, water, and yeast affect your body differently than bread from multinational brands with twenty-plus ingredients, additives, and preservatives. The hormonal response to food—not just the calorie number—determines hunger, satiety, and fat storage.",
+      },
+      {
+        question: "Can you lose weight without tracking calories?",
+        answer:
+          "Absolutely. The Weight Permanence Triangle™ method discusses calorie awareness, but Oscar personally does not track calories. When hunger is regulated through a low-starch, low-sugar approach, food intake naturally decreases without the need for counting or restriction. You eat until satisfied, and your body does the rest.",
+      },
+      {
+        question: "Why does my body resist fat loss?",
+        answer:
+          "Your body resists fat loss when insulin remains chronically elevated, blocking access to stored fat. This is a protective biological mechanism, not a personal failing. By reducing starch and sugar intake, you lower insulin and allow your body to mobilise and burn fat naturally.",
+      },
+      {
+        question: "What blocks fat burning even when calories are low?",
+        answer:
+          "Chronically elevated insulin blocks fat mobilisation and oxidation even under calorie restriction. This is why some people struggle to lose weight despite eating very little. If you experience persistent difficulty losing weight despite sustained effort, consult a medical professional to rule out underlying metabolic or hormonal conditions.",
+      },
+      {
+        question: "Why do low-starch and low-sugar diets reduce appetite?",
+        answer:
+          "Low-starch, low-sugar diets reduce insulin spikes, which allows your body to access stored fat for energy. When fat is available as fuel, your brain no longer signals urgent hunger to obtain glucose. The result is stable energy throughout the day and a natural reduction in appetite—without fighting cravings or counting calories.",
+      },
+      {
+        question: "How does food choice affect hunger more than calories?",
+        answer:
+          "Food choice determines your hormonal response—particularly insulin, ghrelin, and leptin—which drives hunger far more than calorie totals. A meal rich in protein and healthy fats triggers satiety hormones that keep you full for hours, while a high-starch meal of equal calories can leave you hungry again within two hours. Biology, not arithmetic, controls appetite.",
       },
     ],
   },
