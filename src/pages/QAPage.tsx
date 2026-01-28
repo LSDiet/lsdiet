@@ -470,7 +470,7 @@ export default function QAPage() {
         </section>
 
         {/* FAQ Categories */}
-        <section className="py-10">
+        <section className="py-5">
           <div className="container max-w-3xl mx-auto px-4">
             <div className="space-y-8">
               {faqCategories.map((category, categoryIndex) => (
