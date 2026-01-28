@@ -30,8 +30,8 @@ export const AboutAuthorSection = () => {
                 </p>
               </div>
               
-              <p className="text-base text-primary/80 leading-relaxed">
-                To lose weight isn't about just reaching a number. It's about avoiding a future where your choices shrink.
+              <p className="text-lg md:text-xl italic text-accent font-medium leading-relaxed border-l-4 border-accent/40 pl-4">
+                "Lose the extra weight so you can avoid a future where your choices shrink."
               </p>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
