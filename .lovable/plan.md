@@ -1,92 +1,44 @@
 
+## Summary
+Update branding across multiple sections: rename "My Journey" to "The Weight Problem" in navigation, rename "The Method" to "The Solution" with updated description, and reduce whitespace above "The Missing Piece" section.
 
-# Circular Hunger Cycle Diagram
+## Changes
 
-## Overview
+### 1. Navbar.tsx - Rename "My Journey" to "The Weight Problem"
 
-Replace the current linear 8-step `HungerCycleFlow` with a clean, circular diagram inspired by the reference images. The diagram will have 4 nodes positioned around a circle with curved arrows connecting them in a complete loop (including the missing arrow from the last node back to the first).
+**Line 5**: Update the navLinks array
+- Change: `"My Journey"` to `"The Weight Problem"`
 
-## Estimated Credits: 1 message
+### 2. MethodSection.tsx - Rename to "The Solution" and Update Description
 
-## The 4 Nodes (consolidated from 8 steps)
+**Line 145 (banner text)**:
+- Change: `The Method` to `The Solution`
 
-| Position | Label | Sublabel (optional) |
-|----------|-------|---------------------|
-| **Top** | Wrong foods | High-sugar, refined-starch |
-| **Right** | Blood sugar chaos | Glucose spike, insulin surge |
-| **Bottom** | Hunger takes over | Cravings, low satiety |
-| **Left** | Weight regain | Increased intake |
+**Line 148 (heading)**:
+- Change: `The Weight Permanence Triangle™` to `The Solution: Weight Permanence Triangle™`
 
-## Visual Design
+**Lines 150-152 (description paragraph)**:
+- Current: "Three interconnected principles that keep weight loss prioritized even when life gets busy. When it becomes the primary reference point in your brain, daily choices around food, movement, and recovery align without external reminders."
+- New: "A guided neurobehavioural training to automatically prioritize weight loss, establish daily practices, and build an internal alert system when things get derailed. Three interconnected principles to optimize weight and avoid a future where your choices shrink."
 
-Inspired by your reference images:
+### 3. JourneySection.tsx - Reduce Bottom Margin (affects spacing above Missing Piece)
 
-```text
-                    ┌─────────────────┐
-         ┌─────────►│   Wrong foods   │─────────┐
-         │          └─────────────────┘          │
-         │                                       ▼
-┌────────┴────────┐                    ┌─────────────────┐
-│  Weight regain  │                    │ Blood sugar     │
-│                 │                    │ chaos           │
-└────────┬────────┘                    └─────────┬───────┘
-         ▲                                       │
-         │          ┌─────────────────┐          │
-         └──────────│  Hunger takes   │◄─────────┘
-                    │  over           │
-                    └─────────────────┘
-```
+**Line 106**: The JourneyCardsGrid has `mb-16` (64px margin-bottom) which creates whitespace before the next section.
+- Change: `mb-16` to `mb-8` (reduces from 64px to 32px - a 50% reduction)
 
-## Implementation Approach
-
-**CSS/HTML-based circular layout** (no complex SVG):
-- Use absolute positioning to place 4 nodes at cardinal points around a centre
-- Use SVG curved arrows (`<path>` with bezier curves) connecting each node
-- Arrows form a complete clockwise loop: Top → Right → Bottom → Left → Top
-
-**Node styling**:
-- Rounded card/pill shapes with subtle borders
-- "Wrong foods" highlighted in destructive/warning colour (entry point)
-- "Weight regain" highlighted in destructive colour (consequence)
-- Middle nodes in muted/neutral styling
-
-**Arrow styling**:
-- Smooth curved paths with arrowheads
-- Subtle animation on scroll (fade in sequentially)
-
-**Mobile responsive**:
-- Maintain circular layout but scale down proportionally
-- Or stack vertically with straight arrows on very small screens
-
-## Animation
-
-1. Nodes fade in sequentially (staggered 150ms) on scroll
-2. Arrows fade in after their source node appears
-3. The complete loop visually reinforces the "cycle" concept
-
-## File Changes
-
-### Edit: `src/components/MissingPieceSection.tsx`
-
-**Replace:**
-- `hungerCycleSteps` array (lines 6-15) with 4 consolidated cycle nodes
-- `HungerCycleFlow` component (lines 17-55) with new `CircularHungerCycle` component
-
-**New `CircularHungerCycle` features:**
-- Relative container with fixed aspect ratio
-- 4 absolutely positioned node cards at top, right, bottom, left
-- SVG overlay with 4 curved arrow paths (including the missing loop-back arrow)
-- Scroll-triggered animations via `useScrollAnimation`
-
-**Keep unchanged:**
-- `HeroSolutionReveal` component (the breakthrough reveal after the cycle)
-- All other section content
+---
 
 ## Technical Details
 
-The circular layout uses:
-- A container with `relative` positioning and `aspect-square` (or fixed height)
-- Nodes positioned with `absolute` and percentage-based offsets
-- SVG paths for arrows using quadratic/cubic bezier curves
-- CSS transforms for centring nodes at their positions
+| File | Location | Current | Updated |
+|------|----------|---------|---------|
+| Navbar.tsx | Line 5 | `"My Journey"` | `"The Weight Problem"` |
+| MethodSection.tsx | Line 145 | `The Method` | `The Solution` |
+| MethodSection.tsx | Line 148 | `The Weight Permanence Triangle™` | `The Solution: Weight Permanence Triangle™` |
+| MethodSection.tsx | Lines 150-152 | Current description | New delivery-focused description |
+| JourneySection.tsx | Line 106 | `mb-16` | `mb-8` |
 
+## Files to Modify
+- `src/components/Navbar.tsx`
+- `src/components/MethodSection.tsx`
+- `src/components/JourneySection.tsx`
