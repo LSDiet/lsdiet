@@ -35,7 +35,7 @@ function HeroSolutionReveal() {
             >
               low-starch, low-sugar
             </span>{" "}
-            is the healthiest and most sustainable method to lose weight and build muscle simultaneously — without starvation for a single day. Here's what that journey uncovered:
+            is the healthiest and most sustainable method to lose weight and build muscle simultaneously — without starvation for a single day.
           </p>
       </div>
     </div>
