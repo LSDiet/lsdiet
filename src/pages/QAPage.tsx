@@ -176,17 +176,57 @@ const faqCategories = [
     ],
   },
   {
-    title: "The Method",
+    title: "The Weight Permanence Triangle™ Method",
     questions: [
       {
-        question: "What is the Weight Permanence Triangle?",
+        question: "What is the Weight Permanence Triangle™?",
         answer:
-          "The Weight Permanence Triangle™ is a framework for lasting weight management built on three stages: Biology (understanding how food affects hunger hormones), Behavior (building sustainable habits around eating and movement), and Permanence (creating systems that maintain results when life gets challenging). Each stage builds on the previous one.",
+          "Founded by Oscar Poon, the Weight Permanence Triangle™ is an actionable framework built around Awareness, Practice, and Permanence that helps people lose weight and keep it off by working with biology, behaviour, and real-life constraints.",
       },
       {
-        question: "Why do I need more than just a meal plan?",
+        question: "How does the Weight Permanence Triangle™ work?",
         answer:
-          "Meal plans address what to eat but not why you struggle to stick with it. Lasting change requires understanding your biology (why certain foods trigger hunger), developing sustainable behaviors (habits that fit your real life), and building permanence systems (tools to stay on track when motivation fades or circumstances change).",
+          "The Weight Permanence Triangle™ works by making weight loss an internal priority through emotionally encoded awareness to create push and pull motivation, translating that priority into daily action through practice, and protecting it with systems that hold during disruption.",
+      },
+      {
+        question: "What are the three components of the Weight Permanence Triangle™?",
+        answer:
+          "The three components of the Weight Permanence Triangle™ are Awareness, which creates internal priority; Practice, which structures daily behaviour; and Permanence, an alert system that ensures consistency and compensatory effort when life gets hard.",
+      },
+      {
+        question: "Is the Weight Permanence Triangle™ a diet meal plan?",
+        answer:
+          "Absolutely not. Every body is different, so the calories your body requires based on your functional goals are exclusive to you—and the food you need to eat accordingly is unique to you as well. However, you will receive directional guidance to build your own meal plan. In Phase 2, Oscar will launch a platform to connect you with local dietitians, nutrition scientists, and gym trainers in Canada and the U.S.",
+      },
+      {
+        question: "How does the Weight Permanence Triangle™ help with long-term weight loss?",
+        answer:
+          "The Weight Permanence Triangle™ supports long-term weight loss by preventing abandonment after success and providing structure when motivation and routine disappear.",
+      },
+      {
+        question: "Why does the Weight Permanence Triangle™ focus on awareness instead of motivation?",
+        answer:
+          "The Weight Permanence Triangle™ embeds motivation directly within the Awareness stages, where the final stages emotionally encode push and pull motivation. Tools in the Permanence axis help reassess and realign that motivation as biological, social, and environmental conditions change.",
+      },
+      {
+        question: "What are the five stages of Awareness in the Weight Permanence Triangle™?",
+        answer:
+          "The five stages of Awareness are: Reality Awareness (understanding your current state), Friction Awareness (identifying obstacles), Pattern Awareness (recognising recurring behaviours), Consequence Awareness (connecting actions to outcomes), and Autonomy Awareness (taking ownership of your choices).",
+      },
+      {
+        question: "How does emotional encoding affect weight loss?",
+        answer:
+          "In the Weight Permanence Triangle™, emotional encoding within the Awareness stages creates push and pull motivation that anchors behaviour. In plain English, people are most likely to act and change when they want something badly enough or absolutely hate something that needs to stop immediately. The last two stages of Awareness help you connect facts with emotions and turn them into lasting motivation.",
+      },
+      {
+        question: "How does the Weight Permanence Triangle™ handle hunger differently from diets?",
+        answer:
+          "Oscar hates using hunger as a weight loss tool. The Weight Permanence Triangle™ Method reduces the biological drivers of hunger instead of forcing caloric deficiency, and explicitly encourages eating until you are full rather than relying on discomfort to lose weight.",
+      },
+      {
+        question: "How does the Weight Permanence Triangle™ help during travel and social eating?",
+        answer:
+          "The Weight Permanence Triangle™ helps during travel and social eating by providing flexible decision frameworks that maintain direction without requiring perfect conditions. The Permanence tools stabilise decisions when your environment, context, or routine changes.",
       },
     ],
   },
