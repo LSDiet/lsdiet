@@ -1,49 +1,130 @@
 
 
-# Fix Hero Section Spacing
+# SEO Implementation Plan: Oscar Poon Entity Visibility
 
-## Problem Identified
+## Overview
+Implement progressive disclosure bio in the footer with full JSON-LD structured data to establish "Oscar Poon" as a searchable entity tied to WhatAboutWeight.
 
-The white space you see between the Hero section and the Journey section is caused by:
+---
 
-1. **`min-h-[85vh]`** - The Hero section has a minimum height of 85% of the viewport
-2. **`flex items-center justify-center`** - Content is centered vertically within that tall container
-3. This creates empty space at the bottom of the Hero section, between the chevron and the Journey section
+## Changes Summary
 
-The `pb-0` change is applied, but it doesn't help because the issue is the **height** of the section, not the padding.
+### 1. Footer Enhancement (FooterSimple.tsx)
+Add a collapsible "Founded by Oscar Poon" section using native HTML `<details>` element (crawlable by Google even when collapsed).
 
-## Solution
-
-Change the Hero section from a fixed minimum height with centered content to a layout that:
-- Aligns content to the **top** instead of center
-- Uses a smaller or no minimum height
-- Keeps appropriate top padding for the navbar
-
-## Changes
-
-### 1. Update HeroSection.tsx
-
+**Visual structure:**
 ```text
-FROM:
-  min-h-[85vh] flex items-center justify-center pt-16 pb-0
-
-TO:
-  flex flex-col justify-start pt-24 md:pt-32 pb-8
++--------------------------------------------------+
+|  [Logo] Weight Permanence                        |
+|                                                  |
+|  ▶ Founded by Oscar Poon                         |
+|     (expands to show bio when clicked)           |
+|                                                  |
+|  © 2026 NTL Learning Solutions Inc.              |
++--------------------------------------------------+
 ```
 
-This will:
-- Remove the 85vh minimum height constraint
-- Align content to the top with generous top padding (for navbar clearance)
-- Add a small bottom padding for breathing room before the next section
+**Bio content (your copy):**
+> **Oscar Poon** is the founder of WhatAboutWeight (Book: Weight Permanence) and the creator of the Weight Permanence Triangle™ (WPT), a neurobehavioural training designed to make weight loss intentional, sustainable, and permanent.
+>
+> After losing over 60 lbs multiple times and observing why willpower-based approaches repeatedly fail, he developed WPT to address the behavioural and biological drivers of weight regain.
+
+---
+
+### 2. JSON-LD Structured Data (index.html)
+Inject three interconnected schemas into the `<head>`:
+
+**A. Person Schema (Oscar Poon)**
+- Full name, job title, description
+- Links to YouTube and LinkedIn via `sameAs`
+- References WhatAboutWeight as `worksFor`
+
+**B. Book Schema (Weight Permanence)**
+- Author reference pointing to Oscar Poon
+- Genre: Health, Weight Loss
+- Publisher: NTL Learning Solutions Inc.
+
+**C. Organization Schema (WhatAboutWeight)**
+- Founder reference pointing to Oscar Poon
+- URL and description
+
+---
+
+### 3. Meta Tag Updates (index.html)
+- Change `<meta name="author">` from "Weight Permanence" to "Oscar Poon"
+- Update OG image and Twitter image to your actual site preview (optional, if you have one)
+
+---
+
+### 4. Image Alt Text Fix (AboutAuthorSection.tsx)
+- Change `alt="Oscar"` to `alt="Oscar Poon, founder of WhatAboutWeight"`
 
 ---
 
 ## Technical Details
 
-| Property | Current | Proposed |
-|----------|---------|----------|
-| Height | `min-h-[85vh]` | No minimum (content-driven) |
-| Vertical alignment | `items-center justify-center` | `justify-start` (top-aligned) |
-| Top padding | `pt-16` | `pt-24 md:pt-32` (more space for navbar) |
-| Bottom padding | `pb-0` | `pb-8` (small breathing room) |
+### File: `src/components/FooterSimple.tsx`
+Add collapsible bio section with styled `<details>` element:
+- Subtle styling that blends with footer
+- Chevron indicator for expandability
+- Bio text in muted color, non-intrusive
+
+### File: `index.html`
+Add JSON-LD script block with combined schema:
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://wpt-preorder.lovable.app/#oscar-poon",
+      "name": "Oscar Poon",
+      "jobTitle": "Founder",
+      "description": "Founder of WhatAboutWeight and creator of the Weight Permanence Triangle (WPT)...",
+      "worksFor": { "@id": "https://wpt-preorder.lovable.app/#organization" },
+      "sameAs": [
+        "https://www.youtube.com/@WhatAboutWeight",
+        "https://www.linkedin.com/in/poonoscar/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://wpt-preorder.lovable.app/#organization",
+      "name": "WhatAboutWeight",
+      "url": "https://wpt-preorder.lovable.app",
+      "founder": { "@id": "https://wpt-preorder.lovable.app/#oscar-poon" }
+    },
+    {
+      "@type": "Book",
+      "name": "Weight Permanence",
+      "author": { "@id": "https://wpt-preorder.lovable.app/#oscar-poon" },
+      "publisher": "NTL Learning Solutions Inc.",
+      "genre": ["Health", "Weight Loss", "Self-Help"]
+    }
+  ]
+}
+```
+
+### File: `src/components/AboutAuthorSection.tsx`
+Update image alt text for entity association.
+
+---
+
+## SEO Impact
+
+| Signal | Before | After |
+|--------|--------|-------|
+| "Oscar Poon" in HTML | 1 mention | 4+ mentions |
+| JSON-LD Person schema | None | Full entity |
+| Book-Author link | None | Explicit |
+| Meta author tag | Generic | Oscar Poon |
+| Image alt text | "Oscar" | Full name + context |
+| Social profile links | None | YouTube, LinkedIn |
+
+---
+
+## User Experience
+- **Default view**: Readers see only "Founded by Oscar Poon" - minimal, non-intrusive
+- **On click**: Bio expands for curious readers
+- **SEO**: Google sees full content regardless of collapsed state
 
