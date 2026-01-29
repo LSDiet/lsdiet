@@ -153,11 +153,14 @@ export function MethodSection() {
           </p>
           <p 
             ref={taglineRef}
-            className={`text-sm md:text-base text-accent/90 italic font-semibold max-w-xl mx-auto transition-all duration-700 delay-300 ${
+            className={`text-sm md:text-base text-muted-foreground italic max-w-xl mx-auto transition-all duration-700 delay-300 ${
               taglineVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
             }`}
           >
-            (It trains your brain to want to lose weight so badly that excuses stop working.)
+            (It trains your brain to want to lose weight so badly that{" "}
+            <span className="font-bold text-lg md:text-xl text-accent not-italic bg-accent/15 px-2 py-0.5 rounded-md">
+              excuses stop working
+            </span>.)
           </p>
         </div>
 
