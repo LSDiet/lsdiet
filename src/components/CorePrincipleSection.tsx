@@ -34,13 +34,13 @@ export function CorePrincipleSection() {
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">•</span>
                   <span className="text-primary">
-                    When sugar is <span className="font-semibold text-red-500">HIGH</span>, it is used first and fat stays stored.
+                    <span className="font-semibold text-red-500">HIGH</span> sugar → fat stays stored
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">•</span>
                   <span className="text-primary">
-                    When sugar is <span className="font-semibold text-green-500">LOW</span>, the body shifts to using stored fat for energy.
+                    <span className="font-semibold text-green-500">LOW</span> sugar → body burns fat
                   </span>
                 </li>
               </ul>
