@@ -27,24 +27,28 @@ export function CorePrincipleSection() {
             {/* The Biology Card */}
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border">
               <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Biology</h4>
-              <p className="text-muted-foreground mb-4">When starch and sugar keep insulin elevated:</p>
-              <ul className="space-y-2 mb-6">
+              <p className="text-muted-foreground mb-4">
+                Your body runs on two main fuels: <span className="font-bold text-primary">sugar and fat</span>.
+              </p>
+              <ul className="space-y-2 mb-5">
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">•</span>
-                  <span className="text-primary">Your body favours fat storage</span>
+                  <span className="text-primary">
+                    When sugar is <span className="font-semibold text-red-500">HIGH</span>, it is used first and fat stays stored.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-accent mt-1">•</span>
-                  <span className="text-primary">Fat access is blocked</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-accent mt-1">•</span>
-                  <span className="text-primary">Hunger stays high</span>
+                  <span className="text-primary">
+                    When sugar is <span className="font-semibold text-green-500">LOW</span>, the body shifts to using stored fat for energy.
+                  </span>
                 </li>
               </ul>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Hunger is biological, not a lack of discipline. When that biology is deliberately amplified by a multibillion-dollar ultra-processed food industry built for repeat consumption, willpower alone will never win.
-              </p>
+              <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  The body prioritizes sugar when it's readily available. When sugar drops, it naturally shifts toward using fat for energy. <span className="font-medium text-primary">When this process is disrupted, hunger stays high.</span>
+                </p>
+              </div>
             </div>
 
             {/* The Challenge Card */}
