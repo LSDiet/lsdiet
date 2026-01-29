@@ -299,23 +299,23 @@ export function MissingPieceSection() {
               <span className="relative inline-block">
                 <span className="text-muted-foreground/70">eating less</span>
                 <svg 
-                  className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] pointer-events-none" 
-                  viewBox="0 0 100 40" 
+                  className="absolute inset-0 w-full h-full pointer-events-none" 
+                  viewBox="0 0 100 30" 
                   preserveAspectRatio="none"
                 >
                   <path 
-                    d="M 5 5 Q 15 12, 95 35 M 95 5 Q 85 12, 5 35" 
+                    d="M 10 8 Q 50 15, 90 22 M 90 8 Q 50 15, 10 22" 
                     stroke="hsl(0, 65%, 50%)" 
-                    strokeWidth="3" 
+                    strokeWidth="2" 
                     strokeLinecap="round" 
                     fill="none" 
-                    opacity="0.7"
+                    opacity="0.6"
                     style={{ filter: "url(#crayon)" }}
                   />
                   <defs>
                     <filter id="crayon">
                       <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise" />
-                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
+                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
                     </filter>
                   </defs>
                 </svg>
@@ -324,23 +324,23 @@ export function MissingPieceSection() {
               <span className="relative inline-block">
                 <span className="text-muted-foreground/70">exercising more</span>
                 <svg 
-                  className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] pointer-events-none" 
-                  viewBox="0 0 100 40" 
+                  className="absolute inset-0 w-full h-full pointer-events-none" 
+                  viewBox="0 0 100 30" 
                   preserveAspectRatio="none"
                 >
                   <path 
-                    d="M 5 5 Q 15 12, 95 35 M 95 5 Q 85 12, 5 35" 
+                    d="M 10 8 Q 50 15, 90 22 M 90 8 Q 50 15, 10 22" 
                     stroke="hsl(0, 65%, 50%)" 
-                    strokeWidth="3" 
+                    strokeWidth="2" 
                     strokeLinecap="round" 
                     fill="none" 
-                    opacity="0.7"
+                    opacity="0.6"
                     style={{ filter: "url(#crayon2)" }}
                   />
                   <defs>
                     <filter id="crayon2">
                       <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" result="noise" />
-                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
+                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
                     </filter>
                   </defs>
                 </svg>
