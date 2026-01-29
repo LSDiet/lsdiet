@@ -295,7 +295,57 @@ export function MissingPieceSection() {
         <div className="max-w-3xl mx-auto">
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              Weight loss is not just about eating less and exercising more, but about{" "}
+              Weight loss is not just about{" "}
+              <span className="relative inline-block">
+                <span className="text-muted-foreground/70">eating less</span>
+                <svg 
+                  className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] pointer-events-none" 
+                  viewBox="0 0 100 40" 
+                  preserveAspectRatio="none"
+                >
+                  <path 
+                    d="M 5 5 Q 15 12, 95 35 M 95 5 Q 85 12, 5 35" 
+                    stroke="hsl(0, 65%, 50%)" 
+                    strokeWidth="3" 
+                    strokeLinecap="round" 
+                    fill="none" 
+                    opacity="0.7"
+                    style={{ filter: "url(#crayon)" }}
+                  />
+                  <defs>
+                    <filter id="crayon">
+                      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise" />
+                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
+                    </filter>
+                  </defs>
+                </svg>
+              </span>{" "}
+              and{" "}
+              <span className="relative inline-block">
+                <span className="text-muted-foreground/70">exercising more</span>
+                <svg 
+                  className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] pointer-events-none" 
+                  viewBox="0 0 100 40" 
+                  preserveAspectRatio="none"
+                >
+                  <path 
+                    d="M 5 5 Q 15 12, 95 35 M 95 5 Q 85 12, 5 35" 
+                    stroke="hsl(0, 65%, 50%)" 
+                    strokeWidth="3" 
+                    strokeLinecap="round" 
+                    fill="none" 
+                    opacity="0.7"
+                    style={{ filter: "url(#crayon2)" }}
+                  />
+                  <defs>
+                    <filter id="crayon2">
+                      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" result="noise" />
+                      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
+                    </filter>
+                  </defs>
+                </svg>
+              </span>
+              , but about{" "}
               <span className="font-semibold text-primary">
                 eating right and moving in ways that make sense within your culture, access, and physical reality.
               </span>
