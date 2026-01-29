@@ -61,9 +61,9 @@ function EquationFlow() {
       case "middle":
         return "bg-muted/60 text-muted-foreground";
       case "key":
-        return "bg-accent/20 text-accent-foreground font-medium";
+        return "bg-accent/30 text-accent font-semibold border border-accent/40";
       case "end":
-        return "bg-primary/12 text-primary font-medium";
+        return "bg-primary/15 text-primary font-medium border border-primary/25";
       default:
         return "bg-muted/50 text-muted-foreground";
     }
