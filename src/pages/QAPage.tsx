@@ -726,7 +726,7 @@ function FAQCategory({
                     disabled={isCheckoutLoading}
                     className="text-accent hover:underline font-medium disabled:opacity-50"
                   >
-                    {isCheckoutLoading ? "Loading..." : "Learn how to lose weight and keep it off — preorder now →"}
+                    {isCheckoutLoading ? "Loading..." : "Learn how to lose weight and keep it off — preorder your copy"}
                   </button>
                 </p>
               );
