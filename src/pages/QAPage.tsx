@@ -662,9 +662,9 @@ function FAQCategory({
               const match = item.question.match(/^(Does obesity (?:cause|reduce|shorten|limit))\s+(.+?)(\??)$/i);
               if (match) {
                 return (
-                  <>
-                    {match[1]} <span className="font-bold">{match[2]}</span>{match[3]}
-                  </>
+                  <span>
+                    {match[1]} <strong>{match[2]}</strong>{match[3]}
+                  </span>
                 );
               }
             }
