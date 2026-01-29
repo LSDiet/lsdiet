@@ -1,44 +1,49 @@
 
-## Summary
-Update branding across multiple sections: rename "My Journey" to "The Weight Problem" in navigation, rename "The Method" to "The Solution" with updated description, and reduce whitespace above "The Missing Piece" section.
+
+# Fix Hero Section Spacing
+
+## Problem Identified
+
+The white space you see between the Hero section and the Journey section is caused by:
+
+1. **`min-h-[85vh]`** - The Hero section has a minimum height of 85% of the viewport
+2. **`flex items-center justify-center`** - Content is centered vertically within that tall container
+3. This creates empty space at the bottom of the Hero section, between the chevron and the Journey section
+
+The `pb-0` change is applied, but it doesn't help because the issue is the **height** of the section, not the padding.
+
+## Solution
+
+Change the Hero section from a fixed minimum height with centered content to a layout that:
+- Aligns content to the **top** instead of center
+- Uses a smaller or no minimum height
+- Keeps appropriate top padding for the navbar
 
 ## Changes
 
-### 1. Navbar.tsx - Rename "My Journey" to "The Weight Problem"
+### 1. Update HeroSection.tsx
 
-**Line 5**: Update the navLinks array
-- Change: `"My Journey"` to `"The Weight Problem"`
+```text
+FROM:
+  min-h-[85vh] flex items-center justify-center pt-16 pb-0
 
-### 2. MethodSection.tsx - Rename to "The Solution" and Update Description
+TO:
+  flex flex-col justify-start pt-24 md:pt-32 pb-8
+```
 
-**Line 145 (banner text)**:
-- Change: `The Method` to `The Solution`
-
-**Line 148 (heading)**:
-- Change: `The Weight Permanence Triangle™` to `The Solution: Weight Permanence Triangle™`
-
-**Lines 150-152 (description paragraph)**:
-- Current: "Three interconnected principles that keep weight loss prioritized even when life gets busy. When it becomes the primary reference point in your brain, daily choices around food, movement, and recovery align without external reminders."
-- New: "A guided neurobehavioural training to automatically prioritize weight loss, establish daily practices, and build an internal alert system when things get derailed. Three interconnected principles to optimize weight and avoid a future where your choices shrink."
-
-### 3. JourneySection.tsx - Reduce Bottom Margin (affects spacing above Missing Piece)
-
-**Line 106**: The JourneyCardsGrid has `mb-16` (64px margin-bottom) which creates whitespace before the next section.
-- Change: `mb-16` to `mb-8` (reduces from 64px to 32px - a 50% reduction)
+This will:
+- Remove the 85vh minimum height constraint
+- Align content to the top with generous top padding (for navbar clearance)
+- Add a small bottom padding for breathing room before the next section
 
 ---
 
 ## Technical Details
 
-| File | Location | Current | Updated |
-|------|----------|---------|---------|
-| Navbar.tsx | Line 5 | `"My Journey"` | `"The Weight Problem"` |
-| MethodSection.tsx | Line 145 | `The Method` | `The Solution` |
-| MethodSection.tsx | Line 148 | `The Weight Permanence Triangle™` | `The Solution: Weight Permanence Triangle™` |
-| MethodSection.tsx | Lines 150-152 | Current description | New delivery-focused description |
-| JourneySection.tsx | Line 106 | `mb-16` | `mb-8` |
+| Property | Current | Proposed |
+|----------|---------|----------|
+| Height | `min-h-[85vh]` | No minimum (content-driven) |
+| Vertical alignment | `items-center justify-center` | `justify-start` (top-aligned) |
+| Top padding | `pt-16` | `pt-24 md:pt-32` (more space for navbar) |
+| Bottom padding | `pb-0` | `pb-8` (small breathing room) |
 
-## Files to Modify
-- `src/components/Navbar.tsx`
-- `src/components/MethodSection.tsx`
-- `src/components/JourneySection.tsx`
