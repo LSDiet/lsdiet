@@ -296,7 +296,7 @@ const faqCategories = [
     ],
   },
   {
-    title: "The Low-Starch, Low-Sugar Approach",
+    title: "The Low-Starch, Low-Sugar Training",
     questions: [
       {
         question: "What does a low-starch, low-sugar lifestyle actually mean?",
