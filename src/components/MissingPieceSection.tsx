@@ -209,7 +209,7 @@ export function MissingPieceSection() {
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               At 40, I realized that was far too early to{" "}
-              <span className="font-bold text-xl md:text-2xl text-primary bg-primary/10 px-2 py-1 rounded-lg">
+              <span className="font-semibold text-primary">
                 surrender my future
               </span>.
             </p>
