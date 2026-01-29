@@ -347,7 +347,7 @@ export function MissingPieceSection() {
               </span>
               , but about{" "}
               <span className="font-semibold text-primary">
-                eating right and moving in ways that make sense within your culture, access, and physical reality.
+                eating and moving in ways that make sense for your goals, context, and access.
               </span>
             </p>
           </div>
