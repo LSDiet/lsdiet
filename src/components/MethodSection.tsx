@@ -136,6 +136,7 @@ function TriangleDiagram() {
 
 export function MethodSection() {
   const { ref: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
+  const { ref: taglineRef, isVisible: taglineVisible } = useScrollAnimation();
 
   return (
     <section id="method" className="py-7">
@@ -150,7 +151,12 @@ export function MethodSection() {
           <p className="text-muted-foreground max-w-3xl mx-auto mb-3">
             Weight Permanence Triangle (WPT) is a guided neurobehavioural training that helps you condition weight loss to become the first daily priority, makes eating and movement decisions intentional, and activates an internal alert-and-accounting system that re-anchors actions when routines, environments, or emotions derail progress.
           </p>
-          <p className="text-sm md:text-base text-accent/90 italic font-semibold max-w-xl mx-auto">
+          <p 
+            ref={taglineRef}
+            className={`text-sm md:text-base text-accent/90 italic font-semibold max-w-xl mx-auto transition-all duration-700 delay-300 ${
+              taglineVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
+            }`}
+          >
             (It trains your brain to want to lose weight so badly that excuses stop working.)
           </p>
         </div>
