@@ -8,14 +8,6 @@ export function HeroSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px]">
-          <div className="absolute inset-0 opacity-[0.03]">
-            {/* Triangle pattern background */}
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary" />
-            </svg>
-          </div>
-        </div>
       </div>
 
       <div className="container relative z-10 text-center max-w-4xl mx-auto px-4">
