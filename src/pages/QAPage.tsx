@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -599,12 +600,12 @@ export default function QAPage() {
             <p className="text-lg text-primary mb-4">
               Ready to understand the full framework?
             </p>
-            <a
-              href="/#book"
+            <Link
+              to="/#book"
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
             >
               Learn About the Book
-            </a>
+            </Link>
           </div>
         </section>
       </main>
@@ -685,12 +686,12 @@ function FAQCategory({
               {category.hasBookCta && item.condition && (
                 <p className="mt-4 pt-3 border-t border-border/50">
                   <span className="text-primary font-medium">Start acting today:</span>{" "}
-                  <a
-                    href="/#book"
+                  <Link
+                    to="/#book"
                     className="text-accent hover:underline font-medium"
                   >
                     Order Weight Permanence
-                  </a>{" "}
+                  </Link>{" "}
                   to reduce your likelihood of {item.condition}.
                 </p>
               )}
