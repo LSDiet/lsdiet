@@ -147,8 +147,11 @@ export function MethodSection() {
           <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
             Weight Permanence Triangle™
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto">
-            A guided neurobehavioural training to automatically prioritize weight loss, establish daily practices, and build an internal alert system when things get derailed. Three interconnected principles to optimize weight and avoid a future where your choices shrink.
+          <p className="text-muted-foreground max-w-3xl mx-auto mb-3">
+            Weight Permanence Triangle (WPT) is a guided neurobehavioural training that conditions weight loss to become the first daily priority, makes eating and movement decisions intentional, and activates an internal alert-and-accounting system that re-anchors actions when routines, environments, or emotions derail progress.
+          </p>
+          <p className="text-sm md:text-base text-accent/90 italic max-w-xl mx-auto">
+            (It trains your brain to want to lose weight so badly that excuses stop working.)
           </p>
         </div>
 
