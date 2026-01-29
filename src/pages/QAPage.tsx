@@ -15,172 +15,172 @@ const faqCategories = [
     hasBookCta: true,
     questions: [
       {
-        question: "With obesity, why are you more likely to develop type 2 diabetes?",
+        question: "Does obesity cause type 2 diabetes?",
         answer:
           "Excess body fat, especially visceral adipose tissue around the abdomen, releases pro-inflammatory cytokines (including TNF-α and IL-6) that impair insulin signalling, causing insulin resistance. Over time, the pancreas cannot produce enough insulin to compensate, leading to chronically elevated blood glucose. Uncontrolled type 2 diabetes can result in serious complications: diabetic retinopathy (vision loss), diabetic nephropathy (kidney failure requiring dialysis), peripheral neuropathy (nerve damage causing numbness and pain), and significantly increased risk of heart attack and stroke. Losing weight reduces visceral fat and inflammatory markers, restoring insulin sensitivity and lowering blood glucose levels.",
         condition: "type 2 diabetes",
       },
       {
-        question: "With obesity, why are you more likely to have high blood pressure?",
+        question: "Does obesity cause high blood pressure?",
         answer:
           "Obesity increases the workload on the heart by requiring more blood to supply additional adipose tissue. Excess fat also activates the renin-angiotensin-aldosterone system (RAAS), promoting sodium retention and vasoconstriction. Elevated leptin levels from fat tissue further stimulate the sympathetic nervous system, raising heart rate and blood pressure. Chronic hypertension damages blood vessel walls and can lead to left ventricular hypertrophy (thickened heart muscle), heart failure, stroke, kidney damage, and vision impairment. Losing weight reduces blood volume demands, calms the sympathetic nervous system, and often lowers blood pressure by 5–20 mmHg.",
         condition: "high blood pressure",
       },
       {
-        question: "With obesity, why are you more likely to develop heart disease?",
+        question: "Does obesity cause heart disease?",
         answer:
           "Obesity contributes to atherosclerosis—the buildup of fatty plaques (composed of cholesterol, inflammatory cells, and fibrous tissue) inside coronary arteries. Pro-inflammatory adipokines (such as leptin) and cytokines (including IL-6 and CRP—C-reactive protein) accelerate this plaque formation. Additionally, obesity promotes dyslipidemia: elevated LDL cholesterol and triglycerides with reduced protective HDL cholesterol. When plaques rupture, they trigger blood clots that can cause myocardial infarction (heart attack) or sudden cardiac death. Weight loss reduces inflammatory markers (studies show CRP levels drop significantly), improves lipid profiles, and slows or reverses plaque progression.",
         condition: "heart disease",
       },
       {
-        question: "With obesity, why are you more likely to experience stroke?",
+        question: "Does obesity cause stroke?",
         answer:
           "Obesity elevates stroke risk through multiple pathways: hypertension damages cerebral blood vessels, atherosclerosis narrows carotid arteries supplying the brain, and a pro-thrombotic state (elevated fibrinogen, plasminogen activator inhibitor-1) increases blood clot formation. These factors can cause ischaemic stroke (blocked blood flow) or haemorrhagic stroke (vessel rupture). Stroke consequences include paralysis, speech impairment (aphasia), cognitive decline, difficulty swallowing, and permanent disability—with stroke being a leading cause of long-term disability worldwide. Reducing weight lowers blood pressure, improves arterial health, and decreases clotting risk, substantially lowering stroke likelihood.",
         condition: "stroke",
       },
       {
-        question: "With obesity, why are you more likely to have insulin resistance?",
+        question: "Does obesity cause insulin resistance?",
         answer:
           "Excess adipose tissue, particularly visceral fat, releases inflammatory cytokines (TNF-α, IL-6, MCP-1) and free fatty acids that interfere with insulin receptor signalling in muscle, liver, and fat cells. This metabolic dysfunction means cells require more insulin to absorb glucose—a state called insulin resistance. Consequences include chronically elevated insulin (hyperinsulinaemia), which promotes further fat storage, prevents fat burning, drives constant hunger, and eventually exhausts pancreatic beta cells, progressing to type 2 diabetes. Weight reduction decreases inflammatory mediators and free fatty acids, restoring normal insulin signalling and sensitivity.",
         condition: "insulin resistance",
       },
       {
-        question: "With obesity, why are you more likely to experience chronic inflammation?",
+        question: "Does obesity cause chronic inflammation?",
         answer:
           "Enlarged fat cells (adipocytes) and infiltrating macrophages produce a sustained release of pro-inflammatory cytokines: tumour necrosis factor-alpha (TNF-α), interleukin-6 (IL-6), interleukin-1 beta (IL-1β), and monocyte chemoattractant protein-1 (MCP-1). This creates systemic low-grade inflammation measurable by elevated C-reactive protein (CRP) in blood tests. Chronic inflammation contributes to insulin resistance, accelerated atherosclerosis, joint degradation, increased cancer risk, and even neuroinflammation affecting mood and cognition. Losing weight reduces adipocyte size and macrophage infiltration, lowering inflammatory cytokine production and CRP levels.",
         condition: "chronic inflammation",
       },
       {
-        question: "With obesity, why are you more likely to develop metabolic syndrome?",
+        question: "Does obesity cause metabolic syndrome?",
         answer:
           "Metabolic syndrome is diagnosed when three or more of these conditions are present: central obesity (waist circumference >40 inches in men, >35 inches in women), elevated triglycerides (≥150 mg/dL), low HDL cholesterol (<40 mg/dL men, <50 mg/dL women), elevated blood pressure (≥130/85 mmHg), and elevated fasting glucose (≥100 mg/dL). Obesity drives all five components through insulin resistance, inflammation, and hormonal dysregulation. Having metabolic syndrome doubles heart disease risk and increases type 2 diabetes risk fivefold. Weight loss improves all components simultaneously—often normalising blood pressure, lipids, and glucose with just 5–10% body weight reduction.",
         condition: "metabolic syndrome",
       },
       {
-        question: "With obesity, why are you more likely to have abnormal cholesterol levels?",
+        question: "Does obesity cause high cholesterol?",
         answer:
           "Obesity causes dyslipidemia—a dangerous lipid pattern characterised by elevated triglycerides, increased small dense LDL particles (the most atherogenic form), and reduced HDL cholesterol. Insulin resistance impairs the liver's ability to clear triglyceride-rich lipoproteins and reduces production of protective HDL. This lipid profile accelerates atherosclerotic plaque formation throughout the body, increasing risk of heart attack, stroke, and peripheral artery disease (reduced blood flow to limbs, potentially requiring amputation). Weight loss improves hepatic lipid metabolism, raises HDL, lowers triglycerides, and shifts LDL particles to a less harmful large-buoyant form.",
-        condition: "abnormal cholesterol levels",
+        condition: "high cholesterol",
       },
       {
-        question: "With obesity, why are you more likely to experience hormonal imbalance?",
+        question: "Does obesity cause hormonal imbalance?",
         answer:
           "Adipose tissue is an active endocrine organ that produces hormones affecting metabolism and reproduction. Obesity elevates leptin (causing leptin resistance and persistent hunger), reduces adiponectin (an anti-inflammatory, insulin-sensitising hormone), and increases aromatase activity—converting androgens to oestrogens. In women, this hormonal disruption can cause polycystic ovary syndrome (PCOS), irregular menstrual cycles, and infertility. In men, elevated oestrogen and reduced testosterone can cause hypogonadism, reduced libido, and gynaecomastia (breast tissue development). Weight loss restores hormonal balance: leptin sensitivity improves, adiponectin rises, and sex hormone levels normalise.",
         condition: "hormonal imbalance",
       },
       {
-        question: "With obesity, why are you more likely to have impaired fat metabolism?",
+        question: "Does obesity slow down fat burning?",
         answer:
           "Chronic hyperinsulinaemia from obesity blocks lipolysis (the release of stored fat) and inhibits fat oxidation (burning fat for energy). The enzyme hormone-sensitive lipase, which breaks down stored triglycerides, is suppressed by insulin. Additionally, inflammatory cytokines (TNF-α, IL-6) impair mitochondrial function, reducing the cell's capacity to burn fat efficiently—a state called metabolic inflexibility. The consequence is an inability to access stored energy despite excess body fat, driving persistent hunger and fatigue. Weight loss through reduced starch and sugar intake lowers insulin, reactivates lipolysis, and restores metabolic flexibility.",
         condition: "impaired fat metabolism",
       },
       {
-        question: "With obesity, why are you more likely to develop fatty liver disease?",
+        question: "Does obesity cause fatty liver disease?",
         answer:
           "Excess calories and insulin resistance cause triglycerides to accumulate in liver cells (hepatocytes), initially as non-alcoholic fatty liver disease (NAFLD). This can progress to non-alcoholic steatohepatitis (NASH), where inflammation and cell death occur, then to liver fibrosis (scarring), cirrhosis (permanent structural damage), and ultimately hepatocellular carcinoma (liver cancer). NAFLD affects approximately 25% of the global population, with obesity being the primary driver. Consequences include liver failure requiring transplantation. Weight loss of just 7–10% of body weight reduces liver fat content significantly and can reverse early-stage NAFLD and NASH.",
         condition: "fatty liver disease",
       },
       {
-        question: "With obesity, why are you more likely to have gallbladder disease?",
+        question: "Does obesity cause gallbladder problems?",
         answer:
           "Obesity increases hepatic cholesterol secretion into bile, causing bile to become supersaturated with cholesterol. This promotes formation of cholesterol gallstones (cholelithiasis)—crystallised deposits that can block the bile duct. Blocked bile flow causes biliary colic (severe abdominal pain), acute cholecystitis (gallbladder inflammation), and potentially life-threatening complications like pancreatitis or gallbladder rupture. Obesity also reduces gallbladder motility, allowing stones to form more easily. Gradual weight loss reduces cholesterol saturation in bile and improves gallbladder function, though rapid weight loss can temporarily increase stone risk.",
         condition: "gallbladder disease",
       },
       {
-        question: "With obesity, why are you more likely to experience breathing problems like sleep apnoea?",
+        question: "Does obesity cause sleep apnoea?",
         answer:
           "Fat deposits in the pharyngeal area (neck and throat) narrow the upper airway, while abdominal obesity compresses the diaphragm and reduces lung capacity. During sleep, relaxed throat muscles allow the narrowed airway to collapse completely—causing obstructive sleep apnoea (OSA). Each apnoea episode stops breathing for 10–30 seconds, causing oxygen desaturation and micro-arousals that fragment sleep. Consequences include severe daytime fatigue, impaired concentration, increased accident risk, hypertension, heart arrhythmias (atrial fibrillation), and elevated cardiovascular mortality. Weight loss often dramatically improves or resolves OSA—studies show a 10% weight reduction can decrease apnoea severity by 50% or more.",
         condition: "sleep apnoea",
       },
       {
-        question: "With obesity, why are you more likely to have reduced lung function?",
+        question: "Does obesity reduce lung function?",
         answer:
           "Excess adipose tissue around the chest wall and abdomen mechanically restricts thoracic expansion and diaphragm movement, reducing functional residual capacity and tidal volume. This restrictive pattern impairs gas exchange and oxygen delivery. Obesity also increases airway resistance and can exacerbate asthma symptoms through inflammatory pathways. Consequences include exertional dyspnoea (breathlessness during activity), reduced exercise tolerance, hypoventilation syndrome (inadequate breathing leading to elevated CO2), and respiratory failure in severe cases. Weight loss reduces mechanical restriction, improves lung expansion, and often normalises respiratory function.",
         condition: "reduced lung function",
       },
       {
-        question: "With obesity, why are you more likely to develop osteoarthritis?",
+        question: "Does obesity cause osteoarthritis?",
         answer:
           "Every pound of body weight exerts approximately four pounds of pressure on knee joints during walking. Excess weight accelerates cartilage breakdown through mechanical overload. Additionally, obesity-related inflammation (elevated IL-6, TNF-α, and leptin) directly degrades cartilage through enzymatic pathways and impairs cartilage repair. Osteoarthritis consequences include chronic joint pain, stiffness, reduced mobility, and eventual need for joint replacement surgery (over 600,000 knee replacements annually in the US alone). Weight loss reduces joint loading and inflammatory cytokines—losing just 10% of body weight can reduce knee pain by 50% and slow disease progression.",
         condition: "osteoarthritis",
       },
       {
-        question: "With obesity, why are you more likely to have chronic back pain?",
+        question: "Does obesity cause back pain?",
         answer:
           "Excess abdominal weight shifts the body's centre of gravity forward, increasing lumbar lordosis (inward curvature of the lower spine) and placing abnormal stress on spinal discs, facet joints, and paraspinal muscles. This mechanical overload accelerates disc degeneration, herniation, and facet joint arthritis. Obesity-related inflammation also sensitises pain pathways and impairs disc healing. Consequences include chronic low back pain, sciatica (radiating leg pain from nerve compression), reduced mobility, and disability affecting work and daily activities. Weight reduction decreases spinal loading, reduces inflammation, and often significantly improves or resolves back pain.",
         condition: "chronic back pain",
       },
       {
-        question: "With obesity, why are you more likely to develop gallstones?",
+        question: "Does obesity cause gallstones?",
         answer:
           "Obesity causes the liver to oversecrete cholesterol into bile while reducing bile acid and phospholipid production, creating bile that is supersaturated with cholesterol. This imbalance promotes cholesterol crystal nucleation and gallstone formation. Reduced gallbladder emptying (hypomotility) in obesity allows crystals to aggregate into stones. Gallstone complications include biliary colic (intense pain lasting hours), acute cholecystitis requiring emergency surgery, choledocholithiasis (stones blocking the common bile duct), cholangitis (bile duct infection), and acute pancreatitis. Sustained weight loss normalises bile composition and reduces stone formation risk.",
         condition: "gallstones",
       },
       {
-        question: "With obesity, why are you more likely to develop chronic kidney disease?",
+        question: "Does obesity cause kidney disease?",
         answer:
           "Obesity causes glomerular hyperfiltration—the kidneys work harder to filter blood, which damages delicate filtration structures (glomeruli) over time. Additionally, obesity's comorbidities—hypertension, type 2 diabetes, and dyslipidemia—are the leading causes of chronic kidney disease (CKD). Elevated inflammatory cytokines and adipokines (especially leptin) directly promote renal fibrosis. CKD progression leads to declining kidney function (measured by eGFR), proteinuria, fluid retention, electrolyte imbalances, and eventually end-stage renal disease requiring dialysis or transplantation. Weight loss reduces hyperfiltration pressure, improves blood pressure and glucose control, and slows CKD progression.",
-        condition: "chronic kidney disease",
+        condition: "kidney disease",
       },
       {
-        question: "With obesity, why are you more likely to have pregnancy complications?",
+        question: "Does obesity cause pregnancy complications?",
         answer:
           "Maternal obesity increases risk of gestational diabetes mellitus (GDM), pre-eclampsia (dangerously high blood pressure), and gestational hypertension through insulin resistance and vascular dysfunction. These complications can cause preterm birth, macrosomia (abnormally large baby), birth injuries, emergency caesarean delivery, and postpartum haemorrhage. For the baby, risks include congenital abnormalities (neural tube defects), stillbirth, neonatal hypoglycaemia, and increased childhood obesity risk. Long-term maternal consequences include progression to type 2 diabetes and cardiovascular disease. Achieving healthy weight before pregnancy significantly reduces these risks and improves outcomes for both mother and child.",
         condition: "pregnancy complications",
       },
       {
-        question: "With obesity, why are you more likely to develop certain cancers?",
+        question: "Does obesity cause cancer?",
         answer:
           "Obesity is linked to at least 13 cancer types: endometrial, oesophageal (adenocarcinoma), kidney, pancreatic, liver, gallbladder, colorectal, thyroid, postmenopausal breast, ovarian, gastric (cardia), multiple myeloma, and meningioma. Mechanisms include hyperinsulinaemia and elevated IGF-1 (insulin-like growth factor 1) stimulating cell proliferation; increased oestrogen from aromatase activity in adipose tissue promoting hormone-sensitive cancers; chronic inflammation (TNF-α, IL-6) creating a pro-tumour microenvironment; and hypoadiponectinaemia removing cancer-protective effects. Obesity may account for 13% of cancers in women and 12% in men. Weight loss reduces circulating insulin, IGF-1, oestrogens, and inflammatory markers, lowering cancer risk.",
-        condition: "certain cancers",
+        condition: "cancer",
       },
       {
-        question: "With obesity, why are you more likely to experience anxiety or depression?",
+        question: "Does obesity cause anxiety and depression?",
         answer:
           "Obesity affects mental health through multiple pathways: chronic low-grade inflammation (elevated IL-6, TNF-α, CRP) crosses the blood-brain barrier and disrupts neurotransmitter function, particularly serotonin and dopamine systems. Weight stigma and discrimination cause chronic psychological stress. Hormonal dysregulation (leptin resistance, cortisol elevation) affects mood regulation. Consequences include clinical depression, generalised anxiety disorder, social isolation, reduced quality of life, and in severe cases, suicidal ideation. The relationship is bidirectional—depression can promote weight gain through emotional eating and inactivity. Weight loss improves inflammatory markers, restores hormonal balance, and is associated with significant improvements in mood and self-esteem.",
-        condition: "anxiety or depression",
+        condition: "anxiety and depression",
       },
       {
-        question: "With obesity, why are you more likely to have lower quality of life?",
+        question: "Does obesity reduce quality of life?",
         answer:
           "Obesity reduces quality of life across multiple domains: physical functioning (limited mobility, joint pain, breathlessness), bodily pain (chronic musculoskeletal pain), general health perception, vitality (fatigue, low energy), social functioning (isolation, stigma), and mental health (depression, anxiety). Activities of daily living become challenging—climbing stairs, walking distances, personal hygiene, and occupational tasks. Studies using validated quality-of-life instruments (SF-36, EQ-5D) consistently show obesity significantly impairs scores. Weight loss improves all domains—physical function, energy levels, pain reduction, social engagement, and psychological wellbeing—often dramatically enhancing life satisfaction.",
         condition: "lower quality of life",
       },
       {
-        question: "With obesity, why are you more likely to be diagnosed with multiple chronic diseases?",
+        question: "Does obesity cause multiple chronic diseases?",
         answer:
           "Obesity is a root cause of multimorbidity—the presence of two or more chronic conditions. Through shared mechanisms of insulin resistance, chronic inflammation, and hormonal dysregulation, obesity simultaneously promotes type 2 diabetes, cardiovascular disease (hypertension, coronary artery disease), dyslipidemia, NAFLD, sleep apnoea, osteoarthritis, depression, and certain cancers. Managing multiple conditions requires numerous medications (polypharmacy), frequent medical appointments, and complex care coordination. Multimorbidity accelerates functional decline and dramatically increases healthcare costs. Weight loss addresses the common underlying pathophysiology, often improving multiple conditions simultaneously and reducing medication requirements.",
         condition: "multiple chronic diseases",
       },
       {
-        question: "With obesity, why are you more likely to have early onset chronic disease?",
+        question: "Does obesity cause early disease onset?",
         answer:
           "Obesity accelerates biological ageing and disease timelines. Children and adolescents with obesity now develop type 2 diabetes, hypertension, and fatty liver disease—conditions previously seen only in adults. Adults with obesity develop cardiovascular disease, metabolic syndrome, and certain cancers 10–20 years earlier than normal-weight individuals. This premature disease development is driven by prolonged exposure to hyperinsulinaemia, chronic inflammation (persistently elevated TNF-α, IL-6, CRP), and oxidative stress damaging cellular structures. Consequences include shortened disease-free years and earlier disability. Weight loss at any age slows these processes and can delay or prevent disease onset.",
-        condition: "early onset chronic disease",
+        condition: "early disease onset",
       },
       {
-        question: "With obesity, why are you more likely to have reduced life expectancy?",
+        question: "Does obesity shorten your lifespan?",
         answer:
           "Severe obesity (BMI ≥40) reduces life expectancy by 8–14 years compared to normal weight. Even moderate obesity shortens lifespan through increased mortality from cardiovascular disease (heart attack, stroke, heart failure), type 2 diabetes complications, obesity-related cancers, respiratory failure, and kidney disease. Each 5-point increase in BMI above 25 increases mortality risk by approximately 30%. Obesity also increases surgical complications and reduces recovery from critical illness. Intentional weight loss, even modest amounts (5–10% of body weight), reduces all-cause mortality risk and extends healthy life years.",
         condition: "reduced life expectancy",
       },
       {
-        question: "With obesity, why are you more likely to experience fatigue and low energy?",
+        question: "Does obesity cause fatigue?",
         answer:
           "Obesity causes fatigue through multiple mechanisms: insulin resistance prevents efficient cellular glucose uptake, leaving cells energy-starved despite high blood sugar; chronic inflammation (elevated TNF-α, IL-6) interferes with mitochondrial energy production; sleep apnoea fragments sleep and reduces restorative rest; depression commonly co-occurs with obesity and manifests as fatigue; and deconditioning from reduced physical activity worsens exercise intolerance. The consequence is persistent exhaustion affecting work productivity, relationships, and life enjoyment. Weight loss restores insulin sensitivity, reduces inflammation, improves sleep quality, elevates mood, and typically produces noticeable energy improvements within weeks.",
-        condition: "fatigue and low energy",
+        condition: "fatigue",
       },
       {
-        question: "With obesity, why are you more likely to struggle with daily physical function?",
+        question: "Does obesity limit daily physical function?",
         answer:
           "Excess weight creates mechanical limitations: joint pain from osteoarthritis, breathlessness from restricted lung capacity, reduced balance from altered centre of gravity, and muscle weakness from relative sarcopenia (low muscle mass relative to fat mass). Activities like climbing stairs, rising from chairs, walking distances, bending to tie shoes, and personal grooming become difficult or impossible. Functional decline often leads to disability, loss of independence, and need for assisted living. Weight loss combined with progressive physical activity reduces joint stress, improves cardiovascular fitness, builds functional strength, and restores independence in daily activities.",
         condition: "reduced physical function",
       },
       {
-        question: "With obesity, why are you more likely to struggle in environments with ultra-processed foods?",
+        question: "Why are ultra-processed foods so hard to resist?",
         answer:
           "Ultra-processed foods (UPFs) are engineered with refined starches, added sugars, unhealthy fats, and flavour enhancers that maximise palatability and consumption. They trigger rapid glucose spikes and insulin surges, promoting fat storage and hunger cycles. UPFs also disrupt gut microbiome composition, increasing inflammation and metabolic dysfunction. Studies link high UPF consumption to obesity, metabolic syndrome, cardiovascular disease, and certain cancers independent of calorie intake. The obesogenic environment—where UPFs are cheap, convenient, and heavily marketed—makes weight management extremely difficult. A low-starch, low-sugar approach reduces insulin response and breaks the cycle of cravings driven by processed food consumption.",
-        condition: "ultra-processed food struggles",
+        condition: "ultra-processed food cravings",
       },
     ],
   },
@@ -654,15 +654,32 @@ function FAQCategory({
     >
       <h2 className="text-xl font-semibold text-primary mb-4">{category.title}</h2>
       <Accordion type="single" collapsible className="space-y-2">
-        {category.questions.map((item, index) => (
-          <AccordionItem
-            key={index}
-            value={`${category.title}-${index}`}
-            className="border border-border rounded-lg px-4 bg-card"
-          >
-            <AccordionTrigger className="text-left text-primary hover:no-underline">
-              {item.question}
-            </AccordionTrigger>
+        {category.questions.map((item, index) => {
+          // Bold the condition/disease in the question for the first category
+          const renderQuestion = () => {
+            if (category.hasBookCta && item.condition) {
+              // Pattern: "Does obesity cause X?" - bold the condition
+              const match = item.question.match(/^(Does obesity (?:cause|reduce|shorten|limit))\s+(.+?)(\??)$/i);
+              if (match) {
+                return (
+                  <>
+                    {match[1]} <span className="font-bold">{match[2]}</span>{match[3]}
+                  </>
+                );
+              }
+            }
+            return item.question;
+          };
+
+          return (
+            <AccordionItem
+              key={index}
+              value={`${category.title}-${index}`}
+              className="border border-border rounded-lg px-4 bg-card"
+            >
+              <AccordionTrigger className="text-left text-primary hover:no-underline">
+                {renderQuestion()}
+              </AccordionTrigger>
             <AccordionContent className="text-muted-foreground leading-relaxed">
               <p>{item.answer}</p>
               {category.hasBookCta && item.condition && (
@@ -679,7 +696,8 @@ function FAQCategory({
               )}
             </AccordionContent>
           </AccordionItem>
-        ))}
+          );
+        })}
       </Accordion>
     </div>
   );
