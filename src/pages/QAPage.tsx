@@ -356,7 +356,7 @@ const faqCategories = [
       {
         question: "What is the Weight Permanence Triangle™?",
         answer:
-          "Founded by Oscar Poon, the Weight Permanence Triangle™ is an actionable framework built around Awareness, Practice, and Permanence that helps people lose weight and keep it off by working with biology, behaviour, and real-life constraints.",
+          "Founded by Oscar Poon, the Weight Permanence Triangle™ (WPT) is a guided neurobehavioural training that helps you condition weight loss to become the first daily priority, make eating and movement decisions intentional, and activate an internal alert-and-accounting system that re-anchors actions when routines, environments, or emotions derail progress.",
       },
       {
         question: "How does the Weight Permanence Triangle™ work?",
@@ -386,7 +386,7 @@ const faqCategories = [
       {
         question: "What are the five stages of Awareness in the Weight Permanence Triangle™?",
         answer:
-          "The five stages of Awareness are: Reality Awareness (understanding your current state), Friction Awareness (identifying obstacles), Pattern Awareness (recognising recurring behaviours), Consequence Awareness (connecting actions to outcomes), and Autonomy Awareness (taking ownership of your choices).",
+          "The five stages of Awareness must be followed in order:\n\n1. **Reality Awareness** – Understanding your current state.\n2. **Friction Awareness** – Has that state put you in a more difficult position?\n3. **Pattern Awareness** – How long has that been? What have you done about it? How did it go? What worked and what didn't?\n4. **Consequence Awareness** – The root of push motivation: What if you stay like this for 10, 20, 30 years? What happens next?\n5. **Autonomy Awareness** – The root of pull motivation: What if things change? If you can lose 10 lbs a month, what does losing 50–100 lbs mean to you? What will this new you do for your body, relationships, and emotional wellbeing?",
       },
       {
         question: "How does emotional encoding affect weight loss?",
