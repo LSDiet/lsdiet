@@ -52,7 +52,7 @@ export const AboutAuthorSection = () => {
             <div className="md:w-48 flex-shrink-0">
               <img 
                 src={oscarPhoto} 
-                alt="Oscar" 
+                alt="Oscar Poon, founder of WhatAboutWeight" 
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
