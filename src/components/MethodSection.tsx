@@ -159,8 +159,8 @@ export function MethodSection() {
           >
             (It trains your brain to want to lose weight so badly that{" "}
             <span className="font-bold text-base md:text-lg text-accent not-italic whitespace-nowrap">
-              excuses stop working
-            </span>.)
+              excuses stop working!
+            </span>)
           </p>
         </div>
 
