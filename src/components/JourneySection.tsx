@@ -57,10 +57,16 @@ const journeyCards: JourneyCard[] = [
 function JourneyCard({ card }: { card: JourneyCard }) {
   const [showAfter, setShowAfter] = useState(false);
 
+  const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    setShowAfter(!showAfter);
+  };
+
   return (
     <div
-      className="relative group cursor-pointer"
-      onClick={() => setShowAfter(!showAfter)}
+      className="relative group cursor-pointer touch-manipulation"
+      onTouchEnd={handleInteraction}
+      onClick={handleInteraction}
       onMouseEnter={() => setShowAfter(true)}
       onMouseLeave={() => setShowAfter(false)}
     >
