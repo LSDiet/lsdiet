@@ -208,7 +208,7 @@ export function MissingPieceSection() {
               So I began learning how fat is formed, stored, and burned. Ignoring obesity means accepting a future shaped by chronic disease, lifelong medication, and fewer life options.
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              At 40, I realized that was far too early to{" "}
+              At only 40, I know I'm far too early to{" "}
               <span className="font-semibold text-primary">
                 surrender my future
               </span>.
