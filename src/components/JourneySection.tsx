@@ -131,7 +131,7 @@ export function JourneySection() {
       <div className="container">
         {/* Personal Introduction */}
         <div className="max-w-3xl mx-auto text-center mb-8">
-        <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25">
+          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
             <span className="text-sm font-medium text-accent">How It All Started</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-normal mb-6 text-primary">
