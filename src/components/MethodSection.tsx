@@ -158,7 +158,7 @@ export function MethodSection() {
             }`}
           >
             (It trains your brain to want to lose weight so badly that{" "}
-            <span className="font-bold text-lg md:text-xl text-accent not-italic bg-accent/15 px-2 py-0.5 rounded-md">
+            <span className="font-bold text-base md:text-lg text-accent not-italic whitespace-nowrap">
               excuses stop working
             </span>.)
           </p>
