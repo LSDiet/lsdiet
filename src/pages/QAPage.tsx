@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useDirectCheckout } from "@/hooks/useDirectCheckout";
 import {
   Accordion,
   AccordionContent,
@@ -352,6 +353,7 @@ const faqCategories = [
   },
   {
     title: "The Weight Permanence Triangle™ Method",
+    hasDirectCheckout: true,
     questions: [
       {
         question: "What is the Weight Permanence Triangle™?",
@@ -407,6 +409,7 @@ const faqCategories = [
   },
   {
     title: "The Book",
+    hasDirectCheckout: true,
     questions: [
       {
         question: "Is Weight Permanence a diet book?",
@@ -464,6 +467,7 @@ const faqCategories = [
 
 export default function QAPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.1);
+  const { handleDirectCheckout, isLoading: isCheckoutLoading } = useDirectCheckout();
 
   useEffect(() => {
     document.title = "Weight Loss Q&A - Why Can't I Keep Weight Off? | Weight Permanence";
@@ -508,6 +512,8 @@ export default function QAPage() {
                   key={category.title}
                   category={category}
                   delay={categoryIndex * 100}
+                  onDirectCheckout={category.hasDirectCheckout ? handleDirectCheckout : undefined}
+                  isCheckoutLoading={isCheckoutLoading}
                 />
               ))}
             </div>
@@ -639,9 +645,13 @@ export default function QAPage() {
 function FAQCategory({
   category,
   delay,
+  onDirectCheckout,
+  isCheckoutLoading,
 }: {
   category: (typeof faqCategories)[0];
   delay: number;
+  onDirectCheckout?: () => void;
+  isCheckoutLoading?: boolean;
 }) {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
@@ -672,18 +682,10 @@ function FAQCategory({
             return item.question;
           };
 
-          return (
-            <AccordionItem
-              key={index}
-              value={`${category.title}-${index}`}
-              className="border border-border rounded-lg px-4 bg-card"
-            >
-              <AccordionTrigger className="text-left text-primary hover:no-underline">
-                {renderQuestion()}
-              </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground leading-relaxed">
-              <p>{item.answer}</p>
-              {category.hasBookCta && item.condition && (
+          // Render the CTA based on category type
+          const renderCta = () => {
+            if (category.hasBookCta && item.condition) {
+              return (
                 <p className="mt-4 pt-3 border-t border-border/50">
                   <span className="text-primary font-medium">Start acting today:</span>{" "}
                   <Link
@@ -694,9 +696,40 @@ function FAQCategory({
                   </Link>{" "}
                   to reduce your likelihood of {item.condition}.
                 </p>
-              )}
-            </AccordionContent>
-          </AccordionItem>
+              );
+            }
+            if (category.hasDirectCheckout && onDirectCheckout) {
+              return (
+                <p className="mt-4 pt-3 border-t border-border/50">
+                  <span className="text-primary font-medium">Ready to start?</span>{" "}
+                  <button
+                    onClick={onDirectCheckout}
+                    disabled={isCheckoutLoading}
+                    className="text-accent hover:underline font-medium disabled:opacity-50"
+                  >
+                    {isCheckoutLoading ? "Loading..." : "Buy Now"}
+                  </button>{" "}
+                  – goes straight to checkout.
+                </p>
+              );
+            }
+            return null;
+          };
+
+          return (
+            <AccordionItem
+              key={index}
+              value={`${category.title}-${index}`}
+              className="border border-border rounded-lg px-4 bg-card"
+            >
+              <AccordionTrigger className="text-left text-primary hover:no-underline">
+                {renderQuestion()}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed">
+                <p className="whitespace-pre-line">{item.answer}</p>
+                {renderCta()}
+              </AccordionContent>
+            </AccordionItem>
           );
         })}
       </Accordion>
