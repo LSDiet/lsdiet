@@ -13,7 +13,7 @@ export function CircularHungerCycle() {
   const isMobile = useIsMobile();
 
   const getNodeClasses = (position: string) => {
-    const base = "absolute px-3 py-2 md:px-4 md:py-3 rounded-xl text-center transition-all duration-500 z-10 min-w-[100px] md:min-w-[140px]";
+    const base = "absolute px-3 py-2 md:px-4 md:py-3 rounded-xl text-center transition-all duration-500 z-10 min-w-[140px] md:min-w-[140px]";
     const highlight = position === "top" || position === "left"
       ? "bg-destructive/15 border-2 border-destructive/30"
       : "bg-muted/60 border border-border/50";
@@ -22,12 +22,12 @@ export function CircularHungerCycle() {
 
   const getPositionStyles = (position: string): React.CSSProperties => {
     if (isMobile) {
-      // Vertical layout for mobile
+      // Vertical layout for mobile - spread out more
       const positions: Record<string, React.CSSProperties> = {
-        top: { top: "0%", left: "50%", transform: "translateX(-50%)" },
-        right: { top: "25%", left: "50%", transform: "translateX(-50%)" },
-        bottom: { top: "50%", left: "50%", transform: "translateX(-50%)" },
-        left: { top: "75%", left: "50%", transform: "translateX(-50%)" },
+        top: { top: "0", left: "50%", transform: "translateX(-50%)" },
+        right: { top: "27%", left: "50%", transform: "translateX(-50%)" },
+        bottom: { top: "54%", left: "50%", transform: "translateX(-50%)" },
+        left: { top: "81%", left: "50%", transform: "translateX(-50%)" },
       };
       return positions[position] || {};
     }
@@ -55,24 +55,24 @@ export function CircularHungerCycle() {
     { d: "M 35 95 Q 0 50, 130 35", id: "left-top" },
   ];
 
-  // Mobile vertical arrow paths
+  // Mobile vertical arrow paths (adjusted for 380px height container)
   const mobileArrowPaths = [
-    { d: "M 100 35 L 100 65", id: "top-right" },
-    { d: "M 100 110 L 100 140", id: "right-bottom" },
-    { d: "M 100 185 L 100 215", id: "bottom-left" },
+    { d: "M 110 50 L 110 85", id: "top-right" },
+    { d: "M 110 140 L 110 180", id: "right-bottom" },
+    { d: "M 110 235 L 110 275", id: "bottom-left" },
     // Loop back arrow on the side
-    { d: "M 30 230 Q 10 150, 30 70", id: "left-top" },
+    { d: "M 30 290 Q 5 180, 30 70", id: "left-top" },
   ];
 
   const currentPaths = isMobile ? mobileArrowPaths : arrowPaths;
 
   return (
     <div ref={ref} className="mb-8">
-      <div className={`relative mx-auto ${isMobile ? "h-[320px] w-[200px]" : "h-[260px] w-[400px] md:h-[280px] md:w-[440px]"}`}>
+      <div className={`relative mx-auto ${isMobile ? "h-[380px] w-[220px]" : "h-[260px] w-[400px] md:h-[280px] md:w-[440px]"}`}>
         {/* SVG Arrows */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none"
-          viewBox={isMobile ? "0 0 200 280" : "0 0 400 260"}
+          viewBox={isMobile ? "0 0 220 340" : "0 0 400 260"}
           fill="none"
         >
           <defs>
