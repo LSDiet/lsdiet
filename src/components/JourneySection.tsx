@@ -131,8 +131,8 @@ export function JourneySection() {
       <div className="container">
         {/* Personal Introduction */}
         <div className="max-w-3xl mx-auto text-center mb-8">
-          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
-            <span className="text-sm font-medium text-accent">Been There, Done That</span>
+        <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25">
+            <span className="text-sm font-medium text-accent">How It All Started</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-normal mb-6 text-primary">
             Lost 60 Pounds. <span className="text-accent">Three Times.</span>
@@ -148,7 +148,7 @@ export function JourneySection() {
                 Over the last 10 years, I went through multiple extreme weight transformations. Each cycle followed the same pattern: discipline, results, life disruption, and regain.
               </p>
               <p>
-                <span className="text-primary font-medium">The weight loss worked. Life just got in the way.</span>
+                <span className="text-primary font-medium">"The weight loss worked. Life just got in the way."</span>
               </p>
               <p className="text-sm text-muted-foreground/80 italic mt-2">
                 (At least that's how I felt)

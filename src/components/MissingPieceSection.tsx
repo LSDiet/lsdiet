@@ -191,7 +191,7 @@ export function MissingPieceSection() {
 
           {/* The Key Question - Distinct Highlight */}
           <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 md:p-6 text-center mb-6">
-            <p className="text-sm text-muted-foreground/80 italic mb-2">
+            <p className="text-base md:text-lg text-muted-foreground/80 italic mb-3">
               That conversation planted an uncomfortable question:
             </p>
             <p className="text-lg md:text-xl leading-relaxed">
@@ -202,7 +202,7 @@ export function MissingPieceSection() {
           {/* The Discovery */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              So I began learning how fat is formed, stored, and burned. I spent more than eight months testing the variables until I found a pattern — one where my weight dropped without ever feeling starved.
+              So I began learning how fat is formed, stored, and burned. If I kept ignoring it, what chronic conditions would trap me in lifelong medication and shrink my future?
             </p>
           </div>
 
@@ -258,14 +258,14 @@ export function MissingPieceSection() {
           <p className="text-center text-sm text-muted-foreground mb-8">
             Obesity is making you sick.{" "}
             <a href="/qa" className="text-accent hover:text-accent/80 underline underline-offset-2 transition-colors">
-              Here's how →
+              See the documented risks →
             </a>
           </p>
 
           {/* The Hunger Cycle */}
           <div className="text-center mb-6">
             <p className="text-base md:text-lg text-muted-foreground">
-              These numbers are driven by a repeatable biological cycle of <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">food choice</span>.
+              These numbers are driven by a cycle of <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">food choice</span>.
             </p>
           </div>
 
@@ -278,7 +278,7 @@ export function MissingPieceSection() {
 
         {/* Equation Label */}
         <p className="text-center text-base md:text-lg text-muted-foreground mb-5">
-          Here's how:
+          The Insulin-Fat Pathway:
         </p>
 
         {/* Equation Flow Diagram */}
