@@ -11,7 +11,22 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqCategories = [
+interface FAQQuestion {
+  question: string;
+  answer: string;
+  condition?: string;
+  awarenessList?: Array<{ stage: string; description: string }>;
+  highlightText?: string;
+}
+
+interface FAQCategoryData {
+  title: string;
+  hasBookCta?: boolean;
+  hasDirectCheckout?: boolean;
+  questions: FAQQuestion[];
+}
+
+const faqCategories: FAQCategoryData[] = [
   {
     title: "Obesity is Making You Sick",
     hasBookCta: true,
@@ -388,7 +403,14 @@ const faqCategories = [
       {
         question: "What are the five stages of Awareness in the Weight Permanence Triangle™?",
         answer:
-          "The five stages of Awareness must be followed in order:\n\n1. **Reality Awareness** – Understanding your current state.\n2. **Friction Awareness** – Has that state put you in a more difficult position?\n3. **Pattern Awareness** – How long has that been? What have you done about it? How did it go? What worked and what didn't?\n4. **Consequence Awareness** – The root of push motivation: What if you stay like this for 10, 20, 30 years? What happens next?\n5. **Autonomy Awareness** – The root of pull motivation: What if things change? If you can lose 10 lbs a month, what does losing 50–100 lbs mean to you? What will this new you do for your body, relationships, and emotional wellbeing?",
+          "The five stages of Awareness must be followed in order:",
+        awarenessList: [
+          { stage: "Reality Awareness", description: "Understanding your current state." },
+          { stage: "Friction Awareness", description: "Has that state put you in a more difficult position?" },
+          { stage: "Pattern Awareness", description: "How long has that been? What have you done about it? How did it go? What worked and what didn't?" },
+          { stage: "Consequence Awareness", description: "The root of push motivation: What if you stay like this for 10, 20, 30 years? What happens next?" },
+          { stage: "Autonomy Awareness", description: "The root of pull motivation: What if things change? If you can lose 10 lbs a month, what does losing 50–100 lbs mean to you? What will this new you do for your body, relationships, and emotional wellbeing?" },
+        ],
       },
       {
         question: "How does emotional encoding affect weight loss?",
@@ -398,7 +420,7 @@ const faqCategories = [
       {
         question: "How does the Weight Permanence Triangle™ handle hunger differently from diets?",
         answer:
-          "Oscar hates using hunger as a weight loss tool. The Weight Permanence Triangle™ Method reduces the biological drivers of hunger instead of forcing caloric deficiency, and explicitly encourages eating until you are full rather than relying on discomfort to lose weight.",
+          "Oscar avoids hunger-based weight loss. The Weight Permanence Triangle™ Method targets the biological drivers of appetite, so calorie intake naturally decreases without relying on forced deprivation.",
       },
       {
         question: "How does the Weight Permanence Triangle™ help during travel and social eating?",
@@ -454,7 +476,8 @@ const faqCategories = [
       {
         question: "How long does it take to see results with Weight Permanence?",
         answer:
-          "Most people experience a weight reduction of five to ten pounds per month during the first three months, after which adjustments to food intake and calorie output may be needed if a plateau occurs.",
+          "During the Practice chapter, you'll adopt a low-starch, low-sugar lifestyle through structured 1, 3, 7, 15, 25, and 30-day challenges. Most people see the scale drop in the first two weeks—not from fat burn, but from water loss. Here's why: your body stores glucose as glycogen in muscles and liver, and each gram of glycogen binds 3–4 grams of water. When you reduce starch and sugar, glycogen depletes and releases that water. Oscar follows a 15–25 day challenge each month and consistently loses 10 lbs per month without daily exercise.",
+        highlightText: "Most people see the scale drop in the first two weeks",
       },
       {
         question: "Is Weight Permanence about restriction or structure?",
@@ -603,14 +626,11 @@ export default function QAPage() {
         {/* CTA Section */}
         <section className="py-10 bg-secondary/30">
           <div className="container max-w-3xl mx-auto px-4 text-center">
-            <p className="text-lg text-primary mb-4">
-              Ready to understand the full framework?
-            </p>
             <Link
               to="/#book"
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
             >
-              Learn About the Book
+              Learn how to lose weight and keep it off — preorder now →
             </Link>
           </div>
         </section>
@@ -648,7 +668,7 @@ function FAQCategory({
   onDirectCheckout,
   isCheckoutLoading,
 }: {
-  category: (typeof faqCategories)[0];
+  category: FAQCategoryData;
   delay: number;
   onDirectCheckout?: () => void;
   isCheckoutLoading?: boolean;
@@ -726,7 +746,34 @@ function FAQCategory({
                 {renderQuestion()}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
-                <p className="whitespace-pre-line">{item.answer}</p>
+                {item.awarenessList ? (
+                  <>
+                    <p className="mb-3">{item.answer}</p>
+                    <ol className="list-decimal list-inside space-y-2">
+                      {item.awarenessList.map((stage, i) => (
+                        <li key={i}>
+                          <span className="font-semibold text-primary">{stage.stage}</span>
+                          <span className="text-muted-foreground"> – {stage.description}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </>
+                ) : item.highlightText ? (
+                  <p className="whitespace-pre-line">
+                    {item.answer.split(item.highlightText).map((part, i, arr) => (
+                      <span key={i}>
+                        {part}
+                        {i < arr.length - 1 && (
+                          <span className="font-bold text-primary bg-accent/15 px-1 rounded">
+                            {item.highlightText}
+                          </span>
+                        )}
+                      </span>
+                    ))}
+                  </p>
+                ) : (
+                  <p className="whitespace-pre-line">{item.answer}</p>
+                )}
                 {renderCta()}
               </AccordionContent>
             </AccordionItem>
