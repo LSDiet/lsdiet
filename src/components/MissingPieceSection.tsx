@@ -9,6 +9,9 @@ function HeroSolutionReveal() {
 
   return (
     <div ref={ref} className="text-center mb-8">
+      {/* Visual separator */}
+      <div className="w-24 h-px bg-border/60 mx-auto mb-6" />
+      
       {/* Breaking the cycle */}
       <div 
         className={`inline-flex items-center gap-3 mb-5 transition-all duration-500 ${
@@ -201,8 +204,14 @@ export function MissingPieceSection() {
 
           {/* The Discovery */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
+              So I began learning how fat is formed, stored, and burned. Ignoring obesity means accepting a future shaped by chronic disease, lifelong medication, and fewer life options.
+            </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              So I began learning how fat is formed, stored, and burned. If I kept ignoring it, what chronic conditions would trap me in lifelong medication and shrink my future?
+              At 40, I realized that was far too early to{" "}
+              <span className="font-bold text-xl md:text-2xl text-primary bg-primary/10 px-2 py-1 rounded-lg">
+                surrender my future
+              </span>.
             </p>
           </div>
 
