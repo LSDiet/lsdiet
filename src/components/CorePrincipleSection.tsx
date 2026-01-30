@@ -51,9 +51,16 @@ export function CorePrincipleSection() {
               </div>
               
               {/* Rhetorical question hook */}
-              <p className="mt-5 text-center text-sm md:text-base italic text-muted-foreground">
-                Why does eating less sugar feel harder than it should?
-              </p>
+              <div className="mt-6 pt-5 border-t border-border/50">
+                <p className="text-center text-base md:text-lg font-serif text-primary/80">
+                  <span className="text-accent text-2xl leading-none">"</span>
+                  <span className="italic">Why does eating less sugar feel harder than it should?</span>
+                  <span className="text-accent text-2xl leading-none">"</span>
+                </p>
+                <p className="text-center text-xs text-muted-foreground mt-2">
+                  ↗ The answer lies in more than biology
+                </p>
+              </div>
             </div>
 
             {/* The Challenge Card */}
