@@ -1,4 +1,3 @@
-import { Utensils, Users, Store } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export function CorePrincipleSection() {
@@ -9,7 +8,7 @@ export function CorePrincipleSection() {
       <div className="container">
         <div 
           ref={coreRef}
-          className={`max-w-4xl mx-auto transition-all duration-700 ${
+          className={`max-w-6xl mx-auto transition-all duration-700 ${
             coreVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -23,10 +22,10 @@ export function CorePrincipleSection() {
             <p className="text-muted-foreground italic">(Simple, but not easy.)</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* The Biology Card */}
-            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border">
-              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Biology</h4>
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* The Biology Problem Card */}
+            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
+              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Biology Problem</h4>
               <p className="text-muted-foreground mb-4">
                 Your body runs on two main fuels: <span className="font-bold text-primary">sugar and fat</span>.
               </p>
@@ -44,7 +43,7 @@ export function CorePrincipleSection() {
                   </span>
                 </li>
               </ul>
-              <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50">
+              <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50 flex-grow">
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   The body prioritizes sugar when it's readily available. When sugar drops, it naturally shifts toward using fat for energy. <span className="font-medium text-primary">When this process is disrupted, hunger stays high.</span>
                 </p>
@@ -52,7 +51,7 @@ export function CorePrincipleSection() {
               
               {/* Rhetorical question hook */}
               <div className="mt-6 pt-5 border-t border-border/50">
-                <p className="text-center text-base md:text-lg font-serif text-primary/80">
+                <p className="text-center text-base font-serif text-primary/80">
                   <span className="text-accent text-2xl leading-none">"</span>
                   <span className="italic">Why does eating less sugar feel harder than it should?</span>
                   <span className="text-accent text-2xl leading-none">"</span>
@@ -63,31 +62,85 @@ export function CorePrincipleSection() {
               </div>
             </div>
 
-            {/* The Challenge Card */}
-            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border">
-              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Challenge</h4>
-              <p className="text-muted-foreground mb-4">Low-starch and low-sugar looks like a food swap on the surface. In reality, it reshapes:</p>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start gap-3">
-                  <Utensils className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-primary">What to eat and when — meal timing, food choices, and portion instincts</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Users className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-primary">How you navigate cultural traditions and family expectations around food</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Store className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                  <span className="text-primary">A food environment where ultra-processed products outnumber whole foods on every shelf</span>
-                </li>
-              </ul>
-              <div className="border-t border-border pt-4 text-center">
-                <p className="text-muted-foreground text-sm mb-2">Weight loss is not just a diet change.</p>
-                <p className="text-primary text-sm md:text-base font-medium">
-                  It is a <span className="font-semibold text-primary">personal</span>, <span className="font-semibold text-accent">social</span>, and <span className="font-semibold text-primary">environmental</span> challenge.
+            {/* The Culture Problem Card */}
+            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
+              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Culture Problem</h4>
+              <p className="text-muted-foreground mb-4">
+                Many cultures center meals around starch-based staples.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 mb-5">
+                <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🥖 Bread</span>
+                <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍚 Rice</span>
+                <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍝 Pasta</span>
+                <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍜 Noodles</span>
+              </div>
+              <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50 flex-grow">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Eating differently often means pushing against tradition, family expectations, and social norms.
+                </p>
+              </div>
+              
+              {/* Rhetorical question hook */}
+              <div className="mt-6 pt-5 border-t border-border/50">
+                <p className="text-center text-base font-serif text-primary/80">
+                  <span className="text-accent text-2xl leading-none">"</span>
+                  <span className="italic">What happens when your plate contradicts your heritage?</span>
+                  <span className="text-accent text-2xl leading-none">"</span>
+                </p>
+                <p className="text-center text-xs text-muted-foreground mt-2">
+                  ↗ Culture shapes cravings more than we think
                 </p>
               </div>
             </div>
+
+            {/* The Environment Problem Card */}
+            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
+              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Environment Problem</h4>
+              <p className="text-muted-foreground mb-4">
+                We live in a food environment dominated by ultra-processed products.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 mb-5">
+                <span className="px-3 py-1.5 rounded-lg bg-pink-500/10 text-pink-600 text-xs font-medium">
+                  🍭 Hyper-palatable
+                </span>
+                <span className="px-3 py-1.5 rounded-lg bg-green-500/10 text-green-600 text-xs font-medium">
+                  💵 Low Cost
+                </span>
+                <span className="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-600 text-xs font-medium">
+                  📍 Highly Accessible
+                </span>
+                <span className="px-3 py-1.5 rounded-lg bg-purple-500/10 text-purple-600 text-xs font-medium">
+                  🔁 Habit
+                </span>
+              </div>
+              <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50 flex-grow">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  These products are everywhere. They're cheap, engineered to taste irresistible, and impossible to avoid. Exposure is constant.
+                </p>
+              </div>
+              
+              {/* Rhetorical question hook */}
+              <div className="mt-6 pt-5 border-t border-border/50">
+                <p className="text-center text-base font-serif text-primary/80">
+                  <span className="text-accent text-2xl leading-none">"</span>
+                  <span className="italic">How do you resist what's designed to be irresistible?</span>
+                  <span className="text-accent text-2xl leading-none">"</span>
+                </p>
+                <p className="text-center text-xs text-muted-foreground mt-2">
+                  ↗ The deck is stacked against willpower
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Summary Statement */}
+          <div className="text-center mt-8">
+            <p className="text-muted-foreground text-sm mb-2">
+              Weight loss is not just a diet change.
+            </p>
+            <p className="text-primary text-sm md:text-base font-medium">
+              It is a <span className="font-semibold">personal</span>, <span className="font-semibold text-accent">social</span>, and <span className="font-semibold">environmental</span> challenge.
+            </p>
           </div>
         </div>
       </div>
