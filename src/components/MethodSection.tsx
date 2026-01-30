@@ -6,8 +6,11 @@ const principles = [
   {
     icon: Eye,
     title: "Awareness",
-    description: "Five stages of awareness that clarify why weight loss matters beyond the scale and use emotion to create internal push and pull motivation.",
-    link: "/qa?open=awareness-stages",
+    description: (
+      <>
+        <Link to="/qa?open=awareness-stages" className="underline underline-offset-2 hover:text-accent transition-colors">Five stages of awareness</Link> that clarify why weight loss matters beyond the scale and use emotion to create internal push and pull motivation.
+      </>
+    ),
   },
   {
     icon: Activity,
@@ -182,13 +185,7 @@ export function MethodSection() {
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
                 <principle.icon className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
               </div>
-              {principle.link ? (
-                <Link to={principle.link} className="text-xl font-semibold text-primary mb-2 hover:text-accent transition-colors underline underline-offset-2">
-                  {principle.title}
-                </Link>
-              ) : (
-                <h3 className="text-xl font-semibold text-primary mb-2">{principle.title}</h3>
-              )}
+              <h3 className="text-xl font-semibold text-primary mb-2">{principle.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{principle.description}</p>
             </div>
           ))}
