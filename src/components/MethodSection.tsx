@@ -157,10 +157,10 @@ export function MethodSection() {
               taglineVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
             }`}
           >
-            It makes you want to lose weight so much that{" "}
+            (It makes you want to lose weight so much that{" "}
             <span className="font-bold text-lg md:text-xl text-accent whitespace-nowrap">
               excuses stop working.
-            </span>
+            </span>)
           </p>
         </div>
 
