@@ -15,7 +15,7 @@ interface FAQQuestion {
   question: string;
   answer: string;
   condition?: string;
-  awarenessList?: Array<{ stage: string; description: string }>;
+  awarenessList?: Array<{ stage: string; explanation: string; questions: string[] }>;
   highlightText?: string;
 }
 
@@ -405,11 +405,11 @@ const faqCategories: FAQCategoryData[] = [
         answer:
           "The five stages of Awareness must be followed in order:",
         awarenessList: [
-          { stage: "Reality Awareness", description: "• What is your current state?\n_Understanding where you are right now._" },
-          { stage: "Friction Awareness", description: "• Has that state put you in a more difficult position?\n_Recognizing how your current state affects your life._" },
-          { stage: "Pattern Awareness", description: "• How long has that been?\n• What have you done about it?\n• How did it go?\n• What worked and what didn't?\n_Examining your history with weight._" },
-          { stage: "Consequence Awareness", description: "• What if you stay like this for 10, 20, 30 years?\n• If you can't do X, what does that mean to you?\n_The root of push motivation._" },
-          { stage: "Autonomy Awareness", description: "• What if things change?\n• If you can lose 10 lbs a month, what does losing 50–100 lbs mean to you?\n• What will this new you do for your body, relationships, and emotional wellbeing?\n_The root of pull motivation._" },
+          { stage: "Reality Awareness", explanation: "Understanding where you are right now.", questions: ["What is your current weight?", "What was your weight six months ago?", "What's your day to day like?"] },
+          { stage: "Friction Awareness", explanation: "Recognizing how your current state affects your life.", questions: ["Has that state put you in a more difficult position?", "How so?", "Why is it important to do x?"] },
+          { stage: "Pattern Awareness", explanation: "Examining your history with weight.", questions: ["How long has that been?", "What have you done about it?", "How did it go?", "What worked and what didn't?"] },
+          { stage: "Consequence Awareness", explanation: "The root of push motivation.", questions: ["What if you stay like this for 10, 20, 30 years?", "If you can't do X, what does that mean to you?"] },
+          { stage: "Autonomy Awareness", explanation: "The root of pull motivation.", questions: ["What if things change?", "If you can lose 10 lbs a month, what does losing 50–100 lbs mean to you?", "What will this new you do for your body, relationships, and emotional wellbeing?"] },
         ],
       },
       {
@@ -757,28 +757,17 @@ function FAQCategory({
                   <>
                     <p className="mb-4">{item.answer}</p>
                     <ol className="list-decimal list-inside space-y-4">
-                      {item.awarenessList.map((stage, i) => {
-                        // Split description by newline to separate questions from italic sentence
-                        const parts = stage.description.split('\n');
-                        const questions = parts.filter(p => p.startsWith('•'));
-                        const italicPart = parts.find(p => p.startsWith('_') && p.endsWith('_'));
-                        
-                        return (
-                          <li key={i} className="text-primary">
-                            <span className="font-semibold">{stage.stage}</span>
-                            <div className="ml-5 mt-1 space-y-1">
-                              {questions.map((q, qi) => (
-                                <p key={qi} className="text-muted-foreground">{q}</p>
-                              ))}
-                              {italicPart && (
-                                <p className="text-muted-foreground italic mt-2">
-                                  {italicPart.slice(1, -1)}
-                                </p>
-                              )}
-                            </div>
-                          </li>
-                        );
-                      })}
+                      {item.awarenessList.map((stage, i) => (
+                        <li key={i} className="text-primary">
+                          <span className="font-semibold">{stage.stage}</span>
+                          <span className="text-muted-foreground"> ({stage.explanation})</span>
+                          <div className="ml-5 mt-2 space-y-1">
+                            {stage.questions.map((q, qi) => (
+                              <p key={qi} className="text-muted-foreground italic">"{q}"</p>
+                            ))}
+                          </div>
+                        </li>
+                      ))}
                     </ol>
                   </>
                 ) : item.highlightText ? (
