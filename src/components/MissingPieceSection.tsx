@@ -4,6 +4,42 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { CircularHungerCycle } from "./CircularHungerCycle";
 
+function KeyQuestionHook() {
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <div 
+      ref={ref}
+      className={`relative my-10 py-8 transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`}
+    >
+      {/* Decorative opening quote */}
+      <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-accent/30 font-serif select-none">
+        "
+      </span>
+      
+      {/* The Question */}
+      <p className="text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-snug max-w-2xl mx-auto px-4">
+        Why do certain foods leave people{" "}
+        <span className="relative inline-block">
+          hungry
+          <span className="absolute -bottom-1 left-0 right-0 h-1 bg-accent/40 rounded-full" />
+        </span>{" "}
+        again so soon after eating?
+      </p>
+      
+      {/* Decorative closing quote */}
+      <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-accent/30 font-serif select-none rotate-180">
+        "
+      </span>
+      
+      {/* Minimal accent line below */}
+      <div className="w-16 h-0.5 bg-accent/50 mx-auto mt-8" />
+    </div>
+  );
+}
+
 function HeroSolutionReveal() {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -192,15 +228,8 @@ export function MissingPieceSection() {
             </p>
           </div>
 
-          {/* The Key Question - Distinct Highlight */}
-          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5 md:p-6 text-center mb-6">
-            <p className="text-base md:text-lg text-muted-foreground/80 italic mb-3">
-              That conversation planted an uncomfortable question:
-            </p>
-            <p className="text-lg md:text-xl leading-relaxed">
-              <em className="text-primary font-semibold">"Why do certain foods leave people hungry again so soon after eating?"</em>
-            </p>
-          </div>
+          {/* The Key Question - Sharp Visual Hook */}
+          <KeyQuestionHook />
 
           {/* The Discovery */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
