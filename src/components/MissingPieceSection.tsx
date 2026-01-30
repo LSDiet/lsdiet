@@ -187,7 +187,7 @@ export function MissingPieceSection() {
 
           {/* The Surgeon Story */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
               When I reached 300 lbs again in 2024, I spoke with a bariatric surgeon. He told me that <span className="font-bold text-primary">20–35%</span> of patients regain significant weight within a decade. In many cases, hunger returns once specific foods re-enter the diet.
             </p>
           </div>
