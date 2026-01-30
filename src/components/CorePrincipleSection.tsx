@@ -25,7 +25,7 @@ export function CorePrincipleSection() {
           <div className="grid md:grid-cols-3 gap-6">
             {/* The Biology Problem Card */}
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
-              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Biology Problem</h4>
+              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Biology</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
                 Your body runs on two main fuels: <span className="font-bold text-primary">sugar and fat</span>.
               </p>
@@ -64,7 +64,7 @@ export function CorePrincipleSection() {
 
             {/* The Culture Problem Card */}
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
-              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Culture Problem</h4>
+              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Culture</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
                 Many cultures center meals around starch-based staples.
               </p>
@@ -96,7 +96,7 @@ export function CorePrincipleSection() {
 
             {/* The Environment Problem Card */}
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
-              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4">The Environment Problem</h4>
+              <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Environment</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
                 We live in a food environment dominated by ultra-processed products.
               </p>
@@ -114,8 +114,8 @@ export function CorePrincipleSection() {
                   🔁 Habit
                 </span>
               </div>
-              <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50 flex-grow">
-                <p className="text-sm text-muted-foreground leading-relaxed">
+              <div className="bg-muted/40 rounded-lg p-4 flex-grow">
+                <p className="text-sm text-muted-foreground leading-relaxed text-center">
                   These products are everywhere. They are much more affordable than whole foods, engineered to be irresistible, and hard to avoid. Like, really hard to avoid!
                 </p>
               </div>
@@ -136,13 +136,13 @@ export function CorePrincipleSection() {
 
           {/* Transition Statement */}
           <div className="text-center mt-12 mb-4">
-            <div className="max-w-3xl mx-auto">
-              <p className="text-xl md:text-2xl lg:text-3xl font-serif text-primary leading-relaxed">
-                When eating behaviour is shaped by biology, culture, and environment, it cannot be changed with a single tactic.
-                <span className="block mt-4">
+            <div className="max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl font-serif text-primary/90 leading-relaxed">
+                When eating behaviour is shaped by <span className="font-semibold text-accent">biology</span>, <span className="font-semibold text-accent">culture</span>, and <span className="font-semibold text-accent">environment</span>, it cannot be changed with a single tactic.
+                <span className="block mt-3">
                   <span className="inline-flex items-center gap-2 text-accent font-semibold">
                     It requires a system.
-                    <span className="animate-pulse text-2xl">↓</span>
+                    <span className="animate-pulse text-xl">↓</span>
                   </span>
                 </span>
               </p>
