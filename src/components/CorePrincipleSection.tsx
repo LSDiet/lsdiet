@@ -27,7 +27,7 @@ export function CorePrincipleSection() {
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
               <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Biology</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
-                Your body runs on two main fuels. <span className="font-bold text-primary">Sugar and fat</span> compete for priority.
+                Your body runs on two main fuels: <span className="font-bold text-primary">sugar and fat</span>.
               </p>
               <ul className="space-y-2 mb-5">
                 <li className="flex items-start gap-2">
