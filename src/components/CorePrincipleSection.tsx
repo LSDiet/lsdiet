@@ -27,7 +27,7 @@ export function CorePrincipleSection() {
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
               <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Biology</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
-                Your body runs on two main fuels: <span className="font-bold text-primary">sugar and fat</span>.
+                Your body runs on two main fuels: sugar and fat. <span className="font-bold text-primary">Sugar and fat</span> compete for priority.
               </p>
               <ul className="space-y-2 mb-5">
                 <li className="flex items-start gap-2">
@@ -77,7 +77,7 @@ export function CorePrincipleSection() {
               </div>
               <div className="bg-muted/40 rounded-lg p-4 flex-grow">
                 <p className="text-sm text-muted-foreground leading-relaxed text-center">
-                  Eating differently often means pushing against tradition, family expectations, and social norms.
+                  Eating differently often means pushing against tradition, family expectations, and <span className="font-bold text-primary">social norms</span>.
                 </p>
               </div>
               
@@ -116,7 +116,7 @@ export function CorePrincipleSection() {
               </div>
               <div className="bg-muted/40 rounded-lg p-4 flex-grow">
                 <p className="text-sm text-muted-foreground leading-relaxed text-center">
-                  These products are everywhere. They are much more affordable than whole foods, engineered to be irresistible, and hard to avoid. Like, really hard to avoid!
+                  These products are everywhere. They are much more affordable than whole foods, engineered to be irresistible, and hard to avoid. Like, <span className="font-bold text-primary">really hard to avoid!</span>
                 </p>
               </div>
               
