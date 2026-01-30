@@ -1,122 +1,120 @@
 
 
-# Plan: Transform Key Question into a Sharp Visual Hook
+# Plan: Add Low-Starch & Low-Sugar Images with Responsive Layout
 
 ## Goal
-Make the question *"Why do certain foods leave people hungry again so soon after eating?"* visually striking and attention-grabbing - a scroll-stopping moment that invites thought, not reading fatigue.
+Add AI-generated illustrations flanking the "Low-Starch. Low-Sugar." heading, with a layout that works beautifully on both desktop and mobile.
 
 ---
 
-## Design Approach: "The Provocative Pause"
+## Desktop vs Mobile Layout Strategy
 
-Instead of a boxed academic-looking quote, we'll create a **dramatic standalone element** that uses:
-- Large, bold typography with visual weight
-- Decorative quotation marks as design elements (not inline text)
-- Subtle accent underline on key words
-- Scroll-triggered fade-in animation for impact
-- Generous whitespace for breathing room
-
----
-
-## Visual Concept
-
+### Desktop (md and up)
 ```text
-                    ❝
-   
-     Why do certain foods leave people 
-       hungry again so soon after eating?
-   
-                    ❞
-         ────────────────
+[Low-Starch Image]  Low-Starch. Low-Sugar.  [Low-Sugar Image]
 ```
+- Images sit on either side of the heading text
+- Creates a balanced, visual "bookend" effect
 
-The oversized decorative quotes act as visual anchors, drawing the eye. The question itself is rendered in a larger, bolder style that demands attention.
+### Mobile (small screens)
+```text
+        Low-Starch. Low-Sugar.
+     [Low-Starch]  [Low-Sugar]
+          (side by side, smaller)
+```
+- Heading stays on top (full width)
+- Both images appear below as a compact row
+- Images scale down to fit side-by-side
 
 ---
 
 ## Technical Implementation
 
-### File: `src/components/MissingPieceSection.tsx`
+### 1. Generate Two AI Images
+Using Lovable's image generation:
+- **Low-Starch**: Minimalist illustration of vegetables, proteins, leafy greens (no bread/rice/pasta)
+- **Low-Sugar**: Minimalist illustration of whole foods without sweets/desserts
 
-**Remove lines 195-203** (the current key question box with intro text)
+Style: Clean line art or soft illustration matching the earthy green (#3a6b54) and amber (#c9a247) palette.
 
-**Replace with:**
+### 2. Update CorePrincipleSection Layout
 
+**Current structure (lines 15-23):**
 ```tsx
-{/* The Key Question - Sharp Visual Hook */}
-<div className="relative my-10 py-8">
-  {/* Decorative opening quote */}
-  <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-accent/30 font-serif select-none">
-    "
-  </span>
-  
-  {/* The Question */}
-  <p className="text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-snug max-w-2xl mx-auto px-4">
-    Why do certain foods leave people{" "}
-    <span className="relative inline-block">
-      hungry
-      <span className="absolute -bottom-1 left-0 right-0 h-1 bg-accent/40 rounded-full" />
-    </span>{" "}
-    again so soon after eating?
-  </p>
-  
-  {/* Decorative closing quote */}
-  <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-accent/30 font-serif select-none rotate-180">
-    "
-  </span>
-  
-  {/* Minimal accent line below */}
-  <div className="w-16 h-0.5 bg-accent/50 mx-auto mt-8" />
+<div className="text-center mb-8">
+  <div>A New Lifestyle badge</div>
+  <h3>Low-Starch. Low-Sugar.</h3>
+  <p>(LSLS is difficult...)</p>
 </div>
 ```
 
-### Styling Breakdown
-
-| Element | Style | Purpose |
-|---------|-------|---------|
-| Container | `my-10 py-8` | Generous vertical breathing room |
-| Decorative quotes | `text-6xl text-accent/30` | Large but subtle visual anchors |
-| Question text | `text-xl md:text-2xl lg:text-3xl font-semibold` | Bold, attention-grabbing |
-| "hungry" underline | `bg-accent/40 h-1 rounded-full` | Highlights the key word |
-| Bottom accent line | `w-16 h-0.5 bg-accent/50` | Clean visual closure |
-
-### Optional: Add Scroll Animation
-
-Wrap with `useScrollAnimation` for a subtle entrance:
-
+**New responsive structure:**
 ```tsx
-const { ref: questionRef, isVisible: questionVisible } = useScrollAnimation();
-
-<div 
-  ref={questionRef}
-  className={`relative my-10 py-8 transition-all duration-700 ${
-    questionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-  }`}
->
-  {/* ... question content ... */}
+<div className="text-center mb-8">
+  <div>A New Lifestyle badge</div>
+  
+  {/* Responsive heading with images */}
+  <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+    {/* Low-Starch image - hidden on mobile, shown on desktop left */}
+    <img 
+      src={lowStarchImage} 
+      alt="Low-starch foods"
+      className="hidden md:block w-24 h-24 object-contain"
+    />
+    
+    <div>
+      <h3>Low-Starch. Low-Sugar.</h3>
+      <p>(LSLS is difficult...)</p>
+    </div>
+    
+    {/* Low-Sugar image - hidden on mobile, shown on desktop right */}
+    <img 
+      src={lowSugarImage} 
+      alt="Low-sugar foods"
+      className="hidden md:block w-24 h-24 object-contain"
+    />
+  </div>
+  
+  {/* Mobile-only: both images below heading */}
+  <div className="flex md:hidden justify-center gap-4 mt-4">
+    <img src={lowStarchImage} className="w-16 h-16" />
+    <img src={lowSugarImage} className="w-16 h-16" />
+  </div>
 </div>
 ```
 
----
+### 3. Responsive Breakpoints
 
-## Before vs After
-
-**Before:**
-- Box with background + border
-- Small intro text: "That conversation planted..."
-- Italicized question in `text-lg`
-- Feels like reading material
-
-**After:**
-- No box - pure typography
-- No intro text - question stands alone
-- Bold question in `text-2xl` with decorative quotes
-- Key word "hungry" has accent underline
-- Feels like a **moment of reflection**
+| Screen Size | Layout | Image Size |
+|-------------|--------|------------|
+| Mobile (<768px) | Images below heading, side-by-side | 64x64px (w-16) |
+| Tablet/Desktop (>=768px) | Images flank heading left/right | 96x96px (w-24) |
 
 ---
 
-## Result
+## Why This Solves the Mobile Problem
 
-The question becomes a visual **pause point** - large enough to be noticed, styled distinctively enough to feel intentional, and designed to make readers stop and think rather than skim past.
+1. **Desktop**: Images appear exactly where you want them (left of "Low-Starch", right of "Low-Sugar")
+2. **Mobile**: Instead of awkward squishing, images gracefully move below the heading as a compact pair
+3. **No content is hidden**: Mobile users still see both images, just repositioned
+
+---
+
+## Files to Modify
+
+| File | Changes |
+|------|---------|
+| `src/assets/lifestyle/low-starch.png` | New AI-generated image |
+| `src/assets/lifestyle/low-sugar.png` | New AI-generated image |
+| `src/components/CorePrincipleSection.tsx` | Add responsive image layout |
+
+---
+
+## Image Generation Prompts
+
+**Low-Starch:**
+> "Minimalist illustration of healthy low-starch foods: leafy greens, broccoli, eggs, fish, avocado. Soft earthy green and amber colour palette. Clean simple style, white background, no text."
+
+**Low-Sugar:**
+> "Minimalist illustration of healthy low-sugar foods: vegetables, nuts, cheese, meat, olive oil. Soft earthy green and amber colour palette. Clean simple style, white background, no text."
 
