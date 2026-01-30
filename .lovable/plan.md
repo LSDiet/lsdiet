@@ -1,130 +1,109 @@
 
-
-# SEO Implementation Plan: Oscar Poon Entity Visibility
+# Add Rhetorical Question Hook to Biology Card
 
 ## Overview
-Implement progressive disclosure bio in the footer with full JSON-LD structured data to establish "Oscar Poon" as a searchable entity tied to WhatAboutWeight.
+Add a thought-provoking question below the callout box in "The Biology" card to create a psychological pause moment that validates the reader's struggle and bridges to "The Challenge" card.
 
 ---
 
-## Changes Summary
+## The Question
+**"Why does eating less sugar feel harder than it should?"**
 
-### 1. Footer Enhancement (FooterSimple.tsx)
-Add a collapsible "Founded by Oscar Poon" section using native HTML `<details>` element (crawlable by Google even when collapsed).
+This question works because:
+- Assumes shared experience (relatable)
+- Implies a hidden reason (curiosity)
+- Uses emotional language ("feel")
+- Validates frustration ("should" be easier)
 
-**Visual structure:**
+---
+
+## Design Approach
+
 ```text
-+--------------------------------------------------+
-|  [Logo] Weight Permanence                        |
-|                                                  |
-|  ▶ Founded by Oscar Poon                         |
-|     (expands to show bio when clicked)           |
-|                                                  |
-|  © 2026 NTL Learning Solutions Inc.              |
-+--------------------------------------------------+
++------------------------------------------+
+| THE BIOLOGY                              |
+|                                          |
+| Your body runs on two main fuels:        |
+| sugar and fat.                           |
+|                                          |
+| • HIGH sugar → fat stays stored          |
+| • LOW sugar → body burns fat             |
+|                                          |
+| ┌────────────────────────────────────┐   |
+| │ The body prioritizes sugar when... │   |
+| │ When this process is disrupted,    │   |
+| │ hunger stays high.                 │   |
+| └────────────────────────────────────┘   |
+|                                          |
+|   ↓ NEW QUESTION HERE ↓                  |
+|                                          |
+| "Why does eating less sugar feel         |
+|  harder than it should?"                 |
+|         ↗ (look to Challenge card)       |
++------------------------------------------+
 ```
 
-**Bio content (your copy):**
-> **Oscar Poon** is the founder of WhatAboutWeight (Book: Weight Permanence) and the creator of the Weight Permanence Triangle™ (WPT), a neurobehavioural training designed to make weight loss intentional, sustainable, and permanent.
->
-> After losing over 60 lbs multiple times and observing why willpower-based approaches repeatedly fail, he developed WPT to address the behavioural and biological drivers of weight regain.
+---
+
+## Styling Options
+
+### Option 1: Subtle italic (recommended)
+- Italic text, muted color
+- Feels like a natural thought continuation
+- Non-intrusive, but creates pause
+
+### Option 2: Centered with visual emphasis
+- Centered text with slight accent color
+- Small arrow or visual hint pointing to Challenge card
+- More prominent "hook" feel
+
+### Option 3: Speech bubble / thought style
+- Light background with curved border
+- Feels more conversational
+- May feel too playful for the tone
 
 ---
 
-### 2. JSON-LD Structured Data (index.html)
-Inject three interconnected schemas into the `<head>`:
+## Technical Implementation
 
-**A. Person Schema (Oscar Poon)**
-- Full name, job title, description
-- Links to YouTube and LinkedIn via `sameAs`
-- References WhatAboutWeight as `worksFor`
+### File: `src/components/CorePrincipleSection.tsx`
 
-**B. Book Schema (Weight Permanence)**
-- Author reference pointing to Oscar Poon
-- Genre: Health, Weight Loss
-- Publisher: NTL Learning Solutions Inc.
+Add a new element after the callout box (line 51) and before the closing `</div>` of the Biology card:
 
-**C. Organization Schema (WhatAboutWeight)**
-- Founder reference pointing to Oscar Poon
-- URL and description
-
----
-
-### 3. Meta Tag Updates (index.html)
-- Change `<meta name="author">` from "Weight Permanence" to "Oscar Poon"
-- Update OG image and Twitter image to your actual site preview (optional, if you have one)
-
----
-
-### 4. Image Alt Text Fix (AboutAuthorSection.tsx)
-- Change `alt="Oscar"` to `alt="Oscar Poon, founder of WhatAboutWeight"`
-
----
-
-## Technical Details
-
-### File: `src/components/FooterSimple.tsx`
-Add collapsible bio section with styled `<details>` element:
-- Subtle styling that blends with footer
-- Chevron indicator for expandability
-- Bio text in muted color, non-intrusive
-
-### File: `index.html`
-Add JSON-LD script block with combined schema:
-```json
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://wpt-preorder.lovable.app/#oscar-poon",
-      "name": "Oscar Poon",
-      "jobTitle": "Founder",
-      "description": "Founder of WhatAboutWeight and creator of the Weight Permanence Triangle (WPT)...",
-      "worksFor": { "@id": "https://wpt-preorder.lovable.app/#organization" },
-      "sameAs": [
-        "https://www.youtube.com/@WhatAboutWeight",
-        "https://www.linkedin.com/in/poonoscar/"
-      ]
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://wpt-preorder.lovable.app/#organization",
-      "name": "WhatAboutWeight",
-      "url": "https://wpt-preorder.lovable.app",
-      "founder": { "@id": "https://wpt-preorder.lovable.app/#oscar-poon" }
-    },
-    {
-      "@type": "Book",
-      "name": "Weight Permanence",
-      "author": { "@id": "https://wpt-preorder.lovable.app/#oscar-poon" },
-      "publisher": "NTL Learning Solutions Inc.",
-      "genre": ["Health", "Weight Loss", "Self-Help"]
-    }
-  ]
-}
+```tsx
+{/* Rhetorical question hook */}
+<p className="mt-5 text-center text-sm md:text-base italic text-muted-foreground">
+  Why does eating less sugar feel harder than it should?
+</p>
 ```
 
-### File: `src/components/AboutAuthorSection.tsx`
-Update image alt text for entity association.
+Alternative styling with subtle accent:
+```tsx
+<p className="mt-5 text-center text-sm md:text-base text-muted-foreground">
+  <span className="italic">Why does eating less sugar feel harder than it should?</span>
+  <span className="block text-xs text-accent mt-1">→</span>
+</p>
+```
 
 ---
 
-## SEO Impact
+## Narrative Flow After Implementation
 
-| Signal | Before | After |
-|--------|--------|-------|
-| "Oscar Poon" in HTML | 1 mention | 4+ mentions |
-| JSON-LD Person schema | None | Full entity |
-| Book-Author link | None | Explicit |
-| Meta author tag | Generic | Oscar Poon |
-| Image alt text | "Oscar" | Full name + context |
-| Social profile links | None | YouTube, LinkedIn |
+1. **Biology facts** → Reader learns HIGH/LOW sugar dynamics
+2. **Callout insight** → "When disrupted, hunger stays high"
+3. **Question hook** → "Why does it feel harder than it should?" ← NEW
+4. **Challenge card** → "Here's why..." (personal, social, environmental)
+5. **WPT solution** → "Here's how to overcome it"
 
 ---
 
-## User Experience
-- **Default view**: Readers see only "Founded by Oscar Poon" - minimal, non-intrusive
-- **On click**: Bio expands for curious readers
-- **SEO**: Google sees full content regardless of collapsed state
+## Alternative Question Options (if you want to consider)
 
+| Question | Tone |
+|----------|------|
+| "Why does eating less sugar feel harder than it should?" | Empathetic, curious |
+| "If the biology is simple, why is the change so hard?" | Bridges biology → challenge |
+| "So why do most diets still fail?" | Direct, provocative |
+| "What's really blocking fat-burning mode?" | Technical curiosity |
+
+Your original question is the strongest - it's personal ("feel"), validating ("harder than it should"), and open-ended.
