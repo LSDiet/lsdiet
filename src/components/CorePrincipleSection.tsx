@@ -49,6 +49,11 @@ export function CorePrincipleSection() {
                   The body prioritizes sugar when it's readily available. When sugar drops, it naturally shifts toward using fat for energy. <span className="font-medium text-primary">When this process is disrupted, hunger stays high.</span>
                 </p>
               </div>
+              
+              {/* Rhetorical question hook */}
+              <p className="mt-5 text-center text-sm md:text-base italic text-muted-foreground">
+                Why does eating less sugar feel harder than it should?
+              </p>
             </div>
 
             {/* The Challenge Card */}
