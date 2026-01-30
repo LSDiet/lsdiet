@@ -73,6 +73,7 @@ export function CorePrincipleSection() {
                 <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍚 Rice</span>
                 <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍝 Pasta</span>
                 <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍜 Noodles</span>
+                <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🌽 Corn</span>
               </div>
               <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50 flex-grow">
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -115,7 +116,7 @@ export function CorePrincipleSection() {
               </div>
               <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50 flex-grow">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  These products are everywhere. They're cheap, engineered to taste irresistible, and impossible to avoid. Exposure is constant.
+                  These products are everywhere. They are much more affordable than whole foods, engineered to be irresistible, and hard to avoid. Like, really hard to avoid!
                 </p>
               </div>
               
