@@ -406,7 +406,7 @@ const faqCategories: FAQCategoryData[] = [
         answer:
           "The five stages of Awareness consist of a series of questions designed to help you build a roadmap for change. Below are sample questions.",
         awarenessList: [
-          { stage: "Reality Awareness", explanation: "Understanding where you are right now.", questions: ["What is your current weight?", "What was your weight six months ago?", "Describe your day to day to me?"] },
+          { stage: "Reality Awareness", explanation: "Understanding where you are right now.", questions: ["What is your current weight?", "What was your weight six months ago?", "How many meals do you eat in a day?"] },
           { stage: "Friction Awareness", explanation: "Recognizing how your current state affects your life.", questions: ["Has that state put you in a more difficult position?", "How so?", "Why is it important to do x?"] },
           { stage: "Pattern Awareness", explanation: "Examining your history with weight.", questions: ["How long has that been?", "What have you done about it?", "How did it go?", "What worked and what didn't?"] },
           { stage: "Consequence Awareness", explanation: "The root of push motivation.", questions: ["Without being able to X, what is that doing to your relationship?", "I understand that you can't X, why is that important to you?", "Why do you want to change now? Why not wait for another 3, 6, or even 12 months?"] },
