@@ -157,10 +157,10 @@ export function MethodSection() {
               taglineVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
             }`}
           >
-            (Simply: It makes you want to lose weight so much that{" "}
-            <span className="font-bold text-lg md:text-xl text-accent whitespace-nowrap">
+            <span className="font-bold">(Simply: It makes you want to lose weight so much that{" "}
+            <span className="text-lg md:text-xl text-accent whitespace-nowrap">
               excuses stop working.
-            </span>)
+            </span>)</span>
           </p>
           <p
             className={`text-sm md:text-base text-muted-foreground/80 max-w-lg mx-auto mt-3 italic transition-all duration-700 delay-500 ${
