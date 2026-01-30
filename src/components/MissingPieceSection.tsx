@@ -231,10 +231,13 @@ export function MissingPieceSection() {
           {/* The Discovery */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
-              So I began learning how fat is formed, stored, and burned. Ignoring obesity means accepting a future shaped by chronic disease, lifelong medication, and fewer life options.
+              So I started learning how fat is formed, stored, and burned.
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
+              I cared because ignoring obesity meant accepting a future of chronic disease, lifelong medication, and fewer options.
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              At only 40, I know I'm far too early to{" "}
+              At only 40, I was far too early to{" "}
               <span className="font-semibold text-primary">
                 surrender my future
               </span>.
