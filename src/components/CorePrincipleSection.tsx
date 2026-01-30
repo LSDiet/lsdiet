@@ -134,17 +134,18 @@ export function CorePrincipleSection() {
             </div>
           </div>
 
-          {/* Summary Statement */}
-          <div className="text-center mt-10">
-            <p className="text-primary text-lg md:text-xl font-medium mb-3">
-              Weight loss is not just a diet change.
-            </p>
-            <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-6">
-              When eating behaviour is shaped by biology, culture, and environment, it cannot be changed with a single tactic.
-            </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/15 border border-accent/30">
-              <span className="text-accent font-semibold text-base md:text-lg">It requires a system.</span>
-              <span className="text-accent animate-pulse">↓</span>
+          {/* Transition Statement */}
+          <div className="text-center mt-12 mb-4">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl lg:text-3xl font-serif text-primary leading-relaxed">
+                When eating behaviour is shaped by biology, culture, and environment, it cannot be changed with a single tactic.
+                <span className="block mt-4">
+                  <span className="inline-flex items-center gap-2 text-accent font-semibold">
+                    It requires a system.
+                    <span className="animate-pulse text-2xl">↓</span>
+                  </span>
+                </span>
+              </p>
             </div>
           </div>
         </div>
