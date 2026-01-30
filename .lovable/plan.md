@@ -1,66 +1,101 @@
 
-# Add Rhetorical Question Hook to Biology Card
+
+# Redesign Core Principle Section: Three Problem Cards
 
 ## Overview
-Add a thought-provoking question below the callout box in "The Biology" card to create a psychological pause moment that validates the reader's struggle and bridges to "The Challenge" card.
+Transform the current two-card layout into three parallel "Problem" cards, each following the same narrative structure as "The Biology" card. Keep the summary statement below all three cards.
 
 ---
 
-## The Question
-**"Why does eating less sugar feel harder than it should?"**
-
-This question works because:
-- Assumes shared experience (relatable)
-- Implies a hidden reason (curiosity)
-- Uses emotional language ("feel")
-- Validates frustration ("should" be easier)
-
----
-
-## Design Approach
+## Final Section Structure
 
 ```text
-+------------------------------------------+
-| THE BIOLOGY                              |
-|                                          |
-| Your body runs on two main fuels:        |
-| sugar and fat.                           |
-|                                          |
-| • HIGH sugar → fat stays stored          |
-| • LOW sugar → body burns fat             |
-|                                          |
-| ┌────────────────────────────────────┐   |
-| │ The body prioritizes sugar when... │   |
-| │ When this process is disrupted,    │   |
-| │ hunger stays high.                 │   |
-| └────────────────────────────────────┘   |
-|                                          |
-|   ↓ NEW QUESTION HERE ↓                  |
-|                                          |
-| "Why does eating less sugar feel         |
-|  harder than it should?"                 |
-|         ↗ (look to Challenge card)       |
-+------------------------------------------+
+            ┌─ The Core Principle ─┐
+            │  Low-Starch. Low-Sugar.  │
+            └──────────────────────────┘
+
++--------------------+--------------------+--------------------+
+| THE BIOLOGY PROBLEM| THE CULTURE PROBLEM| THE ENVIRONMENT    |
+|                    |                    |      PROBLEM       |
+|   [Facts]          |   [Facts]          |   [Facts]          |
+|   [Callout]        |   [Callout]        |   [Callout]        |
+|   [Question]       |   [Question]       |   [Question]       |
++--------------------+--------------------+--------------------+
+
+         "Weight loss is not just a diet change.
+    It is a personal, social, and environmental challenge."
 ```
 
 ---
 
-## Styling Options
+## Card Details
 
-### Option 1: Subtle italic (recommended)
-- Italic text, muted color
-- Feels like a natural thought continuation
-- Non-intrusive, but creates pause
+### Card 1: The Biology Problem (existing, just rename title)
 
-### Option 2: Centered with visual emphasis
-- Centered text with slight accent color
-- Small arrow or visual hint pointing to Challenge card
-- More prominent "hook" feel
+**Title:** THE BIOLOGY PROBLEM
 
-### Option 3: Speech bubble / thought style
-- Light background with curved border
-- Feels more conversational
-- May feel too playful for the tone
+**Content:** Keep existing content unchanged
+- Your body runs on two main fuels: sugar and fat
+- HIGH sugar → fat stays stored / LOW sugar → body burns fat
+- Callout about hunger staying high
+- Question: "Why does eating less sugar feel harder than it should?"
+
+---
+
+### Card 2: The Culture Problem (NEW)
+
+**Title:** THE CULTURE PROBLEM
+
+**Opening:** Many cultures center meals around starch-based staples.
+
+**Visual badges (no countries):**
+```
+🥖 Bread    🍚 Rice    🍝 Pasta    🍜 Noodles
+```
+
+**Callout:**
+Eating differently often means pushing against tradition, family expectations, and social norms.
+
+**Question:** "What happens when your plate contradicts your heritage?"
+
+**Hint:** ↗ Culture shapes cravings more than we think
+
+---
+
+### Card 3: The Environment Problem (NEW)
+
+**Title:** THE ENVIRONMENT PROBLEM
+
+**Opening:** We live in a food environment dominated by ultra-processed products.
+
+**Visual badges (updated reasons):**
+```
+🍭 Hyper-palatable    💵 Low Cost    📍 Highly Accessible    🔁 Habit
+```
+
+**Callout (no hyphens):**
+These products are everywhere. They're cheap, engineered to taste irresistible, and impossible to avoid. Exposure is constant.
+
+**Question:** "How do you resist what's designed to be irresistible?"
+
+**Hint:** ↗ The deck is stacked against willpower
+
+---
+
+## Summary Statement (kept below cards)
+
+```tsx
+<div className="text-center mt-8">
+  <p className="text-muted-foreground text-sm mb-2">
+    Weight loss is not just a diet change.
+  </p>
+  <p className="text-primary text-sm md:text-base font-medium">
+    It is a <span className="font-semibold">personal</span>, 
+    <span className="font-semibold text-accent">social</span>, and 
+    <span className="font-semibold">environmental</span> challenge.
+  </p>
+</div>
+```
 
 ---
 
@@ -68,42 +103,47 @@ This question works because:
 
 ### File: `src/components/CorePrincipleSection.tsx`
 
-Add a new element after the callout box (line 51) and before the closing `</div>` of the Biology card:
+**Changes:**
+1. Update grid: `md:grid-cols-2` → `md:grid-cols-3`
+2. Rename "THE BIOLOGY" → "THE BIOLOGY PROBLEM"
+3. Replace "The Challenge" card with two new cards: Culture Problem + Environment Problem
+4. Add summary statement section below the grid
 
+### Badge Styling
+
+**Culture staples:**
 ```tsx
-{/* Rhetorical question hook */}
-<p className="mt-5 text-center text-sm md:text-base italic text-muted-foreground">
-  Why does eating less sugar feel harder than it should?
-</p>
+<div className="flex flex-wrap justify-center gap-2 mb-5">
+  <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🥖 Bread</span>
+  <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍚 Rice</span>
+  <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍝 Pasta</span>
+  <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍜 Noodles</span>
+</div>
 ```
 
-Alternative styling with subtle accent:
+**Environment factors:**
 ```tsx
-<p className="mt-5 text-center text-sm md:text-base text-muted-foreground">
-  <span className="italic">Why does eating less sugar feel harder than it should?</span>
-  <span className="block text-xs text-accent mt-1">→</span>
-</p>
+<div className="flex flex-wrap justify-center gap-2 mb-5">
+  <span className="px-3 py-1.5 rounded-lg bg-pink-500/10 text-pink-600 text-xs font-medium">
+    🍭 Hyper-palatable
+  </span>
+  <span className="px-3 py-1.5 rounded-lg bg-green-500/10 text-green-600 text-xs font-medium">
+    💵 Low Cost
+  </span>
+  <span className="px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-600 text-xs font-medium">
+    📍 Highly Accessible
+  </span>
+  <span className="px-3 py-1.5 rounded-lg bg-purple-500/10 text-purple-600 text-xs font-medium">
+    🔁 Habit
+  </span>
+</div>
 ```
 
 ---
 
-## Narrative Flow After Implementation
+## Responsive Behavior
 
-1. **Biology facts** → Reader learns HIGH/LOW sugar dynamics
-2. **Callout insight** → "When disrupted, hunger stays high"
-3. **Question hook** → "Why does it feel harder than it should?" ← NEW
-4. **Challenge card** → "Here's why..." (personal, social, environmental)
-5. **WPT solution** → "Here's how to overcome it"
+- **Desktop (md+):** 3-column grid
+- **Mobile:** Stack vertically
+- Cards use `flex flex-col` with consistent heights
 
----
-
-## Alternative Question Options (if you want to consider)
-
-| Question | Tone |
-|----------|------|
-| "Why does eating less sugar feel harder than it should?" | Empathetic, curious |
-| "If the biology is simple, why is the change so hard?" | Bridges biology → challenge |
-| "So why do most diets still fail?" | Direct, provocative |
-| "What's really blocking fat-burning mode?" | Technical curiosity |
-
-Your original question is the strongest - it's personal ("feel"), validating ("harder than it should"), and open-ended.
