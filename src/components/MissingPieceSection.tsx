@@ -234,7 +234,10 @@ export function MissingPieceSection() {
               So I started learning how fat is formed, stored, and burned.
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
-              I cared because ignoring obesity meant accepting a future of chronic disease, lifelong medication, and fewer options.
+              I cared because ignoring obesity meant accepting a future of{" "}
+              <span className="font-semibold text-destructive">chronic disease</span>,{" "}
+              <span className="font-semibold text-destructive">lifelong medication</span>, and{" "}
+              <span className="font-semibold text-destructive">limited life options</span>.
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               At only 40, I was far too early to{" "}
