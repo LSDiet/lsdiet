@@ -25,7 +25,7 @@ export function HeroSection() {
         </h1>
 
         {/* Description */}
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed opacity-0 animate-fade-in-up animate-delay-200">
+        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed opacity-0 animate-fade-in-up animate-delay-200">
           The Weight Permanence Triangle™ — a neurobehavioural training to lose weight, keep it off, and live freely with a <span className="font-bold">low-starch (LS), low-sugar (LS)</span> lifestyle.
         </p>
 
