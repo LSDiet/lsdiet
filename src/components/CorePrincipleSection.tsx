@@ -43,8 +43,8 @@ export function CorePrincipleSection() {
                   </span>
                 </li>
               </ul>
-              <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50 flex-grow">
-                <p className="text-sm text-muted-foreground leading-relaxed">
+              <div className="bg-muted/40 rounded-lg p-4 flex-grow">
+                <p className="text-sm text-muted-foreground leading-relaxed text-center">
                   The body prioritizes sugar when it's readily available. When sugar drops, it naturally shifts toward using fat for energy. <span className="font-medium text-primary">When this process is disrupted, hunger stays high.</span>
                 </p>
               </div>
@@ -75,8 +75,8 @@ export function CorePrincipleSection() {
                 <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🍜 Noodles</span>
                 <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🌽 Corn</span>
               </div>
-              <div className="bg-muted/40 rounded-lg p-4 border-l-2 border-accent/50 flex-grow">
-                <p className="text-sm text-muted-foreground leading-relaxed">
+              <div className="bg-muted/40 rounded-lg p-4 flex-grow">
+                <p className="text-sm text-muted-foreground leading-relaxed text-center">
                   Eating differently often means pushing against tradition, family expectations, and social norms.
                 </p>
               </div>
