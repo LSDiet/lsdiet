@@ -27,7 +27,7 @@ export function CorePrincipleSection() {
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
               <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Biology</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
-                Your body runs on two main fuels: sugar and fat. <span className="font-bold text-primary">Sugar and fat</span> compete for priority.
+                Your body runs on two main fuels. <span className="font-bold text-primary">Sugar and fat</span> compete for priority.
               </p>
               <ul className="space-y-2 mb-5">
                 <li className="flex items-start gap-2">
@@ -66,7 +66,7 @@ export function CorePrincipleSection() {
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
               <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Culture</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
-                Many cultures center meals around starch-based staples.
+                Many cultures center meals around <span className="font-bold text-primary">starch-based staples</span>.
               </p>
               <div className="flex flex-wrap justify-center gap-2 mb-5">
                 <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🥖 Bread</span>
@@ -98,7 +98,7 @@ export function CorePrincipleSection() {
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
               <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Environment</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
-                We live in a food environment dominated by ultra-processed products.
+                We live in a food environment dominated by <span className="font-bold text-primary">ultra-processed products</span>.
               </p>
               <div className="flex flex-wrap justify-center gap-2 mb-5">
                 <span className="px-3 py-1.5 rounded-lg bg-pink-500/10 text-pink-600 text-xs font-medium">

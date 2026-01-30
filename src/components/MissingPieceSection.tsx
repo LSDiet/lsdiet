@@ -188,7 +188,7 @@ export function MissingPieceSection() {
           {/* The Surgeon Story */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              In 2025, I interviewed a bariatric surgeon who shared a striking insight <Zap className="inline w-4 h-4 text-accent" /> — <span className="font-bold text-primary">20–35%</span> of patients regain significant weight within 2–10 years. Not because the surgery failed, but because certain foods re-trigger hunger hormones, overriding the procedure's benefits.
+              When I reached 300 lbs again in 2024, I spoke with a bariatric surgeon. He told me that <span className="font-bold text-primary">20–35%</span> of patients regain significant weight within a decade. In many cases, hunger returns once specific foods re-enter the diet.
             </p>
           </div>
 
@@ -198,7 +198,7 @@ export function MissingPieceSection() {
               That conversation planted an uncomfortable question:
             </p>
             <p className="text-lg md:text-xl leading-relaxed">
-              <em className="text-primary font-semibold">"Why does every weight loss method eventually turn into a fight with hunger?"</em>
+              <em className="text-primary font-semibold">"Why do certain foods leave people hungry again so soon after eating?"</em>
             </p>
           </div>
 
