@@ -66,7 +66,7 @@ export function CorePrincipleSection() {
             <div className="bg-card rounded-2xl p-6 md:p-8 border border-border flex flex-col">
               <h4 className="text-sm font-semibold text-primary/70 uppercase tracking-wide mb-4 text-center">The <span className="font-bold text-primary">Culture</span> Problem</h4>
               <p className="text-muted-foreground mb-4">
-                Many cultures center meals around <span className="font-bold text-primary">starch-based staples</span>.
+                Many cultures centre meals around <span className="font-bold text-primary">starch-based staples</span>.
               </p>
               <div className="flex flex-wrap justify-center gap-2 mb-5">
                 <span className="px-3 py-1.5 rounded-full bg-muted text-sm">🥖 Bread</span>
