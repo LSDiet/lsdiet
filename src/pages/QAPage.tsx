@@ -789,7 +789,7 @@ function FAQCategory({
                       {item.awarenessList.map((stage, i) => (
                         <li key={i} className="text-primary">
                           <span className="font-semibold">{stage.stage}</span>
-                          <span className="text-muted-foreground"> ({stage.explanation})</span>
+                          <span className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: ` (${stage.explanation})` }} />
                           <div className="ml-5 mt-2 space-y-1">
                             {stage.questions.map((q, qi) => (
                               <p key={qi} className="text-muted-foreground italic">"{q}"</p>
