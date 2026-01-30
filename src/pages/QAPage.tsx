@@ -16,6 +16,7 @@ interface FAQQuestion {
   answer: string;
   condition?: string;
   awarenessList?: Array<{ stage: string; explanation: string; questions: string[] }>;
+  awarenessNote?: string;
   highlightText?: string;
 }
 
@@ -411,6 +412,7 @@ const faqCategories: FAQCategoryData[] = [
           { stage: "Consequence Awareness", explanation: "The root of push motivation.", questions: ["What if you stay like this for 10, 20, 30 years?", "If you can't do X, what does that mean to you?"] },
           { stage: "Autonomy Awareness", explanation: "The root of pull motivation.", questions: ["What if things change?", "If you can lose 10 lbs a month, what does losing 50–100 lbs mean to you?", "What will this new you do for your body, relationships, and emotional wellbeing?"] },
         ],
+        awarenessNote: "Note: These are example questions. The full Awareness framework includes 50+ guided questions designed to build clarity and both push and pull motivation. Purchasing Weight Permanence unlocks the complete set. A guided, chat-style tool called Awareness Compass is currently in development to help members move through all five stages.",
       },
       {
         question: "How does emotional encoding affect weight loss?",
@@ -769,6 +771,11 @@ function FAQCategory({
                         </li>
                       ))}
                     </ol>
+                    {item.awarenessNote && (
+                      <p className="mt-6 text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-4">
+                        {item.awarenessNote}
+                      </p>
+                    )}
                   </>
                 ) : item.highlightText ? (
                   <p className="whitespace-pre-line">
