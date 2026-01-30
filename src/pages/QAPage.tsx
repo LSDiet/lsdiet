@@ -510,13 +510,15 @@ export default function QAPage() {
   // Scroll to and expand awareness stages question if open param is set
   useEffect(() => {
     if (openParam === "awareness-stages") {
-      // Small delay to allow accordion to render
+      // Delay to allow accordion to render and expand
       setTimeout(() => {
         const element = document.getElementById("awareness-stages-question");
         if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "center" });
+          const navbarHeight = 80; // Account for fixed navbar
+          const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({ top: elementPosition - navbarHeight, behavior: "smooth" });
         }
-      }, 300);
+      }, 500);
     }
   }, [openParam]);
 
