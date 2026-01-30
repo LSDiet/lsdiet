@@ -404,7 +404,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "What are the five stages of Awareness in the Weight Permanence Triangle™?",
         answer:
-          "The five stages of Awareness must be followed in order:",
+          "The five stages of Awareness consist of a series of questions designed to help you build a roadmap for change. Below are sample questions.",
         awarenessList: [
           { stage: "Reality Awareness", explanation: "Understanding where you are right now.", questions: ["What is your current weight?", "What was your weight six months ago?", "What's your day to day like?"] },
           { stage: "Friction Awareness", explanation: "Recognizing how your current state affects your life.", questions: ["Has that state put you in a more difficult position?", "How so?", "Why is it important to do x?"] },
