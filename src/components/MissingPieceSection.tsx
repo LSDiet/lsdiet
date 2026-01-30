@@ -10,32 +10,35 @@ function KeyQuestionHook() {
   return (
     <div 
       ref={ref}
-      className={`relative my-10 py-8 transition-all duration-700 ${
+      className={`relative my-10 py-10 transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
     >
+      {/* Subtle background glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-accent/8 via-accent/5 to-transparent rounded-3xl" />
+      
       {/* Decorative opening quote */}
-      <span className="absolute -top-2 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-accent/30 font-serif select-none">
+      <span className="absolute top-2 left-1/2 -translate-x-1/2 text-7xl md:text-8xl text-accent/60 font-serif select-none">
         "
       </span>
       
       {/* The Question */}
-      <p className="text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-snug max-w-2xl mx-auto px-4">
+      <p className="relative text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-snug max-w-2xl mx-auto px-4 pt-10">
         Why do certain foods leave people{" "}
         <span className="relative inline-block">
-          hungry
-          <span className="absolute -bottom-1 left-0 right-0 h-1 bg-accent/40 rounded-full" />
+          <span className="text-accent font-bold">hungry</span>
+          <span className="absolute -bottom-1 left-0 right-0 h-1.5 bg-accent/70 rounded-full" />
         </span>{" "}
         again so soon after eating?
       </p>
       
       {/* Decorative closing quote */}
-      <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-accent/30 font-serif select-none rotate-180">
+      <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-7xl md:text-8xl text-accent/60 font-serif select-none rotate-180">
         "
       </span>
       
       {/* Minimal accent line below */}
-      <div className="w-16 h-0.5 bg-accent/50 mx-auto mt-8" />
+      <div className="w-20 h-1 bg-accent/60 mx-auto mt-10 rounded-full" />
     </div>
   );
 }
