@@ -63,7 +63,7 @@ function HeroSolutionReveal() {
         }`}
       >
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-            After months of trial and error, I realised that{" "}
+            I spent months trying different approaches before realising that{" "}
             <span 
               className={`inline-block font-bold text-primary text-lg md:text-xl transition-all duration-500 delay-500 ${
                 isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
@@ -71,7 +71,7 @@ function HeroSolutionReveal() {
             >
               low-starch, low-sugar
             </span>{" "}
-            is the healthiest and most sustainable method to lose weight and build muscle simultaneously — without starvation for a single day.
+            eating was the only way I could lose weight and build muscle without feeling starved.
           </p>
       </div>
     </div>
