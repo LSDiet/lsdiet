@@ -53,7 +53,7 @@ export function CorePrincipleSection() {
               <div className="mt-6 pt-5 border-t border-border/50">
                 <p className="text-center text-base font-serif text-primary/80">
                   <span className="text-accent text-2xl leading-none">"</span>
-                  <span className="italic">Why does eating less sugar feel harder than it should?</span>
+                  <span className="italic">Why does eating less sugar feel harder than willpower alone can explain?</span>
                   <span className="text-accent text-2xl leading-none">"</span>
                 </p>
                 <p className="text-center text-xs text-muted-foreground mt-2">
@@ -134,13 +134,17 @@ export function CorePrincipleSection() {
           </div>
 
           {/* Summary Statement */}
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground text-sm mb-2">
+          <div className="text-center mt-10">
+            <p className="text-primary text-lg md:text-xl font-medium mb-3">
               Weight loss is not just a diet change.
             </p>
-            <p className="text-primary text-sm md:text-base font-medium">
-              It is a <span className="font-semibold">personal</span>, <span className="font-semibold text-accent">social</span>, and <span className="font-semibold">environmental</span> challenge.
+            <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mx-auto mb-6">
+              When eating behaviour is shaped by biology, culture, and environment, it cannot be changed with a single tactic.
             </p>
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/15 border border-accent/30">
+              <span className="text-accent font-semibold text-base md:text-lg">It requires a system.</span>
+              <span className="text-accent animate-pulse">↓</span>
+            </div>
           </div>
         </div>
       </div>
