@@ -157,10 +157,17 @@ export function MethodSection() {
               taglineVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
             }`}
           >
-            (It makes you want to lose weight so much that{" "}
+            (Simply: It makes you want to lose weight so much that{" "}
             <span className="font-bold text-lg md:text-xl text-accent whitespace-nowrap">
               excuses stop working.
             </span>)
+          </p>
+          <p
+            className={`text-sm md:text-base text-muted-foreground/80 max-w-lg mx-auto mt-3 italic transition-all duration-700 delay-500 ${
+              taglineVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+            }`}
+          >
+            I spent months trying different approaches before realising that low-starch, low-sugar eating was the only way I could lose weight and build muscle without feeling hungry.
           </p>
         </div>
 
