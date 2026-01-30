@@ -86,7 +86,7 @@ const faqCategories: FAQCategoryData[] = [
         condition: "hormonal imbalance",
       },
       {
-        question: "Does obesity slow down fat burning?",
+        question: "Does obesity slow down <b>fat burning</b>?",
         answer:
           "Chronic hyperinsulinaemia from obesity blocks lipolysis (the release of stored fat) and inhibits fat oxidation (burning fat for energy). The enzyme hormone-sensitive lipase, which breaks down stored triglycerides, is suppressed by insulin. Additionally, inflammatory cytokines (TNF-α, IL-6) impair mitochondrial function, reducing the cell's capacity to burn fat efficiently—a state called metabolic inflexibility. The consequence is an inability to access stored energy despite excess body fat, driving persistent hunger and fatigue. Weight loss through reduced starch and sugar intake lowers insulin, reactivates lipolysis, and restores metabolic flexibility.",
         condition: "impaired fat metabolism",
@@ -193,17 +193,17 @@ const faqCategories: FAQCategoryData[] = [
           "Excess weight creates mechanical limitations: joint pain from osteoarthritis, breathlessness from restricted lung capacity, reduced balance from altered centre of gravity, and muscle weakness from relative sarcopenia (low muscle mass relative to fat mass). Activities like climbing stairs, rising from chairs, walking distances, bending to tie shoes, and personal grooming become difficult or impossible. Functional decline often leads to disability, loss of independence, and need for assisted living. Weight loss combined with progressive physical activity reduces joint stress, improves cardiovascular fitness, builds functional strength, and restores independence in daily activities.",
         condition: "reduced physical function",
       },
+    ],
+  },
+  {
+    title: "Weight Regain",
+    questions: [
       {
         question: "Why are ultra-processed foods so hard to resist?",
         answer:
           "Ultra-processed foods (UPFs) are engineered with refined starches, added sugars, unhealthy fats, and flavour enhancers that maximise palatability and consumption. They trigger rapid glucose spikes and insulin surges, promoting fat storage and hunger cycles. UPFs also disrupt gut microbiome composition, increasing inflammation and metabolic dysfunction. Studies link high UPF consumption to obesity, metabolic syndrome, cardiovascular disease, and certain cancers independent of calorie intake. The obesogenic environment—where UPFs are cheap, convenient, and heavily marketed—makes weight management extremely difficult. A low-starch, low-sugar approach reduces insulin response and breaks the cycle of cravings driven by processed food consumption.",
         condition: "ultra-processed food cravings",
       },
-    ],
-  },
-  {
-    title: "Weight Regain",
-    questions: [
       {
         question: "Why do I lose weight but always gain it back?",
         answer:
@@ -405,11 +405,11 @@ const faqCategories: FAQCategoryData[] = [
         answer:
           "The five stages of Awareness must be followed in order:",
         awarenessList: [
-          { stage: "Reality Awareness", description: "Understanding your current state." },
-          { stage: "Friction Awareness", description: "Has that state put you in a more difficult position?" },
-          { stage: "Pattern Awareness", description: "How long has that been? What have you done about it? How did it go? What worked and what didn't?" },
-          { stage: "Consequence Awareness", description: "The root of push motivation: What if you stay like this for 10, 20, 30 years? What happens next?" },
-          { stage: "Autonomy Awareness", description: "The root of pull motivation: What if things change? If you can lose 10 lbs a month, what does losing 50–100 lbs mean to you? What will this new you do for your body, relationships, and emotional wellbeing?" },
+          { stage: "Reality Awareness", description: "• What is your current state?\n_Understanding where you are right now._" },
+          { stage: "Friction Awareness", description: "• Has that state put you in a more difficult position?\n_Recognizing how your current state affects your life._" },
+          { stage: "Pattern Awareness", description: "• How long has that been?\n• What have you done about it?\n• How did it go?\n• What worked and what didn't?\n_Examining your history with weight._" },
+          { stage: "Consequence Awareness", description: "• What if you stay like this for 10, 20, 30 years?\n• If you can't do X, what does that mean to you?\n_The root of push motivation._" },
+          { stage: "Autonomy Awareness", description: "• What if things change?\n• If you can lose 10 lbs a month, what does losing 50–100 lbs mean to you?\n• What will this new you do for your body, relationships, and emotional wellbeing?\n_The root of pull motivation._" },
         ],
       },
       {
@@ -690,8 +690,17 @@ function FAQCategory({
           const renderQuestion = () => {
             if (category.hasBookCta && item.condition) {
               // Pattern: "Does obesity cause X?" - bold the condition
-              const match = item.question.match(/^(Does obesity (?:cause|reduce|shorten|limit))\s+(.+?)(\??)$/i);
+              const match = item.question.match(/^(Does obesity (?:cause|reduce|shorten|limit|slow down))\s+(.+?)(\??)$/i);
               if (match) {
+                // Check if the match[2] contains <b> tags
+                const boldMatch = match[2].match(/^<b>(.+?)<\/b>(.*)$/);
+                if (boldMatch) {
+                  return (
+                    <span>
+                      {match[1]} <strong>{boldMatch[1]}</strong>{boldMatch[2]}{match[3]}
+                    </span>
+                  );
+                }
                 return (
                   <span>
                     {match[1]} <strong>{match[2]}</strong>{match[3]}
@@ -746,14 +755,30 @@ function FAQCategory({
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 {item.awarenessList ? (
                   <>
-                    <p className="mb-3">{item.answer}</p>
-                    <ol className="list-decimal list-inside space-y-2">
-                      {item.awarenessList.map((stage, i) => (
-                        <li key={i}>
-                          <span className="font-semibold text-primary">{stage.stage}</span>
-                          <span className="text-muted-foreground"> – {stage.description}</span>
-                        </li>
-                      ))}
+                    <p className="mb-4">{item.answer}</p>
+                    <ol className="list-decimal list-inside space-y-4">
+                      {item.awarenessList.map((stage, i) => {
+                        // Split description by newline to separate questions from italic sentence
+                        const parts = stage.description.split('\n');
+                        const questions = parts.filter(p => p.startsWith('•'));
+                        const italicPart = parts.find(p => p.startsWith('_') && p.endsWith('_'));
+                        
+                        return (
+                          <li key={i} className="text-primary">
+                            <span className="font-semibold">{stage.stage}</span>
+                            <div className="ml-5 mt-1 space-y-1">
+                              {questions.map((q, qi) => (
+                                <p key={qi} className="text-muted-foreground">{q}</p>
+                              ))}
+                              {italicPart && (
+                                <p className="text-muted-foreground italic mt-2">
+                                  {italicPart.slice(1, -1)}
+                                </p>
+                              )}
+                            </div>
+                          </li>
+                        );
+                      })}
                     </ol>
                   </>
                 ) : item.highlightText ? (
