@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -493,6 +493,8 @@ const faqCategories: FAQCategoryData[] = [
 export default function QAPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.1);
   const { handleDirectCheckout, isLoading: isCheckoutLoading } = useDirectCheckout();
+  const [searchParams] = useSearchParams();
+  const openParam = searchParams.get("open");
 
   useEffect(() => {
     document.title = "Weight Loss Q&A - Why Can't I Keep Weight Off? | Weight Permanence";
@@ -504,6 +506,19 @@ export default function QAPage() {
       );
     }
   }, []);
+
+  // Scroll to and expand awareness stages question if open param is set
+  useEffect(() => {
+    if (openParam === "awareness-stages") {
+      // Small delay to allow accordion to render
+      setTimeout(() => {
+        const element = document.getElementById("awareness-stages-question");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 300);
+    }
+  }, [openParam]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -539,6 +554,11 @@ export default function QAPage() {
                   delay={categoryIndex * 100}
                   onDirectCheckout={category.hasDirectCheckout ? handleDirectCheckout : undefined}
                   isCheckoutLoading={isCheckoutLoading}
+                  defaultOpenValue={
+                    openParam === "awareness-stages" && category.title === "The Weight Permanence Triangle™ Method"
+                      ? "The Weight Permanence Triangle™ Method-6"
+                      : undefined
+                  }
                 />
               ))}
             </div>
@@ -669,11 +689,13 @@ function FAQCategory({
   delay,
   onDirectCheckout,
   isCheckoutLoading,
+  defaultOpenValue,
 }: {
   category: FAQCategoryData;
   delay: number;
   onDirectCheckout?: () => void;
   isCheckoutLoading?: boolean;
+  defaultOpenValue?: string;
 }) {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
@@ -686,7 +708,7 @@ function FAQCategory({
       style={{ transitionDelay: `${delay}ms` }}
     >
       <h2 className="text-xl font-semibold text-primary mb-4">{category.title}</h2>
-      <Accordion type="single" collapsible className="space-y-2">
+      <Accordion type="single" collapsible className="space-y-2" defaultValue={defaultOpenValue}>
         {category.questions.map((item, index) => {
           // Bold the condition/disease in the question for the first category
           const renderQuestion = () => {
@@ -745,11 +767,14 @@ function FAQCategory({
             return null;
           };
 
+          const isAwarenessStages = item.question.includes("five stages of Awareness");
+          
           return (
             <AccordionItem
               key={index}
               value={`${category.title}-${index}`}
               className="border border-border rounded-lg px-4 bg-card"
+              id={isAwarenessStages ? "awareness-stages-question" : undefined}
             >
               <AccordionTrigger className="text-left text-primary hover:no-underline">
                 {renderQuestion()}
