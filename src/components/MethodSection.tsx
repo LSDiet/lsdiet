@@ -1,4 +1,5 @@
 import { Eye, Activity, Lock } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const principles = [
@@ -6,6 +7,7 @@ const principles = [
     icon: Eye,
     title: "Awareness",
     description: "Five stages of awareness that clarify why weight loss matters beyond the scale and use emotion to create internal push and pull motivation.",
+    link: "/qa?open=awareness-stages",
   },
   {
     icon: Activity,
@@ -143,7 +145,7 @@ export function MethodSection() {
       <div className="container">
         <div className="text-center mb-8">
           <div className="inline-flex items-center px-6 py-3 rounded-full bg-accent/15 border border-accent/30 mb-6">
-            <span className="text-accent font-semibold text-base md:text-lg">The Solution</span>
+            <span className="text-accent font-semibold text-base md:text-lg">The WPT Solution</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
             Weight Permanence Triangle™
@@ -180,7 +182,13 @@ export function MethodSection() {
               <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
                 <principle.icon className="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <h3 className="text-xl font-semibold text-primary mb-2">{principle.title}</h3>
+              {principle.link ? (
+                <Link to={principle.link} className="text-xl font-semibold text-primary mb-2 hover:text-accent transition-colors underline underline-offset-2">
+                  {principle.title}
+                </Link>
+              ) : (
+                <h3 className="text-xl font-semibold text-primary mb-2">{principle.title}</h3>
+              )}
               <p className="text-muted-foreground text-sm leading-relaxed">{principle.description}</p>
             </div>
           ))}
