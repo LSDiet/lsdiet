@@ -24,56 +24,14 @@ function KeyQuestionHook() {
       
       {/* The Question */}
       <p className="relative text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-snug max-w-2xl mx-auto px-4 pt-8 pb-6">
-        Why do certain foods leave people{" "}
-        <span className="text-accent font-bold">hungry</span>{" "}
-        again so soon after eating?
+        Is it possible to lose weight without suffering from constant{" "}
+        <span className="text-accent font-bold">hunger</span>?
       </p>
       
       {/* Decorative closing quote */}
       <span className="absolute bottom-0 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-accent/60 font-serif select-none rotate-180">
         "
       </span>
-    </div>
-  );
-}
-
-function HeroSolutionReveal() {
-  const { ref, isVisible } = useScrollAnimation();
-
-  return (
-    <div ref={ref} className="text-center mb-8">
-      {/* Visual separator */}
-      <div className="w-24 h-px bg-border/60 mx-auto mb-6" />
-      
-      {/* Breaking the cycle */}
-      <div 
-        className={`inline-flex items-center gap-3 mb-5 transition-all duration-500 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}
-      >
-        <Zap className="w-6 h-6 text-accent" />
-        <span className="text-lg md:text-xl font-semibold text-accent">Breaking the Cycle</span>
-        <Zap className="w-6 h-6 text-accent" />
-      </div>
-
-      {/* Hero reveal */}
-      <div 
-        className={`bg-gradient-to-r from-primary/10 via-accent/15 to-primary/10 border border-accent/30 rounded-2xl p-5 md:p-6 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
-        }`}
-      >
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-            I spent months trying different approaches before realising that{" "}
-            <span 
-              className={`inline-block font-bold text-primary text-lg md:text-xl transition-all duration-500 delay-500 ${
-                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-75"
-              }`}
-            >
-              low-starch, low-sugar
-            </span>{" "}
-            eating was the only way I could lose weight and build muscle without feeling starved.
-          </p>
-      </div>
     </div>
   );
 }
@@ -201,6 +159,8 @@ export function MissingPieceSection() {
   const { ref: stat2Ref, isVisible: stat2Visible } = useScrollAnimation();
   const { ref: stat3Ref, isVisible: stat3Visible } = useScrollAnimation();
   const { ref: stat4Ref, isVisible: stat4Visible } = useScrollAnimation();
+  const { ref: transitionRef, isVisible: transitionVisible } = useScrollAnimation();
+  const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation();
 
   return (
     <section className="py-5 bg-secondary/30">
@@ -218,42 +178,31 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* The Surgeon Story */}
+          {/* Emotional Hook */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
-              When I reached 300 lbs again in 2024, I spoke with a bariatric surgeon. He told me that <span className="font-bold text-primary">20–35%</span> of patients regain significant weight within a decade. In many cases, hunger returns once specific foods re-enter the diet.
+              300 lbs again in 2024. <span className="font-semibold text-primary">Defeated.</span> Nothing had worked. And then I asked myself one question:
             </p>
           </div>
 
-          {/* The Key Question - Sharp Visual Hook */}
+          {/* The Key Question */}
           <KeyQuestionHook />
 
-          {/* The Discovery */}
+          {/* The Choice */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
               So I started learning how fat is formed, stored, and burned.
             </p>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
-              I cared because ignoring obesity meant accepting a future of{" "}
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              I had to choose between continuing to ignore my obesity rebound or accepting a future defined by{" "}
               <span className="font-semibold text-destructive">chronic disease</span>,{" "}
               <span className="font-semibold text-destructive">lifelong medication</span>, and{" "}
               <span className="font-semibold text-destructive">limited life options</span>.
             </p>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              At only 40, I was far too early to{" "}
-              <span className="font-semibold text-primary">
-                surrender my future
-              </span>.
-            </p>
           </div>
 
-          {/* Transition to stats */}
-          <p className="text-center text-base md:text-lg text-muted-foreground mb-6">
-            Here's what that journey uncovered:
-          </p>
-
           {/* Health Statistics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
             {/* 40% Obesity */}
             <div ref={statRef} className="flex items-center gap-4 bg-card/30 rounded-xl p-4 border border-border/30">
               <div className="text-4xl md:text-5xl font-bold text-accent shrink-0">
@@ -303,43 +252,70 @@ export function MissingPieceSection() {
             </a>
           </p>
 
-          {/* The Hunger Cycle */}
-          <div className="text-center mb-6">
+          {/* Transition: The Root Cause */}
+          <div 
+            ref={transitionRef}
+            className={`text-center mb-6 transition-all duration-700 ${
+              transitionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             <p className="text-base md:text-lg text-muted-foreground">
-              These numbers are driven by a cycle of <span className="font-semibold text-primary">hunger</span> and <span className="font-semibold text-primary">food choice</span>.
+              All of these are reversible. Everything pointed to one cause:{" "}
+              <span className="font-bold text-primary">refined carbohydrates</span>.
             </p>
           </div>
 
           {/* Circular Hunger Cycle */}
           <CircularHungerCycle />
 
-          {/* Hero Solution Reveal */}
-          <HeroSolutionReveal />
-        </div>
+          {/* Breaking the Cycle + Pathway */}
+          <div className="text-center mb-6 mt-8">
+            {/* Visual separator */}
+            <div className="w-24 h-px bg-border/60 mx-auto mb-6" />
+            
+            {/* Breaking the cycle header */}
+            <div className="inline-flex items-center gap-3 mb-6">
+              <Zap className="w-6 h-6 text-accent" />
+              <span className="text-lg md:text-xl font-semibold text-accent">Breaking the Cycle</span>
+              <Zap className="w-6 h-6 text-accent" />
+            </div>
+          </div>
 
-        {/* Equation Label */}
-        <p className="text-center text-base md:text-lg text-muted-foreground mb-5">
-          The Insulin-Fat Pathway:
-        </p>
+          {/* Equation Label */}
+          <p className="text-center text-base md:text-lg text-muted-foreground mb-5">
+            The Insulin-Fat Pathway:
+          </p>
 
-        {/* Equation Flow Diagram */}
-        <div className="max-w-4xl mx-auto mb-5">
-          <EquationFlow />
-        </div>
+          {/* Equation Flow Diagram */}
+          <div className="max-w-4xl mx-auto mb-5">
+            <EquationFlow />
+          </div>
 
-        {/* Clarifier */}
-        <p className="text-center text-sm text-muted-foreground italic max-w-2xl mx-auto mb-8">
-          (Calories still matter. But when hunger is regulated, food intake naturally decreases.)
-        </p>
+          {/* Clarifier */}
+          <p className="text-center text-sm text-muted-foreground italic max-w-2xl mx-auto mb-8">
+            (Calories still matter. But when hunger is regulated, food intake naturally decreases.)
+          </p>
 
-
-        {/* Transition to Core Principle */}
-        <div className="text-center mt-3">
-          <div className="inline-flex flex-col items-center gap-2">
-            <p className="text-sm text-muted-foreground italic">
-              What does this actually look like in practice?
+          {/* Rhetorical Question + Expert Credibility */}
+          <div className="bg-gradient-to-r from-primary/10 via-accent/15 to-primary/10 border border-accent/30 rounded-2xl p-5 md:p-6 max-w-2xl mx-auto mb-8">
+            <p className="text-center text-base md:text-lg font-serif text-primary/90 italic mb-4">
+              "What if I could cut out 90% of starch and sugar? Is this sustainable?"
             </p>
-            <ChevronDown className="w-5 h-5 text-accent animate-bounce" />
+            <p className="text-center text-sm text-muted-foreground">
+              I studied from leading experts in metabolic health: Dr. Annette Bosworth, Dr. Jason Fung, Dr. Eric Berg, Dr. Benjamin Bikman, Dr. Andrew Huberman, etc.
+            </p>
+          </div>
+
+          {/* Solution Reveal */}
+          <div 
+            ref={solutionRef}
+            className={`text-center transition-all duration-700 ${
+              solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              A low-starch, low-sugar lifestyle is far more difficult than a "simple diet change." I had to find a way to adopt this lifestyle intervention that is sustainable.
+            </p>
           </div>
         </div>
       </div>
