@@ -7,6 +7,7 @@ import { useCartSync } from "@/hooks/useCartSync";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import QAPage from "./pages/QAPage";
+import FreeResources from "./pages/FreeResources";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ function AppContent() {
         <Route path="/" element={<Index />} />
         <Route path="/product/:handle" element={<ProductDetail />} />
         <Route path="/qa" element={<QAPage />} />
+        <Route path="/free" element={<FreeResources />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

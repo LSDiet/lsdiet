@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          consent_given: boolean
+          consent_text: string
+          consent_timestamp: string
+          created_at: string
+          download_count: number
+          email: string
+          id: string
+          last_download_at: string
+          source: string
+        }
+        Insert: {
+          consent_given: boolean
+          consent_text: string
+          consent_timestamp: string
+          created_at?: string
+          download_count?: number
+          email: string
+          id?: string
+          last_download_at?: string
+          source: string
+        }
+        Update: {
+          consent_given?: boolean
+          consent_text?: string
+          consent_timestamp?: string
+          created_at?: string
+          download_count?: number
+          email?: string
+          id?: string
+          last_download_at?: string
+          source?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
