@@ -322,7 +322,7 @@ export function MissingPieceSection() {
           {/* Rhetorical Question + Expert Credibility */}
           <div className="bg-gradient-to-r from-primary/10 via-accent/15 to-primary/10 border border-accent/30 rounded-2xl p-5 md:p-6 max-w-2xl mx-auto mb-8">
             <p className="text-center text-base md:text-lg font-serif text-primary/90 italic mb-4">
-              "What if I could cut out 90% of starch and sugar? Is this sustainable?"
+              "What if I could cut out <span className="font-bold">90% of starch and sugar</span>? Is this sustainable?"
             </p>
             <p className="text-center text-sm text-muted-foreground">
               To find out, I studied from leading experts in metabolic health: Dr. Annette Bosworth, Dr. Jason Fung, Dr. Eric Berg, Dr. Benjamin Bikman, Dr. Andrew Huberman, etc.
