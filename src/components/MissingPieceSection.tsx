@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronRight, ChevronDown, Zap } from "lucide-react";
+import { ChevronRight, ChevronDown, Zap, ChevronsRight, ChevronsLeft } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { CircularHungerCycle } from "./CircularHungerCycle";
@@ -263,11 +263,29 @@ export function MissingPieceSection() {
               transitionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <p className="text-base md:text-lg text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground mb-4">
               All of these are reversible. Everything pointed to one cause:
-              <br />
-              <span className="font-bold text-destructive text-lg md:text-xl">overconsumption of refined carbohydrates</span>.
             </p>
+            
+            {/* Highlighted cause with animated arrows */}
+            <div className="flex items-center justify-center gap-3 md:gap-6">
+              {/* Left arrows */}
+              <div className="flex items-center">
+                <ChevronsRight className="w-6 h-6 md:w-8 md:h-8 text-destructive/70 animate-bounce-horizontal" />
+              </div>
+              
+              {/* The cause - styled box */}
+              <div className="relative px-6 py-3 md:px-8 md:py-4 bg-destructive/10 border-2 border-destructive/30 rounded-xl">
+                <span className="font-bold text-destructive text-lg md:text-2xl italic">
+                  overconsumption of refined carbohydrates
+                </span>
+              </div>
+              
+              {/* Right arrows */}
+              <div className="flex items-center">
+                <ChevronsLeft className="w-6 h-6 md:w-8 md:h-8 text-destructive/70 animate-bounce-horizontal-reverse" />
+              </div>
+            </div>
           </div>
 
           {/* Circular Hunger Cycle */}
