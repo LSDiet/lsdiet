@@ -14,12 +14,12 @@ export function CorePrincipleSection() {
         >
           <div className="text-center mb-8">
             <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
-              <span className="text-sm font-medium text-accent">A New Lifestyle</span>
+              <span className="text-sm font-medium text-accent">3 BIG PROBLEMS</span>
             </div>
             <h3 className="text-2xl md:text-3xl font-serif font-normal mb-2 text-primary">
               Low-Starch. Low-Sugar.
             </h3>
-            <p className="text-muted-foreground italic">(LSLS is difficult, and here's why.)</p>
+            <p className="text-muted-foreground italic">(LS is difficult, and here's why.)</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -134,20 +134,6 @@ export function CorePrincipleSection() {
             </div>
           </div>
 
-          {/* Transition Statement */}
-          <div className="text-center mt-12 mb-4">
-            <div className="max-w-2xl mx-auto">
-              <p className="text-lg md:text-xl font-serif text-primary/90 leading-relaxed">
-                When eating behaviour is shaped by <span className="font-semibold text-accent">biology</span>, <span className="font-semibold text-accent">culture</span>, and <span className="font-semibold text-accent">environment</span>, it cannot be changed with a single tactic.
-                <span className="block mt-3">
-                  <span className="inline-flex items-center gap-2 text-accent font-semibold">
-                    It requires a system.
-                    <span className="animate-pulse text-xl">↓</span>
-                  </span>
-                </span>
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
