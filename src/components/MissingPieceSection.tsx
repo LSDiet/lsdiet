@@ -24,8 +24,9 @@ function KeyQuestionHook() {
       
       {/* The Question */}
       <p className="relative text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-snug max-w-2xl mx-auto px-4 pt-8 pb-6">
-        Is it possible to lose weight without suffering from constant{" "}
-        <span className="text-accent font-bold">hunger</span>?
+        What was it about{" "}
+        <span className="text-accent font-bold animate-pulse-glow">"normal"</span>{" "}
+        food that kept pulling me back here?
       </p>
       
       {/* Decorative closing quote */}
@@ -174,14 +175,15 @@ export function MissingPieceSection() {
           {/* Section Badge */}
           <div className="text-center mb-5">
             <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25">
-              <span className="text-sm font-medium text-accent">The Missing Piece</span>
+              <span className="text-sm font-medium text-accent">The Tipping Point</span>
             </div>
           </div>
 
           {/* Emotional Hook */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
-              300 lbs again in 2024. <span className="font-semibold text-primary">Defeated.</span> Nothing had worked. And then I asked myself one question:
+              In 2024, I was back at 300 lbs. I was eating what I thought was normal. I was{" "}
+              <span className="font-bold text-primary">frustrated and exhausted</span> by how the weight kept coming back.
             </p>
           </div>
 
@@ -194,7 +196,7 @@ export function MissingPieceSection() {
               So I started learning how fat is formed, stored, and burned.
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              I had to choose between continuing to ignore my obesity rebound or accepting a future defined by{" "}
+              I had to choose between continuing to ignore my <span className="font-bold">obesity</span> rebound or accepting a future defined by{" "}
               <span className="font-semibold text-destructive">chronic disease</span>,{" "}
               <span className="font-semibold text-destructive">lifelong medication</span>, and{" "}
               <span className="font-semibold text-destructive">limited life options</span>.
@@ -276,7 +278,7 @@ export function MissingPieceSection() {
             {/* Breaking the cycle header */}
             <div className="inline-flex items-center gap-3 mb-6">
               <Zap className="w-6 h-6 text-accent" />
-              <span className="text-lg md:text-xl font-semibold text-accent">Breaking the Cycle</span>
+              <span className="text-lg md:text-xl font-semibold text-accent">Breaking the Cycle: Start from Eating the Right Food</span>
               <Zap className="w-6 h-6 text-accent" />
             </div>
           </div>
@@ -302,20 +304,31 @@ export function MissingPieceSection() {
               "What if I could cut out 90% of starch and sugar? Is this sustainable?"
             </p>
             <p className="text-center text-sm text-muted-foreground">
-              I studied from leading experts in metabolic health: Dr. Annette Bosworth, Dr. Jason Fung, Dr. Eric Berg, Dr. Benjamin Bikman, Dr. Andrew Huberman, etc.
+              To find out, I studied from leading experts in metabolic health: Dr. Annette Bosworth, Dr. Jason Fung, Dr. Eric Berg, Dr. Benjamin Bikman, Dr. Andrew Huberman, etc.
             </p>
           </div>
 
-          {/* Solution Reveal */}
+          {/* Bridge to 3 BIG PROBLEMS */}
           <div 
             ref={solutionRef}
             className={`text-center transition-all duration-700 ${
               solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              A low-starch, low-sugar lifestyle is far more difficult than a "simple diet change." I had to find a way to adopt this lifestyle intervention that is sustainable.
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
+              A low starch and low sugar lifestyle is far more difficult than a "simple diet change." I started experimenting with it every day and ran into three major challenges right away.
             </p>
+            
+            {/* Animated arrows pointing to 3 BIG PROBLEMS */}
+            <div className="flex justify-center gap-8 mt-4">
+              {[0, 1, 2].map((i) => (
+                <ChevronDown 
+                  key={i}
+                  className="w-8 h-8 text-accent animate-bounce"
+                  style={{ animationDelay: `${i * 150}ms` }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

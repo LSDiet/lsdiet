@@ -112,6 +112,21 @@ All colors MUST be HSL.
   }
 }
 
+/* Pulse glow animation for "normal" text */
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 1; 
+  }
+  50% { 
+    opacity: 0.8;
+    text-shadow: 0 0 12px hsl(38 55% 55% / 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
 /* Navigation link hover underline effect */
 .nav-link-hover {
   position: relative;

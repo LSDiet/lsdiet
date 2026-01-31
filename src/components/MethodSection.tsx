@@ -162,10 +162,7 @@ export function MethodSection() {
               taglineVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
             }`}
           >
-            <span className="font-bold">(Simply: It makes you want to lose weight so much that{" "}
-            <span className="text-lg md:text-xl text-accent whitespace-nowrap">
-              excuses stop working.
-            </span>)</span>
+            <span className="font-bold">(Simply: It removes all the excuses for you.)</span>
           </p>
         </div>
 
