@@ -292,12 +292,12 @@ export function MissingPieceSection() {
           <CircularHungerCycle />
 
           {/* Breaking the Cycle + Pathway */}
-          <div className="text-center mb-6 mt-8">
+          <div className="text-center mb-3 mt-4">
             {/* Visual separator */}
-            <div className="w-24 h-px bg-border/60 mx-auto mb-6" />
+            <div className="w-24 h-px bg-border/60 mx-auto mb-3" />
             
             {/* Breaking the cycle header */}
-            <div className="inline-flex items-center gap-3 mb-6">
+            <div className="inline-flex items-center gap-3 mb-3">
               <Zap className="w-6 h-6 text-accent" />
               <span className="text-lg md:text-xl font-semibold text-accent">Breaking the Cycle: Start from Eating the Right Food</span>
               <Zap className="w-6 h-6 text-accent" />
