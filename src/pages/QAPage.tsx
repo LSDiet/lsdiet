@@ -408,7 +408,7 @@ const faqCategories: FAQCategoryData[] = [
         awarenessList: [
           { stage: "Reality Awareness", explanation: "Establishing the baseline.", questions: ["What is your current weight?", "What does your average meal look like?", "How many meals do you eat in a day?"] },
           { stage: "Friction Awareness", explanation: "Recognizing the gap between where you are and where you want to be.", questions: ["Has that state put you in a more difficult position?", "How so?", "Why is it important to do x?"] },
-          { stage: "Pattern Awareness", explanation: "Examining the How, Who, What, When, Why?", questions: ["How long has that been?", "What have you done about it?", "How did it go?", "What worked and what didn't?"] },
+          { stage: "Pattern Awareness", explanation: "Examining the How, Who, What, When, Why?", questions: ["How long have you been at or near this weight?", "What have you done about it?", "How did it go?", "What worked and what didn't?"] },
           { stage: "Consequence Awareness", explanation: "The root of <b>push motivation</b>.", questions: ["Without being able to X, what is that doing to your relationship?", "I understand that you can't X, why is that important to you?", "Why do you want to change now? Why not wait for another 3, 6, or even 12 months?"] },
           { stage: "Autonomy Awareness", explanation: "The root of <b>pull motivation</b>.", questions: ["If you were 100 lbs lighter, what daily tasks would become easier?", "Most people lose about 10 lbs a month in this program. Let's say you also lose 10 lbs a month, and 80-100 lbs in a year... how will that change your life?", "Let's suppose you wake up and see a brand new you tomorrow, how would that make you feel?"] },
         ],
