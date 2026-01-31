@@ -24,9 +24,9 @@ function KeyQuestionHook() {
       
       {/* The Question */}
       <p className="relative text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-snug max-w-2xl mx-auto px-4 pt-8 pb-6">
-        What was it about{" "}
+        "What was it about{" "}
         <span className="text-accent font-bold animate-pulse-glow">"normal"</span>{" "}
-        food that kept pulling me back here?
+        food that kept pulling me back here?"
       </p>
       
       {/* Decorative closing quote */}
@@ -182,7 +182,9 @@ export function MissingPieceSection() {
           {/* Emotional Hook */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
-              In 2024, I was back at 300 lbs. I was eating what I thought was normal. I was{" "}
+              In 2024, I was back at 300 lbs.
+              <br />
+              I was eating what I thought was normal. I was{" "}
               <span className="font-bold text-primary">frustrated and exhausted</span> by how the weight kept coming back.
             </p>
           </div>
@@ -196,7 +198,7 @@ export function MissingPieceSection() {
               So I started learning how fat is formed, stored, and burned.
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              I had to choose between continuing to ignore my <span className="font-bold">obesity</span> rebound or accepting a future defined by{" "}
+              I had to choose between continuing to ignore my <span className="font-bold">obesity</span> rebound or accepting a future with{" "}
               <span className="font-semibold text-destructive">chronic disease</span>,{" "}
               <span className="font-semibold text-destructive">lifelong medication</span>, and{" "}
               <span className="font-semibold text-destructive">limited life options</span>.
@@ -262,8 +264,9 @@ export function MissingPieceSection() {
             }`}
           >
             <p className="text-base md:text-lg text-muted-foreground">
-              All of these are reversible. Everything pointed to one cause:{" "}
-              <span className="font-bold text-primary">refined carbohydrates</span>.
+              All of these are reversible. Everything pointed to one cause:
+              <br />
+              <span className="font-bold text-destructive text-lg md:text-xl">overconsumption of refined carbohydrates</span>.
             </p>
           </div>
 
@@ -284,7 +287,7 @@ export function MissingPieceSection() {
           </div>
 
           {/* Equation Label */}
-          <p className="text-center text-base md:text-lg text-muted-foreground mb-5">
+          <p className="text-center text-lg md:text-xl font-bold text-primary mb-5">
             The Insulin-Fat Pathway:
           </p>
 
