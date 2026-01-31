@@ -76,7 +76,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
           src={card.beforeImage}
           alt={card.description}
           className={cn(
-            "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
+            "absolute inset-0 w-full h-full object-cover",
             showAfter ? "opacity-0" : "opacity-100"
           )}
         />
@@ -84,7 +84,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
           src={card.afterImage}
           alt={card.afterDescription}
           className={cn(
-            "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
+            "absolute inset-0 w-full h-full object-cover",
             showAfter ? "opacity-100" : "opacity-0"
           )}
         />
