@@ -337,7 +337,7 @@ export function MissingPieceSection() {
             }`}
           >
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-              Most people struggle to sustain a low-starch, low-sugar lifestyle because it requires solving three major problems.
+              Sustaining a low-starch, low-sugar lifestyle requires solving three major problems.
             </p>
             
             {/* Animated arrows pointing to 3 BIG PROBLEMS */}
