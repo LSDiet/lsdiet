@@ -162,7 +162,7 @@ export function MethodSection() {
               taglineVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-95"
             }`}
           >
-            <span className="font-bold">(Simply: It removes all the <span className="text-accent animate-pulse-glow">excuses</span> for you.)</span>
+            <span className="font-bold">(Simply: It solves the <span className="text-accent animate-pulse-glow">three problems</span> for you.)</span>
           </p>
         </div>
 
