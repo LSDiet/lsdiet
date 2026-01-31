@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Weight Problem", href: "/#journey" },
   { label: "Solution", href: "/#method" },
   { label: "Book", href: "/#book" },
+  { label: "Free Resources", href: "/free" },
   { label: "Q&A", href: "/qa" },
 ];
 
