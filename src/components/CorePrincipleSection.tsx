@@ -9,10 +9,6 @@ export function CorePrincipleSection() {
             <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
               <span className="text-sm font-medium text-accent">3 BIG PROBLEMS</span>
             </div>
-            <h3 className="text-2xl md:text-3xl font-serif font-normal mb-2 text-primary">
-              Low-Starch. Low-Sugar.
-            </h3>
-            <p className="text-muted-foreground italic">(LS is difficult, and here's why.)</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
