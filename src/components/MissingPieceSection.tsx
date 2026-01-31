@@ -337,7 +337,7 @@ export function MissingPieceSection() {
             }`}
           >
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-              Sustaining a low-starch, low-sugar lifestyle requires solving three major problems.
+              Sustaining a <span className="font-bold text-accent">low-starch, low-sugar</span> lifestyle requires solving three major problems.
             </p>
             
             {/* Animated arrows pointing to 3 BIG PROBLEMS */}
