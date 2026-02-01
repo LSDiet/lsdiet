@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { FooterSimple } from '@/components/FooterSimple';
 import { Button } from '@/components/ui/button';
 import { EmailCaptureModal } from '@/components/EmailCaptureModal';
 import { useLeadCapture } from '@/hooks/useLeadCapture';
-import { Download, FileText, Loader2, Check } from 'lucide-react';
+import { Download, FileText, Loader2, Check, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import glp1Cover from '@/assets/ebook-glp1-cover.png';
+
 interface Resource {
   id: string;
   title: string;
@@ -14,6 +16,7 @@ interface Resource {
   filePath: string;
   coverImage?: string;
   learningPoints: string[];
+  dedicatedPage?: string; // Optional link to dedicated SEO page
 }
 
 // Define available resources here
@@ -23,6 +26,7 @@ const resources: Resource[] = [{
   description: 'Why GLP-1 (e.g., Ozempic) works, why weight often returns, and what actually determines long-term results.',
   filePath: 'Does GLP-1 work for weight loss.pdf',
   coverImage: glp1Cover,
+  dedicatedPage: '/does-glp-1-work',
   learningPoints: ['What GLP-1 actually does in the body and brain', 'Why most people regain weight after stopping medication', 'How to use the GLP-1 window to build lasting change']
 }];
 export default function FreeResources() {
@@ -101,15 +105,26 @@ export default function FreeResources() {
                         </li>)}
                     </ul>
 
-                    <Button size="lg" className="w-full sm:w-auto px-8 animate-pulse-glow" onClick={() => handleDownloadClick(resource)} disabled={isLoading}>
-                      {isLoading ? <>
-                          <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                          Loading...
-                        </> : <>
-                          <Download className="w-4 h-4 mr-2" />
-                          Download the Free Guide
-                        </>}
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <Button size="lg" className="w-full sm:w-auto px-8 animate-pulse-glow" onClick={() => handleDownloadClick(resource)} disabled={isLoading}>
+                        {isLoading ? <>
+                            <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                            Loading...
+                          </> : <>
+                            <Download className="w-4 h-4 mr-2" />
+                            Download the Free Guide
+                          </>}
+                      </Button>
+                      
+                      {resource.dedicatedPage && (
+                        <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
+                          <Link to={resource.dedicatedPage}>
+                            Read the Full Guide
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </Link>
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </div>)}
             </div>}

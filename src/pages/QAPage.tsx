@@ -18,6 +18,7 @@ interface FAQQuestion {
   awarenessList?: Array<{ stage: string; explanation: string; questions: string[] }>;
   awarenessNote?: string;
   highlightText?: string;
+  internalLink?: { text: string; url: string }; // Optional internal link for SEO
 }
 
 interface FAQCategoryData {
@@ -254,6 +255,15 @@ const faqCategories: FAQCategoryData[] = [
         question: "Why do I regain weight after reaching my goal?",
         answer:
           "Weight regain happens because the system that created weight loss is often a temporary intervention rather than an adaptable lifestyle—so it's abandoned once the goal is reached. The Weight Permanence Triangle™ builds identity-level change that persists beyond any single goal.",
+      },
+      {
+        question: "Does GLP-1 medication like Ozempic work for weight loss?",
+        answer:
+          "Yes, GLP-1 medications can support short-term weight loss by suppressing appetite and slowing digestion. However, they do not teach eating behaviour or build habits that persist once appetite suppression fades. Clinical data shows most people regain weight after stopping GLP-1 medications because the underlying patterns remain unchanged.",
+        internalLink: {
+          text: "Learn more in our free guide: Does GLP-1 Work for Weight Loss?",
+          url: "/does-glp-1-work",
+        },
       },
     ],
   },
@@ -818,7 +828,19 @@ function FAQCategory({
                     ))}
                   </p>
                 ) : (
-                  <p className="whitespace-pre-line">{item.answer}</p>
+                  <>
+                    <p className="whitespace-pre-line">{item.answer}</p>
+                    {item.internalLink && (
+                      <p className="mt-3">
+                        <Link
+                          to={item.internalLink.url}
+                          className="text-primary hover:underline font-medium"
+                        >
+                          {item.internalLink.text}
+                        </Link>
+                      </p>
+                    )}
+                  </>
                 )}
                 {renderCta()}
               </AccordionContent>
