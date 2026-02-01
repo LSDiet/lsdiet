@@ -153,7 +153,7 @@ Deno.serve(async (req) => {
 
     // Send email with CSV attachment
     const emailResponse = await resend.emails.send({
-      from: "What About Weight <notifications@lsdiet.com>",
+      from: "What About Weight <notifications@report.lsdiet.com>",
       to: ["oscar@lsdiet.com"],
       subject: `📊 Daily Download Digest: ${totalDownloads} download${totalDownloads !== 1 ? "s" : ""} on ${today}`,
       html: emailHtml,
