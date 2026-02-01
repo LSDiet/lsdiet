@@ -20,10 +20,12 @@ export type Database = {
           consent_text: string
           consent_timestamp: string
           created_at: string
+          device_type: string | null
           download_count: number
           email: string
           id: string
           last_download_at: string
+          resource_title: string | null
           source: string
         }
         Insert: {
@@ -31,10 +33,12 @@ export type Database = {
           consent_text: string
           consent_timestamp: string
           created_at?: string
+          device_type?: string | null
           download_count?: number
           email: string
           id?: string
           last_download_at?: string
+          resource_title?: string | null
           source: string
         }
         Update: {
@@ -42,10 +46,12 @@ export type Database = {
           consent_text?: string
           consent_timestamp?: string
           created_at?: string
+          device_type?: string | null
           download_count?: number
           email?: string
           id?: string
           last_download_at?: string
+          resource_title?: string | null
           source?: string
         }
         Relationships: []
