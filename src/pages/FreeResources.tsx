@@ -55,9 +55,6 @@ export default function FreeResources() {
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Free Resources
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Download these free guides to start your journey toward lasting weight balance.
-            </p>
           </div>
 
           {resources.length === 0 ? (
