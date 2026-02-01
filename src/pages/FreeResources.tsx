@@ -20,7 +20,7 @@ interface Resource {
 const resources: Resource[] = [{
   id: 'ebook-glp1-weight-loss',
   title: 'Does GLP-1 Work for Weight Loss?',
-  description: 'Why GLP-1 works, why weight often returns, and what actually determines long-term results.',
+  description: 'Why GLP-1 (e.g., Ozempic) works, why weight often returns, and what actually determines long-term results.',
   filePath: 'Does GLP-1 work for weight loss.pdf',
   coverImage: glp1Cover,
   learningPoints: ['What GLP-1 actually does in the body and brain', 'Why most people regain weight after stopping medication', 'How to use the GLP-1 window to build lasting change']
