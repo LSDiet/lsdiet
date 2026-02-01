@@ -23,7 +23,7 @@ const resources: Resource[] = [
     id: 'ebook-glp1-weight-loss',
     title: 'Does GLP-1 Work for Weight Loss?',
     description: 'Why GLP-1 works, why weight often returns, and what actually determines long-term results.',
-    filePath: 'Does_GLP-1_work_for_weight_loss.pdf',
+    filePath: 'Does GLP-1 work for weight loss.pdf',
     coverImage: glp1Cover,
     learningPoints: [
       'What GLP-1 actually does in the body and brain',
