@@ -1,102 +1,55 @@
 
-# Refreshing the Free Resources Page Header
+# Fix Cross-Page Hash Navigation to "The WPT Solution"
 
-The current heading is functional but lacks the visual polish of other pages. Here's a plan to make it more engaging while maintaining the site's minimal animation philosophy.
+## Problem Identified
 
----
+When clicking "Explore the Weight Permanence Book" on `/does-glp-1-work`, React Router's `<Link>` component navigates to `/#method` but doesn't trigger the browser's native hash scrolling. The page loads at the top, showing "The Insulin-Fat Pathway" instead of scrolling down to "The WPT Solution" section.
 
-## Current State
-
-The header section has:
-- Plain `text-2xl md:text-3xl font-bold` heading
-- No supporting elements (badge, subheading, or visual interest)
-- Abrupt appearance (no entrance animation)
-
----
-
-## Proposed Design
-
-Match the visual language of the HeroSection and BookSection with:
-
-1. **Accent Badge** - Small pill element above the heading (like "Pre-Order Now Available" in BookSection)
-   - Text: "Free Downloads" or "100% Free"
-   - Styling: `bg-accent/15 border border-accent/25 text-accent`
-
-2. **Upgraded Heading Typography**
-   - Change to `font-serif` to match other page headings
-   - Highlight "LS" in accent colour for brand reinforcement
-   - Slightly larger text on desktop
-
-3. **Supporting Subtitle**
-   - Brief one-liner explaining the value proposition
-   - Muted colour, smaller text
-
-4. **Subtle Background Elements**
-   - Two soft blurred circles (same as HeroSection) for depth
-   - Positioned behind text, pointer-events disabled
-
-5. **Entrance Animation**
-   - Staggered `animate-fade-in-up` on badge, heading, and subtitle
-   - Keeps with the minimal animation philosophy (appears once, no continuous motion)
+The page order is:
+1. HeroSection
+2. JourneySection  
+3. **MissingPieceSection** ← Contains "The Insulin-Fat Pathway" (what user sees)
+4. CorePrincipleSection
+5. **MethodSection** ← Contains "The WPT Solution" with `id="method"` (target)
 
 ---
 
-## Visual Preview
+## Solution
 
-```text
-     ┌─────────────────────────────────────────────────┐
-     │                                                 │
-     │         ╭──────────────────╮                    │
-     │         │   100% Free      │  ← accent badge    │
-     │         ╰──────────────────╯                    │
-     │                                                 │
-     │   Free Tools for a Low-Starch,                  │
-     │      Low-Sugar (LS) Lifestyle                   │
-     │                ↑ "LS" in accent colour          │
-     │                                                 │
-     │   Practical guides to help you eat              │
-     │   better without the overwhelm.                 │
-     │                ↑ muted subtitle                 │
-     │                                                 │
-     └─────────────────────────────────────────────────┘
-```
+Replace React Router's `<Link>` with a native `<a>` tag for cross-page hash navigation. Native anchor tags trigger the browser's full navigation cycle, including scrolling to the element with the specified ID.
 
 ---
 
-## Files to Modify
+## File to Modify
 
 | File | Change |
 |------|--------|
-| `src/pages/FreeResources.tsx` | Update header section with badge, improved typography, subtitle, and animations |
+| `src/pages/GLP1GuidePage.tsx` | Change `<Link to="/#method">` to `<a href="/#method">` |
 
 ---
 
 ## Technical Details
 
-The header section (lines 62-66) will be expanded to include:
-
+Current code:
 ```tsx
-{/* Background decorative elements */}
-<div className="absolute inset-0 overflow-hidden pointer-events-none">
-  <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
-  <div className="absolute top-0 right-1/4 w-64 h-64 rounded-full bg-accent/5 blur-3xl" />
-</div>
-
-{/* Badge */}
-<div className="inline-flex items-center px-4 py-2 rounded-full bg-accent/15 border border-accent/25 mb-6 opacity-0 animate-fade-in-up">
-  <span className="text-sm font-medium text-accent">100% Free</span>
-</div>
-
-{/* Heading with LS highlight */}
-<h1 className="text-3xl md:text-4xl font-serif font-normal text-primary mb-4 opacity-0 animate-fade-in-up animate-delay-100">
-  Free Tools for a Low-Starch, Low-Sugar{" "}
-  <span className="text-accent">(LS)</span> Lifestyle
-</h1>
-
-{/* Subtitle */}
-<p className="text-muted-foreground max-w-xl mx-auto opacity-0 animate-fade-in-up animate-delay-200">
-  Practical guides to help you eat better without the overwhelm.
-</p>
+<Link
+  to="/#method"
+  className="inline-flex items-center text-primary hover:underline font-medium"
+>
+  Explore the Weight Permanence Book
+  <ArrowRight className="w-4 h-4 ml-1" />
+</Link>
 ```
 
-This aligns with the design patterns established in HeroSection and BookSection while keeping the page simple and focused.
+Updated code:
+```tsx
+<a
+  href="/#method"
+  className="inline-flex items-center text-primary hover:underline font-medium"
+>
+  Explore the Weight Permanence Book
+  <ArrowRight className="w-4 h-4 ml-1" />
+</a>
+```
+
+This ensures the browser performs a full page load with proper hash scrolling to "The WPT Solution" section.
