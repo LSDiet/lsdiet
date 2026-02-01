@@ -350,7 +350,7 @@ export default function GLP1GuidePage() {
               Want to start using Weight Permanence Triangle™ to lose weight?
             </p>
             <Link
-              to="/"
+              to="/#solution"
               className="inline-flex items-center text-primary hover:underline font-medium"
             >
               Explore the Weight Permanence Book
