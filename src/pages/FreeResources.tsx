@@ -6,6 +6,7 @@ import { EmailCaptureModal } from '@/components/EmailCaptureModal';
 import { useLeadCapture } from '@/hooks/useLeadCapture';
 import { Download, FileText, Loader2, Check } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import glp1Cover from '@/assets/ebook-glp1-cover.png';
 
 interface Resource {
   id: string;
@@ -22,7 +23,8 @@ const resources: Resource[] = [
     id: 'ebook-glp1-weight-loss',
     title: 'Does GLP-1 Work for Weight Loss?',
     description: 'Why GLP-1 works, why weight often returns, and what actually determines long-term results.',
-    filePath: 'eBook-Does GLP-1 work for weight loss_ (3).pdf',
+    filePath: 'Does_GLP-1_work_for_weight_loss.pdf',
+    coverImage: glp1Cover,
     learningPoints: [
       'What GLP-1 actually does in the body and brain',
       'Why most people regain weight after stopping medication',
