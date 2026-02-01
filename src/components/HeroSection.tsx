@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-
 export function HeroSection() {
-  return (
-    <section className="relative flex flex-col justify-start pt-24 md:pt-32 pb-8 overflow-hidden">
+  return <section className="relative flex flex-col justify-start pt-24 md:pt-32 pb-8 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
@@ -26,7 +24,7 @@ export function HeroSection() {
 
         {/* Description */}
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 leading-relaxed opacity-0 animate-fade-in-up animate-delay-200">
-          The Weight Permanence Triangle™ — a neurobehavioural training to lose weight, keep it off, and live freely with a <span className="font-bold">low-starch (LS), low-sugar (LS)</span> lifestyle.
+          The Weight Permanence Triangle™ — a neurobehavioural training to lose weight, keep it off, and live freely with a <span className="font-bold">low-starch, low-sugar (LS)</span> lifestyle.
         </p>
 
         {/* CTA Buttons */}
@@ -44,6 +42,5 @@ export function HeroSection() {
           <ChevronDown className="w-5 h-5 animate-bounce" />
         </a>
       </div>
-    </section>
-  );
+    </section>;
 }
