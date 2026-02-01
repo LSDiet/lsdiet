@@ -8,8 +8,8 @@ interface UseLeadCaptureReturn {
   isLoading: boolean;
   hasEmail: boolean;
   storedEmail: string | null;
-  captureAndDownload: (email: string, source: string, filePath: string) => Promise<void>;
-  downloadForReturningUser: (source: string, filePath: string) => Promise<void>;
+  captureAndDownload: (email: string, source: string, filePath: string, resourceTitle?: string) => Promise<void>;
+  downloadForReturningUser: (source: string, filePath: string, resourceTitle?: string) => Promise<void>;
 }
 
 export function useLeadCapture(): UseLeadCaptureReturn {
@@ -17,11 +17,11 @@ export function useLeadCapture(): UseLeadCaptureReturn {
   const storedEmail = typeof window !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
   const hasEmail = !!storedEmail;
 
-  const captureAndDownload = useCallback(async (email: string, source: string, filePath: string) => {
+  const captureAndDownload = useCallback(async (email: string, source: string, filePath: string, resourceTitle?: string) => {
     setIsLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('capture-lead', {
-        body: { email, source, filePath, isReturningUser: false },
+        body: { email, source, filePath, isReturningUser: false, resourceTitle },
       });
 
       if (error || !data?.signedUrl) {
@@ -51,7 +51,7 @@ export function useLeadCapture(): UseLeadCaptureReturn {
     }
   }, []);
 
-  const downloadForReturningUser = useCallback(async (source: string, filePath: string) => {
+  const downloadForReturningUser = useCallback(async (source: string, filePath: string, resourceTitle?: string) => {
     if (!storedEmail) {
       throw new Error('No stored email found');
     }
@@ -59,7 +59,7 @@ export function useLeadCapture(): UseLeadCaptureReturn {
     setIsLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('capture-lead', {
-        body: { email: storedEmail, source, filePath, isReturningUser: true },
+        body: { email: storedEmail, source, filePath, isReturningUser: true, resourceTitle },
       });
 
       if (error || !data?.signedUrl) {

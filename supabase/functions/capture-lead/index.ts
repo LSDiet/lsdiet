@@ -5,13 +5,48 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+// Parse User-Agent to detect device type
+function getDeviceType(userAgent: string): string {
+  if (!userAgent) return "unknown";
+  
+  const ua = userAgent.toLowerCase();
+  
+  // Check for tablets first (before mobile, as some tablets include "mobile" in UA)
+  if (
+    ua.includes("ipad") ||
+    ua.includes("tablet") ||
+    (ua.includes("android") && !ua.includes("mobile")) ||
+    ua.includes("kindle") ||
+    ua.includes("silk")
+  ) {
+    return "tablet";
+  }
+  
+  // Check for mobile devices
+  if (
+    ua.includes("mobile") ||
+    ua.includes("iphone") ||
+    ua.includes("ipod") ||
+    ua.includes("android") ||
+    ua.includes("blackberry") ||
+    ua.includes("windows phone") ||
+    ua.includes("opera mini") ||
+    ua.includes("iemobile")
+  ) {
+    return "mobile";
+  }
+  
+  // Default to desktop
+  return "desktop";
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { email, source, filePath, isReturningUser } = await req.json();
+    const { email, source, filePath, isReturningUser, resourceTitle } = await req.json();
 
     if (!email || !source || !filePath) {
       return new Response(
@@ -27,6 +62,10 @@ Deno.serve(async (req) => {
 
     const normalizedEmail = email.toLowerCase().trim();
     const consentText = "I agree to receive free resources and educational updates from What About Weight. I can unsubscribe at any time.";
+    
+    // Get device type from User-Agent header
+    const userAgent = req.headers.get("user-agent") || "";
+    const deviceType = getDeviceType(userAgent);
 
     if (isReturningUser) {
       // Get current download count and increment
@@ -41,6 +80,8 @@ Deno.serve(async (req) => {
         .update({
           download_count: (leadData?.download_count || 0) + 1,
           last_download_at: new Date().toISOString(),
+          device_type: deviceType,
+          resource_title: resourceTitle || null,
         })
         .eq("email", normalizedEmail);
     } else {
@@ -56,6 +97,8 @@ Deno.serve(async (req) => {
             consent_text: consentText,
             download_count: 1,
             last_download_at: new Date().toISOString(),
+            device_type: deviceType,
+            resource_title: resourceTitle || null,
           },
           { onConflict: "email" }
         );

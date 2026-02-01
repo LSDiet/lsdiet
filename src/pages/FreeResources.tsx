@@ -41,7 +41,7 @@ export default function FreeResources() {
 
   const handleDownloadClick = async (resource: Resource) => {
     if (hasEmail) {
-      await downloadForReturningUser(resource.id, resource.filePath);
+      await downloadForReturningUser(resource.id, resource.filePath, resource.title);
     } else {
       setSelectedResource(resource);
       setModalOpen(true);
@@ -50,7 +50,7 @@ export default function FreeResources() {
 
   const handleModalSubmit = async (email: string) => {
     if (!selectedResource) return;
-    await captureAndDownload(email, selectedResource.id, selectedResource.filePath);
+    await captureAndDownload(email, selectedResource.id, selectedResource.filePath, selectedResource.title);
   };
 
   return (
