@@ -1,4 +1,5 @@
 import { Triangle, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function FooterSimple() {
   return (
@@ -12,6 +13,22 @@ export function FooterSimple() {
               </div>
               <span className="font-semibold text-foreground">Weight Permanence</span>
             </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+              <Link to="/privacy" className="hover:text-foreground transition-colors">
+                Privacy Policy
+              </Link>
+              <span className="hidden sm:inline">·</span>
+              <Link to="/terms" className="hover:text-foreground transition-colors">
+                Terms of Use
+              </Link>
+              <span className="hidden sm:inline">·</span>
+              <Link to="/disclaimer" className="hover:text-foreground transition-colors">
+                Health Disclaimer
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} NTL Learning Solutions Inc. All rights reserved.
             </p>
