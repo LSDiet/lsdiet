@@ -24,7 +24,7 @@ function AppContent() {
         <Route path="/" element={<Index />} />
         <Route path="/product/:handle" element={<ProductDetail />} />
         <Route path="/qa" element={<QAPage />} />
-        <Route path="/free" element={<FreeResources />} />
+        <Route path="/FreeResources" element={<FreeResources />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfUse />} />
         <Route path="/disclaimer" element={<HealthDisclaimer />} />
