@@ -21,7 +21,7 @@ const resources: Resource[] = [
   {
     id: 'ebook-glp1-weight-loss',
     title: 'Does GLP-1 Work for Weight Loss?',
-    description: 'Explore the science behind GLP-1 medications and their role in sustainable weight management.',
+    description: 'Why GLP-1 works, why weight often returns, and what actually determines long-term results.',
     filePath: 'eBook-Does GLP-1 work for weight loss_ (3).pdf',
     learningPoints: [
       'What GLP-1 actually does in the body and brain',
