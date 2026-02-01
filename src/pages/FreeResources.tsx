@@ -132,10 +132,10 @@ export default function FreeResources() {
                       
                       {resource.dedicatedPage && (
                         <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
-                          <Link to={resource.dedicatedPage}>
+                          <a href={resource.dedicatedPage}>
                             Read the Full Guide
                             <ArrowRight className="w-4 h-4 ml-2" />
-                          </Link>
+                          </a>
                         </Button>
                       )}
                     </div>
