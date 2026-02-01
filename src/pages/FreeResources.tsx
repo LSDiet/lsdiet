@@ -57,7 +57,7 @@ export default function FreeResources() {
         <div className="container max-w-5xl">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Free Resources
+              Free Tools for a Low-Starch, Low-Sugar (LS) Lifestyle
             </h1>
           </div>
 
