@@ -15,8 +15,14 @@ interface Resource {
 }
 
 // Define available resources here
-// Update filePath values after uploading PDFs to the free-resources bucket
-const resources: Resource[] = [];
+const resources: Resource[] = [
+  {
+    id: 'ebook-glp1-weight-loss',
+    title: 'Does GLP-1 Work for Weight Loss?',
+    description: 'Explore the science behind GLP-1 medications and their role in sustainable weight management.',
+    filePath: 'eBook-Does GLP-1 work for weight loss_ (3).pdf',
+  },
+];
 
 export default function FreeResources() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -54,8 +60,14 @@ export default function FreeResources() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {resources.map((resource) => (
+          {resources.length === 0 ? (
+            <div className="col-span-full text-center py-12">
+              <FileText className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
+              <p className="text-muted-foreground">No free resources are published yet. Check back soon!</p>
+            </div>
+          ) : (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {resources.map((resource) => (
               <Card key={resource.id} className="flex flex-col">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
@@ -84,9 +96,10 @@ export default function FreeResources() {
                     )}
                   </Button>
                 </CardContent>
-              </Card>
-            ))}
-          </div>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </main>
 
