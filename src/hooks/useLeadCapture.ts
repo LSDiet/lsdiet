@@ -2,7 +2,6 @@ import { useState, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
 
-const CONSENT_TEXT = "I agree to receive free resources and educational updates from What About Weight. I can unsubscribe at any time.";
 const STORAGE_KEY = 'wp_lead_email';
 
 interface UseLeadCaptureReturn {
@@ -18,48 +17,22 @@ export function useLeadCapture(): UseLeadCaptureReturn {
   const storedEmail = typeof window !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
   const hasEmail = !!storedEmail;
 
-  const triggerDownload = async (filePath: string): Promise<void> => {
-    const { data, error } = await supabase.functions.invoke('get-download-url', {
-      body: { filePath },
-    });
-
-    if (error || !data?.signedUrl) {
-      throw new Error('Failed to get download URL');
-    }
-
-    // Open signed URL in new tab to trigger download
-    window.open(data.signedUrl, '_blank');
-  };
-
   const captureAndDownload = useCallback(async (email: string, source: string, filePath: string) => {
     setIsLoading(true);
     try {
-      // Upsert lead with consent data
-      const { error: upsertError } = await supabase
-        .from('leads')
-        .upsert(
-          {
-            email: email.toLowerCase().trim(),
-            source,
-            consent_given: true,
-            consent_timestamp: new Date().toISOString(),
-            consent_text: CONSENT_TEXT,
-            download_count: 1,
-            last_download_at: new Date().toISOString(),
-          },
-          { onConflict: 'email' }
-        );
+      const { data, error } = await supabase.functions.invoke('capture-lead', {
+        body: { email, source, filePath, isReturningUser: false },
+      });
 
-      if (upsertError) {
-        console.error('Lead capture error:', upsertError);
-        throw new Error('Failed to save your information');
+      if (error || !data?.signedUrl) {
+        throw new Error(error?.message || 'Failed to process request');
       }
 
       // Save email to localStorage for returning user flow
       localStorage.setItem(STORAGE_KEY, email.toLowerCase().trim());
 
-      // Get signed URL and download
-      await triggerDownload(filePath);
+      // Open signed URL in new tab to trigger download
+      window.open(data.signedUrl, '_blank');
 
       toast({
         title: "Download started!",
@@ -85,28 +58,15 @@ export function useLeadCapture(): UseLeadCaptureReturn {
 
     setIsLoading(true);
     try {
-      // First get current download count
-      const { data: leadData } = await supabase
-        .from('leads')
-        .select('download_count')
-        .eq('email', storedEmail)
-        .single();
+      const { data, error } = await supabase.functions.invoke('capture-lead', {
+        body: { email: storedEmail, source, filePath, isReturningUser: true },
+      });
 
-      // Update download count for returning user
-      const { error: updateError } = await supabase
-        .from('leads')
-        .update({
-          download_count: (leadData?.download_count || 0) + 1,
-          last_download_at: new Date().toISOString(),
-        })
-        .eq('email', storedEmail);
-
-      // Don't throw on update error - still allow download
-      if (updateError) {
-        console.warn('Failed to update download count:', updateError);
+      if (error || !data?.signedUrl) {
+        throw new Error(error?.message || 'Failed to get download URL');
       }
 
-      await triggerDownload(filePath);
+      window.open(data.signedUrl, '_blank');
 
       toast({
         title: "Download started!",
