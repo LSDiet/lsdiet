@@ -2,12 +2,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useCartSync } from "@/hooks/useCartSync";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import QAPage from "./pages/QAPage";
 import FreeResources from "./pages/FreeResources";
+import GLP1GuidePage from "./pages/GLP1GuidePage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import HealthDisclaimer from "./pages/HealthDisclaimer";
@@ -25,6 +27,7 @@ function AppContent() {
         <Route path="/product/:handle" element={<ProductDetail />} />
         <Route path="/qa" element={<QAPage />} />
         <Route path="/FreeResources" element={<FreeResources />} />
+        <Route path="/does-glp-1-work" element={<GLP1GuidePage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfUse />} />
         <Route path="/disclaimer" element={<HealthDisclaimer />} />
@@ -36,13 +39,15 @@ function AppContent() {
 }
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <AppContent />
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <AppContent />
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
