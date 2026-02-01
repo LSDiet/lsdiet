@@ -29,7 +29,11 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors nav-link-hover"
+              className={`text-sm font-medium transition-colors nav-link-hover ${
+                link.label === "Free Resources"
+                  ? "text-accent font-bold animate-pulse-glow"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
             >
               {link.label}
             </a>
@@ -58,7 +62,11 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+                className={`text-base font-medium transition-colors py-2 ${
+                  link.label === "Free Resources"
+                    ? "text-accent font-bold animate-pulse-glow"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
