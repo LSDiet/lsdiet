@@ -77,10 +77,6 @@ export default function FreeResources() {
               <span className="text-accent">(LS)</span> Lifestyle
             </h1>
 
-            {/* Subtitle */}
-            <p className="relative text-muted-foreground max-w-xl mx-auto opacity-0 animate-fade-in-up animate-delay-200">
-              Practical guides to help you eat better without the overwhelm.
-            </p>
           </div>
 
           {resources.length === 0 ? <div className="text-center py-12">

@@ -347,15 +347,30 @@ export default function GLP1GuidePage() {
           {/* Internal Link to Book */}
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">
-              Want to learn the full Weight Permanence Triangle™ framework?
+              Want to start using Weight Permanence Triangle™ to lose weight?
             </p>
             <Link
-              to="/product/weight-permanence-book"
+              to="/"
               className="inline-flex items-center text-primary hover:underline font-medium"
             >
               Explore the Weight Permanence Book
               <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
+            <div className="mt-6 flex justify-center">
+              <Button size="lg" onClick={handleDownloadClick} disabled={isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                    Loading...
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4 mr-2" />
+                    Download the Free Guide
+                  </>
+                )}
+              </Button>
+            </div>
           </div>
         </article>
       </main>
