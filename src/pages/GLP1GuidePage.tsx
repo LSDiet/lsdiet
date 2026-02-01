@@ -349,13 +349,13 @@ export default function GLP1GuidePage() {
             <p className="text-muted-foreground mb-4">
               Want to start using Weight Permanence Triangle™ to lose weight?
             </p>
-            <Link
-              to="/#method"
+            <a
+              href="/#method"
               className="inline-flex items-center text-primary hover:underline font-medium"
             >
               Explore the Weight Permanence Book
               <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
+            </a>
             <div className="mt-6 flex justify-center">
               <Button size="lg" onClick={handleDownloadClick} disabled={isLoading}>
                 {isLoading ? (
