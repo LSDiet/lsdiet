@@ -16,26 +16,7 @@ interface Resource {
 
 // Define available resources here
 // Update filePath values after uploading PDFs to the free-resources bucket
-const resources: Resource[] = [
-  {
-    id: 'hunger-cycle-guide',
-    title: 'Understanding the Hunger Cycle',
-    description: 'A visual guide to understanding how hunger and fullness signals work in your body.',
-    filePath: 'hunger-cycle-guide.pdf',
-  },
-  {
-    id: 'weight-permanence-intro',
-    title: 'Introduction to Weight Permanence',
-    description: 'Learn the core principles behind sustainable weight management without dieting.',
-    filePath: 'weight-permanence-intro.pdf',
-  },
-  {
-    id: 'getting-started-checklist',
-    title: 'Getting Started Checklist',
-    description: 'A practical checklist to begin your journey toward lasting weight balance.',
-    filePath: 'getting-started-checklist.pdf',
-  },
-];
+const resources: Resource[] = [];
 
 export default function FreeResources() {
   const [modalOpen, setModalOpen] = useState(false);
