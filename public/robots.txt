@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://whataboutweight.com/sitemap.xml
+Sitemap: https://lsdiet.com/sitemap.xml
