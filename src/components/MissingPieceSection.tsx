@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronRight, ChevronDown, Zap, ChevronsRight, ChevronsLeft } from "lucide-react";
+import imgTippingPoint from "@/assets/journey/202411-tipping-point.jpg";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { CircularHungerCycle } from "./CircularHungerCycle";
@@ -176,34 +177,49 @@ export function MissingPieceSection() {
 
           {/* Emotional Hook - Story Format */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 mb-4">
-            <div className="space-y-4 text-center">
-              {/* The Weight */}
-              <p className="text-xl md:text-2xl font-bold text-primary">In 2024, I was back at 300 lbs.</p>
+            <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 items-start">
+              {/* Photo */}
+              <div className="relative mx-auto md:mx-0">
+                <img 
+                  src={imgTippingPoint} 
+                  alt="Oscar at 300 lbs in November 2024" 
+                  className="w-48 md:w-full aspect-[3/4] object-cover rounded-xl"
+                />
+                <div className="absolute bottom-3 left-3 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
+                  <span className="text-sm font-medium text-muted-foreground">Nov 2024</span>
+                </div>
+              </div>
               
-              {/* The Defense */}
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                I was eating what I thought was normal.
-              </p>
-              
-              {/* The Clarification - whispered defense */}
-              <p className="text-sm md:text-base text-muted-foreground italic">
-                Not bingeing. Not giving up. Just living.
-              </p>
-              
-              {/* The Frustration */}
-              <p className="text-base md:text-lg font-bold text-primary">
-                Yet the weight kept coming back.
-              </p>
-              
-              {/* The Shift - the tipping point moment */}
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed pt-2">
-                That was the moment I stopped blaming discipline
-                <br />
-                and started questioning{" "}
-                <span className="font-semibold text-accent animate-pulse-glow">
-                  the food itself
-                </span>.
-              </p>
+              {/* Story Text */}
+              <div className="space-y-4 text-center md:text-left">
+                {/* The Weight */}
+                <p className="text-xl md:text-2xl font-bold text-primary">In 2024, I was back at 300 lbs.</p>
+                
+                {/* The Defense */}
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                  I was eating what I thought was normal.
+                </p>
+                
+                {/* The Clarification - whispered defense */}
+                <p className="text-sm md:text-base text-muted-foreground italic">
+                  Not bingeing. Not giving up. Just living.
+                </p>
+                
+                {/* The Frustration */}
+                <p className="text-base md:text-lg font-bold text-primary">
+                  Yet the weight kept coming back.
+                </p>
+                
+                {/* The Shift - the tipping point moment */}
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed pt-2">
+                  That was the moment I stopped blaming discipline
+                  <br />
+                  and started questioning{" "}
+                  <span className="font-semibold text-accent animate-pulse-glow">
+                    the food itself
+                  </span>.
+                </p>
+              </div>
             </div>
           </div>
 
