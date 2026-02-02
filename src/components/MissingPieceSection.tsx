@@ -284,7 +284,10 @@ export function MissingPieceSection() {
           {/* Transition: The Root Cause */}
           <div ref={transitionRef} className={`text-center mb-6 transition-all duration-700 ${transitionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           <p className="text-base md:text-lg text-muted-foreground mb-2">
-            All of these are reversible. What I discovered was that these conditions are reversible because they share a common metabolic driver.
+            These conditions are reversible.
+          </p>
+          <p className="text-base md:text-lg text-muted-foreground mb-2">
+            What I discovered is that they share a common metabolic driver.
           </p>
           <p className="text-base md:text-lg text-muted-foreground mb-4">
             Everything pointed to one cause:
