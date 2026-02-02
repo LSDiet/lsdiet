@@ -177,17 +177,14 @@ export function MissingPieceSection() {
 
           {/* Emotional Hook - Story Format */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 mb-4">
-            <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-6 items-start">
               {/* Photo */}
-              <div className="relative mx-auto md:mx-0">
+              <div className="mx-auto md:mx-0">
                 <img 
                   src={imgTippingPoint} 
                   alt="Oscar at 300 lbs in November 2024" 
-                  className="w-48 md:w-full aspect-[3/4] object-cover rounded-xl"
+                  className="w-64 md:w-full aspect-[4/3] object-cover rounded-xl"
                 />
-                <div className="absolute bottom-3 left-3 bg-background/90 backdrop-blur px-3 py-1 rounded-full">
-                  <span className="text-sm font-medium text-muted-foreground">Nov 2024</span>
-                </div>
               </div>
               
               {/* Story Text */}
