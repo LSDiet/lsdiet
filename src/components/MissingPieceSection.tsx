@@ -212,11 +212,8 @@ export function MissingPieceSection() {
 
           {/* The Choice */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-3">
-              So I started learning how fat is formed, stored, and burned.
-            </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              I had to choose between continuing to ignore my <span className="font-bold">obesity</span> rebound or accepting a future with{" "}
+              At that weight, the choices were no longer neutral. Ignoring the problem meant accepting a future of{" "}
               <span className="font-semibold text-destructive">chronic disease</span>,{" "}
               <span className="font-semibold text-destructive">lifelong medication</span>, and{" "}
               <span className="font-semibold text-destructive">limited life options</span>.
