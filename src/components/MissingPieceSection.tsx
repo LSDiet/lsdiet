@@ -276,9 +276,8 @@ export function MissingPieceSection() {
 
           {/* Q&A Reference */}
           <p className="text-center text-sm text-muted-foreground mb-8">
-            Obesity is making you sick.{" "}
             <a href="/qa" className="text-accent hover:text-accent/80 underline underline-offset-2 transition-colors">
-              See the documented risks →
+              See the documented risks of obesity →
             </a>
           </p>
 
