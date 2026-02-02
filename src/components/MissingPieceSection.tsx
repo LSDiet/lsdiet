@@ -22,7 +22,7 @@ function KeyQuestionHook() {
       <p className="relative text-center text-xl md:text-2xl lg:text-3xl font-semibold text-primary leading-snug max-w-2xl mx-auto px-4 pt-8 pb-6">
         "What was it about{" "}
         <span className="text-accent font-bold animate-pulse-glow">"normal"</span>{" "}
-        eating that kept pulling me back here?"
+        eating<br />that kept pulling me back here?"
       </p>
       
       {/* Decorative closing quote */}
