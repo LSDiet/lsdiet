@@ -177,7 +177,7 @@ export function MissingPieceSection() {
 
           {/* Emotional Hook - Story Format */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 mb-4">
-            <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-6 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-6 items-stretch">
               {/* Photo */}
               <div className="mx-auto md:mx-0">
                 <img 
@@ -188,7 +188,7 @@ export function MissingPieceSection() {
               </div>
               
               {/* Story Text */}
-              <div className="space-y-4 text-center md:text-left">
+              <div className="flex flex-col justify-between text-center md:text-left py-2">
                 {/* The Weight */}
                 <p className="text-xl md:text-2xl font-bold text-primary">In 2024, I was back at 300 lbs.</p>
                 
