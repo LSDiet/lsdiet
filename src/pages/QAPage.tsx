@@ -30,7 +30,7 @@ interface FAQCategoryData {
 
 const faqCategories: FAQCategoryData[] = [
   {
-    title: "Obesity is Making You Sick",
+    title: "Obesity Is Limiting Your Options",
     hasBookCta: true,
     questions: [
       {
