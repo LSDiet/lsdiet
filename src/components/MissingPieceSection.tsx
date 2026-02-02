@@ -177,7 +177,7 @@ export function MissingPieceSection() {
 
           {/* Emotional Hook - Story Format */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 mb-4">
-            <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-6 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-3 items-stretch">
               {/* Photo */}
               <div className="mx-auto md:mx-0">
                 <img 
@@ -188,7 +188,7 @@ export function MissingPieceSection() {
               </div>
               
               {/* Story Text */}
-              <div className="flex flex-col justify-between text-center md:text-left py-2">
+              <div className="flex flex-col justify-center gap-4 text-center md:text-left py-4">
                 {/* The Weight */}
                 <p className="text-xl md:text-2xl font-bold text-primary">In 2024, I was back at 300 lbs.</p>
                 
@@ -209,7 +209,7 @@ export function MissingPieceSection() {
                 
                 {/* The Shift - the tipping point moment */}
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed pt-2">
-                  That was the moment I stopped blaming discipline and started questioning{" "}
+                  That was the moment I stopped blaming discipline and started questioning<br />
                   <span className="font-semibold text-accent animate-pulse-glow">
                     the food itself
                   </span>.
