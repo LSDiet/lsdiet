@@ -3,17 +3,12 @@ import { ChevronRight, ChevronDown, Zap, ChevronsRight, ChevronsLeft } from "luc
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { CircularHungerCycle } from "./CircularHungerCycle";
-
 function KeyQuestionHook() {
-  const { ref, isVisible } = useScrollAnimation();
-
-  return (
-    <div 
-      ref={ref}
-      className={`relative my-4 py-6 transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      }`}
-    >
+  const {
+    ref,
+    isVisible
+  } = useScrollAnimation();
+  return <div ref={ref} className={`relative my-4 py-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
       {/* Subtle background glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-accent/8 via-accent/5 to-transparent rounded-3xl" />
       
@@ -33,22 +28,31 @@ function KeyQuestionHook() {
       <span className="absolute bottom-0 left-1/2 -translate-x-1/2 text-6xl md:text-7xl text-accent/60 font-serif select-none rotate-180">
         "
       </span>
-    </div>
-  );
+    </div>;
 }
-
-const equationSteps = [
-  { text: "Lower starch & sugar", variant: "start" },
-  { text: "Lower insulin", variant: "middle" },
-  { text: "Fat burning", subtitle: "(fat mobilization and oxidation)", variant: "middle" },
-  { text: "Less hunger", variant: "key" },
-  { text: "Eat less naturally", variant: "end" },
-];
-
+const equationSteps = [{
+  text: "Lower starch & sugar",
+  variant: "start"
+}, {
+  text: "Lower insulin",
+  variant: "middle"
+}, {
+  text: "Fat burning",
+  subtitle: "(fat mobilization and oxidation)",
+  variant: "middle"
+}, {
+  text: "Less hunger",
+  variant: "key"
+}, {
+  text: "Eat less naturally",
+  variant: "end"
+}];
 function EquationFlow() {
-  const { ref, isVisible } = useScrollAnimation();
+  const {
+    ref,
+    isVisible
+  } = useScrollAnimation();
   const isMobile = useIsMobile();
-
   const getVariantClasses = (variant: string) => {
     switch (variant) {
       case "start":
@@ -63,55 +67,35 @@ function EquationFlow() {
         return "bg-muted/50 text-muted-foreground";
     }
   };
-
-  return (
-    <div
-      ref={ref}
-      className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2"
-    >
-      {equationSteps.map((step, index) => (
-        <div key={index} className="flex flex-col md:flex-row items-center gap-4 md:gap-2">
-          <span
-            className={`px-6 py-3 md:px-3 md:py-1.5 rounded-xl md:rounded-md text-base md:text-sm transition-all duration-700 text-center min-w-[200px] md:min-w-0 ${getVariantClasses(step.variant)} ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-            style={{ transitionDelay: `${index * 80}ms` }}
-          >
+  return <div ref={ref} className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2">
+      {equationSteps.map((step, index) => <div key={index} className="flex flex-col md:flex-row items-center gap-4 md:gap-2">
+          <span className={`px-6 py-3 md:px-3 md:py-1.5 rounded-xl md:rounded-md text-base md:text-sm transition-all duration-700 text-center min-w-[200px] md:min-w-0 ${getVariantClasses(step.variant)} ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`} style={{
+        transitionDelay: `${index * 80}ms`
+      }}>
             <span className="block font-medium">{step.text}</span>
-            {step.subtitle && (
-              <span className="block text-sm md:text-xs opacity-70 font-normal mt-0.5">{step.subtitle}</span>
-            )}
+            {step.subtitle && <span className="block text-sm md:text-xs opacity-70 font-normal mt-0.5">{step.subtitle}</span>}
           </span>
-          {index < equationSteps.length - 1 && (
-            <span
-              className={`text-muted-foreground/50 transition-all duration-700 ${
-                isVisible ? "opacity-100" : "opacity-0"
-              }`}
-              style={{ transitionDelay: `${index * 80 + 40}ms` }}
-            >
-              {isMobile ? (
-                <ChevronDown className="w-6 h-6" />
-              ) : (
-                <ChevronRight className="w-3.5 h-3.5" />
-              )}
-            </span>
-          )}
-        </div>
-      ))}
-    </div>
-  );
+          {index < equationSteps.length - 1 && <span className={`text-muted-foreground/50 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`} style={{
+        transitionDelay: `${index * 80 + 40}ms`
+      }}>
+              {isMobile ? <ChevronDown className="w-6 h-6" /> : <ChevronRight className="w-3.5 h-3.5" />}
+            </span>}
+        </div>)}
+    </div>;
 }
-
-function CountUpNumber({ target, isVisible }: { target: number; isVisible: boolean }) {
+function CountUpNumber({
+  target,
+  isVisible
+}: {
+  target: number;
+  isVisible: boolean;
+}) {
   const [count, setCount] = useState(0);
-
   useEffect(() => {
     if (!isVisible) return;
-    
     let start = 0;
     const duration = 1500;
     const increment = target / (duration / 16);
-    
     const timer = setInterval(() => {
       start += increment;
       if (start >= target) {
@@ -121,23 +105,23 @@ function CountUpNumber({ target, isVisible }: { target: number; isVisible: boole
         setCount(Math.floor(start));
       }
     }, 16);
-
     return () => clearInterval(timer);
   }, [isVisible, target]);
-
   return <span>{count}%</span>;
 }
-
-function CountUpMultiplier({ target, isVisible }: { target: number; isVisible: boolean }) {
+function CountUpMultiplier({
+  target,
+  isVisible
+}: {
+  target: number;
+  isVisible: boolean;
+}) {
   const [count, setCount] = useState(0);
-
   useEffect(() => {
     if (!isVisible) return;
-    
     let start = 0;
     const duration = 1500;
     const increment = target / (duration / 16);
-    
     const timer = setInterval(() => {
       start += increment;
       if (start >= target) {
@@ -147,31 +131,42 @@ function CountUpMultiplier({ target, isVisible }: { target: number; isVisible: b
         setCount(Math.floor(start));
       }
     }, 16);
-
     return () => clearInterval(timer);
   }, [isVisible, target]);
-
   return <span>{count}×</span>;
 }
-
 export function MissingPieceSection() {
-  const { ref, isVisible } = useScrollAnimation();
-  const { ref: statRef, isVisible: statVisible } = useScrollAnimation();
-  const { ref: stat2Ref, isVisible: stat2Visible } = useScrollAnimation();
-  const { ref: stat3Ref, isVisible: stat3Visible } = useScrollAnimation();
-  const { ref: stat4Ref, isVisible: stat4Visible } = useScrollAnimation();
-  const { ref: transitionRef, isVisible: transitionVisible } = useScrollAnimation();
-  const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation();
-
-  return (
-    <section className="py-5 bg-secondary/30">
+  const {
+    ref,
+    isVisible
+  } = useScrollAnimation();
+  const {
+    ref: statRef,
+    isVisible: statVisible
+  } = useScrollAnimation();
+  const {
+    ref: stat2Ref,
+    isVisible: stat2Visible
+  } = useScrollAnimation();
+  const {
+    ref: stat3Ref,
+    isVisible: stat3Visible
+  } = useScrollAnimation();
+  const {
+    ref: stat4Ref,
+    isVisible: stat4Visible
+  } = useScrollAnimation();
+  const {
+    ref: transitionRef,
+    isVisible: transitionVisible
+  } = useScrollAnimation();
+  const {
+    ref: solutionRef,
+    isVisible: solutionVisible
+  } = useScrollAnimation();
+  return <section className="py-5 bg-secondary/30">
       <div className="container">
-        <div
-          ref={ref}
-          className={`max-w-3xl mx-auto transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
+        <div ref={ref} className={`max-w-3xl mx-auto transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           {/* Section Badge */}
           <div className="text-center mb-5">
             <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25">
@@ -183,9 +178,7 @@ export function MissingPieceSection() {
           <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 mb-4">
             <div className="space-y-4 text-center">
               {/* The Weight */}
-              <p className="text-xl md:text-2xl font-bold text-primary">
-                In 2024, I was back at 300 lbs.
-              </p>
+              <p className="text-xl md:text-2xl font-bold text-primary">In 2024, I was back at 300 lbs.</p>
               
               {/* The Defense */}
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -282,12 +275,7 @@ export function MissingPieceSection() {
           </p>
 
           {/* Transition: The Root Cause */}
-          <div 
-            ref={transitionRef}
-            className={`text-center mb-6 transition-all duration-700 ${
-              transitionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
+          <div ref={transitionRef} className={`text-center mb-6 transition-all duration-700 ${transitionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <p className="text-base md:text-lg text-muted-foreground mb-4">
               All of these are reversible. Everything pointed to one cause:
             </p>
@@ -355,29 +343,19 @@ export function MissingPieceSection() {
           </div>
 
           {/* Bridge to 3 BIG PROBLEMS */}
-          <div 
-            ref={solutionRef}
-            className={`text-center transition-all duration-700 ${
-              solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-            }`}
-          >
+          <div ref={solutionRef} className={`text-center transition-all duration-700 ${solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
               Sustaining a <span className="font-bold text-accent">low-starch, low-sugar</span> lifestyle requires solving three major problems.
             </p>
             
             {/* Animated arrows pointing to 3 BIG PROBLEMS */}
             <div className="flex justify-center gap-8 mt-4">
-              {[0, 1, 2].map((i) => (
-                <ChevronDown 
-                  key={i}
-                  className="w-8 h-8 text-accent animate-bounce"
-                  style={{ animationDelay: `${i * 150}ms` }}
-                />
-              ))}
+              {[0, 1, 2].map(i => <ChevronDown key={i} className="w-8 h-8 text-accent animate-bounce" style={{
+              animationDelay: `${i * 150}ms`
+            }} />)}
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }
