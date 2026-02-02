@@ -112,7 +112,7 @@ export function JourneySection() {
                 <span className="text-primary font-medium">Then other priorities took over and the weight returned.</span>
               </p>
               <p className="text-sm text-muted-foreground/80 italic mt-2">
-                (Self-doubt, guilt, )
+                (Self-doubt and guilt became part of the cycle...)
               </p>
             </div>
             <p className="text-sm text-muted-foreground mt-6 italic">Tap to see the transformations.</p>
