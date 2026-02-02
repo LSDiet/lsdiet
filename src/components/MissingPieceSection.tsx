@@ -183,7 +183,7 @@ export function MissingPieceSection() {
                 <img 
                   src={imgTippingPoint} 
                   alt="Oscar at 300 lbs in November 2024" 
-                  className="w-64 md:w-full aspect-[4/3] object-cover rounded-xl"
+                  className="w-64 md:w-full aspect-[4/5] object-cover rounded-xl"
                 />
               </div>
               
@@ -209,9 +209,7 @@ export function MissingPieceSection() {
                 
                 {/* The Shift - the tipping point moment */}
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed pt-2">
-                  That was the moment I stopped blaming discipline
-                  <br />
-                  and started questioning{" "}
+                  That was the moment I stopped blaming discipline and started questioning{" "}
                   <span className="font-semibold text-accent animate-pulse-glow">
                     the food itself
                   </span>.
