@@ -179,14 +179,39 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* Emotional Hook */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-4">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed text-center">
-              In 2024, I was back at 300 lbs.
-              <br />
-              I was eating what I thought was normal. I was{" "}
-              <span className="font-bold text-primary">frustrated and exhausted</span> by how the weight kept coming back.
-            </p>
+          {/* Emotional Hook - Story Format */}
+          <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 mb-4">
+            <div className="space-y-4 text-center">
+              {/* The Weight */}
+              <p className="text-xl md:text-2xl font-bold text-primary">
+                In 2024, I was back at 300 lbs.
+              </p>
+              
+              {/* The Defense */}
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                I was eating what I thought was normal.
+              </p>
+              
+              {/* The Clarification - whispered defense */}
+              <p className="text-sm md:text-base text-muted-foreground italic">
+                Not bingeing. Not giving up. Just living.
+              </p>
+              
+              {/* The Frustration */}
+              <p className="text-base md:text-lg font-bold text-primary">
+                Yet the weight kept coming back.
+              </p>
+              
+              {/* The Shift - the tipping point moment */}
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed pt-2">
+                That was the moment I stopped blaming discipline
+                <br />
+                and started questioning{" "}
+                <span className="font-semibold text-accent animate-pulse-glow">
+                  the food itself
+                </span>.
+              </p>
+            </div>
           </div>
 
           {/* The Key Question */}
