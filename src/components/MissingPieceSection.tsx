@@ -188,7 +188,7 @@ export function MissingPieceSection() {
               </div>
               
               {/* Story Text */}
-              <div className="flex flex-col justify-center gap-4 text-center md:text-left py-4">
+              <div className="flex flex-col justify-center gap-4 text-center py-4">
                 {/* The Weight */}
                 <p className="text-xl md:text-2xl font-bold text-primary">In 2024, I was back at 300 lbs.</p>
                 
