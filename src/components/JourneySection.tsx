@@ -49,9 +49,9 @@ const journeyCards: JourneyCard[] = [{
 }];
 function JourneyCard({
   card
-}: {
-  card: JourneyCard;
-}) {
+
+
+}: {card: JourneyCard;}) {
   const [showAfter, setShowAfter] = useState(false);
   const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
@@ -99,8 +99,8 @@ export function JourneySection() {
           <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
             <span className="text-sm font-medium text-accent">How It All Started</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-6 text-primary">
-            Lost 60 Pounds. <span className="text-accent">Three Times.</span>
+          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-6 text-primary">Lost 80+ Pounds. Three Times.
+          <span className="text-accent">Three Times.</span>
           </h2>
           
           {/* Personal Story */}
