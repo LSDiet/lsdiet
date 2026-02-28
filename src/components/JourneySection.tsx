@@ -33,7 +33,7 @@ const journeyCards: JourneyCard[] = [{
   date: "Dec 2020",
   label: "Sustainability",
   weight: "+80 lbs",
-  description: "Lost 60 lbs with veggie & smoothie cleanse",
+  description: "Lost 80 lbs with veggie & smoothie cleanse",
   afterDescription: "Regained the weight once I returned to eating normally",
   beforeImage: img202012,
   afterImage: img202204
@@ -42,7 +42,7 @@ const journeyCards: JourneyCard[] = [{
   date: "Nov 2023",
   label: "Disruption",
   weight: "+80 lbs",
-  description: "Lost 60 lbs with carnivore, IF & daily exercise",
+  description: "Lost 80 lbs with carnivore, IF & daily exercise",
   afterDescription: "Regained the weight as frequent travel turned flexibility into old habits",
   beforeImage: img202311,
   afterImage: img202405
