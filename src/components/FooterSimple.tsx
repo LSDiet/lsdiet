@@ -45,8 +45,8 @@ export function FooterSimple() {
                 <p>Oscar Poon is the founder of LSDiet.com (Social: @WhatABoutWeight) and the creator of the Weight Permanence Triangle™ (WPT), a neurobehavioural training designed to make weight loss intentional, sustainable, and permanent.
                   <strong className="text-foreground">Oscar Poon</strong> is the founder of WhatAboutWeight (Book: Weight Permanence) and the creator of the Weight Permanence Triangle™ (WPT), a neurobehavioural training designed to make weight loss intentional, sustainable, and permanent.
                 </p>
-                <p>
-                  After losing over 60 lbs multiple times and observing why willpower-based approaches repeatedly fail, he developed WPT to address the behavioural and biological drivers of weight regain.
+                <p>After losing over 80 lbs multiple times and observing why willpower-based approaches repeatedly fail, he developed WPT to address the behavioural and biological drivers of weight regain.
+
                 </p>
               </div>
             </details>
