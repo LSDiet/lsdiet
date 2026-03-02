@@ -9,8 +9,8 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
+  AccordionTrigger } from
+'@/components/ui/accordion';
 import { Download, Loader2, ArrowRight } from 'lucide-react';
 
 const RESOURCE_ID = 'ebook-ls-diet-guide';
@@ -18,37 +18,37 @@ const FILE_PATH = 'Low-Starch Low-Sugar Guide.pdf';
 const RESOURCE_TITLE = 'Low Starch, Low Sugar = Burn Fat';
 
 const faqs = [
-  {
-    question: 'What is a low-starch, low-sugar (LS) diet?',
-    answer:
-      'An LS diet selectively reduces foods that spike insulin—refined starches like white bread, rice, and pasta, and added or concentrated sugars—while keeping protein, healthy fats, non-starchy vegetables, and controlled portions of fruit. It is not about eliminating entire food groups; it is about choosing foods that keep insulin low so your body can access stored fat for energy.',
-  },
-  {
-    question: 'How does insulin affect fat burning?',
-    answer:
-      'Insulin acts as a metabolic gatekeeper. When insulin is high, your body prioritises storing energy and slows fat release from adipose tissue. When insulin drops, fat burning resumes. Think of fat as the sun and insulin as cloud cover: less glucose means clearer skies and more fat burning.',
-  },
-  {
-    question: 'What is the difference between No Carb and Low-Starch, Low-Sugar?',
-    answer:
-      'No Carb eliminates virtually all carbohydrates, including fruit, legumes, dairy with lactose, and all grains. LS reduces the highest-insulin foods—refined starch and sugar—while allowing controlled portions of lower-sugar fruits, legumes, and even small amounts of whole grains. LS is designed for social sustainability: you can share meals with family and friends without requiring a separate menu.',
-  },
-  {
-    question: 'Can I lose weight without counting calories on an LS diet?',
-    answer:
-      'Yes. By focusing on food quality rather than caloric arithmetic, many people naturally reduce caloric intake because lower-insulin foods tend to be more satiating. The principle is straightforward: if you consistently eat less starch and sugar than you did before, insulin drops, fat burning increases, and weight declines over time.',
-  },
-  {
-    question: 'Is fruit allowed on a low-starch, low-sugar diet?',
-    answer:
-      'Yes, in controlled portions. Lower-sugar, higher-fibre fruits such as raspberries, blackberries, strawberries, grapefruit, and kiwi are preferred. Eating fruit whole—rather than juiced or blended—slows sugar absorption and supports better insulin management.',
-  },
-  {
-    question: 'What is Weight Permanence and how does it relate to LS?',
-    answer:
-      'Weight Permanence is a system built on three axes: Awareness (understanding what, how, when, and why you eat), Practice (applying LS principles in real-life settings), and Permanence (learning to re-anchor quickly when you go off track). LS is the dietary framework; Weight Permanence is the behavioural system that makes it last.',
-  },
-];
+{
+  question: 'What is a low-starch, low-sugar (LS) diet?',
+  answer:
+  'An LS diet selectively reduces foods that spike insulin—refined starches like white bread, rice, and pasta, and added or concentrated sugars—while keeping protein, healthy fats, non-starchy vegetables, and controlled portions of fruit. It is not about eliminating entire food groups; it is about choosing foods that keep insulin low so your body can access stored fat for energy.'
+},
+{
+  question: 'How does insulin affect fat burning?',
+  answer:
+  'Insulin acts as a metabolic gatekeeper. When insulin is high, your body prioritises storing energy and slows fat release from adipose tissue. When insulin drops, fat burning resumes. Think of fat as the sun and insulin as cloud cover: less glucose means clearer skies and more fat burning.'
+},
+{
+  question: 'What is the difference between No Carb and Low-Starch, Low-Sugar?',
+  answer:
+  'No Carb eliminates virtually all carbohydrates, including fruit, legumes, dairy with lactose, and all grains. LS reduces the highest-insulin foods—refined starch and sugar—while allowing controlled portions of lower-sugar fruits, legumes, and even small amounts of whole grains. LS is designed for social sustainability: you can share meals with family and friends without requiring a separate menu.'
+},
+{
+  question: 'Can I lose weight without counting calories on an LS diet?',
+  answer:
+  'Yes. By focusing on food quality rather than caloric arithmetic, many people naturally reduce caloric intake because lower-insulin foods tend to be more satiating. The principle is straightforward: if you consistently eat less starch and sugar than you did before, insulin drops, fat burning increases, and weight declines over time.'
+},
+{
+  question: 'Is fruit allowed on a low-starch, low-sugar diet?',
+  answer:
+  'Yes, in controlled portions. Lower-sugar, higher-fibre fruits such as raspberries, blackberries, strawberries, grapefruit, and kiwi are preferred. Eating fruit whole—rather than juiced or blended—slows sugar absorption and supports better insulin management.'
+},
+{
+  question: 'What is Weight Permanence and how does it relate to LS?',
+  answer:
+  'Weight Permanence is a system built on three axes: Awareness (understanding what, how, when, and why you eat), Practice (applying LS principles in real-life settings), and Permanence (learning to re-anchor quickly when you go off track). LS is the dietary framework; Weight Permanence is the behavioural system that makes it last.'
+}];
+
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -58,9 +58,9 @@ const faqSchema = {
     name: faq.question,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
+      text: faq.answer
+    }
+  }))
 };
 
 const articleSchema = {
@@ -68,40 +68,40 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Low Starch, Low Sugar = Burn Fat',
   description:
-    'Learn why reducing starch and sugar lowers insulin, how it compares to no-carb diets, and how to adopt a sustainable LS lifestyle for lasting fat loss.',
+  'Learn why reducing starch and sugar lowers insulin, how it compares to no-carb diets, and how to adopt a sustainable LS lifestyle for lasting fat loss.',
   author: {
     '@type': 'Person',
     name: 'Oscar Poon',
-    url: 'https://wpt-preorder.lovable.app',
+    url: 'https://wpt-preorder.lovable.app'
   },
   publisher: {
     '@type': 'Organization',
     name: 'Weight Permanence',
-    url: 'https://wpt-preorder.lovable.app',
+    url: 'https://wpt-preorder.lovable.app'
   },
   datePublished: '2025-03-02',
-  dateModified: '2025-03-02',
+  dateModified: '2025-03-02'
 };
 
 const references = [
-  'Müller, M. J., Enderle, J., & Bosy-Westphal, A. (2016). Changes in energy expenditure with weight gain and weight loss in humans. Current Obesity Reports, 5(4), 413–423.',
-  'Misra, M., & Klibanski, A. (2014). Anorexia nervosa and bone. Journal of Endocrinology, 221(3), R163–R176.',
-  'Hales, C. M., Carroll, M. D., Fryar, C. D., & Ogden, C. L. (2020). Prevalence of obesity and severe obesity among adults: United States, 2017–2018. NCHS Data Brief, No. 360.',
-  'Monteiro, C. A., Cannon, G., Levy, R. B., et al. (2019). Ultra-processed foods: What they are and how to identify them. Public Health Nutrition, 22(5), 936–941.',
-  'Saltiel, A. R., & Kahn, C. R. (2001). Insulin signalling and the regulation of glucose and lipid metabolism. Nature, 414(6865), 799–806.',
-  'Frayn, K. N. (2010). Fat as a fuel: Emerging understanding of the adipose tissue–skeletal muscle axis. Acta Physiologica, 199(4), 509–518.',
-  'Reaven, G. M. (1988). Banting lecture 1988: Role of insulin resistance in human disease. Diabetes, 37(12), 1595–1607.',
-  'Holt, S. H. A., Miller, J. C. B., & Petocz, P. (1997). An insulin index of foods: The insulin demand generated by 1000-kJ portions of common foods. American Journal of Clinical Nutrition, 66(5), 1264–1276.',
-  'Bray, G. A., Nielsen, S. J., & Popkin, B. M. (2004). Consumption of high-fructose corn syrup in beverages may play a role in the epidemic of obesity. American Journal of Clinical Nutrition, 79(4), 537–543.',
-  'American Diabetes Association. (2024). Standards of care in diabetes—2024. Diabetes Care, 47(Suppl. 1).',
-  'U.S. Department of Agriculture & U.S. Department of Health and Human Services. (2026). Dietary guidelines for Americans, 2025–2030 (10th ed.).',
-  'Fothergill, E., Guo, J., Howard, L., et al. (2016). Persistent metabolic adaptation 6 years after "The Biggest Loser" competition. Obesity, 24(8), 1612–1619.',
-];
+'Müller, M. J., Enderle, J., & Bosy-Westphal, A. (2016). Changes in energy expenditure with weight gain and weight loss in humans. Current Obesity Reports, 5(4), 413–423.',
+'Misra, M., & Klibanski, A. (2014). Anorexia nervosa and bone. Journal of Endocrinology, 221(3), R163–R176.',
+'Hales, C. M., Carroll, M. D., Fryar, C. D., & Ogden, C. L. (2020). Prevalence of obesity and severe obesity among adults: United States, 2017–2018. NCHS Data Brief, No. 360.',
+'Monteiro, C. A., Cannon, G., Levy, R. B., et al. (2019). Ultra-processed foods: What they are and how to identify them. Public Health Nutrition, 22(5), 936–941.',
+'Saltiel, A. R., & Kahn, C. R. (2001). Insulin signalling and the regulation of glucose and lipid metabolism. Nature, 414(6865), 799–806.',
+'Frayn, K. N. (2010). Fat as a fuel: Emerging understanding of the adipose tissue–skeletal muscle axis. Acta Physiologica, 199(4), 509–518.',
+'Reaven, G. M. (1988). Banting lecture 1988: Role of insulin resistance in human disease. Diabetes, 37(12), 1595–1607.',
+'Holt, S. H. A., Miller, J. C. B., & Petocz, P. (1997). An insulin index of foods: The insulin demand generated by 1000-kJ portions of common foods. American Journal of Clinical Nutrition, 66(5), 1264–1276.',
+'Bray, G. A., Nielsen, S. J., & Popkin, B. M. (2004). Consumption of high-fructose corn syrup in beverages may play a role in the epidemic of obesity. American Journal of Clinical Nutrition, 79(4), 537–543.',
+'American Diabetes Association. (2024). Standards of care in diabetes—2024. Diabetes Care, 47(Suppl. 1).',
+'U.S. Department of Agriculture & U.S. Department of Health and Human Services. (2026). Dietary guidelines for Americans, 2025–2030 (10th ed.).',
+'Fothergill, E., Guo, J., Howard, L., et al. (2016). Persistent metabolic adaptation 6 years after "The Biggest Loser" competition. Obesity, 24(8), 1612–1619.'];
+
 
 export default function LSDietGuidePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const { isLoading, hasEmail, captureAndDownload, downloadForReturningUser } =
-    useLeadCapture();
+  useLeadCapture();
 
   const handleDownloadClick = async () => {
     if (hasEmail) {
@@ -121,8 +121,8 @@ export default function LSDietGuidePage() {
         <title>Low Starch, Low Sugar = Burn Fat | Free Guide</title>
         <meta
           name="description"
-          content="Learn why reducing starch and sugar lowers insulin, how it compares to no-carb diets, and how to adopt a sustainable LS lifestyle for lasting fat loss. Free downloadable guide."
-        />
+          content="Learn why reducing starch and sugar lowers insulin, how it compares to no-carb diets, and how to adopt a sustainable LS lifestyle for lasting fat loss. Free downloadable guide." />
+
         <link rel="canonical" href="https://wpt-preorder.lovable.app/ls-diet-guide" />
         <meta name="author" content="Oscar Poon" />
 
@@ -130,8 +130,8 @@ export default function LSDietGuidePage() {
         <meta property="og:title" content="Low Starch, Low Sugar = Burn Fat | Free Guide" />
         <meta
           property="og:description"
-          content="Why reducing starch and sugar lowers insulin and unlocks fat burning. Free guide comparing No Carb vs. LS diets."
-        />
+          content="Why reducing starch and sugar lowers insulin and unlocks fat burning. Free guide comparing No Carb vs. LS diets." />
+
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://wpt-preorder.lovable.app/ls-diet-guide" />
 
@@ -140,8 +140,8 @@ export default function LSDietGuidePage() {
         <meta name="twitter:title" content="Low Starch, Low Sugar = Burn Fat" />
         <meta
           name="twitter:description"
-          content="Why reducing starch and sugar lowers insulin and unlocks fat burning. Free guide."
-        />
+          content="Why reducing starch and sugar lowers insulin and unlocks fat burning. Free guide." />
+
 
         {/* Structured Data */}
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -157,23 +157,23 @@ export default function LSDietGuidePage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-normal text-primary mb-6">
               Low Starch, Low Sugar = Burn Fat
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              Starvation makes you skinnier—but your body pays the price. This guide explains why
-              reducing starch and sugar lowers insulin, unlocks fat burning, and how to do it
-              without eliminating the foods you love.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">Starvation makes you skinnier, but your body pays the price. This guide explains why reducing starch and sugar lowers insulin, unlocks fat burning, and how to do it without eliminating the foods you love.
+
+
+
             </p>
             <Button size="lg" onClick={handleDownloadClick} disabled={isLoading}>
-              {isLoading ? (
-                <>
+              {isLoading ?
+              <>
                   <Loader2 className="w-4 h-4 animate-spin mr-2" />
                   Loading...
-                </>
-              ) : (
-                <>
+                </> :
+
+              <>
                   <Download className="w-4 h-4 mr-2" />
                   Download the Free Guide
                 </>
-              )}
+              }
             </Button>
           </header>
 
@@ -401,9 +401,9 @@ export default function LSDietGuidePage() {
               References
             </h2>
             <ol className="list-decimal pl-6 text-sm text-muted-foreground space-y-2">
-              {references.map((ref, i) => (
-                <li key={i}>{ref}</li>
-              ))}
+              {references.map((ref, i) =>
+              <li key={i}>{ref}</li>
+              )}
             </ol>
           </section>
 
@@ -413,8 +413,8 @@ export default function LSDietGuidePage() {
               Frequently Asked Questions
             </h2>
             <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`}>
+              {faqs.map((faq, index) =>
+              <AccordionItem key={index} value={`faq-${index}`}>
                   <AccordionTrigger className="text-left text-foreground">
                     {faq.question}
                   </AccordionTrigger>
@@ -422,7 +422,7 @@ export default function LSDietGuidePage() {
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
-              ))}
+              )}
             </Accordion>
           </section>
 
@@ -440,19 +440,19 @@ export default function LSDietGuidePage() {
                 size="lg"
                 className="animate-pulse-glow"
                 onClick={handleDownloadClick}
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
+                disabled={isLoading}>
+
+                {isLoading ?
+                <>
                     <Loader2 className="w-4 h-4 animate-spin mr-2" />
                     Loading...
-                  </>
-                ) : (
-                  <>
+                  </> :
+
+                <>
                     <Download className="w-4 h-4 mr-2" />
                     Download the Free Guide
                   </>
-                )}
+                }
               </Button>
             </div>
           </section>
@@ -464,24 +464,24 @@ export default function LSDietGuidePage() {
             </p>
             <a
               href="/#method"
-              className="inline-flex items-center text-primary hover:underline font-medium"
-            >
+              className="inline-flex items-center text-primary hover:underline font-medium">
+
               Explore the Weight Permanence Book
               <ArrowRight className="w-4 h-4 ml-1" />
             </a>
             <div className="mt-6 flex justify-center">
               <Button size="lg" onClick={handleDownloadClick} disabled={isLoading}>
-                {isLoading ? (
-                  <>
+                {isLoading ?
+                <>
                     <Loader2 className="w-4 h-4 animate-spin mr-2" />
                     Loading...
-                  </>
-                ) : (
-                  <>
+                  </> :
+
+                <>
                     <Download className="w-4 h-4 mr-2" />
                     Download the Free Guide
                   </>
-                )}
+                }
               </Button>
             </div>
           </div>
@@ -495,8 +495,8 @@ export default function LSDietGuidePage() {
         onOpenChange={setModalOpen}
         resourceTitle={RESOURCE_TITLE}
         onSubmit={handleModalSubmit}
-        isLoading={isLoading}
-      />
-    </div>
-  );
+        isLoading={isLoading} />
+
+    </div>);
+
 }
