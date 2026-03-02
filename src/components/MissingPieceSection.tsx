@@ -218,18 +218,6 @@ export function MissingPieceSection() {
             </div>
           </div>
 
-          {/* The Key Question */}
-          <KeyQuestionHook />
-
-          {/* The Choice */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-5 md:p-6 border border-border/50 mb-6 text-center">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              At that weight, the choices were no longer neutral. Ignoring the problem meant accepting a future of{" "}
-              <span className="font-semibold text-destructive">chronic disease</span>,{" "}
-              <span className="font-semibold text-destructive">lifelong medication</span>, and{" "}
-              <span className="font-semibold text-destructive">limited life options</span>.
-            </p>
-          </div>
 
           {/* Health Statistics Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -290,32 +278,9 @@ export function MissingPieceSection() {
             What I discovered is that they share a common metabolic driver.
           </p>
           <p className="text-base md:text-lg text-muted-foreground mb-4">
-            Everything pointed to one cause:
+            Everything pointed to one cause: <span className="font-bold text-destructive italic">overconsumption of refined carbohydrates</span>.
           </p>
-            
-            {/* Highlighted cause with animated arrows */}
-            <div className="flex items-center justify-center gap-3 md:gap-6">
-              {/* Left arrows */}
-              <div className="flex items-center">
-                <ChevronsRight className="w-6 h-6 md:w-8 md:h-8 text-destructive/70 animate-bounce-horizontal" />
-              </div>
-              
-              {/* The cause - styled box */}
-              <div className="relative px-6 py-3 md:px-8 md:py-4 bg-destructive/10 border-2 border-destructive/30 rounded-xl">
-                <span className="font-bold text-destructive text-lg md:text-2xl italic">
-                  overconsumption of refined carbohydrates
-                </span>
-              </div>
-              
-              {/* Right arrows */}
-              <div className="flex items-center">
-                <ChevronsLeft className="w-6 h-6 md:w-8 md:h-8 text-destructive/70 animate-bounce-horizontal-reverse" />
-              </div>
-            </div>
           </div>
-
-          {/* Circular Hunger Cycle */}
-          <CircularHungerCycle />
 
           {/* Breaking the Cycle + Pathway */}
           <div className="text-center mb-3 mt-4">
@@ -358,7 +323,7 @@ export function MissingPieceSection() {
           {/* Bridge to 3 BIG PROBLEMS */}
           <div ref={solutionRef} className={`text-center transition-all duration-700 ${solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-              Sustaining a <span className="font-bold text-accent">low-starch, low-sugar</span> lifestyle requires solving three major problems.
+              Sustaining a <span className="font-bold text-accent">low-starch, low-sugar</span> lifestyle requires solving three real-world problems.
             </p>
             
             {/* Animated arrows pointing to 3 BIG PROBLEMS */}
