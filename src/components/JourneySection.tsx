@@ -105,15 +105,7 @@ export function JourneySection() {
           
           {/* Personal Story */}
           <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 text-center">
-            <p className="text-base md:text-lg text-primary font-medium mb-4">Over the last decade, each attempt looked different but ended the same way.</p>
-            <div className="space-y-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-              <p>The pattern repeated: discipline, results, disruption, and regain.</p>
-              <p>
-                <span className="text-primary font-medium">Then other priorities took over and the weight returned.</span>
-              </p>
-              
-            </div>
-            <p className="text-sm text-muted-foreground mt-6 italic">(Tap to see the transformations)</p>
+            <p className="text-sm text-muted-foreground italic">(Tap to see the transformations)</p>
           </div>
         </div>
 
