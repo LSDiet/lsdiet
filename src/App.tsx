@@ -10,6 +10,7 @@ import ProductDetail from "./pages/ProductDetail";
 import QAPage from "./pages/QAPage";
 import FreeResources from "./pages/FreeResources";
 import GLP1GuidePage from "./pages/GLP1GuidePage";
+import LSDietGuidePage from "./pages/LSDietGuidePage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import HealthDisclaimer from "./pages/HealthDisclaimer";
@@ -28,6 +29,7 @@ function AppContent() {
         <Route path="/qa" element={<QAPage />} />
         <Route path="/FreeResources" element={<FreeResources />} />
         <Route path="/does-glp-1-work" element={<GLP1GuidePage />} />
+        <Route path="/ls-diet-guide" element={<LSDietGuidePage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfUse />} />
         <Route path="/disclaimer" element={<HealthDisclaimer />} />

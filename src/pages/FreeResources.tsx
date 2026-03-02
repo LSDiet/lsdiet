@@ -28,6 +28,17 @@ const resources: Resource[] = [{
   coverImage: glp1Cover,
   dedicatedPage: '/does-glp-1-work',
   learningPoints: ['What GLP-1 actually does in the body and brain', 'Why most people regain weight after stopping medication', 'How to use the GLP-1 window to build lasting change']
+}, {
+  id: 'ebook-ls-diet-guide',
+  title: 'Low Starch, Low Sugar = Burn Fat',
+  description: 'Learn why reducing starch and sugar lowers insulin, how it compares to no-carb diets, and how to adopt it sustainably.',
+  filePath: 'Low-Starch Low-Sugar Guide.pdf',
+  dedicatedPage: '/ls-diet-guide',
+  learningPoints: [
+    'How insulin controls fat burning and why lowering it matters',
+    'The difference between No Carb and Low-Starch, Low-Sugar (LS)',
+    'How to adopt LS as a sustainable lifestyle, not a restrictive diet'
+  ]
 }];
 export default function FreeResources() {
   const [modalOpen, setModalOpen] = useState(false);
