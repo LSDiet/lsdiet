@@ -49,10 +49,6 @@ export default function FreeResources() {
     captureAndDownload,
     downloadForReturningUser
   } = useLeadCapture();
-  const {
-    ref,
-    isVisible
-  } = useScrollAnimation();
   const handleDownloadClick = async (resource: Resource) => {
     if (hasEmail) {
       await downloadForReturningUser(resource.id, resource.filePath);
@@ -94,64 +90,7 @@ export default function FreeResources() {
               <FileText className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
               <p className="text-muted-foreground">No free resources are published yet. Check back soon!</p>
             </div> : <div className="space-y-16">
-              {resources.map(resource => <div key={resource.id} ref={ref} className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-                  {/* eBook Cover */}
-                  <div className="flex justify-center">
-                    <div className="relative animate-float">
-                      <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl" />
-                      {resource.coverImage ? <img src={resource.coverImage} alt={resource.title} className="relative max-w-sm w-full drop-shadow-2xl rounded-lg" /> : <div className="relative max-w-sm w-full aspect-[3/4] bg-secondary rounded-lg flex items-center justify-center drop-shadow-2xl">
-                          <FileText className="w-24 h-24 text-primary/30" />
-                        </div>}
-                    </div>
-                  </div>
-
-                  {/* eBook Info */}
-                  <div>
-                    
-                    
-                    <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
-                      {resource.title}
-                    </h2>
-                    
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
-                      {resource.description}
-                    </p>
-
-                    <p className="text-foreground font-medium mb-4">
-                      In this short guide, you will learn:
-                    </p>
-
-                    <ul className="space-y-3 mb-8">
-                      {resource.learningPoints.map(point => <li key={point} className="flex items-start gap-3">
-                          <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Check className="w-3 h-3 text-primary" />
-                          </div>
-                          <span className="text-foreground">{point}</span>
-                        </li>)}
-                    </ul>
-
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Button size="lg" className="w-full sm:w-auto px-8 animate-pulse-glow" onClick={() => handleDownloadClick(resource)} disabled={isLoading}>
-                        {isLoading ? <>
-                            <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                            Loading...
-                          </> : <>
-                            <Download className="w-4 h-4 mr-2" />
-                            Download the Free Guide
-                          </>}
-                      </Button>
-                      
-                      {resource.dedicatedPage && (
-                        <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
-                          <a href={resource.dedicatedPage}>
-                            Read the Full Guide
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                </div>)}
+              {resources.map((resource, index) => <ResourceCard key={resource.id} resource={resource} index={index} onDownload={handleDownloadClick} isLoading={isLoading} />)}
             </div>}
         </div>
       </main>
@@ -160,4 +99,67 @@ export default function FreeResources() {
 
       {selectedResource && <EmailCaptureModal open={modalOpen} onOpenChange={setModalOpen} resourceTitle={selectedResource.title} onSubmit={handleModalSubmit} isLoading={isLoading} />}
     </div>;
+}
+
+function ResourceCard({ resource, index, onDownload, isLoading }: { resource: Resource; index: number; onDownload: (r: Resource) => void; isLoading: boolean }) {
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <div ref={ref} className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ${index === 0 || isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+      {/* eBook Cover */}
+      <div className="flex justify-center">
+        <div className="relative animate-float">
+          <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl" />
+          {resource.coverImage ? <img src={resource.coverImage} alt={resource.title} className="relative max-w-sm w-full drop-shadow-2xl rounded-lg" /> : <div className="relative max-w-sm w-full aspect-[3/4] bg-secondary rounded-lg flex items-center justify-center drop-shadow-2xl">
+              <FileText className="w-24 h-24 text-primary/30" />
+            </div>}
+        </div>
+      </div>
+
+      {/* eBook Info */}
+      <div>
+        <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
+          {resource.title}
+        </h2>
+        
+        <p className="text-muted-foreground mb-6 leading-relaxed">
+          {resource.description}
+        </p>
+
+        <p className="text-foreground font-medium mb-4">
+          In this short guide, you will learn:
+        </p>
+
+        <ul className="space-y-3 mb-8">
+          {resource.learningPoints.map(point => <li key={point} className="flex items-start gap-3">
+              <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Check className="w-3 h-3 text-primary" />
+              </div>
+              <span className="text-foreground">{point}</span>
+            </li>)}
+        </ul>
+
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Button size="lg" className="w-full sm:w-auto px-8 animate-pulse-glow" onClick={() => onDownload(resource)} disabled={isLoading}>
+            {isLoading ? <>
+                <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                Loading...
+              </> : <>
+                <Download className="w-4 h-4 mr-2" />
+                Download the Free Guide
+              </>}
+          </Button>
+          
+          {resource.dedicatedPage && (
+            <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
+              <a href={resource.dedicatedPage}>
+                Read the Full Guide
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }
