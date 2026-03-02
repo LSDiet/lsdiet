@@ -42,7 +42,7 @@ export function FooterSimple() {
                 <span>Founded by Oscar Poon</span>
               </summary>
               <div className="mt-3 space-y-2 text-sm text-muted-foreground max-w-2xl md:text-right">
-                <p>
+                <p>Oscar Poon is the founder of LSDiet.com (Social: @WhatABoutWeight) and the creator of the Weight Permanence Triangle™ (WPT), a neurobehavioural training designed to make weight loss intentional, sustainable, and permanent.
                   <strong className="text-foreground">Oscar Poon</strong> is the founder of WhatAboutWeight (Book: Weight Permanence) and the creator of the Weight Permanence Triangle™ (WPT), a neurobehavioural training designed to make weight loss intentional, sustainable, and permanent.
                 </p>
                 <p>
@@ -53,6 +53,6 @@ export function FooterSimple() {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
