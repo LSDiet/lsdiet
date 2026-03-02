@@ -102,11 +102,7 @@ export function JourneySection() {
           <h2 className="text-3xl md:text-4xl font-serif font-normal mb-6 text-primary">Lost 80+ Pounds.{" "}
           <span className="text-accent">Three Times.</span>
           </h2>
-          
-          {/* Personal Story */}
-          <div className="bg-card/50 backdrop-blur rounded-2xl p-6 md:p-8 border border-border/50 text-center">
-            <p className="text-sm text-muted-foreground italic">(Tap to see the transformations)</p>
-          </div>
+          <p className="text-sm text-muted-foreground italic">(Tap photos to see the transformations)</p>
         </div>
 
         <JourneyCardsGrid />
