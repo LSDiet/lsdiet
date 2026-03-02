@@ -181,8 +181,8 @@ export default function LSDietGuidePage() {
           <div className="prose prose-lg max-w-none mb-16">
             {/* Section 1: The Cost of Starvation */}
             <section className="mb-10">
-              <h2 className="text-2xl font-serif font-normal text-foreground mb-4">
-                Weight Loss Has No Secret—But It Has a Cost
+              <h2 className="text-2xl font-serif font-normal text-foreground mb-4">Weight Loss Has No Secret — You Just Need to Know the Cost
+
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 Prolonged starvation will make you skinnier within weeks. But starvation does not
@@ -225,11 +225,11 @@ export default function LSDietGuidePage() {
                 burning increased. The weight dropped again—but I was changing my social identity.
                 Every gathering became a negotiation.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                In 2025, I tested a different approach: vegetables, meats, moderate fruit,
-                occasional intentional carbohydrates. I lost 8–10 pounds per month consistently,
-                going from 270 to 200 pounds in nine months. During that time, I hiked three peaks
-                and completed my first Vancouver 10K Sun Run in 66 minutes.
+              <p className="text-muted-foreground leading-relaxed">In 2025, I tested a different approach: vegetables, meats, moderate fruit, and occasional intentional carbohydrates. I lost 8–10 pounds per month consistently, going from 270 to 200 pounds in nine months. During that time, I hiked three peaks and completed my first Vancouver 10K Sun Run in 66 minutes.
+
+
+
+
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Across all three attempts, one variable kept showing up: <strong className="text-foreground">carbohydrates</strong>.
@@ -300,11 +300,11 @@ export default function LSDietGuidePage() {
               </p>
 
               <h3 className="text-xl font-medium text-foreground mb-3 mt-6">Protein Foods</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Both diets prioritise beef, pork, lamb, chicken, turkey, duck, fatty fish,
-                shellfish, eggs, and organ meats. LS also allows legumes (lentils, chickpeas, black
-                beans) and soy (tofu, tempeh, edamame) in controlled portions for fibre and gut
-                health.
+              <p className="text-muted-foreground leading-relaxed">Both diets prioritize beef, pork, lamb, chicken, turkey, duck, fatty fish, shellfish, eggs, and organ meats. LS also allows legumes (lentils, chickpeas, black beans) and soy (tofu, tempeh, edamame) in controlled portions for fibre and gut health.
+
+
+
+
               </p>
 
               <h3 className="text-xl font-medium text-foreground mb-3 mt-6">Dairy</h3>
