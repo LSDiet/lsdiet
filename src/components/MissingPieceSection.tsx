@@ -269,18 +269,6 @@ export function MissingPieceSection() {
             </a>
           </p>
 
-          {/* Transition: The Root Cause */}
-          <div ref={transitionRef} className={`text-center mb-6 transition-all duration-700 ${transitionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-          <p className="text-base md:text-lg text-muted-foreground mb-2">
-            These conditions are reversible.
-          </p>
-          <p className="text-base md:text-lg text-muted-foreground mb-2">
-            What I discovered is that they share a common metabolic driver.
-          </p>
-          <p className="text-base md:text-lg text-muted-foreground mb-4">
-            Everything pointed to one cause: <span className="font-bold text-destructive italic">overconsumption of refined carbohydrates</span>.
-          </p>
-          </div>
 
           {/* Breaking the Cycle + Pathway */}
           <div className="text-center mb-3 mt-4">
