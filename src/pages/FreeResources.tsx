@@ -8,6 +8,7 @@ import { useLeadCapture } from '@/hooks/useLeadCapture';
 import { Download, FileText, Loader2, Check, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import glp1Cover from '@/assets/ebook-glp1-cover.png';
+import lsCover from '@/assets/ebook-ls-cover.jpg';
 
 interface Resource {
   id: string;
@@ -25,6 +26,7 @@ const resources: Resource[] = [{
   title: 'Low Starch, Low Sugar = Burn Fat',
   description: 'Learn why reducing starch and sugar lowers insulin, how it compares to no-carb diets, and how to adopt it sustainably.',
   filePath: 'Low-Starch Low-Sugar Guide.pdf',
+  coverImage: lsCover,
   dedicatedPage: '/ls-diet-guide',
   learningPoints: [
     'How insulin controls fat burning and why lowering it matters',
