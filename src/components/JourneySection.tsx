@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 // Import journey images
@@ -9,103 +7,134 @@ import img202012 from "@/assets/journey/202012-after-attempt1.jpg";
 import img202204 from "@/assets/journey/202204-regain1.jpg";
 import img202311 from "@/assets/journey/202311-after-attempt2.jpg";
 import img202405 from "@/assets/journey/202405-regain2.jpg";
+
 interface JourneyCard {
   id: number;
-  date: string;
   label: string;
   weight: string;
-  description: string;
-  afterDescription: string;
+  beforeLabel: string;
+  afterLabel: string;
   beforeImage: string;
   afterImage: string;
 }
-const journeyCards: JourneyCard[] = [{
-  id: 1,
-  date: "Oct 2017",
-  label: "Stress",
-  weight: "+100 lbs",
-  description: "Graduation weight with a lean and mobile body",
-  afterDescription: "Desk job and stress eating led to rapid weight gain",
-  beforeImage: img201710,
-  afterImage: img201908
-}, {
-  id: 2,
-  date: "Dec 2020",
-  label: "Sustainability",
-  weight: "+80 lbs",
-  description: "Lost 80 lbs with veggie & smoothie cleanse",
-  afterDescription: "Regained the weight once I returned to eating normally",
-  beforeImage: img202012,
-  afterImage: img202204
-}, {
-  id: 3,
-  date: "Nov 2023",
-  label: "Disruption",
-  weight: "+80 lbs",
-  description: "Lost 80 lbs with carnivore, IF & daily exercise",
-  afterDescription: "Regained the weight as frequent travel turned flexibility into old habits",
-  beforeImage: img202311,
-  afterImage: img202405
-}];
-function JourneyCard({
-  card
 
+const journeyCards: JourneyCard[] = [
+  {
+    id: 1,
+    label: "Stress",
+    weight: "+100 lbs",
+    beforeLabel: "Graduation — lean & mobile",
+    afterLabel: "Desk job & stress eating",
+    beforeImage: img201710,
+    afterImage: img201908,
+  },
+  {
+    id: 2,
+    label: "Sustainability",
+    weight: "+80 lbs",
+    beforeLabel: "Lost 80 lbs — veggie cleanse",
+    afterLabel: "Regained it all eating normally",
+    beforeImage: img202012,
+    afterImage: img202204,
+  },
+  {
+    id: 3,
+    label: "Disruption",
+    weight: "+80 lbs",
+    beforeLabel: "Lost 80 lbs — carnivore & IF",
+    afterLabel: "Regained from travel & old habits",
+    beforeImage: img202311,
+    afterImage: img202405,
+  },
+];
 
-}: {card: JourneyCard;}) {
-  const [showAfter, setShowAfter] = useState(false);
-  const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    setShowAfter(!showAfter);
-  };
-  return <div className="relative group cursor-pointer touch-manipulation" onTouchEnd={handleInteraction} onClick={handleInteraction} onMouseEnter={() => setShowAfter(true)} onMouseLeave={() => setShowAfter(false)}>
-      <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-secondary relative">
-        {/* Render both images and toggle visibility for instant switching */}
-        <img src={card.beforeImage} alt={card.description} className={cn("absolute inset-0 w-full h-full object-cover", showAfter ? "opacity-0" : "opacity-100")} />
-        <img src={card.afterImage} alt={card.afterDescription} className={cn("absolute inset-0 w-full h-full object-cover", showAfter ? "opacity-100" : "opacity-0")} />
-        
-        {/* Weight badge */}
-        <div className="absolute top-4 right-4 bg-background/90 backdrop-blur px-3 py-1 rounded-full z-10">
-          <span className="text-sm font-semibold text-destructive">{card.weight}</span>
+function JourneyCard({ card }: { card: JourneyCard }) {
+  return (
+    <div className="flex flex-col gap-3">
+      {/* Weight badge */}
+      <div className="flex items-center justify-between mb-1">
+        <span className="text-xs font-bold uppercase tracking-[0.15em] text-accent">
+          {card.label}
+        </span>
+        <span className="text-sm font-extrabold text-destructive">
+          {card.weight}
+        </span>
+      </div>
+
+      {/* Side-by-side images */}
+      <div className="grid grid-cols-2 gap-2">
+        <div className="relative">
+          <div className="aspect-[3/4] rounded-lg overflow-hidden">
+            <img
+              src={card.beforeImage}
+              alt={card.beforeLabel}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider bg-[hsl(0_0%_6%/0.75)] backdrop-blur-sm text-[hsl(0_0%_96%)] px-2 py-0.5 rounded">
+            Before
+          </span>
+        </div>
+
+        <div className="relative">
+          <div className="aspect-[3/4] rounded-lg overflow-hidden">
+            <img
+              src={card.afterImage}
+              alt={card.afterLabel}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider bg-[hsl(0_0%_6%/0.75)] backdrop-blur-sm text-[hsl(0_0%_96%)] px-2 py-0.5 rounded">
+            After
+          </span>
         </div>
       </div>
-      
-      <div className="mt-4 text-center">
-        <p className="text-sm text-muted-foreground mb-1">{card.date} • Tap to toggle</p>
-        <h3 className="font-semibold text-primary">{card.label}</h3>
-        <p className="text-sm text-muted-foreground mt-1 transition-opacity duration-300">
-          {showAfter ? card.afterDescription : card.description}
-        </p>
+
+      {/* Captions */}
+      <div className="grid grid-cols-2 gap-2 text-xs text-[hsl(0_0%_56%)]">
+        <p>{card.beforeLabel}</p>
+        <p>{card.afterLabel}</p>
       </div>
-    </div>;
+    </div>
+  );
 }
+
 function JourneyCardsGrid() {
-  const {
-    ref,
-    isVisible
-  } = useScrollAnimation();
-  return <div ref={ref} className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-8">
-      {journeyCards.map((card, index) => <div key={card.id} className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{
-      transitionDelay: `${index * 150}ms`
-    }}>
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <div ref={ref} className="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+      {journeyCards.map((card, index) => (
+        <div
+          key={card.id}
+          className={`transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: `${index * 150}ms` }}
+        >
           <JourneyCard card={card} />
-        </div>)}
-    </div>;
+        </div>
+      ))}
+    </div>
+  );
 }
+
 export function JourneySection() {
-  return <section id="journey" className="py-5 bg-secondary/30">
+  return (
+    <section id="journey" className="section-dark py-20 md:py-28">
       <div className="container">
-        {/* Personal Introduction */}
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-4">
-            <span className="text-sm font-medium text-accent">How It All Started</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-serif font-normal mb-6 text-primary">Lost 80+ Pounds.{" "}
-          <span className="text-accent">Three Times.</span>
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
+            How It All Started
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
+            Lost 80+ Pounds.{" "}
+            <span className="text-accent">Three Times.</span>
           </h2>
-          <p className="text-sm text-muted-foreground italic">(Tap photos to see the transformations)</p>
         </div>
 
         <JourneyCardsGrid />
       </div>
-    </section>;
+    </section>
+  );
 }
