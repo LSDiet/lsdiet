@@ -4,15 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import useEmblaCarousel from "embla-carousel-react";
 
-// TODO: Replace placeholder IDs with your actual YouTube Shorts video IDs
-// To find them: open each Short on YouTube, the ID is in the URL after youtube.com/shorts/
 const SHORTS = [
-  { id: "REPLACE_ID_1", title: "26 Day LS Challenge: How to Eat Out Daily" },
-  { id: "REPLACE_ID_2", title: "What BMI Is and Is Not: Use It Directionally" },
-  { id: "REPLACE_ID_3", title: "Why I Do 26 Days LS Diet Instead of 30" },
-  { id: "REPLACE_ID_4", title: "Stop saying NO to family gatherings" },
-  { id: "REPLACE_ID_5", title: "My egg exploded in the microwave (but I ate it)" },
-  { id: "REPLACE_ID_6", title: "How Much Muscles You Can Build on LS Diet" },
+  { id: "e3P3cBenjnM", title: "26 Day LS Challenge: How to Eat Out Daily" },
+  { id: "P9K2VctpccA", title: "What BMI Is and Is Not: Use It Directionally" },
+  { id: "tN6H5UpAM9o", title: "Why I Do 26 Days LS Diet Instead of 30" },
+  { id: "wbEQiQkdDHs", title: "Stop saying NO to family gatherings" },
+  { id: "Fxg65gd33W0", title: "My egg exploded in the microwave (but I ate it)" },
 ];
 
 export function YouTubeShortsSection() {
