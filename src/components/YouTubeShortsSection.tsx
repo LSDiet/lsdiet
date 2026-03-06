@@ -84,9 +84,9 @@ export function YouTubeShortsSection() {
 
       {/* Video modal */}
       <Dialog open={!!selectedVideo} onOpenChange={() => setSelectedVideo(null)}>
-        <DialogContent className="max-w-2xl p-0 bg-black border-none overflow-hidden">
+        <DialogContent className="max-w-sm w-full p-0 bg-black border-none overflow-hidden [&>button]:text-white [&>button]:z-10">
           {selectedVideo && (
-            <div className="aspect-[9/16] max-h-[80vh]">
+            <div className="aspect-[9/16] w-full">
               <iframe
                 src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
                 title="YouTube Short"
