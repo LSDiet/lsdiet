@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Weight Problem", href: "/#journey" },
   { label: "Solution", href: "/#method" },
   { label: "Book", href: "/#book" },
-  { label: "Free Resources", href: "/FreeResources" },
+  { label: "Free Resources", href: "/FreeResources", highlight: true },
   { label: "Q&A", href: "/qa" },
 ];
 
@@ -14,58 +14,60 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-      <div className="container flex h-16 items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-full border-2 border-primary flex items-center justify-center">
-            <Triangle className="w-4 h-4 text-primary fill-primary" />
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[hsl(0_0%_6%/0.95)] backdrop-blur supports-[backdrop-filter]:bg-[hsl(0_0%_6%/0.8)] border-b border-[hsl(0_0%_18%)]">
+      <div className="container flex h-14 items-center justify-between">
+        <a href="/" className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-full border border-accent flex items-center justify-center">
+            <Triangle className="w-3.5 h-3.5 text-accent fill-accent" />
           </div>
-          <span className="text-lg font-semibold text-foreground">Weight Permanence</span>
+          <span className="text-sm font-bold uppercase tracking-[0.15em] text-[hsl(0_0%_96%)]">
+            Weight Permanence
+          </span>
         </a>
-        
+
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors nav-link-hover ${
-                link.label === "Free Resources"
-                  ? "text-accent font-bold animate-pulse-glow"
-                  : "text-muted-foreground hover:text-foreground"
+              className={`text-xs font-semibold uppercase tracking-[0.12em] transition-colors nav-link-hover ${
+                link.highlight
+                  ? "text-accent"
+                  : "text-[hsl(0_0%_56%)] hover:text-[hsl(0_0%_96%)]"
               }`}
             >
               {link.label}
             </a>
           ))}
         </nav>
-        
+
         <div className="flex items-center gap-2">
           <CartDrawer />
-          
+
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-[hsl(0_0%_96%)]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
-      
+
       {/* Mobile nav dropdown */}
       {mobileMenuOpen && (
-        <nav className="md:hidden bg-background border-t border-border">
-          <div className="container py-4 flex flex-col gap-4">
+        <nav className="md:hidden bg-[hsl(0_0%_6%)] border-t border-[hsl(0_0%_18%)]">
+          <div className="container py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-base font-medium transition-colors py-2 ${
-                  link.label === "Free Resources"
-                    ? "text-accent font-bold animate-pulse-glow"
-                    : "text-muted-foreground hover:text-foreground"
+                className={`text-sm font-semibold uppercase tracking-[0.1em] py-2.5 transition-colors ${
+                  link.highlight
+                    ? "text-accent"
+                    : "text-[hsl(0_0%_56%)] hover:text-[hsl(0_0%_96%)]"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
