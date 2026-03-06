@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import tippingPoint from "@/assets/journey/202411-tipping-point.jpg";
+import heroPhoto from "@/assets/hero-photo.png";
 
 export function HeroSection() {
   return (
