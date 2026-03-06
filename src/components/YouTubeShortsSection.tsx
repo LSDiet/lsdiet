@@ -4,14 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import useEmblaCarousel from "embla-carousel-react";
 
-// Replace these with your actual YouTube Shorts video IDs
+// TODO: Replace placeholder IDs with your actual YouTube Shorts video IDs
+// To find them: open each Short on YouTube, the ID is in the URL after youtube.com/shorts/
 const SHORTS = [
-  { id: "6B_52HKWmgg", title: "What I Eat in a Day — Low Starch" },
-  { id: "49Db1h9nPL0", title: "Meal Prep for Weight Permanence" },
-  { id: "NC1IxqFWang", title: "My Daily Transformation Update" },
-  { id: "DdM54ZF9YsA", title: "Low Sugar Snack Ideas" },
-  { id: "qgOkRLv3eR8", title: "Why Diets Fail — The Real Reason" },
-  { id: "nUMyx8D04UY", title: "Drop 5 Pants Sizes Challenge" },
+  { id: "REPLACE_ID_1", title: "26 Day LS Challenge: How to Eat Out Daily" },
+  { id: "REPLACE_ID_2", title: "What BMI Is and Is Not: Use It Directionally" },
+  { id: "REPLACE_ID_3", title: "Why I Do 26 Days LS Diet Instead of 30" },
+  { id: "REPLACE_ID_4", title: "Stop saying NO to family gatherings" },
+  { id: "REPLACE_ID_5", title: "My egg exploded in the microwave (but I ate it)" },
+  { id: "REPLACE_ID_6", title: "How Much Muscles You Can Build on LS Diet" },
 ];
 
 export function YouTubeShortsSection() {
