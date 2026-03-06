@@ -17,7 +17,7 @@ export function HeroSection() {
         {/* Text */}
         <div className="order-1 md:order-2 flex flex-col gap-6 md:gap-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent opacity-0 animate-fade-in-up">
-            Lost 60 lbs — Three Times. Now It's Forever.
+            Lost 80 lbs three Times. Now It's Forever.
           </p>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.05] tracking-tight opacity-0 animate-fade-in-up animate-delay-100">
