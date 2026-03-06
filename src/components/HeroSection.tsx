@@ -8,7 +8,7 @@ export function HeroSection() {
         {/* Image */}
         <div className="order-2 md:order-1 flex justify-center">
           <img
-            src={tippingPoint}
+            src={heroPhoto}
             alt="Oscar at 300 lbs — the tipping point that started the journey"
             className="w-full max-w-md md:max-w-lg rounded-lg object-cover shadow-2xl"
           />
