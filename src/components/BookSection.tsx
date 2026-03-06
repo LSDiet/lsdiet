@@ -18,7 +18,7 @@ export function BookSection() {
   const { data: products, isLoading: productsLoading } = useProducts(1);
   const addItem = useCartStore((state) => state.addItem);
   const isLoading = useCartStore((state) => state.isLoading);
-  
+
   const bookProduct = products?.[0];
   const variant = bookProduct?.node?.variants?.edges?.[0]?.node;
   const price = variant?.price || bookProduct?.node?.priceRange?.minVariantPrice;
@@ -46,9 +46,9 @@ export function BookSection() {
   };
 
   return (
-    <section id="book" className="py-10 bg-secondary/30">
+    <section id="book" className="section-dark py-20 md:py-28">
       <div className="container">
-        <div 
+        <div
           ref={ref}
           className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -68,23 +68,23 @@ export function BookSection() {
 
           {/* Book info */}
           <div>
-            <div className="inline-flex items-center px-5 py-2.5 rounded-full bg-accent/15 border border-accent/25 mb-6">
-              <span className="text-sm font-medium text-accent">Pre-Order Now Available</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-6">
+              Pre-Order Now Available
+            </p>
+            <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-4">
               Weight Permanence
             </h2>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-[hsl(0_0%_60%)] mb-6 leading-relaxed text-sm">
               A step-by-step guide to the Weight Permanence Triangle™ Method. Learn how to build a low-starch, low-sugar lifestyle designed to resist weight regain.
             </p>
 
             <ul className="space-y-3 mb-6">
               {features.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-3 h-3 text-primary" />
+                  <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-accent" />
                   </div>
-                  <span className="text-foreground">{feature}</span>
+                  <span className="text-[hsl(0_0%_80%)] text-sm">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -94,13 +94,13 @@ export function BookSection() {
               <div className="flex items-start gap-3">
                 <Gift className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-2">
+                  <p className="text-xs font-bold text-accent uppercase tracking-[0.1em] mb-2">
                     Early Access Bonus
                   </p>
-                  <p className="text-foreground text-sm leading-relaxed mb-2">
-                    Pre-order the book and receive 12 months of free access to <span className="font-semibold">Awareness Compass</span>, a proprietary conversational platform that guides you through the five stages of Awareness to identify the gap between where you are and where you want to be, and to establish clear internal push and pull motivation.
+                  <p className="text-[hsl(0_0%_80%)] text-sm leading-relaxed mb-2">
+                    Pre-order the book and receive 12 months of free access to <span className="font-semibold text-[hsl(0_0%_96%)]">Awareness Compass</span>, a proprietary conversational platform that guides you through the five stages of Awareness.
                   </p>
-                  <p className="text-muted-foreground text-xs">
+                  <p className="text-[hsl(0_0%_50%)] text-xs">
                     After the first year, access is $10/month.
                   </p>
                 </div>
@@ -108,8 +108,9 @@ export function BookSection() {
             </div>
 
             <Button
-              size="lg" 
-              className="w-full sm:w-auto px-8 animate-pulse-glow"
+              variant="accent"
+              size="lg"
+              className="w-full sm:w-auto px-8"
               onClick={handlePreOrder}
               disabled={isLoading || productsLoading || !bookProduct}
             >
