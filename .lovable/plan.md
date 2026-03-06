@@ -1,31 +1,28 @@
 
 
-## Phase 1: Colors, Typography & Button Styles
+# Add Second eBook: "Low Starch, Low Sugar = Burn Fat"
 
-### What changes
+## Title
+**Low Starch, Low Sugar = Burn Fat**
 
-**1. `index.html`** — Add Inter font from Google Fonts
-- Add `<link>` for Inter (weights 400, 500, 600, 700, 800)
+## Changes
 
-**2. `tailwind.config.ts`** — Typography + extended config
-- Add `fontFamily: { sans: ['Inter', ...], serif: ['Georgia', ...] }`
-- Keep existing animations/keyframes intact
+### 1. New page: `src/pages/LSDietGuidePage.tsx`
+Mirrors `GLP1GuidePage.tsx` structure exactly:
+- Helmet with meta/OG/Twitter tags and JSON-LD (Article + FAQ schemas)
+- Hero with title and download CTA
+- Content sections from the draft: starvation vs. smart eating, insulin mechanism (sun/clouds metaphor), what raises insulin, No Carb vs. LS comparison, six food categories, sustainable LS lifestyle, Weight Permanence system
+- FAQ accordion (5-6 questions)
+- References section with all 12 citations
+- Same lead capture flow (`useLeadCapture` + `EmailCaptureModal`)
 
-**3. `src/index.css`** — New high-contrast color system
-- **Light (default):** background near-white `0 0% 98%`, foreground near-black `0 0% 4%`
-- **Primary:** rich dark green `152 40% 22%` (keeps brand identity but darker/bolder)
-- **Accent:** bold amber `38 90% 50%` (punchier than current `38 55% 55%`)
-- **Cards/borders:** subtle warm grays
-- **Dark theme:** untouched (not used on the site)
-- Add `.section-dark` utility class: near-black bg, white text, adjusted card/border colors for dark sections
-- Update pulse-glow keyframe to use new amber value
+### 2. Update `src/pages/FreeResources.tsx`
+Add second entry to `resources` array with title "Low Starch, Low Sugar = Burn Fat", learning points, and link to dedicated page `/ls-diet-guide`.
 
-**4. `src/components/ui/button.tsx`** — New `accent` variant
-- Solid amber background, near-black text, uppercase, letter-spaced, slight hover lift
-- Existing variants remain unchanged
+### 3. Update `src/App.tsx`
+Add route `/ls-diet-guide` pointing to `LSDietGuidePage`.
 
-### What stays the same
-- All component logic, routing, cart, lead capture untouched
-- All existing animations preserved
-- Dark mode CSS vars kept as-is (unused but harmless)
+### 4. Assets needed from you
+- Cover image (I'll use a placeholder import path `src/assets/ebook-ls-cover.png`)
+- Final PDF uploaded to storage bucket
 

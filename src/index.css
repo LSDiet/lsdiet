@@ -8,44 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 45 35% 95%;
-    --foreground: 152 35% 22%;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 4%;
 
-    --card: 45 30% 97%;
-    --card-foreground: 152 35% 22%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
 
-    --popover: 45 30% 97%;
-    --popover-foreground: 152 35% 22%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
 
-    --primary: 152 35% 28%;
-    --primary-foreground: 45 35% 95%;
+    --primary: 152 40% 22%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 45 25% 90%;
-    --secondary-foreground: 152 35% 22%;
+    --secondary: 0 0% 93%;
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 45 20% 88%;
-    --muted-foreground: 152 20% 40%;
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 38 55% 55%;
-    --accent-foreground: 152 35% 18%;
+    --accent: 38 90% 50%;
+    --accent-foreground: 0 0% 4%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 25% 82%;
-    --input: 45 25% 82%;
-    --ring: 152 35% 28%;
+    --border: 0 0% 86%;
+    --input: 0 0% 86%;
+    --ring: 152 40% 22%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 45 30% 97%;
-    --sidebar-foreground: 152 35% 22%;
-    --sidebar-primary: 152 35% 28%;
-    --sidebar-primary-foreground: 45 35% 95%;
-    --sidebar-accent: 45 25% 90%;
-    --sidebar-accent-foreground: 152 35% 22%;
-    --sidebar-border: 45 25% 82%;
-    --sidebar-ring: 152 35% 28%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 4%;
+    --sidebar-primary: 152 40% 22%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 93%;
+    --sidebar-accent-foreground: 0 0% 12%;
+    --sidebar-border: 0 0% 86%;
+    --sidebar-ring: 152 40% 22%;
   }
 
   .dark {
@@ -93,7 +93,27 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+/* Section dark utility — use on sections that need a dark background */
+@layer components {
+  .section-dark {
+    --background: 0 0% 6%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 64%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
 
@@ -119,7 +139,7 @@ All colors MUST be HSL.
   }
   50% { 
     opacity: 0.8;
-    text-shadow: 0 0 12px hsl(38 55% 55% / 0.6);
+    text-shadow: 0 0 12px hsl(38 90% 50% / 0.6);
   }
 }
 
