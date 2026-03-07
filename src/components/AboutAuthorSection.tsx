@@ -5,7 +5,7 @@ export const AboutAuthorSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section ref={ref} className="section-dark py-20 md:py-28">
+    <section ref={ref} className="section-dark py-14 md:py-20">
       <div className="container max-w-3xl mx-auto px-4">
         <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           <div className="text-center mb-10">

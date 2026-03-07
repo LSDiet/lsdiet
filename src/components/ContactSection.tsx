@@ -34,7 +34,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28">
+    <section id="contact" className="py-14 md:py-20">
       <div className="container">
         <div
           ref={ref}
