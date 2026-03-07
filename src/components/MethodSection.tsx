@@ -77,17 +77,19 @@ export function MethodSection() {
   const { ref: taglineRef, isVisible: taglineVisible } = useScrollAnimation();
 
   return (
-    <section id="method" className="py-20 md:py-28">
+    <section id="method" className="py-14 md:py-20">
       <div className="container">
         <div className="text-center mb-12">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
             The WPT Solution
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-6">
-            Weight Permanence <span className="text-accent">Triangle™</span>
+            Weight Permanence{" "}
+            <span className="text-accent animate-pulse-glow inline-block">Triangle™</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-3xl mx-auto mb-4 leading-relaxed">
-            The Weight Permanence Triangle (WPT) is a guided neurobehavioural training that helps you condition weight loss to become the first daily priority, make eating and movement decisions intentional, and activate an internal alert-and-accounting system that re-anchors actions when routines, environments, or emotions derail progress.
+            The Weight Permanence Triangle (WPT) is
+            <br className="hidden md:inline" /> a guided neurobehavioural training that helps you condition weight loss to become the first daily priority, make eating and movement decisions intentional, and activate an internal alert-and-accounting system that re-anchors actions when routines, environments, or emotions derail progress.
           </p>
           <p
             ref={taglineRef}

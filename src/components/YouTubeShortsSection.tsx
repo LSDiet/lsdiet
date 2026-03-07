@@ -21,7 +21,7 @@ export function YouTubeShortsSection() {
   });
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-14 md:py-20">
       <div className="container">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-12">

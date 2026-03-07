@@ -21,28 +21,28 @@ interface JourneyCard {
 const journeyCards: JourneyCard[] = [
   {
     id: 1,
-    label: "Stress",
+    label: "Stress Eating",
     weight: "+100 lbs",
-    beforeLabel: "Graduation — lean & mobile",
-    afterLabel: "Desk job & stress eating",
+    beforeLabel: "2018",
+    afterLabel: "",
     beforeImage: img201710,
     afterImage: img201908,
   },
   {
     id: 2,
-    label: "Sustainability",
+    label: "Ultra Processed Food",
     weight: "+80 lbs",
-    beforeLabel: "Lost 80 lbs — veggie cleanse",
-    afterLabel: "Regained it all eating normally",
+    beforeLabel: "2021",
+    afterLabel: "",
     beforeImage: img202012,
     afterImage: img202204,
   },
   {
     id: 3,
-    label: "Disruption",
+    label: "Unsustainable Method",
     weight: "+80 lbs",
-    beforeLabel: "Lost 80 lbs — carnivore & IF",
-    afterLabel: "Regained from travel & old habits",
+    beforeLabel: "2024",
+    afterLabel: "",
     beforeImage: img202311,
     afterImage: img202405,
   },
@@ -63,12 +63,12 @@ function JourneyCard({ card }: { card: JourneyCard }) {
 
       {/* Side-by-side images */}
       <div className="grid grid-cols-2 gap-2">
-        <div className="relative">
+        <div className="relative group">
           <div className="aspect-[3/4] rounded-lg overflow-hidden">
             <img
               src={card.beforeImage}
-              alt={card.beforeLabel}
-              className="w-full h-full object-cover"
+              alt="Before"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
           <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider bg-[hsl(0_0%_6%/0.75)] backdrop-blur-sm text-[hsl(0_0%_96%)] px-2 py-0.5 rounded">
@@ -76,12 +76,12 @@ function JourneyCard({ card }: { card: JourneyCard }) {
           </span>
         </div>
 
-        <div className="relative">
+        <div className="relative group">
           <div className="aspect-[3/4] rounded-lg overflow-hidden">
             <img
               src={card.afterImage}
-              alt={card.afterLabel}
-              className="w-full h-full object-cover"
+              alt="After"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
           <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider bg-[hsl(0_0%_6%/0.75)] backdrop-blur-sm text-[hsl(0_0%_96%)] px-2 py-0.5 rounded">
@@ -90,11 +90,10 @@ function JourneyCard({ card }: { card: JourneyCard }) {
         </div>
       </div>
 
-      {/* Captions */}
-      <div className="grid grid-cols-2 gap-2 text-xs text-[hsl(0_0%_56%)]">
-        <p>{card.beforeLabel}</p>
-        <p>{card.afterLabel}</p>
-      </div>
+      {/* Year caption */}
+      <p className="text-center text-lg font-bold text-[hsl(0_0%_70%)]">
+        {card.beforeLabel}
+      </p>
     </div>
   );
 }
@@ -121,7 +120,7 @@ function JourneyCardsGrid() {
 
 export function JourneySection() {
   return (
-    <section id="journey" className="section-dark py-20 md:py-28">
+    <section id="journey" className="section-dark py-14 md:py-20">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
