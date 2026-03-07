@@ -25,7 +25,7 @@ export function CorePrincipleSection() {
         <>When <span className="font-bold text-foreground">stress, travel, or social pressure</span> hits, routines break.</>,
         <><span className="font-bold text-accent">Old habits return.</span> The weight slowly comes back.</>,
       ],
-      takeaway: <>When stress hits, your actions drift from your goals. A <span className="font-semibold text-foreground">system</span> realigns them.</>,
+      takeaway: <>When stress hits, actions drift from goals. A <span className="font-semibold text-foreground">system</span> realigns them.</>,
     },
   ];
 
