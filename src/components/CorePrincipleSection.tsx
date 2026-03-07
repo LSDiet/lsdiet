@@ -1,6 +1,6 @@
 export function CorePrincipleSection() {
   return (
-    <section className="section-dark py-20 md:py-28">
+    <section className="section-dark py-14 md:py-20">
       <div className="container">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">

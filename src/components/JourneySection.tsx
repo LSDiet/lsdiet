@@ -120,7 +120,7 @@ function JourneyCardsGrid() {
 
 export function JourneySection() {
   return (
-    <section id="journey" className="section-dark py-20 md:py-28">
+    <section id="journey" className="section-dark py-14 md:py-20">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-14">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
