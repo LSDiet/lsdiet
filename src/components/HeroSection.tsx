@@ -15,9 +15,9 @@ export function HeroSection() {
         </div>
 
         {/* Text */}
-        <div className="order-1 md:order-2 flex flex-col gap-6 md:gap-8">
+        <div className="order-1 md:order-2 flex flex-col gap-4 md:gap-5">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent opacity-0 animate-fade-in-up">
-            Lost 80 lbs three Times. Now It's Forever.
+            Lost 80+ Pounds. Three Times.
           </p>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.05] tracking-tight opacity-0 animate-fade-in-up animate-delay-100">
@@ -28,7 +28,7 @@ export function HeroSection() {
 
           <p className="text-base md:text-lg text-[hsl(0_0%_60%)] leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-200">
             The <span className="text-accent animate-pulse-glow">Weight Permanence Triangle™</span> —
-            <br />a neurobehavioural training to lose weight, keep it off, and live freely with a{" "}
+            <br />A neurobehavioural training that helps you lose weight and keep it off permanently with a{" "}
             <span className="font-bold text-[hsl(0_0%_80%)]">low-starch, low-sugar (LS)</span> lifestyle.
           </p>
 
