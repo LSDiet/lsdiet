@@ -27,8 +27,10 @@ export function HeroSection() {
           </h1>
 
           <p className="text-base md:text-lg text-[hsl(0_0%_60%)] leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-200">
-            The Weight Permanence Triangle™ — a neurobehavioural training to lose weight, keep it off, and live freely with a{" "}
+            The <span className="text-accent animate-pulse-glow">Weight Permanence Triangle™</span> —
+            <br />a neurobehavioural training to lose weight, keep it off, and live freely with a{" "}
             <span className="font-bold text-[hsl(0_0%_80%)]">low-starch, low-sugar (LS)</span> lifestyle.
+          </p>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up animate-delay-300">
