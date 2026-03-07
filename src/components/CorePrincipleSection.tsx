@@ -10,6 +10,7 @@ export function CorePrincipleSection() {
       takeaway: <>Without clarity, eating what feels good always beats eating what is <span className="font-semibold text-[hsl(0_0%_80%)]">right</span>.</>,
     },
     {
+      keyword: "Daily Choice",
       title: "The Daily Choice Problem",
       lines: [
         <>Weight loss is shaped by <span className="font-bold text-accent">moment-to-moment food choices</span>.</>,
@@ -18,7 +19,8 @@ export function CorePrincipleSection() {
       takeaway: <>Progress stops before <span className="font-semibold text-[hsl(0_0%_80%)]">results appear</span>.</>,
     },
     {
-      title: "The Relapse Problem",
+      keyword: "Old Habit",
+      title: "The Old Habit Problem",
       lines: [
         <>When <span className="font-bold text-foreground">stress, travel, or social pressure</span> hits, routines break.</>,
         <><span className="font-bold text-accent">Old habits return.</span> The weight slowly comes back.</>,
