@@ -1,6 +1,7 @@
 export function CorePrincipleSection() {
   const cards = [
     {
+      keyword: "Motivation",
       title: "The Motivation Problem",
       lines: [
         <>People say they lack <span className="font-bold text-foreground">motivation</span>.</>,
