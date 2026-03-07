@@ -38,7 +38,7 @@ export function YouTubeShortsSection() {
             and the lessons I learned over the last 10 years.
           </p>
           <p className="mt-4 tracking-wide">
-            <span className="text-base font-bold text-foreground">Low-starch. Low-sugar.</span>
+            <span className="text-lg md:text-xl font-bold text-foreground">Low-starch. Low-sugar.</span>
             <br />
             <span className="text-base font-bold text-accent">Real food. Real results.</span>
           </p>
