@@ -31,7 +31,6 @@ export function HeroSection() {
             <br />a neurobehavioural training to lose weight, keep it off, and live freely with a{" "}
             <span className="font-bold text-[hsl(0_0%_80%)]">low-starch, low-sugar (LS)</span> lifestyle.
           </p>
-          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up animate-delay-300">
             <Button variant="accent" size="lg" className="px-8" asChild>
