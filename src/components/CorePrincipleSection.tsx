@@ -13,7 +13,7 @@ export function CorePrincipleSection() {
       keyword: "Daily Choice",
       title: "The Daily Choice Problem",
       lines: [
-        <>Weight loss is defined by <span className="font-bold text-foreground">what</span>, <span className="font-bold text-foreground">how</span>, and <span className="font-bold text-foreground">when</span> you eat.</>,
+        <>Weight loss is defined by <span className="font-bold text-accent">what</span>, <span className="font-bold text-accent">how</span>, and <span className="font-bold text-accent">when</span> you eat.</>,
         <>Most people try a diet briefly, then drift back to <span className="font-bold text-foreground">familiar foods</span>.</>,
       ],
       takeaway: <>Making the right <span className="font-semibold text-foreground">moment-to-moment food choices</span> matter.</>,
