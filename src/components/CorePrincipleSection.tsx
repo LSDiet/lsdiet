@@ -1,6 +1,7 @@
 export function CorePrincipleSection() {
   const cards = [
     {
+      keyword: "Motivation",
       title: "The Motivation Problem",
       lines: [
         <>People say they lack <span className="font-bold text-foreground">motivation</span>.</>,
@@ -9,6 +10,7 @@ export function CorePrincipleSection() {
       takeaway: <>Without clarity, eating what feels good always beats eating what is <span className="font-semibold text-[hsl(0_0%_80%)]">right</span>.</>,
     },
     {
+      keyword: "Daily Choice",
       title: "The Daily Choice Problem",
       lines: [
         <>Weight loss is shaped by <span className="font-bold text-accent">moment-to-moment food choices</span>.</>,
@@ -17,7 +19,8 @@ export function CorePrincipleSection() {
       takeaway: <>Progress stops before <span className="font-semibold text-[hsl(0_0%_80%)]">results appear</span>.</>,
     },
     {
-      title: "The Relapse Problem",
+      keyword: "Old Habit",
+      title: "The Old Habit Problem",
       lines: [
         <>When <span className="font-bold text-foreground">stress, travel, or social pressure</span> hits, routines break.</>,
         <><span className="font-bold text-accent">Old habits return.</span> The weight slowly comes back.</>,
@@ -48,9 +51,12 @@ export function CorePrincipleSection() {
               >
                 {/* Top content */}
                 <div className="p-6 md:p-8 flex-1 flex flex-col justify-center gap-3">
-                  <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-2">
+                  <p className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-foreground mb-1">
+                    {card.keyword}
+                  </p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mb-2">
                     {card.title}
-                  </h4>
+                  </p>
                   {card.lines.map((line, i) => (
                     <p key={i} className="text-sm text-[hsl(0_0%_70%)] leading-relaxed">
                       {line}
