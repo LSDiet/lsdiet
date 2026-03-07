@@ -1,8 +1,35 @@
 export function CorePrincipleSection() {
+  const cards = [
+    {
+      title: "The Motivation Problem",
+      lines: [
+        <>People say they lack <span className="font-bold text-foreground">motivation</span>.</>,
+        <>What they really lack is <span className="font-bold text-accent">clarity</span>.</>,
+      ],
+      takeaway: <>Without clarity, eating what feels good always beats eating what is <span className="font-semibold text-[hsl(0_0%_80%)]">right</span>.</>,
+    },
+    {
+      title: "The Daily Choice Problem",
+      lines: [
+        <>Weight loss is shaped by <span className="font-bold text-accent">moment-to-moment food choices</span>.</>,
+        <>Most people try a diet briefly, then drift back to <span className="font-bold text-foreground">familiar foods</span>.</>,
+      ],
+      takeaway: <>Progress stops before <span className="font-semibold text-[hsl(0_0%_80%)]">results appear</span>.</>,
+    },
+    {
+      title: "The Relapse Problem",
+      lines: [
+        <>When <span className="font-bold text-foreground">stress, travel, or social pressure</span> hits, routines break.</>,
+        <><span className="font-bold text-accent">Old habits return.</span> The weight slowly comes back.</>,
+      ],
+      takeaway: <>Without a system to <span className="font-semibold text-[hsl(0_0%_80%)]">catch the slide</span>, relapse is inevitable.</>,
+    },
+  ];
+
   return (
     <section className="section-dark py-14 md:py-20">
       <div className="container">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
               Why Weight Loss Fails
@@ -14,59 +41,31 @@ export function CorePrincipleSection() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {/* The Motivation Problem */}
-            <div className="bg-[hsl(0_0%_10%)] rounded-xl p-6 md:p-8 border border-[hsl(0_0%_18%)] flex flex-col">
-              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-4 text-center">
-                The Motivation Problem
-              </h4>
-              <p className="text-[hsl(0_0%_70%)] mb-4 text-sm">
-                People say they lack <span className="font-bold text-[hsl(0_0%_96%)]">motivation</span>.
-              </p>
-              <p className="text-[hsl(0_0%_70%)] mb-5 text-sm">
-                What they really lack is <span className="font-bold text-accent">clarity</span>.
-              </p>
-              <div className="bg-[hsl(0_0%_14%)] rounded-lg p-4 flex-grow">
-                <p className="text-xs text-[hsl(0_0%_56%)] leading-relaxed text-center">
-                  Without it, eating what feels good will always beat eating what is <span className="font-medium text-[hsl(0_0%_80%)]">right</span>.
-                </p>
-              </div>
-            </div>
+            {cards.map((card) => (
+              <div
+                key={card.title}
+                className="bg-[hsl(0_0%_10%)] rounded-xl border border-[hsl(0_0%_18%)] flex flex-col text-center"
+              >
+                {/* Top content */}
+                <div className="p-6 md:p-8 flex-1 flex flex-col justify-center gap-3">
+                  <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-2">
+                    {card.title}
+                  </h4>
+                  {card.lines.map((line, i) => (
+                    <p key={i} className="text-sm text-[hsl(0_0%_70%)] leading-relaxed">
+                      {line}
+                    </p>
+                  ))}
+                </div>
 
-            {/* The Daily Choice Problem */}
-            <div className="bg-[hsl(0_0%_10%)] rounded-xl p-6 md:p-8 border border-[hsl(0_0%_18%)] flex flex-col">
-              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-4 text-center">
-                The Daily Choice Problem
-              </h4>
-              <p className="text-[hsl(0_0%_70%)] mb-4 text-sm">
-                Weight loss is shaped by <span className="font-bold text-[hsl(0_0%_96%)]">moment-to-moment</span> food choices.
-              </p>
-              <p className="text-[hsl(0_0%_70%)] mb-5 text-sm">
-                Most people try a diet briefly, then drift back to <span className="font-bold text-[hsl(0_0%_96%)]">familiar foods</span>.
-              </p>
-              <div className="bg-[hsl(0_0%_14%)] rounded-lg p-4 flex-grow">
-                <p className="text-xs text-[hsl(0_0%_56%)] leading-relaxed text-center">
-                  Progress stops before <span className="font-medium text-[hsl(0_0%_80%)]">results appear</span>.
-                </p>
+                {/* Takeaway strip */}
+                <div className="bg-[hsl(0_0%_14%)] rounded-b-xl px-6 py-4">
+                  <p className="text-xs text-[hsl(0_0%_56%)] leading-relaxed">
+                    {card.takeaway}
+                  </p>
+                </div>
               </div>
-            </div>
-
-            {/* The Relapse Problem */}
-            <div className="bg-[hsl(0_0%_10%)] rounded-xl p-6 md:p-8 border border-[hsl(0_0%_18%)] flex flex-col">
-              <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-4 text-center">
-                The Relapse Problem
-              </h4>
-              <p className="text-[hsl(0_0%_70%)] mb-4 text-sm">
-                When <span className="font-bold text-[hsl(0_0%_96%)]">stress, travel, or social pressure</span> hits, routines break.
-              </p>
-              <p className="text-[hsl(0_0%_70%)] mb-5 text-sm">
-                Old habits return. The weight <span className="font-bold text-accent">slowly comes back</span>.
-              </p>
-              <div className="bg-[hsl(0_0%_14%)] rounded-lg p-4 flex-grow">
-                <p className="text-xs text-[hsl(0_0%_56%)] leading-relaxed text-center">
-                  Without a system to <span className="font-medium text-[hsl(0_0%_80%)]">catch the slide</span>, relapse is inevitable.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
