@@ -63,12 +63,12 @@ function JourneyCard({ card }: { card: JourneyCard }) {
 
       {/* Side-by-side images */}
       <div className="grid grid-cols-2 gap-2">
-        <div className="relative">
+        <div className="relative group">
           <div className="aspect-[3/4] rounded-lg overflow-hidden">
             <img
               src={card.beforeImage}
-              alt={card.beforeLabel}
-              className="w-full h-full object-cover"
+              alt="Before"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
           <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider bg-[hsl(0_0%_6%/0.75)] backdrop-blur-sm text-[hsl(0_0%_96%)] px-2 py-0.5 rounded">
@@ -76,12 +76,12 @@ function JourneyCard({ card }: { card: JourneyCard }) {
           </span>
         </div>
 
-        <div className="relative">
+        <div className="relative group">
           <div className="aspect-[3/4] rounded-lg overflow-hidden">
             <img
               src={card.afterImage}
-              alt={card.afterLabel}
-              className="w-full h-full object-cover"
+              alt="After"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
           <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider bg-[hsl(0_0%_6%/0.75)] backdrop-blur-sm text-[hsl(0_0%_96%)] px-2 py-0.5 rounded">
@@ -90,11 +90,10 @@ function JourneyCard({ card }: { card: JourneyCard }) {
         </div>
       </div>
 
-      {/* Captions */}
-      <div className="grid grid-cols-2 gap-2 text-xs text-[hsl(0_0%_56%)]">
-        <p>{card.beforeLabel}</p>
-        <p>{card.afterLabel}</p>
-      </div>
+      {/* Year caption */}
+      <p className="text-center text-lg font-bold text-[hsl(0_0%_70%)]">
+        {card.beforeLabel}
+      </p>
     </div>
   );
 }
