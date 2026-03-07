@@ -51,9 +51,12 @@ export function CorePrincipleSection() {
               >
                 {/* Top content */}
                 <div className="p-6 md:p-8 flex-1 flex flex-col justify-center gap-3">
-                  <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-2">
+                  <p className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-foreground mb-1">
+                    {card.keyword}
+                  </p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mb-2">
                     {card.title}
-                  </h4>
+                  </p>
                   {card.lines.map((line, i) => (
                     <p key={i} className="text-sm text-[hsl(0_0%_70%)] leading-relaxed">
                       {line}
