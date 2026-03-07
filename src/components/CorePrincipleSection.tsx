@@ -7,16 +7,16 @@ export function CorePrincipleSection() {
         <>People say they lack <span className="font-bold text-foreground">motivation</span>.</>,
         <>What they really lack is <span className="font-bold text-accent">clarity</span>.</>,
       ],
-      takeaway: <>Without clarity, eating what feels good always beats eating what is <span className="font-semibold text-[hsl(0_0%_80%)]">right</span>.</>,
+      takeaway: <>Without clarity, eating what feels good always beats eating what is <span className="font-semibold text-foreground">right</span>.</>,
     },
     {
       keyword: "Daily Choice",
       title: "The Daily Choice Problem",
       lines: [
-        <>Weight loss is shaped by <span className="font-bold text-accent">moment-to-moment food choices</span>.</>,
+        <>Weight loss is defined by <span className="font-bold text-foreground">what</span>, <span className="font-bold text-foreground">how</span>, and <span className="font-bold text-foreground">when</span> you eat.</>,
         <>Most people try a diet briefly, then drift back to <span className="font-bold text-foreground">familiar foods</span>.</>,
       ],
-      takeaway: <>Progress stops before <span className="font-semibold text-[hsl(0_0%_80%)]">results appear</span>.</>,
+      takeaway: <>Making the right <span className="font-semibold text-foreground">moment-to-moment food choices</span> matter.</>,
     },
     {
       keyword: "Old Habit",
@@ -25,7 +25,7 @@ export function CorePrincipleSection() {
         <>When <span className="font-bold text-foreground">stress, travel, or social pressure</span> hits, routines break.</>,
         <><span className="font-bold text-accent">Old habits return.</span> The weight slowly comes back.</>,
       ],
-      takeaway: <>Without a system to <span className="font-semibold text-[hsl(0_0%_80%)]">catch the slide</span>, relapse is inevitable.</>,
+      takeaway: <>When stress hits, your actions drift from your goals. A <span className="font-semibold text-foreground">system</span> realigns them.</>,
     },
   ];
 
@@ -51,7 +51,7 @@ export function CorePrincipleSection() {
               >
                 {/* Top content */}
                 <div className="p-6 md:p-8 flex-1 flex flex-col justify-center gap-3">
-                  <p className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-foreground mb-1">
+                  <p className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-foreground mb-1">
                     {card.keyword}
                   </p>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mb-2">
@@ -66,7 +66,7 @@ export function CorePrincipleSection() {
 
                 {/* Takeaway strip */}
                 <div className="bg-[hsl(0_0%_14%)] rounded-b-xl px-6 py-4">
-                  <p className="text-xs text-[hsl(0_0%_56%)] leading-relaxed">
+                  <p className="text-xs text-[hsl(0_0%_75%)] leading-relaxed">
                     {card.takeaway}
                   </p>
                 </div>
