@@ -32,8 +32,14 @@ export function YouTubeShortsSection() {
             See How I Eat{" "}
             <span className="text-accent">Every Day</span>
           </h2>
-          <p className="text-base text-muted-foreground max-w-xl mx-auto">
-            I record my meals and transformation daily on YouTube. Low starch, low sugar — real food, real results.
+          <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            I document what I eat, my ongoing transformation, and the lessons I learned over the last 10 years.
+          </p>
+          <p className="text-sm text-muted-foreground mt-3 tracking-wide">
+            <span className="font-semibold text-foreground">Low-starch.</span>{" "}
+            <span className="font-semibold text-foreground">Low-sugar.</span>
+            <br />
+            <span className="text-accent font-bold">Real food. Real results.</span>
           </p>
         </div>
 

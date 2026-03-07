@@ -6,21 +6,24 @@ const principles = [
   {
     icon: Eye,
     title: "Awareness",
+    solves: "Solves the Motivation Problem",
     description: (
       <>
-        <Link to="/qa?open=awareness-stages" className="underline underline-offset-2 hover:text-accent transition-colors">Five stages of awareness</Link> that clarify why weight loss matters beyond the scale and use emotion to create internal push and pull motivation.
+        <Link to="/qa?open=awareness-stages" className="underline underline-offset-2 hover:text-accent transition-colors">Five stages of awareness</Link> that build clarity on why weight loss matters — creating the internal motivation most people are missing.
       </>
     ),
   },
   {
     icon: Activity,
     title: "Practice",
-    description: "Daily actions that reinforce a low-starch, low-sugar identity and keep health the top priority.",
+    solves: "Solves the Daily Choice Problem",
+    description: "Daily actions that make low-starch, low-sugar eating intentional — so healthy choices become the default, not the exception.",
   },
   {
     icon: Lock,
     title: "Permanence",
-    description: "Tools to establish an internal alert system that flags deviations and stabilizes decisions when context, emotion, or environment changes.",
+    solves: "Solves the Relapse Problem",
+    description: "An internal alert system that catches deviations early and re-anchors decisions when stress, travel, or emotions try to pull you off track.",
   },
 ];
 
@@ -88,16 +91,7 @@ export function MethodSection() {
             <span className="text-accent animate-pulse-glow inline-block">Triangle™</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-3xl mx-auto mb-4 leading-relaxed">
-            The Weight Permanence Triangle (WPT) is
-            <br className="hidden md:inline" /> a guided neurobehavioural training that helps you condition weight loss to become the first daily priority, make eating and movement decisions intentional, and activate an internal alert-and-accounting system that re-anchors actions when routines, environments, or emotions derail progress.
-          </p>
-          <p
-            ref={taglineRef}
-            className={`text-base text-muted-foreground max-w-xl mx-auto transition-all duration-700 delay-300 ${
-              taglineVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-            }`}
-          >
-            <span className="font-bold">(Simply: WPT helps you solve the <span className="text-accent">three real-world</span> problems.)</span>
+            Each side of the Triangle solves one of the three problems above:
           </p>
         </div>
 
@@ -115,7 +109,8 @@ export function MethodSection() {
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
                 <principle.icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <h3 className="text-lg font-bold uppercase tracking-wide mb-2">{principle.title}</h3>
+              <h3 className="text-lg font-bold uppercase tracking-wide mb-1">{principle.title}</h3>
+              <p className="text-xs font-semibold text-accent mb-2">{principle.solves}</p>
               <p className="text-muted-foreground text-sm leading-relaxed">{principle.description}</p>
             </div>
           ))}
