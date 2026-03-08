@@ -73,16 +73,16 @@ function VertexLabel({
 }) {
   const colorClasses =
     color === "primary"
-      ? "bg-primary/10 text-primary border-primary/20"
+      ? "bg-foreground/5 text-foreground border-foreground/15"
       : color === "accent"
         ? "bg-accent/10 text-accent border-accent/20"
-        : "bg-[hsl(152,40%,22%)]/10 text-[hsl(152,40%,22%)] border-[hsl(152,40%,22%)]/20";
+        : "bg-primary/10 text-primary border-primary/20";
   const iconColor =
     color === "primary"
-      ? "text-primary"
+      ? "text-foreground"
       : color === "accent"
         ? "text-accent"
-        : "text-[hsl(152,40%,22%)]";
+        : "text-primary";
 
   return (
     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${colorClasses}`}>
@@ -125,9 +125,9 @@ function TriangleDiagram() {
         </div>
 
         {/* Triangle with side-aligned labels */}
-        <div className="grid grid-cols-[1fr_2fr_1fr] items-end gap-6">
-          {/* Practice — left column */}
-          <div className="text-left self-end pb-2">
+        <div className="grid grid-cols-[1fr_2fr_1fr] items-center gap-6">
+          {/* Practice — left column, vertically centered */}
+          <div className="text-left">
             <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
               Builds the right daily choices
@@ -142,46 +142,49 @@ function TriangleDiagram() {
           {/* Triangle SVG — center column */}
           <div>
             <svg
-              viewBox="0 0 500 230"
+              viewBox="0 0 500 250"
               className="w-full h-auto"
               preserveAspectRatio="xMidYMid meet"
               aria-hidden="true"
             >
               <polygon
-                points="250,10 60,190 440,190"
+                points="250,15 50,200 450,200"
                 fill="none"
                 stroke="hsl(var(--border))"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinejoin="round"
               />
+              {/* Left edge label — centered along the left side */}
               <text
-                x="145"
-                y="108"
+                x="138"
+                y="118"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="9"
+                fontSize="13"
                 fontStyle="italic"
-                transform="rotate(-42, 145, 108)"
+                transform="rotate(-42, 138, 118)"
               >
                 Clarity creates priority.
               </text>
+              {/* Right edge label — centered along the right side */}
               <text
-                x="355"
-                y="108"
+                x="362"
+                y="118"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="9"
+                fontSize="13"
                 fontStyle="italic"
-                transform="rotate(42, 355, 108)"
+                transform="rotate(42, 362, 118)"
               >
                 Action survives disruption.
               </text>
+              {/* Bottom edge label */}
               <text
                 x="250"
-                y="218"
+                y="235"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="9"
+                fontSize="13"
                 fontStyle="italic"
               >
                 Priority sustains action.
@@ -189,8 +192,8 @@ function TriangleDiagram() {
             </svg>
           </div>
 
-          {/* Permanence — right column */}
-          <div className="text-left self-end pb-2">
+          {/* Permanence — right column, vertically centered */}
+          <div className="text-left">
             <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
               Protects new habits when life gets hard
