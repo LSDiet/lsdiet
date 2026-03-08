@@ -10,10 +10,10 @@ const awarenessStages = [
   "Autonomy Awareness",
 ];
 
-function AwarenessContent() {
+function AwarenessContent({ centered = false }: { centered?: boolean }) {
   return (
-    <>
-      <div className="inline-flex items-center gap-2 mb-1">
+    <div className={centered ? "text-center" : ""}>
+      <div className={`inline-flex items-center gap-2 mb-1 ${centered ? "justify-center" : ""}`}>
         <Eye className="w-5 h-5 text-primary" />
         <span className="text-sm font-bold uppercase tracking-wide text-foreground">
           1. Awareness
@@ -26,7 +26,7 @@ function AwarenessContent() {
         to="/qa?open=awareness-stages"
         className="group inline-flex items-start gap-2"
       >
-        <ul className="space-y-1 text-left">
+        <ul className={`space-y-0.5 ${centered ? "text-center" : "text-left"}`}>
           {awarenessStages.map((stage) => (
             <li
               key={stage}
@@ -40,18 +40,18 @@ function AwarenessContent() {
       </Link>
       <Link
         to="/qa?open=awareness-stages"
-        className="block text-[10px] text-muted-foreground hover:text-primary transition-colors mt-1.5"
+        className="block text-[10px] text-muted-foreground hover:text-primary transition-colors mt-1"
       >
         Click to explore →
       </Link>
-    </>
+    </div>
   );
 }
 
-function PracticeContent() {
+function PracticeContent({ aligned = "left" }: { aligned?: "left" | "center" }) {
   return (
-    <>
-      <div className="inline-flex items-center gap-2 mb-1">
+    <div className={aligned === "center" ? "text-center" : "text-left"}>
+      <div className={`inline-flex items-center gap-2 mb-1 ${aligned === "center" ? "justify-center" : ""}`}>
         <Activity className="w-5 h-5 text-accent" />
         <span className="text-sm font-bold uppercase tracking-wide text-foreground">
           2. Practice
@@ -60,25 +60,19 @@ function PracticeContent() {
       <p className="text-xs text-muted-foreground leading-relaxed mb-2">
         Builds the right daily choices
       </p>
-      <ul className="space-y-1 text-left">
-        <li className="text-[11px] text-muted-foreground">
-          • Adopt a low-starch, low-sugar lifestyle
-        </li>
-        <li className="text-[11px] text-muted-foreground">
-          • Balance diet with cultural norms
-        </li>
-        <li className="text-[11px] text-muted-foreground">
-          • Turn every obstacle into opportunity
-        </li>
+      <ul className={`space-y-1 ${aligned === "center" ? "text-center" : "text-left"}`}>
+        <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
+        <li className="text-[11px] text-muted-foreground">• Balance diet with cultural norms</li>
+        <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
       </ul>
-    </>
+    </div>
   );
 }
 
-function PermanenceContent() {
+function PermanenceContent({ aligned = "right" }: { aligned?: "right" | "center" }) {
   return (
-    <>
-      <div className="inline-flex items-center gap-2 mb-1">
+    <div className={aligned === "center" ? "text-center" : "text-right"}>
+      <div className={`inline-flex items-center gap-2 mb-1 ${aligned === "center" ? "justify-center" : "justify-end"}`}>
         <Lock className="w-5 h-5 text-primary" />
         <span className="text-sm font-bold uppercase tracking-wide text-foreground">
           3. Permanence
@@ -91,7 +85,7 @@ function PermanenceContent() {
         Creates a psychological anchor — an internal alert system that prompts
         course correction back to your LS lifestyle
       </p>
-    </>
+    </div>
   );
 }
 
@@ -106,84 +100,87 @@ function TriangleDiagram() {
       }`}
     >
       {/* Desktop: positioned layout with SVG triangle */}
-      <div className="hidden md:block relative" style={{ height: 420 }}>
-        <svg
-          viewBox="0 0 500 340"
-          className="absolute inset-0 w-full h-full"
-          preserveAspectRatio="xMidYMid meet"
-          aria-hidden="true"
-        >
-          {/* Triangle: top 250,70  left 80,280  right 420,280 */}
-          <polygon
-            points="250,70 80,280 420,280"
-            fill="none"
-            stroke="hsl(var(--border))"
-            strokeWidth="2"
-            strokeLinejoin="round"
-          />
-          {/* Left edge: Awareness → Practice */}
-          <text
-            x="148"
-            y="178"
-            textAnchor="middle"
-            fill="hsl(var(--muted-foreground))"
-            fontSize="10"
-            fontStyle="italic"
-            transform="rotate(-51, 148, 178)"
-          >
-            Clarity creates priority.
-          </text>
-          {/* Right edge: Awareness → Permanence */}
-          <text
-            x="352"
-            y="178"
-            textAnchor="middle"
-            fill="hsl(var(--muted-foreground))"
-            fontSize="10"
-            fontStyle="italic"
-            transform="rotate(51, 352, 178)"
-          >
-            Action survives disruption.
-          </text>
-          {/* Bottom edge: Practice → Permanence */}
-          <text
-            x="250"
-            y="310"
-            textAnchor="middle"
-            fill="hsl(var(--muted-foreground))"
-            fontSize="10"
-            fontStyle="italic"
-          >
-            Priority sustains action.
-          </text>
-        </svg>
-
-        {/* Top vertex — Awareness */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 max-w-[220px] text-center">
-          <AwarenessContent />
+      <div className="hidden lg:block">
+        {/* Awareness content above triangle */}
+        <div className="text-center mb-4">
+          <AwarenessContent centered />
         </div>
 
-        {/* Bottom-left vertex — Practice */}
-        <div className="absolute left-0 bottom-0 max-w-[220px] text-left">
-          <PracticeContent />
+        {/* Triangle with edge labels */}
+        <div className="relative" style={{ height: 260 }}>
+          <svg
+            viewBox="0 0 500 240"
+            className="absolute inset-0 w-full h-full"
+            preserveAspectRatio="xMidYMid meet"
+            aria-hidden="true"
+          >
+            {/* Triangle: top 250,20  left 60,220  right 440,220 */}
+            <polygon
+              points="250,20 60,220 440,220"
+              fill="none"
+              stroke="hsl(var(--border))"
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+            {/* Left edge: Awareness → Practice */}
+            <text
+              x="138"
+              y="125"
+              textAnchor="middle"
+              fill="hsl(var(--muted-foreground))"
+              fontSize="10"
+              fontStyle="italic"
+              transform="rotate(-47, 138, 125)"
+            >
+              Clarity creates priority.
+            </text>
+            {/* Right edge: Awareness → Permanence */}
+            <text
+              x="362"
+              y="125"
+              textAnchor="middle"
+              fill="hsl(var(--muted-foreground))"
+              fontSize="10"
+              fontStyle="italic"
+              transform="rotate(47, 362, 125)"
+            >
+              Action survives disruption.
+            </text>
+            {/* Bottom edge */}
+            <text
+              x="250"
+              y="238"
+              textAnchor="middle"
+              fill="hsl(var(--muted-foreground))"
+              fontSize="10"
+              fontStyle="italic"
+            >
+              Priority sustains action.
+            </text>
+          </svg>
         </div>
 
-        {/* Bottom-right vertex — Permanence */}
-        <div className="absolute right-0 bottom-0 max-w-[220px] text-right">
-          <PermanenceContent />
+        {/* Bottom vertices — Practice (left) and Permanence (right) */}
+        <div className="flex justify-between mt-2">
+          <div className="max-w-[240px]">
+            <PracticeContent aligned="left" />
+          </div>
+          <div className="max-w-[260px]">
+            <PermanenceContent aligned="right" />
+          </div>
         </div>
       </div>
 
       {/* Mobile / tablet: stacked layout */}
-      <div className="md:hidden space-y-8">
+      <div className="lg:hidden space-y-8">
         <div className="text-center">
-          <AwarenessContent />
+          <AwarenessContent centered />
         </div>
         <div className="text-center">
-          <PracticeContent />
+          <PracticeContent aligned="center" />
         </div>
         <div className="text-center">
-          <PermanenceContent />
+          <PermanenceContent aligned="center" />
         </div>
       </div>
     </div>
