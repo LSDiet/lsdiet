@@ -125,9 +125,22 @@ function TriangleDiagram() {
         </div>
 
         {/* Triangle with side-aligned labels */}
-        <div className="relative">
-          {/* Triangle SVG — full width background */}
-          <div className="mx-auto" style={{ maxWidth: 560 }}>
+        <div className="grid grid-cols-[1fr_2fr_1fr] items-end gap-6">
+          {/* Practice — left column */}
+          <div className="text-left self-end pb-2">
+            <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
+            <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+              Builds the right daily choices
+            </p>
+            <ul className="space-y-1 text-left">
+              <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
+              <li className="text-[11px] text-muted-foreground">• Adapt your diet without abandoning your culture or social life</li>
+              <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
+            </ul>
+          </div>
+
+          {/* Triangle SVG — center column */}
+          <div>
             <svg
               viewBox="0 0 500 230"
               className="w-full h-auto"
@@ -142,24 +155,24 @@ function TriangleDiagram() {
                 strokeLinejoin="round"
               />
               <text
-                x="140"
-                y="105"
+                x="145"
+                y="108"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="10"
+                fontSize="9"
                 fontStyle="italic"
-                transform="rotate(-42, 140, 105)"
+                transform="rotate(-42, 145, 108)"
               >
                 Clarity creates priority.
               </text>
               <text
-                x="360"
-                y="105"
+                x="355"
+                y="108"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="10"
+                fontSize="9"
                 fontStyle="italic"
-                transform="rotate(42, 360, 105)"
+                transform="rotate(42, 355, 108)"
               >
                 Action survives disruption.
               </text>
@@ -168,7 +181,7 @@ function TriangleDiagram() {
                 y="218"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="10"
+                fontSize="9"
                 fontStyle="italic"
               >
                 Priority sustains action.
@@ -176,21 +189,8 @@ function TriangleDiagram() {
             </svg>
           </div>
 
-          {/* Practice — absolutely positioned bottom-left */}
-          <div className="absolute left-0 bottom-0 max-w-[260px] text-left">
-            <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
-            <p className="text-xs text-muted-foreground mt-2 mb-1.5">
-              Builds the right daily choices
-            </p>
-            <ul className="space-y-1 text-left">
-              <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
-              <li className="text-[11px] text-muted-foreground">• Adapt your diet without abandoning your culture or social life</li>
-              <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
-            </ul>
-          </div>
-
-          {/* Permanence — absolutely positioned bottom-right */}
-          <div className="absolute right-0 bottom-0 max-w-[260px] text-left">
+          {/* Permanence — right column */}
+          <div className="text-left self-end pb-2">
             <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
               Protects new habits when life gets hard
