@@ -155,29 +155,29 @@ function TriangleDiagram() {
                 strokeWidth="2.5"
                 strokeLinejoin="round"
               />
-              {/* Left edge label — inside, along left edge */}
+              {/* Left edge label — OUTSIDE left edge */}
               <text
-                x="155"
-                y="125"
+                x="120"
+                y="115"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
                 fontSize="12"
                 fontStyle="italic"
-                opacity="0.6"
-                transform="rotate(-42, 155, 125)"
+                opacity="0.7"
+                transform="rotate(-42, 120, 115)"
               >
                 Clarity creates priority.
               </text>
-              {/* Right edge label — inside, along right edge */}
+              {/* Right edge label — OUTSIDE right edge */}
               <text
-                x="345"
-                y="125"
+                x="380"
+                y="115"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
                 fontSize="12"
                 fontStyle="italic"
-                opacity="0.6"
-                transform="rotate(42, 345, 125)"
+                opacity="0.7"
+                transform="rotate(42, 380, 115)"
               >
                 Action survives disruption.
               </text>
@@ -189,7 +189,7 @@ function TriangleDiagram() {
                 fill="hsl(var(--muted-foreground))"
                 fontSize="12"
                 fontStyle="italic"
-                opacity="0.6"
+                opacity="0.7"
               >
                 Priority sustains action.
               </text>
