@@ -73,13 +73,13 @@ function VertexLabel({
 }) {
   const colorClasses =
     color === "primary"
-      ? "bg-foreground/5 text-foreground border-foreground/15"
+      ? "bg-[hsl(38,90%,50%)]/10 text-[hsl(38,90%,40%)] border-[hsl(38,90%,50%)]/25"
       : color === "accent"
         ? "bg-accent/10 text-accent border-accent/20"
-        : "bg-primary/10 text-primary border-primary/20";
+        : "bg-primary/10 text-primary border-primary/25";
   const iconColor =
     color === "primary"
-      ? "text-foreground"
+      ? "text-[hsl(38,90%,40%)]"
       : color === "accent"
         ? "text-accent"
         : "text-primary";
