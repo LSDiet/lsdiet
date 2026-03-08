@@ -191,7 +191,7 @@ function TriangleDiagram() {
 
           {/* Permanence — absolutely positioned bottom-right */}
           <div className="absolute right-0 bottom-0 max-w-[260px] text-left">
-            <VertexLabel icon={Lock} number={3} label="Permanence" color="primary" />
+            <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
               Protects new habits when life gets hard
             </p>
