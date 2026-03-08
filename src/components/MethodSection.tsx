@@ -88,7 +88,7 @@ function VertexLabel({
   return (
     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${colorClasses}`}>
       <Icon className={`w-4 h-4 ${iconColor}`} />
-      <span className="text-sm font-bold uppercase tracking-wide text-foreground">
+      <span className="text-sm font-bold uppercase tracking-wide">
         {number}. {label}
       </span>
     </div>
