@@ -69,13 +69,20 @@ function VertexLabel({
   icon: typeof Eye;
   number: number;
   label: string;
-  color: "primary" | "accent";
+  color: "primary" | "accent" | "secondary";
 }) {
   const colorClasses =
     color === "primary"
       ? "bg-primary/10 text-primary border-primary/20"
-      : "bg-accent/10 text-accent border-accent/20";
-  const iconColor = color === "primary" ? "text-primary" : "text-accent";
+      : color === "accent"
+        ? "bg-accent/10 text-accent border-accent/20"
+        : "bg-[hsl(152,40%,22%)]/10 text-[hsl(152,40%,22%)] border-[hsl(152,40%,22%)]/20";
+  const iconColor =
+    color === "primary"
+      ? "text-primary"
+      : color === "accent"
+        ? "text-accent"
+        : "text-[hsl(152,40%,22%)]";
 
   return (
     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${colorClasses}`}>
@@ -120,7 +127,7 @@ function TriangleDiagram() {
         {/* Triangle with side-aligned labels */}
         <div className="relative">
           {/* Triangle SVG — full width background */}
-          <div className="mx-auto" style={{ maxWidth: 420 }}>
+          <div className="mx-auto" style={{ maxWidth: 560 }}>
             <svg
               viewBox="0 0 500 230"
               className="w-full h-auto"
@@ -184,7 +191,7 @@ function TriangleDiagram() {
 
           {/* Permanence — absolutely positioned bottom-right */}
           <div className="absolute right-0 bottom-0 max-w-[260px] text-left">
-            <VertexLabel icon={Lock} number={3} label="Permanence" color="primary" />
+            <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
               Protects new habits when life gets hard
             </p>
@@ -224,7 +231,7 @@ function TriangleDiagram() {
           </ul>
         </div>
         <div className="text-center">
-          <VertexLabel icon={Lock} number={3} label="Permanence" color="primary" />
+          <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
           <p className="text-xs text-muted-foreground mt-2 mb-1.5">
             Protects new habits when life gets hard
           </p>
