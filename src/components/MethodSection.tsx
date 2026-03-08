@@ -69,13 +69,20 @@ function VertexLabel({
   icon: typeof Eye;
   number: number;
   label: string;
-  color: "primary" | "accent";
+  color: "primary" | "accent" | "secondary";
 }) {
   const colorClasses =
     color === "primary"
       ? "bg-primary/10 text-primary border-primary/20"
-      : "bg-accent/10 text-accent border-accent/20";
-  const iconColor = color === "primary" ? "text-primary" : "text-accent";
+      : color === "accent"
+        ? "bg-accent/10 text-accent border-accent/20"
+        : "bg-secondary/10 text-secondary border-secondary/20";
+  const iconColor =
+    color === "primary"
+      ? "text-primary"
+      : color === "accent"
+        ? "text-accent"
+        : "text-secondary";
 
   return (
     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${colorClasses}`}>
