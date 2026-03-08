@@ -205,7 +205,7 @@ function TriangleDiagram() {
             <ul className="space-y-1 text-left">
               <li className="text-[11px] text-muted-foreground">• Create a psychological anchor</li>
               <li className="text-[11px] text-muted-foreground">• Build an internal alert system</li>
-              <li className="text-[11px] text-muted-foreground">• Prompt course correction back to your LS lifestyle</li>
+              <li className="text-[11px] text-muted-foreground pl-[0.6em] indent-[-0.6em]">• Prompt course correction back to your LS lifestyle</li>
             </ul>
           </div>
         </div>
