@@ -118,22 +118,9 @@ function TriangleDiagram() {
         </div>
 
         {/* Triangle with side-aligned labels */}
-        <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-4">
-          {/* Practice — left of triangle base */}
-          <div className="text-left self-end pb-2">
-            <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
-            <p className="text-xs text-muted-foreground mt-2 mb-1.5">
-              Builds the right daily choices
-            </p>
-            <ul className="space-y-1 text-left">
-              <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
-              <li className="text-[11px] text-muted-foreground">• Adapt your diet without abandoning your culture or social life</li>
-              <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
-            </ul>
-          </div>
-
-          {/* Triangle SVG — center */}
-          <div className="w-[280px] lg:w-[340px]">
+        <div className="relative">
+          {/* Triangle SVG — full width background */}
+          <div className="mx-auto" style={{ maxWidth: 420 }}>
             <svg
               viewBox="0 0 500 230"
               className="w-full h-auto"
@@ -147,7 +134,6 @@ function TriangleDiagram() {
                 strokeWidth="2"
                 strokeLinejoin="round"
               />
-              {/* Left edge label */}
               <text
                 x="140"
                 y="105"
@@ -159,7 +145,6 @@ function TriangleDiagram() {
               >
                 Clarity creates priority.
               </text>
-              {/* Right edge label */}
               <text
                 x="360"
                 y="105"
@@ -171,7 +156,6 @@ function TriangleDiagram() {
               >
                 Action survives disruption.
               </text>
-              {/* Bottom edge label */}
               <text
                 x="250"
                 y="218"
@@ -185,8 +169,21 @@ function TriangleDiagram() {
             </svg>
           </div>
 
-          {/* Permanence — right of triangle base */}
-          <div className="text-left self-end pb-2">
+          {/* Practice — absolutely positioned bottom-left */}
+          <div className="absolute left-0 bottom-0 max-w-[260px] text-left">
+            <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
+            <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+              Builds the right daily choices
+            </p>
+            <ul className="space-y-1 text-left">
+              <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
+              <li className="text-[11px] text-muted-foreground">• Adapt your diet without abandoning your culture or social life</li>
+              <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
+            </ul>
+          </div>
+
+          {/* Permanence — absolutely positioned bottom-right */}
+          <div className="absolute right-0 bottom-0 max-w-[260px] text-left">
             <VertexLabel icon={Lock} number={3} label="Permanence" color="primary" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
               Protects new habits when life gets hard
