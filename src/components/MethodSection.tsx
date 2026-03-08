@@ -127,7 +127,7 @@ function TriangleDiagram() {
         {/* Triangle with side-aligned labels */}
         <div className="relative">
           {/* Triangle SVG — full width background */}
-          <div className="mx-auto" style={{ maxWidth: 420 }}>
+          <div className="mx-auto" style={{ maxWidth: 560 }}>
             <svg
               viewBox="0 0 500 230"
               className="w-full h-auto"
