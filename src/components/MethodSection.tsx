@@ -231,7 +231,7 @@ function TriangleDiagram() {
           </ul>
         </div>
         <div className="text-center">
-          <VertexLabel icon={Lock} number={3} label="Permanence" color="primary" />
+          <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
           <p className="text-xs text-muted-foreground mt-2 mb-1.5">
             Protects new habits when life gets hard
           </p>
