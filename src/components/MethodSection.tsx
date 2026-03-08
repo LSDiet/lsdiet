@@ -2,83 +2,158 @@ import { Eye, Activity, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const principles = [
-  {
-    icon: Eye,
-    title: "Awareness",
-    solves: "Solves the Motivation Problem",
-    description: (
-      <>
-        <Link to="/qa?open=awareness-stages" className="underline underline-offset-2 hover:text-accent transition-colors">Five stages of awareness</Link> that build clarity on why weight loss matters — creating the internal motivation most people are missing.
-      </>
-    ),
-  },
-  {
-    icon: Activity,
-    title: "Practice",
-    solves: "Solves the Daily Choice Problem",
-    description: "Daily actions that make low-starch, low-sugar eating intentional — so healthy choices become the default, not the exception.",
-  },
-  {
-    icon: Lock,
-    title: "Permanence",
-    solves: "Solves the Relapse Problem",
-    description: "An internal alert system that catches deviations early and re-anchors decisions when stress, travel, or emotions try to pull you off track.",
-  },
-];
+const awarenessStages = ["Reality", "Friction", "Pattern", "Consequence", "Autonomy"];
 
 function TriangleDiagram() {
   const { ref, isVisible } = useScrollAnimation();
+
   return (
     <div
       ref={ref}
-      className={`max-w-md mx-auto mb-14 transition-all duration-700 ${
+      className={`max-w-4xl mx-auto mb-8 transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
-      <svg
-        viewBox="0 0 400 320"
-        className="w-full h-auto"
-        role="img"
-        aria-label="Weight Permanence Triangle diagram showing the relationship between Awareness, Practice, and Permanence"
-      >
-        <polygon
-          points="200,60 60,260 340,260"
-          fill="none"
-          stroke="hsl(152, 40%, 22%)"
-          strokeWidth="2.5"
-          strokeLinejoin="round"
-        />
-        <text x="110" y="165" textAnchor="middle" fill="hsl(0, 0%, 40%)" fontSize="11" fontStyle="italic" transform="rotate(-55, 110, 165)">
-          Action survives disruption.
-        </text>
-        <text x="290" y="165" textAnchor="middle" fill="hsl(0, 0%, 40%)" fontSize="11" fontStyle="italic" transform="rotate(55, 290, 165)">
-          Priority sustains action.
-        </text>
-        <text x="200" y="295" textAnchor="middle" fill="hsl(0, 0%, 40%)" fontSize="11" fontStyle="italic">
-          Clarity creates priority.
-        </text>
-        <rect x="130" y="20" width="140" height="32" rx="16" fill="hsl(152, 40%, 22%)" />
-        <text x="200" y="41" textAnchor="middle" fill="hsl(0, 0%, 98%)" fontSize="13" fontWeight="600">
-          3. Permanence
-        </text>
-        <rect x="0" y="262" width="130" height="32" rx="16" fill="hsl(180, 35%, 30%)" />
-        <text x="65" y="283" textAnchor="middle" fill="hsl(0, 0%, 98%)" fontSize="13" fontWeight="600">
-          1. Awareness
-        </text>
-        <rect x="270" y="262" width="130" height="32" rx="16" fill="hsl(38, 90%, 50%)" />
-        <text x="335" y="283" textAnchor="middle" fill="hsl(0, 0%, 4%)" fontSize="13" fontWeight="600">
-          2. Practice
-        </text>
-      </svg>
+      {/* Desktop: positioned layout with SVG triangle */}
+      <div className="hidden md:block relative" style={{ height: 480 }}>
+        {/* SVG triangle lines + edge labels */}
+        <svg
+          viewBox="0 0 600 400"
+          className="absolute inset-0 w-full h-full"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          {/* Triangle lines only — vertices: top 300,60  left 100,310  right 500,310 */}
+          <polygon
+            points="300,80 100,320 500,320"
+            fill="none"
+            stroke="hsl(var(--border))"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+          {/* Edge labels */}
+          <text x="175" y="200" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="11" fontStyle="italic" transform="rotate(-50, 175, 200)">
+            Action survives disruption.
+          </text>
+          <text x="425" y="200" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="11" fontStyle="italic" transform="rotate(50, 425, 200)">
+            Priority sustains action.
+          </text>
+          <text x="300" y="355" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="11" fontStyle="italic">
+            Clarity creates priority.
+          </text>
+        </svg>
+
+        {/* Top vertex — Permanence */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-56 text-center">
+          <div className="inline-flex items-center gap-2 mb-1">
+            <Lock className="w-5 h-5 text-primary" />
+            <span className="text-sm font-bold uppercase tracking-wide text-foreground">3. Permanence</span>
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Protects new habits when life gets hard
+          </p>
+        </div>
+
+        {/* Bottom-left vertex — Awareness */}
+        <div className="absolute left-0 bottom-0 w-60 text-center">
+          <div className="inline-flex items-center gap-2 mb-1">
+            <Eye className="w-5 h-5 text-primary" />
+            <span className="text-sm font-bold uppercase tracking-wide text-foreground">1. Awareness</span>
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed mb-2">
+            Creates clarity and motivation
+          </p>
+          <Link
+            to="/qa?open=awareness-stages"
+            className="inline-flex flex-wrap justify-center gap-1 group"
+          >
+            {awarenessStages.map((stage) => (
+              <span
+                key={stage}
+                className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors"
+              >
+                {stage}
+              </span>
+            ))}
+          </Link>
+        </div>
+
+        {/* Bottom-right vertex — Practice */}
+        <div className="absolute right-0 bottom-0 w-56 text-center">
+          <div className="inline-flex items-center gap-2 mb-1">
+            <Activity className="w-5 h-5 text-accent" />
+            <span className="text-sm font-bold uppercase tracking-wide text-foreground">2. Practice</span>
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Builds the right daily choices
+          </p>
+        </div>
+      </div>
+
+      {/* Mobile: stacked layout */}
+      <div className="md:hidden space-y-6">
+        {/* Small centered triangle */}
+        <svg viewBox="0 0 200 160" className="w-32 h-auto mx-auto opacity-30" aria-hidden="true">
+          <polygon
+            points="100,20 20,140 180,140"
+            fill="none"
+            stroke="hsl(var(--border))"
+            strokeWidth="2"
+            strokeLinejoin="round"
+          />
+        </svg>
+
+        {/* Awareness */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 mb-1">
+            <Eye className="w-5 h-5 text-primary" />
+            <span className="text-sm font-bold uppercase tracking-wide text-foreground">1. Awareness</span>
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed mb-2">
+            Creates clarity and motivation
+          </p>
+          <Link
+            to="/qa?open=awareness-stages"
+            className="inline-flex flex-wrap justify-center gap-1 group"
+          >
+            {awarenessStages.map((stage) => (
+              <span
+                key={stage}
+                className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors"
+              >
+                {stage}
+              </span>
+            ))}
+          </Link>
+        </div>
+
+        {/* Practice */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 mb-1">
+            <Activity className="w-5 h-5 text-accent" />
+            <span className="text-sm font-bold uppercase tracking-wide text-foreground">2. Practice</span>
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Builds the right daily choices
+          </p>
+        </div>
+
+        {/* Permanence */}
+        <div className="text-center">
+          <div className="inline-flex items-center gap-2 mb-1">
+            <Lock className="w-5 h-5 text-primary" />
+            <span className="text-sm font-bold uppercase tracking-wide text-foreground">3. Permanence</span>
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            Protects new habits when life gets hard
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
 
 export function MethodSection() {
-  const { ref: principlesRef, isVisible: principlesVisible } = useScrollAnimation();
-  const { ref: taglineRef, isVisible: taglineVisible } = useScrollAnimation();
-
   return (
     <section id="method" className="py-14 md:py-20">
       <div className="container">
@@ -90,31 +165,9 @@ export function MethodSection() {
             Weight Permanence{" "}
             <span className="text-accent animate-pulse-glow inline-block">Triangle™</span>
           </h2>
-          <p className="text-base text-muted-foreground max-w-3xl mx-auto mb-4 leading-relaxed">
-            Each side of the Triangle solves one of the three problems above:
-          </p>
         </div>
 
         <TriangleDiagram />
-
-        <div ref={principlesRef} className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {principles.map((principle, index) => (
-            <div
-              key={principle.title}
-              className={`text-center group transition-all duration-700 ${
-                principlesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-all duration-300">
-                <principle.icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
-              </div>
-              <h3 className="text-lg font-bold uppercase tracking-wide mb-1">{principle.title}</h3>
-              <p className="text-xs font-semibold text-accent mb-2">{principle.solves}</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">{principle.description}</p>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
