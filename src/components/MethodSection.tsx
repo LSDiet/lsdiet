@@ -171,8 +171,8 @@ function TriangleDiagram() {
         </div>
       </div>
 
-      {/* Mobile / tablet: stacked layout */}
-      <div className="lg:hidden space-y-8">
+      {/* Mobile: stacked layout */}
+      <div className="md:hidden space-y-8">
         <div className="text-center">
           <AwarenessContent centered />
         </div>
