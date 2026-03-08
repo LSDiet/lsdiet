@@ -44,7 +44,7 @@ function AwarenessStagesDialog({
               </span>
               <div>
                 <p className="text-sm font-semibold text-foreground">{s.stage}</p>
-                <p className="text-xs text-muted-foreground">{s.desc}</p>
+                <p className="text-xs text-muted-foreground" dangerouslySetInnerHTML={{ __html: s.desc }} />
               </div>
             </li>
           ))}
