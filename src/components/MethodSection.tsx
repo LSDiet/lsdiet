@@ -14,8 +14,8 @@ const awarenessStages = [
   { stage: "Reality Awareness", desc: "Establishing your baseline" },
   { stage: "Friction Awareness", desc: "Recognizing the gap" },
   { stage: "Pattern Awareness", desc: "Examining the How, Who, What, When, Why" },
-  { stage: "Consequence Awareness", desc: "The root of push motivation" },
-  { stage: "Autonomy Awareness", desc: "The root of pull motivation" },
+  { stage: "Consequence Awareness", desc: "The root of <strong>push motivation</strong>" },
+  { stage: "Autonomy Awareness", desc: "The root of <strong>pull motivation</strong>" },
 ];
 
 function AwarenessStagesDialog({
@@ -44,7 +44,7 @@ function AwarenessStagesDialog({
               </span>
               <div>
                 <p className="text-sm font-semibold text-foreground">{s.stage}</p>
-                <p className="text-xs text-muted-foreground">{s.desc}</p>
+                <p className="text-xs text-muted-foreground" dangerouslySetInnerHTML={{ __html: s.desc }} />
               </div>
             </li>
           ))}
