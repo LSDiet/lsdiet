@@ -102,7 +102,7 @@ function TriangleDiagram() {
   return (
     <div
       ref={ref}
-      className={`max-w-5xl mx-auto mb-8 transition-all duration-700 ${
+      className={`max-w-5xl mx-auto transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
