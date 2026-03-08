@@ -71,15 +71,16 @@ function VertexLabel({
   label: string;
   color: "primary" | "accent" | "secondary";
 }) {
+  // primary = Awareness (dark charcoal), accent = Practice (amber), secondary = Permanence (green)
   const colorClasses =
     color === "primary"
-      ? "bg-foreground/10 text-foreground border-foreground/25"
+      ? "bg-foreground text-background border-foreground"
       : color === "accent"
-        ? "bg-accent/10 text-accent border-accent/25"
+        ? "bg-accent/15 text-accent border-accent/30"
         : "bg-primary/15 text-primary border-primary/30";
   const iconColor =
     color === "primary"
-      ? "text-foreground/70"
+      ? "text-background"
       : color === "accent"
         ? "text-accent"
         : "text-primary";
@@ -87,7 +88,7 @@ function VertexLabel({
   return (
     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${colorClasses}`}>
       <Icon className={`w-4 h-4 ${iconColor}`} />
-      <span className="text-sm font-bold uppercase tracking-wide text-foreground">
+      <span className="text-sm font-bold uppercase tracking-wide">
         {number}. {label}
       </span>
     </div>
@@ -154,29 +155,29 @@ function TriangleDiagram() {
                 strokeWidth="2.5"
                 strokeLinejoin="round"
               />
-              {/* Left edge label — inside, along left edge */}
+              {/* Left edge label — OUTSIDE left edge */}
               <text
-                x="155"
-                y="125"
+                x="120"
+                y="115"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
                 fontSize="12"
                 fontStyle="italic"
-                opacity="0.6"
-                transform="rotate(-42, 155, 125)"
+                opacity="0.7"
+                transform="rotate(-42, 120, 115)"
               >
                 Clarity creates priority.
               </text>
-              {/* Right edge label — inside, along right edge */}
+              {/* Right edge label — OUTSIDE right edge */}
               <text
-                x="345"
-                y="125"
+                x="380"
+                y="115"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
                 fontSize="12"
                 fontStyle="italic"
-                opacity="0.6"
-                transform="rotate(42, 345, 125)"
+                opacity="0.7"
+                transform="rotate(42, 380, 115)"
               >
                 Action survives disruption.
               </text>
@@ -188,7 +189,7 @@ function TriangleDiagram() {
                 fill="hsl(var(--muted-foreground))"
                 fontSize="12"
                 fontStyle="italic"
-                opacity="0.6"
+                opacity="0.7"
               >
                 Priority sustains action.
               </text>
