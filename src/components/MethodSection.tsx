@@ -1,96 +1,95 @@
+import { useState } from "react";
 import { Eye, Activity, Lock, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 const awarenessStages = [
-  "Reality Awareness",
-  "Friction Awareness",
-  "Pattern Awareness",
-  "Consequence Awareness",
-  "Autonomy Awareness",
+  { stage: "Reality Awareness", desc: "Establishing your baseline" },
+  { stage: "Friction Awareness", desc: "Recognizing the gap" },
+  { stage: "Pattern Awareness", desc: "Examining the How, Who, What, When, Why" },
+  { stage: "Consequence Awareness", desc: "The root of push motivation" },
+  { stage: "Autonomy Awareness", desc: "The root of pull motivation" },
 ];
 
-function AwarenessContent({ centered = false }: { centered?: boolean }) {
+function AwarenessStagesDialog({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
   return (
-    <div className={centered ? "text-center" : ""}>
-      <div className={`inline-flex items-center gap-2 mb-1 ${centered ? "justify-center" : ""}`}>
-        <Eye className="w-5 h-5 text-primary" />
-        <span className="text-sm font-bold uppercase tracking-wide text-foreground">
-          1. Awareness
-        </span>
-      </div>
-      <p className="text-xs text-muted-foreground leading-relaxed mb-2">
-        Creates clarity and motivation
-      </p>
-      <Link
-        to="/qa?open=awareness-stages"
-        className="group inline-flex items-start gap-2"
-      >
-        <ul className={`space-y-0.5 ${centered ? "text-center" : "text-left"}`}>
-          {awarenessStages.map((stage) => (
-            <li
-              key={stage}
-              className="text-[11px] font-medium text-primary group-hover:text-accent transition-colors"
-            >
-              {stage}
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle className="text-lg font-bold text-primary">
+            The 5 Stages of Awareness
+          </DialogTitle>
+          <DialogDescription>
+            Discover the push and pull motivation behind lasting change.
+          </DialogDescription>
+        </DialogHeader>
+        <ul className="space-y-3 mt-2">
+          {awarenessStages.map((s, i) => (
+            <li key={s.stage} className="flex gap-3 items-start">
+              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold">
+                {i + 1}
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-foreground">{s.stage}</p>
+                <p className="text-xs text-muted-foreground">{s.desc}</p>
+              </div>
             </li>
           ))}
         </ul>
-        <ChevronDown className="w-3.5 h-3.5 text-primary/60 mt-0.5 animate-bounce" />
-      </Link>
-      <Link
-        to="/qa?open=awareness-stages"
-        className="block text-[10px] text-muted-foreground hover:text-primary transition-colors mt-1"
-      >
-        Click to explore →
-      </Link>
-    </div>
+        <Link
+          to="/qa?open=awareness-stages"
+          className="block text-center text-sm font-medium text-primary hover:text-accent transition-colors mt-4"
+        >
+          Explore in detail →
+        </Link>
+      </DialogContent>
+    </Dialog>
   );
 }
 
-function PracticeContent({ aligned = "left" }: { aligned?: "left" | "center" }) {
-  return (
-    <div className={aligned === "center" ? "text-center" : "text-left"}>
-      <div className={`inline-flex items-center gap-2 mb-1 ${aligned === "center" ? "justify-center" : ""}`}>
-        <Activity className="w-5 h-5 text-accent" />
-        <span className="text-sm font-bold uppercase tracking-wide text-foreground">
-          2. Practice
-        </span>
-      </div>
-      <p className="text-xs text-muted-foreground leading-relaxed mb-2">
-        Builds the right daily choices
-      </p>
-      <ul className={`space-y-1 ${aligned === "center" ? "text-center" : "text-left"}`}>
-        <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
-        <li className="text-[11px] text-muted-foreground">• Balance diet with cultural norms</li>
-        <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
-      </ul>
-    </div>
-  );
-}
+function VertexLabel({
+  icon: Icon,
+  number,
+  label,
+  color,
+}: {
+  icon: typeof Eye;
+  number: number;
+  label: string;
+  color: "primary" | "accent";
+}) {
+  const colorClasses =
+    color === "primary"
+      ? "bg-primary/10 text-primary border-primary/20"
+      : "bg-accent/10 text-accent border-accent/20";
+  const iconColor = color === "primary" ? "text-primary" : "text-accent";
 
-function PermanenceContent({ aligned = "right" }: { aligned?: "right" | "center" }) {
   return (
-    <div className={aligned === "center" ? "text-center" : "text-right"}>
-      <div className={`inline-flex items-center gap-2 mb-1 ${aligned === "center" ? "justify-center" : "justify-end"}`}>
-        <Lock className="w-5 h-5 text-primary" />
-        <span className="text-sm font-bold uppercase tracking-wide text-foreground">
-          3. Permanence
-        </span>
-      </div>
-      <p className="text-xs text-muted-foreground leading-relaxed mb-1">
-        Protects new habits when life gets hard
-      </p>
-      <p className="text-[11px] text-muted-foreground leading-relaxed">
-        Creates a psychological anchor — an internal alert system that prompts
-        course correction back to your LS lifestyle
-      </p>
+    <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${colorClasses}`}>
+      <Icon className={`w-4 h-4 ${iconColor}`} />
+      <span className="text-sm font-bold uppercase tracking-wide text-foreground">
+        {number}. {label}
+      </span>
     </div>
   );
 }
 
 function TriangleDiagram() {
   const { ref, isVisible } = useScrollAnimation();
+  const [stagesOpen, setStagesOpen] = useState(false);
 
   return (
     <div
@@ -99,57 +98,68 @@ function TriangleDiagram() {
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
+      <AwarenessStagesDialog open={stagesOpen} onOpenChange={setStagesOpen} />
+
       {/* Desktop/tablet: positioned layout with SVG triangle */}
       <div className="hidden md:block">
-        {/* Awareness content above triangle */}
-        <div className="text-center mb-4">
-          <AwarenessContent centered />
+        {/* Awareness — above triangle peak */}
+        <div className="text-center mb-3">
+          <VertexLabel icon={Eye} number={1} label="Awareness" color="primary" />
+          <p className="text-xs text-muted-foreground mt-2 mb-1">
+            Creates clarity and motivation
+          </p>
+          <button
+            onClick={() => setStagesOpen(true)}
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-accent transition-colors group"
+          >
+            <span>Discover the 5 stages of awareness</span>
+            <ChevronDown className="w-3.5 h-3.5 animate-bounce" />
+          </button>
         </div>
 
-        {/* Triangle with edge labels */}
-        <div className="relative" style={{ height: 260 }}>
+        {/* Triangle SVG */}
+        <div className="relative" style={{ height: 220 }}>
           <svg
-            viewBox="0 0 500 240"
+            viewBox="0 0 500 200"
             className="absolute inset-0 w-full h-full"
             preserveAspectRatio="xMidYMid meet"
             aria-hidden="true"
           >
-            {/* Triangle: top 250,20  left 60,220  right 440,220 */}
             <polygon
-              points="250,20 60,220 440,220"
+              points="250,10 60,190 440,190"
               fill="none"
               stroke="hsl(var(--border))"
               strokeWidth="2"
               strokeLinejoin="round"
             />
-            {/* Left edge: Awareness → Practice */}
+            {/* Left edge label */}
             <text
-              x="138"
-              y="125"
+              x="140"
+              y="105"
               textAnchor="middle"
               fill="hsl(var(--muted-foreground))"
               fontSize="10"
               fontStyle="italic"
-              transform="rotate(-47, 138, 125)"
+              transform="rotate(-42, 140, 105)"
             >
               Clarity creates priority.
             </text>
-            {/* Right edge: Awareness → Permanence */}
+            {/* Right edge label */}
             <text
-              x="362"
-              y="125"
+              x="360"
+              y="105"
               textAnchor="middle"
               fill="hsl(var(--muted-foreground))"
               fontSize="10"
               fontStyle="italic"
-              transform="rotate(47, 362, 125)"
+              transform="rotate(42, 360, 105)"
             >
               Action survives disruption.
             </text>
-            {/* Bottom edge */}
+            {/* Bottom edge label */}
             <text
               x="250"
-              y="238"
+              y="208"
               textAnchor="middle"
               fill="hsl(var(--muted-foreground))"
               fontSize="10"
@@ -160,13 +170,32 @@ function TriangleDiagram() {
           </svg>
         </div>
 
-        {/* Bottom vertices — Practice (left) and Permanence (right) */}
-        <div className="flex justify-between mt-2">
-          <div className="max-w-[240px]">
-            <PracticeContent aligned="left" />
+        {/* Bottom vertices — aligned with triangle base corners */}
+        <div className="flex justify-between items-start mt-1">
+          {/* Practice — bottom left */}
+          <div className="max-w-[220px] text-left">
+            <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
+            <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+              Builds the right daily choices
+            </p>
+            <ul className="space-y-1 text-left">
+              <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
+              <li className="text-[11px] text-muted-foreground">• Adapt your diet without abandoning your culture or social life</li>
+              <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
+            </ul>
           </div>
-          <div className="max-w-[260px]">
-            <PermanenceContent aligned="right" />
+
+          {/* Permanence — bottom right */}
+          <div className="max-w-[240px] text-right">
+            <VertexLabel icon={Lock} number={3} label="Permanence" color="primary" />
+            <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+              Protects new habits when life gets hard
+            </p>
+            <ul className="space-y-1 text-right">
+              <li className="text-[11px] text-muted-foreground">• Create a psychological anchor</li>
+              <li className="text-[11px] text-muted-foreground">• Build an internal alert system</li>
+              <li className="text-[11px] text-muted-foreground">• Prompt course correction back to your LS lifestyle</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -174,13 +203,39 @@ function TriangleDiagram() {
       {/* Mobile: stacked layout */}
       <div className="md:hidden space-y-8">
         <div className="text-center">
-          <AwarenessContent centered />
+          <VertexLabel icon={Eye} number={1} label="Awareness" color="primary" />
+          <p className="text-xs text-muted-foreground mt-2 mb-1">
+            Creates clarity and motivation
+          </p>
+          <button
+            onClick={() => setStagesOpen(true)}
+            className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-accent transition-colors"
+          >
+            <span>Discover the 5 stages of awareness</span>
+            <ChevronDown className="w-3.5 h-3.5 animate-bounce" />
+          </button>
         </div>
         <div className="text-center">
-          <PracticeContent aligned="center" />
+          <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
+          <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+            Builds the right daily choices
+          </p>
+          <ul className="space-y-1 text-center">
+            <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
+            <li className="text-[11px] text-muted-foreground">• Adapt your diet without abandoning your culture or social life</li>
+            <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
+          </ul>
         </div>
         <div className="text-center">
-          <PermanenceContent aligned="center" />
+          <VertexLabel icon={Lock} number={3} label="Permanence" color="primary" />
+          <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+            Protects new habits when life gets hard
+          </p>
+          <ul className="space-y-1 text-center">
+            <li className="text-[11px] text-muted-foreground">• Create a psychological anchor</li>
+            <li className="text-[11px] text-muted-foreground">• Build an internal alert system</li>
+            <li className="text-[11px] text-muted-foreground">• Prompt course correction back to your LS lifestyle</li>
+          </ul>
         </div>
       </div>
     </div>
