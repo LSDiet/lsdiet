@@ -117,63 +117,10 @@ function TriangleDiagram() {
           </button>
         </div>
 
-        {/* Triangle SVG */}
-        <div className="relative" style={{ height: 220 }}>
-          <svg
-            viewBox="0 0 500 200"
-            className="absolute inset-0 w-full h-full"
-            preserveAspectRatio="xMidYMid meet"
-            aria-hidden="true"
-          >
-            <polygon
-              points="250,10 60,190 440,190"
-              fill="none"
-              stroke="hsl(var(--border))"
-              strokeWidth="2"
-              strokeLinejoin="round"
-            />
-            {/* Left edge label */}
-            <text
-              x="140"
-              y="105"
-              textAnchor="middle"
-              fill="hsl(var(--muted-foreground))"
-              fontSize="10"
-              fontStyle="italic"
-              transform="rotate(-42, 140, 105)"
-            >
-              Clarity creates priority.
-            </text>
-            {/* Right edge label */}
-            <text
-              x="360"
-              y="105"
-              textAnchor="middle"
-              fill="hsl(var(--muted-foreground))"
-              fontSize="10"
-              fontStyle="italic"
-              transform="rotate(42, 360, 105)"
-            >
-              Action survives disruption.
-            </text>
-            {/* Bottom edge label */}
-            <text
-              x="250"
-              y="208"
-              textAnchor="middle"
-              fill="hsl(var(--muted-foreground))"
-              fontSize="10"
-              fontStyle="italic"
-            >
-              Priority sustains action.
-            </text>
-          </svg>
-        </div>
-
-        {/* Bottom vertices — aligned with triangle base corners */}
-        <div className="flex justify-between items-start mt-1">
-          {/* Practice — bottom left */}
-          <div className="max-w-[220px] text-left">
+        {/* Triangle with side-aligned labels */}
+        <div className="grid grid-cols-[1fr_auto_1fr] items-end gap-4">
+          {/* Practice — left of triangle base */}
+          <div className="text-left self-end pb-2">
             <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
               Builds the right daily choices
@@ -185,13 +132,66 @@ function TriangleDiagram() {
             </ul>
           </div>
 
-          {/* Permanence — bottom right */}
-          <div className="max-w-[240px] text-right">
+          {/* Triangle SVG — center */}
+          <div className="w-[280px] lg:w-[340px]">
+            <svg
+              viewBox="0 0 500 230"
+              className="w-full h-auto"
+              preserveAspectRatio="xMidYMid meet"
+              aria-hidden="true"
+            >
+              <polygon
+                points="250,10 60,190 440,190"
+                fill="none"
+                stroke="hsl(var(--border))"
+                strokeWidth="2"
+                strokeLinejoin="round"
+              />
+              {/* Left edge label */}
+              <text
+                x="140"
+                y="105"
+                textAnchor="middle"
+                fill="hsl(var(--muted-foreground))"
+                fontSize="10"
+                fontStyle="italic"
+                transform="rotate(-42, 140, 105)"
+              >
+                Clarity creates priority.
+              </text>
+              {/* Right edge label */}
+              <text
+                x="360"
+                y="105"
+                textAnchor="middle"
+                fill="hsl(var(--muted-foreground))"
+                fontSize="10"
+                fontStyle="italic"
+                transform="rotate(42, 360, 105)"
+              >
+                Action survives disruption.
+              </text>
+              {/* Bottom edge label */}
+              <text
+                x="250"
+                y="218"
+                textAnchor="middle"
+                fill="hsl(var(--muted-foreground))"
+                fontSize="10"
+                fontStyle="italic"
+              >
+                Priority sustains action.
+              </text>
+            </svg>
+          </div>
+
+          {/* Permanence — right of triangle base */}
+          <div className="text-left self-end pb-2">
             <VertexLabel icon={Lock} number={3} label="Permanence" color="primary" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
               Protects new habits when life gets hard
             </p>
-            <ul className="space-y-1 text-right">
+            <ul className="space-y-1 text-left">
               <li className="text-[11px] text-muted-foreground">• Create a psychological anchor</li>
               <li className="text-[11px] text-muted-foreground">• Build an internal alert system</li>
               <li className="text-[11px] text-muted-foreground">• Prompt course correction back to your LS lifestyle</li>
