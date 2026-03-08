@@ -99,8 +99,8 @@ function TriangleDiagram() {
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
-      {/* Desktop: positioned layout with SVG triangle */}
-      <div className="hidden lg:block">
+      {/* Desktop/tablet: positioned layout with SVG triangle */}
+      <div className="hidden md:block">
         {/* Awareness content above triangle */}
         <div className="text-center mb-4">
           <AwarenessContent centered />
