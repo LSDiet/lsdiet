@@ -134,7 +134,7 @@ function TriangleDiagram() {
               Builds the right daily choices
             </p>
             <ul className="space-y-1 text-left">
-              <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
+              <li className="text-[11px] text-muted-foreground whitespace-nowrap">• Adopt a low-starch, low-sugar lifestyle</li>
               <li className="text-[11px] text-muted-foreground">• Adapt your diet without abandoning your culture or social life</li>
               <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
             </ul>
