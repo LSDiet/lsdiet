@@ -71,15 +71,16 @@ function VertexLabel({
   label: string;
   color: "primary" | "accent" | "secondary";
 }) {
+  // primary = Awareness (dark charcoal), accent = Practice (amber), secondary = Permanence (green)
   const colorClasses =
     color === "primary"
-      ? "bg-foreground/10 text-foreground border-foreground/25"
+      ? "bg-foreground text-background border-foreground"
       : color === "accent"
-        ? "bg-accent/10 text-accent border-accent/25"
+        ? "bg-accent/15 text-accent border-accent/30"
         : "bg-primary/15 text-primary border-primary/30";
   const iconColor =
     color === "primary"
-      ? "text-foreground/70"
+      ? "text-background"
       : color === "accent"
         ? "text-accent"
         : "text-primary";
