@@ -73,13 +73,13 @@ function VertexLabel({
 }) {
   const colorClasses =
     color === "primary"
-      ? "bg-foreground/5 text-foreground border-foreground/15"
+      ? "bg-foreground/10 text-foreground border-foreground/25"
       : color === "accent"
-        ? "bg-accent/10 text-accent border-accent/20"
-        : "bg-primary/10 text-primary border-primary/20";
+        ? "bg-accent/10 text-accent border-accent/25"
+        : "bg-primary/15 text-primary border-primary/30";
   const iconColor =
     color === "primary"
-      ? "text-foreground"
+      ? "text-foreground/70"
       : color === "accent"
         ? "text-accent"
         : "text-primary";
@@ -154,38 +154,41 @@ function TriangleDiagram() {
                 strokeWidth="2.5"
                 strokeLinejoin="round"
               />
-              {/* Left edge label — centered along the left side */}
+              {/* Left edge label — inside, along left edge */}
               <text
-                x="138"
-                y="118"
+                x="155"
+                y="125"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="13"
+                fontSize="12"
                 fontStyle="italic"
-                transform="rotate(-42, 138, 118)"
+                opacity="0.6"
+                transform="rotate(-42, 155, 125)"
               >
                 Clarity creates priority.
               </text>
-              {/* Right edge label — centered along the right side */}
+              {/* Right edge label — inside, along right edge */}
               <text
-                x="362"
-                y="118"
+                x="345"
+                y="125"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="13"
+                fontSize="12"
                 fontStyle="italic"
-                transform="rotate(42, 362, 118)"
+                opacity="0.6"
+                transform="rotate(42, 345, 125)"
               >
                 Action survives disruption.
               </text>
-              {/* Bottom edge label */}
+              {/* Bottom edge label — below base */}
               <text
                 x="250"
-                y="235"
+                y="228"
                 textAnchor="middle"
                 fill="hsl(var(--muted-foreground))"
-                fontSize="13"
+                fontSize="12"
                 fontStyle="italic"
+                opacity="0.6"
               >
                 Priority sustains action.
               </text>
