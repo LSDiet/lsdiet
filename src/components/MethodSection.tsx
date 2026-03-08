@@ -76,13 +76,13 @@ function VertexLabel({
       ? "bg-primary/10 text-primary border-primary/20"
       : color === "accent"
         ? "bg-accent/10 text-accent border-accent/20"
-        : "bg-secondary/10 text-secondary border-secondary/20";
+        : "bg-[hsl(152,40%,22%)]/10 text-[hsl(152,40%,22%)] border-[hsl(152,40%,22%)]/20";
   const iconColor =
     color === "primary"
       ? "text-primary"
       : color === "accent"
         ? "text-accent"
-        : "text-secondary";
+        : "text-[hsl(152,40%,22%)]";
 
   return (
     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${colorClasses}`}>
