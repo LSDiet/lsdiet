@@ -73,16 +73,16 @@ function VertexLabel({
 }) {
   const colorClasses =
     color === "primary"
-      ? "bg-primary/10 text-primary border-primary/20"
+      ? "bg-foreground/5 text-foreground border-foreground/15"
       : color === "accent"
         ? "bg-accent/10 text-accent border-accent/20"
-        : "bg-[hsl(152,40%,22%)]/10 text-[hsl(152,40%,22%)] border-[hsl(152,40%,22%)]/20";
+        : "bg-primary/10 text-primary border-primary/20";
   const iconColor =
     color === "primary"
-      ? "text-primary"
+      ? "text-foreground"
       : color === "accent"
         ? "text-accent"
-        : "text-[hsl(152,40%,22%)]";
+        : "text-primary";
 
   return (
     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${colorClasses}`}>
