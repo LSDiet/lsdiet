@@ -167,13 +167,13 @@ export function YouTubeShortsSection() {
             YouTube Channel
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
-            See How I Eat{" "}
-            <span className="text-accent">Every Day</span>
+            Watch, Learn &{" "}
+            <span className="text-accent">Transform</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            I document what I eat, my ongoing transformation,
+            Free training videos and real-life meals — everything you need
             <br />
-            and the lessons I learned over the last 10 years.
+            to start losing weight and keep it off for good.
           </p>
           <p className="mt-4 tracking-wide">
             <span className="text-lg md:text-xl font-bold text-foreground">Low-starch. Low-sugar.</span>
