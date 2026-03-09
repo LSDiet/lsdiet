@@ -87,14 +87,14 @@ function CategoryColumn({
     <div>
       {/* Category badge */}
       <div className="flex items-center gap-2 mb-4">
-        <Icon className="w-5 h-5 text-accent" />
-        <span className="text-sm font-semibold uppercase tracking-wider text-accent">
+        <Icon className="w-5 h-5 text-foreground" />
+        <span className="text-sm font-semibold uppercase tracking-wider text-foreground">
           {label}
         </span>
       </div>
 
       {/* Card with navigation */}
-      <div className="relative max-w-[280px] mx-auto">
+      <div className="relative mx-auto">
         <VideoCard
           id={currentId}
           title={titles[currentId] || "Loading…"}
