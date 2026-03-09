@@ -1,20 +1,142 @@
-import { useState, useEffect } from "react";
-import { Play, ExternalLink, BookOpen, Utensils } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Play, ExternalLink, BookOpen, Utensils, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 const CATEGORIES = [
   {
-    label: "Education",
+    label: "Free Weight Loss Training",
     icon: BookOpen,
     ids: ["xuN6enMPXMo", "P9K2VctpccA", "tN6H5UpAM9o"],
   },
   {
-    label: "LS Lifestyle",
+    label: "Low-Starch, Low-Sugar Lifestyle",
     icon: Utensils,
     ids: ["EIXfSTyNcpA", "wbEQiQkdDHs", "Fxg65gd33W0"],
   },
 ];
+
+function VideoCard({
+  id,
+  title,
+  direction,
+  onPlay,
+}: {
+  id: string;
+  title: string;
+  direction: "left" | "right";
+  onPlay: () => void;
+}) {
+  return (
+    <div
+      key={id}
+      className={`relative aspect-[9/16] rounded-xl overflow-hidden bg-muted cursor-pointer group animate-fade-in`}
+      onClick={onPlay}
+    >
+      <img
+        src={`https://img.youtube.com/vi/${id}/0.jpg`}
+        alt={title}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+      />
+      {/* Play overlay */}
+      <div className="absolute inset-0 bg-[hsl(0_0%_0%/0.25)] group-hover:bg-[hsl(0_0%_0%/0.1)] transition-colors flex items-center justify-center">
+        <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
+          <Play className="w-6 h-6 text-accent-foreground fill-accent-foreground ml-0.5" />
+        </div>
+      </div>
+      {/* Title scrim */}
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(0_0%_0%/0.8)] to-transparent p-4 pt-10">
+        <p className="text-sm font-medium text-[hsl(0_0%_100%)] line-clamp-2">
+          {title}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function CategoryColumn({
+  label,
+  icon: Icon,
+  ids,
+  titles,
+  onPlay,
+}: {
+  label: string;
+  icon: typeof BookOpen;
+  ids: string[];
+  titles: Record<string, string>;
+  onPlay: (id: string) => void;
+}) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState<"left" | "right">("right");
+
+  const goTo = useCallback(
+    (idx: number) => {
+      setDirection(idx > activeIndex ? "right" : "left");
+      setActiveIndex(idx);
+    },
+    [activeIndex]
+  );
+
+  const prev = () => goTo((activeIndex - 1 + ids.length) % ids.length);
+  const next = () => goTo((activeIndex + 1) % ids.length);
+
+  const currentId = ids[activeIndex];
+
+  return (
+    <div>
+      {/* Category badge */}
+      <div className="flex items-center gap-2 mb-4">
+        <Icon className="w-5 h-5 text-accent" />
+        <span className="text-sm font-semibold uppercase tracking-wider text-accent">
+          {label}
+        </span>
+      </div>
+
+      {/* Card with navigation */}
+      <div className="relative max-w-[280px] mx-auto">
+        <VideoCard
+          id={currentId}
+          title={titles[currentId] || "Loading…"}
+          direction={direction}
+          onPlay={() => onPlay(currentId)}
+        />
+
+        {/* Arrows */}
+        <button
+          onClick={(e) => { e.stopPropagation(); prev(); }}
+          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors z-10"
+          aria-label="Previous video"
+        >
+          <ChevronLeft className="w-4 h-4 text-foreground" />
+        </button>
+        <button
+          onClick={(e) => { e.stopPropagation(); next(); }}
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors z-10"
+          aria-label="Next video"
+        >
+          <ChevronRight className="w-4 h-4 text-foreground" />
+        </button>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-3">
+          {ids.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => goTo(idx)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                idx === activeIndex
+                  ? "bg-accent w-5"
+                  : "bg-muted-foreground/40 hover:bg-muted-foreground/70"
+              }`}
+              aria-label={`Go to video ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function YouTubeShortsSection() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
@@ -60,47 +182,17 @@ export function YouTubeShortsSection() {
           </p>
         </div>
 
-        {/* Two-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        {/* Two-column grid — one card visible per category */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
           {CATEGORIES.map((cat) => (
-            <div key={cat.label}>
-              {/* Category badge */}
-              <div className="flex items-center gap-2 mb-4">
-                <cat.icon className="w-5 h-5 text-accent" />
-                <span className="text-sm font-semibold uppercase tracking-wider text-accent">
-                  {cat.label}
-                </span>
-              </div>
-
-              {/* Cards stack */}
-              <div className="flex flex-col gap-4">
-                {cat.ids.map((id) => (
-                  <div
-                    key={id}
-                    className="relative aspect-[9/16] rounded-xl overflow-hidden bg-muted cursor-pointer group"
-                    onClick={() => setSelectedVideo(id)}
-                  >
-                    <img
-                      src={`https://img.youtube.com/vi/${id}/0.jpg`}
-                      alt={titles[id] || "YouTube Short"}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    {/* Play overlay */}
-                    <div className="absolute inset-0 bg-[hsl(0_0%_0%/0.25)] group-hover:bg-[hsl(0_0%_0%/0.1)] transition-colors flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Play className="w-6 h-6 text-accent-foreground fill-accent-foreground ml-0.5" />
-                      </div>
-                    </div>
-                    {/* Title scrim */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(0_0%_0%/0.8)] to-transparent p-4 pt-10">
-                      <p className="text-sm font-medium text-[hsl(0_0%_100%)] line-clamp-2">
-                        {titles[id] || "Loading…"}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <CategoryColumn
+              key={cat.label}
+              label={cat.label}
+              icon={cat.icon}
+              ids={cat.ids}
+              titles={titles}
+              onPlay={(id) => setSelectedVideo(id)}
+            />
           ))}
         </div>
 
