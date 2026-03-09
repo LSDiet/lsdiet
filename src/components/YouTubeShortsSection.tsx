@@ -94,7 +94,7 @@ function CategoryColumn({
       </div>
 
       {/* Card with navigation */}
-      <div className="relative mx-auto">
+      <div className="relative max-w-[300px] mx-auto">
         <VideoCard
           id={currentId}
           title={titles[currentId] || "Loading…"}
