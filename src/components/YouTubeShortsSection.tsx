@@ -85,8 +85,8 @@ function CategoryColumn({
 
   return (
     <div>
-      {/* Category badge */}
-      <div className="flex items-center gap-2 mb-4">
+      {/* Category badge - centered */}
+      <div className="flex items-center justify-center gap-2 mb-4">
         <Icon className="w-5 h-5 text-foreground" />
         <span className="text-sm font-semibold uppercase tracking-wider text-foreground">
           {label}
