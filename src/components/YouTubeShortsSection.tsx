@@ -1,24 +1,40 @@
-import { useState } from "react";
-import { Play, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Play, ExternalLink, BookOpen, Utensils } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import useEmblaCarousel from "embla-carousel-react";
 
-const SHORTS = [
-  { id: "e3P3cBenjnM", title: "26 Day LS Challenge: How to Eat Out Daily" },
-  { id: "P9K2VctpccA", title: "What BMI Is and Is Not: Use It Directionally" },
-  { id: "tN6H5UpAM9o", title: "Why I Do 26 Days LS Diet Instead of 30" },
-  { id: "wbEQiQkdDHs", title: "Stop saying NO to family gatherings" },
-  { id: "Fxg65gd33W0", title: "My egg exploded in the microwave (but I ate it)" },
+const CATEGORIES = [
+  {
+    label: "Education",
+    icon: BookOpen,
+    ids: ["xuN6enMPXMo", "P9K2VctpccA", "tN6H5UpAM9o"],
+  },
+  {
+    label: "LS Lifestyle",
+    icon: Utensils,
+    ids: ["EIXfSTyNcpA", "wbEQiQkdDHs", "Fxg65gd33W0"],
+  },
 ];
 
 export function YouTubeShortsSection() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [emblaRef] = useEmblaCarousel({
-    align: "start",
-    containScroll: "trimSnaps",
-    dragFree: true,
-  });
+  const [titles, setTitles] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const allIds = CATEGORIES.flatMap((c) => c.ids);
+    allIds.forEach((id) => {
+      fetch(
+        `https://www.youtube.com/oembed?url=https://www.youtube.com/shorts/${id}&format=json`
+      )
+        .then((r) => r.json())
+        .then((data) => {
+          if (data.title) {
+            setTitles((prev) => ({ ...prev, [id]: data.title }));
+          }
+        })
+        .catch(() => {});
+    });
+  }, []);
 
   return (
     <section className="py-14 md:py-20">
@@ -44,41 +60,55 @@ export function YouTubeShortsSection() {
           </p>
         </div>
 
-        {/* Carousel */}
-        <div className="overflow-hidden mb-10" ref={emblaRef}>
-          <div className="flex gap-4">
-            {SHORTS.map((short) => (
-              <div
-                key={short.id}
-                className="flex-none w-[200px] md:w-[240px] cursor-pointer group"
-                onClick={() => setSelectedVideo(short.id)}
-              >
-                <div className="relative aspect-[9/16] rounded-xl overflow-hidden bg-muted">
-                  <img
-                    src={`https://img.youtube.com/vi/${short.id}/0.jpg`}
-                    alt={short.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {/* Play overlay */}
-                  <div className="absolute inset-0 bg-[hsl(0_0%_0%/0.3)] group-hover:bg-[hsl(0_0%_0%/0.15)] transition-colors flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Play className="w-5 h-5 text-accent-foreground fill-accent-foreground ml-0.5" />
+        {/* Two-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+          {CATEGORIES.map((cat) => (
+            <div key={cat.label}>
+              {/* Category badge */}
+              <div className="flex items-center gap-2 mb-4">
+                <cat.icon className="w-5 h-5 text-accent" />
+                <span className="text-sm font-semibold uppercase tracking-wider text-accent">
+                  {cat.label}
+                </span>
+              </div>
+
+              {/* Cards stack */}
+              <div className="flex flex-col gap-4">
+                {cat.ids.map((id) => (
+                  <div
+                    key={id}
+                    className="relative aspect-[9/16] rounded-xl overflow-hidden bg-muted cursor-pointer group"
+                    onClick={() => setSelectedVideo(id)}
+                  >
+                    <img
+                      src={`https://img.youtube.com/vi/${id}/0.jpg`}
+                      alt={titles[id] || "YouTube Short"}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    {/* Play overlay */}
+                    <div className="absolute inset-0 bg-[hsl(0_0%_0%/0.25)] group-hover:bg-[hsl(0_0%_0%/0.1)] transition-colors flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Play className="w-6 h-6 text-accent-foreground fill-accent-foreground ml-0.5" />
+                      </div>
+                    </div>
+                    {/* Title scrim */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[hsl(0_0%_0%/0.8)] to-transparent p-4 pt-10">
+                      <p className="text-sm font-medium text-[hsl(0_0%_100%)] line-clamp-2">
+                        {titles[id] || "Loading…"}
+                      </p>
                     </div>
                   </div>
-                </div>
-                <p className="text-xs text-muted-foreground mt-2 line-clamp-2">
-                  {short.title}
-                </p>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Subscribe CTA */}
         <div className="text-center">
           <Button variant="accent" size="lg" className="px-8 gap-2" asChild>
             <a
-              href="https://www.youtube.com/@WhatAboutWeight"
+              href="https://www.youtube.com/@WhatAboutWeight?sub_confirmation=1"
               target="_blank"
               rel="noopener noreferrer"
             >
