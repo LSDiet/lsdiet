@@ -4,42 +4,40 @@ import heroPhoto from "@/assets/hero-photo.png";
 
 function ComparisonTable() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] leading-relaxed">
-      {/* Old Way */}
-      <div className="rounded-lg border border-destructive/20 bg-destructive/5 px-4 py-3 space-y-2">
-        <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-destructive/80 mb-2">
+    <div className="grid grid-cols-2 gap-3 text-[13px]">
+      <div className="rounded-lg border border-destructive/20 bg-destructive/5 px-3 py-3 space-y-2">
+        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-destructive/80 mb-2">
           Old-School Dieting
         </p>
-        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
           <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
-          Gives you a rigid meal plan and expects you to follow it — as if you were a robot.
+          Rigid meal plans you can't stick to.
         </p>
-        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
           <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
-          You fail because you can't adhere to a mechanistic eating routine long-term.
+          Cuts entire food groups, isolating you socially.
         </p>
-        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
           <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
-          Almost all plans cut an entire food category, creating friction with friends and family.
+          No plan for when life gets hard.
         </p>
       </div>
 
-      {/* New Way */}
-      <div className="rounded-lg border border-accent/20 bg-accent/5 px-4 py-3 space-y-2">
-        <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-accent/80 mb-2">
+      <div className="rounded-lg border border-accent/20 bg-accent/5 px-3 py-3 space-y-2">
+        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-accent/80 mb-2">
           The WPT Approach
         </p>
-        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
           <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-          A structured way to identify your "Why" and build intrinsic push-and-pull motivation.
+          Find your "Why" and build lasting motivation.
         </p>
-        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
           <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-          You choose what to eat — as long as it follows three metabolic principles: energy balance, insulin management, and metabolic adaptation.
+          Eat what you want within three metabolic rules.
         </p>
-        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
           <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-          Teaches you to manage biological, social, and environmental pressures while losing 6–10 lbs consistently every month.
+          Lose 6–10 lbs/month consistently.
         </p>
       </div>
     </div>
@@ -61,20 +59,13 @@ export function HeroSection() {
 
         {/* Text */}
         <div className="order-1 md:order-2 flex flex-col gap-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent opacity-0 animate-fade-in-up">
-            I Lost 80+ Lbs. Three Times.
-          </p>
-
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase leading-[1.1] tracking-tight opacity-0 animate-fade-in-up animate-delay-100">
-            I Teach People to{" "}
-            <span className="text-accent">Psychologically Prioritize</span>{" "}
-            Weight Loss
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.05] tracking-tight opacity-0 animate-fade-in-up">
+            I Lost 80+ Lbs.{" "}
+            <span className="text-accent">Three Times.</span>
           </h1>
 
-          <p className="text-sm md:text-base text-[hsl(0_0%_55%)] leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-150">
-            So your day-to-day weight-loss behaviour becomes{" "}
-            <span className="font-semibold text-[hsl(0_0%_80%)]">automatic</span>.{" "}
-            Weight cycling is multifactorial&nbsp;—
+          <p className="text-base md:text-lg text-[hsl(0_0%_60%)] leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
+            I help obese people to <span className="font-semibold text-[hsl(0_0%_85%)]">end weight cycling</span>.
           </p>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200">
