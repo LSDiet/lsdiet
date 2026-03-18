@@ -1,50 +1,42 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { X, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import heroPhoto from "@/assets/hero-photo.png";
+import { WaitlistModal } from "@/components/WaitlistModal";
 
-function ComparisonTable() {
+const coursePoints = [
+  "Why 95% of diets fail — and the one mental shift that changes everything.",
+  "The 3 metabolic rules that let you eat what you love and still lose weight.",
+  "How to lose 6–10 lbs per month without cutting food groups.",
+  "A relapse-proof system built for real life, stress, and social eating.",
+  "The exact framework I used to lose 80+ lbs — three separate times.",
+];
+
+function StrikethroughText({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-2 gap-3 text-[13px]">
-      <div className="rounded-lg border border-destructive/20 bg-destructive/5 px-3 py-3 space-y-2">
-        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-destructive/80 mb-2">
-          Old-School Dieting
-        </p>
-        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
-          <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
-          Rigid meal plans you can't stick to.
-        </p>
-        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
-          <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
-          Cuts entire food groups, isolating you socially.
-        </p>
-        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
-          <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
-          No plan for when life gets hard.
-        </p>
-      </div>
-
-      <div className="rounded-lg border border-accent/20 bg-accent/5 px-3 py-3 space-y-2">
-        <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-accent/80 mb-2">
-          The WPT Approach
-        </p>
-        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
-          <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-          Find your "Why" and build lasting motivation.
-        </p>
-        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
-          <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-          Eat what you want within three metabolic rules.
-        </p>
-        <p className="flex items-start gap-1.5 text-[hsl(0_0%_55%)]">
-          <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-          Lose 6–10 lbs/month consistently.
-        </p>
-      </div>
-    </div>
+    <span className="relative inline-block">
+      <span className="text-muted-foreground">{children}</span>
+      <svg
+        className="absolute left-0 top-1/2 w-full h-[0.35em] -translate-y-1/2 pointer-events-none"
+        viewBox="0 0 200 12"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M2 8 C 30 2, 60 12, 100 6 S 170 2, 198 7"
+          fill="none"
+          stroke="hsl(0 84.2% 60.2%)"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    </span>
   );
 }
 
 export function HeroSection() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+
   return (
     <section className="section-dark relative min-h-[100dvh] flex items-center pt-14">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center py-12 md:py-0">
@@ -58,35 +50,51 @@ export function HeroSection() {
         </div>
 
         {/* Text */}
-        <div className="order-1 md:order-2 flex flex-col gap-4">
+        <div className="order-1 md:order-2 flex flex-col gap-5">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.05] tracking-tight opacity-0 animate-fade-in-up">
             I Lost 80+ Lbs.{" "}
             <span className="text-accent">Three Times.</span>
           </h1>
 
-          <p className="text-base md:text-lg text-[hsl(0_0%_60%)] leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
-            I help obese people to <span className="font-semibold text-[hsl(0_0%_85%)]">end weight cycling</span>.
+          <p className="text-base md:text-lg leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
+            <span className="text-muted-foreground">Now I help obese people end</span>{" "}
+            <StrikethroughText>weight cycling</StrikethroughText>
           </p>
 
-          <div className="opacity-0 animate-fade-in-up animate-delay-200">
-            <ComparisonTable />
+          <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+              Join my{" "}
+              <span className="font-bold text-accent">FREE</span>{" "}
+              7-day Weight Permanence course. You'll discover:
+            </p>
+
+            <ul className="space-y-1.5">
+              {coursePoints.map((point, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-[13px] md:text-sm text-muted-foreground leading-snug"
+                >
+                  <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 opacity-0 animate-fade-in-up animate-delay-300">
-            <Button variant="accent" size="lg" className="px-8" asChild>
-              <a href="#book">Join the Waitlist</a>
-            </Button>
+          <div className="opacity-0 animate-fade-in-up animate-delay-300">
             <Button
+              variant="accent"
               size="lg"
-              variant="outline"
-              className="px-8 border-[hsl(0_0%_24%)] text-muted-foreground hover:text-foreground hover:border-[hsl(0_0%_40%)] bg-transparent"
-              asChild
+              className="px-10"
+              onClick={() => setWaitlistOpen(true)}
             >
-              <a href="#journey">See My Journey</a>
+              Join the Waitlist
             </Button>
           </div>
         </div>
       </div>
+
+      <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </section>
   );
 }
