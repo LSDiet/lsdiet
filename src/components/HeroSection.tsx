@@ -4,47 +4,43 @@ import heroPhoto from "@/assets/hero-photo.png";
 
 function ComparisonTable() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 opacity-0 animate-fade-in-up animate-delay-200">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px] leading-relaxed">
       {/* Old Way */}
-      <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-4">
-        <p className="text-xs font-bold uppercase tracking-[0.15em] text-destructive mb-3">
+      <div className="rounded-lg border border-destructive/20 bg-destructive/5 px-4 py-3 space-y-2">
+        <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-destructive/80 mb-2">
           Old-School Dieting
         </p>
-        <ul className="space-y-2.5">
-          <li className="flex items-start gap-2 text-sm text-muted-foreground leading-snug">
-            <X className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
-            Gives you a rigid daily meal plan and expects you to follow it — as if you were a robot.
-          </li>
-          <li className="flex items-start gap-2 text-sm text-muted-foreground leading-snug">
-            <X className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
-            You fail because you can't adhere to a mechanistic eating routine long-term.
-          </li>
-          <li className="flex items-start gap-2 text-sm text-muted-foreground leading-snug">
-            <X className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
-            Almost all plans ask you to cut an entire food category, creating friction with friends and family.
-          </li>
-        </ul>
+        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+          <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
+          Gives you a rigid meal plan and expects you to follow it — as if you were a robot.
+        </p>
+        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+          <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
+          You fail because you can't adhere to a mechanistic eating routine long-term.
+        </p>
+        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+          <X className="w-3.5 h-3.5 text-destructive flex-shrink-0 mt-0.5" />
+          Almost all plans cut an entire food category, creating friction with friends and family.
+        </p>
       </div>
 
       {/* New Way */}
-      <div className="rounded-xl border border-primary/30 bg-primary/5 p-4">
-        <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary mb-3">
+      <div className="rounded-lg border border-accent/20 bg-accent/5 px-4 py-3 space-y-2">
+        <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-accent/80 mb-2">
           The WPT Approach
         </p>
-        <ul className="space-y-2.5">
-          <li className="flex items-start gap-2 text-sm text-muted-foreground leading-snug">
-            <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-            A structured way to identify your "Why" and build intrinsic push-and-pull motivation.
-          </li>
-          <li className="flex items-start gap-2 text-sm text-muted-foreground leading-snug">
-            <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-            You choose what to eat — as long as it follows three basic metabolic principles: energy balance, insulin management, and metabolic adaptation.
-          </li>
-          <li className="flex items-start gap-2 text-sm text-muted-foreground leading-snug">
-            <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-            Teaches you to manage biological, social, and environmental pressures while losing 6–10 lbs consistently every month.
-          </li>
-        </ul>
+        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+          <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+          A structured way to identify your "Why" and build intrinsic push-and-pull motivation.
+        </p>
+        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+          <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+          You choose what to eat — as long as it follows three metabolic principles: energy balance, insulin management, and metabolic adaptation.
+        </p>
+        <p className="flex items-start gap-2 text-[hsl(0_0%_55%)]">
+          <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+          Teaches you to manage biological, social, and environmental pressures while losing 6–10 lbs consistently every month.
+        </p>
       </div>
     </div>
   );
@@ -64,26 +60,28 @@ export function HeroSection() {
         </div>
 
         {/* Text */}
-        <div className="order-1 md:order-2 flex flex-col gap-4 md:gap-5">
+        <div className="order-1 md:order-2 flex flex-col gap-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent opacity-0 animate-fade-in-up">
             I Lost 80+ Lbs. Three Times.
           </p>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase leading-[1.1] tracking-tight opacity-0 animate-fade-in-up animate-delay-100">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold uppercase leading-[1.1] tracking-tight opacity-0 animate-fade-in-up animate-delay-100">
             I Teach People to{" "}
             <span className="text-accent">Psychologically Prioritize</span>{" "}
             Weight Loss
           </h1>
 
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-150">
+          <p className="text-sm md:text-base text-[hsl(0_0%_55%)] leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-150">
             So your day-to-day weight-loss behaviour becomes{" "}
-            <span className="font-bold text-[hsl(0_0%_80%)]">automatic</span>.{" "}
-            <span className="text-accent">Weight cycling is multifactorial.</span>
+            <span className="font-semibold text-[hsl(0_0%_80%)]">automatic</span>.{" "}
+            Weight cycling is multifactorial&nbsp;—
           </p>
 
-          <ComparisonTable />
+          <div className="opacity-0 animate-fade-in-up animate-delay-200">
+            <ComparisonTable />
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in-up animate-delay-300">
+          <div className="flex flex-col sm:flex-row gap-3 opacity-0 animate-fade-in-up animate-delay-300">
             <Button variant="accent" size="lg" className="px-8" asChild>
               <a href="#book">Join the Waitlist</a>
             </Button>
