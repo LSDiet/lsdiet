@@ -30,7 +30,7 @@ interface FAQCategoryData {
 const faqCategories: FAQCategoryData[] = [
   {
     title: "Obesity Is Limiting Your Options",
-    hasBookCta: true,
+    hasCourseCta: true,
     questions: [
       {
         question: "Does obesity cause type 2 diabetes?",
