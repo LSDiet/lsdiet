@@ -207,7 +207,7 @@ export function YouTubeShortsSection() {
           {selectedVideo && (
             <div className="aspect-[9/16] w-full">
               <iframe
-                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
+                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&mute=1&playsinline=1`}
                 title="YouTube Short"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
