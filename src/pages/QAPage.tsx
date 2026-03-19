@@ -472,7 +472,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Is Weight Permanence suitable for busy professionals?",
         answer:
-          "Yes. Weight Permanence was specifically designed for busy professionals. Oscar developed the method, wrote the book, and recorded all low-starch, low-sugar educational videos while working full time as a surgical market data consultant, ensuring the system works under real workload and time constraints.",
+          "Yes. Weight Permanence was specifically designed for busy professionals. Oscar developed the method, created the course, and recorded all low-starch, low-sugar educational videos while working full time as a surgical market data consultant, ensuring the system works under real workload and time constraints.",
       },
       {
         question: "Can Weight Permanence work with family and social life?",
