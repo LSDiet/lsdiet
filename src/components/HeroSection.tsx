@@ -6,7 +6,7 @@ import { WaitlistModal } from "@/components/WaitlistModal";
 
 const coursePoints = [
   "How to lose 6–10 lbs per month consistently.",
-  'A structured way to identify your "WHY" and gain extreme clarity on the PUSH and PULL motivation.',
+  'A structured way to identify your "WHY" and discover your PUSH and PULL motivation.',
   "How to psychologically prioritize weight loss so the right behaviors become automatic.",
   "Why 33% to 66% of dieters regained more weight than they lost in the long term.",
   "A relapse-proof system built for real life, stress, and social eating.",
