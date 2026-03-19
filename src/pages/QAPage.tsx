@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useDirectCheckout } from "@/hooks/useDirectCheckout";
+import { WaitlistModal } from "@/components/WaitlistModal";
 import {
   Accordion,
   AccordionContent,
