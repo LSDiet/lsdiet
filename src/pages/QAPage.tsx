@@ -445,14 +445,14 @@ const faqCategories: FAQCategoryData[] = [
     hasCourseCta: true,
     questions: [
       {
-        question: "Is Weight Permanence a diet book?",
+        question: "Is Weight Permanence a diet course?",
         answer:
-          "No. Weight Permanence is not a diet book because it does not prescribe rigid food rules, meal plans, or temporary restrictions. Instead, it teaches a system for making food and lifestyle decisions that hold under real-life conditions, so weight loss becomes sustainable rather than something that collapses once a diet ends.",
+          "No. Weight Permanence is not a diet course because it does not prescribe rigid food rules, meal plans, or temporary restrictions. Instead, it teaches a system for making food and lifestyle decisions that hold under real-life conditions, so weight loss becomes sustainable rather than something that collapses once a diet ends.",
       },
       {
-        question: "Who is the Weight Permanence book for?",
+        question: "Who is the Weight Permanence course for?",
         answer:
-          "While the Weight Permanence method applies to anyone who wants to lose weight, readers aged 35 and up often resonate most because of metabolic changes, accumulated life stress, and repeated experiences of weight regain that make willpower-based approaches less effective.",
+          "While the Weight Permanence method applies to anyone who wants to lose weight, learners aged 35 and up often resonate most because of metabolic changes, accumulated life stress, and repeated experiences of weight regain that make willpower-based approaches less effective.",
       },
       {
         question: "Does Weight Permanence require tracking?",
