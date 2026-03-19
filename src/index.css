@@ -147,6 +147,26 @@ All colors MUST be HSL.
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+/* X strikethrough animation */
+@keyframes x-stroke-1 {
+  0% { stroke-dashoffset: 140; }
+  40% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes x-stroke-2 {
+  0%, 35% { stroke-dashoffset: 140; }
+  75% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+.animate-x-stroke-1 {
+  animation: x-stroke-1 1.2s ease-out forwards;
+  animation-delay: 0.8s;
+}
+.animate-x-stroke-2 {
+  animation: x-stroke-2 1.2s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
 /* Navigation link hover underline effect */
 .nav-link-hover {
   position: relative;
