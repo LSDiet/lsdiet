@@ -23,8 +23,7 @@ interface FAQQuestion {
 
 interface FAQCategoryData {
   title: string;
-  hasBookCta?: boolean;
-  hasDirectCheckout?: boolean;
+  hasCourseCta?: boolean;
   questions: FAQQuestion[];
 }
 
