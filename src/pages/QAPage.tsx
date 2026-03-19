@@ -378,7 +378,7 @@ const faqCategories: FAQCategoryData[] = [
   },
   {
     title: "The Weight Permanence Triangle™ Method",
-    hasDirectCheckout: true,
+    hasCourseCta: true,
     questions: [
       {
         question: "What is the Weight Permanence Triangle™?",
