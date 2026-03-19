@@ -52,13 +52,14 @@ export function HeroSection() {
         {/* Text */}
         <div className="order-1 md:order-2 flex flex-col gap-5">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.05] tracking-tight opacity-0 animate-fade-in-up">
-            I Lost 80+ Lbs.{" "}
-            <span className="text-accent">Three Times.</span>
+            I Lost{" "}
+            <span className="bg-gradient-to-r from-accent via-yellow-300 to-accent bg-clip-text text-transparent">80+ Lbs.</span>{" "}
+            <span className="text-accent animate-pulse-glow">Three Times.</span>
           </h1>
 
           <p className="text-base md:text-lg leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
             <span className="text-muted-foreground">Now I help obese people end</span>{" "}
-            <StrikethroughText>weight cycling</StrikethroughText>
+            <StrikethroughText><span className="animate-pulse-glow">weight cycling</span></StrikethroughText>
           </p>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
