@@ -563,8 +563,7 @@ export default function QAPage() {
                   key={category.title}
                   category={category}
                   delay={categoryIndex * 100}
-                  onDirectCheckout={category.hasDirectCheckout ? handleDirectCheckout : undefined}
-                  isCheckoutLoading={isCheckoutLoading}
+                  onJoinWaitlist={() => setWaitlistOpen(true)}
                   defaultOpenValue={
                     openParam === "awareness-stages" && category.title === "The Weight Permanence Triangle™ Method"
                       ? "The Weight Permanence Triangle™ Method-6"
