@@ -49,7 +49,7 @@ export function CorePrincipleSection() {
                 key={card.title}
                 className="bg-[hsl(0_0%_10%)] rounded-xl border border-[hsl(0_0%_18%)] p-6 md:p-8 flex flex-col text-center justify-center gap-3"
               >
-                <p className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-foreground mb-1">
+                <p className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-foreground mb-1">
                   {card.keyword}
                 </p>
                 <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mb-2">
