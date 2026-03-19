@@ -65,7 +65,7 @@ export function HeroSection() {
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
               Join my{" "}
-              <span className="font-bold text-accent">FREE</span>{" "}
+              <span className="font-bold text-accent animate-pulse-glow">FREE</span>{" "}
               7-day Weight Permanence course. You'll discover:
             </p>
 
