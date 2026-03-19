@@ -65,7 +65,7 @@ export function Navbar() {
                 href={link.href}
                 className={`text-sm font-semibold uppercase tracking-[0.1em] py-2.5 transition-colors ${
                   link.highlight
-                    ? "text-accent"
+                    ? "text-accent text-base animate-pulse-glow"
                     : "text-[hsl(0_0%_56%)] hover:text-[hsl(0_0%_96%)]"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
