@@ -5,11 +5,11 @@ import heroPhoto from "@/assets/hero-photo.png";
 import { WaitlistModal } from "@/components/WaitlistModal";
 
 const coursePoints = [
-  "How to lose 6–10 lbs per month consistently.",
-  'A structured way to identify your "WHY" and discover your PUSH and PULL motivation.',
-  "How to psychologically prioritise weight loss so the right behaviours become automatic.",
-  "Why 33% to 66% of dieters regained more weight than they lost in the long term.",
-  "A relapse-proof system built for real life, stress, and social eating.",
+  { text: "How to lose 6–10 lbs per month ", bold: "consistently" },
+  { text: "How to build ", bold: "clarity, not motivation" },
+  { text: "How to make the right choices ", bold: "automatic" },
+  { text: "Why most people regain the weight", bold: "" },
+  { text: "How to stay on track when life gets hard", bold: "" },
 ];
 
 function StrikethroughText({ children }: { children: React.ReactNode }) {
@@ -58,15 +58,13 @@ export function HeroSection() {
           </h1>
 
           <p className="text-base md:text-lg leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
-            <span className="text-muted-foreground">Now I help people end</span>{" "}
+            <span className="text-muted-foreground">Now I teach people how to end</span>{" "}
             <StrikethroughText><span className="animate-pulse-glow">weight cycling</span></StrikethroughText>
           </p>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Join my{" "}
-              <span className="font-bold text-accent animate-pulse-glow">FREE</span>{" "}
-              7-day Weight Permanence course. You'll discover:
+              You'll learn:
             </p>
 
             <ul className="space-y-1.5">
@@ -76,7 +74,7 @@ export function HeroSection() {
                   className="flex items-start gap-2 text-[13px] md:text-sm text-muted-foreground leading-snug"
                 >
                   <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                  {point}
+                  <span>{point.text}{point.bold && <span className="font-bold text-foreground">{point.bold}</span>}</span>
                 </li>
               ))}
             </ul>
