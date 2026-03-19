@@ -32,7 +32,7 @@ export function Navbar() {
               href={link.href}
               className={`text-xs font-semibold uppercase tracking-[0.12em] transition-colors nav-link-hover ${
                 link.highlight
-                  ? "text-accent"
+                  ? "text-accent text-sm animate-bounce-subtle animate-pulse-glow"
                   : "text-[hsl(0_0%_56%)] hover:text-[hsl(0_0%_96%)]"
               }`}
             >
