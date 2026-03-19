@@ -353,7 +353,7 @@ export default function GLP1GuidePage() {
               href="/#book"
               className="inline-flex items-center text-primary hover:underline font-medium"
             >
-              Join the FREE 7-Day Weight Permanence Course
+              Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day Weight Permanence Course
               <ArrowRight className="w-4 h-4 ml-1" />
             </a>
             <div className="mt-6 flex justify-center">
