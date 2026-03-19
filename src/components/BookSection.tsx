@@ -103,7 +103,7 @@ export function BookSection() {
               Coming Soon
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-6">
-              Weight Permanence
+              <span className="text-accent">FREE</span> 7-Day Weight Permanence Course
             </h2>
 
             <ul className="space-y-3 mb-6">
