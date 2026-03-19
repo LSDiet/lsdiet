@@ -78,7 +78,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
         </div>
 
         <div className="relative group">
-          <div className="aspect-[3/4] rounded-lg overflow-hidden">
+          <div className="aspect-[3/4] rounded-lg overflow-hidden bg-black">
             <img
               src={card.afterImage}
               alt="After"
