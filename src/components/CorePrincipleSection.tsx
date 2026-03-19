@@ -5,7 +5,7 @@ export function CorePrincipleSection() {
       title: "The Psychology Problem",
       text: (
         <>
-          Most diets force you to become a <span className="font-bold text-foreground">different person</span>. When your behaviour misaligns with how you <span className="font-bold text-accent">define yourself</span>, weight loss is destined to fail.
+          Most diets force you to become a <span className="font-bold text-foreground">different person</span>. When your behaviour misaligns with how you <span className="font-bold text-accent">see yourself</span>, weight loss will always fail.
         </>
       ),
     },
@@ -14,16 +14,16 @@ export function CorePrincipleSection() {
       title: "The Biology Problem",
       text: (
         <>
-          Too many programs force <span className="font-bold text-accent">mechanistic eating</span> — setting what, when, and how much you eat. But we're all <span className="font-bold text-foreground">biologically different</span>. Without a diet suited to your body, it's not sustainable.
+          Too many programs force <span className="font-bold text-accent">mechanistic eating</span> by dictating what, when, and how much you eat. But we're all <span className="font-bold text-foreground">biologically different</span>, and one plan can't fit every body.
         </>
       ),
     },
     {
-      keyword: "Environment",
+      keyword: "Environ\u00ADment",
       title: "The Environment Problem",
       text: (
         <>
-          You skip gatherings, become <span className="font-bold text-foreground">"that person"</span> at dinner. When you <span className="font-bold text-accent">sacrifice more than you gain</span> without pleasure, you burn out — and old habits return.
+          You skip gatherings and become <span className="font-bold text-foreground">"that person"</span> at dinner. When you <span className="font-bold text-accent">sacrifice more than you gain</span>, you burn out and old habits return.
         </>
       ),
     },
