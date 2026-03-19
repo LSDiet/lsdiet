@@ -724,7 +724,7 @@ function FAQCategory({
         {category.questions.map((item, index) => {
           // Bold the condition/disease in the question for the first category
           const renderQuestion = () => {
-            if (category.hasBookCta && item.condition) {
+            if (category.hasCourseCta && item.condition) {
               // Pattern: "Does obesity cause X?" - bold the condition
               const match = item.question.match(/^(Does obesity (?:cause|reduce|shorten|limit|slow down))\s+(.+?)(\??)$/i);
               if (match) {
