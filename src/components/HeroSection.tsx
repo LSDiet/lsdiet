@@ -5,8 +5,8 @@ import heroPhoto from "@/assets/hero-photo.png";
 import { WaitlistModal } from "@/components/WaitlistModal";
 
 const coursePoints = [
-  "How to lose 6–10 lbs per month.",
-  'A structured way to identify your "WHY" and gain extreme clarity on the PUSH and PULL motivation.',
+  "How to lose 6–10 lbs per month consistently.",
+  'A structured way to identify your "WHY" and discover your PUSH and PULL motivation.',
   "How to psychologically prioritize weight loss so the right behaviors become automatic.",
   "Why 33% to 66% of dieters regained more weight than they lost in the long term.",
   "A relapse-proof system built for real life, stress, and social eating.",
@@ -58,7 +58,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-base md:text-lg leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
-            <span className="text-muted-foreground">Now I help obese people end</span>{" "}
+            <span className="text-muted-foreground">Now I help people end</span>{" "}
             <StrikethroughText><span className="animate-pulse-glow">weight cycling</span></StrikethroughText>
           </p>
 
