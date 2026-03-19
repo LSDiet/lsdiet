@@ -4,7 +4,7 @@ export function CorePrincipleSection() {
       keyword: "Psychology",
       text: (
         <>
-          Why do people who want to lose weight and have a goal still fail? Without your <span className="font-bold text-foreground">intrinsic push and pull motivation</span>, weight loss will always fail.
+          Why do people who want to lose weight and have a goal still fail? Without your intrinsic <span className="font-bold text-accent">push</span> and <span className="font-bold text-accent">pull</span> motivation, weight loss will always fail.
         </>
       ),
     },
@@ -20,7 +20,7 @@ export function CorePrincipleSection() {
       keyword: "Environment",
       text: (
         <>
-          Too often dieters return to their old habits when life gets busy and becomes stressful.
+          Too often dieters return to their <span className="font-bold text-accent">old habits</span> when <span className="font-bold text-foreground">life gets busy and becomes stressful</span>.
         </>
       ),
     },
@@ -44,9 +44,9 @@ export function CorePrincipleSection() {
             {cards.map((card) => (
               <div
                 key={card.keyword}
-                className="bg-[hsl(0_0%_10%)] rounded-xl border border-[hsl(0_0%_18%)] p-6 md:p-8 flex flex-col text-center justify-center gap-3"
+                className="bg-[hsl(0_0%_10%)] rounded-xl border border-[hsl(0_0%_18%)] p-6 md:p-8 flex flex-col text-center items-center gap-3"
               >
-                <p className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-foreground mb-1">
+                <p className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-foreground">
                   {card.keyword}
                 </p>
                 <p className="text-sm text-[hsl(0_0%_70%)] leading-relaxed">
