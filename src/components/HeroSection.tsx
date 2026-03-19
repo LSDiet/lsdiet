@@ -5,11 +5,11 @@ import heroPhoto from "@/assets/hero-photo.png";
 import { WaitlistModal } from "@/components/WaitlistModal";
 
 const coursePoints = [
-  "How to lose 6–10 lbs per month consistently.",
-  'A structured way to identify your "WHY" and discover your PUSH and PULL motivation.',
-  "How to psychologically prioritise weight loss so the right behaviours become automatic.",
-  "Why 33% to 66% of dieters regained more weight than they lost in the long term.",
-  "A relapse-proof system built for real life, stress, and social eating.",
+  { text: "How to lose 6–10 lbs per month ", bold: "consistently" },
+  { text: "How to build ", bold: "clarity, not motivation" },
+  { text: "How to make the right choices ", bold: "automatic" },
+  { text: "Why most people regain the weight", bold: "" },
+  { text: "How to stay on track when life gets hard", bold: "" },
 ];
 
 function StrikethroughText({ children }: { children: React.ReactNode }) {
