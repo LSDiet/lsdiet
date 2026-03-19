@@ -7,7 +7,7 @@ import { WaitlistModal } from "@/components/WaitlistModal";
 const coursePoints = [
   { text: "How to lose 6–10 lbs per month ", bold: "consistently" },
   { text: "How to find ", bold: "PUSH and PULL motivation" },
-  { text: "How to make the right choices ", bold: "automatic" },
+  { text: "How to make weight loss decisions ", bold: "automatic" },
   { text: "Why most people regain the weight", bold: "" },
   { text: "How to stay on track when life gets hard", bold: "" },
 ];
