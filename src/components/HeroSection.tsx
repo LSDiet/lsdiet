@@ -71,7 +71,7 @@ export function HeroSection() {
               {coursePoints.map((point, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-2 text-[13px] md:text-sm text-muted-foreground leading-snug"
+                  className="flex items-start gap-2 text-sm md:text-base text-muted-foreground leading-snug"
                 >
                   <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
                   <span>{point.text}{point.bold && <span className="font-bold text-foreground">{point.bold}</span>}</span>
