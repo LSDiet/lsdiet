@@ -82,7 +82,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
             <img
               src={card.afterImage}
               alt="After"
-              className={`block w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${card.id === 1 ? 'object-[center_15%]' : ''}`}
+              className={`block w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${card.id === 1 ? 'object-[center_15%]' : ''} ${card.id === 2 ? 'scale-[1.03] object-[center_20%]' : ''}`}
             />
           </div>
           <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider bg-[hsl(0_0%_6%/0.75)] backdrop-blur-sm text-[hsl(0_0%_96%)] px-2 py-0.5 rounded">
