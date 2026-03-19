@@ -66,10 +66,10 @@ export function BookSection() {
                     Early Access Bonus
                   </p>
                   <p className="text-[hsl(0_0%_80%)] text-sm leading-relaxed mb-2">
-                    Join the waitlist and be first to receive 12 months of free access to <span className="font-semibold text-[hsl(0_0%_96%)]">Awareness Compass</span>, a proprietary conversational platform that guides you through the five stages of Awareness.
+                    Join the waitlist and be first to receive one month of free access to <span className="font-semibold text-[hsl(0_0%_96%)]">Awareness Compass</span>, a proprietary conversational platform that guides you through the five stages of Awareness.
                   </p>
                   <p className="text-[hsl(0_0%_50%)] text-xs">
-                    After the first year, access is $10/month.
+                    After the first month, access is $30/month.
                   </p>
                 </div>
               </div>
