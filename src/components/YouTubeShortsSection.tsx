@@ -170,11 +170,6 @@ export function YouTubeShortsSection() {
             Watch, Learn &{" "}
             <span className="text-accent">Transform</span>
           </h2>
-          <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            I walk the talk. Join my{" "}
-            <span className="font-bold text-accent">FREE 7-Day Weight Permanence Course</span>{" "}
-            to transform with me.
-          </p>
         </div>
 
         {/* Two-column grid — one card visible per category */}
