@@ -23,13 +23,23 @@ Deno.serve(async (req) => {
       throw new Error('GOOGLE_SHEET_WEBHOOK_URL is not configured');
     }
 
-    const res = await fetch(webhookUrl, {
+    // Google Apps Script redirects POST requests; follow manually
+    let res = await fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ fullName, email, goal: goal || '' }),
+      redirect: 'follow',
     });
 
-    if (!res.ok) {
+    // If we get a redirect, follow it with GET (Google's pattern)
+    if (res.status === 302 || res.status === 301 || res.status === 307) {
+      const redirectUrl = res.headers.get('location');
+      if (redirectUrl) {
+        res = await fetch(redirectUrl, { method: 'GET', redirect: 'follow' });
+      }
+    }
+
+    if (!res.ok && res.status !== 302) {
       const text = await res.text();
       throw new Error(`Google Script error: ${res.status} ${text}`);
     }
