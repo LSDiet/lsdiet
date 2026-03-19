@@ -501,7 +501,7 @@ const faqCategories: FAQCategoryData[] = [
 
 export default function QAPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.1);
-  const { handleDirectCheckout, isLoading: isCheckoutLoading } = useDirectCheckout();
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [searchParams] = useSearchParams();
   const openParam = searchParams.get("open");
 
