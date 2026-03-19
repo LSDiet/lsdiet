@@ -5,7 +5,7 @@ export function CorePrincipleSection() {
       title: "The Psychology Problem",
       text: (
         <>
-          Most diets force you to become a <span className="font-bold text-foreground">different person</span>. When your behaviour misaligns with how you <span className="font-bold text-accent">see yourself</span>, weight loss will always fail.
+          Why do people who want to lose weight and have a goal still fail? Without your <span className="font-bold text-accent">intrinsic push and pull motivation</span>, weight loss will always fail.
         </>
       ),
     },
