@@ -76,6 +76,9 @@ export function HeroSection() {
           </p>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
+            <p className="text-lg md:text-xl font-bold text-foreground leading-snug">
+              Join my <span className="text-accent">FREE</span> 7-Day Weight Permanence Course
+            </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               You'll learn:
             </p>
