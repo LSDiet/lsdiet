@@ -63,7 +63,7 @@ export function HeroSection() {
           </p>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               You'll learn:
             </p>
 
