@@ -182,7 +182,7 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
 
   if (isMobile) {
     return (
-      <Drawer open={open} onOpenChange={submitted ? handleClose : undefined} dismissible={submitted}>
+      <Drawer open={open} onOpenChange={submitted ? handleClose : undefined} dismissible={submitted} repositionInputs={false}>
         <DrawerContent>
           <DrawerHeader className="text-left">
             <DrawerTitle>{submitted ? "You're In!" : "Join the Waitlist"}</DrawerTitle>
