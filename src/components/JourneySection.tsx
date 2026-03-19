@@ -69,7 +69,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
               loading="lazy"
               src={card.beforeImage}
               alt="Before"
-              className="block w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className={`block w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 ${card.id === 1 ? 'scale-[1.03]' : ''}`}
             />
           </div>
           <span className="absolute bottom-2 left-2 text-[10px] font-bold uppercase tracking-wider bg-[hsl(0_0%_6%/0.75)] backdrop-blur-sm text-[hsl(0_0%_96%)] px-2 py-0.5 rounded">
