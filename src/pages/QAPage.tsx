@@ -749,29 +749,28 @@ function FAQCategory({
 
           // Render the CTA based on category type
           const renderCta = () => {
-            if (category.hasBookCta && item.condition) {
+            if (category.hasCourseCta && item.condition) {
               return (
                 <p className="mt-4 pt-3 border-t border-border/50">
                   <span className="text-primary font-medium">Start acting today:</span>{" "}
-                  <Link
-                    to="/#book"
+                  <button
+                    onClick={onJoinWaitlist}
                     className="text-accent hover:underline font-medium"
                   >
-                    Order Weight Permanence
-                  </Link>{" "}
+                    Join the FREE 7-Day Weight Permanence Course
+                  </button>{" "}
                   to reduce your likelihood of {item.condition}.
                 </p>
               );
             }
-            if (category.hasDirectCheckout && onDirectCheckout) {
+            if (category.hasCourseCta && !item.condition) {
               return (
                 <p className="mt-4 pt-3 border-t border-border/50">
                   <button
-                    onClick={onDirectCheckout}
-                    disabled={isCheckoutLoading}
-                    className="text-accent hover:underline font-medium disabled:opacity-50"
+                    onClick={onJoinWaitlist}
+                    className="text-accent hover:underline font-medium"
                   >
-                    {isCheckoutLoading ? "Loading..." : "Learn how to lose weight and keep it off — preorder your copy"}
+                    Join the FREE 7-Day Weight Permanence Course →
                   </button>
                 </p>
               );
