@@ -171,14 +171,9 @@ export function YouTubeShortsSection() {
             <span className="text-accent">Transform</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">
-            Free training videos and real-life meals — everything you need
-            <br />
-            to start losing weight and keep it off for good.
-          </p>
-          <p className="mt-4 tracking-wide">
-            <span className="text-lg md:text-xl font-bold text-foreground">Low-starch. Low-sugar.</span>
-            <br />
-            <span className="text-base font-bold text-accent">Real food. Real results.</span>
+            I walk the talk. Join my{" "}
+            <span className="font-bold text-accent">FREE 7-Day Weight Permanence Course</span>{" "}
+            to transform with me.
           </p>
         </div>
 
