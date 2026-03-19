@@ -4,7 +4,7 @@ export function CorePrincipleSection() {
       keyword: "Psychology",
       text: (
         <>
-          Why do people who want to lose weight and have a goal still fail? Without your intrinsic <span className="font-bold text-accent">push</span> and <span className="font-bold text-accent">pull</span> motivation, weight loss will always fail.
+          Why do people who want to lose weight and have a goal still fail? Without your intrinsic <span className="font-bold text-accent">push</span> and <span className="font-bold text-accent">pull</span> <span className="font-bold text-foreground">motivation</span>, weight loss will always fail.
         </>
       ),
     },
