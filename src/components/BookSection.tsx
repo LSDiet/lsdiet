@@ -42,12 +42,9 @@ export function BookSection() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-6">
               Coming Soon
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-6">
               Weight Permanence
             </h2>
-            <p className="text-[hsl(0_0%_60%)] mb-6 leading-relaxed text-sm">
-              A step-by-step guide to the Weight Permanence Triangle™ Method. Learn how to build a low-starch, low-sugar lifestyle designed to resist weight regain.
-            </p>
 
             <ul className="space-y-3 mb-6">
               {features.map((feature) => (
