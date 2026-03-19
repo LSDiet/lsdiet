@@ -72,7 +72,7 @@ export function HeroSection() {
 
           <p className="text-base md:text-lg leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
             <span className="text-muted-foreground">Now I teach people how to end</span>{" "}
-            <StrikethroughText><span className="animate-pulse-glow">weight cycling</span></StrikethroughText>
+            <XStrikethrough><span className="animate-pulse-glow">weight cycling</span></XStrikethrough>
           </p>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
