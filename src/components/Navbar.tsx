@@ -5,7 +5,6 @@ import { CartDrawer } from "./CartDrawer";
 const navLinks = [
   { label: "Weight Problem", href: "/#journey" },
   { label: "Solution", href: "/#method" },
-  { label: "Course", href: "/#book" },
   { label: "Free Resources", href: "/FreeResources", highlight: true },
   { label: "Q&A", href: "/qa" },
 ];
@@ -33,7 +32,7 @@ export function Navbar() {
               href={link.href}
               className={`text-xs font-semibold uppercase tracking-[0.12em] transition-colors nav-link-hover ${
                 link.highlight
-                  ? "text-accent"
+                  ? "text-accent text-sm animate-bounce-subtle animate-pulse-glow"
                   : "text-[hsl(0_0%_56%)] hover:text-[hsl(0_0%_96%)]"
               }`}
             >
@@ -66,7 +65,7 @@ export function Navbar() {
                 href={link.href}
                 className={`text-sm font-semibold uppercase tracking-[0.1em] py-2.5 transition-colors ${
                   link.highlight
-                    ? "text-accent"
+                    ? "text-accent text-base animate-pulse-glow"
                     : "text-[hsl(0_0%_56%)] hover:text-[hsl(0_0%_96%)]"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
