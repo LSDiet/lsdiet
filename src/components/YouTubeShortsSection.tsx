@@ -7,7 +7,7 @@ const CATEGORIES = [
   {
     label: "Free Weight Loss Training",
     icon: BookOpen,
-    ids: ["o9zbpAGtbTI", "yskJGdXZXpI", "e3P3cBenjnM", "tN6H5UpAM9o", "DMoDkc7E_4c", "UkrflkjxXC0"],
+    ids: ["yskJGdXZXpI", "e3P3cBenjnM", "tN6H5UpAM9o", "DMoDkc7E_4c", "UkrflkjxXC0", "o9zbpAGtbTI"],
   },
   {
     label: "Low-Starch, Low-Sugar Lifestyle",
