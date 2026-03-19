@@ -5,10 +5,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { WaitlistModal } from "@/components/WaitlistModal";
 
 const features = [
-  "The Weight Permanence Triangle™ Implementation",
+  "All courses are videos. No reading is required.",
+  "Get results in 2 weeks and 100% free.",
   "Working with emotion instead of fighting it",
-  "Making low-starch, low-sugar food decisions in any environment",
-  "Replacing short-term weight loss with a permanent approach",
+  "The Weight Permanence Triangle™ Implementation",
 ];
 
 const lessons = [
