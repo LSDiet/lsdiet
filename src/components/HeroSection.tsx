@@ -58,7 +58,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-base md:text-lg leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
-            <span className="text-muted-foreground">Now I help obese people end</span>{" "}
+            <span className="text-muted-foreground">Now I help people end</span>{" "}
             <StrikethroughText><span className="animate-pulse-glow">weight cycling</span></StrikethroughText>
           </p>
 
