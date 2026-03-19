@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Triangle, Menu, X } from "lucide-react";
-import { CartDrawer } from "./CartDrawer";
 
 const navLinks = [
   { label: "Weight Problem", href: "/#journey" },
