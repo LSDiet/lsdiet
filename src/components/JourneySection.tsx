@@ -64,7 +64,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
       {/* Side-by-side images */}
       <div className="grid grid-cols-2 gap-2">
         <div className="relative group">
-          <div className="aspect-[3/4] rounded-lg overflow-hidden">
+          <div className="aspect-[3/4] rounded-lg overflow-hidden bg-black">
             <img
               loading="lazy"
               src={card.beforeImage}
@@ -78,7 +78,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
         </div>
 
         <div className="relative group">
-          <div className="aspect-[3/4] rounded-lg overflow-hidden">
+          <div className="aspect-[3/4] rounded-lg overflow-hidden bg-black">
             <img
               src={card.afterImage}
               alt="After"
