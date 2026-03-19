@@ -699,14 +699,12 @@ export default function QAPage() {
 function FAQCategory({
   category,
   delay,
-  onDirectCheckout,
-  isCheckoutLoading,
+  onJoinWaitlist,
   defaultOpenValue,
 }: {
   category: FAQCategoryData;
   delay: number;
-  onDirectCheckout?: () => void;
-  isCheckoutLoading?: boolean;
+  onJoinWaitlist: () => void;
   defaultOpenValue?: string;
 }) {
   const { ref, isVisible } = useScrollAnimation(0.1);
