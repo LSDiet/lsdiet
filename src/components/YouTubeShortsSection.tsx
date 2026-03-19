@@ -7,7 +7,7 @@ const CATEGORIES = [
   {
     label: "Free Weight Loss Training",
     icon: BookOpen,
-    ids: ["o9zbpAGtbTI", "yskJGdXZXpI", "e3P3cBenjnM", "tN6H5UpAM9o", "DMoDkc7E_4c", "UkrflkjxXC0"],
+    ids: ["yskJGdXZXpI", "e3P3cBenjnM", "tN6H5UpAM9o", "DMoDkc7E_4c", "UkrflkjxXC0", "o9zbpAGtbTI"],
   },
   {
     label: "Low-Starch, Low-Sugar Lifestyle",
@@ -207,7 +207,7 @@ export function YouTubeShortsSection() {
           {selectedVideo && (
             <div className="aspect-[9/16] w-full">
               <iframe
-                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
+                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1&mute=1&playsinline=1`}
                 title="YouTube Short"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
