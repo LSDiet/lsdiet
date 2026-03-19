@@ -2,16 +2,14 @@ export function CorePrincipleSection() {
   const cards = [
     {
       keyword: "Psychology",
-      title: "The Psychology Problem",
       text: (
         <>
-          Why do people who want to lose weight and have a goal still fail? Without your <span className="font-bold text-accent">intrinsic push and pull motivation</span>, weight loss will always fail.
+          Why do people who want to lose weight and have a goal still fail? Without your <span className="font-bold text-foreground">intrinsic push and pull motivation</span>, weight loss will always fail.
         </>
       ),
     },
     {
       keyword: "Biology",
-      title: "The Biology Problem",
       text: (
         <>
           Too many programs force <span className="font-bold text-accent">mechanistic eating</span> by dictating what, when, and how much you eat. But we're all <span className="font-bold text-foreground">biologically different</span>, and one plan can't fit every body.
@@ -20,10 +18,9 @@ export function CorePrincipleSection() {
     },
     {
       keyword: "Environment",
-      title: "The Environment Problem",
       text: (
         <>
-          You skip gatherings and become <span className="font-bold text-foreground">"that person"</span> at dinner. When you <span className="font-bold text-accent">sacrifice more than you gain</span>, you burn out and old habits return.
+          Too often dieters return to their old habits when life gets busy and becomes stressful.
         </>
       ),
     },
