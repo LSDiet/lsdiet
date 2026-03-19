@@ -5,7 +5,6 @@ import { CartDrawer } from "./CartDrawer";
 const navLinks = [
   { label: "Weight Problem", href: "/#journey" },
   { label: "Solution", href: "/#method" },
-  { label: "Course", href: "/#book" },
   { label: "Free Resources", href: "/FreeResources", highlight: true },
   { label: "Q&A", href: "/qa" },
 ];
