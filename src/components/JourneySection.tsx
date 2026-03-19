@@ -66,6 +66,7 @@ function JourneyCard({ card }: { card: JourneyCard }) {
         <div className="relative group">
           <div className="aspect-[3/4] rounded-lg overflow-hidden">
             <img
+              loading="lazy"
               src={card.beforeImage}
               alt="Before"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
