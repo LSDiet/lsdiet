@@ -457,16 +457,15 @@ export default function LSDietGuidePage() {
             </div>
           </section>
 
-          {/* Internal Link to Book */}
+          {/* Internal Link to Course */}
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">
               Want to start using Weight Permanence Triangle™ to lose weight?
             </p>
             <a
-              href="/#method"
+              href="/#book"
               className="inline-flex items-center text-primary hover:underline font-medium">
-
-              Explore the Weight Permanence Book
+              Join the FREE 7-Day Weight Permanence Course
               <ArrowRight className="w-4 h-4 ml-1" />
             </a>
             <div className="mt-6 flex justify-center">

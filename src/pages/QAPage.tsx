@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useDirectCheckout } from "@/hooks/useDirectCheckout";
+import { WaitlistModal } from "@/components/WaitlistModal";
 import {
   Accordion,
   AccordionContent,
@@ -23,15 +23,14 @@ interface FAQQuestion {
 
 interface FAQCategoryData {
   title: string;
-  hasBookCta?: boolean;
-  hasDirectCheckout?: boolean;
+  hasCourseCta?: boolean;
   questions: FAQQuestion[];
 }
 
 const faqCategories: FAQCategoryData[] = [
   {
     title: "Obesity Is Limiting Your Options",
-    hasBookCta: true,
+    hasCourseCta: true,
     questions: [
       {
         question: "Does obesity cause type 2 diabetes?",
@@ -234,7 +233,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Why do most diets stop working over time?",
         answer:
-          "Most diets address food rules and biology but ignore social and environmental factors. The five Awareness stages in the book guide you through all of these. Monthly subscribers gain access to the Awareness Compass™—a proprietary conversational platform that identifies the gap between where you are and where you want to be, establishing clear internal push and pull motivation.",
+          "Most diets address food rules and biology but ignore social and environmental factors. The five Awareness stages in the course guide you through all of these. Monthly subscribers gain access to the Awareness Compass™—a proprietary conversational platform that identifies the gap between where you are and where you want to be, establishing clear internal push and pull motivation.",
       },
       {
         question: "Why does stress cause weight gain even when I eat carefully?",
@@ -379,7 +378,7 @@ const faqCategories: FAQCategoryData[] = [
   },
   {
     title: "The Weight Permanence Triangle™ Method",
-    hasDirectCheckout: true,
+    hasCourseCta: true,
     questions: [
       {
         question: "What is the Weight Permanence Triangle™?",
@@ -442,18 +441,18 @@ const faqCategories: FAQCategoryData[] = [
     ],
   },
   {
-    title: "The Book",
-    hasDirectCheckout: true,
+    title: "The Course",
+    hasCourseCta: true,
     questions: [
       {
-        question: "Is Weight Permanence a diet book?",
+        question: "Is Weight Permanence a diet course?",
         answer:
-          "No. Weight Permanence is not a diet book because it does not prescribe rigid food rules, meal plans, or temporary restrictions. Instead, it teaches a system for making food and lifestyle decisions that hold under real-life conditions, so weight loss becomes sustainable rather than something that collapses once a diet ends.",
+          "No. Weight Permanence is not a diet course because it does not prescribe rigid food rules, meal plans, or temporary restrictions. Instead, it teaches a system for making food and lifestyle decisions that hold under real-life conditions, so weight loss becomes sustainable rather than something that collapses once a diet ends.",
       },
       {
-        question: "Who is the Weight Permanence book for?",
+        question: "Who is the Weight Permanence course for?",
         answer:
-          "While the Weight Permanence method applies to anyone who wants to lose weight, readers aged 35 and up often resonate most because of metabolic changes, accumulated life stress, and repeated experiences of weight regain that make willpower-based approaches less effective.",
+          "While the Weight Permanence method applies to anyone who wants to lose weight, learners aged 35 and up often resonate most because of metabolic changes, accumulated life stress, and repeated experiences of weight regain that make willpower-based approaches less effective.",
       },
       {
         question: "Does Weight Permanence require tracking?",
@@ -473,7 +472,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Is Weight Permanence suitable for busy professionals?",
         answer:
-          "Yes. Weight Permanence was specifically designed for busy professionals. Oscar developed the method, wrote the book, and recorded all low-starch, low-sugar educational videos while working full time as a surgical market data consultant, ensuring the system works under real workload and time constraints.",
+          "Yes. Weight Permanence was specifically designed for busy professionals. Oscar developed the method, created the course, and recorded all low-starch, low-sugar educational videos while working full time as a surgical market data consultant, ensuring the system works under real workload and time constraints.",
       },
       {
         question: "Can Weight Permanence work with family and social life?",
@@ -502,7 +501,7 @@ const faqCategories: FAQCategoryData[] = [
 
 export default function QAPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.1);
-  const { handleDirectCheckout, isLoading: isCheckoutLoading } = useDirectCheckout();
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [searchParams] = useSearchParams();
   const openParam = searchParams.get("open");
 
@@ -564,8 +563,7 @@ export default function QAPage() {
                   key={category.title}
                   category={category}
                   delay={categoryIndex * 100}
-                  onDirectCheckout={category.hasDirectCheckout ? handleDirectCheckout : undefined}
-                  isCheckoutLoading={isCheckoutLoading}
+                  onJoinWaitlist={() => setWaitlistOpen(true)}
                   defaultOpenValue={
                     openParam === "awareness-stages" && category.title === "The Weight Permanence Triangle™ Method"
                       ? "The Weight Permanence Triangle™ Method-6"
@@ -660,14 +658,16 @@ export default function QAPage() {
         {/* CTA Section */}
         <section className="py-10 bg-secondary/30">
           <div className="container max-w-3xl mx-auto px-4 text-center">
-            <Link
-              to="/#book"
+            <button
+              onClick={() => setWaitlistOpen(true)}
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
             >
-              Learn how to lose weight and keep it off — preorder now →
-            </Link>
+              Join the FREE 7-Day Weight Permanence Course →
+            </button>
           </div>
         </section>
+
+        <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
       </main>
 
       <FooterSimple />
@@ -699,14 +699,12 @@ export default function QAPage() {
 function FAQCategory({
   category,
   delay,
-  onDirectCheckout,
-  isCheckoutLoading,
+  onJoinWaitlist,
   defaultOpenValue,
 }: {
   category: FAQCategoryData;
   delay: number;
-  onDirectCheckout?: () => void;
-  isCheckoutLoading?: boolean;
+  onJoinWaitlist: () => void;
   defaultOpenValue?: string;
 }) {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -724,7 +722,7 @@ function FAQCategory({
         {category.questions.map((item, index) => {
           // Bold the condition/disease in the question for the first category
           const renderQuestion = () => {
-            if (category.hasBookCta && item.condition) {
+            if (category.hasCourseCta && item.condition) {
               // Pattern: "Does obesity cause X?" - bold the condition
               const match = item.question.match(/^(Does obesity (?:cause|reduce|shorten|limit|slow down))\s+(.+?)(\??)$/i);
               if (match) {
@@ -749,29 +747,28 @@ function FAQCategory({
 
           // Render the CTA based on category type
           const renderCta = () => {
-            if (category.hasBookCta && item.condition) {
+            if (category.hasCourseCta && item.condition) {
               return (
                 <p className="mt-4 pt-3 border-t border-border/50">
                   <span className="text-primary font-medium">Start acting today:</span>{" "}
-                  <Link
-                    to="/#book"
+                  <button
+                    onClick={onJoinWaitlist}
                     className="text-accent hover:underline font-medium"
                   >
-                    Order Weight Permanence
-                  </Link>{" "}
+                    Join the FREE 7-Day Weight Permanence Course
+                  </button>{" "}
                   to reduce your likelihood of {item.condition}.
                 </p>
               );
             }
-            if (category.hasDirectCheckout && onDirectCheckout) {
+            if (category.hasCourseCta && !item.condition) {
               return (
                 <p className="mt-4 pt-3 border-t border-border/50">
                   <button
-                    onClick={onDirectCheckout}
-                    disabled={isCheckoutLoading}
-                    className="text-accent hover:underline font-medium disabled:opacity-50"
+                    onClick={onJoinWaitlist}
+                    className="text-accent hover:underline font-medium"
                   >
-                    {isCheckoutLoading ? "Loading..." : "Learn how to lose weight and keep it off — preorder your copy"}
+                    Join the FREE 7-Day Weight Permanence Course →
                   </button>
                 </p>
               );
