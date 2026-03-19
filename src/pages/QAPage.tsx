@@ -768,7 +768,7 @@ function FAQCategory({
                     onClick={onJoinWaitlist}
                     className="text-accent hover:underline font-medium"
                   >
-                    Join the FREE 7-Day Weight Permanence Course →
+                    Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day Weight Permanence Course →
                   </button>
                 </p>
               );
