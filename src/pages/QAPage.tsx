@@ -328,7 +328,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "What does a low-starch, low-sugar lifestyle actually mean?",
         answer:
-          "A low-starch, low-sugar lifestyle means prioritizing foods that minimize insulin spikes—primarily proteins, healthy fats, and non-starchy vegetables—to restore your body's access to stored fat and naturally regulate hunger. It's not about eliminating all carbohydrates, but about choosing foods that keep blood sugar stable and allow fat to be used for energy.",
+          "A low-starch, low-sugar lifestyle means prioritising foods that minimise insulin spikes—primarily proteins, healthy fats, and non-starchy vegetables—to restore your body's access to stored fat and naturally regulate hunger. It's not about eliminating all carbohydrates, but about choosing foods that keep blood sugar stable and allow fat to be used for energy.",
       },
       {
         question: "Is low-starch, low-sugar sustainable long term?",
