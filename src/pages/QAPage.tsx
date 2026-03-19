@@ -441,8 +441,8 @@ const faqCategories: FAQCategoryData[] = [
     ],
   },
   {
-    title: "The Book",
-    hasDirectCheckout: true,
+    title: "The Course",
+    hasCourseCta: true,
     questions: [
       {
         question: "Is Weight Permanence a diet book?",
