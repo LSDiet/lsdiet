@@ -53,7 +53,7 @@ export function HeroSection() {
         <div className="order-1 md:order-2 flex flex-col gap-5">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.05] tracking-tight opacity-0 animate-fade-in-up">
             I Lost{" "}
-            <span className="bg-gradient-to-r from-accent via-yellow-300 to-accent bg-clip-text text-transparent">80+ Lbs.</span>{" "}
+            <span className="bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent">80+ Lbs.</span>{" "}
             <span className="text-accent animate-pulse-glow">Three Times.</span>
           </h1>
 
