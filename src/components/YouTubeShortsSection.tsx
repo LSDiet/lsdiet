@@ -12,7 +12,7 @@ const CATEGORIES = [
   {
     label: "Low-Starch, Low-Sugar Lifestyle",
     icon: Utensils,
-    ids: ["EIXfSTyNcpA", "wbEQiQkdDHs", "Fxg65gd33W0"],
+    ids: ["EIXfSTyNcpA", "wbEQiQkdDHs", "Fxg65gd33W0", "c5Yd4Ptqhf4", "4OjR5XyZ94c"],
   },
 ];
 
