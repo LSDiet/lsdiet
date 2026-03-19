@@ -19,7 +19,7 @@ export function CorePrincipleSection() {
       ),
     },
     {
-      keyword: "Environ\u00ADment",
+      keyword: "Environment",
       title: "The Environment Problem",
       text: (
         <>
