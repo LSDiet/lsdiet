@@ -1,9 +1,8 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, ShoppingCart, Loader2, Gift } from "lucide-react";
-import { useCartStore } from "@/stores/cartStore";
-import { useProducts } from "@/hooks/useProducts";
-import { toast } from "sonner";
+import { Check, Gift } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { WaitlistModal } from "@/components/WaitlistModal";
 import bookCover from "@/assets/book-cover.png";
 
 const features = [
@@ -15,35 +14,7 @@ const features = [
 
 export function BookSection() {
   const { ref, isVisible } = useScrollAnimation();
-  const { data: products, isLoading: productsLoading } = useProducts(1);
-  const addItem = useCartStore((state) => state.addItem);
-  const isLoading = useCartStore((state) => state.isLoading);
-
-  const bookProduct = products?.[0];
-  const variant = bookProduct?.node?.variants?.edges?.[0]?.node;
-  const price = variant?.price || bookProduct?.node?.priceRange?.minVariantPrice;
-
-  const handlePreOrder = async () => {
-    if (!bookProduct || !variant) {
-      toast.error("Product not available", {
-        description: "Please check back later or contact support.",
-      });
-      return;
-    }
-
-    await addItem({
-      product: bookProduct,
-      variantId: variant.id,
-      variantTitle: variant.title,
-      price: variant.price,
-      quantity: 1,
-      selectedOptions: variant.selectedOptions || [],
-    });
-
-    toast.success("Added to cart!", {
-      description: "Weight Permanence book has been added to your cart.",
-    });
-  };
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
     <section id="book" className="section-dark py-14 md:py-20">
@@ -69,7 +40,7 @@ export function BookSection() {
           {/* Book info */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-6">
-              Pre-Order Now Available
+              Coming Soon
             </p>
             <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-4">
               Weight Permanence
@@ -98,7 +69,7 @@ export function BookSection() {
                     Early Access Bonus
                   </p>
                   <p className="text-[hsl(0_0%_80%)] text-sm leading-relaxed mb-2">
-                    Pre-order the book and receive 12 months of free access to <span className="font-semibold text-[hsl(0_0%_96%)]">Awareness Compass</span>, a proprietary conversational platform that guides you through the five stages of Awareness.
+                    Join the waitlist and be first to receive 12 months of free access to <span className="font-semibold text-[hsl(0_0%_96%)]">Awareness Compass</span>, a proprietary conversational platform that guides you through the five stages of Awareness.
                   </p>
                   <p className="text-[hsl(0_0%_50%)] text-xs">
                     After the first year, access is $10/month.
@@ -111,19 +82,15 @@ export function BookSection() {
               variant="accent"
               size="lg"
               className="w-full sm:w-auto px-8"
-              onClick={handlePreOrder}
-              disabled={isLoading || productsLoading || !bookProduct}
+              onClick={() => setWaitlistOpen(true)}
             >
-              {isLoading ? (
-                <Loader2 className="w-4 h-4 animate-spin mr-2" />
-              ) : (
-                <ShoppingCart className="w-4 h-4 mr-2" />
-              )}
-              Pre-Order Now – {price ? `${price.currencyCode} ${parseFloat(price.amount).toFixed(2)}` : "CAD 25.00"}
+              Join the Waitlist
             </Button>
           </div>
         </div>
       </div>
+
+      <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </section>
   );
 }
