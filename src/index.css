@@ -150,21 +150,23 @@ All colors MUST be HSL.
 /* X strikethrough animation */
 @keyframes x-stroke-1 {
   0% { stroke-dashoffset: 140; }
-  40% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 0; }
+  20% { stroke-dashoffset: 0; }
+  70% { stroke-dashoffset: 0; }
+  90% { stroke-dashoffset: 140; }
+  100% { stroke-dashoffset: 140; }
 }
 @keyframes x-stroke-2 {
-  0%, 35% { stroke-dashoffset: 140; }
-  75% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 0; }
+  0%, 15% { stroke-dashoffset: 140; }
+  35% { stroke-dashoffset: 0; }
+  70% { stroke-dashoffset: 0; }
+  90% { stroke-dashoffset: -140; }
+  100% { stroke-dashoffset: -140; }
 }
 .animate-x-stroke-1 {
-  animation: x-stroke-1 1.2s ease-out forwards;
-  animation-delay: 0.8s;
+  animation: x-stroke-1 2s ease-in-out infinite;
 }
 .animate-x-stroke-2 {
-  animation: x-stroke-2 1.2s ease-out forwards;
-  animation-delay: 0.8s;
+  animation: x-stroke-2 2s ease-in-out infinite;
 }
 
 /* Navigation link hover underline effect */
