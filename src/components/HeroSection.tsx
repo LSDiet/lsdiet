@@ -12,22 +12,35 @@ const coursePoints = [
   { text: "How to stay on track when life gets hard", bold: "" },
 ];
 
-function StrikethroughText({ children }: { children: React.ReactNode }) {
+function XStrikethrough({ children }: { children: React.ReactNode }) {
   return (
     <span className="relative inline-block">
       <span className="text-muted-foreground">{children}</span>
       <svg
-        className="absolute left-0 top-1/2 w-full h-[0.35em] -translate-y-1/2 pointer-events-none"
-        viewBox="0 0 200 12"
+        className="absolute left-[-4%] top-[10%] w-[108%] h-[80%] pointer-events-none"
+        viewBox="0 0 100 40"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        <path
-          d="M2 8 C 30 2, 60 12, 100 6 S 170 2, 198 7"
-          fill="none"
+        {/* Left-to-right stroke */}
+        <line
+          x1="2" y1="36" x2="98" y2="4"
           stroke="hsl(0 84.2% 60.2%)"
-          strokeWidth="3.5"
+          strokeWidth="3"
           strokeLinecap="round"
+          strokeDasharray="140"
+          strokeDashoffset="140"
+          className="animate-x-stroke-1"
+        />
+        {/* Right-to-left stroke */}
+        <line
+          x1="98" y1="36" x2="2" y2="4"
+          stroke="hsl(0 84.2% 60.2%)"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeDasharray="140"
+          strokeDashoffset="140"
+          className="animate-x-stroke-2"
         />
       </svg>
     </span>
