@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Triangle, Menu, X } from "lucide-react";
-import { CartDrawer } from "./CartDrawer";
 
 const navLinks = [
   { label: "Weight Problem", href: "/#journey" },
@@ -42,7 +41,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <CartDrawer />
 
           {/* Mobile menu button */}
           <button
