@@ -5,11 +5,11 @@ import heroPhoto from "@/assets/hero-photo.png";
 import { WaitlistModal } from "@/components/WaitlistModal";
 
 const coursePoints = [
-  "Why 95% of diets fail — and the one mental shift that changes everything.",
-  "The 3 metabolic rules that let you eat what you love and still lose weight.",
-  "How to lose 6–10 lbs per month without cutting food groups.",
+  "How to lose 6–10 lbs per month.",
+  'A structured way to identify your "WHY" and gain extreme clarity on the PUSH and PULL motivation.',
+  "How to psychologically prioritize weight loss so the right behaviors become automatic.",
+  "Why 33% to 66% of dieters regained more weight than they lost in the long term.",
   "A relapse-proof system built for real life, stress, and social eating.",
-  "The exact framework I used to lose 80+ lbs — three separate times.",
 ];
 
 function StrikethroughText({ children }: { children: React.ReactNode }) {
@@ -52,19 +52,20 @@ export function HeroSection() {
         {/* Text */}
         <div className="order-1 md:order-2 flex flex-col gap-5">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase leading-[1.05] tracking-tight opacity-0 animate-fade-in-up">
-            I Lost 80+ Lbs.{" "}
-            <span className="text-accent">Three Times.</span>
+            I Lost{" "}
+            <span className="bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent">80+ Lbs.</span>{" "}
+            <span className="text-accent animate-pulse-glow">Three Times.</span>
           </h1>
 
           <p className="text-base md:text-lg leading-relaxed max-w-lg opacity-0 animate-fade-in-up animate-delay-100">
             <span className="text-muted-foreground">Now I help obese people end</span>{" "}
-            <StrikethroughText>weight cycling</StrikethroughText>
+            <StrikethroughText><span className="animate-pulse-glow">weight cycling</span></StrikethroughText>
           </p>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
               Join my{" "}
-              <span className="font-bold text-accent">FREE</span>{" "}
+              <span className="font-bold text-accent animate-pulse-glow">FREE</span>{" "}
               7-day Weight Permanence course. You'll discover:
             </p>
 
