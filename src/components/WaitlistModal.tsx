@@ -86,7 +86,7 @@ function WaitlistForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
       <div className="space-y-2">
         <Label htmlFor="wl-goal" className="text-foreground">
-          What's the #1 thing you want from this course?
+          How do you feel this program could possibly help you out the most?
         </Label>
         <Textarea
           id="wl-goal"
