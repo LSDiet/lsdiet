@@ -15,7 +15,7 @@ const awarenessStages = [
   { stage: "Friction Awareness", desc: "Recognizing the gap" },
   { stage: "Pattern Awareness", desc: "Examining the How, Who, What, When, Why" },
   { stage: "Consequence Awareness", desc: "The root of <strong>push motivation</strong>" },
-  { stage: "Autonomy Awareness", desc: "The root of <strong>pull motivation</strong>" },
+  { stage: "Identity Awareness", desc: "The root of <strong>pull motivation</strong>" },
 ];
 
 function AwarenessStagesDialog({
