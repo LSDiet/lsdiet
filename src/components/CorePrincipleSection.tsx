@@ -5,7 +5,7 @@ export function CorePrincipleSection() {
       title: "The Psychology Problem",
       text: (
         <>
-          Most diets force you to become a <span className="font-bold text-foreground">different person</span>. When your behavior misaligns with how you <span className="font-bold text-accent">define yourself</span>, weight loss is destined to fail.
+          Most diets force you to become a <span className="font-bold text-foreground">different person</span>. When your behaviour misaligns with how you <span className="font-bold text-accent">define yourself</span>, weight loss is destined to fail.
         </>
       ),
     },

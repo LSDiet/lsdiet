@@ -300,7 +300,7 @@ export default function LSDietGuidePage() {
               </p>
 
               <h3 className="text-xl font-medium text-foreground mb-3 mt-6">Protein Foods</h3>
-              <p className="text-muted-foreground leading-relaxed">Both diets prioritize beef, pork, lamb, chicken, turkey, duck, fatty fish, shellfish, eggs, and organ meats. LS also allows legumes (lentils, chickpeas, black beans) and soy (tofu, tempeh, edamame) in controlled portions for fibre and gut health.
+              <p className="text-muted-foreground leading-relaxed">Both diets prioritise beef, pork, lamb, chicken, turkey, duck, fatty fish, shellfish, eggs, and organ meats. LS also allows legumes (lentils, chickpeas, black beans) and soy (tofu, tempeh, edamame) in controlled portions for fibre and gut health.
 
 
 
