@@ -658,14 +658,16 @@ export default function QAPage() {
         {/* CTA Section */}
         <section className="py-10 bg-secondary/30">
           <div className="container max-w-3xl mx-auto px-4 text-center">
-            <Link
-              to="/#book"
+            <button
+              onClick={() => setWaitlistOpen(true)}
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
             >
-              Learn how to lose weight and keep it off — preorder now →
-            </Link>
+              Join the FREE 7-Day Weight Permanence Course →
+            </button>
           </div>
         </section>
+
+        <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
       </main>
 
       <FooterSimple />
