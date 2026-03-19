@@ -233,7 +233,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Why do most diets stop working over time?",
         answer:
-          "Most diets address food rules and biology but ignore social and environmental factors. The five Awareness stages in the book guide you through all of these. Monthly subscribers gain access to the Awareness Compass™—a proprietary conversational platform that identifies the gap between where you are and where you want to be, establishing clear internal push and pull motivation.",
+          "Most diets address food rules and biology but ignore social and environmental factors. The five Awareness stages in the course guide you through all of these. Monthly subscribers gain access to the Awareness Compass™—a proprietary conversational platform that identifies the gap between where you are and where you want to be, establishing clear internal push and pull motivation.",
       },
       {
         question: "Why does stress cause weight gain even when I eat carefully?",
