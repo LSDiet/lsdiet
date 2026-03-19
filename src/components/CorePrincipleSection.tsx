@@ -1,31 +1,31 @@
 export function CorePrincipleSection() {
   const cards = [
     {
-      keyword: "Motivation",
-      title: "The Motivation Problem",
-      lines: [
-        <>People say they lack <span className="font-bold text-foreground">motivation</span>.</>,
-        <>What they really lack is <span className="font-bold text-accent">clarity</span>.</>,
-      ],
-      takeaway: <>Without clarity, eating what feels good always beats eating what is <span className="font-semibold text-foreground">right</span>.</>,
+      keyword: "Psychology",
+      title: "The Psychology Problem",
+      text: (
+        <>
+          Most diets force you to become a <span className="font-bold text-foreground">different person</span>. When your behavior misaligns with how you <span className="font-bold text-accent">define yourself</span>, weight loss is destined to fail.
+        </>
+      ),
     },
     {
-      keyword: "Daily Choice",
-      title: "The Daily Choice Problem",
-      lines: [
-        <>Weight loss is defined by <span className="font-bold text-accent">what</span>, <span className="font-bold text-accent">how</span>, and <span className="font-bold text-accent">when</span> you eat.</>,
-        <>Most people try a diet briefly, then drift back to <span className="font-bold text-foreground">familiar foods</span>.</>,
-      ],
-      takeaway: <>Making the right <span className="font-semibold text-foreground">moment-to-moment food choices</span> matter.</>,
+      keyword: "Biology",
+      title: "The Biology Problem",
+      text: (
+        <>
+          Too many programs force <span className="font-bold text-accent">mechanistic eating</span> — setting what, when, and how much you eat. But we're all <span className="font-bold text-foreground">biologically different</span>. Without a diet suited to your body, it's not sustainable.
+        </>
+      ),
     },
     {
-      keyword: "Old Habit",
-      title: "The Old Habit Problem",
-      lines: [
-        <>When <span className="font-bold text-foreground">stress, travel, or social pressure</span> hits, routines break.</>,
-        <><span className="font-bold text-accent">Old habits return.</span> The weight slowly comes back.</>,
-      ],
-      takeaway: <>When stress hits, actions drift from goals. A <span className="font-semibold text-foreground">system</span> realigns them.</>,
+      keyword: "Environment",
+      title: "The Environment Problem",
+      text: (
+        <>
+          You skip gatherings, become <span className="font-bold text-foreground">"that person"</span> at dinner. When you <span className="font-bold text-accent">sacrifice more than you gain</span> without pleasure, you burn out — and old habits return.
+        </>
+      ),
     },
   ];
 
@@ -47,29 +47,17 @@ export function CorePrincipleSection() {
             {cards.map((card) => (
               <div
                 key={card.title}
-                className="bg-[hsl(0_0%_10%)] rounded-xl border border-[hsl(0_0%_18%)] flex flex-col text-center"
+                className="bg-[hsl(0_0%_10%)] rounded-xl border border-[hsl(0_0%_18%)] p-6 md:p-8 flex flex-col text-center justify-center gap-3"
               >
-                {/* Top content */}
-                <div className="p-6 md:p-8 flex-1 flex flex-col justify-center gap-3">
-                  <p className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-foreground mb-1">
-                    {card.keyword}
-                  </p>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mb-2">
-                    {card.title}
-                  </p>
-                  {card.lines.map((line, i) => (
-                    <p key={i} className="text-sm text-[hsl(0_0%_70%)] leading-relaxed">
-                      {line}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Takeaway strip */}
-                <div className="bg-[hsl(0_0%_14%)] rounded-b-xl px-6 py-4">
-                  <p className="text-xs text-[hsl(0_0%_75%)] leading-relaxed">
-                    {card.takeaway}
-                  </p>
-                </div>
+                <p className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-foreground mb-1">
+                  {card.keyword}
+                </p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mb-2">
+                  {card.title}
+                </p>
+                <p className="text-sm text-[hsl(0_0%_70%)] leading-relaxed">
+                  {card.text}
+                </p>
               </div>
             ))}
           </div>
