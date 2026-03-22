@@ -91,7 +91,7 @@ export function HeroSection() {
                   className="flex items-start gap-2 text-sm md:text-base text-muted-foreground leading-snug"
                 >
                   <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>{point.text}{point.bold && <span className="font-bold text-foreground">{point.bold}</span>}</span>
+                  <span>{point.text}{point.bold && <span className="font-bold text-accent">{point.bold}</span>}{point.suffix && <span>{point.suffix}</span>}</span>
                 </li>
               ))}
             </ul>
