@@ -8,8 +8,9 @@ const coursePoints = [
   { text: "How to lose 6–10 lbs per month ", bold: "consistently" },
   { text: "How to find ", bold: "PUSH and PULL motivation" },
   { text: "How to make weight loss decisions ", bold: "automatic" },
-  { text: "Why most people regain the weight", bold: "" },
-  { text: "How to stay on track when life gets hard", bold: "" },
+  { text: "", bold: "Week 1:", suffix: " Weight stops climbing" },
+  { text: "", bold: "Week 2:", suffix: " Weight loss begins" },
+  { text: "No workouts required", bold: "" },
 ];
 
 function XStrikethrough({ children }: { children: React.ReactNode }) {
@@ -90,7 +91,7 @@ export function HeroSection() {
                   className="flex items-start gap-2 text-sm md:text-base text-muted-foreground leading-snug"
                 >
                   <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>{point.text}{point.bold && <span className="font-bold text-foreground">{point.bold}</span>}</span>
+                  <span>{point.text}{point.bold && <span className="font-bold text-accent">{point.bold}</span>}{point.suffix && <span>{point.suffix}</span>}</span>
                 </li>
               ))}
             </ul>
