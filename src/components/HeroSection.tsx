@@ -9,9 +9,6 @@ const coursePoints = [
   { text: "How to lose 6–10 lbs per month ", bold: "consistently" },
   { text: "How to find ", bold: "PUSH and PULL motivation" },
   { text: "How to make weight loss decisions ", bold: "automatic" },
-  { text: "Attend a weekly live webinar hosted by ", bold: "Oscar" },
-  { text: "", bold: "Week 1:", suffix: " Weight stops climbing" },
-  { text: "", bold: "Week 2:", suffix: " Weight loss begins (repeat Week 1 activities)" },
   { text: "No workouts required", bold: "" },
 ];
 
@@ -93,7 +90,7 @@ export function HeroSection() {
                   className="flex items-start gap-2 text-sm md:text-base text-muted-foreground leading-snug"
                 >
                   <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                  <span>{point.text}{point.bold && <span className="font-bold text-accent">{point.bold}</span>}{point.suffix && <span>{point.suffix}</span>}</span>
+                  <span>{point.text}{point.bold && <span className="font-bold text-accent">{point.bold}</span>}</span>
                 </li>
               ))}
             </ul>
