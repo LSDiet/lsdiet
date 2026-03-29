@@ -28,7 +28,7 @@ function FlipUnit({ value, label }: { value: number; label: string }) {
           </div>
           {/* Bottom half */}
           <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-accent/15 to-accent/20 rounded-b-lg border border-t-0 border-accent/30 overflow-hidden">
-            <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl sm:text-3xl md:text-4xl font-black text-accent tabular-nums">
+            <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-lg sm:text-xl md:text-2xl font-black text-accent tabular-nums">
               {display}
             </span>
           </div>
