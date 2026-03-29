@@ -9,6 +9,8 @@ const features = [
   "Get results in 2 weeks and 100% free.",
   "Working with emotion instead of fighting it",
   "The Weight Permanence Triangle™ Implementation",
+  "Week 1: Weight stops climbing — Week 2: Weight loss begins",
+  "Attend a weekly live webinar hosted by Oscar",
 ];
 
 const lessons = [
