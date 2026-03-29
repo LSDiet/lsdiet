@@ -99,7 +99,8 @@ export function HeroSection() {
             </ul>
           </div>
 
-          <div className="opacity-0 animate-fade-in-up animate-delay-300">
+          <div className="opacity-0 animate-fade-in-up animate-delay-300 space-y-4">
+            <CountdownClock />
             <Button
               variant="accent"
               size="lg"

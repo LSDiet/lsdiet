@@ -8,6 +8,7 @@ import { BookSection } from "@/components/BookSection";
 import { ContactSection } from "@/components/ContactSection";
 import { AboutAuthorSection } from "@/components/AboutAuthorSection";
 import { FooterSimple } from "@/components/FooterSimple";
+import { StickyCountdown } from "@/components/StickyCountdown";
 
 const Index = () => {
   return (
