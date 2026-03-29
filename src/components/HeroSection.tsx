@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import heroPhoto from "@/assets/hero-photo.png";
 import { WaitlistModal } from "@/components/WaitlistModal";
+import { CountdownClock } from "@/components/CountdownClock";
 
 const coursePoints = [
   { text: "How to lose 6–10 lbs per month ", bold: "consistently" },
