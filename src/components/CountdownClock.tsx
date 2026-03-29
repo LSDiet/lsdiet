@@ -70,11 +70,11 @@ export function CountdownClock({ compact = false }: { compact?: boolean }) {
   return (
     <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
       <FlipUnit value={time.days} label="Days" />
-      <span className="text-2xl md:text-3xl font-bold text-accent/50 self-start mt-4 md:mt-5">:</span>
+      <span className="text-xl md:text-2xl font-bold text-accent/50 self-start mt-3 md:mt-4">:</span>
       <FlipUnit value={time.hours} label="Hours" />
-      <span className="text-2xl md:text-3xl font-bold text-accent/50 self-start mt-4 md:mt-5">:</span>
+      <span className="text-xl md:text-2xl font-bold text-accent/50 self-start mt-3 md:mt-4">:</span>
       <FlipUnit value={time.minutes} label="Min" />
-      <span className="text-2xl md:text-3xl font-bold text-accent/50 self-start mt-4 md:mt-5">:</span>
+      <span className="text-xl md:text-2xl font-bold text-accent/50 self-start mt-3 md:mt-4">:</span>
       <FlipUnit value={time.seconds} label="Sec" />
     </div>
   );
