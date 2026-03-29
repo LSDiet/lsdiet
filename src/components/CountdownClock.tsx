@@ -19,7 +19,7 @@ function FlipUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center gap-1">
       <div className="relative" style={{ perspective: "200px" }}>
-        <div className="relative w-14 h-16 sm:w-18 sm:h-20 md:w-20 md:h-24">
+        <div className="relative w-10 h-12 sm:w-12 sm:h-14 md:w-14 md:h-16">
           {/* Top half */}
           <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-accent/30 to-accent/20 rounded-t-lg border border-b-0 border-accent/30 overflow-hidden z-10">
             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 text-2xl sm:text-3xl md:text-4xl font-black text-accent tabular-nums">
