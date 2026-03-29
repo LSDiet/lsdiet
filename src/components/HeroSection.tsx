@@ -3,13 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import heroPhoto from "@/assets/hero-photo.png";
 import { WaitlistModal } from "@/components/WaitlistModal";
+import { CountdownClock } from "@/components/CountdownClock";
 
 const coursePoints = [
   { text: "How to lose 6–10 lbs per month ", bold: "consistently" },
   { text: "How to find ", bold: "PUSH and PULL motivation" },
   { text: "How to make weight loss decisions ", bold: "automatic" },
+  { text: "Attend a weekly live webinar hosted by ", bold: "Oscar" },
   { text: "", bold: "Week 1:", suffix: " Weight stops climbing" },
-  { text: "", bold: "Week 2:", suffix: " Weight loss begins" },
+  { text: "", bold: "Week 2:", suffix: " Weight loss begins (repeat Week 1 activities)" },
   { text: "No workouts required", bold: "" },
 ];
 
@@ -78,7 +80,7 @@ export function HeroSection() {
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
             <p className="text-lg md:text-xl font-bold text-foreground leading-snug">
-              Join my <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day Weight Permanence Course
+              My <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day Weight Permanence Course launches <span className="text-accent font-extrabold">April 30</span>
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               You'll learn:
@@ -97,7 +99,8 @@ export function HeroSection() {
             </ul>
           </div>
 
-          <div className="opacity-0 animate-fade-in-up animate-delay-300">
+          <div className="opacity-0 animate-fade-in-up animate-delay-300 space-y-4">
+            <CountdownClock />
             <Button
               variant="accent"
               size="lg"
