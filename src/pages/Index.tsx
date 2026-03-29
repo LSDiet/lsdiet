@@ -23,6 +23,7 @@ const Index = () => {
       <ContactSection />
       <AboutAuthorSection />
       <FooterSimple />
+      <StickyCountdown />
     </div>
   );
 };
