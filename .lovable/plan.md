@@ -1,65 +1,34 @@
 
 
-## Plan: Cinematic Intro Reorder + Flanking Before/After Photos
+## Plan: Fix Intro Grid + Add Dedicated Gallery + Remove Section Backgrounds
 
-### Part 1 — Cinematic Intro photo grid reorder + brighter photos
+### 1. Remove section background photos
+Strip `SectionPhotoFrame` wrapper from `CorePrincipleSection`, `MethodSection`, and `BookSection`. Delete `SectionPhotoFrame.tsx`.
 
-**Current**: 6 photos in a flat 3x2 grid (left-to-right), all at 35% opacity with year labels in photo corners.
+### 2. Fix Cinematic Intro grid — photo swaps and corrections
 
-**New layout**: 3 columns, 2 rows. Top row = 3 "fat" photos (300 lbs), bottom row = 3 "skinny" photos (220 lbs), paired vertically:
+Current mapping is wrong. Corrected:
 
-```text
-  Col 1              Col 2              Col 3
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│ Blue shirt   │ │ White sweater│ │ Sushi/naked  │
-│ (300 lbs)    │ │ (300 lbs)    │ │ (300 lbs)    │
-├──── 2019 ────┤ ├──── 2022 ────┤ ├──── 2024 ────┤
-│ Graduation   │ │ Wine photo   │ │ After attempt│
-│ (220 lbs)    │ │ (220 lbs)    │ │ (220 lbs)    │
-└──────────────┘ └──────────────┘ └──────────────┘
-```
+| Column | Top (fat) | Bottom (skinny) |
+|--------|-----------|-----------------|
+| Left | Blue shirt (`201908`) — 300 lbs | Sushi (`202012`) — 200 lbs |
+| Middle | White sweater (`202204`) — 280 lbs | Wine bottle (`202311`) — 190 lbs |
+| Right | Naked/eating (`202405`) — 300 lbs | Graduation/suit (`201710`) — 220 lbs |
 
-- Year label sits **between** each top/bottom pair (centered divider text), not in corners
-- Photo opacity increased from 35% to ~60-65% so people can clearly see the images
-- Gradient overlay lightened accordingly so text remains readable but photos are visible
-- Overlay text ("Lost 80+ Lbs. Three Times.") stays centered on top
+Also fix: graduation/suit photo uses `object-center` (not `object-[center_15%]`) to center the subject instead of leaning right. Update weight labels to match (280, 190, 200).
 
-**File**: `src/components/CinematicIntro.tsx`
+### 3. Add Dedicated Gallery section
 
----
+New component `src/components/TransformationGallery.tsx` placed in `Index.tsx` between `YouTubeShortsSection` and `CorePrincipleSection`.
 
-### Part 2 — Flanking before/after photos on 3 sections
+Layout: 3 cards in a responsive grid (`grid-cols-1 md:grid-cols-3`). Each card shows a side-by-side before/after photo pair with weight labels and a year badge at the bottom. Rounded corners, dark card background, matching the site's design tokens.
 
-Add a before photo (left) and after photo (right) flanking the content of these sections:
-
-1. **"Why Weight Loss Fails"** (CorePrincipleSection) — Pair 1: blue shirt (300 lbs) left, graduation (220 lbs) right
-2. **"The WPT Solution"** (MethodSection) — Pair 2: white sweater (300 lbs) left, wine photo (220 lbs) right  
-3. **"Coming Soon"** (BookSection) — Pair 3: sushi (300 lbs) left, naked/after (220 lbs) right
-
-Each section gets:
-- A tall photo strip (~120-140px wide) on the left showing "BEFORE" with weight label
-- A tall photo strip on the right showing "AFTER" with weight label
-- Section content centered between them
-- On mobile (below `md`), photos stack above the content as a small side-by-side pair to avoid cramped layout
-
-**Files**: `src/components/CorePrincipleSection.tsx`, `src/components/MethodSection.tsx`, `src/components/BookSection.tsx`
-
----
-
-### Part 3 — Branding cleanup in BookSection
-
-Update remaining "Weight Permanence" references in the BookSection and MethodSection to "LS Diet":
-- Browser mockup URL: "weightpermanence.com" → "oscarpoon.com"
-- Course title: "Weight Permanence" → "LS Diet"
-- "The WPT Solution" → "The LS Diet Solution" (or keep as-is if you prefer)
-
-**Files**: `src/components/BookSection.tsx`, `src/components/MethodSection.tsx`
-
----
-
-### Summary of files changed
-1. `src/components/CinematicIntro.tsx` — reorder grid, brighten photos, move year labels between pairs
-2. `src/components/CorePrincipleSection.tsx` — add flanking before/after photos
-3. `src/components/MethodSection.tsx` — add flanking before/after photos + brand update
-4. `src/components/BookSection.tsx` — add flanking before/after photos + brand update
+### Files changed
+1. **Delete**: `src/components/SectionPhotoFrame.tsx`
+2. **Edit**: `src/components/CorePrincipleSection.tsx` — remove SectionPhotoFrame
+3. **Edit**: `src/components/MethodSection.tsx` — remove SectionPhotoFrame
+4. **Edit**: `src/components/BookSection.tsx` — remove SectionPhotoFrame
+5. **Edit**: `src/components/CinematicIntro.tsx` — fix photo order, labels, and suit centering
+6. **New**: `src/components/TransformationGallery.tsx` — dedicated 3-card gallery
+7. **Edit**: `src/pages/Index.tsx` — add TransformationGallery
 
