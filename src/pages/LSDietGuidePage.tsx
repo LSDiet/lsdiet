@@ -72,12 +72,12 @@ const articleSchema = {
   author: {
     '@type': 'Person',
     name: 'Oscar Poon',
-    url: 'https://wpt-preorder.lovable.app'
+    url: 'https://oscarpoon.com'
   },
   publisher: {
     '@type': 'Organization',
     name: 'Weight Permanence',
-    url: 'https://wpt-preorder.lovable.app'
+    url: 'https://oscarpoon.com'
   },
   datePublished: '2025-03-02',
   dateModified: '2025-03-02'
@@ -123,7 +123,7 @@ export default function LSDietGuidePage() {
           name="description"
           content="Learn why reducing starch and sugar lowers insulin, how it compares to no-carb diets, and how to adopt a sustainable LS lifestyle for lasting fat loss. Free downloadable guide." />
 
-        <link rel="canonical" href="https://wpt-preorder.lovable.app/ls-diet-guide" />
+        <link rel="canonical" href="https://oscarpoon.com/ls-diet-guide" />
         <meta name="author" content="Oscar Poon" />
 
         {/* Open Graph */}
@@ -133,7 +133,7 @@ export default function LSDietGuidePage() {
           content="Why reducing starch and sugar lowers insulin and unlocks fat burning. Free guide comparing No Carb vs. LS diets." />
 
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://wpt-preorder.lovable.app/ls-diet-guide" />
+        <meta property="og:url" content="https://oscarpoon.com/ls-diet-guide" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
