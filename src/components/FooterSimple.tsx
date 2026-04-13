@@ -13,7 +13,7 @@ export function FooterSimple() {
                 <Triangle className="w-3 h-3 text-accent fill-accent" />
               </div>
               <span className="text-sm font-bold uppercase tracking-[0.1em] text-[hsl(0_0%_80%)]">
-                Weight Permanence
+                LS Diet
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-[hsl(0_0%_44%)]">

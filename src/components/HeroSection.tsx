@@ -77,7 +77,7 @@ export function HeroSection() {
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
             <p className="text-lg md:text-xl font-bold text-foreground leading-snug">
-              My <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day Weight Permanence Course launches <span className="text-accent font-extrabold">April 30</span>
+              My <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day LS Diet Course launches <span className="text-accent font-extrabold">April 30</span>
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               You'll learn:
