@@ -1,40 +1,65 @@
 
 
-## Revamp: Cinematic Scroll + LS Diet Branding
+## Plan: Cinematic Intro Reorder + Flanking Before/After Photos
 
-### 1. Brand update: "Weight Permanence" to "LS Diet"
+### Part 1 — Cinematic Intro photo grid reorder + brighter photos
 
-**Navbar**: Change logo text from "Weight Permanence" to "LS Diet". Add tagline "Stop Restarting Weight Loss" as a smaller subtitle below or beside it.
+**Current**: 6 photos in a flat 3x2 grid (left-to-right), all at 35% opacity with year labels in photo corners.
 
-**Hero section**: Replace "7-Day Weight Permanence Course" with "7-Day LS Diet Course". Update the subtitle line to incorporate "Stop Restarting Weight Loss".
+**New layout**: 3 columns, 2 rows. Top row = 3 "fat" photos (300 lbs), bottom row = 3 "skinny" photos (220 lbs), paired vertically:
 
-**Footer**: Update brand name from "Weight Permanence" to "LS Diet".
+```text
+  Col 1              Col 2              Col 3
+┌──────────────┐ ┌──────────────┐ ┌──────────────┐
+│ Blue shirt   │ │ White sweater│ │ Sushi/naked  │
+│ (300 lbs)    │ │ (300 lbs)    │ │ (300 lbs)    │
+├──── 2019 ────┤ ├──── 2022 ────┤ ├──── 2024 ────┤
+│ Graduation   │ │ Wine photo   │ │ After attempt│
+│ (220 lbs)    │ │ (220 lbs)    │ │ (220 lbs)    │
+└──────────────┘ └──────────────┘ └──────────────┘
+```
 
-### 2. Cinematic scroll-reveal above the hero
+- Year label sits **between** each top/bottom pair (centered divider text), not in corners
+- Photo opacity increased from 35% to ~60-65% so people can clearly see the images
+- Gradient overlay lightened accordingly so text remains readable but photos are visible
+- Overlay text ("Lost 80+ Lbs. Three Times.") stays centered on top
 
-Create a new full-viewport intro section that loads BEFORE the current hero. This section uses the 6 journey photos as a faded background collage grid, with bold text overlaid in the center.
+**File**: `src/components/CinematicIntro.tsx`
 
-**Structure (new `CinematicIntro` component)**:
-- Full-height (`100dvh`) dark section
-- Background: 3-column, 2-row grid of the 6 journey photos at reduced opacity (~30-40%), with a gradient overlay fading to black at the bottom
-- Weight labels on each photo (300 lbs, 220 lbs, etc.)
-- Centered overlay text:
-  - Small accent badge: "The Weight Yo-Yo"
-  - Large headline: "Lost 80+ Lbs." / "Three Times."
-  - Subtext: "Every time, he gained it all back." / "Until he figured out why."
-  - Animated bouncing down-arrow to prompt scrolling
-- Photos are large and impactful -- the grid spans the full viewport so each image is substantial
+---
 
-**Page flow becomes**: Navbar -> CinematicIntro (full screen, visual shock) -> HeroSection (CTA + course details) -> rest of page
+### Part 2 — Flanking before/after photos on 3 sections
 
-### 3. Remove duplicate Journey section
+Add a before photo (left) and after photo (right) flanking the content of these sections:
 
-Since the journey photos now live in the cinematic intro, the existing `JourneySection` becomes redundant. Remove it from `Index.tsx` to avoid repetition. The journey narrative labels (Stress Eating, Ultra Processed Food, Unsustainable Method) will be preserved in the new intro section.
+1. **"Why Weight Loss Fails"** (CorePrincipleSection) — Pair 1: blue shirt (300 lbs) left, graduation (220 lbs) right
+2. **"The WPT Solution"** (MethodSection) — Pair 2: white sweater (300 lbs) left, wine photo (220 lbs) right  
+3. **"Coming Soon"** (BookSection) — Pair 3: sushi (300 lbs) left, naked/after (220 lbs) right
 
-### Files changed
-1. **New**: `src/components/CinematicIntro.tsx` -- full-screen photo collage with overlay text and scroll prompt
-2. **Edit**: `src/pages/Index.tsx` -- add CinematicIntro before HeroSection, remove JourneySection
-3. **Edit**: `src/components/Navbar.tsx` -- "Weight Permanence" -> "LS Diet"
-4. **Edit**: `src/components/HeroSection.tsx` -- update course name copy
-5. **Edit**: `src/components/FooterSimple.tsx` -- update brand name
+Each section gets:
+- A tall photo strip (~120-140px wide) on the left showing "BEFORE" with weight label
+- A tall photo strip on the right showing "AFTER" with weight label
+- Section content centered between them
+- On mobile (below `md`), photos stack above the content as a small side-by-side pair to avoid cramped layout
+
+**Files**: `src/components/CorePrincipleSection.tsx`, `src/components/MethodSection.tsx`, `src/components/BookSection.tsx`
+
+---
+
+### Part 3 — Branding cleanup in BookSection
+
+Update remaining "Weight Permanence" references in the BookSection and MethodSection to "LS Diet":
+- Browser mockup URL: "weightpermanence.com" → "oscarpoon.com"
+- Course title: "Weight Permanence" → "LS Diet"
+- "The WPT Solution" → "The LS Diet Solution" (or keep as-is if you prefer)
+
+**Files**: `src/components/BookSection.tsx`, `src/components/MethodSection.tsx`
+
+---
+
+### Summary of files changed
+1. `src/components/CinematicIntro.tsx` — reorder grid, brighten photos, move year labels between pairs
+2. `src/components/CorePrincipleSection.tsx` — add flanking before/after photos
+3. `src/components/MethodSection.tsx` — add flanking before/after photos + brand update
+4. `src/components/BookSection.tsx` — add flanking before/after photos + brand update
 
