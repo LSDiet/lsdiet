@@ -3,9 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Check, Gift, Play, Brain, Target, Shield } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { WaitlistModal } from "@/components/WaitlistModal";
-import { SectionPhotoFrame } from "@/components/SectionPhotoFrame";
-import img202405 from "@/assets/journey/202405-regain2.jpg";
-import img202012 from "@/assets/journey/202012-after-attempt1.jpg";
 
 const features = [
   "All courses are videos. No reading is required.",
@@ -33,7 +30,7 @@ export function BookSection() {
   return (
     <section id="book" className="section-dark py-14 md:py-20">
       <div className="container">
-        <SectionPhotoFrame beforeSrc={img202405} afterSrc={img202012}>
+        <div>
           <div
             ref={ref}
             className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto transition-all duration-700 ${
@@ -146,7 +143,7 @@ export function BookSection() {
               </Button>
             </div>
           </div>
-        </SectionPhotoFrame>
+        </div>
       </div>
 
       <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
