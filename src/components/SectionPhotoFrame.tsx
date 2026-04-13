@@ -1,15 +1,11 @@
-/**
- * Reusable flanking before/after photo strips for content sections.
- * Wraps children with a BEFORE photo on the left and AFTER photo on the right.
- * On mobile, shows the photo pair above the content instead.
- */
+import type { ReactNode } from "react";
 
 interface SectionPhotoFrameProps {
   beforeSrc: string;
   afterSrc: string;
   beforeLabel?: string;
   afterLabel?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export function SectionPhotoFrame({
@@ -20,50 +16,40 @@ export function SectionPhotoFrame({
   children,
 }: SectionPhotoFrameProps) {
   return (
-    <>
-      {/* Mobile: side-by-side pair above content */}
-      <div className="md:hidden flex gap-3 justify-center mb-8 px-4">
-        <div className="relative w-36 h-48 rounded-xl overflow-hidden border border-[hsl(0_0%_18%)]">
-          <img src={beforeSrc} alt="Before" className="w-full h-full object-cover object-[center_15%]" />
-          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent py-2 text-center">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-accent/80">Before</span>
-            <span className="block text-xs font-extrabold text-white/80">{beforeLabel}</span>
-          </div>
+    <div className="relative isolate overflow-hidden rounded-[2rem] border border-border/40 shadow-2xl">
+      <div className="absolute inset-0 grid grid-cols-2">
+        <div className="relative">
+          <img
+            src={beforeSrc}
+            alt="Oscar before his transformation"
+            loading="lazy"
+            className="h-full w-full object-cover object-[center_15%] scale-[1.05]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/15 via-background/70 to-background" />
         </div>
-        <div className="relative w-36 h-48 rounded-xl overflow-hidden border border-[hsl(0_0%_18%)]">
-          <img src={afterSrc} alt="After" className="w-full h-full object-cover object-[center_15%]" />
-          <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/70 to-transparent py-2 text-center">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-primary/80">After</span>
-            <span className="block text-xs font-extrabold text-white/80">{afterLabel}</span>
-          </div>
+
+        <div className="relative">
+          <img
+            src={afterSrc}
+            alt="Oscar after his transformation"
+            loading="lazy"
+            className="h-full w-full object-cover object-[center_15%] scale-[1.05]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-background/15 via-background/70 to-background" />
         </div>
       </div>
 
-      {/* Desktop: flanking layout */}
-      <div className="hidden md:grid md:grid-cols-[140px_1fr_140px] gap-6 items-stretch">
-        {/* Before strip */}
-        <div className="relative rounded-xl overflow-hidden border border-[hsl(0_0%_18%)]">
-          <img src={beforeSrc} alt="Before" className="w-full h-full object-cover object-[center_15%]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          <div className="absolute bottom-3 inset-x-0 text-center">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-accent/80">Before</span>
-            <span className="block text-sm font-extrabold text-white/80">{beforeLabel}</span>
-          </div>
-        </div>
+      <div className="absolute inset-0 bg-background/20" />
+      <div className="absolute inset-y-0 left-1/2 w-px bg-border/40" />
 
-        {/* Section content */}
-        <div>{children}</div>
-
-        {/* After strip */}
-        <div className="relative rounded-xl overflow-hidden border border-[hsl(0_0%_18%)]">
-          <img src={afterSrc} alt="After" className="w-full h-full object-cover object-[center_15%]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          <div className="absolute bottom-3 inset-x-0 text-center">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-primary/80">After</span>
-            <span className="block text-sm font-extrabold text-white/80">{afterLabel}</span>
-          </div>
-        </div>
+      <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-full border border-border/50 bg-background/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-accent backdrop-blur-sm md:left-6 md:top-6">
+        Before · {beforeLabel}
       </div>
-    </>
+      <div className="pointer-events-none absolute right-4 top-4 z-10 rounded-full border border-border/50 bg-background/60 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary backdrop-blur-sm md:right-6 md:top-6">
+        After · {afterLabel}
+      </div>
+
+      <div className="relative z-10 px-5 py-14 md:px-10 md:py-16">{children}</div>
+    </div>
   );
 }
