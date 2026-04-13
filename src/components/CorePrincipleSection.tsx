@@ -1,3 +1,6 @@
+import { SectionPhotoFrame } from "@/components/SectionPhotoFrame";
+import img201908 from "@/assets/journey/201908-after-stress.jpg";
+import img201710 from "@/assets/journey/201710-graduation.jpg";
 
 const cards = [
   {
@@ -30,33 +33,32 @@ export function CorePrincipleSection() {
   return (
     <section className="section-dark py-14 md:py-20">
       <div className="container">
+        <SectionPhotoFrame beforeSrc={img201908} afterSrc={img201710}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
                 Why Weight Loss Fails
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
-                3 Problems Most Diets{" "}
-                <span className="text-accent">Ignore</span>
+                3 Problems Most Diets <span className="text-accent">Ignore</span>
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid gap-6 md:grid-cols-3">
               {cards.map((card) => (
                 <div
                   key={card.keyword}
-                  className="bg-[hsl(0_0%_10%)] rounded-xl border border-[hsl(0_0%_18%)] p-6 md:p-8 flex flex-col text-center items-center gap-3"
+                  className="flex flex-col items-center gap-3 rounded-xl border border-border/50 bg-background/70 p-6 text-center backdrop-blur-sm md:p-8"
                 >
-                  <p className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-foreground">
+                  <p className="text-2xl font-extrabold uppercase tracking-tight text-foreground md:text-3xl">
                     {card.keyword}
                   </p>
-                  <p className="text-sm text-[hsl(0_0%_70%)] leading-relaxed">
-                    {card.text}
-                  </p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{card.text}</p>
                 </div>
               ))}
             </div>
           </div>
+        </SectionPhotoFrame>
       </div>
     </section>
   );

@@ -9,6 +9,9 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { SectionPhotoFrame } from "@/components/SectionPhotoFrame";
+import img202204 from "@/assets/journey/202204-regain1.jpg";
+import img202311 from "@/assets/journey/202311-after-attempt2.jpg";
 
 const awarenessStages = [
   { stage: "Reality Awareness", desc: "Establishing your baseline" },
@@ -107,7 +110,6 @@ function TriangleDiagram() {
     >
       <AwarenessStagesDialog open={stagesOpen} onOpenChange={setStagesOpen} />
 
-      {/* Desktop/tablet: positioned layout with SVG triangle */}
       <div className="hidden md:block">
         <div className="text-center mb-3">
           <VertexLabel icon={Eye} number={1} label="Awareness" color="primary" />
@@ -176,7 +178,6 @@ function TriangleDiagram() {
         </div>
       </div>
 
-      {/* Mobile: stacked layout */}
       <div className="md:hidden space-y-8">
         <div className="text-center">
           <VertexLabel icon={Eye} number={1} label="Awareness" color="primary" />
@@ -222,21 +223,18 @@ export function MethodSection() {
   return (
     <section id="method" className="py-14 md:py-20">
       <div className="container">
-        <div>
+        <SectionPhotoFrame beforeSrc={img202204} afterSrc={img202311}>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
               The LS Diet Solution
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-6">
-              Weight Permanence{" "}
-              <span className="text-accent animate-pulse-glow inline-block">
-                Triangle™
-              </span>
+              Weight Permanence <span className="text-accent animate-pulse-glow inline-block">Triangle™</span>
             </h2>
           </div>
 
           <TriangleDiagram />
-        </div>
+        </SectionPhotoFrame>
       </div>
     </section>
   );

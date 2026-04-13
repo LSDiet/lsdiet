@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Check, Gift, Play, Brain, Target, Shield } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { WaitlistModal } from "@/components/WaitlistModal";
+import { SectionPhotoFrame } from "@/components/SectionPhotoFrame";
+import img202405 from "@/assets/journey/202405-regain2.jpg";
+import img202012 from "@/assets/journey/202012-after-attempt1.jpg";
 
 const features = [
   "All courses are videos. No reading is required.",
@@ -30,14 +33,13 @@ export function BookSection() {
   return (
     <section id="book" className="section-dark py-14 md:py-20">
       <div className="container">
-        <div>
+        <SectionPhotoFrame beforeSrc={img202405} afterSrc={img202012}>
           <div
             ref={ref}
             className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            {/* Course mockup */}
             <div className="flex justify-center">
               <div className="relative w-full max-w-sm">
                 <div className="absolute -inset-4 bg-accent/15 rounded-3xl blur-2xl" />
@@ -56,9 +58,7 @@ export function BookSection() {
                     <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mb-1">
                       Free 7-Day Course
                     </p>
-                    <p className="text-sm font-bold text-foreground">
-                      LS Diet
-                    </p>
+                    <p className="text-sm font-bold text-foreground">LS Diet</p>
                   </div>
 
                   <div className="space-y-2">
@@ -96,7 +96,6 @@ export function BookSection() {
               </div>
             </div>
 
-            {/* Course info */}
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-6">
                 Coming Soon
@@ -143,7 +142,7 @@ export function BookSection() {
               </Button>
             </div>
           </div>
-        </div>
+        </SectionPhotoFrame>
       </div>
 
       <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
