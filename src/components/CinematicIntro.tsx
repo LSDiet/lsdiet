@@ -15,13 +15,13 @@ const columns = [
   },
   {
     top: { src: img202204, label: "280 lbs", objectPos: "object-[center_15%]" },
-    bottom: { src: img202311, label: "190 lbs", objectPos: "object-[center_15%]" },
+    bottom: { src: img202012, label: "200 lbs", objectPos: "object-[center_15%]" },
     year: "2022",
   },
   {
     top: { src: img202405, label: "300 lbs", objectPos: "object-[center_15%]" },
-    bottom: { src: img202012, label: "200 lbs", objectPos: "object-[center_15%]" },
-    year: "2024",
+    bottom: { src: img202311, label: "190 lbs", objectPos: "object-[center_15%]" },
+    year: "2025",
   },
 ];
 
@@ -31,7 +31,7 @@ export function CinematicIntro() {
       <div className="absolute inset-0 grid grid-cols-3 gap-0">
         {columns.map((col, i) => (
           <div key={i} className="relative flex h-full min-h-0 flex-col">
-            <div className="relative min-h-0 flex-[0.4] overflow-hidden">
+            <div className="relative min-h-0 flex-1 overflow-hidden">
               <img
                 src={col.top.src}
                 alt={`Oscar at ${col.top.label}`}
@@ -48,11 +48,11 @@ export function CinematicIntro() {
               </span>
             </div>
 
-            <div className="relative min-h-0 flex-[0.6] overflow-hidden bg-background/80">
+            <div className="relative min-h-0 flex-1 overflow-hidden">
               <img
                 src={col.bottom.src}
                 alt={`Oscar at ${col.bottom.label}`}
-                className={`h-full w-full object-cover ${col.bottom.objectPos} scale-[1.03] opacity-70 lg:object-contain lg:scale-100`}
+                className={`h-full w-full object-cover ${col.bottom.objectPos} scale-[1.03] opacity-70`}
               />
               <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground/70 md:text-xs">
                 {col.bottom.label}
