@@ -1,6 +1,3 @@
-import { SectionPhotoFrame } from "@/components/SectionPhotoFrame";
-import img201908 from "@/assets/journey/201908-after-stress.jpg";
-import img201710 from "@/assets/journey/201710-graduation.jpg";
 
 const cards = [
   {
@@ -33,7 +30,6 @@ export function CorePrincipleSection() {
   return (
     <section className="section-dark py-14 md:py-20">
       <div className="container">
-        <SectionPhotoFrame beforeSrc={img201908} afterSrc={img201710}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
@@ -61,7 +57,6 @@ export function CorePrincipleSection() {
               ))}
             </div>
           </div>
-        </SectionPhotoFrame>
       </div>
     </section>
   );

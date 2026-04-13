@@ -33,8 +33,8 @@ export function CinematicIntro() {
       <div className="absolute inset-0 grid grid-cols-3 gap-0">
         {columns.map((col, i) => (
           <div key={i} className="relative flex flex-col h-full">
-            {/* Top photo (300 lbs) */}
-            <div className="relative flex-1 overflow-hidden">
+            {/* Top photo (300 lbs) — shorter so bottom photos are visible */}
+            <div className="relative flex-[0.85] overflow-hidden">
               <img
                 src={col.top.src}
                 alt={`Oscar at ${col.top.label}`}
@@ -52,8 +52,8 @@ export function CinematicIntro() {
               </span>
             </div>
 
-            {/* Bottom photo (220 lbs) */}
-            <div className="relative flex-1 overflow-hidden">
+            {/* Bottom photo (220 lbs) — taller to show transformation */}
+            <div className="relative flex-[1.15] overflow-hidden">
               <img
                 src={col.bottom.src}
                 alt={`Oscar at ${col.bottom.label}`}
@@ -82,15 +82,7 @@ export function CinematicIntro() {
           <span className="text-accent animate-pulse-glow">Three Times.</span>
         </h2>
 
-        <p className="max-w-md text-base md:text-lg text-[hsl(0_0%_70%)] leading-relaxed opacity-0 animate-fade-in-up animate-delay-200">
-          Every time, he gained it all back.
-          <br />
-          <span className="text-foreground font-semibold">
-            Until he figured out why.
-          </span>
-        </p>
-
-        <div className="absolute bottom-8 opacity-0 animate-fade-in-up animate-delay-300">
+        <div className="absolute bottom-8 opacity-0 animate-fade-in-up animate-delay-200">
           <ChevronDown className="w-7 h-7 text-accent/60 animate-bounce" />
         </div>
       </div>

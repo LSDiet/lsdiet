@@ -9,9 +9,6 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { SectionPhotoFrame } from "@/components/SectionPhotoFrame";
-import img202204 from "@/assets/journey/202204-regain1.jpg";
-import img202311 from "@/assets/journey/202311-after-attempt2.jpg";
 
 const awarenessStages = [
   { stage: "Reality Awareness", desc: "Establishing your baseline" },
@@ -225,7 +222,7 @@ export function MethodSection() {
   return (
     <section id="method" className="py-14 md:py-20">
       <div className="container">
-        <SectionPhotoFrame beforeSrc={img202204} afterSrc={img202311}>
+        <div>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
               The LS Diet Solution
@@ -239,7 +236,7 @@ export function MethodSection() {
           </div>
 
           <TriangleDiagram />
-        </SectionPhotoFrame>
+        </div>
       </div>
     </section>
   );
