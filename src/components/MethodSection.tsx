@@ -9,6 +9,9 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { SectionPhotoFrame } from "@/components/SectionPhotoFrame";
+import img202204 from "@/assets/journey/202204-regain1.jpg";
+import img202311 from "@/assets/journey/202311-after-attempt2.jpg";
 
 const awarenessStages = [
   { stage: "Reality Awareness", desc: "Establishing your baseline" },
@@ -71,7 +74,6 @@ function VertexLabel({
   label: string;
   color: "primary" | "accent" | "secondary";
 }) {
-  // primary = Awareness (dark charcoal), accent = Practice (amber), secondary = Permanence (green)
   const colorClasses =
     color === "primary"
       ? "bg-foreground text-background border-foreground"
@@ -110,7 +112,6 @@ function TriangleDiagram() {
 
       {/* Desktop/tablet: positioned layout with SVG triangle */}
       <div className="hidden md:block">
-        {/* Awareness — above triangle peak */}
         <div className="text-center mb-3">
           <VertexLabel icon={Eye} number={1} label="Awareness" color="primary" />
           <p className="text-xs text-muted-foreground mt-2 mb-1">
@@ -125,9 +126,7 @@ function TriangleDiagram() {
           </button>
         </div>
 
-        {/* Triangle with side-aligned labels */}
         <div className="grid grid-cols-[1fr_2fr_1fr] items-center gap-6">
-          {/* Practice — left column, vertically centered */}
           <div className="text-left">
             <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
@@ -140,7 +139,6 @@ function TriangleDiagram() {
             </ul>
           </div>
 
-          {/* Triangle SVG — center column */}
           <div>
             <svg
               viewBox="0 0 500 250"
@@ -155,48 +153,18 @@ function TriangleDiagram() {
                 strokeWidth="2.5"
                 strokeLinejoin="round"
               />
-              {/* Left edge label — outside, centered on left edge */}
-              <text
-                x="135"
-                y="100"
-                textAnchor="middle"
-                fill="hsl(var(--muted-foreground))"
-                fontSize="12"
-                fontStyle="italic"
-                opacity="0.5"
-                transform="rotate(-43, 135, 100)"
-              >
+              <text x="135" y="100" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="12" fontStyle="italic" opacity="0.5" transform="rotate(-43, 135, 100)">
                 Clarity creates priority.
               </text>
-              {/* Right edge label — outside, centered on right edge */}
-              <text
-                x="365"
-                y="100"
-                textAnchor="middle"
-                fill="hsl(var(--muted-foreground))"
-                fontSize="12"
-                fontStyle="italic"
-                opacity="0.5"
-                transform="rotate(43, 365, 100)"
-              >
+              <text x="365" y="100" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="12" fontStyle="italic" opacity="0.5" transform="rotate(43, 365, 100)">
                 Action survives disruption.
               </text>
-              {/* Bottom edge label — below base */}
-              <text
-                x="250"
-                y="225"
-                textAnchor="middle"
-                fill="hsl(var(--muted-foreground))"
-                fontSize="12"
-                fontStyle="italic"
-                opacity="0.5"
-              >
+              <text x="250" y="225" textAnchor="middle" fill="hsl(var(--muted-foreground))" fontSize="12" fontStyle="italic" opacity="0.5">
                 Priority sustains action.
               </text>
             </svg>
           </div>
 
-          {/* Permanence — right column, vertically centered */}
           <div className="text-left">
             <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
             <p className="text-xs text-muted-foreground mt-2 mb-1.5">
@@ -257,19 +225,21 @@ export function MethodSection() {
   return (
     <section id="method" className="py-14 md:py-20">
       <div className="container">
-        <div className="text-center mb-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
-            The WPT Solution
-          </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-6">
-            Weight Permanence{" "}
-            <span className="text-accent animate-pulse-glow inline-block">
-              Triangle™
-            </span>
-          </h2>
-        </div>
+        <SectionPhotoFrame beforeSrc={img202204} afterSrc={img202311}>
+          <div className="text-center mb-12">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
+              The LS Diet Solution
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-6">
+              Weight Permanence{" "}
+              <span className="text-accent animate-pulse-glow inline-block">
+                Triangle™
+              </span>
+            </h2>
+          </div>
 
-        <TriangleDiagram />
+          <TriangleDiagram />
+        </SectionPhotoFrame>
       </div>
     </section>
   );
