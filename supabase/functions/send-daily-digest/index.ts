@@ -23,14 +23,14 @@ Deno.serve(async (req) => {
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
     const resend = new Resend(resendApiKey);
 
-    // Get downloads from the last 24 hours
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
+    // Get downloads from the last 7 days
+    const weekAgo = new Date();
+    weekAgo.setDate(weekAgo.getDate() - 7);
     
     const { data: leads, error: fetchError } = await supabase
       .from("leads")
       .select("email, source, resource_title, device_type, last_download_at, created_at")
-      .gte("last_download_at", yesterday.toISOString())
+      .gte("last_download_at", weekAgo.toISOString())
       .order("last_download_at", { ascending: false });
 
     if (fetchError) {
@@ -111,13 +111,13 @@ Deno.serve(async (req) => {
       <body>
         <div class="container">
           <div class="header">
-            <h1 style="margin: 0;">📊 Daily Download Digest</h1>
+            <h1 style="margin: 0;">📊 Weekly Download Digest</h1>
             <p style="margin: 10px 0 0 0; opacity: 0.9;">${today}</p>
           </div>
           <div class="content">
             <div class="stat-box" style="text-align: center;">
-              <div class="big-number">${totalDownloads}</div>
-              <div style="color: #6b7280;">New Download${totalDownloads !== 1 ? "s" : ""} Today</div>
+               <div class="big-number">${totalDownloads}</div>
+               <div style="color: #6b7280;">Download${totalDownloads !== 1 ? "s" : ""} This Week</div>
             </div>
             
             ${totalDownloads > 0 ? `
@@ -137,13 +137,13 @@ Deno.serve(async (req) => {
                 📎 <strong>Full data attached</strong> — See the CSV file for complete details including all email addresses.
               </p>
             ` : `
-              <p style="text-align: center; color: #6b7280; padding: 20px;">
-                No downloads recorded in the last 24 hours.
-              </p>
+               <p style="text-align: center; color: #6b7280; padding: 20px;">
+                 No downloads recorded in the last 7 days.
+               </p>
             `}
             
             <div class="footer">
-              <p>This is an automated daily digest from What About Weight.</p>
+              <p>This is an automated weekly digest from What About Weight.</p>
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@ Deno.serve(async (req) => {
     const emailResponse = await resend.emails.send({
       from: "What About Weight <notifications@report.lsdiet.com>",
       to: ["oscar@lsdiet.com"],
-      subject: `📊 Daily Download Digest: ${totalDownloads} download${totalDownloads !== 1 ? "s" : ""} on ${today}`,
+      subject: `📊 Weekly Download Digest: ${totalDownloads} download${totalDownloads !== 1 ? "s" : ""} — Week of ${today}`,
       html: emailHtml,
       attachments: totalDownloads > 0 ? [
         {
@@ -165,7 +165,7 @@ Deno.serve(async (req) => {
       ] : [],
     });
 
-    console.log("Daily digest email sent:", emailResponse);
+    console.log("Weekly digest email sent:", emailResponse);
 
     return new Response(
       JSON.stringify({ 
