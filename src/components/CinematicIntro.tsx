@@ -25,6 +25,42 @@ const columns = [
   },
 ];
 
+const HEADLINE = "Lost 80+ Lbs Three Times";
+
+function AnimatedHeadline() {
+  const words = HEADLINE.split(" ");
+  let globalIndex = 0;
+
+  return (
+    <div
+      className="flex flex-wrap items-center justify-center gap-x-3 md:gap-x-5"
+      style={{ perspective: "800px" }}
+    >
+      {words.map((word, wi) => (
+        <span key={wi} className="inline-flex">
+          {word.split("").map((char) => {
+            const i = globalIndex++;
+            return (
+              <span
+                key={`${wi}-${i}`}
+                className="inline-block text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tight animate-letter-pop-3d"
+                style={{
+                  animationDelay: `${i * 70}ms`,
+                  animationFillMode: "both",
+                  color: "hsl(0 0% 8%)",
+                  textShadow: "0 2px 20px hsl(0 0% 0% / 0.4)",
+                }}
+              >
+                {char}
+              </span>
+            );
+          })}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 export function CinematicIntro() {
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden pt-14">
@@ -65,11 +101,11 @@ export function CinematicIntro() {
       <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/35 to-background/70" />
 
       <div className="pointer-events-none relative z-10 flex h-full flex-col items-center justify-between px-6 pb-8 pt-24 text-center">
-        <span className="inline-block rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent opacity-0 animate-fade-in-up">
-          The Weight Yo-Yo
-        </span>
+        <div />
 
-        <div className="opacity-0 animate-fade-in-up animate-delay-200">
+        <AnimatedHeadline />
+
+        <div className="opacity-0 animate-fade-in-up animate-delay-400" style={{ animationDelay: "2s", animationFillMode: "both" }}>
           <ChevronDown className="h-7 w-7 text-accent/60 animate-bounce" />
         </div>
       </div>

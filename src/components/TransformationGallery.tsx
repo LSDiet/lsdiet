@@ -15,12 +15,12 @@ const pairs = [
   {
     year: "2022",
     before: { src: img202204, weight: "280 lbs" },
-    after: { src: img202311, weight: "190 lbs" },
+    after: { src: img202012, weight: "200 lbs" },
   },
   {
-    year: "2024",
+    year: "2025",
     before: { src: img202405, weight: "300 lbs" },
-    after: { src: img202012, weight: "200 lbs" },
+    after: { src: img202311, weight: "190 lbs" },
   },
 ];
 
