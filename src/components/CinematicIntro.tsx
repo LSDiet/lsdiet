@@ -9,18 +9,18 @@ import img202405 from "@/assets/journey/202405-regain2.jpg";
 
 const columns = [
   {
-    top: { src: img201908, label: "300 lbs" },
-    bottom: { src: img201710, label: "220 lbs" },
+    top: { src: img201908, label: "300 lbs", objectPos: "object-[center_15%]" },
+    bottom: { src: img201710, label: "180 lbs", objectPos: "object-center" },
     year: "2019",
   },
   {
-    top: { src: img202204, label: "300 lbs" },
-    bottom: { src: img202311, label: "220 lbs" },
+    top: { src: img202204, label: "280 lbs", objectPos: "object-[center_15%]" },
+    bottom: { src: img202311, label: "190 lbs", objectPos: "object-[center_15%]" },
     year: "2022",
   },
   {
-    top: { src: img202405, label: "300 lbs" },
-    bottom: { src: img202012, label: "220 lbs" },
+    top: { src: img202405, label: "300 lbs", objectPos: "object-[center_15%]" },
+    bottom: { src: img202012, label: "200 lbs", objectPos: "object-[center_15%]" },
     year: "2024",
   },
 ];
@@ -31,11 +31,11 @@ export function CinematicIntro() {
       <div className="absolute inset-0 grid grid-cols-3 gap-0">
         {columns.map((col, i) => (
           <div key={i} className="relative flex h-full flex-col">
-            <div className="relative flex-[0.6] overflow-hidden">
+            <div className="relative flex-[0.45] overflow-hidden">
               <img
                 src={col.top.src}
                 alt={`Oscar at ${col.top.label}`}
-                className="h-full w-full object-cover object-[center_15%] scale-[1.03] opacity-70"
+                className={`h-full w-full object-cover ${col.top.objectPos} scale-[1.03] opacity-70`}
               />
               <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground/70 md:text-xs">
                 {col.top.label}
@@ -48,11 +48,11 @@ export function CinematicIntro() {
               </span>
             </div>
 
-            <div className="relative flex-[1.4] overflow-hidden">
+            <div className="relative flex-[0.55] overflow-hidden">
               <img
                 src={col.bottom.src}
                 alt={`Oscar at ${col.bottom.label}`}
-                className="h-full w-full object-cover object-[center_15%] scale-[1.03] opacity-70"
+                className={`h-full w-full object-cover ${col.bottom.objectPos} scale-[1.03] opacity-70`}
               />
               <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground/70 md:text-xs">
                 {col.bottom.label}
