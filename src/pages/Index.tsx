@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
-import { JourneySection } from "@/components/JourneySection";
+import { CinematicIntro } from "@/components/CinematicIntro";
 import { YouTubeShortsSection } from "@/components/YouTubeShortsSection";
 import { CorePrincipleSection } from "@/components/CorePrincipleSection";
 import { MethodSection } from "@/components/MethodSection";
@@ -14,8 +14,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <CinematicIntro />
       <HeroSection />
-      <JourneySection />
       <YouTubeShortsSection />
       <CorePrincipleSection />
       <MethodSection />

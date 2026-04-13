@@ -18,9 +18,14 @@ export function Navbar() {
           <div className="w-8 h-8 rounded-full border border-accent flex items-center justify-center">
             <Triangle className="w-3.5 h-3.5 text-accent fill-accent" />
           </div>
-          <span className="text-sm font-bold uppercase tracking-[0.15em] text-[hsl(0_0%_96%)]">
-            Weight Permanence
-          </span>
+          <div className="flex flex-col leading-none">
+            <span className="text-sm font-bold uppercase tracking-[0.15em] text-[hsl(0_0%_96%)]">
+              LS Diet
+            </span>
+            <span className="text-[9px] uppercase tracking-[0.1em] text-accent/80 font-medium">
+              Stop Restarting Weight Loss
+            </span>
+          </div>
         </a>
 
         {/* Desktop nav */}
