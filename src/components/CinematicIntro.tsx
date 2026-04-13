@@ -30,8 +30,8 @@ export function CinematicIntro() {
     <section className="relative h-[100dvh] w-full overflow-hidden pt-14">
       <div className="absolute inset-0 grid grid-cols-3 gap-0">
         {columns.map((col, i) => (
-          <div key={i} className="relative flex h-full flex-col">
-            <div className="relative flex-[0.45] overflow-hidden">
+          <div key={i} className="relative flex h-full min-h-0 flex-col">
+            <div className="relative min-h-0 flex-[0.4] overflow-hidden">
               <img
                 src={col.top.src}
                 alt={`Oscar at ${col.top.label}`}
@@ -42,17 +42,17 @@ export function CinematicIntro() {
               </span>
             </div>
 
-            <div className="relative z-10 flex items-center justify-center py-1 bg-[hsl(0_0%_4%/0.7)]">
+            <div className="relative z-10 flex items-center justify-center bg-background/70 py-1">
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent md:text-sm">
                 {col.year}
               </span>
             </div>
 
-            <div className="relative flex-[0.55] overflow-hidden">
+            <div className="relative min-h-0 flex-[0.6] overflow-hidden bg-background/80">
               <img
                 src={col.bottom.src}
                 alt={`Oscar at ${col.bottom.label}`}
-                className={`h-full w-full object-cover ${col.bottom.objectPos} scale-[1.03] opacity-70`}
+                className={`h-full w-full object-cover ${col.bottom.objectPos} scale-[1.03] opacity-70 lg:object-contain lg:scale-100`}
               />
               <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground/70 md:text-xs">
                 {col.bottom.label}
@@ -62,20 +62,14 @@ export function CinematicIntro() {
         ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(0_0%_4%/0.2)] via-[hsl(0_0%_4%/0.34)] to-[hsl(0_0%_4%/0.68)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/35 to-background/70" />
 
-      <div className="relative z-10 flex h-full flex-col items-center justify-center gap-5 px-6 text-center">
+      <div className="pointer-events-none relative z-10 flex h-full flex-col items-center justify-between px-6 pb-8 pt-24 text-center">
         <span className="inline-block rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent opacity-0 animate-fade-in-up">
           The Weight Yo-Yo
         </span>
 
-        <h2 className="text-5xl font-extrabold uppercase leading-[0.95] tracking-tight opacity-0 animate-fade-in-up animate-delay-100 md:text-7xl lg:text-8xl">
-          Lost 80+ Lbs.
-          <br />
-          <span className="text-accent animate-pulse-glow">Three Times.</span>
-        </h2>
-
-        <div className="absolute bottom-8 opacity-0 animate-fade-in-up animate-delay-200">
+        <div className="opacity-0 animate-fade-in-up animate-delay-200">
           <ChevronDown className="h-7 w-7 text-accent/60 animate-bounce" />
         </div>
       </div>
