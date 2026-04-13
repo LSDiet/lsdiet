@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://lsdiet.com/sitemap.xml
+Sitemap: https://oscarpoon.com/sitemap.xml
