@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { CinematicIntro } from "@/components/CinematicIntro";
 import { YouTubeShortsSection } from "@/components/YouTubeShortsSection";
+import { TransformationGallery } from "@/components/TransformationGallery";
 import { CorePrincipleSection } from "@/components/CorePrincipleSection";
 import { MethodSection } from "@/components/MethodSection";
 import { BookSection } from "@/components/BookSection";
@@ -17,6 +18,7 @@ const Index = () => {
       <CinematicIntro />
       <HeroSection />
       <YouTubeShortsSection />
+      <TransformationGallery />
       <CorePrincipleSection />
       <MethodSection />
       <BookSection />
