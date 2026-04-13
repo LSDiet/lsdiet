@@ -6,10 +6,10 @@ import { WaitlistModal } from "@/components/WaitlistModal";
 import { CountdownClock } from "@/components/CountdownClock";
 
 const coursePoints = [
-  { text: "How to lose 6–10 lbs per month ", bold: "consistently" },
-  { text: "How to find ", bold: "PUSH and PULL motivation" },
-  { text: "How to make weight loss decisions ", bold: "automatic" },
-  { text: "No workouts required", bold: "" },
+  { text: "How to lose 5–7 lbs per month ", bold: "consistently" },
+  { text: "How to build ", bold: "urgency to lose weight" },
+  { text: "How to ", bold: "automate weight loss behaviour" },
+  { text: "How to adopt a ", bold: "Low Starch, Low Sugar lifestyle" },
 ];
 
 function XStrikethrough({ children }: { children: React.ReactNode }) {
