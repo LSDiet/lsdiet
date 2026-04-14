@@ -47,8 +47,9 @@ function AnimatedLine({ text, delayOffset = 0 }: { text: string; delayOffset?: n
                   animationFillMode: "both",
                   color: "hsl(38 90% 50%)",
                   textShadow:
-                    "0 2px 30px hsl(38 90% 50% / 0.5), 0 0 60px hsl(38 90% 30% / 0.3), 2px 2px 0px hsl(0 0% 0% / 0.6)",
-                  WebkitTextStroke: "1px hsl(0 0% 0% / 0.3)",
+                    "2px 2px 0 hsl(0 0% 0%), -2px -2px 0 hsl(0 0% 0%), 2px -2px 0 hsl(0 0% 0%), -2px 2px 0 hsl(0 0% 0%), 0 2px 0 hsl(0 0% 0%), 0 -2px 0 hsl(0 0% 0%), 2px 0 0 hsl(0 0% 0%), -2px 0 0 hsl(0 0% 0%), 0 4px 20px hsl(0 0% 0% / 0.6)",
+                  WebkitTextStroke: "2px hsl(0 0% 0%)",
+                  paintOrder: "stroke fill" as any,
                 }}
               >
                 {char}
