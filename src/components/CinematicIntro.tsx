@@ -25,15 +25,13 @@ const columns = [
   },
 ];
 
-const HEADLINE = "Lost 80+ Lbs Three Times";
-
-function AnimatedHeadline() {
-  const words = HEADLINE.split(" ");
+function AnimatedLine({ text, delayOffset = 0 }: { text: string; delayOffset?: number }) {
+  const words = text.split(" ");
   let globalIndex = 0;
 
   return (
     <div
-      className="flex flex-wrap items-center justify-center gap-x-3 md:gap-x-5"
+      className="flex flex-wrap items-center justify-center gap-x-2 md:gap-x-4"
       style={{ perspective: "800px" }}
     >
       {words.map((word, wi) => (
@@ -43,12 +41,14 @@ function AnimatedHeadline() {
             return (
               <span
                 key={`${wi}-${i}`}
-                className="inline-block text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tight animate-letter-pop-3d"
+                className="inline-block text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tight animate-letter-pop-3d"
                 style={{
-                  animationDelay: `${i * 70}ms`,
+                  animationDelay: `${(delayOffset + i) * 70}ms`,
                   animationFillMode: "both",
-                  color: "hsl(0 0% 8%)",
-                  textShadow: "0 2px 20px hsl(0 0% 0% / 0.4)",
+                  color: "hsl(38 90% 50%)",
+                  textShadow:
+                    "0 2px 30px hsl(38 90% 50% / 0.5), 0 0 60px hsl(38 90% 30% / 0.3), 2px 2px 0px hsl(0 0% 0% / 0.6)",
+                  WebkitTextStroke: "1px hsl(0 0% 0% / 0.3)",
                 }}
               >
                 {char}
@@ -100,13 +100,18 @@ export function CinematicIntro() {
 
       <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/35 to-background/70" />
 
-      <div className="pointer-events-none relative z-10 flex h-full flex-col items-center justify-between px-6 pb-8 pt-24 text-center">
-        <div />
+      {/* "Lost 80+ Lbs" centered on the TOP (fat) row */}
+      <div className="pointer-events-none absolute inset-x-0 top-14 z-10 flex items-center justify-center" style={{ height: "calc((100dvh - 3.5rem) / 2 - 0.75rem)" }}>
+        <AnimatedLine text="Lost 80+ Lbs" />
+      </div>
 
-        <AnimatedHeadline />
-
-        <div className="opacity-0 animate-fade-in-up animate-delay-400" style={{ animationDelay: "2s", animationFillMode: "both" }}>
-          <ChevronDown className="h-7 w-7 text-accent/60 animate-bounce" />
+      {/* "Three Times" centered on the BOTTOM (skinny) row */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-center justify-center" style={{ height: "calc((100dvh - 3.5rem) / 2 - 0.75rem)" }}>
+        <div className="flex flex-col items-center gap-4">
+          <AnimatedLine text="Three Times" delayOffset={10} />
+          <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: "2s", animationFillMode: "both" }}>
+            <ChevronDown className="h-7 w-7 text-accent/60 animate-bounce" />
+          </div>
         </div>
       </div>
     </section>
