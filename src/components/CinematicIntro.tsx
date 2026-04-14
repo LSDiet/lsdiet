@@ -107,7 +107,7 @@ export function CinematicIntro() {
 
       {/* "Lost 80+ Lbs" centered on the TOP (fat) row */}
       <div className="pointer-events-none absolute inset-x-0 top-14 z-10 flex items-center justify-center" style={{ height: "calc((100dvh - 3.5rem) / 2 - 0.75rem)" }}>
-        <AnimatedLine text="Lost 80+ Lbs" />
+        <AnimatedLine text="Lost 80+ Lbs" variant="outline" />
       </div>
 
       {/* "Three Times" centered on the BOTTOM (skinny) row */}
