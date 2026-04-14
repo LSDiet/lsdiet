@@ -10,6 +10,7 @@ const coursePoints = [
   { text: "How to build ", bold: "urgency to lose weight" },
   { text: "How to ", bold: "automate weight loss behaviour" },
   { text: "How to adopt a ", bold: "Low Starch, Low Sugar lifestyle" },
+  { text: "See results in 2 weeks — ", bold: "for free!" },
 ];
 
 function XStrikethrough({ children }: { children: React.ReactNode }) {
@@ -77,7 +78,7 @@ export function HeroSection() {
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
             <p className="text-lg md:text-xl font-bold text-foreground leading-snug">
-              My <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day LS Diet Course launches <span className="text-accent font-extrabold">April 30</span>
+              <span className="text-accent font-extrabold animate-pulse-glow">Free</span> Course launches <span className="text-accent font-extrabold">April 30</span>
             </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               You'll learn:
