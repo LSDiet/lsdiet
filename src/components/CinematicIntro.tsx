@@ -25,10 +25,9 @@ const columns = [
   },
 ];
 
-function AnimatedLine({ text, delayOffset = 0, variant = "solid" }: { text: string; delayOffset?: number; variant?: "outline" | "solid" }) {
+function AnimatedLine({ text, delayOffset = 0 }: { text: string; delayOffset?: number }) {
   const words = text.split(" ");
   let globalIndex = 0;
-  const isOutline = variant === "outline";
 
   return (
     <div
@@ -42,18 +41,16 @@ function AnimatedLine({ text, delayOffset = 0, variant = "solid" }: { text: stri
             return (
               <span
                 key={`${wi}-${i}`}
-                className="inline-block text-3xl sm:text-4xl md:text-6xl lg:text-8xl uppercase animate-letter-pop-3d"
+                className="inline-block text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tight animate-letter-pop-3d"
                 style={{
                   animationDelay: `${(delayOffset + i) * 70}ms`,
                   animationFillMode: "both",
-                  fontFamily: "Impact, 'Arial Narrow', sans-serif",
-                  letterSpacing: "0.05em",
-                  color: isOutline ? "transparent" : "#f59e0b",
-                  WebkitTextStroke: isOutline ? "2px #f59e0b" : "2px hsl(0 0% 0%)",
-                  textShadow: isOutline
-                    ? "0 0 20px rgba(245,158,11,0.4), 0 0 40px rgba(245,158,11,0.2)"
-                    : "2px 2px 0 hsl(0 0% 0%), -2px -2px 0 hsl(0 0% 0%), 2px -2px 0 hsl(0 0% 0%), -2px 2px 0 hsl(0 0% 0%), 0 0 20px rgba(245,158,11,0.3)",
-                  paintOrder: "stroke fill" as any,
+                  fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
+                  background: "linear-gradient(180deg, #fde68a 0%, #f59e0b 40%, #b45309 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 20px rgba(245,158,11,0.3))",
                 }}
               >
                 {char}
