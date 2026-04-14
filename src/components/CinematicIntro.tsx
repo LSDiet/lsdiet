@@ -41,19 +41,36 @@ function AnimatedLine({ text, delayOffset = 0 }: { text: string; delayOffset?: n
             return (
               <span
                 key={`${wi}-${i}`}
-                className="inline-block text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tight animate-letter-pop-3d"
+                className="relative inline-block text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tight animate-letter-pop-3d"
                 style={{
                   animationDelay: `${(delayOffset + i) * 70}ms`,
                   animationFillMode: "both",
                   fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif",
-                  background: "linear-gradient(180deg, #fde68a 0%, #f59e0b 40%, #b45309 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 20px rgba(245,158,11,0.3))",
                 }}
               >
-                {char}
+                {/* Dark stroke layer behind */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0"
+                  style={{
+                    color: "transparent",
+                    WebkitTextStroke: "6px rgba(0,0,0,0.9)",
+                  }}
+                >
+                  {char}
+                </span>
+                {/* Gold gradient layer on top */}
+                <span
+                  style={{
+                    position: "relative",
+                    background: "linear-gradient(180deg, #fde68a 0%, #f59e0b 40%, #b45309 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  {char}
+                </span>
               </span>
             );
           })}
