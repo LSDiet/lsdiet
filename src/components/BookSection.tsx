@@ -126,9 +126,11 @@ export function BookSection() {
               variant="accent"
               size="lg"
               className="w-full sm:w-auto px-8"
-              onClick={() => setWaitlistOpen(true)}
+              asChild
             >
-              Join the Waitlist
+              <a href="https://www.skool.com/lsdiet" target="_blank" rel="noopener noreferrer">
+                Join LS Diet Course
+              </a>
             </Button>
           </div>
         </div>

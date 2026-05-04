@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import heroPhoto from "@/assets/hero-photo.png";
-import { WaitlistModal } from "@/components/WaitlistModal";
-import { CountdownClock } from "@/components/CountdownClock";
 
 const coursePoints = [
   { text: "How to lose 5–7 lbs per month ", bold: "consistently" },
@@ -49,8 +46,6 @@ function XStrikethrough({ children }: { children: React.ReactNode }) {
 }
 
 export function HeroSection() {
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
-
   return (
     <section className="section-dark relative min-h-[100dvh] flex items-center pt-14">
       <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center py-12 md:py-0">
@@ -98,20 +93,19 @@ export function HeroSection() {
           </div>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-300 space-y-4">
-            <CountdownClock />
             <Button
               variant="accent"
               size="lg"
               className="px-10"
-              onClick={() => setWaitlistOpen(true)}
+              asChild
             >
-              Join the Waitlist
+              <a href="https://www.skool.com/lsdiet" target="_blank" rel="noopener noreferrer">
+                Join LS Diet Course
+              </a>
             </Button>
           </div>
         </div>
       </div>
-
-      <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </section>
   );
 }
