@@ -72,9 +72,6 @@ export function HeroSection() {
           </p>
 
           <div className="opacity-0 animate-fade-in-up animate-delay-200 space-y-3">
-            <p className="text-lg md:text-xl font-bold text-foreground leading-snug">
-              <span className="text-accent font-extrabold animate-pulse-glow">Free</span> Course launches <span className="text-accent font-extrabold">April 30</span>
-            </p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               You'll learn:
             </p>
