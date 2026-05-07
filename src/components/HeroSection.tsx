@@ -31,11 +31,11 @@ export function HeroSection() {
           <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             I Lost <span className="text-accent">80+ Lbs</span> Three Times.
           </h1>
-          <p className="mt-2 text-xs font-medium uppercase tracking-wide leading-[1.9] text-white/70 sm:text-sm sm:leading-[1.8] md:mt-3 md:text-base md:leading-relaxed">
-            <span className="relative inline-block pb-1">
+          <p className="mt-2 text-xs font-medium uppercase tracking-wide leading-[2.2] text-white/70 sm:text-sm sm:leading-[2] md:mt-3 md:text-base md:leading-relaxed">
+            <span className="relative inline-block pb-2">
               <span className="relative z-10 text-accent">Low Starch, Low Sugar (LS) Diet</span>
               <svg
-                className="pointer-events-none absolute left-0 right-0 -bottom-3 w-full"
+                className="pointer-events-none absolute left-0 right-0 bottom-0 w-full"
                 viewBox="0 0 300 18"
                 preserveAspectRatio="none"
                 aria-hidden="true"
