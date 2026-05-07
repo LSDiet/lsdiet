@@ -32,7 +32,7 @@ export function HeroSection() {
             I Lost <span className="text-accent">80+ Lbs</span> Three Times.
           </h1>
           <p className="mt-2 text-xs font-medium uppercase tracking-wide text-white/70 sm:text-sm md:mt-3 md:text-base">
-            <span className="text-accent">LS Diet</span> is the only way to stop the{" "}
+            <span className="text-accent">Low Starch, Low Sugar (LS) Diet</span> is the only way to stop the{" "}
             <span className="text-accent">weight regain</span>
           </p>
         </div>
