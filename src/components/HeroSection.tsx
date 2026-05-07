@@ -14,36 +14,36 @@ const rows = [
 export function HeroSection() {
   return (
     <section className="relative min-h-[100dvh] w-full bg-[#0a0a0a] pt-14 text-white">
-      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-6 md:gap-8 md:px-8 md:py-10">
+      <div className="mx-auto flex h-[calc(100dvh-3.5rem)] max-w-3xl flex-col gap-3 px-4 py-3 md:gap-4 md:px-6 md:py-5">
         {/* Headline */}
         <div className="text-center">
-          <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="font-sans text-2xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
             I Lost <span className="text-accent">80+ Lbs</span> Three Times.
           </h1>
-          <p className="mt-2 text-xs font-medium uppercase tracking-wide text-white/70 sm:text-sm md:mt-3 md:text-base">
+          <p className="mt-1.5 text-[11px] font-medium uppercase tracking-wide text-white/70 sm:text-xs md:mt-2 md:text-sm">
             And LS Diet is the only way to stop the{" "}
             <span className="text-accent">weight regain</span>.
           </p>
         </div>
 
         {/* Photo timeline */}
-        <div className="flex flex-col gap-4 md:gap-5">
+        <div className="flex min-h-0 flex-1 flex-col gap-2 md:gap-3">
           {rows.map((row) => (
-            <div key={row.year} className="flex items-center gap-3 md:gap-4">
-              <div className="w-10 flex-shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-accent/80 md:w-16 md:text-sm">
+            <div key={row.year} className="flex min-h-0 flex-1 items-center gap-2 md:gap-3">
+              <div className="w-8 flex-shrink-0 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent/80 md:w-12 md:text-xs">
                 {row.year}
               </div>
-              <div className="grid flex-1 grid-cols-2 gap-3 md:gap-4">
+              <div className="grid min-h-0 flex-1 grid-cols-2 gap-2 md:gap-3 h-full">
                 {[row.before, row.after].map((src, i) => (
                   <div
                     key={i}
-                    className="overflow-hidden rounded-xl bg-white/[0.03]"
+                    className="h-full overflow-hidden rounded-lg bg-white/[0.03]"
                   >
                     <img
                       src={src}
                       alt={`Oscar in ${row.year}, ${i === 0 ? "before" : "after"} weight loss`}
                       loading="lazy"
-                      className="aspect-[16/10] h-full w-full object-cover transition-[filter] duration-300 hover:brightness-110"
+                      className="h-full w-full object-cover object-top transition-[filter] duration-300 hover:brightness-110"
                     />
                   </div>
                 ))}
