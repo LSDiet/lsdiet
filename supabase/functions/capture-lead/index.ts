@@ -55,6 +55,38 @@ Deno.serve(async (req) => {
       );
     }
 
+    // Validate email format and length
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (typeof email !== "string" || email.length > 255 || !emailRegex.test(email)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid email" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Strict file path validation: folder/filename.pdf, max 200 chars
+    const pathRegex = /^[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\.pdf$/;
+    if (typeof filePath !== "string" || filePath.length > 200 || !pathRegex.test(filePath)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid file path" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Validate source and resourceTitle lengths
+    if (typeof source !== "string" || source.length > 100) {
+      return new Response(
+        JSON.stringify({ error: "Invalid source" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    if (resourceTitle != null && (typeof resourceTitle !== "string" || resourceTitle.length > 200)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid resourceTitle" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     

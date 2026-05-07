@@ -21,8 +21,9 @@ Deno.serve(async (req) => {
       );
     }
 
-    // Validate filePath format to prevent path traversal
-    if (filePath.includes('..') || filePath.startsWith('/')) {
+    // Strict validation: only allow `folder/filename.pdf` style paths, max 200 chars
+    const pathRegex = /^[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\.pdf$/;
+    if (filePath.length > 200 || !pathRegex.test(filePath)) {
       return new Response(
         JSON.stringify({ error: 'Invalid file path' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
