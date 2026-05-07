@@ -6,9 +6,9 @@ import img2024a from "@/assets/hero/2024a.png";
 import img2024b from "@/assets/hero/2024b.png";
 
 const pairs = [
-  { year: "2019", before: img2019a, after: img2019b },
-  { year: "2021", before: img2021a, after: img2021b },
-  { year: "2024", before: img2024a, after: img2024b },
+  { year: "2019", before: img2019a, beforeLbs: "300 LBS", after: img2019b, afterLbs: "180 LBS" },
+  { year: "2022", before: img2021a, beforeLbs: "280 LBS", after: img2021b, afterLbs: "200 LBS" },
+  { year: "2025", before: img2024a, beforeLbs: "300 LBS", after: img2024b, afterLbs: "190 LBS" },
 ];
 
 export function HeroSection() {
@@ -35,30 +35,30 @@ export function HeroSection() {
                 <div className="relative overflow-hidden">
                   <img
                     src={pair.before}
-                    alt={`Oscar in ${pair.year}, before weight loss`}
+                    alt={`Oscar in ${pair.year}, before`}
                     loading="eager"
                     className="h-full w-full object-cover object-top"
                   />
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent backdrop-blur-sm">
-                    Before
+                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-accent backdrop-blur-sm">
+                    {pair.beforeLbs}
                   </span>
                 </div>
                 <div className="relative overflow-hidden">
                   <img
                     src={pair.after}
-                    alt={`Oscar in ${pair.year}, after weight loss`}
+                    alt={`Oscar in ${pair.year}, after`}
                     loading="eager"
                     className="h-full w-full object-cover object-top"
                   />
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-                    After
+                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-white backdrop-blur-sm">
+                    {pair.afterLbs}
                   </span>
                 </div>
               </div>
-              <div className="flex items-center justify-center py-3">
-                <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-accent">
-                  {pair.year}
-                </span>
+              <div className="flex items-center justify-center gap-4 py-3">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Before</span>
+                <span className="text-xl font-extrabold text-accent">{pair.year}</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">After</span>
               </div>
             </div>
           ))}
