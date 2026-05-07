@@ -39,7 +39,7 @@ export function CorePrincipleSection() {
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3 items-start">
             {cards.map((card) => (
               <div
                 key={card.keyword}
