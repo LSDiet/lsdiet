@@ -6,8 +6,8 @@ const bullets = [
   { text: "How to lose 5–7 lbs per month ", strong: "consistently" },
   { text: "How to build ", strong: "urgency to lose weight" },
   { text: "How to ", strong: "automate weight loss behaviour" },
-  { text: "How to adopt a ", strong: "Low Starch, Low Sugar lifestyle" },
-  { text: "See results in 2 weeks — ", strong: "for free!" },
+  { text: "Adopt a ", strong: "Low Starch, Low Sugar lifestyle" },
+  { text: "See results in 2 weeks", strong: "" },
 ];
 
 export function HeroPitchSection() {
@@ -23,9 +23,9 @@ export function HeroPitchSection() {
         </div>
         <div className="flex flex-col justify-center px-6 py-10 md:px-10 md:py-14">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-4xl lg:text-5xl">
-            I Lost <span className="text-accent">80+ Lbs.</span>
+            THE PROBLEM ISN'T LOSING WEIGHT.
             <br />
-            <span className="text-accent">Three Times.</span>
+            IT'S STAYING CONSISTENT.
           </h2>
           <p className="mt-4 text-sm text-white/70 md:text-base">
             Now I teach people how to end{" "}
@@ -74,7 +74,7 @@ export function HeroPitchSection() {
           <div className="mt-8">
             <Button variant="accent" size="lg" className="px-8" asChild>
               <a href="https://www.skool.com/lsdiet" target="_blank" rel="noopener noreferrer">
-                Join LS Diet Course
+                Join FREE LSDiet Course
               </a>
             </Button>
           </div>
