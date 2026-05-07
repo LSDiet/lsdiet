@@ -1,72 +1,37 @@
-# Hero: Headline-Above-Photos + Cleanup
+## Diagnosis
 
-## 1. Rebuild hero with stacked layout (`src/components/HeroSection.tsx`)
+The reference screenshot you shared is actually your existing `TransformationGallery` design — it's the right pattern (3 cards, side-by-side before/after, weight badges, year underneath). The reason the current hero looks bad: the `2019a/b`, `2021a/b`, `2024a/b` files imported recently are tight headshot crops, so they can't show your face AND body at any size.
 
-Match the reference: headline on top, 3 transformation rows below, all visible on first paint.
+Your `src/assets/journey/` folder already contains the proper full-body photos used in the reference design. We should use those.
 
-**Why this beats side-by-side:** the eyes read the headline first, get the hook, then drop into all 3 before→after rows in a single vertical scan. On laptops (the 946px viewport this is being designed on) the side-by-side version pushed row 3 off-screen and forced scrolling — that kills the "I see 3 transformations immediately" effect.
+## Plan
 
-**Layout**
-- `min-h-[100dvh]`, `bg-[#0a0a0a]`, `pt-14` (clear nav).
-- Centered container, `max-w-5xl`, `px-5 md:px-8`, `py-6 md:py-10`.
-- Vertical flex, `gap-6 md:gap-8`.
+**1. Rewrite `src/components/HeroSection.tsx`**
 
-**Headline block (top)**
-- Eyebrow-free; just the headline + sub-line, centered.
-- Line 1: "I LOST 80+ LBS THREE TIMES."
-  - "80+ LBS" in `text-accent` (orange).
-  - `font-extrabold uppercase tracking-tight leading-[1.05]`.
-  - Sizes: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl` (smaller than before, so 3 rows of photos fit on a single 100dvh viewport).
-- Line 2 (sub): "And LS Diet is the only way to stop the weight regain."
-  - "weight regain" in `text-accent`.
-  - `text-sm md:text-base text-white/70 font-medium tracking-wide uppercase`.
-  - `mt-2 md:mt-3`.
+Keep the headline ("I Lost 80+ Lbs Three Times." + sub-line) on top, then below it use the 3-card layout from your reference screenshot, populated with the existing journey photos:
 
-**Photo timeline (below headline)**
-- 3 rows, each row = small year label on the left + 2 images (before → after) horizontally.
-- Year label column: `w-12 md:w-16`, `text-xs md:text-sm`, `font-semibold`, `text-accent/80`, `tracking-[0.2em]`, vertically centered.
-- Image pair: `flex-1 grid grid-cols-2 gap-3 md:gap-4`.
-- Every image: `aspect-[16/10]` (landscape, matches the reference's wide cinematic crops), `rounded-xl object-cover`, `bg-white/[0.03]`.
-- Subtle hover only: `transition-[filter] duration-300 hover:brightness-110`. No zoom, no parallax, no labels on the photos.
-- Row gap: `gap-4 md:gap-5` between rows.
+- 2019: `202204-regain1` is wrong era — use `201908-after-stress` (300 lbs, before) and `201710-graduation` (180 lbs, after)
+- 2022: `202204-regain1` (280 lbs, before) and `202012-after-attempt1` (200 lbs, after)
+- 2025: `202405-regain2` (300 lbs, before) and `202311-after-attempt2` (190 lbs, after)
 
-**Mobile (<md)**
-- Headline: `text-3xl`, sub-line `text-xs`.
-- Year label collapses to a small badge above each pair (not a left column).
-- Image pair stays 2-column (before/after) so the transformation reads even on phones.
-- Outer `py-6` so all 3 rows + headline fit in one tall mobile viewport.
+Each card:
+- `rounded-2xl` with subtle white border on dark bg
+- `aspect-[4/3]` 2-column grid (before | after)
+- `object-cover object-[center_20%]` so heads aren't chopped, body stays visible
+- Weight badge pill at the bottom of each photo (`300 LBS`, `180 LBS`)
+- "BEFORE  2019  AFTER" caption row underneath
 
-**No animations** — static, premium, documentary feel per original spec.
+Layout: `md:grid-cols-3` — 3 cards across on desktop, stacked on mobile.
+Section becomes natural-height (no `100dvh` clamp), so each card is a comfortable size with full body visible. User scrolls slightly to see all 3 on a 591px viewport — that's expected and matches the reference.
 
-## 2. Remove the duplicate course block
+**2. Delete unused headshot assets**
 
-`CourseCTASection` was added on top of the existing `BookSection` (which already has the browser-mockup picture next to the 7-Day bullets). That's why it looked like the picture was missing — it wasn't, the duplicate was sitting above it.
+Remove the now-unused `src/assets/hero/2019a.png`, `2019b.png`, `2021a.png`, `2021b.png`, `2024a.png`, `2024b.png` files.
 
-- Delete `src/components/CourseCTASection.tsx`.
-- Remove the import + `<CourseCTASection />` line from `src/pages/Index.tsx`.
+**3. No other changes**
 
-`BookSection` (browser mockup + bullets + Join button) is the single course CTA again.
+`HeroPitchSection` (blue-shirt photo + bullets + animated red X) stays exactly as-is, right below the hero.
 
-## 3. Remove redundant Transformation gallery
+## Note
 
-The new hero shows the same three transformations, so `<TransformationGallery />` is redundant. Remove its import + usage from `src/pages/Index.tsx`. (File itself is left in place in case it's reused later.)
-
-## Final `Index.tsx` order
-
-```text
-Navbar
-HeroSection           ← headline on top, 3 transformation rows below
-CorePrincipleSection
-MethodSection
-BookSection           ← course bullets + browser-mockup picture
-ContactSection
-AboutAuthorSection    ← still uses winter-jacket photo (oscar-photo.jpeg)
-FooterSimple
-```
-
-## Note on the blue-shirt photo
-`src/assets/hero-photo.png` (blue sweater) is **not currently rendered anywhere** in the live site, so this change does not remove or hide it. If you want it placed somewhere (e.g., About the Author), tell me and I'll do it as a separate edit.
-
-## Out of scope
-- No edits to `BookSection`, `AboutAuthorSection`, `Navbar`, or any other section.
-- No image processing, recropping, or filters on the 6 hero photos.
+This means `TransformationGallery` (the section currently below) becomes redundant with the new hero. It's already removed from `Index.tsx`, so no further action needed there.
