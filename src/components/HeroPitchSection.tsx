@@ -25,7 +25,26 @@ export function HeroPitchSection() {
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-4xl lg:text-5xl">
             THE PROBLEM ISN'T LOSING WEIGHT.
             <br />
-            IT'S STAYING CONSISTENT.
+            IT'S STAYING{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10">CONSISTENT</span>
+              <svg
+                className="pointer-events-none absolute left-0 right-0 -bottom-2 w-full"
+                viewBox="0 0 300 24"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 14 Q 60 4, 130 12 T 296 10"
+                  stroke="hsl(0 85% 55%)"
+                  strokeWidth="7"
+                  strokeLinecap="round"
+                  fill="none"
+                  opacity="0.9"
+                />
+              </svg>
+            </span>
+            .
           </h2>
           <p className="mt-4 text-sm text-white/70 md:text-base">
             Now I teach people how to end{" "}
