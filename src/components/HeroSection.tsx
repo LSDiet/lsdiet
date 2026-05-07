@@ -6,72 +6,50 @@ import img2024a from "@/assets/hero/2024a.png";
 import img2024b from "@/assets/hero/2024b.png";
 
 const rows = [
-  {
-    year: "2019",
-    left: { src: img2019a, alt: "Oscar in 2019, before weight loss", emphasis: true },
-    right: { src: img2019b, alt: "Oscar in 2019, after weight loss", emphasis: false },
-  },
-  {
-    year: "2021",
-    left: { src: img2021a, alt: "Oscar in 2021, before weight loss", emphasis: false },
-    right: { src: img2021b, alt: "Oscar in 2021, after weight loss", emphasis: false },
-  },
-  {
-    year: "2024",
-    left: { src: img2024a, alt: "Oscar in 2024, before weight loss", emphasis: false },
-    right: { src: img2024b, alt: "Oscar in 2024, after weight loss", emphasis: true },
-  },
+  { year: "2019", before: img2019a, after: img2019b },
+  { year: "2021", before: img2021a, after: img2021b },
+  { year: "2024", before: img2024a, after: img2024b },
 ];
 
 export function HeroSection() {
   return (
     <section className="relative min-h-[100dvh] w-full bg-[#0a0a0a] pt-14 text-white">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-5 py-10 md:grid-cols-2 md:gap-14 md:px-10 md:py-14 lg:gap-20 lg:px-16">
-        {/* LEFT: photo timeline */}
-        <div className="order-1 flex flex-col gap-6 md:gap-8">
+      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-5 py-6 md:gap-8 md:px-8 md:py-10">
+        {/* Headline */}
+        <div className="text-center">
+          <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            I Lost <span className="text-accent">80+ Lbs</span> Three Times.
+          </h1>
+          <p className="mt-2 text-xs font-medium uppercase tracking-wide text-white/70 sm:text-sm md:mt-3 md:text-base">
+            And LS Diet is the only way to stop the{" "}
+            <span className="text-accent">weight regain</span>.
+          </p>
+        </div>
+
+        {/* Photo timeline */}
+        <div className="flex flex-col gap-4 md:gap-5">
           {rows.map((row) => (
-            <div key={row.year}>
-              <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.3em] text-white/40 md:text-xs">
+            <div key={row.year} className="flex items-center gap-3 md:gap-4">
+              <div className="w-10 flex-shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-accent/80 md:w-16 md:text-sm">
                 {row.year}
-              </p>
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
-                {[row.left, row.right].map((img, i) => (
+              </div>
+              <div className="grid flex-1 grid-cols-2 gap-3 md:gap-4">
+                {[row.before, row.after].map((src, i) => (
                   <div
                     key={i}
-                    className={`overflow-hidden rounded-2xl bg-white/[0.03] ${
-                      img.emphasis ? "ring-1 ring-white/10" : ""
-                    }`}
+                    className="overflow-hidden rounded-xl bg-white/[0.03]"
                   >
                     <img
-                      src={img.src}
-                      alt={img.alt}
+                      src={src}
+                      alt={`Oscar in ${row.year}, ${i === 0 ? "before" : "after"} weight loss`}
                       loading="lazy"
-                      className={`h-full w-full object-cover transition-[filter] duration-300 hover:brightness-110 ${
-                        img.emphasis ? "aspect-[4/5]" : "aspect-square"
-                      }`}
+                      className="aspect-[16/10] h-full w-full object-cover transition-[filter] duration-300 hover:brightness-110"
                     />
                   </div>
                 ))}
               </div>
             </div>
           ))}
-        </div>
-
-        {/* RIGHT: typography */}
-        <div className="order-2 flex flex-col justify-start md:pt-[8vh] lg:pt-[12vh]">
-          <h1 className="font-sans text-5xl font-extrabold uppercase leading-[0.95] tracking-tight md:text-6xl lg:text-7xl xl:text-8xl">
-            <span className="block">I Lost</span>
-            <span className="block text-accent">80+ Lbs</span>
-            <span className="block">Three Times.</span>
-          </h1>
-
-          <p className="mt-8 text-xl font-semibold tracking-tight text-white md:text-2xl lg:text-3xl">
-            LS Diet stops the <span className="text-accent">weight regain</span>.
-          </p>
-
-          <p className="mt-4 text-sm font-normal text-white/50 md:text-base">
-            A psychological system for weight permanence.
-          </p>
         </div>
       </div>
     </section>
