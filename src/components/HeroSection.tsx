@@ -43,7 +43,7 @@ export function HeroSection() {
                       src={src}
                       alt={`Oscar in ${row.year}, ${i === 0 ? "before" : "after"} weight loss`}
                       loading="lazy"
-                      className="h-full w-full object-cover object-top transition-[filter] duration-300 hover:brightness-110"
+                      className="h-full w-full object-contain transition-[filter] duration-300 hover:brightness-110"
                     />
                   </div>
                 ))}
