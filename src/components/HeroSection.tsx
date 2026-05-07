@@ -1,26 +1,14 @@
-import img201710 from "@/assets/journey/201710-graduation.jpg";
-import img201908 from "@/assets/journey/201908-after-stress.jpg";
-import img202012 from "@/assets/journey/202012-after-attempt1.jpg";
-import img202204 from "@/assets/journey/202204-regain1.jpg";
-import img202311 from "@/assets/journey/202311-after-attempt2.jpg";
-import img202405 from "@/assets/journey/202405-regain2.jpg";
+import img2019a from "@/assets/hero/2019a.png";
+import img2019b from "@/assets/hero/2019b.png";
+import img2021a from "@/assets/hero/2021a.png";
+import img2021b from "@/assets/hero/2021b.png";
+import img2024a from "@/assets/hero/2024a.png";
+import img2024b from "@/assets/hero/2024b.png";
 
 const pairs = [
-  {
-    year: "2019",
-    before: { src: img201908, weight: "300 lbs" },
-    after: { src: img201710, weight: "180 lbs" },
-  },
-  {
-    year: "2022",
-    before: { src: img202204, weight: "280 lbs" },
-    after: { src: img202012, weight: "200 lbs" },
-  },
-  {
-    year: "2025",
-    before: { src: img202405, weight: "300 lbs" },
-    after: { src: img202311, weight: "190 lbs" },
-  },
+  { year: "2019", before: img2019a, after: img2019b },
+  { year: "2021", before: img2021a, after: img2021b },
+  { year: "2024", before: img2024a, after: img2024b },
 ];
 
 export function HeroSection() {
@@ -46,36 +34,30 @@ export function HeroSection() {
               <div className="grid aspect-[4/3] grid-cols-2">
                 <div className="relative overflow-hidden">
                   <img
-                    src={pair.before.src}
-                    alt={`Before — ${pair.before.weight}`}
+                    src={pair.before}
+                    alt={`Oscar in ${pair.year}, before weight loss`}
                     loading="eager"
-                    className="h-full w-full object-cover object-[center_20%]"
+                    className="h-full w-full object-cover object-top"
                   />
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent backdrop-blur-sm">
-                    {pair.before.weight}
+                    Before
                   </span>
                 </div>
                 <div className="relative overflow-hidden">
                   <img
-                    src={pair.after.src}
-                    alt={`After — ${pair.after.weight}`}
+                    src={pair.after}
+                    alt={`Oscar in ${pair.year}, after weight loss`}
                     loading="eager"
-                    className="h-full w-full object-cover object-[center_20%]"
+                    className="h-full w-full object-cover object-top"
                   />
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/70 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-sm">
-                    {pair.after.weight}
+                    After
                   </span>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-3 py-3">
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/50">
-                  Before
-                </span>
+              <div className="flex items-center justify-center py-3">
                 <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-accent">
                   {pair.year}
-                </span>
-                <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/50">
-                  After
                 </span>
               </div>
             </div>
