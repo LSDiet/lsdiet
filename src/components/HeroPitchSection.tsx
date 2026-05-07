@@ -7,7 +7,8 @@ const bullets = [
   { text: "How to build ", strong: "urgency to lose weight" },
   { text: "How to ", strong: "automate weight loss behaviour" },
   { text: "Adopt a ", strong: "Low Starch, Low Sugar lifestyle" },
-  { text: "See results in 2 weeks", strong: "" },
+  { text: "I don't teach ", strong: "exercise" },
+  { text: "See results in ", strong: "2 weeks", animateStrong: true },
 ];
 
 export function HeroPitchSection() {
