@@ -35,7 +35,7 @@ export function HeroSection() {
             <span className="relative inline-block">
               <span className="relative z-10 text-accent">Low Starch, Low Sugar (LS) Diet</span>
               <svg
-                className="pointer-events-none absolute left-0 right-0 -bottom-1.5 w-full"
+                className="pointer-events-none absolute left-0 right-0 -bottom-3 w-full"
                 viewBox="0 0 300 18"
                 preserveAspectRatio="none"
                 aria-hidden="true"
