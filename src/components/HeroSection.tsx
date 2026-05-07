@@ -13,12 +13,12 @@ const pairs = [
   },
   {
     year: "2022",
-    before: img2021a, beforeLbs: "280 LBS", beforePos: "object-[center_top]",
+    before: img2021a, beforeLbs: "280 LBS", beforePos: "object-right",
     after: img2021b, afterLbs: "200 LBS", afterPos: "object-top",
   },
   {
     year: "2024",
-    before: img2024a, beforeLbs: "300 LBS", beforePos: "object-center",
+    before: img2024a, beforeLbs: "300 LBS", beforePos: "object-left",
     after: img2024b, afterLbs: "190 LBS", afterPos: "object-center",
   },
 ];
@@ -49,7 +49,7 @@ export function HeroSection() {
                     src={pair.before}
                     alt={`Oscar in ${pair.year}, before`}
                     loading="eager"
-                    className="h-full w-full object-cover object-top"
+                    className={`h-full w-full object-cover ${pair.beforePos}`}
                   />
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-accent backdrop-blur-sm">
                     {pair.beforeLbs}
@@ -60,7 +60,7 @@ export function HeroSection() {
                     src={pair.after}
                     alt={`Oscar in ${pair.year}, after`}
                     loading="eager"
-                    className="h-full w-full object-cover object-top"
+                    className={`h-full w-full object-cover ${pair.afterPos}`}
                   />
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-white backdrop-blur-sm">
                     {pair.afterLbs}
