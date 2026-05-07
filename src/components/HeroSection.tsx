@@ -32,7 +32,32 @@ export function HeroSection() {
             I Lost <span className="text-accent">80+ Lbs</span> Three Times.
           </h1>
           <p className="mt-2 text-xs font-medium uppercase tracking-wide text-white/70 sm:text-sm md:mt-3 md:text-base">
-            <span className="text-accent">Low Starch, Low Sugar (LS) Diet</span> is the only way to stop the{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-accent">Low Starch, Low Sugar (LS) Diet</span>
+              <svg
+                className="pointer-events-none absolute left-0 right-0 -bottom-1.5 w-full"
+                viewBox="0 0 300 18"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="lsdiet-brush" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="hsl(0 85% 55%)" stopOpacity="0" />
+                    <stop offset="20%" stopColor="hsl(0 85% 55%)" stopOpacity="0.95" />
+                    <stop offset="80%" stopColor="hsl(0 85% 55%)" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="hsl(0 85% 55%)" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M4 10 Q 70 3, 150 9 T 296 8"
+                  stroke="url(#lsdiet-brush)"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </svg>
+            </span>{" "}
+            is the only way to stop the{" "}
             <span className="text-accent">weight regain</span>
           </p>
         </div>

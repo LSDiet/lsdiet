@@ -7,7 +7,8 @@ const bullets = [
   { text: "How to build ", strong: "urgency to lose weight" },
   { text: "How to ", strong: "automate weight loss behaviour" },
   { text: "Adopt a ", strong: "Low Starch, Low Sugar lifestyle" },
-  { text: "See results in 2 weeks", strong: "" },
+  { text: "I don't teach ", strong: "exercise" },
+  { text: "See results in ", strong: "2 weeks", animateStrong: true },
 ];
 
 export function HeroPitchSection() {
@@ -84,7 +85,7 @@ export function HeroPitchSection() {
                 <Check className="mt-1 h-4 w-4 flex-shrink-0 text-accent" />
                 <span className="text-sm text-white/85 md:text-base">
                   {b.text}
-                  <span className="font-semibold text-accent">{b.strong}</span>
+                  <span className={`font-semibold text-accent ${b.animateStrong ? "animate-two-weeks" : ""}`}>{b.strong}</span>
                 </span>
               </li>
             ))}
