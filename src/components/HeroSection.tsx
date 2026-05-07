@@ -6,9 +6,21 @@ import img2024a from "@/assets/hero/2024a.png";
 import img2024b from "@/assets/hero/2024b.png";
 
 const pairs = [
-  { year: "2019", before: img2019a, beforeLbs: "300 LBS", after: img2019b, afterLbs: "180 LBS" },
-  { year: "2022", before: img2021a, beforeLbs: "280 LBS", after: img2021b, afterLbs: "200 LBS" },
-  { year: "2025", before: img2024a, beforeLbs: "300 LBS", after: img2024b, afterLbs: "190 LBS" },
+  {
+    year: "2019",
+    before: img2019a, beforeLbs: "300 LBS", beforePos: "object-top",
+    after: img2019b, afterLbs: "180 LBS", afterPos: "object-top",
+  },
+  {
+    year: "2022",
+    before: img2021a, beforeLbs: "280 LBS", beforePos: "object-[center_top]",
+    after: img2021b, afterLbs: "200 LBS", afterPos: "object-top",
+  },
+  {
+    year: "2024",
+    before: img2024a, beforeLbs: "300 LBS", beforePos: "object-center",
+    after: img2024b, afterLbs: "190 LBS", afterPos: "object-center",
+  },
 ];
 
 export function HeroSection() {
