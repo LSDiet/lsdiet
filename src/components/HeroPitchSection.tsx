@@ -85,7 +85,7 @@ export function HeroPitchSection() {
                 <Check className="mt-1 h-4 w-4 flex-shrink-0 text-accent" />
                 <span className="text-sm text-white/85 md:text-base">
                   {b.text}
-                  <span className="font-semibold text-accent">{b.strong}</span>
+                  <span className={`font-semibold text-accent ${b.animateStrong ? "animate-two-weeks" : ""}`}>{b.strong}</span>
                 </span>
               </li>
             ))}
