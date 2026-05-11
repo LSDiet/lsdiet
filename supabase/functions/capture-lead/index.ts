@@ -86,6 +86,13 @@ Deno.serve(async (req) => {
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
+    if (firstName != null && (typeof firstName !== "string" || firstName.length > 100)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid firstName" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const normalizedFirstName = typeof firstName === "string" ? firstName.trim().slice(0, 100) : null;
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
