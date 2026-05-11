@@ -139,6 +139,7 @@ Deno.serve(async (req) => {
             last_download_at: new Date().toISOString(),
             device_type: deviceType,
             resource_title: resourceTitle || null,
+            first_name: normalizedFirstName,
           },
           { onConflict: "email" }
         );
