@@ -121,6 +121,7 @@ Deno.serve(async (req) => {
           last_download_at: new Date().toISOString(),
           device_type: deviceType,
           resource_title: resourceTitle || null,
+          ...(normalizedFirstName ? { first_name: normalizedFirstName } : {}),
         })
         .eq("email", normalizedEmail);
     } else {
