@@ -17,11 +17,11 @@ export function useLeadCapture(): UseLeadCaptureReturn {
   const storedEmail = typeof window !== 'undefined' ? localStorage.getItem(STORAGE_KEY) : null;
   const hasEmail = !!storedEmail;
 
-  const captureAndDownload = useCallback(async (email: string, source: string, filePath: string, resourceTitle?: string) => {
+  const captureAndDownload = useCallback(async (email: string, source: string, filePath: string, resourceTitle?: string, firstName?: string) => {
     setIsLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('capture-lead', {
-        body: { email, source, filePath, isReturningUser: false, resourceTitle },
+        body: { email, source, filePath, isReturningUser: false, resourceTitle, firstName },
       });
 
       if (error || !data?.signedUrl) {
