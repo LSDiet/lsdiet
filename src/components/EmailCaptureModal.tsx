@@ -37,22 +37,25 @@ function EmailCaptureForm({
   isLoading,
 }: {
   resourceTitle: string;
-  onSubmit: (email: string) => Promise<void>;
+  onSubmit: (email: string, firstName: string) => Promise<void>;
   isLoading: boolean;
 }) {
+  const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [consentChecked, setConsentChecked] = useState(false);
 
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const canSubmit = isValidEmail && consentChecked && !isLoading;
+  const isValidName = firstName.trim().length > 0;
+  const canSubmit = isValidName && isValidEmail && consentChecked && !isLoading;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
 
     try {
-      await onSubmit(email);
+      await onSubmit(email, firstName.trim());
       // Reset form on success
+      setFirstName('');
       setEmail('');
       setConsentChecked(false);
     } catch {
@@ -62,6 +65,21 @@ function EmailCaptureForm({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="firstName">First name</Label>
+        <Input
+          id="firstName"
+          type="text"
+          placeholder="Your first name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          disabled={isLoading}
+          autoComplete="given-name"
+          maxLength={100}
+          required
+        />
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="email">Email address</Label>
         <Input
