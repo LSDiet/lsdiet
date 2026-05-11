@@ -91,20 +91,6 @@ function EmailCaptureForm({
         />
       </div>
 
-      <div className="flex items-start space-x-3">
-        <Checkbox
-          id="consent"
-          checked={consentChecked}
-          onCheckedChange={(checked) => setConsentChecked(checked === true)}
-          disabled={isLoading}
-        />
-        <Label 
-          htmlFor="consent" 
-          className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
-        >
-          {CONSENT_TEXT}
-        </Label>
-      </div>
 
       <Button
         type="submit"
