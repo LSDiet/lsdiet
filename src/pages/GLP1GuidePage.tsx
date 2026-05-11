@@ -93,8 +93,8 @@ export default function GLP1GuidePage() {
     }
   };
 
-  const handleModalSubmit = async (email: string) => {
-    await captureAndDownload(email, RESOURCE_ID, FILE_PATH, RESOURCE_TITLE);
+  const handleModalSubmit = async (email: string, firstName: string) => {
+    await captureAndDownload(email, RESOURCE_ID, FILE_PATH, RESOURCE_TITLE, firstName);
   };
 
   return (
