@@ -59,9 +59,9 @@ export default function FreeResources() {
       setModalOpen(true);
     }
   };
-  const handleModalSubmit = async (email: string) => {
+  const handleModalSubmit = async (email: string, firstName: string) => {
     if (!selectedResource) return;
-    await captureAndDownload(email, selectedResource.id, selectedResource.filePath);
+    await captureAndDownload(email, selectedResource.id, selectedResource.filePath, undefined, firstName);
   };
   return <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
