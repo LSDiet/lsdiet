@@ -24,7 +24,7 @@ interface EmailCaptureModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   resourceTitle: string;
-  onSubmit: (email: string) => Promise<void>;
+  onSubmit: (email: string, firstName: string) => Promise<void>;
   isLoading: boolean;
 }
 
