@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { email, source, filePath, isReturningUser, resourceTitle } = await req.json();
+    const { email, source, filePath, isReturningUser, resourceTitle, firstName } = await req.json();
 
     if (!email || !source || !filePath) {
       return new Response(
