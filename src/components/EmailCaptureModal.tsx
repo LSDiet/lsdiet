@@ -15,7 +15,6 @@ import {
 } from '@/components/ui/drawer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Loader2, Download } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -42,11 +41,10 @@ function EmailCaptureForm({
 }) {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
-  const [consentChecked, setConsentChecked] = useState(false);
 
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isValidName = firstName.trim().length > 0;
-  const canSubmit = isValidName && isValidEmail && consentChecked && !isLoading;
+  const canSubmit = isValidName && isValidEmail && !isLoading;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,7 +55,6 @@ function EmailCaptureForm({
       // Reset form on success
       setFirstName('');
       setEmail('');
-      setConsentChecked(false);
     } catch {
       // Error handled by parent
     }
@@ -94,20 +91,6 @@ function EmailCaptureForm({
         />
       </div>
 
-      <div className="flex items-start space-x-3">
-        <Checkbox
-          id="consent"
-          checked={consentChecked}
-          onCheckedChange={(checked) => setConsentChecked(checked === true)}
-          disabled={isLoading}
-        />
-        <Label 
-          htmlFor="consent" 
-          className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
-        >
-          {CONSENT_TEXT}
-        </Label>
-      </div>
 
       <Button
         type="submit"
