@@ -23,6 +23,7 @@ export type Database = {
           device_type: string | null
           download_count: number
           email: string
+          first_name: string | null
           id: string
           last_download_at: string
           resource_title: string | null
@@ -36,6 +37,7 @@ export type Database = {
           device_type?: string | null
           download_count?: number
           email: string
+          first_name?: string | null
           id?: string
           last_download_at?: string
           resource_title?: string | null
@@ -49,6 +51,7 @@ export type Database = {
           device_type?: string | null
           download_count?: number
           email?: string
+          first_name?: string | null
           id?: string
           last_download_at?: string
           resource_title?: string | null

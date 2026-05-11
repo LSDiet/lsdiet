@@ -46,7 +46,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { email, source, filePath, isReturningUser, resourceTitle } = await req.json();
+    const { email, source, filePath, isReturningUser, resourceTitle, firstName } = await req.json();
 
     if (!email || !source || !filePath) {
       return new Response(
@@ -86,6 +86,13 @@ Deno.serve(async (req) => {
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
+    if (firstName != null && (typeof firstName !== "string" || firstName.length > 100)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid firstName" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    const normalizedFirstName = typeof firstName === "string" ? firstName.trim().slice(0, 100) : null;
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -114,6 +121,7 @@ Deno.serve(async (req) => {
           last_download_at: new Date().toISOString(),
           device_type: deviceType,
           resource_title: resourceTitle || null,
+          ...(normalizedFirstName ? { first_name: normalizedFirstName } : {}),
         })
         .eq("email", normalizedEmail);
     } else {
@@ -131,6 +139,7 @@ Deno.serve(async (req) => {
             last_download_at: new Date().toISOString(),
             device_type: deviceType,
             resource_title: resourceTitle || null,
+            first_name: normalizedFirstName,
           },
           { onConflict: "email" }
         );
