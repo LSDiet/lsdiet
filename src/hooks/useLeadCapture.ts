@@ -8,7 +8,7 @@ interface UseLeadCaptureReturn {
   isLoading: boolean;
   hasEmail: boolean;
   storedEmail: string | null;
-  captureAndDownload: (email: string, source: string, filePath: string, resourceTitle?: string) => Promise<void>;
+  captureAndDownload: (email: string, source: string, filePath: string, resourceTitle?: string, firstName?: string) => Promise<void>;
   downloadForReturningUser: (source: string, filePath: string, resourceTitle?: string) => Promise<void>;
 }
 
