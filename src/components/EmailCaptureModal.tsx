@@ -139,8 +139,8 @@ export function EmailCaptureModal({
 }: EmailCaptureModalProps) {
   const isMobile = useIsMobile();
 
-  const handleFormSubmit = async (email: string) => {
-    await onSubmit(email);
+  const handleFormSubmit = async (email: string, firstName: string) => {
+    await onSubmit(email, firstName);
     onOpenChange(false);
   };
 
