@@ -18,7 +18,7 @@ const pairs = [
   },
   {
     year: "2024",
-    before: img2024a, beforeLbs: "300 LBS", beforePos: "object-top",
+    before: img2024a, beforeLbs: "310 LBS", beforePos: "object-top",
     after: img2024b, afterLbs: "190 LBS", afterPos: "object-top",
   },
 ];
