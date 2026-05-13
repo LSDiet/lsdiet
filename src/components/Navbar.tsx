@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Triangle, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import lsDietLogo from "@/assets/lsdiet-logo.png";
 
 const navLinks = [
   { label: "Weight Problem", href: "/#journey" },
@@ -15,9 +16,7 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[hsl(0_0%_6%/0.95)] backdrop-blur supports-[backdrop-filter]:bg-[hsl(0_0%_6%/0.8)] border-b border-[hsl(0_0%_18%)]">
       <div className="container flex h-14 items-center justify-between">
         <a href="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full border border-accent flex items-center justify-center">
-            <Triangle className="w-3.5 h-3.5 text-accent fill-accent" />
-          </div>
+          <img src={lsDietLogo} alt="LS Diet logo" className="h-9 w-9 rounded-md object-contain" />
           <div className="flex flex-col leading-none">
             <span className="text-sm font-bold uppercase tracking-[0.15em] text-[hsl(0_0%_96%)]">
               LS Diet
