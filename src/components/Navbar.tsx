@@ -16,15 +16,10 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[hsl(0_0%_6%/0.95)] backdrop-blur supports-[backdrop-filter]:bg-[hsl(0_0%_6%/0.8)] border-b border-[hsl(0_0%_18%)]">
       <div className="container flex h-14 items-center justify-between">
         <a href="/" className="flex items-center gap-2.5">
-          <img src={lsDietLogo} alt="LS Diet logo" className="h-9 w-9 rounded-md object-contain" />
-          <div className="flex flex-col leading-none">
-            <span className="text-sm font-bold uppercase tracking-[0.15em] text-[hsl(0_0%_96%)]">
-              LS Diet
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.1em] text-accent/80 font-medium">
-              Stop Restarting Weight Loss
-            </span>
-          </div>
+          <img src={lsDietLogo} alt="LS Diet logo" className="h-10 w-10 rounded-md object-contain" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-accent/90 font-semibold">
+            Stop Restarting Weight Loss
+          </span>
         </a>
 
         {/* Desktop nav */}
