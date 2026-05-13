@@ -24,15 +24,15 @@ interface Resource {
 const resources: Resource[] = [{
   id: 'ebook-ls-diet-guide',
   title: 'Low Starch, Low Sugar = Burn Fat',
-  description: 'The smarter, sustainable alternative to No Carb and Keto — lower insulin, burn fat, and still eat real food.',
+  description: 'The flexible, sustainable alternative to restrictive No Carb diet — lower insulin, burn fat, and still eat happily.',
   filePath: 'Low-Starch Low-Sugar Guide.pdf',
   coverImage: lsCover,
   dedicatedPage: '/ls-diet-guide',
   learningPoints: [
-    'Why insulin — not calories — controls fat burning',
-    'Why LS beats No Carb and Keto long-term',
+    'How insulin controls fat burning',
+    'Why LS beats No Carb diet long-term',
     'What to eat across 6 food categories',
-    'How to make LS a lifestyle, not a diet'
+    'How to make LS a lifestyle'
   ]
 }, {
   id: 'ebook-glp1-weight-loss',
