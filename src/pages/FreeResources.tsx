@@ -68,26 +68,6 @@ export default function FreeResources() {
       
       <main className="flex-1 pt-24 pb-16">
         <div className="container max-w-5xl">
-          <div className="relative text-center mb-12">
-            {/* Background decorative elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
-              <div className="absolute top-0 right-1/4 w-64 h-64 rounded-full bg-accent/5 blur-3xl" />
-            </div>
-
-            {/* Badge */}
-            <div className="relative inline-flex items-center px-4 py-2 rounded-full bg-accent/15 border border-accent/25 mb-6 opacity-0 animate-fade-in-up">
-              <span className="text-sm font-medium text-accent">100% Free</span>
-            </div>
-
-            {/* Heading with LS highlight */}
-            <h1 className="relative text-3xl md:text-4xl font-serif font-normal text-primary mb-4 opacity-0 animate-fade-in-up animate-delay-100">
-              Free Tools for a Low-Starch, Low-Sugar{" "}
-              <span className="text-accent">(LS)</span> Lifestyle
-            </h1>
-
-          </div>
-
           {resources.length === 0 ? <div className="text-center py-12">
               <FileText className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
               <p className="text-muted-foreground">No free resources are published yet. Check back soon!</p>
