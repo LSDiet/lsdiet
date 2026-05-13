@@ -88,12 +88,12 @@ function ResourceCard({ resource, index, onDownload, isLoading }: { resource: Re
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <div ref={ref} className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-700 ${index === 0 || isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+    <div ref={ref} className={`grid md:grid-cols-2 gap-8 items-center transition-all duration-700 ${index === 0 || isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
       {/* eBook Cover */}
       <div className="flex justify-center">
         <div className="relative animate-float">
           <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl" />
-          {resource.coverImage ? <img src={resource.coverImage} alt={resource.title} className="relative max-w-sm w-full drop-shadow-2xl rounded-lg" /> : <div className="relative max-w-sm w-full aspect-[3/4] bg-secondary rounded-lg flex items-center justify-center drop-shadow-2xl">
+          {resource.coverImage ? <img src={resource.coverImage} alt={resource.title} className="relative max-w-[260px] md:max-w-xs w-full drop-shadow-2xl rounded-lg" /> : <div className="relative max-w-xs w-full aspect-[3/4] bg-secondary rounded-lg flex items-center justify-center drop-shadow-2xl">
               <FileText className="w-24 h-24 text-primary/30" />
             </div>}
         </div>
@@ -101,24 +101,24 @@ function ResourceCard({ resource, index, onDownload, isLoading }: { resource: Re
 
       {/* eBook Info */}
       <div>
-        <h2 className="text-3xl md:text-4xl font-serif font-normal mb-4 text-primary">
+        <h2 className="text-2xl md:text-3xl font-serif font-normal mb-3 text-primary leading-tight">
           {resource.title}
         </h2>
         
-        <p className="text-muted-foreground mb-6 leading-relaxed">
+        <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
           {resource.description}
         </p>
 
-        <p className="text-foreground font-medium mb-4">
+        <p className="text-sm text-foreground font-medium mb-3">
           In this short guide, you will learn:
         </p>
 
-        <ul className="space-y-3 mb-8">
-          {resource.learningPoints.map(point => <li key={point} className="flex items-start gap-3">
+        <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2 mb-5">
+          {resource.learningPoints.map(point => <li key={point} className="flex items-start gap-2">
               <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Check className="w-3 h-3 text-primary" />
               </div>
-              <span className="text-foreground">{point}</span>
+              <span className="text-sm text-foreground leading-snug">{point}</span>
             </li>)}
         </ul>
 
