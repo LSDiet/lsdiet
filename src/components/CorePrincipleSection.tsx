@@ -41,9 +41,9 @@ export function CorePrincipleSection() {
 
           <div className="max-w-3xl mx-auto mb-12 space-y-4 text-[hsl(0_0%_78%)] leading-relaxed text-base md:text-lg text-center md:text-left">
             <p>
-              Almost everyone who loses weight regains it. The restart cycle isn't a willpower failure — it's a
-              structural one. Conventional diets address food but ignore the psychology, biology, and environment
-              that drive eating behaviour, so as soon as life gets stressful the old patterns return and the weight
+              Almost everyone who loses weight regains it. The restart cycle isn't a willpower failure — it's
+              structural. Conventional diets address food but ignore the psychology, biology, and environment
+              that drive eating behaviour. As soon as life gets stressful, the old patterns return and the weight
               comes back. <strong className="text-foreground">LS Diet</strong> targets the three problems below with
               a low-starch, low-sugar lifestyle and the Weight Permanence Triangle™, so behavioural permanence
               replaces the restart loop.
