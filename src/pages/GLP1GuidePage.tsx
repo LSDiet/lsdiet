@@ -69,12 +69,12 @@ const articleSchema = {
   author: {
     '@type': 'Person',
     name: 'Oscar Poon',
-    url: 'https://oscarpoon.com',
+    url: 'https://lsdiet.com',
   },
   publisher: {
     '@type': 'Organization',
     name: 'Weight Permanence',
-    url: 'https://oscarpoon.com',
+    url: 'https://lsdiet.com',
   },
   datePublished: '2025-02-01',
   dateModified: '2025-02-01',
@@ -105,7 +105,7 @@ export default function GLP1GuidePage() {
           name="description"
           content="Learn why GLP-1 medications like Ozempic and Wegovy work for weight loss, why weight often returns after stopping, and what determines long-term results. Free downloadable guide."
         />
-        <link rel="canonical" href="https://oscarpoon.com/does-glp-1-work" />
+        <link rel="canonical" href="https://lsdiet.com/does-glp-1-work" />
         <meta name="author" content="Oscar Poon" />
 
         {/* Open Graph */}
@@ -115,8 +115,8 @@ export default function GLP1GuidePage() {
           content="Why GLP-1 medications like Ozempic work, why weight often returns, and what actually determines long-term results."
         />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://oscarpoon.com/does-glp-1-work" />
-        <meta property="og:image" content="https://oscarpoon.com/og-glp1-guide.png" />
+        <meta property="og:url" content="https://lsdiet.com/does-glp-1-work" />
+        <meta property="og:image" content="https://lsdiet.com/og-glp1-guide.png" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />

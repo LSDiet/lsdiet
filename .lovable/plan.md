@@ -1,30 +1,72 @@
-## Problem
-The LS Diet guide card on `/free-resources` is too tall — users must scroll to see buttons and bullets. The description is wordy and the 4 bullet points are long; generous spacing and large fonts add vertical bloat.
+# SEO entity restructure: LS Diet as primary brand
 
-## Solution: Trim copy + tighten layout
+Reframe the site so search engines and AI tools see **LS Diet (lsdiet.com)** as the organisation and **Oscar Poon** as its founder — not the other way around. Also fix the title, description, and social handle inconsistency.
 
-### 1. Shorten the copy
-**Description** (currently 2 sentences, ~30 words) → compress into 1 punchy sentence (~15 words).
+## 1. `index.html` — JSON-LD, title, meta, Twitter
 
-**Bullet points** (currently 4 long sentences) → rewrite as 4 very short bullets (≤8 words each). Keep the key ideas: insulin/fat burning, LS vs No-Carb/Keto, 6 food categories, sustainable lifestyle.
+**Title** → `LS Diet | Stop Weight Regain with Low-Starch Low-Sugar`
 
-### 2. Compact the layout
-- Reduce vertical padding inside the card (`gap-12` → `gap-8`, `mb-6` → `mb-3`, etc.)
-- Shrink heading size (`text-3xl md:text-4xl` → `text-2xl md:text-3xl`)
-- Shrink description and bullet text (`text-muted-foreground` / `text-foreground` → slightly smaller or tighter line-height)
-- Render bullets in a 2-column grid on desktop (`grid-cols-2`) so 4 bullets take 2 rows instead of 4
-- Tighten bullet item spacing (`space-y-3` → `space-y-2` or `gap-2` in grid)
-- Keep buttons visible at bottom without scrolling on a typical laptop viewport (~700px usable height)
+**Meta description** → `LS Diet is a low-starch, low-sugar lifestyle system created by Oscar Poon to stop weight regain through behavioural permanence, awareness training, and sustainable daily habits.`
 
-### 3. Preserve existing behaviour
-- Keep cover image, download flow, modal, dedicated page link
-- Keep dark theme, amber accent, animation hooks
-- Keep responsive: single column on mobile, compact two-column bullets on desktop
+**OG tags** → mirror new title/description; `og:url` → `https://lsdiet.com/`
 
-### Files to edit
-- `src/pages/FreeResources.tsx` — copy and layout changes only
+**Twitter** → `@JoinLSDiet` (replaces `@WhatAboutWeight`)
 
-## Acceptance criteria
-- On a 1366×768 viewport, the first resource card (cover + title + desc + bullets + buttons) is fully visible without scrolling
-- Mobile still stacks vertically and remains readable
-- No functional changes to download or navigation
+**Add canonical** → `<link rel="canonical" href="https://lsdiet.com/" />`
+
+**Restructured JSON-LD `@graph`** (Organization first, Person references it via `worksFor`, Person `@id` lives on lsdiet.com):
+
+```text
+Organization @id  https://lsdiet.com/#organization
+  name          LS Diet
+  url           https://lsdiet.com
+  founder       → Person
+  sameAs        [youtube, instagram, tiktok @JoinLSDiet]
+
+WebSite @id     https://lsdiet.com/#website
+  url           https://lsdiet.com
+  name          LS Diet
+  publisher     → Organization
+
+Person @id      https://lsdiet.com/#oscar-poon
+  name          Oscar Poon
+  jobTitle      Founder
+  worksFor      → Organization
+  sameAs        [LinkedIn, YouTube @JoinLSDiet]
+
+Book            Weight Permanence
+  author        → Person
+  publisher     NTL Learning Solutions Inc.
+```
+
+## 2. Per-page canonicals & schema (`src/pages/LSDietGuidePage.tsx`, `src/pages/GLP1GuidePage.tsx`)
+
+- `link rel="canonical"` and `og:url` → `https://lsdiet.com/...`
+- Article schema `author.url` and `publisher.url` → `https://lsdiet.com`
+- `og:image` for GLP-1 page → `https://lsdiet.com/og-glp1-guide.png`
+
+## 3. Sitemap & robots (`public/sitemap.xml`, `public/robots.txt`)
+
+- All `<loc>` entries → `https://lsdiet.com/...`
+- `Sitemap:` directive in robots.txt → `https://lsdiet.com/sitemap.xml`
+
+## 4. Social handle: `@WhatAboutWeight` → `@JoinLSDiet`
+
+YouTube URLs (`youtube.com/@WhatAboutWeight` → `youtube.com/@JoinLSDiet`) and visible labels in:
+- `src/components/AboutAuthorSection.tsx` (link + alt text + label)
+- `src/components/YouTubeShortsSection.tsx` (subscribe link)
+- `src/components/WaitlistModal.tsx` (link)
+- `src/pages/QAPage.tsx` (two answer body references)
+
+**Leaving alone** (these are different things, not the YT handle):
+- `info@whataboutweight.com` email and the legal "operating as WhatAboutWeight" trade-name references in TermsOfUse / PrivacyPolicy / HealthDisclaimer — those are entity/legal copy, not social handles.
+- `oscarpoon.com` printed inside the book mockup (`BookSection.tsx`) — visual artwork on the cover, not a metadata signal.
+
+## 5. Memory updates
+
+Update `mem://index.md` Core: change "Primary domain oscarpoon.com" → "Primary domain lsdiet.com". Update `mem://project/domain-configuration` and `mem://brand/social-presence` to reflect lsdiet.com primary and `@JoinLSDiet` handle.
+
+## Notes
+
+- All edits are static head/JSON-LD/text — no behavioural code changes.
+- oscarpoon.com remains a configured custom domain (it'll keep resolving), but every canonical signal now points at lsdiet.com so Google consolidates the entity there.

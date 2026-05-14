@@ -6,18 +6,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
-    <title>LS Diet | Stop Restarting Weight Loss</title>
-    <meta name="description" content="Discover the LS Diet — a neurobehavioral approach to losing weight permanently with a low-starch, low-sugar lifestyle. Stop restarting weight loss." />
+    <title>LS Diet | Stop Weight Regain with Low-Starch Low-Sugar</title>
+    <meta name="description" content="LS Diet is a low-starch, low-sugar lifestyle system created by Oscar Poon to stop weight regain through behavioural permanence, awareness training, and sustainable daily habits." />
     <meta name="author" content="Oscar Poon" />
+    <link rel="canonical" href="https://lsdiet.com/" />
     <link rel="icon" href="/favicon.png" type="image/png" />
 
-    <meta property="og:title" content="LS Diet | Stop Restarting Weight Loss" />
-    <meta property="og:description" content="Discover the LS Diet — a neurobehavioral approach to losing weight permanently with a low-starch, low-sugar lifestyle. Stop restarting weight loss." />
+    <meta property="og:title" content="LS Diet | Stop Weight Regain with Low-Starch Low-Sugar" />
+    <meta property="og:description" content="LS Diet is a low-starch, low-sugar lifestyle system created by Oscar Poon to stop weight regain through behavioural permanence, awareness training, and sustainable daily habits." />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lsdiet.com/" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@WhatAboutWeight" />
+    <meta name="twitter:site" content="@JoinLSDiet" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
     <!-- JSON-LD Structured Data for SEO -->
@@ -26,29 +28,41 @@
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://lsdiet.com/#organization",
+          "name": "LS Diet",
+          "url": "https://lsdiet.com",
+          "founder": { "@id": "https://lsdiet.com/#oscar-poon" },
+          "description": "LS Diet — a low-starch, low-sugar lifestyle system for permanent weight loss through behavioural permanence and awareness training.",
+          "sameAs": [
+            "https://www.youtube.com/@JoinLSDiet",
+            "https://www.instagram.com/JoinLSDiet",
+            "https://www.tiktok.com/@JoinLSDiet"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://lsdiet.com/#website",
+          "url": "https://lsdiet.com",
+          "name": "LS Diet",
+          "publisher": { "@id": "https://lsdiet.com/#organization" }
+        },
+        {
           "@type": "Person",
-          "@id": "https://oscarpoon.com/#oscar-poon",
+          "@id": "https://lsdiet.com/#oscar-poon",
           "name": "Oscar Poon",
           "jobTitle": "Founder",
           "description": "Founder of LS Diet and creator of the Weight Permanence Triangle (WPT), a neurobehavioural framework for permanent weight loss.",
-          "worksFor": { "@id": "https://oscarpoon.com/#organization" },
+          "worksFor": { "@id": "https://lsdiet.com/#organization" },
           "sameAs": [
-            "https://www.youtube.com/@WhatAboutWeight",
+            "https://www.youtube.com/@JoinLSDiet",
             "https://www.linkedin.com/in/poonoscar/"
           ]
         },
         {
-          "@type": "Organization",
-          "@id": "https://oscarpoon.com/#organization",
-          "name": "LS Diet",
-          "url": "https://oscarpoon.com",
-          "founder": { "@id": "https://oscarpoon.com/#oscar-poon" },
-          "description": "Home of the LS Diet — a neurobehavioural approach to permanent weight loss through low-starch, low-sugar living."
-        },
-        {
           "@type": "Book",
           "name": "Weight Permanence",
-          "author": { "@id": "https://oscarpoon.com/#oscar-poon" },
+          "author": { "@id": "https://lsdiet.com/#oscar-poon" },
           "publisher": {
             "@type": "Organization",
             "name": "NTL Learning Solutions Inc."

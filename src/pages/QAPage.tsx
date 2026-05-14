@@ -347,7 +347,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Can you follow low-starch, low-sugar without a meal plan?",
         answer:
-          "Yes, when food decisions are guided by structure and principles instead of rigid scripts. Oscar doesn't follow any meal plans. You can find his monthly challenges—where he eats low-starch, low-sugar in all different environments—on his YouTube channel at youtube.com/@WhatAboutWeight.",
+          "Yes, when food decisions are guided by structure and principles instead of rigid scripts. Oscar doesn't follow any meal plans. You can find his monthly challenges—where he eats low-starch, low-sugar in all different environments—on his YouTube channel at youtube.com/@JoinLSDiet.",
       },
       {
         question: "Do you need to give up all carbohydrates to lose weight?",
@@ -362,7 +362,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Why is eating low-starch, low-sugar more expensive?",
         answer:
-          "Protein and fresh foods are less subsidized by governments and more perishable than refined carbohydrates, which drives up their cost. Processed grains have long shelf lives and lower transportation costs, making them cheaper at the supermarket. Check out Oscar's YouTube channel (youtube.com/@WhatAboutWeight) to watch how he cooks at home to overcome the cost hurdle while eating well.",
+          "Protein and fresh foods are less subsidized by governments and more perishable than refined carbohydrates, which drives up their cost. Processed grains have long shelf lives and lower transportation costs, making them cheaper at the supermarket. Check out Oscar's YouTube channel (youtube.com/@JoinLSDiet) to watch how he cooks at home to overcome the cost hurdle while eating well.",
       },
       {
         question: "How do you eat low-starch, low-sugar while travelling?",

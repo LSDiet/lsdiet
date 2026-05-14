@@ -190,7 +190,7 @@ export function YouTubeShortsSection() {
         <div className="text-center">
           <Button variant="accent" size="lg" className="px-8 gap-2" asChild>
             <a
-              href="https://www.youtube.com/@WhatAboutWeight?sub_confirmation=1"
+              href="https://www.youtube.com/@JoinLSDiet?sub_confirmation=1"
               target="_blank"
               rel="noopener noreferrer"
             >
