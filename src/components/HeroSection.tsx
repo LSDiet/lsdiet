@@ -29,7 +29,9 @@ export function HeroSection() {
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:gap-8 md:px-8 md:py-10">
         <div className="text-center">
           <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            Stop <span className="text-accent">Restarting</span> Weight Loss with LS Diet
+            Stop <span className="text-accent">Restarting</span> Weight Loss
+            <br />
+            with LS Diet
           </h1>
           <p className="mt-6 text-lg font-bold uppercase tracking-tight text-white/90 md:text-xl">
             I Lost <span className="text-accent">80+ Lbs</span> Three Times.
