@@ -3,19 +3,19 @@ import { Helmet } from "react-helmet-async";
 const faqs = [
   {
     q: "What is LS Diet?",
-    a: "LS Diet is a low-starch, low-sugar lifestyle system created by Oscar Poon to stop weight regain. It pairs a simple food framework with the Weight Permanence Triangle™ — a three-pillar behavioural method covering Awareness, Practice, and Permanence — so weight loss becomes sustainable rather than a cycle of restarts.",
+    a: "LS Diet is a gentle, low-starch, low-sugar lifestyle plan lovingly developed by Oscar Poon to help prevent weight regain. It combines a straightforward food approach with the supportive Weight Permanence Triangle™—a three-part behavioural method focusing on Awareness, Practice, and Permanence—making sure that weight loss is sustainable and meaningful, rather than a never-ending cycle of restart.",
   },
   {
     q: "What does low-starch, low-sugar mean?",
-    a: "It means reducing the foods that spike insulin most aggressively — refined starches like white bread, rice, pasta, and added or concentrated sugars — while keeping protein, healthy fats, non-starchy vegetables, and controlled portions of fruit. You eat until full, you don't count calories, and you don't eliminate entire food groups.",
+    a: "This approach involves enjoying a variety of foods in a balanced way. You focus on cutting back on foods that cause big insulin spikes, like white bread, rice, pasta, and sugary products. Instead, you can still enjoy plenty of protein, healthy fats, non-starchy vegetables, and small portions of fruit. The idea is to eat until you're satisfied without stressing over calories or cutting out whole food groups, making your eating experience both healthy and enjoyable.",
   },
   {
     q: "Why do people regain weight after losing it?",
-    a: "Most diets address food but ignore the behavioural infrastructure underneath. When stress, travel, or life disruption hits, willpower depletes and old habits return. Without an awareness layer that creates urgency and a permanence layer that course-corrects early, every diet becomes a temporary intervention — and the regain is faster than the loss.",
+    a: "Most diets tend to focus on the food itself but often overlook the underlying behaviours that support long-term success. When stress, travel, or life disruptions happen, willpower can dwindle, and old habits tend to creep back in. By cultivating an awareness layer that creates a sense of urgency and a permanence layer that encourages early course correction, we can transform dieting into a more sustainable journey. This way, the struggle becomes less about temporary fixes and more about lasting changes, making it easier to maintain progress over time.",
   },
   {
     q: "What is the Weight Permanence Triangle™?",
-    a: "The Weight Permanence Triangle™ is the framework at the centre of LS Diet. Awareness creates clarity and motivation; Practice builds daily low-starch, low-sugar choices; Permanence protects those choices when life gets hard. The three pillars only work together — pull one out and the system collapses into another restart.",
+    a: "The Weight Permanence Triangle™ is the framework at the centre of LS Diet. Awareness creates clarity and motivation; Practice builds daily low-starch, low-sugar choices; Permanence protects those choices when life gets hard.",
   },
   {
     q: "Who is Oscar Poon?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "Is LS Diet a diet or a lifestyle?",
-    a: "LS Diet is explicitly a lifestyle, not a short-term diet. The food framework is the entry point, but the goal is behavioural permanence — adapting low-starch, low-sugar eating to your culture, social life, and travel so it survives long after motivation fades.",
+    a: "LS Diet is truly a way of life, not just a quick fix. It starts with a simple food framework, but the real aim is to make lasting lifestyle changes. LS Diet incorporates low-starch, low-sugar eating habits that fit seamlessly into your culture, social ways, and travels, ensuring they stick around even as motivation wanes.",
   },
   {
     q: "What exercise is recommended in LS Diet?",
