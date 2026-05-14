@@ -30,13 +30,29 @@ export function CorePrincipleSection() {
     <section className="section-dark py-14 md:py-20">
       <div className="container">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
-              Why Weight Loss Fails
+              The Restart Cycle
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
-              3 Problems Most Diets <span className="text-accent">Ignore</span>
+              Why People <span className="text-accent">Restart</span> Weight Loss
             </h2>
+          </div>
+
+          <div className="max-w-3xl mx-auto mb-12 space-y-4 text-[hsl(0_0%_78%)] leading-relaxed text-base md:text-lg text-center md:text-left">
+            <p>
+              Almost everyone who loses weight regains it. The restart cycle isn't a willpower failure — it's a
+              structural one. Conventional diets address food but ignore the psychology, biology, and environment
+              that drive eating behaviour, so as soon as life gets stressful the old patterns return and the weight
+              comes back. <strong className="text-foreground">LS Diet</strong> targets the three problems below with
+              a low-starch, low-sugar lifestyle and the Weight Permanence Triangle™, so behavioural permanence
+              replaces the restart loop.
+            </p>
+            <p className="text-sm">
+              <a href="/faq" className="text-accent hover:underline font-medium">
+                See frequently asked questions about the restart cycle →
+              </a>
+            </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3 items-start">

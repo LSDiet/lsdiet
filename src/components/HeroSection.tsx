@@ -29,8 +29,15 @@ export function HeroSection() {
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:gap-8 md:px-8 md:py-10">
         <div className="text-center">
           <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            I Lost <span className="text-accent">80+ Lbs</span> Three Times.
+            Stop <span className="text-accent">Restarting</span> Weight Loss with LS Diet
           </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/75 md:text-base">
+            LS Diet is a low-starch, low-sugar lifestyle system created by Oscar Poon to stop weight regain through
+            awareness training, behavioural practice, and sustainable daily habits.
+          </p>
+          <p className="mt-6 text-lg font-bold uppercase tracking-tight text-white/90 md:text-xl">
+            I Lost <span className="text-accent">80+ Lbs</span> Three Times.
+          </p>
           <p className="mt-2 text-xs font-medium uppercase tracking-wide leading-[2.2] text-white/70 sm:text-sm sm:leading-[2] md:mt-3 md:text-base md:leading-relaxed">
             <span className="relative inline-block pb-2">
               <span className="relative z-10 text-accent">Low Starch, Low Sugar (LS) Diet</span>
