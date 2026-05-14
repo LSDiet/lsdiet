@@ -80,6 +80,17 @@ export function HeroSection() {
             </div>
           ))}
         </div>
+
+        <div className="flex justify-center pt-2">
+          <a
+            href="https://www.skool.com/lsdiet/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-sm font-bold uppercase tracking-wide text-accent-foreground shadow-lg shadow-accent/20 transition-transform hover:scale-[1.02] md:text-base"
+          >
+            Join LS Diet Community (Free)
+          </a>
+        </div>
       </div>
     </section>
   );

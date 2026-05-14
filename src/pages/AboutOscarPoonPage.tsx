@@ -119,7 +119,7 @@ export default function AboutOscarPoonPage() {
             </Button>
             <Button variant="outline" size="lg" asChild>
               <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                Join FREE 7-Day Course
+                Join LS Diet Community (Free)
               </a>
             </Button>
           </div>
