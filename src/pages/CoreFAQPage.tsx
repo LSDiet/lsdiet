@@ -64,6 +64,7 @@ export default function CoreFAQPage() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          "@id": "https://lsdiet.com/faq#faq",
           mainEntity: allFaqs.map((f) => ({
             "@type": "Question",
             name: f.q,

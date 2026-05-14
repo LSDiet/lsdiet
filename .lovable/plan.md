@@ -1,39 +1,42 @@
-## Fix: ISO 8601 datetime with timezone in all schema dates
+## Problem
 
-Google's structured-data validator rejects date-only strings (`2026-05-14`) on `dateModified` for `ProfilePage`, and warns on the same field across `Article` / `WebPage` / `FAQPage` / `CollectionPage` / Blog schemas. Switch every JSON-LD date to a full ISO 8601 datetime with timezone offset.
+Three places inject a `FAQPage` JSON-LD block, and they overlap on every route:
 
-### Pattern (applied per page)
+1. `index.html` — sitewide `@graph` includes a `FAQPage` (`@id: https://lsdiet.com/#faq`) with 7 questions. Because it's in the static `<head>`, it ships on **every** route, including `/faq`.
+2. `src/components/FAQSection.tsx` — Helmet-injects a `FAQPage` with 7 questions. Renders on `/` (homepage).
+3. `src/pages/CoreFAQPage.tsx` — Helmet-injects a `FAQPage` with 8 questions. Renders on `/faq`.
 
-Replace:
-```ts
-const PUBLISHED = "2026-05-14";
-const UPDATED   = "2026-05-14";
-```
-with:
-```ts
-const PUBLISHED_ISO = "2026-05-14T12:00:00+00:00";
-const UPDATED_ISO   = "2026-05-14T12:00:00+00:00";
-const PUBLISHED_DISPLAY = "May 14, 2026";
-const UPDATED_DISPLAY   = "May 14, 2026";
-```
+Result:
+- `/` ships **2** FAQPage blocks (index.html + FAQSection).
+- `/faq` ships **2** FAQPage blocks (index.html + CoreFAQPage).
 
-- JSON-LD `datePublished` / `dateModified` → use `*_ISO`.
-- `<time dateTime={...}>` → use `*_ISO` (still renders the human label as children).
-- Visible "Published … Updated …" text → use `*_DISPLAY`.
+Google Search Console flags both as duplicate FAQPage definitions.
 
-### Files to update
+## Fix
 
-1. `src/pages/AboutOscarPoonPage.tsx` (ProfilePage) — original failing case.
-2. `src/pages/WeightPermanenceTrianglePage.tsx` (Article + WebPage)
-3. `src/pages/WhatIsLSDietPage.tsx` (Article)
-4. `src/pages/AwarenessStagesPage.tsx` (Article)
-5. `src/pages/BlogPage.tsx` (Blog/CollectionPage)
-6. `src/pages/CoreFAQPage.tsx` (FAQPage) — currently no schema dates; only `<time>` attrs need ISO datetime.
-7. `src/pages/GLP1GuidePage.tsx` — change `'2025-02-01'` → `'2025-02-01T12:00:00+00:00'` for both fields, plus any `<time>` attrs.
-8. `src/pages/LSDietGuidePage.tsx` — change `'2025-03-02'` → `'2025-03-02T12:00:00+00:00'` for both fields, plus any `<time>` attrs.
+Single source of truth per route: remove the sitewide FAQPage from `index.html`, keep one Helmet-injected FAQPage per route.
 
-### Verification
+### 1. `index.html`
+Remove the entire `FAQPage` object (the `@id: https://lsdiet.com/#faq` block) from the `@graph` array. Leave `ImageObject`, `Organization`, `WebSite`, `Person`, and `Book` intact — those are correctly sitewide.
 
-After edits, run `rg -n "datePublished|dateModified|dateTime=" src/pages` and confirm every value matches the `YYYY-MM-DDTHH:MM:SS+00:00` shape. Spot-check `/about-oscar-poon` in Google's Rich Results test.
+### 2. `src/components/FAQSection.tsx` (homepage)
+No change. Its Helmet FAQPage becomes the only FAQPage on `/`. Add `@id: "https://lsdiet.com/#faq"` to anchor it.
 
-No visual / copy changes — only date-string format and a new display constant.
+### 3. `src/pages/CoreFAQPage.tsx` (`/faq`)
+No change to structure. Its Helmet FAQPage becomes the only FAQPage on `/faq`. Add `@id: "https://lsdiet.com/faq#faq"` to clearly distinguish it from the homepage FAQ entity.
+
+### 4. Audit other routes
+Confirm no other page mounts `FAQSection` or injects another `FAQPage`. Quick `rg "FAQPage"` to verify only the three files above contain it; other routes (About, Awareness, WPT, guides, blog) use Article/ProfilePage/CollectionPage and are unaffected.
+
+## Verification
+
+- `rg -n '"@type":\s*"FAQPage"' src index.html` → expect exactly 2 matches (FAQSection.tsx, CoreFAQPage.tsx).
+- View page source on `/` → one FAQPage block.
+- View page source on `/faq` → one FAQPage block.
+- Google Rich Results Test on both URLs → no duplicate-FAQPage warning.
+
+## Files touched
+
+- `index.html` (remove FAQPage from @graph)
+- `src/components/FAQSection.tsx` (add `@id`)
+- `src/pages/CoreFAQPage.tsx` (add `@id`)

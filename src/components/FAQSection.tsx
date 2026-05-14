@@ -34,6 +34,7 @@ const faqs = [
 const schema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": "https://lsdiet.com/#faq",
   mainEntity: faqs.map((f) => ({
     "@type": "Question",
     name: f.q,
