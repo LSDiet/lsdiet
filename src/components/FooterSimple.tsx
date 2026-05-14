@@ -1,5 +1,5 @@
-import { Triangle } from "lucide-react";
 import { Link } from "react-router-dom";
+import lsDietLogo from "@/assets/lsdiet-logo.png";
 
 const learnLinks = [
   { label: "What Is LS Diet?", href: "/what-is-ls-diet" },
@@ -17,9 +17,7 @@ export function FooterSimple() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full border border-accent flex items-center justify-center">
-                <Triangle className="w-3 h-3 text-accent fill-accent" />
-              </div>
+              <img src={lsDietLogo} alt="LS Diet logo" className="w-7 h-7 rounded-md object-contain" />
               <span className="text-sm font-bold uppercase tracking-[0.1em] text-[hsl(0_0%_80%)]">
                 LS Diet
               </span>
