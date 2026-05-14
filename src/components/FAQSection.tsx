@@ -1,0 +1,77 @@
+import { Helmet } from "react-helmet-async";
+
+const faqs = [
+  {
+    q: "What is LS Diet?",
+    a: "LS Diet is a low-starch, low-sugar lifestyle system created by Oscar Poon to stop weight regain. It pairs a simple food framework with the Weight Permanence Triangle™ — a three-pillar behavioural method covering Awareness, Practice, and Permanence — so weight loss becomes sustainable rather than a cycle of restarts.",
+  },
+  {
+    q: "What does low-starch, low-sugar mean?",
+    a: "It means reducing the foods that spike insulin most aggressively — refined starches like white bread, rice, pasta, and added or concentrated sugars — while keeping protein, healthy fats, non-starchy vegetables, and controlled portions of fruit. You eat until full, you don't count calories, and you don't eliminate entire food groups.",
+  },
+  {
+    q: "Why do people regain weight after losing it?",
+    a: "Most diets address food but ignore the behavioural infrastructure underneath. When stress, travel, or life disruption hits, willpower depletes and old habits return. Without an awareness layer that creates urgency and a permanence layer that course-corrects early, every diet becomes a temporary intervention — and the regain is faster than the loss.",
+  },
+  {
+    q: "What is the Weight Permanence Triangle™?",
+    a: "The Weight Permanence Triangle™ is the framework at the centre of LS Diet. Awareness creates clarity and motivation; Practice builds daily low-starch, low-sugar choices; Permanence protects those choices when life gets hard. The three pillars only work together — pull one out and the system collapses into another restart.",
+  },
+  {
+    q: "Who is Oscar Poon?",
+    a: "Oscar Poon is the founder and creator of LS Diet. He has lost 80+ lbs three separate times, holds a degree in psychology, supported clients at a substance-abuse centre in Vancouver, and spent a decade as a surgical market-data consultant. That mix of behavioural psychology and pattern analysis shaped the LS Diet method.",
+  },
+  {
+    q: "Is LS Diet a diet or a lifestyle?",
+    a: "LS Diet is explicitly a lifestyle, not a short-term diet. The food framework is the entry point, but the goal is behavioural permanence — adapting low-starch, low-sugar eating to your culture, social life, and travel so it survives long after motivation fades.",
+  },
+  {
+    q: "What exercise is recommended in LS Diet?",
+    a: "LS Diet doesn't prescribe a specific exercise programme. Movement you actually enjoy and will repeat — walking, lifting, dancing, swimming — is encouraged, but the method intentionally separates weight loss from exercise so you don't depend on a gym routine to maintain results.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+export function FAQSection() {
+  return (
+    <>
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      </Helmet>
+      <section id="faq" className="section-dark py-14 md:py-20">
+        <div className="container max-w-3xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
+              Frequently Asked
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
+              LS Diet <span className="text-accent">FAQ</span>
+            </h2>
+          </div>
+          <div className="space-y-7">
+            {faqs.map((f) => (
+              <article key={f.q}>
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">{f.q}</h3>
+                <p className="text-[hsl(0_0%_78%)] leading-relaxed text-base">{f.a}</p>
+              </article>
+            ))}
+          </div>
+          <p className="text-center mt-10 text-sm">
+            <a href="/faq" className="text-accent hover:underline font-medium">
+              See the full LS Diet FAQ →
+            </a>
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}
