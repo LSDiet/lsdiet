@@ -4,8 +4,8 @@ import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 
-const PUBLISHED = "2026-05-14";
-const UPDATED = "2026-05-14";
+const PUBLISHED = "2026-05-14T12:00:00+00:00";
+const UPDATED = "2026-05-14T12:00:00+00:00";
 
 const upcoming = [
   "The low-starch grocery list — what to actually buy",
