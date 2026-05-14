@@ -110,7 +110,7 @@ export default function WeightPermanenceTrianglePage() {
           <p className="text-sm text-[hsl(0_0%_80%)] mb-4">See the Triangle in action.</p>
           <Button variant="accent" size="lg" asChild>
             <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-              Join the FREE 7-Day LS Diet Course →
+              Join LS Diet Community (Free)
             </a>
           </Button>
         </div>
