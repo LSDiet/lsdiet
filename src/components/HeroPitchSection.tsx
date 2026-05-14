@@ -18,7 +18,7 @@ export function HeroPitchSection() {
         <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[600px]">
           <img
             src={heroPhoto}
-            alt="Oscar Poon"
+            alt="Oscar Poon, founder of LS Diet and creator of the Weight Permanence Triangle"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
