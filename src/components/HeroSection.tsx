@@ -79,7 +79,7 @@ export function HeroSection() {
                 <div className="relative overflow-hidden">
                   <img
                     src={pair.before}
-                    alt={`Oscar in ${pair.year}, before`}
+                    alt={`Oscar Poon in ${pair.year}, weighing ${pair.beforeLbs} before adopting the LS Diet low-starch, low-sugar lifestyle`}
                     loading="eager"
                     className={`h-full w-full object-cover ${pair.beforePos}`}
                   />
@@ -90,7 +90,7 @@ export function HeroSection() {
                 <div className="relative overflow-hidden">
                   <img
                     src={pair.after}
-                    alt={`Oscar in ${pair.year}, after`}
+                    alt={`Oscar Poon in ${pair.year}, weighing ${pair.afterLbs} after losing weight on LS Diet`}
                     loading="eager"
                     className={`h-full w-full object-cover ${pair.afterPos}`}
                   />

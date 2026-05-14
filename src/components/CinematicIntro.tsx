@@ -89,7 +89,7 @@ export function CinematicIntro() {
             <div className="relative min-h-0 flex-1 overflow-hidden">
               <img
                 src={col.top.src}
-                alt={`Oscar at ${col.top.label}`}
+                alt={`Oscar Poon at ${col.top.label} during his weight cycling journey before LS Diet`}
                 className={`h-full w-full object-cover ${col.top.objectPos} scale-[1.03] opacity-70`}
               />
               <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground/70 md:text-xs">
@@ -106,7 +106,7 @@ export function CinematicIntro() {
             <div className="relative min-h-0 flex-1 overflow-hidden">
               <img
                 src={col.bottom.src}
-                alt={`Oscar at ${col.bottom.label}`}
+                alt={`Oscar Poon at ${col.bottom.label} after losing weight with the low-starch, low-sugar lifestyle`}
                 className={`h-full w-full object-cover ${col.bottom.objectPos} scale-[1.03] opacity-70`}
               />
               <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground/70 md:text-xs">

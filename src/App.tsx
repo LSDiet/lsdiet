@@ -14,6 +14,12 @@ import LSDietGuidePage from "./pages/LSDietGuidePage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import HealthDisclaimer from "./pages/HealthDisclaimer";
+import WhatIsLSDietPage from "./pages/WhatIsLSDietPage";
+import WeightPermanenceTrianglePage from "./pages/WeightPermanenceTrianglePage";
+import AwarenessStagesPage from "./pages/AwarenessStagesPage";
+import AboutOscarPoonPage from "./pages/AboutOscarPoonPage";
+import CoreFAQPage from "./pages/CoreFAQPage";
+import BlogPage from "./pages/BlogPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +39,12 @@ function AppContent() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfUse />} />
         <Route path="/disclaimer" element={<HealthDisclaimer />} />
+        <Route path="/what-is-ls-diet" element={<WhatIsLSDietPage />} />
+        <Route path="/weight-permanence-triangle" element={<WeightPermanenceTrianglePage />} />
+        <Route path="/awareness-stages" element={<AwarenessStagesPage />} />
+        <Route path="/about-oscar-poon" element={<AboutOscarPoonPage />} />
+        <Route path="/faq" element={<CoreFAQPage />} />
+        <Route path="/blog" element={<BlogPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
