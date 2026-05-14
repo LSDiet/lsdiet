@@ -129,7 +129,7 @@ export function BookSection() {
               asChild
             >
               <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                Join LS Diet Community (Free)
+                JOIN LS DIET (FREE)
               </a>
             </Button>
           </div>
