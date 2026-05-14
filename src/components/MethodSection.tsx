@@ -220,13 +220,35 @@ export function MethodSection() {
   return (
     <section id="method" className="py-14 md:py-20">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
             The LS Diet Solution
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-6">
-            Weight Permanence <span className="text-accent animate-pulse-glow inline-block">Triangle™</span>
+            The Weight Permanence <span className="text-accent animate-pulse-glow inline-block">Triangle™</span>
           </h2>
+        </div>
+
+        <div className="max-w-3xl mx-auto mb-12 space-y-4 text-[hsl(0_0%_78%)] leading-relaxed text-base md:text-lg">
+          <p>
+            The <strong className="text-foreground">Weight Permanence Triangle™</strong> is the core framework
+            inside LS Diet. It connects three pillars — <span className="text-accent">Awareness</span>,{" "}
+            <span className="text-accent">Practice</span>, and{" "}
+            <span className="text-accent">Permanence</span> — into a single behavioural system designed by Oscar Poon
+            to end weight cycling for good.
+          </p>
+          <p>
+            Awareness creates the clarity and motivation that make change feel urgent. Practice translates that
+            clarity into daily action: adopting a low-starch, low-sugar lifestyle, adapting it to your culture and
+            social life, and turning obstacles into opportunities. Permanence protects those new habits when life
+            gets hard, using psychological anchors and an internal alert system to course-correct back to your LS
+            lifestyle before a single bad week becomes another full restart.
+          </p>
+          <p className="text-sm">
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline font-medium">
+              Read the full Weight Permanence Triangle™ breakdown →
+            </a>
+          </p>
         </div>
 
         <TriangleDiagram />
