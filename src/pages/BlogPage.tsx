@@ -92,7 +92,7 @@ export default function BlogPage() {
         <div className="mt-10 p-6 rounded-xl border border-accent/30 bg-accent/5 text-center">
           <p className="text-sm text-[hsl(0_0%_80%)] mb-4">Get notified when new posts go live.</p>
           <Button variant="accent" size="lg" asChild>
-            <a href="https://www.skool.com/lsdiet" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
               Join the FREE 7-Day LS Diet Course →
             </a>
           </Button>

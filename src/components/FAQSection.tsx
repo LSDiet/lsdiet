@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "What exercise is recommended in LS Diet?",
-    a: "LS Diet doesn't prescribe a specific exercise programme. Movement you actually enjoy and will repeat — walking, lifting, dancing, swimming — is encouraged, but the method intentionally separates weight loss from exercise so you don't depend on a gym routine to maintain results.",
+    a: "LS Diet does not require exercise to lose weight. That said, exercise is strongly encouraged because it builds muscle, burns calories, and improves insulin sensitivity. The only exercise members are asked to participate in is walking and slow jogging — Oscar created a genre of music with 140 BPM, 160 BPM, and 180 BPM metronomes in the background, available free on youtube.com/@JoinLSDiet.",
   },
 ];
 
