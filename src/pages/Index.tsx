@@ -12,6 +12,7 @@ import { BookSection } from "@/components/BookSection";
 import { ContactSection } from "@/components/ContactSection";
 import { AboutAuthorSection } from "@/components/AboutAuthorSection";
 import { FooterSimple } from "@/components/FooterSimple";
+import { JoinFloatingBar } from "@/components/JoinFloatingBar";
 
 const webPageSchema = {
   "@context": "https://schema.org",
@@ -46,6 +47,7 @@ const Index = () => {
       <ContactSection />
       <AboutAuthorSection />
       <FooterSimple />
+      <JoinFloatingBar />
     </div>
   );
 };
