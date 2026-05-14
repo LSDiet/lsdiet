@@ -79,8 +79,8 @@ const articleSchema = {
     name: 'Weight Permanence',
     url: 'https://lsdiet.com'
   },
-  datePublished: '2025-03-02',
-  dateModified: '2025-03-02'
+  datePublished: '2025-03-02T12:00:00+00:00',
+  dateModified: '2025-03-02T12:00:00+00:00'
 };
 
 const references = [

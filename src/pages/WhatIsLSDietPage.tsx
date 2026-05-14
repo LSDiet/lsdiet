@@ -5,8 +5,8 @@ import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import oscarPhoto from "@/assets/oscar-photo.jpeg";
 
-const PUBLISHED = "2026-05-14";
-const UPDATED = "2026-05-14";
+const PUBLISHED = "2026-05-14T12:00:00+00:00";
+const UPDATED = "2026-05-14T12:00:00+00:00";
 
 export default function WhatIsLSDietPage() {
   return (
