@@ -108,7 +108,7 @@ export default function WhatIsLSDietPage() {
           <p className="text-sm text-[hsl(0_0%_80%)] mb-4">Ready to stop restarting?</p>
           <Button variant="accent" size="lg" asChild>
             <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-              Join LS Diet Community (Free)
+              JOIN LS DIET (FREE)
             </a>
           </Button>
         </div>
