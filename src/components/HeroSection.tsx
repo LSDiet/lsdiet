@@ -31,41 +31,12 @@ export function HeroSection() {
           <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             Stop <span className="text-accent">Restarting</span> Weight Loss with LS Diet
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/75 md:text-base">
-            LS Diet is a low-starch, low-sugar lifestyle system created by Oscar Poon to stop weight regain through
-            awareness training, behavioural practice, and sustainable daily habits.
-          </p>
           <p className="mt-6 text-lg font-bold uppercase tracking-tight text-white/90 md:text-xl">
             I Lost <span className="text-accent">80+ Lbs</span> Three Times.
           </p>
-          <p className="mt-2 text-xs font-medium uppercase tracking-wide leading-[2.2] text-white/70 sm:text-sm sm:leading-[2] md:mt-3 md:text-base md:leading-relaxed">
-            <span className="relative inline-block pb-2">
-              <span className="relative z-10 text-accent">Low Starch, Low Sugar (LS) Diet</span>
-              <svg
-                className="pointer-events-none absolute left-0 right-0 bottom-0 w-full"
-                viewBox="0 0 300 18"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <defs>
-                  <linearGradient id="lsdiet-brush" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(0 85% 55%)" stopOpacity="0" />
-                    <stop offset="20%" stopColor="hsl(0 85% 55%)" stopOpacity="0.95" />
-                    <stop offset="80%" stopColor="hsl(0 85% 55%)" stopOpacity="0.95" />
-                    <stop offset="100%" stopColor="hsl(0 85% 55%)" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M4 10 Q 70 3, 150 9 T 296 8"
-                  stroke="url(#lsdiet-brush)"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-              </svg>
-            </span>{" "}
-            is the only way to stop the{" "}
-            <span className="text-accent">weight regain</span>
+          <p className="mx-auto mt-3 max-w-xl text-xs font-medium uppercase tracking-wide text-white/70 sm:text-sm md:text-base">
+            <span className="text-accent">Low Starch, Low Sugar</span> is the only way to stop the{" "}
+            <span className="text-accent">weight regain</span>.
           </p>
         </div>
 
