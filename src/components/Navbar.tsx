@@ -14,9 +14,9 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[hsl(0_0%_6%/0.95)] backdrop-blur supports-[backdrop-filter]:bg-[hsl(0_0%_6%/0.8)] border-b border-[hsl(0_0%_18%)]">
-      <div className="container flex h-14 items-center justify-between">
+      <div className="container flex h-16 md:h-20 items-center justify-between">
         <a href="/" className="flex items-center gap-2.5">
-          <img src={lsDietLogo} alt="LSDiet logo" className="h-8 md:h-9 w-auto object-contain" />
+          <img src={lsDietLogo} alt="LSDiet logo" className="h-12 md:h-14 w-auto object-contain" />
           <span className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-accent/90 font-semibold">
             Stop Restarting Weight Loss
           </span>
