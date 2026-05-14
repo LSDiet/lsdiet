@@ -135,7 +135,7 @@ function ThankYouContent({ onClose }: { onClose: () => void }) {
         </p>
         <div className="flex justify-center gap-4">
           <a
-            href="https://youtube.com/@WhatAboutWeight"
+            href="https://youtube.com/@JoinLSDiet"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm font-medium text-destructive hover:underline"

@@ -39,8 +39,8 @@ export const AboutAuthorSection = () => {
 
               <p className="text-xs text-[hsl(0_0%_50%)] leading-relaxed">
                 Oscar has a degree in psychology, spent over a year helping clients at a substance abuse centre in Vancouver, and worked a decade as a surgical market data consultant. He shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
-                <a href="https://www.youtube.com/@WhatAboutWeight" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-                  YouTube (@WhatAboutWeight)
+                <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                  YouTube (@JoinLSDiet)
                 </a>
                 .
               </p>
