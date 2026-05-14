@@ -93,7 +93,7 @@ export function HeroPitchSection() {
 
           <div className="mt-8">
             <Button variant="accent" size="lg" className="px-8" asChild>
-              <a href="https://www.skool.com/lsdiet" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
                 Join FREE LSDiet Course
               </a>
             </Button>
