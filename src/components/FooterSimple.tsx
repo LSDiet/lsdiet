@@ -47,7 +47,7 @@ export function FooterSimple() {
                 <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">YouTube (@JoinLSDiet)</a>
               </li>
               <li>
-                <a href="mailto:info@whataboutweight.com" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">info@whataboutweight.com</a>
+                <a href="mailto:info@LSDiet.com" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">info@LSDiet.com</a>
               </li>
               <li>
                 <a href="/#contact" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">Contact form</a>
