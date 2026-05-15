@@ -103,14 +103,10 @@ ${redirect ? `<meta http-equiv="refresh" content="0; url=${u}" />
 }
 
 function htmlResponse(html: string, status = 200): Response {
-  return new Response(html, {
-    status,
-    headers: {
-      ...corsHeaders,
-      "Content-Type": "text/html; charset=utf-8",
-      "Cache-Control": "public, max-age=300, s-maxage=600",
-    },
-  });
+  const headers = new Headers(corsHeaders);
+  headers.set("Content-Type", "text/html; charset=utf-8");
+  headers.set("Cache-Control", "public, max-age=300, s-maxage=600");
+  return new Response(html, { status, headers });
 }
 
 Deno.serve(async (req) => {
