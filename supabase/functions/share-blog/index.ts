@@ -127,10 +127,6 @@ Deno.serve(async (req) => {
   const crawler = isCrawler(ua);
   const redirect = !crawler;
 
-  const ua = req.headers.get("user-agent");
-  const crawler = isCrawler(ua);
-  const redirect = !crawler;
-
   try {
     const url = new URL(req.url);
     const parts = url.pathname.split("/").filter(Boolean);
@@ -142,16 +138,6 @@ Deno.serve(async (req) => {
       return htmlResponse(
         renderHtml({
           title: "LS Diet Blog",
-          description: "Stop weight regain with the low-starch, low-sugar lifestyle.",
-          canonical: `${SITE}/blog`,
-          image: FALLBACK_IMAGE,
-          imageWidth: 1200,
-          imageHeight: 630,
-          redirect,
-        }),
-        404
-      );
-    }
           description: "Stop weight regain with the low-starch, low-sugar lifestyle.",
           canonical: `${SITE}/blog`,
           image: FALLBACK_IMAGE,
