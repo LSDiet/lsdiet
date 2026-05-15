@@ -7,6 +7,7 @@ import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { fetchBlogPost, formatPublishDate, type BlogPost } from "@/lib/blog";
 import { RichText } from "@/lib/contentfulRenderers";
+import { ShareButtons } from "@/components/ShareButtons";
 
 export default function BlogPostPage() {
   const { slug = "" } = useParams<{ slug: string }>();
