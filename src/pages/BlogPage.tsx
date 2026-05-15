@@ -63,25 +63,25 @@ export default function BlogPage() {
           <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
             LS Diet <span className="text-accent">Blog</span>
           </h1>
-          <p className="text-base md:text-lg text-[hsl(0_0%_75%)]">
+          <p className="text-base md:text-lg text-zinc-700">
             Long-form notes on the low-starch, low-sugar lifestyle, awareness work, and behavioural
             permanence — written by Oscar Poon.
           </p>
         </header>
 
         {error && (
-          <div className="rounded-lg border border-destructive/40 bg-destructive/10 p-6 text-[hsl(0_0%_85%)]">
+          <div className="rounded-lg border border-destructive/40 bg-destructive/10 p-6 text-zinc-800">
             Couldn't load posts. Please refresh in a moment.
           </div>
         )}
 
         {!error && posts === null && (
-          <div className="text-[hsl(0_0%_55%)]">Loading posts…</div>
+          <div className="text-zinc-600">Loading posts…</div>
         )}
 
         {!error && posts && posts.length === 0 && (
           <div className="rounded-xl border border-border p-8 text-center">
-            <p className="text-[hsl(0_0%_75%)] mb-4">No posts published yet. Check back soon.</p>
+            <p className="text-zinc-700 mb-4">No posts published yet. Check back soon.</p>
             <Button variant="accent" asChild>
               <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
                 JOIN LS DIET (FREE)
@@ -112,14 +112,14 @@ export default function BlogPage() {
                   <div className="aspect-[16/9] bg-gradient-to-br from-accent/10 to-muted" />
                 )}
                 <div className="p-5 flex-1 flex flex-col">
-                  <p className="text-xs text-[hsl(0_0%_55%)] uppercase tracking-wider mb-2">
+                  <p className="text-xs text-zinc-600 uppercase tracking-wider mb-2">
                     <time dateTime={p.publishDate}>{formatPublishDate(p.publishDate)}</time>
                   </p>
                   <h2 className="text-lg md:text-xl font-bold leading-snug mb-2 text-foreground group-hover:text-accent transition-colors">
                     {p.title}
                   </h2>
                   {p.excerpt && (
-                    <p className="text-sm text-[hsl(0_0%_75%)] leading-relaxed line-clamp-3">
+                    <p className="text-sm text-zinc-700 leading-relaxed line-clamp-3">
                       {p.excerpt}
                     </p>
                   )}

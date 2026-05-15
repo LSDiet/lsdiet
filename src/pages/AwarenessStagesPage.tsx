@@ -63,12 +63,12 @@ export default function AwarenessStagesPage() {
           <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
             The 5 <span className="text-accent">Awareness Stages</span>
           </h1>
-          <p className="text-xs text-[hsl(0_0%_55%)] uppercase tracking-wider">
+          <p className="text-xs text-zinc-600 uppercase tracking-wider">
             Published <time dateTime={PUBLISHED}>May 14, 2026</time> · Updated <time dateTime={UPDATED}>May 14, 2026</time>
           </p>
         </header>
 
-        <div className="space-y-5 text-[hsl(0_0%_85%)] leading-relaxed text-base md:text-lg">
+        <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
             Awareness is the first vertex of the{" "}
             <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Triangle™</a>
@@ -114,7 +114,7 @@ export default function AwarenessStagesPage() {
         </div>
 
         <div className="mt-10 p-6 rounded-xl border border-accent/30 bg-accent/5 text-center">
-          <p className="text-sm text-[hsl(0_0%_80%)] mb-4">Ready to apply Awareness in real life?</p>
+          <p className="text-sm text-zinc-800 mb-4">Ready to apply Awareness in real life?</p>
           <Button variant="accent" size="lg" asChild>
             <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
               JOIN LS DIET (FREE)
