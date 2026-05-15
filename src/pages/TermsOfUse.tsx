@@ -1,9 +1,18 @@
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 
 const TermsOfUse = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Terms of Use | LS Diet</title>
+        <meta name="description" content="The terms governing your use of LS Diet's website, content, and educational materials." />
+        <link rel="canonical" href="https://lsdiet.com/terms" />
+        <meta property="og:title" content="Terms of Use | LS Diet" />
+        <meta property="og:description" content="Terms governing use of the LS Diet website and content." />
+        <meta property="og:url" content="https://lsdiet.com/terms" />
+      </Helmet>
       <Navbar />
       <main className="container max-w-3xl py-24 px-4">
         <h1 className="text-3xl md:text-4xl font-serif font-semibold text-primary mb-6">

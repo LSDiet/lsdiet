@@ -32,20 +32,23 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
+        <link rel="canonical" href="https://lsdiet.com/" />
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
       </Helmet>
       <Navbar />
-      <HeroSection />
-      <WhatIsLSDietSection />
-      <HeroPitchSection />
-      <CorePrincipleSection />
-      <MethodSection />
-      <AwarenessStagesSection />
-      <WhyDietsFailSection />
-      <FAQSection />
-      <BookSection />
-      <ContactSection />
-      <AboutAuthorSection />
+      <main>
+        <HeroSection />
+        <WhatIsLSDietSection />
+        <HeroPitchSection />
+        <CorePrincipleSection />
+        <MethodSection />
+        <AwarenessStagesSection />
+        <WhyDietsFailSection />
+        <FAQSection />
+        <BookSection />
+        <ContactSection />
+        <AboutAuthorSection />
+      </main>
       <FooterSimple />
       <JoinFloatingBar />
     </div>

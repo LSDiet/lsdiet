@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useProduct } from "@/hooks/useProducts";
 import { useCartStore } from "@/stores/cartStore";
 import { Header } from "@/components/Header";
@@ -69,8 +70,41 @@ export default function ProductDetail() {
     });
   };
 
+  const productImage = images[0]?.node?.url;
+  const productUrl = `https://lsdiet.com/product/${handle}`;
+  const shortDesc = (product.description || `${product.title} — available from LS Diet.`).slice(0, 160);
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.title,
+    description: product.description || product.title,
+    image: productImage ? [productImage] : undefined,
+    url: productUrl,
+    brand: { "@type": "Brand", name: "LS Diet" },
+    offers: price ? {
+      "@type": "Offer",
+      url: productUrl,
+      price: parseFloat(price.amount || "0").toFixed(2),
+      priceCurrency: price.currencyCode,
+      availability: selectedVariant?.availableForSale
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
+    } : undefined,
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{product.title} | LS Diet</title>
+        <meta name="description" content={shortDesc} />
+        <link rel="canonical" href={productUrl} />
+        <meta property="og:type" content="product" />
+        <meta property="og:title" content={`${product.title} | LS Diet`} />
+        <meta property="og:description" content={shortDesc} />
+        <meta property="og:url" content={productUrl} />
+        {productImage && <meta property="og:image" content={productImage} />}
+        <script type="application/ld+json">{JSON.stringify(productSchema)}</script>
+      </Helmet>
       <Header />
       <main className="container py-8">
         <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8">

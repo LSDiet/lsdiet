@@ -43,7 +43,7 @@ export function HeroSection() {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3 md:gap-6">
-          {pairs.map((pair) => (
+          {pairs.map((pair, idx) => (
             <div
               key={pair.year}
               className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm"
@@ -54,6 +54,9 @@ export function HeroSection() {
                     src={pair.before}
                     alt={`Oscar Poon in ${pair.year}, weighing ${pair.beforeLbs} before adopting the LS Diet low-starch, low-sugar lifestyle`}
                     loading="eager"
+                    fetchPriority={idx === 0 ? "high" : "auto"}
+                    width={600}
+                    height={450}
                     className={`h-full w-full object-cover ${pair.beforePos}`}
                   />
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-accent backdrop-blur-sm">
@@ -65,6 +68,9 @@ export function HeroSection() {
                     src={pair.after}
                     alt={`Oscar Poon in ${pair.year}, weighing ${pair.afterLbs} after losing weight on LS Diet`}
                     loading="eager"
+                    fetchPriority={idx === 0 ? "high" : "auto"}
+                    width={600}
+                    height={450}
                     className={`h-full w-full object-cover ${pair.afterPos}`}
                   />
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-white backdrop-blur-sm">
