@@ -39,6 +39,12 @@ function esc(s: string): string {
     .replace(/'/g, "&#39;");
 }
 
+const CRAWLER_UA = /facebookexternalhit|facebookcatalog|meta-externalagent|LinkedInBot|Twitterbot|WhatsApp|Slackbot|TelegramBot|Discordbot|Pinterest|bingbot|Googlebot|Applebot|redditbot|embedly|quora link preview|skypeuripreview|vkShare|W3C_Validator/i;
+
+function isCrawler(ua: string | null): boolean {
+  return !!ua && CRAWLER_UA.test(ua);
+}
+
 function renderHtml(opts: {
   title: string;
   description: string;
@@ -49,8 +55,9 @@ function renderHtml(opts: {
   imageWidth?: number;
   imageHeight?: number;
   imageType?: string;
+  redirect?: boolean;
 }): string {
-  const { title, description, canonical, socialUrl = canonical, image, imageAlt, imageWidth, imageHeight, imageType } = opts;
+  const { title, description, canonical, socialUrl = canonical, image, imageAlt, imageWidth, imageHeight, imageType, redirect = true } = opts;
   const t = esc(title);
   const d = esc(description);
   const u = esc(canonical);
@@ -86,32 +93,31 @@ ${type}
 <meta name="twitter:description" content="${d}" />
 <meta name="twitter:image" content="${img}" />
 
-<meta http-equiv="refresh" content="0; url=${u}" />
-<script>window.location.replace(${JSON.stringify(canonical)});</script>
+${redirect ? `<meta http-equiv="refresh" content="0; url=${u}" />
+<script>window.location.replace(${JSON.stringify(canonical)});</script>` : ""}
 </head>
 <body>
-<p>Redirecting to <a href="${u}">${u}</a>…</p>
+<p><a href="${u}">${esc(title)}</a></p>
 </body>
 </html>`;
 }
 
 function htmlResponse(html: string, status = 200): Response {
-  return new Response(html, {
-    status,
-    headers: {
-      ...corsHeaders,
-      "Content-Type": "text/html; charset=utf-8",
-      "Cache-Control": "public, max-age=300, s-maxage=600",
-    },
-  });
+  const headers = new Headers(corsHeaders);
+  headers.set("Content-Type", "text/html; charset=utf-8");
+  headers.set("Cache-Control", "public, max-age=300, s-maxage=600");
+  return new Response(html, { status, headers });
 }
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
+  const ua = req.headers.get("user-agent");
+  const crawler = isCrawler(ua);
+  const redirect = !crawler;
+
   try {
     const url = new URL(req.url);
-    // Path can be /share-blog/{slug} or /functions/v1/share-blog/{slug}
     const parts = url.pathname.split("/").filter(Boolean);
     const idx = parts.indexOf("share-blog");
     const slug = idx >= 0 ? parts[idx + 1] : parts[parts.length - 1];
@@ -125,6 +131,7 @@ Deno.serve(async (req) => {
           image: FALLBACK_IMAGE,
           imageWidth: 1200,
           imageHeight: 630,
+          redirect,
         }),
         404
       );
@@ -152,6 +159,7 @@ Deno.serve(async (req) => {
           image: FALLBACK_IMAGE,
           imageWidth: 1200,
           imageHeight: 630,
+          redirect,
         }),
         404
       );
@@ -170,9 +178,17 @@ Deno.serve(async (req) => {
     }
     const featured = f.featuredImage?.sys?.id ? assets[f.featuredImage.sys.id] : null;
 
+    // Validate image: must be HTTPS; otherwise fall back.
+    const featuredUrl = featured?.url && /^https:\/\//i.test(featured.url) ? featured.url : null;
+    const image = featuredUrl ?? FALLBACK_IMAGE;
+    const imageWidth = featuredUrl ? featured?.width : 1200;
+    const imageHeight = featuredUrl ? featured?.height : 630;
+    if (featuredUrl && (!featured?.width || !featured?.height)) {
+      console.warn(`share-blog: missing image dimensions for ${cleanSlug}`);
+    }
+
     const title = `${f.title ?? "LS Diet"} | LS Diet`;
     const description = f.excerpt || `${f.title} — by Oscar Poon on the LS Diet blog.`;
-    const image = featured?.url ?? FALLBACK_IMAGE;
 
     return htmlResponse(
       renderHtml({
@@ -182,9 +198,10 @@ Deno.serve(async (req) => {
         socialUrl,
         image,
         imageAlt: featured?.title || f.title,
-        imageWidth: featured?.width,
-        imageHeight: featured?.height,
-        imageType: featured?.contentType,
+        imageWidth,
+        imageHeight,
+        imageType: featuredUrl ? featured?.contentType : "image/jpeg",
+        redirect,
       })
     );
   } catch (err) {
@@ -198,6 +215,7 @@ Deno.serve(async (req) => {
         image: FALLBACK_IMAGE,
         imageWidth: 1200,
         imageHeight: 630,
+        redirect,
       }),
       500
     );
