@@ -27,7 +27,7 @@ export default function BlogPage() {
     name: "LS Diet Blog",
     url: "https://lsdiet.com/blog",
     description:
-      "Long-form notes on the low-starch, low-sugar lifestyle and the Weight Permanence Triangle™.",
+      "Weight loss articles about insulin resistance, low starch diets, food psychology, habit change, and preventing weight regain.",
     author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/about-oscar-poon" },
     publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
     hasPart: (posts ?? []).map((p) => ({
@@ -45,11 +45,11 @@ export default function BlogPage() {
         <title>LS Diet Blog | Long-Form Notes on Permanent Weight Loss</title>
         <meta
           name="description"
-          content="The LS Diet blog publishes long-form notes on the low-starch low-sugar lifestyle, awareness work, and behavioural permanence — written by Oscar Poon."
+          content="Weight loss articles about insulin resistance, low starch diets, food psychology, habit change, and preventing weight regain."
         />
         <link rel="canonical" href="https://lsdiet.com/blog" />
         <meta property="og:title" content="LS Diet Blog" />
-        <meta property="og:description" content="Long-form notes on permanent weight loss, by Oscar Poon." />
+        <meta property="og:description" content="Weight loss articles about insulin resistance, low starch diets, food psychology, habit change, and preventing weight regain." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://lsdiet.com/blog" />
         <script type="application/ld+json">{JSON.stringify(collectionSchema)}</script>
@@ -64,8 +64,7 @@ export default function BlogPage() {
             LS Diet <span className="text-accent">Blog</span>
           </h1>
           <p className="text-base md:text-lg text-zinc-700">
-            Long-form notes on the low-starch, low-sugar lifestyle, awareness work, and behavioural
-            permanence — written by Oscar Poon.
+            Weight loss articles about insulin resistance, low starch diets, food psychology, habit change, and preventing weight regain.
           </p>
         </header>
 

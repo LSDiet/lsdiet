@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Solution", href: "/#method" },
   { label: "Free Resources", href: "/FreeResources", highlight: true },
   { label: "Q&A", href: "/qa" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export function Navbar() {
