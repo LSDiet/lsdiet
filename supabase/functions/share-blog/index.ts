@@ -109,6 +109,17 @@ function htmlResponse(html: string, status = 200): Response {
   return new Response(html, { status, headers });
 }
 
+function redirectResponse(target: string): Response {
+  const headers = new Headers(corsHeaders);
+  headers.set("Location", target);
+  headers.set("Cache-Control", "no-store");
+  headers.set("Content-Type", "text/html; charset=utf-8");
+  return new Response(
+    `<!doctype html><meta http-equiv="refresh" content="0; url=${target}"><a href="${target}">Continue</a>`,
+    { status: 302, headers }
+  );
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
@@ -123,6 +134,7 @@ Deno.serve(async (req) => {
     const slug = idx >= 0 ? parts[idx + 1] : parts[parts.length - 1];
 
     if (!slug || slug === "share-blog") {
+      if (!crawler) return redirectResponse(`${SITE}/blog`);
       return htmlResponse(
         renderHtml({
           title: "LS Diet Blog",
@@ -140,6 +152,9 @@ Deno.serve(async (req) => {
     const cleanSlug = decodeURIComponent(slug).replace(/[^a-zA-Z0-9-_]/g, "");
     const canonical = `${SITE}/blog/${cleanSlug}`;
     const socialUrl = `${SITE}/share/${cleanSlug}`;
+
+    // Humans: short-circuit immediately to the canonical article (302).
+    if (!crawler) return redirectResponse(canonical);
 
     const data = await cf("/entries", {
       content_type: CONTENT_TYPE,
