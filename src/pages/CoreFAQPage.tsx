@@ -100,7 +100,7 @@ export default function CoreFAQPage() {
           {methodFaqs.map((f) => (
             <article key={f.q}>
               <h3 className="text-lg md:text-xl font-bold text-foreground mb-1">{f.q}</h3>
-              <p className="text-[hsl(0_0%_82%)] leading-relaxed">{f.a}</p>
+              <p className="text-zinc-800 leading-relaxed">{f.a}</p>
             </article>
           ))}
         </div>
@@ -112,7 +112,7 @@ export default function CoreFAQPage() {
           {lifestyleFaqs.map((f) => (
             <article key={f.q}>
               <h3 className="text-lg md:text-xl font-bold text-foreground mb-1">{f.q}</h3>
-              <p className="text-[hsl(0_0%_82%)] leading-relaxed">{f.a}</p>
+              <p className="text-zinc-800 leading-relaxed">{f.a}</p>
             </article>
           ))}
         </div>
