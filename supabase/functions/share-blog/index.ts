@@ -39,6 +39,12 @@ function esc(s: string): string {
     .replace(/'/g, "&#39;");
 }
 
+const CRAWLER_UA = /facebookexternalhit|facebookcatalog|meta-externalagent|LinkedInBot|Twitterbot|WhatsApp|Slackbot|TelegramBot|Discordbot|Pinterest|bingbot|Googlebot|Applebot|redditbot|embedly|quora link preview|skypeuripreview|vkShare|W3C_Validator/i;
+
+function isCrawler(ua: string | null): boolean {
+  return !!ua && CRAWLER_UA.test(ua);
+}
+
 function renderHtml(opts: {
   title: string;
   description: string;
@@ -49,8 +55,9 @@ function renderHtml(opts: {
   imageWidth?: number;
   imageHeight?: number;
   imageType?: string;
+  redirect?: boolean;
 }): string {
-  const { title, description, canonical, socialUrl = canonical, image, imageAlt, imageWidth, imageHeight, imageType } = opts;
+  const { title, description, canonical, socialUrl = canonical, image, imageAlt, imageWidth, imageHeight, imageType, redirect = true } = opts;
   const t = esc(title);
   const d = esc(description);
   const u = esc(canonical);
