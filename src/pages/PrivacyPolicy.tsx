@@ -1,9 +1,18 @@
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Privacy Policy | LS Diet</title>
+        <meta name="description" content="How LS Diet (NTL Learning Solutions Inc.) collects, uses, and protects your personal information under Canadian PIPEDA law." />
+        <link rel="canonical" href="https://lsdiet.com/privacy" />
+        <meta property="og:title" content="Privacy Policy | LS Diet" />
+        <meta property="og:description" content="How LS Diet handles your personal information under PIPEDA." />
+        <meta property="og:url" content="https://lsdiet.com/privacy" />
+      </Helmet>
       <Navbar />
       <main className="container max-w-3xl py-24 px-4">
         <h1 className="text-3xl md:text-4xl font-serif font-semibold text-primary mb-6">
