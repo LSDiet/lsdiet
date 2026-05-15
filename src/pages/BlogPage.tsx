@@ -49,7 +49,7 @@ export default function BlogPage() {
         />
         <link rel="canonical" href="https://lsdiet.com/blog" />
         <meta property="og:title" content="LS Diet Blog" />
-        <meta property="og:description" content="Long-form notes on permanent weight loss, by Oscar Poon." />
+        <meta property="og:description" content="Weight loss articles about insulin resistance, low starch diets, food psychology, habit change, and preventing weight regain." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://lsdiet.com/blog" />
         <script type="application/ld+json">{JSON.stringify(collectionSchema)}</script>
