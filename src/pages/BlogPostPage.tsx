@@ -67,6 +67,7 @@ export default function BlogPostPage() {
   }
 
   const url = `https://lsdiet.com/blog/${post.slug}`;
+  const crawlerShareUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/share-blog/${post.slug}`;
   const description = post.excerpt || `${post.title} — by Oscar Poon on the LS Diet blog.`;
   const image = post.featuredImage?.url ?? "https://lsdiet.com/og-image.jpg";
 
