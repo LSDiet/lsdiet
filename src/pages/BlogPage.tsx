@@ -64,8 +64,7 @@ export default function BlogPage() {
             LS Diet <span className="text-accent">Blog</span>
           </h1>
           <p className="text-base md:text-lg text-zinc-700">
-            Long-form notes on the low-starch, low-sugar lifestyle, awareness work, and behavioural
-            permanence — written by Oscar Poon.
+            Weight loss articles about insulin resistance, low starch diets, food psychology, habit change, and preventing weight regain.
           </p>
         </header>
 
