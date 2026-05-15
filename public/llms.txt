@@ -18,6 +18,10 @@ LS Diet teaches a sustainable, eat-until-full approach to permanent weight loss.
 - [LS Diet Guide](/ls-diet-guide): Long-form starter guide to the low-starch, low-sugar lifestyle.
 - [Q&A](/qa): Clinical Q&A with references from CDC, NIH, and NIDDK.
 
+## Machine-readable
+
+- [Blog inventory (JSON)](https://joohccchfpcshlihctsm.supabase.co/functions/v1/blog-index): Semantic inventory of all published blog posts (title, slug, url, excerpt, dates, primaryTopic, topics, contentType, pillarUrl) for AI workflows, semantic clustering, and internal-link planning.
+
 ## Optional
 
 - [Privacy Policy](/privacy)

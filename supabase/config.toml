@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.share-blog]
 verify_jwt = false
+
+[functions.blog-index]
+verify_jwt = false
