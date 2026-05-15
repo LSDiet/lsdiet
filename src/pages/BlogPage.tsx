@@ -27,7 +27,7 @@ export default function BlogPage() {
     name: "LS Diet Blog",
     url: "https://lsdiet.com/blog",
     description:
-      "Long-form notes on the low-starch, low-sugar lifestyle and the Weight Permanence Triangle™.",
+      "Weight loss articles about insulin resistance, low starch diets, food psychology, habit change, and preventing weight regain.",
     author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/about-oscar-poon" },
     publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
     hasPart: (posts ?? []).map((p) => ({
