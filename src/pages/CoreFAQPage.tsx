@@ -80,12 +80,12 @@ export default function CoreFAQPage() {
           <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
             LS Diet <span className="text-accent">FAQ</span>
           </h1>
-          <p className="text-xs text-[hsl(0_0%_55%)] uppercase tracking-wider">
+          <p className="text-xs text-zinc-600 uppercase tracking-wider">
             Published <time dateTime={PUBLISHED}>May 14, 2026</time> · Updated <time dateTime={UPDATED}>May 14, 2026</time>
           </p>
         </header>
 
-        <p className="text-[hsl(0_0%_85%)] leading-relaxed text-base md:text-lg mb-10">
+        <p className="text-zinc-800 leading-relaxed text-base md:text-lg mb-10">
           The questions below come up most often from people exploring LS Diet for the first time. For a shorter
           intro, the homepage carries a top-level FAQ. For deeper context on the framework, see the{" "}
           <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Triangle™</a>
@@ -118,7 +118,7 @@ export default function CoreFAQPage() {
         </div>
 
         <div className="mt-12 p-6 rounded-xl border border-accent/30 bg-accent/5 text-center">
-          <p className="text-sm text-[hsl(0_0%_80%)] mb-4">Have a question we missed?</p>
+          <p className="text-sm text-zinc-800 mb-4">Have a question we missed?</p>
           <Button variant="accent" size="lg" asChild>
             <a href="/#contact">Send Oscar a question →</a>
           </Button>

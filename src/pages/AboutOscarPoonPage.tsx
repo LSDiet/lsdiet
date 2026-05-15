@@ -47,7 +47,7 @@ export default function AboutOscarPoonPage() {
           <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
             About <span className="text-accent">Oscar Poon</span>
           </h1>
-          <p className="text-xs text-[hsl(0_0%_55%)] uppercase tracking-wider">
+          <p className="text-xs text-zinc-600 uppercase tracking-wider">
             Published <time dateTime={PUBLISHED}>May 14, 2026</time> · Updated <time dateTime={UPDATED}>May 14, 2026</time>
           </p>
         </header>
@@ -58,7 +58,7 @@ export default function AboutOscarPoonPage() {
           className="w-full max-w-md mx-auto rounded-xl mb-10 aspect-square object-cover"
         />
 
-        <div className="space-y-5 text-[hsl(0_0%_85%)] leading-relaxed text-base md:text-lg">
+        <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
             Oscar Poon is the founder and creator of <strong className="text-foreground">LS Diet</strong>. He has
             lost 80+ lbs three separate times — and each restart was a tuition payment that eventually became the
@@ -110,7 +110,7 @@ export default function AboutOscarPoonPage() {
         </div>
 
         <div className="mt-10 p-6 rounded-xl border border-accent/30 bg-accent/5 text-center">
-          <p className="text-sm text-[hsl(0_0%_80%)] mb-4">Follow the work — and join the free course.</p>
+          <p className="text-sm text-zinc-800 mb-4">Follow the work — and join the free course.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button variant="accent" size="lg" asChild>
               <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer">

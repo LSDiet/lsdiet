@@ -36,7 +36,7 @@ export default function BlogPostPage() {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <div className="container max-w-3xl mx-auto px-4 pt-32 pb-20 text-center text-[hsl(0_0%_55%)]">
+        <div className="container max-w-3xl mx-auto px-4 pt-32 pb-20 text-center text-zinc-600">
           Loading post…
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function BlogPostPage() {
         <Navbar />
         <div className="container max-w-3xl mx-auto px-4 pt-32 pb-20 text-center">
           <h1 className="text-3xl font-extrabold uppercase mb-4">Post not found</h1>
-          <p className="text-[hsl(0_0%_70%)] mb-8">
+          <p className="text-zinc-700 mb-8">
             This post doesn't exist yet, or its publish date hasn't arrived.
           </p>
           <Button variant="accent" asChild>

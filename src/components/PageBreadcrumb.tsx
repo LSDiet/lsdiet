@@ -24,13 +24,13 @@ export function PageBreadcrumb({ items }: { items: BreadcrumbItem[] }) {
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
       <nav aria-label="Breadcrumb" className="container pt-20 pb-2">
-        <ol className="flex flex-wrap items-center gap-1 text-xs text-[hsl(0_0%_55%)]">
+        <ol className="flex flex-wrap items-center gap-1 text-xs text-zinc-600">
           {items.map((item, i) => {
             const isLast = i === items.length - 1;
             return (
               <li key={item.url} className="flex items-center gap-1">
                 {isLast ? (
-                  <span aria-current="page" className="text-[hsl(0_0%_75%)]">
+                  <span aria-current="page" className="text-zinc-700">
                     {item.name}
                   </span>
                 ) : (
