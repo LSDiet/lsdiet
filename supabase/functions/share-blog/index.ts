@@ -132,6 +132,7 @@ Deno.serve(async (req) => {
 
     const cleanSlug = decodeURIComponent(slug).replace(/[^a-zA-Z0-9-_]/g, "");
     const canonical = `${SITE}/blog/${cleanSlug}`;
+    const socialUrl = `${SITE}/share/${cleanSlug}`;
 
     const data = await cf("/entries", {
       content_type: CONTENT_TYPE,
@@ -161,6 +162,8 @@ Deno.serve(async (req) => {
     for (const a of data.includes?.Asset ?? []) {
       assets[a.sys.id] = {
         url: a.fields.file?.url ? `https:${a.fields.file.url}` : null,
+        title: a.fields.title ?? "",
+        contentType: a.fields.file?.contentType,
         width: a.fields.file?.details?.image?.width,
         height: a.fields.file?.details?.image?.height,
       };
@@ -176,9 +179,12 @@ Deno.serve(async (req) => {
         title,
         description,
         canonical,
+        socialUrl,
         image,
+        imageAlt: featured?.title || f.title,
         imageWidth: featured?.width,
         imageHeight: featured?.height,
+        imageType: featured?.contentType,
       })
     );
   } catch (err) {
