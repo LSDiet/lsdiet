@@ -120,10 +120,10 @@ export default function BlogPostPage() {
 
       <article className="container max-w-3xl mx-auto px-4 pb-20">
         <header className="mb-8">
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-foreground">
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
             {post.title}
           </h1>
-          <p className="text-xs text-[hsl(0_0%_55%)] uppercase tracking-wider">
+          <p className="text-xs text-zinc-500 uppercase tracking-wider">
             <time dateTime={post.publishDate}>{formatPublishDate(post.publishDate)}</time>
             {" · "}By Oscar Poon
           </p>
