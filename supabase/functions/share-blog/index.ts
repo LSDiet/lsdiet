@@ -109,6 +109,17 @@ function htmlResponse(html: string, status = 200): Response {
   return new Response(html, { status, headers });
 }
 
+function redirectResponse(target: string): Response {
+  const headers = new Headers(corsHeaders);
+  headers.set("Location", target);
+  headers.set("Cache-Control", "no-store");
+  headers.set("Content-Type", "text/html; charset=utf-8");
+  return new Response(
+    `<!doctype html><meta http-equiv="refresh" content="0; url=${target}"><a href="${target}">Continue</a>`,
+    { status: 302, headers }
+  );
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
 
