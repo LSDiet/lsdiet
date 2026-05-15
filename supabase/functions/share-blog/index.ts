@@ -93,11 +93,11 @@ ${type}
 <meta name="twitter:description" content="${d}" />
 <meta name="twitter:image" content="${img}" />
 
-<meta http-equiv="refresh" content="0; url=${u}" />
-<script>window.location.replace(${JSON.stringify(canonical)});</script>
+${redirect ? `<meta http-equiv="refresh" content="0; url=${u}" />
+<script>window.location.replace(${JSON.stringify(canonical)});</script>` : ""}
 </head>
 <body>
-<p>Redirecting to <a href="${u}">${u}</a>…</p>
+<p><a href="${u}">${esc(title)}</a></p>
 </body>
 </html>`;
 }
