@@ -43,17 +43,23 @@ function renderHtml(opts: {
   title: string;
   description: string;
   canonical: string;
+  socialUrl?: string;
   image: string;
+  imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
+  imageType?: string;
 }): string {
-  const { title, description, canonical, image, imageWidth, imageHeight } = opts;
+  const { title, description, canonical, socialUrl = canonical, image, imageAlt, imageWidth, imageHeight, imageType } = opts;
   const t = esc(title);
   const d = esc(description);
   const u = esc(canonical);
+  const ogu = esc(socialUrl);
   const img = esc(image);
+  const alt = imageAlt ? `<meta property="og:image:alt" content="${esc(imageAlt)}" />` : "";
   const w = imageWidth ? `<meta property="og:image:width" content="${imageWidth}" />` : "";
   const h = imageHeight ? `<meta property="og:image:height" content="${imageHeight}" />` : "";
+  const type = imageType ? `<meta property="og:image:type" content="${esc(imageType)}" />` : "";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -65,11 +71,14 @@ function renderHtml(opts: {
 <meta property="og:type" content="article" />
 <meta property="og:title" content="${t}" />
 <meta property="og:description" content="${d}" />
-<meta property="og:url" content="${u}" />
+<meta property="og:url" content="${ogu}" />
 <meta property="og:image" content="${img}" />
+<meta property="og:image:secure_url" content="${img}" />
 <meta property="og:site_name" content="LS Diet" />
+${alt}
 ${w}
 ${h}
+${type}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@JoinLSDiet" />

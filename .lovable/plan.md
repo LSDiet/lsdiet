@@ -1,60 +1,44 @@
-## Goal
+## Diagnosis
 
-Fix Facebook/LinkedIn/WhatsApp share previews showing only "lsdiet.com" with no title or image. Root cause: Vite SPA — `react-helmet-async` only injects meta tags after JS runs, but social crawlers don't execute JS, so they only ever see static `index.html`.
+The edge function itself is returning the correct article Open Graph tags for:
 
-## Approach
+`https://joohccchfpcshlihctsm.supabase.co/functions/v1/share-blog/can-losing-weight-help-you-get-a-better-job`
 
-Server-render the OG meta tags via a public Supabase edge function. Social share intent URLs point to that function. Crawlers read the meta and stop. Humans hitting the URL get instantly redirected to the canonical `lsdiet.com/blog/{slug}`.
+It includes the article title and image.
 
-URL trade-off accepted: public share URL will be the bare Supabase function URL. Can be migrated to `share.lsdiet.com` later without code changes.
+The branded URL the user wants Facebook to see is currently not wired server-side:
 
-## Files
+`https://lsdiet.com/share/can-losing-weight-help-you-get-a-better-job`
 
-### New: `supabase/functions/share-blog/index.ts`
+That URL returns the normal single-page app `index.html`, so Facebook only sees the generic site title/image instead of the blog post title/image. Also, the Facebook button is still using the backend function URL, which is why the compose dialog shows the infrastructure domain.
 
-- Public function (`verify_jwt = false` already default).
-- Reads slug from path: `/share-blog/{slug}`.
-- Fetches the post from Contentful using the same gateway pattern as `blog-posts/index.ts` (LOVABLE_API_KEY + CONTENTFUL_API_KEY + CONTENTFUL_SPACE_ID).
-- Returns `text/html` with:
-  - `<title>{post.title} | LS Diet</title>`
-  - `<meta name="description">`, `og:title`, `og:description`, `og:type=article`, `og:url=https://lsdiet.com/blog/{slug}`, `og:image` (post featured image, falls back to `https://lsdiet.com/og-image.jpg`), `og:image:width`/`height` when known
-  - `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image`
-  - `<meta http-equiv="refresh" content="0; url=https://lsdiet.com/blog/{slug}">`
-  - Inline `<script>window.location.replace("https://lsdiet.com/blog/{slug}")</script>` for instant client redirect
-  - Body contains a single visible `<a>` to the canonical URL as a JS-disabled fallback
-- All string interpolation HTML-escaped to prevent injection.
-- Returns 404 HTML (still with redirect to `/blog`) if slug missing.
+## Plan
 
-### New: `supabase/config.toml` block — not needed; default `verify_jwt = false` is already in effect for new functions.
+1. Add a `/share/:slug` frontend route
+   - Create a tiny redirect page for humans who open `https://lsdiet.com/share/{slug}`.
+   - It will immediately send users to `https://lsdiet.com/blog/{slug}`.
+   - This keeps the route valid inside the React app.
 
-### Edit: `src/components/ShareButtons.tsx`
+2. Update share buttons to use the branded URL
+   - Change `BlogPostPage` so Facebook/LinkedIn/X/WhatsApp/email share intents use:
+     `https://lsdiet.com/share/{slug}`
+   - Keep “Copy link” and native share using the canonical blog URL:
+     `https://lsdiet.com/blog/{slug}`
 
-- Add prop `crawlerShareUrl?: string` (optional, falls back to `url`).
-- Use `crawlerShareUrl ?? url` in the 5 social share intents (Facebook, LinkedIn, X, WhatsApp, Email).
-- Keep `url` for Copy Link and `navigator.share` (those go to humans).
+3. Improve the edge function HTML response
+   - Keep returning article-specific `og:title`, `og:description`, and `og:image`.
+   - Change `og:url` to the branded share URL so Facebook caches the preview against `lsdiet.com/share/{slug}`.
+   - Keep canonical and human redirect pointing to the real blog article.
+   - Add explicit `Content-Type: text/html` metadata and image alt/type fields where available.
 
-### Edit: `src/pages/BlogPostPage.tsx`
+4. Deploy and verify the edge function
+   - Deploy `share-blog`.
+   - Test the backend share endpoint directly and confirm the response contains the correct article title/image.
 
-- Compute:
-  ```ts
-  const crawlerShareUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/share-blog/${post.slug}`;
-  ```
-- Pass `crawlerShareUrl={crawlerShareUrl}` to all three `<ShareButtons>` instances.
+## Important constraint
 
-## What does NOT change
+Lovable hosting is currently serving `/share/{slug}` as the static React app, not proxying it to the backend function. For Facebook to see server-rendered OG tags at the exact branded URL, the domain needs a host-level rewrite/proxy from:
 
-- Canonical URL stays `https://lsdiet.com/blog/{slug}` in sitemap, JSON-LD, `<link rel="canonical">`, and the `og:url` rendered by the edge function. SEO attribution is unaffected.
-- `BlogPage`, navbar, footer untouched.
-- No SSR migration. No new dependencies.
+`/share/*` → `/functions/v1/share-blog/*`
 
-## Verification after deploy
-
-1. `curl -L https://joohccchfpcshlihctsm.supabase.co/functions/v1/share-blog/can-losing-weight-help-you-get-a-better-job` — should return HTML with proper `<meta property="og:image">` and `<meta property="og:title">`.
-2. Paste that URL into Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/) — preview should show title, description, and featured image.
-3. Click the Facebook icon on the live blog post — compose dialog should now show the article preview card.
-4. LinkedIn check via [Post Inspector](https://www.linkedin.com/post-inspector/).
-5. Direct browser hit on the share URL — should redirect to the article in <100ms.
-
-## Future migration note
-
-When ready to brand the URL, set up `share.lsdiet.com` via Cloudflare Worker proxying to this same edge function. Only `crawlerShareUrl` in `BlogPostPage.tsx` changes. Zero changes to the function itself.
+If Lovable’s hosting layer does not support that rewrite directly, the code changes above make the app consistent, but the final branded crawler preview still requires adding that rewrite at the domain/hosting edge.
