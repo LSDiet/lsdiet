@@ -20,6 +20,7 @@ import AwarenessStagesPage from "./pages/AwarenessStagesPage";
 import AboutOscarPoonPage from "./pages/AboutOscarPoonPage";
 import CoreFAQPage from "./pages/CoreFAQPage";
 import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +46,7 @@ function AppContent() {
         <Route path="/about-oscar-poon" element={<AboutOscarPoonPage />} />
         <Route path="/faq" element={<CoreFAQPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
