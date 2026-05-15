@@ -153,6 +153,9 @@ Deno.serve(async (req) => {
     const canonical = `${SITE}/blog/${cleanSlug}`;
     const socialUrl = `${SITE}/share/${cleanSlug}`;
 
+    // Humans: short-circuit immediately to the canonical article (302).
+    if (!crawler) return redirectResponse(canonical);
+
     const data = await cf("/entries", {
       content_type: CONTENT_TYPE,
       "fields.slug": cleanSlug,
