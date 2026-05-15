@@ -1,1 +1,7 @@
 project_id = "joohccchfpcshlihctsm"
+
+[functions.blog-posts]
+verify_jwt = false
+
+[functions.blog-sitemap]
+verify_jwt = false
