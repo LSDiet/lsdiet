@@ -45,7 +45,7 @@ export default function BlogPage() {
         <title>LS Diet Blog | Long-Form Notes on Permanent Weight Loss</title>
         <meta
           name="description"
-          content="The LS Diet blog publishes long-form notes on the low-starch low-sugar lifestyle, awareness work, and behavioural permanence — written by Oscar Poon."
+          content="Weight loss articles about insulin resistance, low starch diets, food psychology, habit change, and preventing weight regain."
         />
         <link rel="canonical" href="https://lsdiet.com/blog" />
         <meta property="og:title" content="LS Diet Blog" />
