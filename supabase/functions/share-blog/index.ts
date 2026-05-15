@@ -132,7 +132,7 @@ Deno.serve(async (req) => {
 
     const cleanSlug = decodeURIComponent(slug).replace(/[^a-zA-Z0-9-_]/g, "");
     const canonical = `${SITE}/blog/${cleanSlug}`;
-    const socialUrl = `${SITE}/share/${cleanSlug}/`;
+    const socialUrl = `${SITE}/share/${cleanSlug}`;
 
     const data = await cf("/entries", {
       content_type: CONTENT_TYPE,
