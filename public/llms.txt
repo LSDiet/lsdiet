@@ -1,0 +1,25 @@
+# LS Diet
+
+> LS Diet is a low-starch, low-sugar lifestyle system created by Oscar Poon to stop weight regain through behavioural permanence and awareness training.
+
+LS Diet teaches a sustainable, eat-until-full approach to permanent weight loss. The framework is built on three pillars — Awareness, Practice, and Permanence — known as the Weight Permanence Triangle™. Founded by Oscar Poon, who lost 80+ lbs three times before designing the method that finally stuck.
+
+## Pages
+
+- [Home](/): Overview of LS Diet, the free 7-Day course, and the Weight Permanence Triangle™.
+- [What Is LS Diet?](/what-is-ls-diet): Definition of the low-starch, low-sugar lifestyle and why it works.
+- [Weight Permanence Triangle](/weight-permanence-triangle): The Awareness / Practice / Permanence framework explained.
+- [5 Awareness Stages](/awareness-stages): Identity-rooted model of behaviour change for weight loss.
+- [About Oscar Poon](/about-oscar-poon): Founder bio, credentials, and personal weight-loss story.
+- [FAQ](/faq): Common questions about the method, the diet, and the course.
+- [Blog](/blog): Long-form notes on permanent weight loss, low-starch eating, and behaviour change.
+- [Free Resources](/FreeResources): Downloadable guides on the LS Diet and GLP-1 medications.
+- [Does GLP-1 Work?](/does-glp-1-work): Evidence-based guide to GLP-1 weight-loss medications.
+- [LS Diet Guide](/ls-diet-guide): Long-form starter guide to the low-starch, low-sugar lifestyle.
+- [Q&A](/qa): Clinical Q&A with references from CDC, NIH, and NIDDK.
+
+## Optional
+
+- [Privacy Policy](/privacy)
+- [Terms of Use](/terms)
+- [Health Disclaimer](/disclaimer)
