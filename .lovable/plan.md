@@ -1,26 +1,84 @@
 ## Goal
-Verify `https://lsdiet.com/` ownership in Google Search Console and register it as a property, so search performance data and sitemap submission become available.
 
-## Steps
+Add one-click social sharing to individual blog articles only. Keep `/blog` index clean to protect click-through. Prioritize readability, low-friction sharing, and mobile usability.
 
-1. **Request verification token** (curl to GSC connector gateway, `META` method, identifier `https://lsdiet.com/`). Returns the exact `<meta name="google-site-verification" content="...">` string.
+## Channels
 
-2. **Add the meta tag to `index.html`** inside `<head>` so it ships in the server-rendered HTML (Google won't see JS-injected tags).
+1. Facebook
+2. LinkedIn
+3. X (Twitter)
+4. WhatsApp
+5. Email (`mailto:`)
+6. Copy link (with toast confirmation)
+7. Native share sheet — only rendered when `navigator.share` exists at runtime (mobile/PWA)
 
-3. **You republish the site.** Required — Google fetches `https://lsdiet.com/` and looks for the meta tag in the live HTML. Without a republish, verification will fail with `failedToFindMetaTag`.
+All use URL-based share intents — no third-party SDKs, no tracking pixels, no extra bundle weight.
 
-4. **Call the verify endpoint** (curl). On 200 OK, ownership is recorded.
+## Placement (article page only)
 
-5. **Register the site as a Search Console property** via PUT to `/webmasters/v3/sites/https%3A%2F%2Flsdiet.com%2F`. After this it appears in your GSC dashboard.
+- **Desktop (≥1024px)**: vertical sticky rail on the left of the article column. Sticks to viewport as the reader scrolls. Icon-only, subtle, accent on hover.
+- **All viewports — inline under article title**: horizontal row of icon buttons, directly under the byline. Catches early sharers.
+- **Bottom of article (all viewports, primary value on mobile)**: a short prompt line + horizontal row, placed after the article body and before the "Continue reading" block.
 
-6. **Submit the sitemap** by PUTting `https://lsdiet.com/sitemap.xml` to the sitemaps endpoint. (The sitemap is already a sitemap index pointing at the static pages and the dynamic blog sitemap.)
+## Bottom-of-article share prompt
 
-7. **Mark the `gsc:gsc` SEO finding as fixed.**
+Above the bottom inline share row, render a single subtle prompt line:
 
-## What you'll need to do
-- After step 2, click **Publish** so the meta tag goes live before I run verification.
+> Know someone struggling with weight regain? Share this article.
 
-## Notes
-- Only the homepage meta tag is needed; it verifies the whole origin.
-- The tag is harmless and can stay in place permanently — Google rechecks periodically.
-- No code besides the single meta tag in `index.html` changes.
+- One line, sentence case, body font, `text-zinc-600` (muted), no bold, no emoji, no exclamation.
+- Centered, small bottom margin, share row sits right beneath it.
+- Wrapped in semantic `<p>` so it reads naturally for screen readers.
+- No box, border, background, or accent — it should feel like a quiet aside, not a CTA card.
+
+## What does NOT change
+
+- `/blog` index cards stay exactly as they are — clean, clickable, no share affordances.
+- No changes to `Navbar`, footer, or other pages.
+- The top inline share row (under the byline) gets no prompt — sharing intent there is already self-evident.
+
+## New file
+
+`src/components/ShareButtons.tsx` — single reusable component:
+
+- Props: `url: string`, `title: string`, `variant: "rail" | "inline"`
+- `rail` renders vertical icon column (desktop sticky usage).
+- `inline` renders horizontal icon row (under-title and bottom usage).
+- Detects `navigator.share` on mount (client-only check) and conditionally renders a "Share…" button that calls `navigator.share({ title, url })`.
+- Copy button calls `navigator.clipboard.writeText(url)` and fires `toast.success("Link copied")` from `sonner`.
+- Real WhatsApp glyph as inline SVG (lucide doesn't ship one); other icons from `lucide-react`: `Facebook`, `Linkedin`, `Twitter`, `Mail`, `Link2`, `Share2`.
+- All link buttons are real `<a target="_blank" rel="noopener noreferrer">` with `aria-label` per channel; copy/native-share are `<button>`.
+- Styling uses semantic tokens (`text-foreground`, `hover:text-accent`, `border-border`) — no hardcoded colors.
+
+## Edits
+
+`src/pages/BlogPostPage.tsx`:
+
+1. Import `ShareButtons`.
+2. Make the article container `relative` so the desktop rail can position against it.
+3. Render desktop sticky rail (`hidden lg:block`, sticky-positioned to the left of the article column).
+4. Render `<ShareButtons variant="inline" />` directly under the byline `<p>`.
+5. After `<RichText>` and before the "Continue reading" `<section>`: render the prompt `<p>` followed by `<ShareButtons variant="inline" />`, both centered.
+
+`src/pages/BlogPage.tsx`: **no changes** (per user request).
+
+## Share intent URLs
+
+```text
+Facebook  https://www.facebook.com/sharer/sharer.php?u={URL}
+LinkedIn  https://www.linkedin.com/sharing/share-offsite/?url={URL}
+X         https://twitter.com/intent/tweet?url={URL}&text={TITLE}
+WhatsApp  https://wa.me/?text={TITLE}%20{URL}
+Email     mailto:?subject={TITLE}&body={URL}
+```
+
+URL and title are `encodeURIComponent`-wrapped.
+
+## Acceptance check after build
+
+- `/blog` index visually unchanged.
+- Desktop: vertical share rail visible left of article, sticky on scroll; inline row also under title.
+- Mobile (664px viewport): no rail; inline row under title; prompt line + inline row after article body.
+- Copy button → toast "Link copied" appears, link is in clipboard.
+- All share links open the correct prefilled composer in a new tab.
+- Prompt line reads as a subtle aside, not a promotional banner.
