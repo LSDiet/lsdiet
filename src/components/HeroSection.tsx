@@ -34,11 +34,11 @@ export function HeroSection() {
             with LS Diet
           </h1>
           <p className="mt-6 text-lg font-bold uppercase tracking-tight text-white/90 md:text-xl">
-            I Lost <span className="text-accent">80+ Lbs</span> Three Times.
+            <span className="text-accent">Low-Starch, Low-Sugar (LS)</span> is the only way to stop the{" "}
+            <span className="text-accent">weight regain</span>.
           </p>
           <p className="mx-auto mt-3 max-w-xl text-xs font-medium uppercase tracking-wide text-white/70 sm:text-sm md:text-base">
-            <span className="text-accent">Low Starch, Low Sugar</span> is the only way to stop the{" "}
-            <span className="text-accent">weight regain</span>.
+            I Lost <span className="text-accent">80+ Lbs</span> Three Times.
           </p>
         </div>
 
