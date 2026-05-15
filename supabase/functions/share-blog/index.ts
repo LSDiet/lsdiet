@@ -111,25 +111,34 @@ ${redirect ? `<meta http-equiv="refresh" content="0; url=${u}" />
 }
 
 function htmlResponse(html: string, status = 200): Response {
-  const headers = new Headers(corsHeaders);
-  headers.set("Content-Type", "text/html; charset=utf-8");
-  headers.set("Cache-Control", "public, max-age=300, s-maxage=600");
-  return new Response(html, { status, headers });
+  return new Response(html, {
+    status,
+    headers: {
+      ...CORS,
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "public, max-age=300, s-maxage=600",
+      "X-Content-Type-Options": "nosniff",
+    },
+  });
 }
 
 function redirectResponse(target: string): Response {
-  const headers = new Headers(corsHeaders);
-  headers.set("Location", target);
-  headers.set("Cache-Control", "no-store");
-  headers.set("Content-Type", "text/html; charset=utf-8");
   return new Response(
     `<!doctype html><meta http-equiv="refresh" content="0; url=${target}"><a href="${target}">Continue</a>`,
-    { status: 302, headers }
+    {
+      status: 302,
+      headers: {
+        ...CORS,
+        Location: target,
+        "Cache-Control": "no-store",
+        "Content-Type": "text/html; charset=utf-8",
+      },
+    }
   );
 }
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
+  if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
 
   const ua = req.headers.get("user-agent");
   const crawler = isCrawler(ua);
