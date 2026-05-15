@@ -1,3 +1,4 @@
+import { ChevronDown, HelpCircle } from "lucide-react";
 import img2019a from "@/assets/hero/2019a.png";
 import img2019b from "@/assets/hero/2019b.png";
 import img2021a from "@/assets/hero/2021a.png";
@@ -34,12 +35,20 @@ export function HeroSection() {
             with LS Diet
           </h1>
           <p className="mt-6 text-lg font-bold uppercase tracking-tight text-white/90 md:text-xl">
-            <span className="text-accent">Low-Starch, Low-Sugar (LS)</span> is the only way to stop the{" "}
-            <span className="text-accent">weight regain</span>.
+            <span className="text-accent">Low-Starch, Low-Sugar (LS)</span> is the only way
+            <br />
+            to stop the <span className="text-accent">weight regain</span>.
           </p>
-          <p className="mx-auto mt-3 max-w-xl text-xs font-medium uppercase tracking-wide text-white/70 sm:text-sm md:text-base">
-            I Lost <span className="text-accent">80+ Lbs</span> Three Times.
-          </p>
+          <div className="mx-auto mt-5 flex max-w-xl flex-col items-center gap-2">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/70 sm:text-xs">
+              <HelpCircle className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
+              How do I know?
+            </div>
+            <ChevronDown className="h-4 w-4 text-accent/80" aria-hidden="true" />
+            <p className="text-xs font-medium uppercase tracking-wide text-white/85 sm:text-sm md:text-base">
+              Because I lost <span className="text-accent">80+ lbs</span> three times.
+            </p>
+          </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3 md:gap-6">
