@@ -1,7 +1,15 @@
 // Server-rendered OG meta + redirect for blog posts.
 // Social crawlers (Facebook, LinkedIn, WhatsApp, X) read the meta tags here;
 // humans get instantly redirected to the canonical lsdiet.com/blog/{slug} URL.
-import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+//
+// IMPORTANT: We intentionally do NOT use corsHeaders from @supabase/supabase-js/cors
+// here because it sets Content-Type: text/plain by default, which causes LinkedIn
+// (and some other crawlers) to refuse to render an Open Graph preview.
+const CORS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
 
 const GATEWAY = "https://connector-gateway.lovable.dev/contentful";
 const CONTENT_TYPE = "blogPost";
