@@ -119,64 +119,81 @@ export default function BlogPostPage() {
         ]}
       />
 
-      <article className="container max-w-3xl mx-auto px-4 pb-20">
-        <header className="mb-8">
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
-            {post.title}
-          </h1>
-          <p className="text-xs text-zinc-500 uppercase tracking-wider">
-            <time dateTime={post.publishDate}>{formatPublishDate(post.publishDate)}</time>
-            {" · "}By Oscar Poon
-          </p>
-        </header>
-
-        {post.featuredImage?.url && (
-          <figure className="mb-10 -mx-4 md:mx-0">
-            <img
-              src={post.featuredImage.url}
-              alt={post.featuredImage.title || post.title}
-              width={post.featuredImage.width}
-              height={post.featuredImage.height}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              className="w-full md:rounded-xl"
-            />
-          </figure>
-        )}
-
-        <div className="prose-content">
-          <RichText document={post.content} />
+      <div className="relative">
+        {/* Desktop sticky share rail */}
+        <div className="hidden lg:block absolute left-4 top-0 h-full pointer-events-none">
+          <div className="sticky top-28 pointer-events-auto">
+            <ShareButtons url={url} title={post.title} variant="rail" />
+          </div>
         </div>
 
-        <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
-          <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-3">
-            Continue reading
-          </h2>
-          <ul className="space-y-2 text-zinc-800">
-            <li>
-              <a href="/" className="text-accent hover:underline">LS Diet — homepage</a>
-            </li>
-            <li>
-              <a href="/what-is-ls-diet" className="text-accent hover:underline">What is the LS Diet?</a>
-            </li>
-            <li>
-              <a href="/weight-permanence-triangle" className="text-accent hover:underline">The Weight Permanence Triangle™</a>
-            </li>
-            <li>
-              <a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a>
-            </li>
-          </ul>
-        </section>
+        <article className="container max-w-3xl mx-auto px-4 pb-20">
+          <header className="mb-8">
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
+              {post.title}
+            </h1>
+            <p className="text-xs text-zinc-500 uppercase tracking-wider mb-5">
+              <time dateTime={post.publishDate}>{formatPublishDate(post.publishDate)}</time>
+              {" · "}By Oscar Poon
+            </p>
+            <ShareButtons url={url} title={post.title} variant="inline" className="justify-start" />
+          </header>
 
-        <div className="mt-10 text-center">
-          <Button variant="accent" size="lg" asChild>
-            <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-              JOIN LS DIET (FREE)
-            </a>
-          </Button>
-        </div>
-      </article>
+          {post.featuredImage?.url && (
+            <figure className="mb-10 -mx-4 md:mx-0">
+              <img
+                src={post.featuredImage.url}
+                alt={post.featuredImage.title || post.title}
+                width={post.featuredImage.width}
+                height={post.featuredImage.height}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                className="w-full md:rounded-xl"
+              />
+            </figure>
+          )}
+
+          <div className="prose-content">
+            <RichText document={post.content} />
+          </div>
+
+          <div className="mt-14 text-center">
+            <p className="text-sm text-zinc-600 mb-3">
+              Know someone struggling with weight regain? Share this article.
+            </p>
+            <ShareButtons url={url} title={post.title} variant="inline" />
+          </div>
+
+          <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
+            <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-3">
+              Continue reading
+            </h2>
+            <ul className="space-y-2 text-zinc-800">
+              <li>
+                <a href="/" className="text-accent hover:underline">LS Diet — homepage</a>
+              </li>
+              <li>
+                <a href="/what-is-ls-diet" className="text-accent hover:underline">What is the LS Diet?</a>
+              </li>
+              <li>
+                <a href="/weight-permanence-triangle" className="text-accent hover:underline">The Weight Permanence Triangle™</a>
+              </li>
+              <li>
+                <a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a>
+              </li>
+            </ul>
+          </section>
+
+          <div className="mt-10 text-center">
+            <Button variant="accent" size="lg" asChild>
+              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
+                JOIN LS DIET (FREE)
+              </a>
+            </Button>
+          </div>
+        </article>
+      </div>
 
       <FooterSimple />
     </div>
