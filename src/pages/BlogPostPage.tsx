@@ -149,10 +149,10 @@ export default function BlogPostPage() {
         </div>
 
         <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
-          <h2 className="text-lg font-bold uppercase tracking-wider text-foreground mb-3">
+          <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-3">
             Continue reading
           </h2>
-          <ul className="space-y-2 text-[hsl(0_0%_80%)]">
+          <ul className="space-y-2 text-zinc-800">
             <li>
               <a href="/" className="text-accent hover:underline">LS Diet — homepage</a>
             </li>
