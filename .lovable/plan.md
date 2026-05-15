@@ -1,84 +1,60 @@
 ## Goal
 
-Add one-click social sharing to individual blog articles only. Keep `/blog` index clean to protect click-through. Prioritize readability, low-friction sharing, and mobile usability.
+Fix Facebook/LinkedIn/WhatsApp share previews showing only "lsdiet.com" with no title or image. Root cause: Vite SPA — `react-helmet-async` only injects meta tags after JS runs, but social crawlers don't execute JS, so they only ever see static `index.html`.
 
-## Channels
+## Approach
 
-1. Facebook
-2. LinkedIn
-3. X (Twitter)
-4. WhatsApp
-5. Email (`mailto:`)
-6. Copy link (with toast confirmation)
-7. Native share sheet — only rendered when `navigator.share` exists at runtime (mobile/PWA)
+Server-render the OG meta tags via a public Supabase edge function. Social share intent URLs point to that function. Crawlers read the meta and stop. Humans hitting the URL get instantly redirected to the canonical `lsdiet.com/blog/{slug}`.
 
-All use URL-based share intents — no third-party SDKs, no tracking pixels, no extra bundle weight.
+URL trade-off accepted: public share URL will be the bare Supabase function URL. Can be migrated to `share.lsdiet.com` later without code changes.
 
-## Placement (article page only)
+## Files
 
-- **Desktop (≥1024px)**: vertical sticky rail on the left of the article column. Sticks to viewport as the reader scrolls. Icon-only, subtle, accent on hover.
-- **All viewports — inline under article title**: horizontal row of icon buttons, directly under the byline. Catches early sharers.
-- **Bottom of article (all viewports, primary value on mobile)**: a short prompt line + horizontal row, placed after the article body and before the "Continue reading" block.
+### New: `supabase/functions/share-blog/index.ts`
 
-## Bottom-of-article share prompt
+- Public function (`verify_jwt = false` already default).
+- Reads slug from path: `/share-blog/{slug}`.
+- Fetches the post from Contentful using the same gateway pattern as `blog-posts/index.ts` (LOVABLE_API_KEY + CONTENTFUL_API_KEY + CONTENTFUL_SPACE_ID).
+- Returns `text/html` with:
+  - `<title>{post.title} | LS Diet</title>`
+  - `<meta name="description">`, `og:title`, `og:description`, `og:type=article`, `og:url=https://lsdiet.com/blog/{slug}`, `og:image` (post featured image, falls back to `https://lsdiet.com/og-image.jpg`), `og:image:width`/`height` when known
+  - `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image`
+  - `<meta http-equiv="refresh" content="0; url=https://lsdiet.com/blog/{slug}">`
+  - Inline `<script>window.location.replace("https://lsdiet.com/blog/{slug}")</script>` for instant client redirect
+  - Body contains a single visible `<a>` to the canonical URL as a JS-disabled fallback
+- All string interpolation HTML-escaped to prevent injection.
+- Returns 404 HTML (still with redirect to `/blog`) if slug missing.
 
-Above the bottom inline share row, render a single subtle prompt line:
+### New: `supabase/config.toml` block — not needed; default `verify_jwt = false` is already in effect for new functions.
 
-> Know someone struggling with weight regain? Share this article.
+### Edit: `src/components/ShareButtons.tsx`
 
-- One line, sentence case, body font, `text-zinc-600` (muted), no bold, no emoji, no exclamation.
-- Centered, small bottom margin, share row sits right beneath it.
-- Wrapped in semantic `<p>` so it reads naturally for screen readers.
-- No box, border, background, or accent — it should feel like a quiet aside, not a CTA card.
+- Add prop `crawlerShareUrl?: string` (optional, falls back to `url`).
+- Use `crawlerShareUrl ?? url` in the 5 social share intents (Facebook, LinkedIn, X, WhatsApp, Email).
+- Keep `url` for Copy Link and `navigator.share` (those go to humans).
+
+### Edit: `src/pages/BlogPostPage.tsx`
+
+- Compute:
+  ```ts
+  const crawlerShareUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/share-blog/${post.slug}`;
+  ```
+- Pass `crawlerShareUrl={crawlerShareUrl}` to all three `<ShareButtons>` instances.
 
 ## What does NOT change
 
-- `/blog` index cards stay exactly as they are — clean, clickable, no share affordances.
-- No changes to `Navbar`, footer, or other pages.
-- The top inline share row (under the byline) gets no prompt — sharing intent there is already self-evident.
+- Canonical URL stays `https://lsdiet.com/blog/{slug}` in sitemap, JSON-LD, `<link rel="canonical">`, and the `og:url` rendered by the edge function. SEO attribution is unaffected.
+- `BlogPage`, navbar, footer untouched.
+- No SSR migration. No new dependencies.
 
-## New file
+## Verification after deploy
 
-`src/components/ShareButtons.tsx` — single reusable component:
+1. `curl -L https://joohccchfpcshlihctsm.supabase.co/functions/v1/share-blog/can-losing-weight-help-you-get-a-better-job` — should return HTML with proper `<meta property="og:image">` and `<meta property="og:title">`.
+2. Paste that URL into Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/) — preview should show title, description, and featured image.
+3. Click the Facebook icon on the live blog post — compose dialog should now show the article preview card.
+4. LinkedIn check via [Post Inspector](https://www.linkedin.com/post-inspector/).
+5. Direct browser hit on the share URL — should redirect to the article in <100ms.
 
-- Props: `url: string`, `title: string`, `variant: "rail" | "inline"`
-- `rail` renders vertical icon column (desktop sticky usage).
-- `inline` renders horizontal icon row (under-title and bottom usage).
-- Detects `navigator.share` on mount (client-only check) and conditionally renders a "Share…" button that calls `navigator.share({ title, url })`.
-- Copy button calls `navigator.clipboard.writeText(url)` and fires `toast.success("Link copied")` from `sonner`.
-- Real WhatsApp glyph as inline SVG (lucide doesn't ship one); other icons from `lucide-react`: `Facebook`, `Linkedin`, `Twitter`, `Mail`, `Link2`, `Share2`.
-- All link buttons are real `<a target="_blank" rel="noopener noreferrer">` with `aria-label` per channel; copy/native-share are `<button>`.
-- Styling uses semantic tokens (`text-foreground`, `hover:text-accent`, `border-border`) — no hardcoded colors.
+## Future migration note
 
-## Edits
-
-`src/pages/BlogPostPage.tsx`:
-
-1. Import `ShareButtons`.
-2. Make the article container `relative` so the desktop rail can position against it.
-3. Render desktop sticky rail (`hidden lg:block`, sticky-positioned to the left of the article column).
-4. Render `<ShareButtons variant="inline" />` directly under the byline `<p>`.
-5. After `<RichText>` and before the "Continue reading" `<section>`: render the prompt `<p>` followed by `<ShareButtons variant="inline" />`, both centered.
-
-`src/pages/BlogPage.tsx`: **no changes** (per user request).
-
-## Share intent URLs
-
-```text
-Facebook  https://www.facebook.com/sharer/sharer.php?u={URL}
-LinkedIn  https://www.linkedin.com/sharing/share-offsite/?url={URL}
-X         https://twitter.com/intent/tweet?url={URL}&text={TITLE}
-WhatsApp  https://wa.me/?text={TITLE}%20{URL}
-Email     mailto:?subject={TITLE}&body={URL}
-```
-
-URL and title are `encodeURIComponent`-wrapped.
-
-## Acceptance check after build
-
-- `/blog` index visually unchanged.
-- Desktop: vertical share rail visible left of article, sticky on scroll; inline row also under title.
-- Mobile (664px viewport): no rail; inline row under title; prompt line + inline row after article body.
-- Copy button → toast "Link copied" appears, link is in clipboard.
-- All share links open the correct prefilled composer in a new tab.
-- Prompt line reads as a subtle aside, not a promotional banner.
+When ready to brand the URL, set up `share.lsdiet.com` via Cloudflare Worker proxying to this same edge function. Only `crawlerShareUrl` in `BlogPostPage.tsx` changes. Zero changes to the function itself.

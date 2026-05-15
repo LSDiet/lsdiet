@@ -1,0 +1,190 @@
+// Server-rendered OG meta + redirect for blog posts.
+// Social crawlers (Facebook, LinkedIn, WhatsApp, X) read the meta tags here;
+// humans get instantly redirected to the canonical lsdiet.com/blog/{slug} URL.
+import { corsHeaders } from "npm:@supabase/supabase-js@2/cors";
+
+const GATEWAY = "https://connector-gateway.lovable.dev/contentful";
+const CONTENT_TYPE = "blogPost";
+const SITE = "https://lsdiet.com";
+const FALLBACK_IMAGE = "https://lsdiet.com/og-image.jpg";
+
+function env(name: string): string {
+  const v = Deno.env.get(name);
+  if (!v) throw new Error(`${name} is not configured`);
+  return v;
+}
+
+async function cf(path: string, query: Record<string, string>) {
+  const LOVABLE_API_KEY = env("LOVABLE_API_KEY");
+  const CONTENTFUL_API_KEY = env("CONTENTFUL_API_KEY");
+  const SPACE_ID = env("CONTENTFUL_SPACE_ID");
+  const qs = new URLSearchParams(query).toString();
+  const url = `${GATEWAY}/spaces/${SPACE_ID}/environments/master${path}?${qs}`;
+  const r = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${LOVABLE_API_KEY}`,
+      "X-Connection-Api-Key": CONTENTFUL_API_KEY,
+    },
+  });
+  if (!r.ok) throw new Error(`Contentful gateway ${r.status}: ${await r.text()}`);
+  return r.json();
+}
+
+function esc(s: string): string {
+  return String(s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderHtml(opts: {
+  title: string;
+  description: string;
+  canonical: string;
+  image: string;
+  imageWidth?: number;
+  imageHeight?: number;
+}): string {
+  const { title, description, canonical, image, imageWidth, imageHeight } = opts;
+  const t = esc(title);
+  const d = esc(description);
+  const u = esc(canonical);
+  const img = esc(image);
+  const w = imageWidth ? `<meta property="og:image:width" content="${imageWidth}" />` : "";
+  const h = imageHeight ? `<meta property="og:image:height" content="${imageHeight}" />` : "";
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>${t}</title>
+<meta name="description" content="${d}" />
+<link rel="canonical" href="${u}" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="${t}" />
+<meta property="og:description" content="${d}" />
+<meta property="og:url" content="${u}" />
+<meta property="og:image" content="${img}" />
+<meta property="og:site_name" content="LS Diet" />
+${w}
+${h}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@JoinLSDiet" />
+<meta name="twitter:title" content="${t}" />
+<meta name="twitter:description" content="${d}" />
+<meta name="twitter:image" content="${img}" />
+
+<meta http-equiv="refresh" content="0; url=${u}" />
+<script>window.location.replace(${JSON.stringify(canonical)});</script>
+</head>
+<body>
+<p>Redirecting to <a href="${u}">${u}</a>…</p>
+</body>
+</html>`;
+}
+
+function htmlResponse(html: string, status = 200): Response {
+  return new Response(html, {
+    status,
+    headers: {
+      ...corsHeaders,
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "public, max-age=300, s-maxage=600",
+    },
+  });
+}
+
+Deno.serve(async (req) => {
+  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders });
+
+  try {
+    const url = new URL(req.url);
+    // Path can be /share-blog/{slug} or /functions/v1/share-blog/{slug}
+    const parts = url.pathname.split("/").filter(Boolean);
+    const idx = parts.indexOf("share-blog");
+    const slug = idx >= 0 ? parts[idx + 1] : parts[parts.length - 1];
+
+    if (!slug || slug === "share-blog") {
+      return htmlResponse(
+        renderHtml({
+          title: "LS Diet Blog",
+          description: "Stop weight regain with the low-starch, low-sugar lifestyle.",
+          canonical: `${SITE}/blog`,
+          image: FALLBACK_IMAGE,
+          imageWidth: 1200,
+          imageHeight: 630,
+        }),
+        404
+      );
+    }
+
+    const cleanSlug = decodeURIComponent(slug).replace(/[^a-zA-Z0-9-_]/g, "");
+    const canonical = `${SITE}/blog/${cleanSlug}`;
+
+    const data = await cf("/entries", {
+      content_type: CONTENT_TYPE,
+      "fields.slug": cleanSlug,
+      "fields.publishDate[lte]": new Date().toISOString(),
+      include: "2",
+      limit: "1",
+    });
+
+    const item = data.items?.[0];
+    if (!item) {
+      return htmlResponse(
+        renderHtml({
+          title: "Post not found | LS Diet",
+          description: "This article doesn't exist or hasn't been published yet.",
+          canonical,
+          image: FALLBACK_IMAGE,
+          imageWidth: 1200,
+          imageHeight: 630,
+        }),
+        404
+      );
+    }
+
+    const f = item.fields;
+    const assets: Record<string, any> = {};
+    for (const a of data.includes?.Asset ?? []) {
+      assets[a.sys.id] = {
+        url: a.fields.file?.url ? `https:${a.fields.file.url}` : null,
+        width: a.fields.file?.details?.image?.width,
+        height: a.fields.file?.details?.image?.height,
+      };
+    }
+    const featured = f.featuredImage?.sys?.id ? assets[f.featuredImage.sys.id] : null;
+
+    const title = `${f.title ?? "LS Diet"} | LS Diet`;
+    const description = f.excerpt || `${f.title} — by Oscar Poon on the LS Diet blog.`;
+    const image = featured?.url ?? FALLBACK_IMAGE;
+
+    return htmlResponse(
+      renderHtml({
+        title,
+        description,
+        canonical,
+        image,
+        imageWidth: featured?.width,
+        imageHeight: featured?.height,
+      })
+    );
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : "unknown error";
+    console.error("share-blog error:", msg);
+    return htmlResponse(
+      renderHtml({
+        title: "LS Diet Blog",
+        description: "Stop weight regain with the low-starch, low-sugar lifestyle.",
+        canonical: `${SITE}/blog`,
+        image: FALLBACK_IMAGE,
+        imageWidth: 1200,
+        imageHeight: 630,
+      }),
+      500
+    );
+  }
+});

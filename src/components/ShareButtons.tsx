@@ -8,6 +8,10 @@ interface ShareButtonsProps {
   title: string;
   variant: "rail" | "inline";
   className?: string;
+  /** URL used for social-network share intents (FB, LinkedIn, X, WhatsApp, Email).
+   * Should point to a server-rendered OG-meta endpoint so crawlers see proper previews.
+   * Falls back to `url` when not provided. Copy Link and native share always use `url`. */
+  crawlerShareUrl?: string;
 }
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -21,7 +25,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export function ShareButtons({ url, title, variant, className }: ShareButtonsProps) {
+export function ShareButtons({ url, title, variant, className, crawlerShareUrl }: ShareButtonsProps) {
   const [hasNativeShare, setHasNativeShare] = useState(false);
 
   useEffect(() => {
@@ -30,7 +34,8 @@ export function ShareButtons({ url, title, variant, className }: ShareButtonsPro
     }
   }, []);
 
-  const u = encodeURIComponent(url);
+  const shareTarget = crawlerShareUrl ?? url;
+  const u = encodeURIComponent(shareTarget);
   const t = encodeURIComponent(title);
 
   const links = [

@@ -67,6 +67,7 @@ export default function BlogPostPage() {
   }
 
   const url = `https://lsdiet.com/blog/${post.slug}`;
+  const crawlerShareUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/share-blog/${post.slug}`;
   const description = post.excerpt || `${post.title} — by Oscar Poon on the LS Diet blog.`;
   const image = post.featuredImage?.url ?? "https://lsdiet.com/og-image.jpg";
 
@@ -123,7 +124,7 @@ export default function BlogPostPage() {
         {/* Desktop sticky share rail */}
         <div className="hidden lg:block absolute left-4 top-0 h-full pointer-events-none">
           <div className="sticky top-28 pointer-events-auto">
-            <ShareButtons url={url} title={post.title} variant="rail" />
+            <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={post.title} variant="rail" />
           </div>
         </div>
 
@@ -136,7 +137,7 @@ export default function BlogPostPage() {
               <time dateTime={post.publishDate}>{formatPublishDate(post.publishDate)}</time>
               {" · "}By Oscar Poon
             </p>
-            <ShareButtons url={url} title={post.title} variant="inline" className="justify-start" />
+            <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={post.title} variant="inline" className="justify-start" />
           </header>
 
           {post.featuredImage?.url && (
@@ -162,7 +163,7 @@ export default function BlogPostPage() {
             <p className="text-sm text-zinc-600 mb-3">
               Know someone struggling with weight regain? Share this article.
             </p>
-            <ShareButtons url={url} title={post.title} variant="inline" />
+            <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={post.title} variant="inline" />
           </div>
 
           <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
