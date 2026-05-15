@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Facebook, Linkedin, Twitter, Mail, Link2, Share2 } from "lucide-react";
+import { Facebook, Linkedin, Link2, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
@@ -50,19 +50,9 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
       Icon: Linkedin,
     },
     {
-      label: "Share on X",
-      href: `https://twitter.com/intent/tweet?url=${u}&text=${t}`,
-      Icon: Twitter,
-    },
-    {
       label: "Share on WhatsApp",
       href: `https://wa.me/?text=${t}%20${u}`,
       Icon: WhatsAppIcon,
-    },
-    {
-      label: "Share via Email",
-      href: `mailto:?subject=${t}&body=${u}`,
-      Icon: Mail,
     },
   ];
 
