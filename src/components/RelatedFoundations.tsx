@@ -30,9 +30,13 @@ export function RelatedFoundations({
     fetchBlogIndex()
       .then((all) => {
         if (cancelled) return;
+        // If no canonicalTopic was passed, infer it from the current slug.
+        const topic =
+          canonicalTopic ??
+          (excludeSlug ? all.find((p) => p.slug === excludeSlug)?.canonicalTopic : undefined);
         const filtered = all
           .filter((p) => p.contentType === "pillar")
-          .filter((p) => (canonicalTopic ? p.canonicalTopic === canonicalTopic : true))
+          .filter((p) => (topic ? p.canonicalTopic === topic : true))
           .filter((p) => p.slug !== excludeSlug)
           .slice(0, limit);
         setItems(filtered);
