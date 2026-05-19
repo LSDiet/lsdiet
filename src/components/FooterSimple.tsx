@@ -49,9 +49,6 @@ export function FooterSimple() {
               <li>
                 <a href="mailto:info@LSDiet.com" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">info@LSDiet.com</a>
               </li>
-              <li>
-                <a href="/#contact" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">Contact form</a>
-              </li>
             </ul>
           </div>
         </div>

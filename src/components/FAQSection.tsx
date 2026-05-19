@@ -8,6 +8,11 @@ type FaqEntry = {
   render: () => JSX.Element;
 };
 
+// Note: inline links in section 4 (Method) and section 5 (Awareness curriculum)
+// already cover every awareness stage, Action Practice, the WPT pillar, and the
+// low-starch low-sugar pillar. This FAQ only links to destinations NOT already
+// linked higher on the homepage.
+
 const faqs: FaqEntry[] = [
   {
     q: "What is LS Diet?",
@@ -15,14 +20,7 @@ const faqs: FaqEntry[] = [
       "LS Diet is a low-starch low-sugar lifestyle paired with the Weight Permanence Triangle, a three part behavioural framework that helps you stop regaining weight. Created by Oscar Poon, it focuses on permanence instead of restart cycles.",
     render: () => (
       <p className="text-[hsl(0_0%_78%)] leading-relaxed text-base">
-        LS Diet is a{" "}
-        <a
-          href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting"
-          className="text-accent hover:underline"
-        >
-          low-starch low-sugar lifestyle
-        </a>{" "}
-        paired with a three part behavioural framework that helps you stop regaining weight.{" "}
+        LS Diet is a low-starch low-sugar lifestyle paired with a three part behavioural framework that helps you stop regaining weight.{" "}
         <a href="/what-is-ls-diet" className="text-accent hover:underline">
           Read the full definition on What Is LS Diet →
         </a>
@@ -35,15 +33,7 @@ const faqs: FaqEntry[] = [
       "Most diets work on food alone and ignore the behavioural layers underneath. Without awareness, the same pattern that regained weight last time repeats, and the consequence catches up later. LS Diet adds an awareness layer and a permanence layer so a slip never becomes a full restart.",
     render: () => (
       <p className="text-[hsl(0_0%_78%)] leading-relaxed text-base">
-        Most diets work on food alone and ignore the behavioural layers underneath. Without awareness, the same{" "}
-        <a href="/blog/pattern-awareness" className="text-accent hover:underline">
-          pattern that repeats
-        </a>{" "}
-        will regain the weight again, and the{" "}
-        <a href="/blog/consequence-awareness" className="text-accent hover:underline">
-          consequence catches up later
-        </a>
-        . LS Diet adds the layers conventional plans skip.{" "}
+        Most diets work on food alone and ignore the behavioural layers underneath. Without awareness, the same patterns repeat and the consequences catch up later. LS Diet adds the layers conventional plans skip.{" "}
         <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
           Read the foundation →
         </a>
@@ -51,29 +41,14 @@ const faqs: FaqEntry[] = [
     ),
   },
   {
-    q: "What is the Weight Permanence Triangle?",
+    q: "How long does it take to see results?",
     schemaAnswer:
-      "The Weight Permanence Triangle is the framework at the centre of LS Diet. Awareness creates urgency, Practice builds the daily low-starch low-sugar actions, and Permanence protects those actions when life gets hard.",
+      "Most people notice changes within the first two weeks of practising the low-starch low-sugar lifestyle alongside daily awareness reps. The deeper goal is permanence — building habits that hold up months and years later, not just on the scale on day fourteen.",
     render: () => (
       <p className="text-[hsl(0_0%_78%)] leading-relaxed text-base">
-        The Weight Permanence Triangle is the framework at the centre of LS Diet.{" "}
+        Most people notice changes within the first two weeks of practising the lifestyle alongside daily awareness reps. The deeper goal is permanence — habits that hold up months and years later, not just on the scale on day fourteen.{" "}
         <a href="/awareness-stages" className="text-accent hover:underline">
-          Awareness
-        </a>{" "}
-        creates urgency,{" "}
-        <a href="/blog/action-practice" className="text-accent hover:underline">
-          practice
-        </a>{" "}
-        builds the daily low-starch low-sugar actions, and{" "}
-        <a href="/blog/identity-awareness" className="text-accent hover:underline">
-          permanence
-        </a>{" "}
-        protects those actions when life gets hard.{" "}
-        <a
-          href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
-          className="text-accent hover:underline"
-        >
-          Read the foundation →
+          Explore the 5 Awareness Stages →
         </a>
       </p>
     ),
@@ -88,10 +63,7 @@ const faqs: FaqEntry[] = [
         <a href="/oscar-poon" className="text-accent hover:underline">
           lost 80 lbs three times
         </a>
-        , holds a psychology degree, and spent a decade analysing behavioural patterns as a surgical data consultant. That mix shaped the method.{" "}
-        <a href="/oscar-poon" className="text-accent hover:underline">
-          Read his story →
-        </a>
+        , holds a psychology degree, and spent a decade analysing behavioural patterns as a surgical data consultant. That mix shaped the method.
       </p>
     ),
   },
@@ -107,14 +79,6 @@ const schema = {
     acceptedAnswer: { "@type": "Answer", text: f.schemaAnswer },
   })),
 };
-
-const keepExploring = [
-  { label: "LS Foundations", href: "/blog" },
-  { label: "5 Stages of Awareness", href: "/awareness-stages" },
-  { label: "Friction Awareness", href: "/blog/friction-awareness" },
-  { label: "Action Practice", href: "/blog/action-practice" },
-  { label: "About Oscar Poon", href: "/oscar-poon" },
-];
 
 export function FAQSection() {
   return (
@@ -142,29 +106,7 @@ export function FAQSection() {
             ))}
           </div>
 
-          {/* Keep exploring */}
-          <nav
-            aria-label="Keep exploring LS Diet"
-            className="mt-12 border-t border-[hsl(0_0%_20%)] pt-6"
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent text-center mb-4">
-              Keep Exploring
-            </p>
-            <ul className="flex flex-wrap justify-center gap-2">
-              {keepExploring.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="inline-flex items-center rounded-full border border-[hsl(0_0%_25%)] bg-[hsl(0_0%_10%)] px-3.5 py-1.5 text-sm text-[hsl(0_0%_90%)] hover:border-accent hover:text-accent transition-colors"
-                  >
-                    {link.label} →
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <p className="text-center mt-8 text-sm">
+          <p className="text-center mt-10 text-sm">
             <a href="/faq" className="text-accent hover:underline font-medium">
               See the full LS Diet FAQ →
             </a>
