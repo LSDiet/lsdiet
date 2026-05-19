@@ -7,6 +7,7 @@ import frictionAwareness from "./friction-awareness";
 import patternAwareness from "./pattern-awareness";
 import consequenceAwareness from "./consequence-awareness";
 import identityAwareness from "./identity-awareness";
+import actionPractice from "./action-practice";
 import type { Foundation } from "./types";
 
 export const FOUNDATIONS: Foundation[] = [
@@ -18,6 +19,7 @@ export const FOUNDATIONS: Foundation[] = [
   patternAwareness,
   consequenceAwareness,
   identityAwareness,
+  actionPractice,
 ];
 
 export function getFoundationBySlug(slug: string): Foundation | undefined {
