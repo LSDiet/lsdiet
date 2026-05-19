@@ -1,7 +1,30 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: stop-weight-regain
 import featuredImage from "@/assets/foundation-why-people-regain-weight.png";
+import obviousSugarImg from "@/assets/foundation-obvious-sugar.png";
+import starchHiddenImg from "@/assets/foundation-starch-hidden-problem.png";
+import dietsComparisonImg from "@/assets/foundation-diets-comparison.png";
+import reverseInsulinImg from "@/assets/foundation-reverse-insulin-resistance.png";
 import type { Foundation } from "./types";
+
+function Figure({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <figure className="my-8 -mx-4 md:mx-0">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className="w-full md:rounded-xl border border-border"
+      />
+      {caption && (
+        <figcaption className="mt-2 px-4 md:px-0 text-sm text-zinc-600 italic text-center">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
 
 const meta: Foundation["meta"] = {
   slug: "why-people-regain-weight-after-dieting",
