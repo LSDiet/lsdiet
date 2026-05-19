@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Check, Gift, Compass, Dumbbell, BookOpen } from "lucide-react";
+import { Check, Compass, Dumbbell, BookOpen } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import skoolTracks from "@/assets/skool-course-tracks.png";
 import skoolActionPractice from "@/assets/skool-action-practice.png";
 
 const features = [
-  "All lessons are short videos — no reading required",
+  "All lessons are short videos, no reading required",
   "3 tracks: Start Here, Action Practice, and Tools",
   "Weekly live webinar hosted by Oscar",
   "A community of members training the same habits",
@@ -53,7 +53,7 @@ export function BookSection() {
               The <span className="text-accent animate-pulse-glow inline-block">Free</span> LS Diet Course
             </h2>
             <p className="max-w-2xl mx-auto text-[hsl(0_0%_80%)] text-base md:text-lg leading-relaxed">
-              Three tracks. Train the habits that stop weight regain — guided by Oscar, free to join.
+              Build your push and pull motivations, replace old habits with daily actions, and see results in two weeks!
             </p>
           </div>
 
@@ -67,7 +67,7 @@ export function BookSection() {
             <div className="absolute -inset-4 bg-accent/10 blur-2xl -z-10" />
             <img
               src={skoolTracks}
-              alt="LS Diet course on Skool — three tracks: Start Here, Action Practice, and Tools"
+              alt="LS Diet course on Skool with three tracks: Start Here, Action Practice, and Tools"
               className="w-full h-auto block group-hover:scale-[1.01] transition-transform duration-500"
               loading="lazy"
             />
@@ -103,7 +103,7 @@ export function BookSection() {
                 Inside Action Practice
               </p>
               <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                12 practice lessons you can start today
+                25+ practice lessons you can start today for free
               </h3>
             </div>
             <a
@@ -114,7 +114,7 @@ export function BookSection() {
             >
               <img
                 src={skoolActionPractice}
-                alt="Action Practice classroom on Skool — How much water should you drink? and other daily habit lessons"
+                alt="Action Practice classroom on Skool with daily habit lessons"
                 className="w-full h-auto block group-hover:scale-[1.005] transition-transform duration-500"
                 loading="lazy"
               />
@@ -125,45 +125,23 @@ export function BookSection() {
             </p>
           </div>
 
-          {/* Features + bonus + CTA */}
-          <div className="grid md:grid-cols-2 gap-8 items-start">
-            <ul className="space-y-3">
-              {features.map((feature) => (
-                <li key={feature} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-3 h-3 text-accent" />
-                  </div>
-                  <span className="text-[hsl(0_0%_85%)] text-sm md:text-base">{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-5">
-              <div className="flex items-start gap-3">
-                <Gift className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-xs font-bold text-accent uppercase tracking-[0.1em] mb-2">
-                    Early Member Bonus
-                  </p>
-                  <p className="text-[hsl(0_0%_85%)] text-sm leading-relaxed mb-2">
-                    Join now and receive one month of free access to{" "}
-                    <span className="font-semibold text-foreground">Awareness Compass</span>, a
-                    proprietary conversational platform that guides you through the five stages of
-                    Awareness.
-                  </p>
-                  <p className="text-[hsl(0_0%_55%)] text-xs">
-                    After the first month, access is $30/month.
-                  </p>
+          {/* Features list (centered) */}
+          <ul className="max-w-xl mx-auto space-y-3 mb-10">
+            {features.map((feature) => (
+              <li key={feature} className="flex items-start gap-3">
+                <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Check className="w-3 h-3 text-accent" />
                 </div>
-              </div>
-            </div>
-          </div>
+                <span className="text-[hsl(0_0%_85%)] text-sm md:text-base">{feature}</span>
+              </li>
+            ))}
+          </ul>
 
           {/* CTA */}
-          <div className="text-center mt-10">
+          <div className="text-center">
             <Button variant="accent" size="lg" className="px-8" asChild>
               <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer">
-                JOIN LS DIET ON SKOOL (FREE)
+                Join LS Diet
               </a>
             </Button>
           </div>
