@@ -1,86 +1,73 @@
-## Two changes to `src/components/FoundationsCurriculum.tsx`
+## Goal
 
-### 1. Smooth hover-expand for the excerpt
+Replace the outdated "Coming Soon — FREE 7-Day LS Diet Course" section with a launched-course showcase that uses your two new Skool screenshots and reflects the actual structure (Start Here, Action Practice, Tools).
 
-Keep one line of excerpt by default; on hover (or keyboard focus) of the row, smoothly expand to show the full text — no click required.
+## Files affected
 
-**Technique** (pure CSS, no JS, no layout jank):
+- `src/components/BookSection.tsx` — full rewrite of layout and copy
+- `src/assets/skool-course-tracks.png` — NEW (copied from `user-uploads://image-117.png`)
+- `src/assets/skool-action-practice.png` — NEW (copied from `user-uploads://image-116.png`)
+- `src/components/HeroSection.tsx` — drop "7-Day" from any hero references
+- `src/components/JoinFloatingBar.tsx` — drop "7-Day" if present
+- `src/pages/Index.tsx` SEO copy — drop "7-Day" if present
+- `mem://features/course-offering` — update memory (course is live, no 7-day label)
 
-- Wrap the excerpt `<p>` in a `<div>` with `grid grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out`.
-- Default state: `grid-rows-[1.4rem]` (one line tall, clipped by `overflow-hidden`).
-- On `group-hover` / `group-focus-within`: `grid-rows-[1fr]` — grid animates to the natural content height, so the row pushes down smoothly regardless of excerpt length.
-- The inner `<p>` keeps `text-sm text-zinc-600 leading-snug`. Drop `line-clamp-1` — clipping is now handled by the wrapper height.
-- Add `transition-colors` on the row's background so the amber `bg-accent/5` hover tint fades in at the same speed.
-
-The `<a>` already carries the `group` class so `group-hover:` works on the wrapper. Add `group-focus-within:` so keyboard tab also expands.
-
-(The simpler `max-height` trick has snap-back issues when the excerpt length varies. The `grid-rows` trick animates cleanly to `auto`.)
-
-### 2. Restructure: WPT becomes a master pillar with nested sub-pillars
-
-New curriculum hierarchy (replaces the current 3 placeholders):
+## New section structure
 
 ```text
-01  Why People Regain Weight After Dieting        [live]
-02  Low-Starch, Low-Sugar (LS) Foundations        [live]
-03  Weight Permanence Triangle                    [coming soon — master]
-     ├─ Reality Awareness                         [coming soon]
-     ├─ Friction Awareness                        [coming soon]
-     ├─ Pattern Awareness                         [coming soon]
-     ├─ Consequence Awareness                     [coming soon]
-     ├─ Identity Awareness                        [coming soon]
-     └─ Action Practice                           [coming soon]
+┌───────────────────────────────────────────────────────────┐
+│  NOW LIVE ON SKOOL                                        │
+│  The Free LS Diet Course                                  │
+│  Subhead: 3 tracks. Train the habits that stop weight     │
+│  regain — guided by Oscar, free to join.                  │
+│                                                           │
+│  [ Horizontal screenshot of 3 course tracks ]             │  ← image-117
+│   START HERE   |   ACTION PRACTICE   |   TOOLS            │
+│                                                           │
+│  3 short blurbs under the image, one per track:           │
+│   • Start Here — why weight regain happens + how LS Diet  │
+│                  stops it                                 │
+│   • Action Practice — daily habits & mental patterns      │
+│                  that make LS Diet automatic              │
+│   • Tools — eBooks & blogs published by Oscar             │
+│                                                           │
+│  ── Inside Action Practice ──                             │
+│  [ Screenshot of Action Practice classroom ]              │  ← image-116
+│  Caption: 12 practice lessons — hydration, triggers,      │
+│  pattern interruption, food labels, friction reduction,   │
+│  social eating, habit thinking, and more.                 │
+│                                                           │
+│  [ Early-access bonus box — kept, lightly reworded ]      │
+│  [ CTA: JOIN LS DIET ON SKOOL (FREE) → skool.com/lsdiet ] │
+└───────────────────────────────────────────────────────────┘
 ```
 
-The standalone "The 5 Awareness Stages" and "Action Practice Examples" rows are removed — they're now sub-pillars under WPT.
+The old laptop mockup with the fake 7-day lesson list is removed — replaced by real product screenshots, which are more credible now that the course actually exists.
 
-**Visual treatment for sub-rows:**
+## Copy changes
 
-- Rendered as a `<ul>` directly under the WPT `<li>`, with `pl-10 md:pl-16` indent so they sit under the title (past the number + thumbnail column).
-- No thumbnail. Small connector glyph `└` or thin left border to signal nesting.
-- Number style `3.1`–`3.6` in muted accent (`text-accent/70 text-sm`), tabular-nums.
-- Title: `text-sm md:text-base font-bold uppercase tracking-tight`.
-- Excerpt hidden on sub-rows to keep density tight (each sub-row ~32–36px).
-- All sub-rows render as non-links with the "Coming soon" badge for now. Slugs are pre-assigned in code so we flip them on as content lands:
-  - `weight-permanence-triangle` (master, order 3)
-  - `reality-awareness`, `friction-awareness`, `pattern-awareness`, `consequence-awareness`, `identity-awareness`, `action-practice` (sub-pillars)
+- Eyebrow: `Coming Soon` → `Now Live on Skool`
+- H2: `FREE 7-Day LS Diet Course` → `The Free LS Diet Course` (with `FREE` in accent)
+- Feature bullets pruned/rewritten to reflect the real product:
+  - All lessons are short videos — no reading required
+  - 3 tracks: Start Here, Action Practice, Tools
+  - Weekly live webinar hosted by Oscar
+  - Community of members training the same habits
+  - 100% free to join
+- CTA button: `JOIN LS DIET (FREE)` → `JOIN LS DIET ON SKOOL (FREE)` (link unchanged)
+- Remove the `Week 1 / Week 2` and `7-day` phrasing wherever it appears site-wide.
 
-**Data shape:**
+## Technical notes
 
-Extend the local `CurriculumRow` interface in this file only (no changes to `FoundationMeta` yet — sub-pillar metadata will be added when those pillars are actually built in code):
+- Copy uploaded images into `src/assets/` and import as ES6 modules (per project convention).
+- `image-117` (tracks) renders as a single wide image with a subtle ring/shadow on dark bg; clickable, opens Skool in a new tab.
+- `image-116` (Action Practice) renders below as a secondary card with caption; also clickable to Skool.
+- Both images get descriptive `alt` text for SEO ("LS Diet course on Skool: Start Here, Action Practice, Tools" / "Action Practice classroom on Skool — How much water should you drink?").
+- Keep the existing `WaitlistModal` import only if still used; otherwise remove. CTA points directly to `https://www.skool.com/lsdiet/about` (unchanged).
+- No changes to layout grid breakpoints beyond what the new single-column-with-image-stack requires; mobile keeps stacked order.
 
-```ts
-interface CurriculumRow {
-  order: number;
-  title: string;
-  excerpt: string;
-  slug: string | null;
-  thumb: string | null;
-  children?: SubRow[];
-}
-interface SubRow {
-  label: string;     // "3.1"
-  title: string;
-  slug: string | null;
-}
-```
+## Out of scope
 
-Real foundations (from `FOUNDATIONS`) get no `children`. The WPT placeholder owns the `children` array.
-
-### Vertical footprint check
-
-At 888×591 viewport (current preview), with hover-expand collapsed by default:
-- Section header ~110px
-- 3 top-level rows × 80px ≈ 240px
-- 6 sub-rows × 36px ≈ 216px
-- Total ~566px — fits above the fold; expanding any one excerpt on hover pushes the layout down naturally without affecting initial pageload feel.
-
-### Out of scope
-
-- No changes to foundation post files, taxonomy, edge functions, JSON-LD, or the Real Life Weight Questions section.
-- No new `FoundationMeta` fields. Sub-pillar metadata will be added when those pillars actually exist as code-managed foundations.
-- No entity hub work — as you noted, hub comes after the WPT cluster is built.
-
-### Files touched
-
-- `src/components/FoundationsCurriculum.tsx` only.
+- No backend / waitlist / Cloud changes.
+- No countdown clock changes (already removed from Index).
+- No new pages.
