@@ -44,17 +44,13 @@ export function WhatIsLSDietSection() {
           </a>
         </div>
 
-        {/* Equation */}
-        <div className="mt-8 text-center">
-          <p className="inline-flex items-center gap-3 text-base md:text-xl font-extrabold uppercase tracking-tight text-foreground">
+        {/* Equation — visually dominant outcome */}
+        <div className="mt-10 md:mt-12 text-center animate-fade-in">
+          <p className="inline-flex items-center gap-3 md:gap-4 text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight">
             <span className="text-accent">=</span>
-            <span>Stop Weight Regain</span>
+            <span className="text-accent animate-pulse-glow inline-block">Stop Weight Regain</span>
           </p>
         </div>
-
-        <p className="text-center text-[hsl(0_0%_15%)] mt-6 text-base md:text-lg">
-          LS Diet combines low-starch low-sugar eating with behavioural permanence training.
-        </p>
       </div>
     </section>
   );

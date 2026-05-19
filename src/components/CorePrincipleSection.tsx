@@ -15,8 +15,8 @@ export function CorePrincipleSection() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
             The Restart Cycle
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
-            Why People <span className="text-accent">Restart</span> Weight Loss
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-foreground">
+            Why People Restart Weight Loss
           </h2>
         </div>
 
