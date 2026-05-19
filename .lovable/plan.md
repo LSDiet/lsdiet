@@ -1,93 +1,86 @@
-## Goal
+## Two changes to `src/components/FoundationsCurriculum.tsx`
 
-Make the **LS Diet Foundations** section read as a guided framework / "start here" curriculum — title-dominant horizontal rows in a fixed manual order — while leaving **Real Life Weight Questions** completely unchanged.
+### 1. Smooth hover-expand for the excerpt
 
-## What changes
+Keep one line of excerpt by default; on hover (or keyboard focus) of the row, smoothly expand to show the full text — no click required.
 
-### 1. Manual ordering for foundations
+**Technique** (pure CSS, no JS, no layout jank):
 
-Add an `order: number` field to `FoundationMeta` (in `src/content/foundations/types.ts`). Lower = earlier in the curriculum. Sort happens once at the consumer; never by date.
+- Wrap the excerpt `<p>` in a `<div>` with `grid grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out`.
+- Default state: `grid-rows-[1.4rem]` (one line tall, clipped by `overflow-hidden`).
+- On `group-hover` / `group-focus-within`: `grid-rows-[1fr]` — grid animates to the natural content height, so the row pushes down smoothly regardless of excerpt length.
+- The inner `<p>` keeps `text-sm text-zinc-600 leading-snug`. Drop `line-clamp-1` — clipping is now handled by the wrapper height.
+- Add `transition-colors` on the row's background so the amber `bg-accent/5` hover tint fades in at the same speed.
 
-Assign:
-1. `why-people-regain-weight-after-dieting` → order 1
-2. `why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting` → order 2 (display title in the list: **"Low-Starch, Low-Sugar (LS) Foundations"**)
-3. `weight-permanence-triangle` → order 3 *(placeholder row — see §4)*
-4. `the-5-awareness-stages` → order 4 *(placeholder row)*
-5. `action-practice-examples` → order 5 *(placeholder row)*
+The `<a>` already carries the `group` class so `group-hover:` works on the wrapper. Add `group-focus-within:` so keyboard tab also expands.
 
-The two existing foundation files keep their full canonical titles for SEO/JSON-LD; the curriculum list can show a shorter `listTitle` override (new optional field on `FoundationMeta`) when the canonical title is too long for a row.
+(The simpler `max-height` trick has snap-back issues when the excerpt length varies. The `grid-rows` trick animates cleanly to `auto`.)
 
-### 2. New component: `FoundationsCurriculum`
+### 2. Restructure: WPT becomes a master pillar with nested sub-pillars
 
-Create `src/components/FoundationsCurriculum.tsx`. Replaces the foundations branch inside `BlogPage`'s `BlogSection` call.
-
-Row anatomy (desktop ≥ md):
+New curriculum hierarchy (replaces the current 3 placeholders):
 
 ```text
-┌──────────────────────────────────────────────────────────────────┐
-│ 01 │ [thumb] │ TITLE (xl, bold, uppercase)                    →  │
-│    │  56x56  │ one-line excerpt (sm, muted, truncate)            │
-└──────────────────────────────────────────────────────────────────┘
+01  Why People Regain Weight After Dieting        [live]
+02  Low-Starch, Low-Sugar (LS) Foundations        [live]
+03  Weight Permanence Triangle                    [coming soon — master]
+     ├─ Reality Awareness                         [coming soon]
+     ├─ Friction Awareness                        [coming soon]
+     ├─ Pattern Awareness                         [coming soon]
+     ├─ Consequence Awareness                     [coming soon]
+     ├─ Identity Awareness                        [coming soon]
+     └─ Action Practice                           [coming soon]
 ```
 
-- Big amber number `01`–`05` on the far left (`text-2xl font-extrabold text-accent tabular-nums`, fixed width).
-- Square thumbnail `h-14 w-14` (56px) rounded, `object-cover`, never stacks above the title.
-- Title is the dominant element: `text-lg md:text-xl font-extrabold uppercase tracking-tight`.
-- Excerpt: `text-sm text-zinc-600 line-clamp-1` (desktop) / hidden on mobile to keep rows tight.
-- Right arrow `→` (lucide `ArrowRight`) appears on hover.
-- Row: `flex items-center gap-4 py-3 border-b border-border last:border-0`, hover → `bg-accent/5`.
-- Whole row is one `<a href="/blog/{slug}">`.
+The standalone "The 5 Awareness Stages" and "Action Practice Examples" rows are removed — they're now sub-pillars under WPT.
 
-Mobile (`< md`):
-- Thumbnail shrinks to `h-10 w-10` (40px), still left-aligned, never above title.
-- Excerpt hidden.
-- Number stays visible but `text-lg`.
-- Result: each row ≈ 56px tall → all 5 rows fit in ~300px, well above the fold at 640×571.
+**Visual treatment for sub-rows:**
 
-### 3. Section framing
+- Rendered as a `<ul>` directly under the WPT `<li>`, with `pl-10 md:pl-16` indent so they sit under the title (past the number + thumbnail column).
+- No thumbnail. Small connector glyph `└` or thin left border to signal nesting.
+- Number style `3.1`–`3.6` in muted accent (`text-accent/70 text-sm`), tabular-nums.
+- Title: `text-sm md:text-base font-bold uppercase tracking-tight`.
+- Excerpt hidden on sub-rows to keep density tight (each sub-row ~32–36px).
+- All sub-rows render as non-links with the "Coming soon" badge for now. Slugs are pre-assigned in code so we flip them on as content lands:
+  - `weight-permanence-triangle` (master, order 3)
+  - `reality-awareness`, `friction-awareness`, `pattern-awareness`, `consequence-awareness`, `identity-awareness`, `action-practice` (sub-pillars)
 
-Above the list:
-- Small eyebrow: **"START HERE"** in amber, `text-xs font-semibold uppercase tracking-[0.18em]`.
-- Heading: **"LS Diet Framework"** (replaces "LS Diet Foundations" as the section title).
-- Sub: "Read these in order. Each one builds on the last."
+**Data shape:**
 
-No card wrapper around individual rows — rows sit directly on the page background separated by thin borders. This is what kills the "blog feed" feel.
+Extend the local `CurriculumRow` interface in this file only (no changes to `FoundationMeta` yet — sub-pillar metadata will be added when those pillars are actually built in code):
 
-### 4. Placeholder rows for unbuilt pillars
+```ts
+interface CurriculumRow {
+  order: number;
+  title: string;
+  excerpt: string;
+  slug: string | null;
+  thumb: string | null;
+  children?: SubRow[];
+}
+interface SubRow {
+  label: string;     // "3.1"
+  title: string;
+  slug: string | null;
+}
+```
 
-Rows 3–5 don't have content yet. Two options — recommending **(a)** so the curriculum looks complete from day one:
+Real foundations (from `FOUNDATIONS`) get no `children`. The WPT placeholder owns the `children` array.
 
-(a) Render placeholder rows with a "Coming soon" badge (`text-[10px] uppercase bg-muted text-muted-foreground px-2 py-0.5 rounded`), no link, muted opacity (`opacity-60 cursor-default`). Define them inline in `FoundationsCurriculum` as a fallback list merged with real foundations by `order`.
+### Vertical footprint check
 
-(b) Only show the 2 real ones. Loses the curriculum feel.
+At 888×591 viewport (current preview), with hover-expand collapsed by default:
+- Section header ~110px
+- 3 top-level rows × 80px ≈ 240px
+- 6 sub-rows × 36px ≈ 216px
+- Total ~566px — fits above the fold; expanding any one excerpt on hover pushes the layout down naturally without affecting initial pageload feel.
 
-Going with **(a)** unless you say otherwise.
+### Out of scope
 
-### 5. BlogPage wiring
+- No changes to foundation post files, taxonomy, edge functions, JSON-LD, or the Real Life Weight Questions section.
+- No new `FoundationMeta` fields. Sub-pillar metadata will be added when those pillars actually exist as code-managed foundations.
+- No entity hub work — as you noted, hub comes after the WPT cluster is built.
 
-In `src/pages/BlogPage.tsx`:
-- Replace the first `<BlogSection ... posts={foundations} />` call with `<FoundationsCurriculum posts={foundations} />`.
-- Keep the second `<BlogSection ... posts={supporting} />` call **exactly as-is**.
-- Keep `collectionSchema` unchanged.
+### Files touched
 
-### 6. Sort behaviour
-
-`fetchBlogIndex` / `BlogPage` currently sort by `publishDate desc`. Leave that for `supporting`. For `foundations`, sort by `order asc` inside `FoundationsCurriculum` (don't rely on the page-level sort).
-
-## What does NOT change
-
-- `BlogSection` component and Real Life Weight Questions rendering — untouched.
-- Individual blog post pages (`BlogPostPage`) — untouched.
-- `RelatedFoundations` component — untouched (it already uses its own card style on post pages, not in the index).
-- JSON-LD, sitemap, llms.txt, taxonomy — untouched.
-- Foundation post content files themselves — only metadata gets `order` (+ optional `listTitle`).
-
-## Files touched
-
-- `src/content/foundations/types.ts` — add `order: number` and optional `listTitle?: string`.
-- `src/content/foundations/why-people-regain-weight-after-dieting.tsx` — add `order: 1`.
-- `src/content/foundations/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting.tsx` — add `order: 2`, `listTitle: "Low-Starch, Low-Sugar (LS) Foundations"`.
-- `src/components/FoundationsCurriculum.tsx` — new.
-- `src/pages/BlogPage.tsx` — swap foundations section, update eyebrow/heading copy.
-
-No backend, no edge function, no schema, no new dependencies.
+- `src/components/FoundationsCurriculum.tsx` only.
