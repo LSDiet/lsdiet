@@ -428,9 +428,9 @@ function Body() {
           "psychological permanence",
         ]}
       />
-      <P>The goal is not temporary dieting. The goal is stopping the cycle of constantly restarting weight loss.</P>
+      <P>The goal is not temporary dieting. The goal is stopping the cycle of weight regain.</P>
       <P>
-        Stop restarting weight loss:{" "}
+        Stop regaining weight:{" "}
         <a
           href="https://www.skool.com/lsdiet/about"
           target="_blank"
