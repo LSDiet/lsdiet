@@ -91,10 +91,6 @@ export function WhatIsLSDietSection() {
           </div>
         </div>
 
-        <p className="text-center text-sm md:text-base text-[hsl(0_0%_20%)] mt-8 md:mt-10">
-          Food system fuels you. Behaviour system keeps it off. Together, they{" "}
-          <span className="text-accent font-bold">stop the restart cycle.</span>
-        </p>
       </div>
     </section>
   );
