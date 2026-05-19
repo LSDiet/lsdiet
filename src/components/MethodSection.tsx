@@ -1,8 +1,8 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 /**
- * Section 4 — Method (LS Diet + WPT overview).
- * Compressed framework intro. Routes readers into pillars; does not explain in depth.
+ * Section 5 — Method (LS Diet + WPT overview).
+ * Maximum compression. Two lines + A+P=P diagram. Routes into pillars.
  */
 export function MethodSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -19,32 +19,30 @@ export function MethodSection() {
           </h2>
         </div>
 
-        <div className="space-y-5 text-[hsl(0_0%_15%)] leading-relaxed text-base md:text-lg">
+        <div className="space-y-3 text-[hsl(0_0%_15%)] text-base md:text-lg text-center">
           <p>
-            LS Diet is a{" "}
             <a
               href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting"
-              className="text-accent hover:underline font-medium"
+              className="text-accent hover:underline font-bold"
             >
-              low-starch, low-sugar
+              LS Diet
             </a>{" "}
-            lifestyle that lets you eat until full without counting calories or going hungry.
+            = food system
           </p>
           <p>
-            But food alone is not what keeps weight off. The{" "}
             <a
               href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
-              className="text-accent hover:underline font-medium"
+              className="text-accent hover:underline font-bold"
             >
-              Weight Permanence Triangle
+              WPT
             </a>{" "}
-            is the behavioural layer underneath — the reason most diets restart and this one does not.
+            = behavioural system
           </p>
         </div>
 
         {/* A + P = P linear equation */}
         <div
-          className={`mt-12 md:mt-14 transition-all duration-700 ${
+          className={`mt-10 md:mt-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -55,9 +53,6 @@ export function MethodSection() {
             <Operator symbol="=" />
             <Pill label="Permanence" tone="secondary" />
           </div>
-          <p className="text-center text-sm md:text-base text-[hsl(0_0%_30%)] mt-5 italic">
-            Clarity creates priority. Action survives disruption. Priority sustains action.
-          </p>
         </div>
       </div>
     </section>
