@@ -300,6 +300,12 @@ function Body() {
         The goal is not perfection. The goal is sustainable control.
       </p>
 
+      <Figure
+        src={obviousSugarImg}
+        alt="The obvious sugar — soda, candy, cakes, and hidden sugar in juice, smoothies, yogurt, and sauces"
+        caption="Sugar triggers a fast glucose spike — and it hides in foods marketed as healthy."
+      />
+
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
         Starch Is Often The Hidden Problem
       </h2>
@@ -324,6 +330,12 @@ function Body() {
         consistency, repeatable food decisions, and long-term sustainability — not temporary
         elimination phases.
       </p>
+
+      <Figure
+        src={starchHiddenImg}
+        alt="Starch is the hidden problem — rice, bread, noodles, cereals, potatoes, corn, and oats produce the same insulin response as sugar"
+        caption="Starch produces the same insulin response as sugar — and it shows up at almost every meal."
+      />
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
         Why Consistency Matters More Than Intensity
@@ -393,6 +405,12 @@ function Body() {
         <li>that fits real life</li>
       </ul>
 
+      <Figure
+        src={dietsComparisonImg}
+        alt="How popular diets handle sugar and starch compared to LS Diet (low-starch, low-sugar)"
+        caption="Most diet approaches collapse on long-term sustainability. LS is designed for consistency."
+      />
+
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
         Why LS Diet Focuses On Permanence
       </h2>
@@ -450,6 +468,12 @@ function Body() {
         sustainable movement, repeatable systems, and behavioural psychology — not extreme dieting
         cycles.
       </p>
+
+      <Figure
+        src={reverseInsulinImg}
+        alt="Three steps to reverse insulin resistance: eat less often, eat smaller portions, choose low-sugar low-starch whole foods"
+        caption="The practical pattern: eat less often, smaller portions, and shift toward low-starch, low-sugar foods."
+      />
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-5 text-zinc-900">
         Frequently Asked Questions
