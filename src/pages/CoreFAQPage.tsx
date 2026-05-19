@@ -37,7 +37,7 @@ const lifestyleFaqs = [
   },
   {
     q: "Do I need the free course to use LS Diet?",
-    a: "No — the homepage, the Weight Permanence Triangle page, and the 5 Awareness Stages page are enough to start. The free 7-day course just compresses the framework into a guided week with a live webinar.",
+    a: "No — the homepage, the Weight Permanence Triangle page, and the 5 Awareness Stages page are enough to start. The free LS Diet course just compresses the framework into a guided week with a live webinar.",
   },
   {
     q: "Where can I follow Oscar Poon's work?",

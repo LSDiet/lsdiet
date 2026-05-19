@@ -189,7 +189,7 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
             <DrawerDescription>
               {submitted
                 ? "Check your inbox soon."
-                : "Get notified when the FREE 7-day Weight Permanence course launches."}
+                : "Get notified when the FREE LS Diet course launches."}
             </DrawerDescription>
           </DrawerHeader>
           <div className="px-4 pb-6">
@@ -220,7 +220,7 @@ export function WaitlistModal({ open, onOpenChange }: WaitlistModalProps) {
           <DialogDescription>
             {submitted
               ? "Check your inbox soon."
-              : "Get notified when the FREE 7-day Weight Permanence course launches."}
+              : "Get notified when the FREE LS Diet course launches."}
           </DialogDescription>
         </DialogHeader>
         {submitted ? (

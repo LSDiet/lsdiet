@@ -421,7 +421,7 @@ const faqCategories: FAQCategoryData[] = [
           { stage: "Consequence Awareness", explanation: "The root of <b>push motivation</b>.", questions: ["Without being able to X, what is that doing to your relationship?", "Have you considered the possible ramifications of... not being able to X?", "Why do you want to change now? Why not wait for another 3, 6, or even 12 months?"] },
           { stage: "Identity Awareness", explanation: "The root of <b>pull motivation</b>.", questions: ["If you were 100 lbs lighter, what daily tasks would become easier?", "Most people lose about 10 lbs a month in this program. Let's say you also lose 10 lbs a month, and 80-100 lbs in a year... how will that change your life?", "Let's suppose you wake up and see a brand new you tomorrow, how would that make you feel?"] },
         ],
-        awarenessNote: "Note: These are example questions. The full Awareness framework includes 50+ guided questions designed to build clarity and both push and pull motivation. Joining the FREE 7-Day Weight Permanence Course unlocks the complete set. A guided, chat-style tool called Awareness Compass is currently in development to help members move through all five stages.",
+        awarenessNote: "Note: These are example questions. The full Awareness framework includes 50+ guided questions designed to build clarity and both push and pull motivation. Joining the FREE LS Diet Course unlocks the complete set. A guided, chat-style tool called Awareness Compass is currently in development to help members move through all five stages.",
       },
       {
         question: "How does emotional encoding affect weight loss?",

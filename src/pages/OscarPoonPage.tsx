@@ -99,7 +99,7 @@ export default function OscarPoonPage() {
             <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
               YouTube (@JoinLSDiet)
             </a>
-            , a weekly live webinar, and the free 7-day LS Diet course. The work is deliberately
+            , a weekly live webinar, and the free LS Diet course. The work is deliberately
             oriented around people who have already lost weight and don't want to do it again.
           </p>
 
