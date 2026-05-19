@@ -1,4 +1,3 @@
-import { ChevronDown, HelpCircle } from "lucide-react";
 import img2019a from "@/assets/hero/2019a.png";
 import img2019b from "@/assets/hero/2019b.png";
 import img2021a from "@/assets/hero/2021a.png";
@@ -30,25 +29,10 @@ export function HeroSection() {
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:gap-8 md:px-8 md:py-10">
         <div className="text-center">
           <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            Stop <span className="text-accent">Regaining</span> Weight
+            Low-Starch, Low-Sugar
             <br />
-            with LS Diet
+            <span className="text-accent">Stops Weight Regain.</span>
           </h1>
-          <p className="mt-6 text-lg font-bold uppercase tracking-tight text-white/90 md:text-xl">
-            <span className="text-accent">Low-Starch, Low-Sugar (LS)</span> is the only way
-            <br />
-            to stop the <span className="text-accent">weight regain</span>.
-          </p>
-          <div className="mx-auto mt-5 flex max-w-xl flex-col items-center gap-2">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/70 sm:text-xs">
-              <HelpCircle className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
-              How do I know?
-            </div>
-            <ChevronDown className="h-4 w-4 text-accent/80" aria-hidden="true" />
-            <p className="text-xs font-medium uppercase tracking-wide text-white/85 sm:text-sm md:text-base">
-              Because I lost <span className="text-accent">80+ lbs</span> three times.
-            </p>
-          </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3 md:gap-6">
@@ -95,6 +79,10 @@ export function HeroSection() {
             </div>
           ))}
         </div>
+
+        <p className="text-center text-sm font-medium text-white/85 sm:text-base">
+          Lost <span className="text-accent font-bold">80+ lbs three times</span>. Built LS Diet to stop restarting.
+        </p>
 
         <div className="flex justify-center pt-2">
           <a

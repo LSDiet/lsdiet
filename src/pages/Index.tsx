@@ -6,7 +6,7 @@ import { HeroPitchSection } from "@/components/HeroPitchSection";
 import { CorePrincipleSection } from "@/components/CorePrincipleSection";
 import { MethodSection } from "@/components/MethodSection";
 import { AwarenessStagesSection } from "@/components/AwarenessStagesSection";
-import { WhyDietsFailSection } from "@/components/WhyDietsFailSection";
+import { WhatPracticeLooksLikeSection } from "@/components/WhatPracticeLooksLikeSection";
 import { FAQSection } from "@/components/FAQSection";
 import { BookSection } from "@/components/BookSection";
 import { AboutAuthorSection } from "@/components/AboutAuthorSection";
@@ -42,9 +42,9 @@ const Index = () => {
         <CorePrincipleSection />
         <MethodSection />
         <AwarenessStagesSection />
-        <WhyDietsFailSection />
-        <FAQSection />
+        <WhatPracticeLooksLikeSection />
         <BookSection />
+        <FAQSection />
         <AboutAuthorSection />
       </main>
       <FooterSimple />
