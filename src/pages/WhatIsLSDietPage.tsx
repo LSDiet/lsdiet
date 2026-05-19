@@ -28,7 +28,7 @@ export default function WhatIsLSDietPage() {
           headline: "What Is LS Diet?",
           datePublished: PUBLISHED,
           dateModified: UPDATED,
-          author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/about-oscar-poon" },
+          author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/oscar-poon" },
           publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
           mainEntityOfPage: "https://lsdiet.com/what-is-ls-diet",
         })}</script>
@@ -55,7 +55,7 @@ export default function WhatIsLSDietPage() {
         <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
             <strong className="text-foreground">LS Diet</strong> is a low-starch, low-sugar lifestyle system created by{" "}
-            <a href="/about-oscar-poon" className="text-accent hover:underline">Oscar Poon</a> to end the cycle of losing
+            <a href="/oscar-poon" className="text-accent hover:underline">Oscar Poon</a> to end the cycle of losing
             weight and regaining it. It is not a meal plan, not a calorie target, and not another willpower test.
             It is a framework that combines a simple food rule — keep refined starch and added sugar low — with a
             behavioural method that keeps the new habits intact when life inevitably gets in the way.

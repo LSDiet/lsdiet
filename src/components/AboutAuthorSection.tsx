@@ -52,7 +52,7 @@ export const AboutAuthorSection = () => {
                   YouTube (@JoinLSDiet)
                 </a>
                 .{" "}
-                <a href="/about-oscar-poon" className="text-accent hover:underline font-medium">
+                <a href="/oscar-poon" className="text-accent hover:underline font-medium">
                   Read Oscar's full story →
                 </a>
               </p>

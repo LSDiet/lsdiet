@@ -50,7 +50,7 @@ export default function AwarenessStagesPage() {
           headline: "The 5 Awareness Stages",
           datePublished: PUBLISHED,
           dateModified: UPDATED,
-          author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/about-oscar-poon" },
+          author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/oscar-poon" },
           publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
           mainEntityOfPage: "https://lsdiet.com/awareness-stages",
         })}</script>
@@ -109,7 +109,7 @@ export default function AwarenessStagesPage() {
             Awareness is the entry point, but it doesn't replace the rest of the Triangle. Once the five stages have
             done their work, you still need Practice and Permanence to translate clarity into daily behaviour and
             to protect that behaviour when life gets hard. Read more about the founder's path on the{" "}
-            <a href="/about-oscar-poon" className="text-accent hover:underline">About Oscar Poon</a> page.
+            <a href="/oscar-poon" className="text-accent hover:underline">About Oscar Poon</a> page.
           </p>
         </div>
 

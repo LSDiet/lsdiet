@@ -13,7 +13,7 @@ export function WhatIsLSDietSection() {
         <div className="space-y-4 text-[hsl(0_0%_82%)] leading-relaxed text-base md:text-lg">
           <p>
             <strong className="text-foreground">LS Diet</strong> is a low-starch, low-sugar lifestyle system created by{" "}
-            <a href="/about-oscar-poon" className="text-accent hover:underline">Oscar Poon</a> to stop weight regain
+            <a href="/oscar-poon" className="text-accent hover:underline">Oscar Poon</a> to stop weight regain
             through awareness training, behavioural practice, and sustainable daily habits. Unlike calorie-restriction
             programs or fad diets, LS Diet treats weight loss as a behavioural permanence problem first and a food
             problem second.
