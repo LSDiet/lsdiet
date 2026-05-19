@@ -14,7 +14,6 @@ type EnrichedPost = BlogPost & {
   canonicalTopic: string;
 };
 
-const FOUNDATION_TYPES = new Set(["pillar", "entity-hub"]);
 const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
 
 // Convert code-managed foundations to the BlogPost shape so they render in the grid.
