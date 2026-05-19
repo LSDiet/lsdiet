@@ -46,13 +46,19 @@ const PLACEHOLDERS: CurriculumRow[] = [
 ];
 
 function buildRows(): CurriculumRow[] {
-  const real: CurriculumRow[] = FOUNDATIONS.map((f) => ({
-    order: f.meta.order,
-    title: f.meta.listTitle ?? f.meta.title,
-    excerpt: f.meta.excerpt,
-    slug: f.meta.slug,
-    thumb: f.meta.featuredImage.src,
-  }));
+  const real: CurriculumRow[] = FOUNDATIONS.map((f) => {
+    const placeholder = PLACEHOLDERS.find((p) => p.order === f.meta.order);
+    return {
+      order: f.meta.order,
+      title: f.meta.listTitle ?? f.meta.title,
+      excerpt: f.meta.excerpt,
+      slug: f.meta.slug,
+      thumb: f.meta.featuredImage.src,
+      // Carry forward sub-pillar children (e.g. WPT becomes live but still
+      // owns its 6 sub-pillars).
+      children: placeholder?.children,
+    };
+  });
   const realOrders = new Set(real.map((r) => r.order));
   const merged = [...real, ...PLACEHOLDERS.filter((p) => !realOrders.has(p.order))];
   merged.sort((a, b) => a.order - b.order);
