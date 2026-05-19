@@ -3,8 +3,6 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { WhatIsLSDietSection } from "@/components/WhatIsLSDietSection";
 import { HeroPitchSection } from "@/components/HeroPitchSection";
-import { CorePrincipleSection } from "@/components/CorePrincipleSection";
-import { MethodSection } from "@/components/MethodSection";
 import { AwarenessStagesSection } from "@/components/AwarenessStagesSection";
 
 import { FAQSection } from "@/components/FAQSection";
@@ -39,8 +37,6 @@ const Index = () => {
         <HeroSection />
         <WhatIsLSDietSection />
         <HeroPitchSection />
-        <CorePrincipleSection />
-        <MethodSection />
         <AwarenessStagesSection />
         
         <BookSection />

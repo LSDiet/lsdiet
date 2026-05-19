@@ -119,10 +119,6 @@ export function BookSection() {
                 loading="lazy"
               />
             </a>
-            <p className="text-[hsl(0_0%_70%)] text-sm leading-relaxed text-center mt-4 max-w-2xl mx-auto">
-              Hydration, identifying triggers, interrupting patterns, reading labels, reducing decision
-              friction, restructuring your food environment, eating out, habit thinking, and more.
-            </p>
           </div>
 
           {/* Features list (centered) */}
