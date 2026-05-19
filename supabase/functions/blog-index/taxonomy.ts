@@ -48,6 +48,9 @@ export const TAXONOMY: ReadonlySet<string> = new Set([
   // Diet mechanics
   "low-starch",
   "low-sugar",
+  "low-starch-low-sugar",
+  "insulin",
+  "sustainable-weight-loss",
   "carb-cycling",
   "protein",
   "fibre",
