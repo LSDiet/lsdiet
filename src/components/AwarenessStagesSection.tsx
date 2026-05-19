@@ -107,10 +107,6 @@ export function AwarenessStagesSection() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
             5 Stages of Awareness <span className="text-accent">+ Action Practice</span>
           </h2>
-          <p className="mt-5 text-[hsl(0_0%_78%)] leading-relaxed text-base md:text-lg">
-            A guided sequence. Read them in order — each stage builds on the last, and the sixth
-            turns understanding into daily reps.
-          </p>
         </div>
 
         <ol className="relative divide-y divide-white/5">
