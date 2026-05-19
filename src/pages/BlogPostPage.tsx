@@ -10,6 +10,7 @@ import { RichText } from "@/lib/contentfulRenderers";
 import { ShareButtons } from "@/components/ShareButtons";
 import { ArticleByline } from "@/components/ArticleByline";
 import { AboutAuthorBlock } from "@/components/AboutAuthorBlock";
+import { RelatedFoundations } from "@/components/RelatedFoundations";
 
 export default function BlogPostPage() {
   const { slug = "" } = useParams<{ slug: string }>();
