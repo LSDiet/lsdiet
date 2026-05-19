@@ -66,7 +66,7 @@ function CurriculumRow({ row, visible, delay }: { row: Row; visible: boolean; de
     >
       <a
         href={row.href}
-        className="grid grid-cols-[3.5rem_1fr] md:grid-cols-[5rem_1fr] gap-4 md:gap-6 items-start py-5 md:py-6 px-1 -mx-1 rounded-lg hover:bg-white/[0.03] transition-colors"
+        className="grid grid-cols-[3.5rem_1fr] md:grid-cols-[5rem_1fr] gap-4 md:gap-6 items-start py-5 md:py-6 px-1 -mx-1 rounded-lg hover:bg-black/[0.04] transition-colors"
       >
         <span
           aria-hidden="true"
@@ -85,7 +85,7 @@ function CurriculumRow({ row, visible, delay }: { row: Row; visible: boolean; de
               </span>
             )}
           </div>
-          <p className="mt-1.5 text-sm md:text-base text-[hsl(0_0%_78%)] leading-relaxed">
+          <p className="mt-1.5 text-sm md:text-base text-[hsl(0_0%_20%)] leading-relaxed">
             {row.desc}
           </p>
         </div>
@@ -98,7 +98,7 @@ export function AwarenessStagesSection() {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section id="awareness-stages" className="section-dark py-14 md:py-20">
+    <section id="awareness-stages" className="py-14 md:py-20">
       <div ref={ref} className="container max-w-3xl mx-auto px-4">
         <div className="text-center mb-10 md:mb-14">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
@@ -106,7 +106,7 @@ export function AwarenessStagesSection() {
           </h2>
         </div>
 
-        <ol className="relative divide-y divide-white/5">
+        <ol className="relative divide-y divide-black/10">
           {/* Connecting line — desktop only */}
           <span
             aria-hidden="true"
