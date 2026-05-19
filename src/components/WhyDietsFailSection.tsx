@@ -10,7 +10,7 @@ export function WhyDietsFailSection() {
             Why Diets <span className="text-accent">Fail Long Term</span>
           </h2>
         </div>
-        <div className="space-y-4 text-[hsl(0_0%_82%)] leading-relaxed text-base md:text-lg">
+        <div className="space-y-4 text-[hsl(0_0%_15%)] leading-relaxed text-base md:text-lg">
           <p>
             Most diets work — for a while. The scale moves, clothes fit, and confidence returns. Then life happens:
             a stressful quarter at work, a family crisis, a holiday, an injury. Willpower depletes, restrictive rules
