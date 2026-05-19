@@ -1,141 +1,174 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, Gift, Play, Brain, Target, Shield } from "lucide-react";
+import { Check, Gift, Compass, Dumbbell, BookOpen } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { WaitlistModal } from "@/components/WaitlistModal";
+import skoolTracks from "@/assets/skool-course-tracks.png";
+import skoolActionPractice from "@/assets/skool-action-practice.png";
 
 const features = [
-  "All courses are videos. No reading is required.",
-  "Get results in 2 weeks and 100% free.",
-  "Working with emotion instead of fighting it",
-  "The Weight Permanence Triangle™ Implementation",
-  "Week 1: Weight stops climbing — Week 2: Weight loss begins",
-  "Attend a weekly live webinar hosted by Oscar",
+  "All lessons are short videos — no reading required",
+  "3 tracks: Start Here, Action Practice, and Tools",
+  "Weekly live webinar hosted by Oscar",
+  "A community of members training the same habits",
+  "100% free to join",
 ];
 
-const lessons = [
-  { day: 1, title: "Your WHY", icon: Target },
-  { day: 2, title: "Identity Shift", icon: Brain },
-  { day: 3, title: "The Triangle", icon: Play },
-  { day: 4, title: "Food Framework", icon: Shield },
-  { day: 5, title: "Emotional Eating", icon: Brain },
-  { day: 6, title: "Environment", icon: Shield },
-  { day: 7, title: "Permanence", icon: Target },
+const tracks = [
+  {
+    icon: Compass,
+    title: "Start Here",
+    desc: "Why weight regain happens and how LS Diet helps you stop regaining weight.",
+  },
+  {
+    icon: Dumbbell,
+    title: "Action Practice",
+    desc: "Train the daily actions and mental patterns that make LS Diet automatic.",
+  },
+  {
+    icon: BookOpen,
+    title: "Tools",
+    desc: "eBooks and blogs published by Oscar to deepen the framework.",
+  },
 ];
+
+const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
 export function BookSection() {
   const { ref, isVisible } = useScrollAnimation();
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
     <section id="book" className="section-dark py-14 md:py-20">
-      <div className="container">
+      <div className="container max-w-5xl mx-auto">
         <div
           ref={ref}
-          className={`grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto transition-all duration-700 ${
+          className={`transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="flex justify-center">
-            <div className="relative w-full max-w-sm">
-              <div className="absolute -inset-4 bg-accent/15 rounded-3xl blur-2xl" />
-              <div className="relative bg-[hsl(0_0%_8%)] rounded-2xl border border-[hsl(0_0%_18%)] p-5 shadow-2xl">
-                <div className="flex items-center gap-2 mb-5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0_0%_25%)]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0_0%_25%)]" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-[hsl(0_0%_25%)]" />
-                  <div className="flex-1 mx-3 h-5 rounded-full bg-[hsl(0_0%_14%)] flex items-center justify-center">
-                    <span className="text-[9px] text-[hsl(0_0%_40%)] tracking-wide">oscarpoon.com</span>
-                  </div>
-                </div>
-                <div className="mb-4 px-1">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-accent mb-1">
-                    Free 7-Day Course
-                  </p>
-                  <p className="text-sm font-bold text-foreground">LS Diet</p>
-                </div>
-                <div className="space-y-2">
-                  {lessons.map((lesson, i) => {
-                    const Icon = lesson.icon;
-                    return (
-                      <div
-                        key={lesson.day}
-                        className="flex items-center gap-3 bg-[hsl(0_0%_12%)] rounded-lg px-3 py-2.5 border border-[hsl(0_0%_16%)] transition-all duration-500"
-                        style={{
-                          opacity: isVisible ? 1 : 0,
-                          transform: isVisible ? "translateX(0)" : "translateX(20px)",
-                          transitionDelay: `${i * 100 + 300}ms`,
-                        }}
-                      >
-                        <div className="w-7 h-7 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0">
-                          <Icon className="w-3.5 h-3.5 text-accent" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-[10px] text-[hsl(0_0%_45%)] uppercase tracking-wide">
-                            Day {lesson.day}
-                          </p>
-                          <p className="text-xs font-medium text-[hsl(0_0%_80%)] truncate">
-                            {lesson.title}
-                          </p>
-                        </div>
-                        <div className="w-5 h-5 rounded-full border border-[hsl(0_0%_25%)] flex items-center justify-center flex-shrink-0">
-                          <Play className="w-2.5 h-2.5 text-[hsl(0_0%_40%)]" />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
+          {/* Header */}
+          <div className="text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
+              Now Live on Skool
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
+              The <span className="text-accent animate-pulse-glow inline-block">Free</span> LS Diet Course
+            </h2>
+            <p className="max-w-2xl mx-auto text-[hsl(0_0%_80%)] text-base md:text-lg leading-relaxed">
+              Three tracks. Train the habits that stop weight regain — guided by Oscar, free to join.
+            </p>
           </div>
 
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-6">
-              Coming Soon
+          {/* Tracks screenshot */}
+          <a
+            href={SKOOL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block relative rounded-2xl overflow-hidden border border-[hsl(0_0%_18%)] shadow-2xl hover:border-accent/50 transition-colors mb-8 group"
+          >
+            <div className="absolute -inset-4 bg-accent/10 blur-2xl -z-10" />
+            <img
+              src={skoolTracks}
+              alt="LS Diet course on Skool — three tracks: Start Here, Action Practice, and Tools"
+              className="w-full h-auto block group-hover:scale-[1.01] transition-transform duration-500"
+              loading="lazy"
+            />
+          </a>
+
+          {/* Track blurbs */}
+          <div className="grid md:grid-cols-3 gap-4 mb-12">
+            {tracks.map((t) => {
+              const Icon = t.icon;
+              return (
+                <div
+                  key={t.title}
+                  className="bg-[hsl(0_0%_10%)] border border-[hsl(0_0%_18%)] rounded-xl p-5"
+                >
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <div className="w-8 h-8 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-4 h-4 text-accent" />
+                    </div>
+                    <h3 className="text-sm font-bold uppercase tracking-wide text-foreground">
+                      {t.title}
+                    </h3>
+                  </div>
+                  <p className="text-[hsl(0_0%_75%)] text-sm leading-relaxed">{t.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Inside Action Practice */}
+          <div className="mb-12">
+            <div className="text-center mb-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
+                Inside Action Practice
+              </p>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                12 practice lessons you can start today
+              </h3>
+            </div>
+            <a
+              href={SKOOL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative rounded-2xl overflow-hidden border border-[hsl(0_0%_18%)] shadow-2xl hover:border-accent/50 transition-colors group"
+            >
+              <img
+                src={skoolActionPractice}
+                alt="Action Practice classroom on Skool — How much water should you drink? and other daily habit lessons"
+                className="w-full h-auto block group-hover:scale-[1.005] transition-transform duration-500"
+                loading="lazy"
+              />
+            </a>
+            <p className="text-[hsl(0_0%_70%)] text-sm leading-relaxed text-center mt-4 max-w-2xl mx-auto">
+              Hydration, identifying triggers, interrupting patterns, reading labels, reducing decision
+              friction, restructuring your food environment, eating out, habit thinking, and more.
             </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-6">
-              <span className="text-accent">FREE</span> 7-Day LS Diet Course
-            </h2>
-            <ul className="space-y-3 mb-6">
+          </div>
+
+          {/* Features + bonus + CTA */}
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <ul className="space-y-3">
               {features.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check className="w-3 h-3 text-accent" />
                   </div>
-                  <span className="text-[hsl(0_0%_80%)] text-sm">{feature}</span>
+                  <span className="text-[hsl(0_0%_85%)] text-sm md:text-base">{feature}</span>
                 </li>
               ))}
             </ul>
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mb-6">
+
+            <div className="bg-accent/10 border border-accent/20 rounded-xl p-5">
               <div className="flex items-start gap-3">
                 <Gift className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-xs font-bold text-accent uppercase tracking-[0.1em] mb-2">
-                    Early Access Bonus
+                    Early Member Bonus
                   </p>
-                  <p className="text-[hsl(0_0%_80%)] text-sm leading-relaxed mb-2">
-                    Join the waitlist and be first to receive one month of free access to <span className="font-semibold text-[hsl(0_0%_96%)]">Awareness Compass</span>, a proprietary conversational platform that guides you through the five stages of Awareness.
+                  <p className="text-[hsl(0_0%_85%)] text-sm leading-relaxed mb-2">
+                    Join now and receive one month of free access to{" "}
+                    <span className="font-semibold text-foreground">Awareness Compass</span>, a
+                    proprietary conversational platform that guides you through the five stages of
+                    Awareness.
                   </p>
-                  <p className="text-[hsl(0_0%_50%)] text-xs">
+                  <p className="text-[hsl(0_0%_55%)] text-xs">
                     After the first month, access is $30/month.
                   </p>
                 </div>
               </div>
             </div>
-            <Button
-              variant="accent"
-              size="lg"
-              className="w-full sm:w-auto px-8"
-              asChild
-            >
-              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                JOIN LS DIET (FREE)
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-10">
+            <Button variant="accent" size="lg" className="px-8" asChild>
+              <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer">
+                JOIN LS DIET ON SKOOL (FREE)
               </a>
             </Button>
           </div>
         </div>
       </div>
-      <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </section>
   );
 }
