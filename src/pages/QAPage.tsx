@@ -662,7 +662,7 @@ export default function QAPage() {
               onClick={() => setWaitlistOpen(true)}
               className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
             >
-              Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day Weight Permanence Course →
+              Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> LS Diet Course →
             </button>
           </div>
         </section>
@@ -755,7 +755,7 @@ function FAQCategory({
                     onClick={onJoinWaitlist}
                     className="text-accent hover:underline font-medium"
                   >
-                    Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day Weight Permanence Course
+                    Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> LS Diet Course
                   </button>{" "}
                   to reduce your likelihood of {item.condition}.
                 </p>
@@ -768,7 +768,7 @@ function FAQCategory({
                     onClick={onJoinWaitlist}
                     className="text-accent hover:underline font-medium"
                   >
-                    Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> 7-Day Weight Permanence Course →
+                    Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> LS Diet Course →
                   </button>
                 </p>
               );
