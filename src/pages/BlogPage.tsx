@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { listBlogPosts, formatPublishDate, type BlogPost } from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
 import { FOUNDATIONS } from "@/content/foundations";
+import { FoundationsCurriculum } from "@/components/FoundationsCurriculum";
 
 type EnrichedPost = BlogPost & {
   contentType: BlogIndexEntry["contentType"];
@@ -149,13 +150,7 @@ export default function BlogPage() {
 
         {posts && posts.length > 0 && (
           <div className="space-y-16">
-            <BlogSection
-              eyebrow="Pillar Articles"
-              title="LS Diet Foundations"
-              description="Deep articles on the LS Diet system — the principles that make weight loss permanent."
-              posts={foundations}
-              emptyMessage="Foundation articles coming soon."
-            />
+            <FoundationsCurriculum />
             <BlogSection
               eyebrow="Search-driven articles"
               title="Real Life Weight Questions"
