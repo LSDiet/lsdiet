@@ -1,93 +1,129 @@
-## Homepage Narrative Arc v2 (locked)
+# Homepage Cognitive-Load Overhaul (Plan v3)
 
-Order after this revision:
+Goal: shift the homepage from "educational long-form" to "10-second understanding + route deeper." Cut paragraphs, add visual compression, reorder for funnel logic.
 
-1. Hero — Hook
-2. WhatIsLSDiet — Definition
-3. WhyDietsFail — Problem (absorbs CorePrinciple)
-4. **Method — LS Diet + WPT framework overview** (rewrite, compressed)
-5. **AwarenessStages + Action Practice — curriculum** (rewrite, dense)
-6. Testimonials — reserved slot
-7. AboutAuthor — Trust
-8. Book / Skool — the only mid-page Join CTA
-9. FAQ — Objections
-10. ~~Contact~~ — **removed**
+## New section order
 
-Hierarchy rule: sections 4 and 5 get the strongest typographic weight on the page after the Hero. FAQ and About sit visually quieter.
+```
+1. Hero (compressed)
+2. What Is LS Diet  (visual blocks, 1 sentence)
+3. The Problem Isn't Losing Weight  (UNTOUCHED)
+4. Why People Restart Weight Loss  (recognition list)
+5. LS Diet + WPT  (1 line + A+P=P diagram only)
+6. 5 Stages of Awareness + Action Practice  (UNTOUCHED)
+7. What Practice Looks Like  (NEW — visual Skool preview, replaces Why Diets Fail)
+8. The Free LS Diet Course
+9. LS Diet FAQ  (moved below course)
+10. About Oscar Poon  (UNTOUCHED, kept concise)
+```
 
----
-
-## Changes in this revision
-
-### A. Remove Contact section
-- Delete `<ContactSection />` import + render from `src/pages/Index.tsx`.
-- Leave `ContactSection.tsx` in the repo (unused).
-- Repoint or remove any `#contact` anchors in nav / footer / hero.
-
-### B. Section 4 — Method (LS Diet + WPT overview), compressed
-Purpose: introduce the whole framework in one screen. Routes readers out; does not explain in depth.
-
-Content blocks:
-1. Eyebrow: "The Framework"
-2. H2: "The LS Diet and the Weight Permanence Triangle"
-3. Two short paragraphs (max ~45 words each):
-   - LS Diet in one line — low-starch, low-sugar lifestyle that lets you eat until full. Natural inline link on **low-starch, low-sugar** → `/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting`.
-   - Why food alone isn't enough → introduces WPT as the behavioural layer. Natural inline link on **Weight Permanence Triangle** → `/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight`.
-4. Simplified linear diagram: **Awareness + Practice = Permanence** (single SVG row, no triangle).
-5. One-line caption beneath.
-
-Removed from current MethodSection:
-- The full triangle SVG (lives on `/weight-permanence-triangle`).
-- The desktop 3-column vertex layout with bullet lists.
-- The "Discover the 5 stages" dialog button (section 5 handles this).
-- The inline "Read the full Weight Permanence Triangle™ breakdown →" CTA (the inline-link on "Weight Permanence Triangle" replaces it).
-
-No CTA button in this section.
-
-### C. Section 5 — Awareness Stages + Action Practice, curriculum
-Purpose: show the inside of the triangle as a guided sequence, not as cards.
-
-Visual treatment (mirrors `FoundationsCurriculum.tsx` pattern):
-- Section background flips to `section-dark` so 4→5 has one contrast swap.
-- Vertical numbered list, 6 rows, tight rhythm.
-- Each row: big `01–06` numeral, stage title (inline link), single-sentence description, hover-expand for a second line on desktop.
-- Desktop only (`md:` and up): a faint left vertical line connecting the numerals to imply progression. Hidden on mobile to avoid visual noise at 634px.
-- Row 6 (Action Practice) visually separated by extra top spacing + a thin divider above to signal "practice layer, not awareness".
-
-Rows:
-
-| # | Stage | Link |
-|---|---|---|
-| 01 | Reality Awareness | `/blog/reality-awareness` |
-| 02 | Friction Awareness | `/blog/friction-awareness` |
-| 03 | Pattern Awareness | `/blog/pattern-awareness` |
-| 04 | Consequence Awareness — PUSH motivation | `/blog/consequence-awareness` |
-| 05 | Identity Awareness — PULL motivation | `/blog/identity-awareness` |
-| 06 | Action Practice — where it gets implemented | `/blog/action-practice` |
-
-Closing line below row 06 (one sentence, no button): natural inline link on **the full Foundations curriculum** → `/blog`. This is routing, not a marketing CTA.
-
-Removed from current AwarenessStagesSection:
-- The 3+2 card grid layout.
-- The watermark numerals + per-card hover gradient.
-- The separate "Explore the 5 Awareness Stages in depth →" link (replaced by the inline routing link above; Action Practice is now part of the same list).
-
-### D. Interlinking rules
-- Inline links only where the noun phrase names the destination.
-- Each foundation slug appears at most once on the homepage. After section 5 ships, audit FAQ and drop any duplicate stage links it now contains.
-- No "Learn more →" buttons in sections 4 or 5.
-
-### E. Mobile preservation
-- Section 5 stays a single vertical column on mobile; never collapses to a grid or a horizontal scroller.
-- Numerals stay left-aligned so the 01→06 sequence reads at a glance on a 360–414px screen.
+Removed entirely: `WhyDietsFailSection`.
 
 ---
 
-## Files touched
+## Section-by-section changes
 
-- `src/pages/Index.tsx` — remove ContactSection.
-- `src/components/MethodSection.tsx` — rewrite to compressed LS Diet + WPT overview with A + P = P linear diagram.
-- `src/components/AwarenessStagesSection.tsx` — rewrite to 6-row numbered curriculum incl. Action Practice.
-- `src/components/FAQSection.tsx` — dedupe links overlapping with section 5.
+### 1. Hero (`HeroSection.tsx`)
+Strip to one headline + proof.
 
-No backend, taxonomy, or routing changes. No new components.
+- Headline: **"Low-Starch, Low-Sugar Stops Weight Regain."** (accent on "Stops Weight Regain")
+- Remove subheadline ("Low-Starch, Low-Sugar (LS) is the only way...")
+- Remove "How do I know? / Because I lost 80+ lbs three times" block
+- Transformation grid stays
+- Below grid, single caption line: *"Lost 80+ lbs three times. Built LS Diet to stop restarting."*
+- Keep "Join LS Diet" CTA
+
+### 2. What Is LS Diet (`WhatIsLSDietSection.tsx`)
+Replace both paragraphs with a visual block grid + one sentence.
+
+Layout (responsive 2-column on desktop, stacked on mobile):
+
+```
+┌─────────────────────┐  ┌─────────────────────┐
+│  🥩  LS             │  │  🧠  WPT            │
+│  Low-Starch         │  │  Weight Permanence  │
+│  Low-Sugar          │  │  Triangle™          │
+│  Eat until full     │  │  Psychology +       │
+│                     │  │  Behaviour Training │
+└─────────────────────┘  └─────────────────────┘
+              =  STOP WEIGHT REGAIN
+```
+
+One sentence below: *"LS Diet combines low-starch low-sugar eating with behavioural permanence training."*
+
+Single link: "Read the full LS Diet overview →"
+
+No other prose.
+
+### 3. The Problem Isn't Losing Weight
+Untouched.
+
+### 4. Why People Restart Weight Loss
+Convert from paragraph + 3-card breakdown to a recognition list. Replace the entire body with a compact bulleted list (icon + 2-4 words each):
+
+- Stress takes over
+- Old habits return
+- Motivation fades
+- Emotional eating comes back
+- Travel and holidays disrupt routine
+- Life gets busy again
+
+Single link below: "See why people regain weight →" → `/blog/why-people-regain-weight-after-dieting`
+
+Remove the Psychology/Biology/Environment framing entirely from this section.
+
+### 5. LS Diet + WPT (`MethodSection.tsx`)
+Compress to bare minimum.
+
+- Keep heading
+- Replace both intro paragraphs with two short lines:
+  - **LS Diet = food system** (link to LS pillar)
+  - **WPT = behavioural system** (link to WPT pillar)
+- Keep A + P = P pill diagram
+- **Remove** the italic line "Clarity creates priority. Action survives disruption. Priority sustains action."
+
+### 6. 5 Stages + Action Practice
+Untouched.
+
+### 7. What Practice Looks Like (NEW — `WhatPracticeLooksLikeSection.tsx`)
+Replaces `WhyDietsFailSection`. Visual proof that implementation exists.
+
+Structure:
+- Eyebrow: "What Practice Looks Like"
+- Heading: **"This is what daily practice looks like."**
+- Image 1: existing `skool-course-tracks.png` (3 tracks overview)
+- Image 2: existing `skool-action-practice.png` (sample Action Practice lesson)
+- 4 small caption chips below the images: `Daily prompts` · `Awareness reps` · `Habit swaps` · `Progress tracking`
+- Single CTA: "Join LS Diet" → Skool
+
+Almost no prose. Images carry the message.
+
+### 8. Free LS Diet Course (`BookSection.tsx`)
+No content changes. Just reorder so it appears before FAQ.
+
+### 9. FAQ (`FAQSection.tsx`)
+Moved to after the course. No content changes.
+
+### 10. About Oscar Poon (`AboutAuthorSection.tsx`)
+Untouched.
+
+---
+
+## File changes
+
+| File | Action |
+|---|---|
+| `src/components/HeroSection.tsx` | Trim copy |
+| `src/components/WhatIsLSDietSection.tsx` | Rewrite as visual block layout |
+| `src/components/WhyDietsFailSection.tsx` | **Delete file** |
+| `src/components/MethodSection.tsx` | Trim copy, remove italic line |
+| `src/components/WhatPracticeLooksLikeSection.tsx` | **Create new** |
+| `src/components/AwarenessStagesSection.tsx` | Rename internal heading if it currently says "Why People Restart Weight Loss" — otherwise check which existing component holds that section and convert it to the recognition list. *(Will verify exact component on implementation.)* |
+| `src/pages/Index.tsx` | Update imports + reorder sections per new order |
+
+## Notes
+- Canadian English, no hyphens in prose (except "low-starch low-sugar").
+- All CTA buttons remain "Join LS Diet".
+- All cross-page links use native `<a>` per project rule.
+- No new images needed; we reuse existing Skool screenshots for section 7.
+- Interlinking budget preserved — every pillar still gets at least one inbound link from the homepage via the curriculum section and the compressed Method section.
