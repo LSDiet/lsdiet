@@ -170,6 +170,8 @@ export default function BlogPostPage() {
             <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={post.title} variant="inline" />
           </div>
 
+          <RelatedFoundations excludeSlug={post.slug} />
+
           <AboutAuthorBlock />
 
           <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
