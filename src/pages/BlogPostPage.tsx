@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { fetchBlogPost, formatPublishDate, type BlogPost } from "@/lib/blog";
 import { RichText } from "@/lib/contentfulRenderers";
 import { ShareButtons } from "@/components/ShareButtons";
+import { ArticleByline } from "@/components/ArticleByline";
+import { AboutAuthorBlock } from "@/components/AboutAuthorBlock";
 
 export default function BlogPostPage() {
   const { slug = "" } = useParams<{ slug: string }>();
@@ -81,7 +83,7 @@ export default function BlogPostPage() {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     datePublished: post.publishDate,
     dateModified: post.updatedAt,
-    author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/about-oscar-poon" },
+    author: { "@id": "https://lsdiet.com/oscar-poon#person" },
     publisher: {
       "@type": "Organization",
       name: "LS Diet",
@@ -133,10 +135,11 @@ export default function BlogPostPage() {
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
               {post.title}
             </h1>
-            <p className="text-xs text-zinc-500 uppercase tracking-wider mb-5">
-              <time dateTime={post.publishDate}>{formatPublishDate(post.publishDate)}</time>
-              {" · "}By Oscar Poon
-            </p>
+            <ArticleByline
+              publishDate={post.publishDate}
+              formattedDate={formatPublishDate(post.publishDate)}
+              className="mb-5"
+            />
             <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={post.title} variant="inline" className="justify-start" />
           </header>
 
@@ -165,6 +168,8 @@ export default function BlogPostPage() {
             </p>
             <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={post.title} variant="inline" />
           </div>
+
+          <AboutAuthorBlock />
 
           <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
             <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-3">

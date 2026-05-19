@@ -28,7 +28,7 @@ export default function WeightPermanenceTrianglePage() {
           headline: "The Weight Permanence Triangle™",
           datePublished: PUBLISHED,
           dateModified: UPDATED,
-          author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/about-oscar-poon" },
+          author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/oscar-poon" },
           publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
           mainEntityOfPage: "https://lsdiet.com/weight-permanence-triangle",
         })}</script>
@@ -62,7 +62,7 @@ export default function WeightPermanenceTrianglePage() {
           </p>
           <p>
             The Triangle was built out of a frustration the founder of LS Diet,{" "}
-            <a href="/about-oscar-poon" className="text-accent hover:underline">Oscar Poon</a>, lived three
+            <a href="/oscar-poon" className="text-accent hover:underline">Oscar Poon</a>, lived three
             separate times: lose 80 lbs, regain it, repeat. Conventional advice handled food but ignored the
             behavioural scaffolding. The Triangle is the scaffolding.
           </p>

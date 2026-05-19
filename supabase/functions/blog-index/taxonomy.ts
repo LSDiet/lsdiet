@@ -1,6 +1,25 @@
 // Source-of-truth taxonomy for the LS Diet blog index.
 // Flat, lowercase, hyphenated. Add new tags here BEFORE using them in Contentful.
 
+// =====================================================================
+// CANONICAL TOPICS — the LS Diet system architecture.
+// These are NOT generic SEO categories. They are the long-term semantic
+// roots that every page belongs to. One canonicalTopic per page, locked.
+// =====================================================================
+export const CANONICAL_TOPICS: ReadonlySet<string> = new Set([
+  "stop-weight-regain",          // Flagship hub. Core conceptual centre of LS Diet.
+  "weight-permanence-triangle",  // The proprietary framework.
+  "awareness-stages",            // The 5 Awareness Stages framework (expands by subTopic).
+  "action-practice-examples",    // Practical daily-action systems.
+  "ls-diet-foundations",         // Foundational principles of the LS Diet lifestyle.
+  "ls-diet-examples",            // Real-world LS Diet examples (meals, days, scenarios).
+]);
+
+export const MAX_TOPICS_PER_POST = 5;
+
+// =====================================================================
+// FREE TOPICS — search-hook tags used in topics[]. NOT canonical anchors.
+// =====================================================================
 export const TAXONOMY: ReadonlySet<string> = new Set([
   // Physiology
   "insulin-resistance",
@@ -59,6 +78,7 @@ export const TAXONOMY: ReadonlySet<string> = new Set([
 ]);
 
 export const CONTENT_TYPES: ReadonlySet<string> = new Set([
+  "entity-hub",
   "pillar",
   "supporting",
   "comparison",
@@ -78,6 +98,44 @@ export function normalizeTag(raw: string): string {
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+// Cheap edit-distance for did-you-mean suggestions.
+function levenshtein(a: string, b: string): number {
+  const m = a.length, n = b.length;
+  if (!m) return n;
+  if (!n) return m;
+  const dp: number[] = new Array(n + 1);
+  for (let j = 0; j <= n; j++) dp[j] = j;
+  for (let i = 1; i <= m; i++) {
+    let prev = dp[0];
+    dp[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const tmp = dp[j];
+      dp[j] = a[i - 1] === b[j - 1] ? prev : Math.min(prev, dp[j], dp[j - 1]) + 1;
+      prev = tmp;
+    }
+  }
+  return dp[n];
+}
+
+export interface CanonicalTopicValidation {
+  ok: boolean;
+  value: string;
+  suggestion?: string;
+}
+
+export function validateCanonicalTopic(raw: string): CanonicalTopicValidation {
+  const value = normalizeTag(raw);
+  if (!value) return { ok: false, value: "" };
+  if (CANONICAL_TOPICS.has(value)) return { ok: true, value };
+  let best = "";
+  let bestDist = Infinity;
+  for (const t of CANONICAL_TOPICS) {
+    const d = levenshtein(value, t);
+    if (d < bestDist) { bestDist = d; best = t; }
+  }
+  return { ok: false, value, suggestion: bestDist <= 4 ? best : undefined };
 }
 
 export function extractFallbackTopics(title: string, excerpt: string, max = 4): string[] {

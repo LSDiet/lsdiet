@@ -5,7 +5,7 @@ const learnLinks = [
   { label: "What Is LS Diet?", href: "/what-is-ls-diet" },
   { label: "Weight Permanence Triangle™", href: "/weight-permanence-triangle" },
   { label: "5 Awareness Stages", href: "/awareness-stages" },
-  { label: "About Oscar Poon", href: "/about-oscar-poon" },
+  { label: "About Oscar Poon", href: "/oscar-poon" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
 ];
