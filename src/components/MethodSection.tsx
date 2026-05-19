@@ -229,7 +229,7 @@ export function MethodSection() {
           </h2>
         </div>
 
-        <div className="max-w-3xl mx-auto mb-12 space-y-4 text-[hsl(0_0%_78%)] leading-relaxed text-base md:text-lg">
+        <div className="max-w-3xl mx-auto mb-12 space-y-4 text-[hsl(0_0%_15%)] leading-relaxed text-base md:text-lg">
           <p>
             The <strong className="text-foreground">Weight Permanence Triangle™</strong> is the core framework
             inside LS Diet. It connects three pillars — <span className="text-accent">Awareness</span>,{" "}
