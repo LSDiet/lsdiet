@@ -405,7 +405,7 @@ function Body() {
         realistically continue for years.
       </P>
 
-      <H2>How Does LS Diet Help People Stop Restarting Weight Loss?</H2>
+      <H2>How Does LS Diet Help People Stop Regaining Weight?</H2>
       <P>Many people already know what foods are considered healthy.</P>
       <P>The difficult part is maintaining consistency when:</P>
       <UL
