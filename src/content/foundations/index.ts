@@ -4,6 +4,7 @@ import whyLsIsSustainable from "./why-low-starch-low-sugar-is-more-sustainable-t
 import weightPermanenceTriangle from "./the-weight-permanence-triangle-how-to-stop-regaining-weight";
 import realityAwareness from "./reality-awareness";
 import frictionAwareness from "./friction-awareness";
+import patternAwareness from "./pattern-awareness";
 import type { Foundation } from "./types";
 
 export const FOUNDATIONS: Foundation[] = [
@@ -12,6 +13,7 @@ export const FOUNDATIONS: Foundation[] = [
   weightPermanenceTriangle,
   realityAwareness,
   frictionAwareness,
+  patternAwareness,
 ];
 
 export function getFoundationBySlug(slug: string): Foundation | undefined {
