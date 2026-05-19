@@ -9,7 +9,6 @@ import { AwarenessStagesSection } from "@/components/AwarenessStagesSection";
 import { WhyDietsFailSection } from "@/components/WhyDietsFailSection";
 import { FAQSection } from "@/components/FAQSection";
 import { BookSection } from "@/components/BookSection";
-import { ContactSection } from "@/components/ContactSection";
 import { AboutAuthorSection } from "@/components/AboutAuthorSection";
 import { FooterSimple } from "@/components/FooterSimple";
 import { JoinFloatingBar } from "@/components/JoinFloatingBar";
@@ -46,7 +45,6 @@ const Index = () => {
         <WhyDietsFailSection />
         <FAQSection />
         <BookSection />
-        <ContactSection />
         <AboutAuthorSection />
       </main>
       <FooterSimple />
