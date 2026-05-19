@@ -124,7 +124,7 @@ export function AwarenessStagesSection() {
           </ol>
         </div>
 
-        <p className="mt-10 text-center text-sm md:text-base text-[hsl(0_0%_78%)] leading-relaxed">
+        <p className="mt-10 text-center text-sm md:text-base text-[hsl(0_0%_20%)] leading-relaxed">
           Continue to{" "}
           <a href="/blog" className="text-accent hover:underline font-medium">
             the full Foundations curriculum
