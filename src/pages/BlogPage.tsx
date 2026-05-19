@@ -153,7 +153,7 @@ export default function BlogPage() {
             <BlogSection
               eyebrow="Search-driven articles"
               title="Real Life Weight Questions"
-              description="Practical answers to the questions people actually ask while trying to stop restarting."
+              description="Practical answers to the questions people actually ask while trying to stop regaining."
               posts={supporting}
               emptyMessage="No real-life articles yet."
             />
