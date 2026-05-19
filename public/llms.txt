@@ -6,7 +6,7 @@ LS Diet teaches a sustainable, eat-until-full approach to permanent weight loss.
 
 ## Pages
 
-- [Home](/): Overview of LS Diet, the free 7-Day course, and the Weight Permanence Triangle™.
+- [Home](/): Overview of LS Diet, the free LS Diet course, and the Weight Permanence Triangle™.
 - [What Is LS Diet?](/what-is-ls-diet): Definition of the low-starch, low-sugar lifestyle and why it works.
 - [Weight Permanence Triangle](/weight-permanence-triangle): The Awareness / Practice / Permanence framework explained.
 - [5 Awareness Stages](/awareness-stages): Identity-rooted model of behaviour change for weight loss.
