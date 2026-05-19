@@ -5,6 +5,7 @@ import weightPermanenceTriangle from "./the-weight-permanence-triangle-how-to-st
 import realityAwareness from "./reality-awareness";
 import frictionAwareness from "./friction-awareness";
 import patternAwareness from "./pattern-awareness";
+import consequenceAwareness from "./consequence-awareness";
 import type { Foundation } from "./types";
 
 export const FOUNDATIONS: Foundation[] = [
@@ -14,6 +15,7 @@ export const FOUNDATIONS: Foundation[] = [
   realityAwareness,
   frictionAwareness,
   patternAwareness,
+  consequenceAwareness,
 ];
 
 export function getFoundationBySlug(slug: string): Foundation | undefined {
