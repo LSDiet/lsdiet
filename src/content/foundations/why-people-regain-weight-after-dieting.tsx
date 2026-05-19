@@ -1,7 +1,30 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: stop-weight-regain
 import featuredImage from "@/assets/foundation-why-people-regain-weight.png";
+import obviousSugarImg from "@/assets/foundation-obvious-sugar.png";
+import starchHiddenImg from "@/assets/foundation-starch-hidden-problem.png";
+import dietsComparisonImg from "@/assets/foundation-diets-comparison.png";
+import reverseInsulinImg from "@/assets/foundation-reverse-insulin-resistance.png";
 import type { Foundation } from "./types";
+
+function Figure({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+  return (
+    <figure className="my-8 -mx-4 md:mx-0">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className="w-full md:rounded-xl border border-border"
+      />
+      {caption && (
+        <figcaption className="mt-2 px-4 md:px-0 text-sm text-zinc-600 italic text-center">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
 
 const meta: Foundation["meta"] = {
   slug: "why-people-regain-weight-after-dieting",
@@ -277,6 +300,12 @@ function Body() {
         The goal is not perfection. The goal is sustainable control.
       </p>
 
+      <Figure
+        src={obviousSugarImg}
+        alt="The obvious sugar — soda, candy, cakes, and hidden sugar in juice, smoothies, yogurt, and sauces"
+        caption="Sugar triggers a fast glucose spike — and it hides in foods marketed as healthy."
+      />
+
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
         Starch Is Often The Hidden Problem
       </h2>
@@ -301,6 +330,12 @@ function Body() {
         consistency, repeatable food decisions, and long-term sustainability — not temporary
         elimination phases.
       </p>
+
+      <Figure
+        src={starchHiddenImg}
+        alt="Starch is the hidden problem — rice, bread, noodles, cereals, potatoes, corn, and oats produce the same insulin response as sugar"
+        caption="Starch produces the same insulin response as sugar — and it shows up at almost every meal."
+      />
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
         Why Consistency Matters More Than Intensity
@@ -370,6 +405,12 @@ function Body() {
         <li>that fits real life</li>
       </ul>
 
+      <Figure
+        src={dietsComparisonImg}
+        alt="How popular diets handle sugar and starch compared to LS Diet (low-starch, low-sugar)"
+        caption="Most diet approaches collapse on long-term sustainability. LS is designed for consistency."
+      />
+
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
         Why LS Diet Focuses On Permanence
       </h2>
@@ -427,6 +468,12 @@ function Body() {
         sustainable movement, repeatable systems, and behavioural psychology — not extreme dieting
         cycles.
       </p>
+
+      <Figure
+        src={reverseInsulinImg}
+        alt="Three steps to reverse insulin resistance: eat less often, eat smaller portions, choose low-sugar low-starch whole foods"
+        caption="The practical pattern: eat less often, smaller portions, and shift toward low-starch, low-sugar foods."
+      />
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-5 text-zinc-900">
         Frequently Asked Questions
