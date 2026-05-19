@@ -12,9 +12,10 @@
 //   - RelatedFoundations component (via fetchBlogIndex merge)
 
 import whyPeopleRegainWeight from "./why-people-regain-weight-after-dieting";
+import whyLsIsSustainable from "./why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting";
 import type { Foundation } from "./types";
 
-export const FOUNDATIONS: Foundation[] = [whyPeopleRegainWeight];
+export const FOUNDATIONS: Foundation[] = [whyPeopleRegainWeight, whyLsIsSustainable];
 
 export function getFoundationBySlug(slug: string): Foundation | undefined {
   return FOUNDATIONS.find((f) => f.meta.slug === slug);
