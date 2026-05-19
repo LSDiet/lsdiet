@@ -26,7 +26,7 @@ export function JoinFloatingBar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:px-8">
         <div className="min-w-0 flex-1">
           <p className="truncate text-xs font-bold uppercase tracking-wide text-white sm:text-sm">
-            Stop restarting weight loss.
+            Stop regaining weight.
           </p>
           <p className="truncate text-[11px] text-white/60 sm:text-xs">
             Join the LS Diet community on Skool — free to join.

@@ -19,7 +19,7 @@ const webPageSchema = {
   "@type": "WebPage",
   "@id": "https://lsdiet.com/#webpage",
   url: "https://lsdiet.com/",
-  name: "LS Diet | Stop Restarting Weight Loss",
+  name: "LS Diet | Stop Regaining Weight",
   isPartOf: { "@id": "https://lsdiet.com/#website" },
   about: { "@type": "Thing", name: "Weight Permanence Triangle", sameAs: "https://lsdiet.com/weight-permanence-triangle" },
   mainEntity: { "@id": "https://lsdiet.com/#organization" },

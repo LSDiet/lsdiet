@@ -405,7 +405,7 @@ function Body() {
         realistically continue for years.
       </P>
 
-      <H2>How Does LS Diet Help People Stop Restarting Weight Loss?</H2>
+      <H2>How Does LS Diet Help People Stop Regaining Weight?</H2>
       <P>Many people already know what foods are considered healthy.</P>
       <P>The difficult part is maintaining consistency when:</P>
       <UL
@@ -428,9 +428,9 @@ function Body() {
           "psychological permanence",
         ]}
       />
-      <P>The goal is not temporary dieting. The goal is stopping the cycle of constantly restarting weight loss.</P>
+      <P>The goal is not temporary dieting. The goal is stopping the cycle of weight regain.</P>
       <P>
-        Stop restarting weight loss:{" "}
+        Stop regaining weight:{" "}
         <a
           href="https://www.skool.com/lsdiet/about"
           target="_blank"
