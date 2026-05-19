@@ -47,7 +47,7 @@ const meta: Foundation["meta"] = {
   slug: "action-practice",
   title: "Action Practice: Why Awareness Alone Does Not Stop Weight Regain",
   listTitle: "Action Practice",
-  order: 9,
+  order: 3.6,
   excerpt:
     "Awareness creates direction, but Action Practice is what turns consistency into real behavioural change.",
   metaDescription:
