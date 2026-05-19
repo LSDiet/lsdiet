@@ -17,33 +17,33 @@ const awarenessRows: Row[] = [
   {
     n: "01",
     title: "Reality Awareness",
-    desc: "Establish your honest baseline — weight, habits, and the gap between who you are and who you want to be.",
+    desc: "Honest self assessment is often the first step toward permanent weight loss. Reality Awareness helps people understand their current behavioural, emotional, and physical condition before attempting sustainable change.",
     href: "/blog/reality-awareness",
   },
   {
     n: "02",
     title: "Friction Awareness",
-    desc: "Recognise the daily resistance points that quietly sabotage progress before you can act on them.",
+    desc: "Friction Awareness examines the tension between your current behaviour and the future you want.",
     href: "/blog/friction-awareness",
   },
   {
     n: "03",
     title: "Pattern Awareness",
-    desc: "Examine the how, who, what, when, and why of your eating behaviour to expose the loops you repeat without thinking.",
+    desc: "Pattern Awareness explores the who, what, when, where, why, and how behind repeated eating behaviour.",
     href: "/blog/pattern-awareness",
   },
   {
     n: "04",
     title: "Consequence Awareness",
     tag: "PUSH motivation",
-    desc: "Clarity on what staying the same will cost you over five, ten, twenty years.",
+    desc: "PUSH motivation often develops when the consequences of inaction become impossible to ignore.",
     href: "/blog/consequence-awareness",
   },
   {
     n: "05",
     title: "Identity Awareness",
     tag: "PULL motivation",
-    desc: "Become the person for whom a low-starch, low-sugar lifestyle is simply how they live.",
+    desc: "PULL motivation develops when future identity becomes emotionally important enough to pursue consistently.",
     href: "/blog/identity-awareness",
   },
 ];
@@ -52,7 +52,7 @@ const practiceRow: Row = {
   n: "06",
   title: "Action Practice",
   tag: "where it gets implemented",
-  desc: "Turn awareness into daily reps — the habit layer that makes permanence real.",
+  desc: "Awareness creates direction, but Action Practice is what turns consistency into real behavioural change.",
   href: "/blog/action-practice",
 };
 
