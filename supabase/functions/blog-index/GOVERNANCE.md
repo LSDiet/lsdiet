@@ -1,8 +1,17 @@
 # Taxonomy Governance — LS Diet Blog
 
 Plain-English rules for editors. These are enforced in code by the
-`blog-index` edge function; violations are logged and surfaced in the
-`X-Taxonomy-Warnings` response header.
+`blog-index` edge function (for Contentful posts) and by TypeScript +
+the build (for code-managed foundations). Violations on the Contentful
+side are logged and surfaced in the `X-Taxonomy-Warnings` response header.
+
+## Two publishing systems
+
+- **Foundations** (pillars + entity hubs) live in `src/content/foundations/`.
+  Authored by Oscar / ChatGPT, implemented in code by Lovable. Slugs,
+  schema, and interlinking are governed by the repo, not by Contentful.
+- **Real Life Weight Questions** (supporting, comparison, FAQ) live in
+  Contentful and are subject to the rules below.
 
 ## Hard rules
 

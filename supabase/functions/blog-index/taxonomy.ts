@@ -40,6 +40,10 @@ export const TAXONOMY: ReadonlySet<string> = new Set([
   "identity-change",
   "behavioural-psychology",
   "awareness",
+  "behavioural-permanence",
+  "consistency",
+  "emotional-eating",
+  "dieting-psychology",
 
   // Diet mechanics
   "low-starch",

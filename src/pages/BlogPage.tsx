@@ -6,6 +6,7 @@ import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { listBlogPosts, formatPublishDate, type BlogPost } from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
+import { FOUNDATIONS } from "@/content/foundations";
 
 type EnrichedPost = BlogPost & {
   contentType: BlogIndexEntry["contentType"];
@@ -15,17 +16,51 @@ type EnrichedPost = BlogPost & {
 const FOUNDATION_TYPES = new Set(["pillar", "entity-hub"]);
 const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
 
+// Convert code-managed foundations to the BlogPost shape so they render in the grid.
+function foundationsAsBlogPosts(): BlogPost[] {
+  return FOUNDATIONS.map((f) => ({
+    id: `foundation:${f.meta.slug}`,
+    createdAt: f.meta.publishDate,
+    updatedAt: f.meta.updatedAt,
+    title: f.meta.title,
+    slug: f.meta.slug,
+    excerpt: f.meta.excerpt,
+    content: null,
+    featuredImage: {
+      url: f.meta.featuredImage.src,
+      title: f.meta.featuredImage.alt,
+      width: f.meta.featuredImage.width,
+      height: f.meta.featuredImage.height,
+    },
+    publishDate: f.meta.publishDate,
+  }));
+}
+
 export default function BlogPage() {
   const [posts, setPosts] = useState<EnrichedPost[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    Promise.all([listBlogPosts(), fetchBlogIndex().catch(() => [] as BlogIndexEntry[])])
+    // Contentful list may fail in early phases (no posts yet) — don't let that
+    // block foundations from rendering.
+    Promise.all([
+      listBlogPosts().catch(() => [] as BlogPost[]),
+      fetchBlogIndex().catch(() => [] as BlogIndexEntry[]),
+    ])
       .then(([raw, index]) => {
         if (cancelled) return;
+        const foundations = foundationsAsBlogPosts();
+        const foundationSlugs = new Set(foundations.map((p) => p.slug));
+        // Foundations win on slug collision.
+        const merged: BlogPost[] = [
+          ...foundations,
+          ...raw.filter((p) => !foundationSlugs.has(p.slug)),
+        ];
+        merged.sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
+
         const bySlug = new Map(index.map((i) => [i.slug, i]));
-        const enriched: EnrichedPost[] = raw.map((p) => {
+        const enriched: EnrichedPost[] = merged.map((p) => {
           const meta = bySlug.get(p.slug);
           return {
             ...p,
