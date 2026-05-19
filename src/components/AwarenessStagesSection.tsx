@@ -101,9 +101,6 @@ export function AwarenessStagesSection() {
     <section id="awareness-stages" className="section-dark py-14 md:py-20">
       <div ref={ref} className="container max-w-3xl mx-auto px-4">
         <div className="text-center mb-10 md:mb-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
-            Inside the Triangle
-          </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
             5 Stages of Awareness <span className="text-accent">+ Action Practice</span>
           </h2>
