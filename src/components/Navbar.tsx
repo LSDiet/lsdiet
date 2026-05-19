@@ -19,7 +19,7 @@ export function Navbar() {
         <a href="/" className="flex items-center gap-2.5">
           <img src={lsDietLogo} alt="LSDiet logo" className="h-12 md:h-14 w-auto object-contain" />
           <span className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-accent/90 font-semibold">
-            Stop Restarting Weight Loss
+            Stop Regaining Weight
           </span>
         </a>
 
