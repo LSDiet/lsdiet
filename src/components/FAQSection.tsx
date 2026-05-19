@@ -19,7 +19,7 @@ const faqs: FaqEntry[] = [
     schemaAnswer:
       "LS Diet is a low-starch low-sugar lifestyle paired with the Weight Permanence Triangle, a three part behavioural framework that helps you stop regaining weight. Created by Oscar Poon, it focuses on permanence instead of restart cycles.",
     render: () => (
-      <p className="text-[hsl(0_0%_78%)] leading-relaxed text-base">
+      <p className="text-[hsl(0_0%_20%)] leading-relaxed text-base">
         LS Diet is a low-starch low-sugar lifestyle paired with a three part behavioural framework that helps you stop regaining weight.{" "}
         <a href="/what-is-ls-diet" className="text-accent hover:underline">
           Read the full definition on What Is LS Diet →
@@ -32,7 +32,7 @@ const faqs: FaqEntry[] = [
     schemaAnswer:
       "Most diets work on food alone and ignore the behavioural layers underneath. Without awareness, the same pattern that regained weight last time repeats, and the consequence catches up later. LS Diet adds an awareness layer and a permanence layer so a slip never becomes a full restart.",
     render: () => (
-      <p className="text-[hsl(0_0%_78%)] leading-relaxed text-base">
+      <p className="text-[hsl(0_0%_20%)] leading-relaxed text-base">
         Most diets work on food alone and ignore the behavioural layers underneath. Without awareness, the same patterns repeat and the consequences catch up later. LS Diet adds the layers conventional plans skip.{" "}
         <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
           Read the foundation →
@@ -45,7 +45,7 @@ const faqs: FaqEntry[] = [
     schemaAnswer:
       "Most people notice changes within the first two weeks of practising the low-starch low-sugar lifestyle alongside daily awareness reps. The deeper goal is permanence — building habits that hold up months and years later, not just on the scale on day fourteen.",
     render: () => (
-      <p className="text-[hsl(0_0%_78%)] leading-relaxed text-base">
+      <p className="text-[hsl(0_0%_20%)] leading-relaxed text-base">
         Most people notice changes within the first two weeks of practising the lifestyle alongside daily awareness reps. The deeper goal is permanence — habits that hold up months and years later, not just on the scale on day fourteen.{" "}
         <a href="/awareness-stages" className="text-accent hover:underline">
           Explore the 5 Awareness Stages →
@@ -58,7 +58,7 @@ const faqs: FaqEntry[] = [
     schemaAnswer:
       "Oscar Poon created LS Diet. He lost 80 lbs three times, holds a psychology degree, and spent a decade analysing behavioural patterns as a surgical data consultant. That mix of psychology and pattern analysis shaped the method.",
     render: () => (
-      <p className="text-[hsl(0_0%_78%)] leading-relaxed text-base">
+      <p className="text-[hsl(0_0%_20%)] leading-relaxed text-base">
         Oscar Poon created LS Diet. He{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           lost 80 lbs three times
@@ -86,7 +86,7 @@ export function FAQSection() {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
-      <section id="faq" className="section-dark py-14 md:py-20">
+      <section id="faq" className="py-14 md:py-20">
         <div className="container max-w-3xl mx-auto px-4">
           <div className="text-center mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
