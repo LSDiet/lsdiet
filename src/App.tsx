@@ -18,6 +18,7 @@ import WhatIsLSDietPage from "./pages/WhatIsLSDietPage";
 import WeightPermanenceTrianglePage from "./pages/WeightPermanenceTrianglePage";
 import AwarenessStagesPage from "./pages/AwarenessStagesPage";
 import AboutOscarPoonPage from "./pages/AboutOscarPoonPage";
+import OscarPoonPage from "./pages/OscarPoonPage";
 import CoreFAQPage from "./pages/CoreFAQPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -45,6 +46,7 @@ function AppContent() {
         <Route path="/weight-permanence-triangle" element={<WeightPermanenceTrianglePage />} />
         <Route path="/awareness-stages" element={<AwarenessStagesPage />} />
         <Route path="/about-oscar-poon" element={<AboutOscarPoonPage />} />
+        <Route path="/oscar-poon" element={<OscarPoonPage />} />
         <Route path="/faq" element={<CoreFAQPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
