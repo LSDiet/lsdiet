@@ -7,7 +7,10 @@ import {
   TAXONOMY,
   CONTENT_TYPES,
   DEFAULT_CONTENT_TYPE,
+  CANONICAL_TOPICS,
+  MAX_TOPICS_PER_POST,
   normalizeTag,
+  validateCanonicalTopic,
   extractFallbackTopics,
 } from "./taxonomy.ts";
 
@@ -15,6 +18,7 @@ const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Expose-Headers": "X-Taxonomy-Warnings",
 };
 
 const GATEWAY = "https://connector-gateway.lovable.dev/contentful";
@@ -57,6 +61,18 @@ function dedupe(arr: string[]): string[] {
   return [...new Set(arr)];
 }
 
+function resolveUrlFromRefOrString(
+  raw: unknown,
+  linkedSlugs: Record<string, string>,
+): string | null {
+  if (raw && typeof raw === "object" && (raw as any)?.sys?.id) {
+    const slug = linkedSlugs[(raw as any).sys.id];
+    return slug ? `${SITE}/blog/${slug}` : null;
+  }
+  if (typeof raw === "string" && raw.trim()) return raw.trim();
+  return null;
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response("ok", { headers: CORS });
 
@@ -70,19 +86,20 @@ Deno.serve(async (req) => {
       limit: "1000",
     });
 
-    // Index linked blog posts by ID so we can resolve pillar references to URLs.
+    // Index linked entries by ID so we can resolve references to URLs.
     const linkedSlugs: Record<string, string> = {};
     for (const inc of data.includes?.Entry ?? []) {
       const slug = inc.fields?.slug;
       if (slug && typeof slug === "string") linkedSlugs[inc.sys.id] = slug;
     }
-    // Self-index too, in case a pillar references another post in the main result set.
     for (const item of data.items ?? []) {
       const slug = item.fields?.slug;
       if (slug && typeof slug === "string") linkedSlugs[item.sys.id] = slug;
     }
 
+    const warnings: string[] = [];
     const unknownTagLog: string[] = [];
+
     const inventory = (data.items ?? []).map((item: any) => {
       const f = item.fields ?? {};
       const title = String(f.title ?? "");
@@ -91,35 +108,45 @@ Deno.serve(async (req) => {
       const publishDate = f.publishDate ?? item.sys.createdAt;
       const updatedAt = item.sys.updatedAt;
 
-      // Topics: manual primary, fallback to keyword extraction.
+      // ---- topics (free tags, max 5) ----
       let topics = dedupe(parseTopics(f.topics));
       if (topics.length === 0) topics = extractFallbackTopics(title, excerpt);
-
-      // primaryTopic: manual primary, fallback to first of topics.
-      let primaryTopic = normalizeTag(String(f.primaryTopic ?? ""));
-      if (!primaryTopic) primaryTopic = topics[0] ?? "";
-
-      // Ensure primaryTopic is in topics, prepended.
-      if (primaryTopic) {
-        topics = dedupe([primaryTopic, ...topics]);
+      if (topics.length > MAX_TOPICS_PER_POST) {
+        warnings.push(`${slug}: truncated topics from ${topics.length} to ${MAX_TOPICS_PER_POST}`);
+        topics = topics.slice(0, MAX_TOPICS_PER_POST);
       }
 
-      // contentType: validated enum.
+      // ---- canonicalTopic (single, enum-locked) ----
+      let canonicalTopic = "";
+      const rawCanonical = String(f.canonicalTopic ?? f.primaryTopic ?? "");
+      if (rawCanonical) {
+        const v = validateCanonicalTopic(rawCanonical);
+        if (v.ok) {
+          canonicalTopic = v.value;
+        } else {
+          warnings.push(
+            `${slug}: canonicalTopic "${v.value}" not in CANONICAL_TOPICS` +
+              (v.suggestion ? ` — did you mean "${v.suggestion}"?` : ""),
+          );
+        }
+      }
+
+      // ---- subTopic (optional free text, for fan-outs like Awareness Stages) ----
+      const subTopic = f.subTopic ? normalizeTag(String(f.subTopic)) : null;
+
+      // ---- contentType (validated enum) ----
       let contentType = normalizeTag(String(f.contentType ?? ""));
       if (!CONTENT_TYPES.has(contentType)) contentType = DEFAULT_CONTENT_TYPE;
 
-      // pillarUrl: support either a Reference field (Link to another blogPost)
-      // or a plain Short text URL.
-      let pillarUrl: string | null = null;
-      const pillarRaw = f.pillarUrl ?? f.pillar;
-      if (pillarRaw && typeof pillarRaw === "object" && pillarRaw?.sys?.id) {
-        const refSlug = linkedSlugs[pillarRaw.sys.id];
-        if (refSlug) pillarUrl = `${SITE}/blog/${refSlug}`;
-      } else if (typeof pillarRaw === "string" && pillarRaw.trim()) {
-        pillarUrl = pillarRaw.trim();
-      }
+      // ---- parents[] (future-ready: array today, populated by parentUrl) ----
+      const parentRaw = f.parentUrl ?? f.pillarUrl ?? f.pillar ?? f.parent;
+      const parentUrl = resolveUrlFromRefOrString(parentRaw, linkedSlugs);
+      const parents: string[] = parentUrl ? [parentUrl] : [];
 
-      // Audit drift: log tags not in the controlled vocabulary.
+      // ---- relatedTopics[] (reserved, always present) ----
+      const relatedTopics: string[] = [];
+
+      // Audit drift on free tags.
       for (const t of topics) {
         if (!TAXONOMY.has(t)) unknownTagLog.push(t);
       }
@@ -131,15 +158,35 @@ Deno.serve(async (req) => {
         excerpt,
         publishDate,
         updatedAt,
-        primaryTopic,
+        canonicalTopic,
+        subTopic,
         topics,
         contentType,
-        pillarUrl,
+        parentUrl,       // back-compat: singular
+        parents,         // future-proof: array
+        relatedTopics,   // reserved
       };
     });
 
+    // Detect duplicate foundations under the same parent.
+    const foundationsByParent = new Map<string, string[]>();
+    for (const p of inventory) {
+      if (p.contentType !== "pillar" || !p.parentUrl) continue;
+      const arr = foundationsByParent.get(p.parentUrl) ?? [];
+      arr.push(p.slug);
+      foundationsByParent.set(p.parentUrl, arr);
+    }
+    for (const [parent, slugs] of foundationsByParent) {
+      if (slugs.length > 1) {
+        warnings.push(`duplicate foundations under ${parent}: ${slugs.join(", ")}`);
+      }
+    }
+
     if (unknownTagLog.length > 0) {
       console.log("blog-index: unknown tags encountered", [...new Set(unknownTagLog)]);
+    }
+    if (warnings.length > 0) {
+      console.log("blog-index: governance warnings", warnings);
     }
 
     return new Response(JSON.stringify(inventory, null, 2), {
@@ -149,6 +196,7 @@ Deno.serve(async (req) => {
         "Content-Type": "application/json; charset=utf-8",
         "Cache-Control": "public, max-age=300, s-maxage=600",
         "X-Content-Type-Options": "nosniff",
+        "X-Taxonomy-Warnings": String(warnings.length),
       },
     });
   } catch (err) {
