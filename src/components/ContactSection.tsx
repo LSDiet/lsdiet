@@ -49,7 +49,7 @@ export function ContactSection() {
             <h2 className="text-3xl md:text-4xl font-extrabold uppercase tracking-tight mb-4">
               We'd Love to <span className="text-accent">Hear</span> From You
             </h2>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-[hsl(0_0%_22%)] text-sm">
               Fill out the form below and we'll get back to you as soon as possible.
             </p>
           </div>
@@ -94,7 +94,7 @@ export function ContactSection() {
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-muted-foreground text-xs">Or email us directly at</p>
+            <p className="text-[hsl(0_0%_22%)] text-xs">Or email us directly at</p>
             <a
               href="mailto:info@LSDiet.com"
               className="inline-flex items-center gap-2 mt-2 text-accent hover:underline font-medium text-sm transition-colors"

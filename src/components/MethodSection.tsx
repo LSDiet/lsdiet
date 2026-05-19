@@ -44,7 +44,7 @@ function AwarenessStagesDialog({
               </span>
               <div>
                 <p className="text-sm font-semibold text-foreground">{s.stage}</p>
-                <p className="text-xs text-muted-foreground" dangerouslySetInnerHTML={{ __html: s.desc }} />
+                <p className="text-xs text-[hsl(0_0%_22%)]" dangerouslySetInnerHTML={{ __html: s.desc }} />
               </div>
             </li>
           ))}
@@ -110,7 +110,7 @@ function TriangleDiagram() {
       <div className="hidden md:block">
         <div className="text-center mb-3">
           <VertexLabel icon={Eye} number={1} label="Awareness" color="primary" />
-          <p className="text-xs text-muted-foreground mt-2 mb-1">
+          <p className="text-xs text-[hsl(0_0%_22%)] mt-2 mb-1">
             Creates clarity and motivation
           </p>
           <button
@@ -125,13 +125,13 @@ function TriangleDiagram() {
         <div className="grid grid-cols-[1fr_2fr_1fr] items-center gap-6">
           <div className="text-left">
             <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
-            <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+            <p className="text-xs text-[hsl(0_0%_22%)] mt-2 mb-1.5">
               Builds the right daily choices
             </p>
             <ul className="space-y-1 text-left">
-              <li className="text-[11px] text-muted-foreground whitespace-nowrap">• Adopt a low-starch, low-sugar lifestyle</li>
-              <li className="text-[11px] text-muted-foreground pl-[0.6em] indent-[-0.6em]">• Adapt your diet without abandoning your culture or social life</li>
-              <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
+              <li className="text-[11px] text-[hsl(0_0%_22%)] whitespace-nowrap">• Adopt a low-starch, low-sugar lifestyle</li>
+              <li className="text-[11px] text-[hsl(0_0%_22%)] pl-[0.6em] indent-[-0.6em]">• Adapt your diet without abandoning your culture or social life</li>
+              <li className="text-[11px] text-[hsl(0_0%_22%)]">• Turn every obstacle into opportunity</li>
             </ul>
           </div>
 
@@ -163,13 +163,13 @@ function TriangleDiagram() {
 
           <div className="text-left">
             <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
-            <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+            <p className="text-xs text-[hsl(0_0%_22%)] mt-2 mb-1.5">
               Protects new habits when life gets hard
             </p>
             <ul className="space-y-1 text-left">
-              <li className="text-[11px] text-muted-foreground">• Create a psychological anchor</li>
-              <li className="text-[11px] text-muted-foreground">• Build an internal alert system</li>
-              <li className="text-[11px] text-muted-foreground pl-[0.6em] indent-[-0.6em]">• Prompt course correction back to your LS lifestyle</li>
+              <li className="text-[11px] text-[hsl(0_0%_22%)]">• Create a psychological anchor</li>
+              <li className="text-[11px] text-[hsl(0_0%_22%)]">• Build an internal alert system</li>
+              <li className="text-[11px] text-[hsl(0_0%_22%)] pl-[0.6em] indent-[-0.6em]">• Prompt course correction back to your LS lifestyle</li>
             </ul>
           </div>
         </div>
@@ -178,7 +178,7 @@ function TriangleDiagram() {
       <div className="md:hidden space-y-8">
         <div className="text-center">
           <VertexLabel icon={Eye} number={1} label="Awareness" color="primary" />
-          <p className="text-xs text-muted-foreground mt-2 mb-1">
+          <p className="text-xs text-[hsl(0_0%_22%)] mt-2 mb-1">
             Creates clarity and motivation
           </p>
           <button
@@ -191,24 +191,24 @@ function TriangleDiagram() {
         </div>
         <div className="text-center">
           <VertexLabel icon={Activity} number={2} label="Practice" color="accent" />
-          <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+          <p className="text-xs text-[hsl(0_0%_22%)] mt-2 mb-1.5">
             Builds the right daily choices
           </p>
           <ul className="space-y-1 text-center">
-            <li className="text-[11px] text-muted-foreground">• Adopt a low-starch, low-sugar lifestyle</li>
-            <li className="text-[11px] text-muted-foreground">• Adapt your diet without abandoning your culture or social life</li>
-            <li className="text-[11px] text-muted-foreground">• Turn every obstacle into opportunity</li>
+            <li className="text-[11px] text-[hsl(0_0%_22%)]">• Adopt a low-starch, low-sugar lifestyle</li>
+            <li className="text-[11px] text-[hsl(0_0%_22%)]">• Adapt your diet without abandoning your culture or social life</li>
+            <li className="text-[11px] text-[hsl(0_0%_22%)]">• Turn every obstacle into opportunity</li>
           </ul>
         </div>
         <div className="text-center">
           <VertexLabel icon={Lock} number={3} label="Permanence" color="secondary" />
-          <p className="text-xs text-muted-foreground mt-2 mb-1.5">
+          <p className="text-xs text-[hsl(0_0%_22%)] mt-2 mb-1.5">
             Protects new habits when life gets hard
           </p>
           <ul className="space-y-1 text-center">
-            <li className="text-[11px] text-muted-foreground">• Create a psychological anchor</li>
-            <li className="text-[11px] text-muted-foreground">• Build an internal alert system</li>
-            <li className="text-[11px] text-muted-foreground">• Prompt course correction back to your LS lifestyle</li>
+            <li className="text-[11px] text-[hsl(0_0%_22%)]">• Create a psychological anchor</li>
+            <li className="text-[11px] text-[hsl(0_0%_22%)]">• Build an internal alert system</li>
+            <li className="text-[11px] text-[hsl(0_0%_22%)]">• Prompt course correction back to your LS lifestyle</li>
           </ul>
         </div>
       </div>
@@ -229,7 +229,7 @@ export function MethodSection() {
           </h2>
         </div>
 
-        <div className="max-w-3xl mx-auto mb-12 space-y-4 text-[hsl(0_0%_78%)] leading-relaxed text-base md:text-lg">
+        <div className="max-w-3xl mx-auto mb-12 space-y-4 text-[hsl(0_0%_15%)] leading-relaxed text-base md:text-lg">
           <p>
             The <strong className="text-foreground">Weight Permanence Triangle™</strong> is the core framework
             inside LS Diet. It connects three pillars — <span className="text-accent">Awareness</span>,{" "}
