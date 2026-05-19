@@ -1,73 +1,74 @@
-## Goal
+## Edits to BookSection.tsx
 
-Replace the outdated "Coming Soon — FREE 7-Day LS Diet Course" section with a launched-course showcase that uses your two new Skool screenshots and reflects the actual structure (Start Here, Action Practice, Tools).
+1. **Remove Early Member Bonus** card; collapse the two-column grid into a single centered features list.
+2. **Rename CTA** to `Join LS Diet` here and across all CTA buttons on the homepage (HeroSection, JoinFloatingBar, ContactSection, WaitlistModal trigger, StickyCountdown, CinematicIntro). Navigation links and inline text links are left alone.
+3. Replace `12 practice lessons you can start today` with `25+ practice lessons you can start today for free`.
+4. Replace the subhead with: `Build your push and pull motivations, replace old habits with daily actions, and see results in two weeks!`
 
-## Files affected
+Copy rule applied throughout the rewrites below: no hyphens anywhere except the locked phrase `low-starch low-sugar`. So "long term" stays open, "course correction" stays open, "high intent" stays open, etc.
 
-- `src/components/BookSection.tsx` — full rewrite of layout and copy
-- `src/assets/skool-course-tracks.png` — NEW (copied from `user-uploads://image-117.png`)
-- `src/assets/skool-action-practice.png` — NEW (copied from `user-uploads://image-116.png`)
-- `src/components/HeroSection.tsx` — drop "7-Day" from any hero references
-- `src/components/JoinFloatingBar.tsx` — drop "7-Day" if present
-- `src/pages/Index.tsx` SEO copy — drop "7-Day" if present
-- `mem://features/course-offering` — update memory (course is live, no 7-day label)
+## Question 5 — yes, redesign both sections, with maximum natural interlinking
 
-## New section structure
+The foundations library now defines the same concepts these two sections currently re-explain. Leaving them as is creates duplicate definitions Google has to choose between, and gives readers no path into the deeper content. Below is a denser interlink plan than the first draft, only using links where the anchor text genuinely matches the destination's topic.
 
-```text
-┌───────────────────────────────────────────────────────────┐
-│  NOW LIVE ON SKOOL                                        │
-│  The Free LS Diet Course                                  │
-│  Subhead: 3 tracks. Train the habits that stop weight     │
-│  regain — guided by Oscar, free to join.                  │
-│                                                           │
-│  [ Horizontal screenshot of 3 course tracks ]             │  ← image-117
-│   START HERE   |   ACTION PRACTICE   |   TOOLS            │
-│                                                           │
-│  3 short blurbs under the image, one per track:           │
-│   • Start Here — why weight regain happens + how LS Diet  │
-│                  stops it                                 │
-│   • Action Practice — daily habits & mental patterns      │
-│                  that make LS Diet automatic              │
-│   • Tools — eBooks & blogs published by Oscar             │
-│                                                           │
-│  ── Inside Action Practice ──                             │
-│  [ Screenshot of Action Practice classroom ]              │  ← image-116
-│  Caption: 12 practice lessons — hydration, triggers,      │
-│  pattern interruption, food labels, friction reduction,   │
-│  social eating, habit thinking, and more.                 │
-│                                                           │
-│  [ Early-access bonus box — kept, lightly reworded ]      │
-│  [ CTA: JOIN LS DIET ON SKOOL (FREE) → skool.com/lsdiet ] │
-└───────────────────────────────────────────────────────────┘
-```
+### A. WhyDietsFailSection rewrite
 
-The old laptop mockup with the fake 7-day lesson list is removed — replaced by real product screenshots, which are more credible now that the course actually exists.
+Tighten to two short paragraphs plus a three card row. Every bolded phrase below becomes an inline link.
 
-## Copy changes
+Paragraph 1 anchors:
+- "restart cycle" → `/blog/why-people-regain-weight-after-dieting`
+- "low-starch low-sugar" → `/what-is-ls-diet`
+- "behavioural infrastructure" → `/weight-permanence-triangle`
 
-- Eyebrow: `Coming Soon` → `Now Live on Skool`
-- H2: `FREE 7-Day LS Diet Course` → `The Free LS Diet Course` (with `FREE` in accent)
-- Feature bullets pruned/rewritten to reflect the real product:
-  - All lessons are short videos — no reading required
-  - 3 tracks: Start Here, Action Practice, Tools
-  - Weekly live webinar hosted by Oscar
-  - Community of members training the same habits
-  - 100% free to join
-- CTA button: `JOIN LS DIET (FREE)` → `JOIN LS DIET ON SKOOL (FREE)` (link unchanged)
-- Remove the `Week 1 / Week 2` and `7-day` phrasing wherever it appears site-wide.
+Paragraph 2 anchors:
+- "five stages of awareness" → `/awareness-stages`
+- "daily action practice" → `/blog/action-practice`
+- "Oscar Poon" → `/oscar-poon`
 
-## Technical notes
+Three card row titled "Where diets actually break":
+1. The food layer alone is not enough → `/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting`
+2. Awareness is the missing motivation engine → `/blog/reality-awareness`
+3. Permanence is what stops the next regain → `/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight`
 
-- Copy uploaded images into `src/assets/` and import as ES6 modules (per project convention).
-- `image-117` (tracks) renders as a single wide image with a subtle ring/shadow on dark bg; clickable, opens Skool in a new tab.
-- `image-116` (Action Practice) renders below as a secondary card with caption; also clickable to Skool.
-- Both images get descriptive `alt` text for SEO ("LS Diet course on Skool: Start Here, Action Practice, Tools" / "Action Practice classroom on Skool — How much water should you drink?").
-- Keep the existing `WaitlistModal` import only if still used; otherwise remove. CTA points directly to `https://www.skool.com/lsdiet/about` (unchanged).
-- No changes to layout grid breakpoints beyond what the new single-column-with-image-stack requires; mobile keeps stacked order.
+That is nine contextual outbound links from one section, all naturally placed, each pointing to a different canonical destination so no link cannibalises another.
 
-## Out of scope
+### B. FAQSection rewrite
 
-- No backend / waitlist / Cloud changes.
-- No countdown clock changes (already removed from Index).
-- No new pages.
+Keep `FAQPage` JSON-LD. Trim to four questions whose answers each end with a "Read more" sentence that links to a different foundation or hub, so every answer carries its own deep link:
+
+1. **What is LS Diet?**
+   Answer ends with: Read the full definition on `What Is LS Diet` → `/what-is-ls-diet`.
+   Inline anchor inside the answer: "low-starch low-sugar lifestyle" → `/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting`.
+
+2. **Why do people keep regaining the weight?**
+   Inline anchors: "pattern that repeats" → `/blog/pattern-awareness`, "consequence catches up later" → `/blog/consequence-awareness`.
+   Closing link: Read the foundation → `/blog/why-people-regain-weight-after-dieting`.
+
+3. **What is the Weight Permanence Triangle?**
+   Inline anchors: "awareness" → `/awareness-stages`, "practice" → `/blog/action-practice`, "permanence" → `/blog/identity-awareness`.
+   Closing link: Read the foundation → `/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight`.
+
+4. **Who created LS Diet?**
+   Inline anchor: "lost 80 lbs three times" → `/oscar-poon`.
+   Closing link: Read his story → `/oscar-poon`.
+
+Below the four questions, add a "Keep exploring" inline link row (semantic `<nav>`):
+- LS Foundations → `/blog`
+- 5 Stages of Awareness → `/awareness-stages`
+- Friction Awareness → `/blog/friction-awareness`
+- Action Practice → `/blog/action-practice`
+- About Oscar Poon → `/oscar-poon`
+
+Keep the existing `See the full LS Diet FAQ` link to `/faq`.
+
+### Total new contextual backlinks added to `/`
+
+Roughly 18 to 20 unique outbound contextual links, covering every foundation slug (`why-people-regain-weight-after-dieting`, `why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting`, `the-weight-permanence-triangle-how-to-stop-regaining-weight`, `reality-awareness`, `friction-awareness`, `pattern-awareness`, `consequence-awareness`, `identity-awareness`, `action-practice`) plus all three hub pages (`/what-is-ls-diet`, `/weight-permanence-triangle`, `/awareness-stages`) and the `/oscar-poon` author entity. No slug is left orphaned from the homepage, and every link sits inside a sentence where it makes sense to a reader.
+
+### Files touched
+- `src/components/BookSection.tsx` (edits 1 to 4)
+- `src/components/WhyDietsFailSection.tsx` (rewrite)
+- `src/components/FAQSection.tsx` (rewrite)
+- `src/components/HeroSection.tsx`, `JoinFloatingBar.tsx`, `ContactSection.tsx`, `WaitlistModal.tsx`, `StickyCountdown.tsx`, `CinematicIntro.tsx` (CTA label sweep only)
+
+No new components, no schema changes, no route changes.
