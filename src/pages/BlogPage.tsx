@@ -77,7 +77,7 @@ export default function BlogPage() {
     };
   }, []);
 
-  const foundations = (posts ?? []).filter((p) => FOUNDATION_TYPES.has(p.contentType));
+  // Foundations are rendered by FoundationsCurriculum from its own source.
   const supporting = (posts ?? []).filter((p) => SUPPORTING_TYPES.has(p.contentType));
 
   const collectionSchema = {
