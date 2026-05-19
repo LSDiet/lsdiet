@@ -12,7 +12,9 @@ import { FOUNDATIONS } from "@/content/foundations";
 interface SubRow {
   label: string;     // e.g. "3.1"
   title: string;
-  slug: string | null;
+  slug: string | null; // pre-assigned expected slug; lit up when foundation lands
+  excerpt?: string;
+  thumb?: string | null;
 }
 
 interface CurriculumRow {
@@ -35,32 +37,52 @@ const PLACEHOLDERS: CurriculumRow[] = [
     slug: null, // master pillar, coming soon
     thumb: null,
     children: [
-      { label: "3.1", title: "Reality Awareness", slug: null },
-      { label: "3.2", title: "Friction Awareness", slug: null },
-      { label: "3.3", title: "Pattern Awareness", slug: null },
-      { label: "3.4", title: "Consequence Awareness", slug: null },
-      { label: "3.5", title: "Identity Awareness", slug: null },
-      { label: "3.6", title: "Action Practice", slug: null },
+      { label: "3.1", title: "Reality Awareness", slug: "reality-awareness" },
+      { label: "3.2", title: "Friction Awareness", slug: "friction-awareness" },
+      { label: "3.3", title: "Pattern Awareness", slug: "pattern-awareness" },
+      { label: "3.4", title: "Consequence Awareness", slug: "consequence-awareness" },
+      { label: "3.5", title: "Identity Awareness", slug: "identity-awareness" },
+      { label: "3.6", title: "Action Practice", slug: "action-practice" },
     ],
   },
 ];
 
 function buildRows(): CurriculumRow[] {
-  const real: CurriculumRow[] = FOUNDATIONS.map((f) => {
+  // Treat any foundation whose order is a whole integer as a top-level row.
+  // Sub-pillars (e.g. 3.1) light up the matching child in PLACEHOLDERS by slug.
+  const topLevel = FOUNDATIONS.filter((f) => Number.isInteger(f.meta.order));
+  const liveSlugs = new Map(FOUNDATIONS.map((f) => [f.meta.slug, f]));
+
+  const real: CurriculumRow[] = topLevel.map((f) => {
     const placeholder = PLACEHOLDERS.find((p) => p.order === f.meta.order);
+    const children = placeholder?.children?.map<SubRow>((c) => {
+      const live = c.slug ? liveSlugs.get(c.slug) : undefined;
+      return {
+        ...c,
+        slug: live ? c.slug : null,
+        excerpt: live?.meta.excerpt,
+      };
+    });
     return {
       order: f.meta.order,
       title: f.meta.listTitle ?? f.meta.title,
       excerpt: f.meta.excerpt,
       slug: f.meta.slug,
       thumb: f.meta.featuredImage.src,
-      // Carry forward sub-pillar children (e.g. WPT becomes live but still
-      // owns its 6 sub-pillars).
-      children: placeholder?.children,
+      children,
     };
   });
   const realOrders = new Set(real.map((r) => r.order));
-  const merged = [...real, ...PLACEHOLDERS.filter((p) => !realOrders.has(p.order))];
+  const merged = [
+    ...real,
+    ...PLACEHOLDERS.filter((p) => !realOrders.has(p.order)).map((p) => ({
+      ...p,
+      children: p.children?.map<SubRow>((c) => {
+        const live = c.slug ? liveSlugs.get(c.slug) : undefined;
+        return { ...c, slug: live ? c.slug : null, excerpt: live?.meta.excerpt };
+      }),
+    })),
+  ];
   merged.sort((a, b) => a.order - b.order);
   return merged;
 }

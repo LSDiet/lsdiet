@@ -2,12 +2,14 @@
 import whyPeopleRegainWeight from "./why-people-regain-weight-after-dieting";
 import whyLsIsSustainable from "./why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting";
 import weightPermanenceTriangle from "./the-weight-permanence-triangle-how-to-stop-regaining-weight";
+import realityAwareness from "./reality-awareness";
 import type { Foundation } from "./types";
 
 export const FOUNDATIONS: Foundation[] = [
   whyPeopleRegainWeight,
   whyLsIsSustainable,
   weightPermanenceTriangle,
+  realityAwareness,
 ];
 
 export function getFoundationBySlug(slug: string): Foundation | undefined {
