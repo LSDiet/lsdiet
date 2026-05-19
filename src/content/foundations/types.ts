@@ -19,6 +19,10 @@ export interface FoundationFeaturedImage {
 export interface FoundationMeta {
   slug: string;
   title: string;
+  /** Optional shorter title for the curriculum list on /blog. Falls back to `title`. */
+  listTitle?: string;
+  /** Manual curriculum order (lower = earlier). Used by FoundationsCurriculum. */
+  order: number;
   excerpt: string;
   metaDescription: string;
   publishDate: string;     // ISO 8601

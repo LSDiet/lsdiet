@@ -1,78 +1,93 @@
-# Semantic Content Architecture — Plan v5
+## Goal
 
-## Two-System Architecture (locked)
+Make the **LS Diet Foundations** section read as a guided framework / "start here" curriculum — title-dominant horizontal rows in a fixed manual order — while leaving **Real Life Weight Questions** completely unchanged.
 
-The blog runs on **two distinct publishing systems**, chosen by content tier:
+## What changes
 
-| Tier                         | System                | Why                                                                 |
-| ---                          | ---                   | ---                                                                 |
-| **Foundations** (pillars, entity hubs) | Code-managed (`src/content/foundations`) | Long-term semantic authority. Full control over URLs, schema, interlinking, hierarchy, governance. |
-| **Real Life Weight Questions** (supporting, comparison, FAQ) | Contentful | High-volume publishing workflow. Editorial speed, no deploy needed. |
+### 1. Manual ordering for foundations
 
-Foundations are written by ChatGPT and implemented directly into the codebase by Lovable. Contentful is reserved for the future high-volume supporting-article workflow.
+Add an `order: number` field to `FoundationMeta` (in `src/content/foundations/types.ts`). Lower = earlier in the curriculum. Sort happens once at the consumer; never by date.
 
----
+Assign:
+1. `why-people-regain-weight-after-dieting` → order 1
+2. `why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting` → order 2 (display title in the list: **"Low-Starch, Low-Sugar (LS) Foundations"**)
+3. `weight-permanence-triangle` → order 3 *(placeholder row — see §4)*
+4. `the-5-awareness-stages` → order 4 *(placeholder row)*
+5. `action-practice-examples` → order 5 *(placeholder row)*
 
-## Why this split
+The two existing foundation files keep their full canonical titles for SEO/JSON-LD; the curriculum list can show a shorter `listTitle` override (new optional field on `FoundationMeta`) when the canonical title is too long for a row.
 
-An entity hub is an orchestration layer — it summarizes, curates, and maps relationships between existing pillars. The semantic authority layer (foundations + hubs) cannot drift, must have deterministic URLs, and must control its own JSON-LD. Putting that in a CMS introduces:
+### 2. New component: `FoundationsCurriculum`
 
-- editorial risk (slug renames, accidental unpublish)
-- schema drift
-- a separate place to maintain interlinking logic
-- a content type only Oscar can author safely
+Create `src/components/FoundationsCurriculum.tsx`. Replaces the foundations branch inside `BlogPage`'s `BlogSection` call.
 
-By keeping foundations in code, every pillar ships with its taxonomy, parents, related topics, FAQ schema, and `RelatedFoundations` wiring already verified by TypeScript and the build pipeline.
+Row anatomy (desktop ≥ md):
 
----
+```text
+┌──────────────────────────────────────────────────────────────────┐
+│ 01 │ [thumb] │ TITLE (xl, bold, uppercase)                    →  │
+│    │  56x56  │ one-line excerpt (sm, muted, truncate)            │
+└──────────────────────────────────────────────────────────────────┘
+```
 
-## Implementation status
+- Big amber number `01`–`05` on the far left (`text-2xl font-extrabold text-accent tabular-nums`, fixed width).
+- Square thumbnail `h-14 w-14` (56px) rounded, `object-cover`, never stacks above the title.
+- Title is the dominant element: `text-lg md:text-xl font-extrabold uppercase tracking-tight`.
+- Excerpt: `text-sm text-zinc-600 line-clamp-1` (desktop) / hidden on mobile to keep rows tight.
+- Right arrow `→` (lucide `ArrowRight`) appears on hover.
+- Row: `flex items-center gap-4 py-3 border-b border-border last:border-0`, hover → `bg-accent/5`.
+- Whole row is one `<a href="/blog/{slug}">`.
 
-### Built
-- `src/content/foundations/types.ts` — `Foundation` contract (meta + Body component).
-- `src/content/foundations/index.ts` — registry + `getFoundationBySlug`.
-- `src/content/foundations/why-people-regain-weight-after-dieting.tsx` — first pillar.
-- `src/lib/blogIndex.ts` — merges foundations into the index so `RelatedFoundations` and `/blog` see them.
-- `src/pages/BlogPostPage.tsx` — foundation lookup runs first; Contentful is the fallback.
-- `src/pages/BlogPage.tsx` — Foundations grid now sources from the code registry.
-- `src/components/RelatedFoundations.tsx` — already in place, fed by the merged index.
-- `supabase/functions/blog-index/taxonomy.ts` — added `behavioural-permanence`, `consistency`, `emotional-eating`, `dieting-psychology`.
-- `public/sitemap-pages.xml` — first foundation URL added at priority 0.9.
-- `public/llms.txt` — first foundation referenced for AI discovery.
+Mobile (`< md`):
+- Thumbnail shrinks to `h-10 w-10` (40px), still left-aligned, never above title.
+- Excerpt hidden.
+- Number stays visible but `text-lg`.
+- Result: each row ≈ 56px tall → all 5 rows fit in ~300px, well above the fold at 640×571.
 
-### Adding a new foundation (recipe)
-1. Create `src/content/foundations/<slug>.tsx` exporting a `Foundation` default.
-2. Add it to `FOUNDATIONS` in `src/content/foundations/index.ts`.
-3. Add the canonical URL to `public/sitemap-pages.xml`.
-4. Add a one-line entry under "Pages" in `public/llms.txt`.
-5. If the post needs new free tags, add them to `taxonomy.ts` first.
+### 3. Section framing
 
-That's it — no Contentful entry, no Management API, no manual schema work. The `RelatedFoundations` block auto-discovers siblings via shared `canonicalTopic`.
+Above the list:
+- Small eyebrow: **"START HERE"** in amber, `text-xs font-semibold uppercase tracking-[0.18em]`.
+- Heading: **"LS Diet Framework"** (replaces "LS Diet Foundations" as the section title).
+- Sub: "Read these in order. Each one builds on the last."
 
----
+No card wrapper around individual rows — rows sit directly on the page background separated by thin borders. This is what kills the "blog feed" feel.
 
-## Phase B — Entity Hub Construction (deferred)
+### 4. Placeholder rows for unbuilt pillars
 
-Triggered when ≥3 foundations share `canonicalTopic: stop-weight-regain` (or on your call).
+Rows 3–5 don't have content yet. Two options — recommending **(a)** so the curriculum looks complete from day one:
 
-The `/topics/stop-weight-regain` hub is also code-managed (same `Foundation` contract, `contentType: "entity-hub"`). When built, it will:
-- live at `/topics/stop-weight-regain` (new route)
-- pin curated foundation links in narrative order
-- auto-feed via `RelatedFoundations` for everything sharing the canonical topic
-- emit `CollectionPage` JSON-LD with `about` → Oscar Poon `@id`
+(a) Render placeholder rows with a "Coming soon" badge (`text-[10px] uppercase bg-muted text-muted-foreground px-2 py-0.5 rounded`), no link, muted opacity (`opacity-60 cursor-default`). Define them inline in `FoundationsCurriculum` as a fallback list merged with real foundations by `order`.
 
-Pillar `parentUrl` already points at the future hub URL — no backfill needed when it ships.
+(b) Only show the 2 real ones. Loses the curriculum feel.
 
----
+Going with **(a)** unless you say otherwise.
 
-## Phase C — Supporting Fan-out (Contentful)
+### 5. BlogPage wiring
 
-Once foundations exist, search-intent supporting posts (`contentType: supporting`) are authored in Contentful, with `parentUrl` pointing at their parent pillar (not the hub). This is the high-volume workflow Contentful was kept for.
+In `src/pages/BlogPage.tsx`:
+- Replace the first `<BlogSection ... posts={foundations} />` call with `<FoundationsCurriculum posts={foundations} />`.
+- Keep the second `<BlogSection ... posts={supporting} />` call **exactly as-is**.
+- Keep `collectionSchema` unchanged.
 
----
+### 6. Sort behaviour
 
-## What's not changing
-- 6 locked canonical topics, governance in `GOVERNANCE.md`, slug immutability.
-- `/oscar-poon` author entity, site-wide byline + JSON-LD `@id`.
-- `/blog` Foundations / Real Life split.
-- The `blog-index` JSON contract.
+`fetchBlogIndex` / `BlogPage` currently sort by `publishDate desc`. Leave that for `supporting`. For `foundations`, sort by `order asc` inside `FoundationsCurriculum` (don't rely on the page-level sort).
+
+## What does NOT change
+
+- `BlogSection` component and Real Life Weight Questions rendering — untouched.
+- Individual blog post pages (`BlogPostPage`) — untouched.
+- `RelatedFoundations` component — untouched (it already uses its own card style on post pages, not in the index).
+- JSON-LD, sitemap, llms.txt, taxonomy — untouched.
+- Foundation post content files themselves — only metadata gets `order` (+ optional `listTitle`).
+
+## Files touched
+
+- `src/content/foundations/types.ts` — add `order: number` and optional `listTitle?: string`.
+- `src/content/foundations/why-people-regain-weight-after-dieting.tsx` — add `order: 1`.
+- `src/content/foundations/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting.tsx` — add `order: 2`, `listTitle: "Low-Starch, Low-Sugar (LS) Foundations"`.
+- `src/components/FoundationsCurriculum.tsx` — new.
+- `src/pages/BlogPage.tsx` — swap foundations section, update eyebrow/heading copy.
+
+No backend, no edge function, no schema, no new dependencies.

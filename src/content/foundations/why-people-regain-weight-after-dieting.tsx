@@ -29,6 +29,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption?: str
 const meta: Foundation["meta"] = {
   slug: "why-people-regain-weight-after-dieting",
   title: "Why People Regain Weight After Dieting",
+  order: 1,
   excerpt:
     "Most people don't actually fail to lose weight; instead, they find it more challenging to maintain their weight loss. This article shares insights into why weight regain happens so often, why temporary bursts of motivation tend to fade, and how the LS Diet emphasizes creating lasting habits rather than just short-term dieting spikes.",
   metaDescription:

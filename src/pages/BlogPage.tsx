@@ -7,13 +7,13 @@ import { Button } from "@/components/ui/button";
 import { listBlogPosts, formatPublishDate, type BlogPost } from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
 import { FOUNDATIONS } from "@/content/foundations";
+import { FoundationsCurriculum } from "@/components/FoundationsCurriculum";
 
 type EnrichedPost = BlogPost & {
   contentType: BlogIndexEntry["contentType"];
   canonicalTopic: string;
 };
 
-const FOUNDATION_TYPES = new Set(["pillar", "entity-hub"]);
 const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
 
 // Convert code-managed foundations to the BlogPost shape so they render in the grid.
@@ -76,7 +76,7 @@ export default function BlogPage() {
     };
   }, []);
 
-  const foundations = (posts ?? []).filter((p) => FOUNDATION_TYPES.has(p.contentType));
+  // Foundations are rendered by FoundationsCurriculum from its own source.
   const supporting = (posts ?? []).filter((p) => SUPPORTING_TYPES.has(p.contentType));
 
   const collectionSchema = {
@@ -149,13 +149,7 @@ export default function BlogPage() {
 
         {posts && posts.length > 0 && (
           <div className="space-y-16">
-            <BlogSection
-              eyebrow="Pillar Articles"
-              title="LS Diet Foundations"
-              description="Deep articles on the LS Diet system — the principles that make weight loss permanent."
-              posts={foundations}
-              emptyMessage="Foundation articles coming soon."
-            />
+            <FoundationsCurriculum />
             <BlogSection
               eyebrow="Search-driven articles"
               title="Real Life Weight Questions"

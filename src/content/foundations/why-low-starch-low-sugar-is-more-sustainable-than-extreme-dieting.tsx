@@ -6,6 +6,8 @@ import type { Foundation } from "./types";
 const meta: Foundation["meta"] = {
   slug: "why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting",
   title: "Why Low-Starch, Low-Sugar Is More Sustainable Than Extreme Dieting",
+  listTitle: "Low-Starch, Low-Sugar (LS) Foundations",
+  order: 2,
   excerpt:
     "Many diets often don't succeed because they focus on restriction, hunger, and short-term motivation. This helpful LS Diet article explains how eating low in starch and sugar can help reduce insulin levels, ease psychological stress, and make weight loss easier to maintain over the long run.",
   metaDescription:
