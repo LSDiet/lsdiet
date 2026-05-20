@@ -527,6 +527,16 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
     href: `/blog/${a.meta.slug}`,
   }));
 
+  const midSlugSet = new Set(related.slice(0, 4).map((a) => a.meta.slug));
+  const footerRelated = useMemo(() => {
+    const exclude = new Set<string>([
+      ...pathwaySlugSet(pathway),
+      ...midSlugSet,
+    ]);
+    return getRelatedArticles(article, exclude, 4);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [article, pathway]);
+
   useLayoutEffect(() => {
     const wrapper = bodyRef.current;
     if (!wrapper) return;
