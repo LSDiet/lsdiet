@@ -6,7 +6,15 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
-import { fetchBlogPost, formatPublishDate, type BlogPost } from "@/lib/blog";
+import {
+  fetchBlogPost,
+  fetchPostsByCategory,
+  formatPublishDate,
+  formatUpdatedShort,
+  listBlogPosts,
+  type BlogPost,
+  type RelatedPostLite,
+} from "@/lib/blog";
 import { RichText } from "@/lib/contentfulRenderers";
 import { ShareButtons } from "@/components/ShareButtons";
 import { AboutAuthorBlock } from "@/components/AboutAuthorBlock";
@@ -28,6 +36,7 @@ import { readingTimeMinutes } from "@/lib/readingTime";
 type ViewModel = {
   source: "foundation" | "contentful" | "article";
   title: string;
+  seoTitle: string;
   slug: string;
   excerpt: string;
   publishDate: string;
@@ -38,6 +47,8 @@ type ViewModel = {
   imageWidth?: number;
   imageHeight?: number;
   faqs?: { q: string; a: string }[];
+  category?: string;
+  categorySlug?: string;
   foundation?: Foundation;
   contentful?: BlogPost;
   article?: Article;
@@ -47,6 +58,7 @@ function fromFoundation(f: Foundation): ViewModel {
   return {
     source: "foundation",
     title: f.meta.title,
+    seoTitle: f.meta.title,
     slug: f.meta.slug,
     excerpt: f.meta.excerpt,
     publishDate: f.meta.publishDate,
@@ -62,18 +74,26 @@ function fromFoundation(f: Foundation): ViewModel {
 }
 
 function fromContentful(p: BlogPost): ViewModel {
+  const seoTitle = p.seoTitle?.trim() || p.title;
+  const metaDescription =
+    p.metaDescription?.trim() ||
+    p.excerpt ||
+    `${p.title} — by Oscar Poon on the LS Diet blog.`;
   return {
     source: "contentful",
     title: p.title,
+    seoTitle,
     slug: p.slug,
     excerpt: p.excerpt,
     publishDate: p.publishDate,
     updatedAt: p.updatedAt,
-    metaDescription: p.excerpt || `${p.title} — by Oscar Poon on the LS Diet blog.`,
+    metaDescription,
     image: p.featuredImage?.url ?? "https://lsdiet.com/og-image.jpg",
     imageAlt: p.featuredImage?.title || p.title,
     imageWidth: p.featuredImage?.width,
     imageHeight: p.featuredImage?.height,
+    category: p.category,
+    categorySlug: p.categorySlug,
     contentful: p,
   };
 }
@@ -82,6 +102,7 @@ function fromArticle(a: Article): ViewModel {
   return {
     source: "article",
     title: a.meta.title,
+    seoTitle: a.meta.title,
     slug: a.meta.slug,
     excerpt: a.meta.excerpt,
     publishDate: a.meta.publishDate,
@@ -183,6 +204,7 @@ export default function BlogPostPage() {
     description: vm.metaDescription,
     image: vm.image,
     url,
+    inLanguage: "en-CA",
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     datePublished: vm.publishDate,
     dateModified: vm.updatedAt,
@@ -193,6 +215,7 @@ export default function BlogPostPage() {
       url: "https://lsdiet.com",
       logo: { "@type": "ImageObject", url: "https://lsdiet.com/favicon.ico" },
     },
+    ...(vm.category ? { articleSection: vm.category } : {}),
   };
 
   const faqSchema = vm.faqs && vm.faqs.length > 0
@@ -212,19 +235,21 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>{vm.title} | LS Diet</title>
+        <title>{vm.seoTitle} | LS Diet</title>
         <meta name="description" content={vm.metaDescription} />
         <link rel="canonical" href={url} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={vm.title} />
+        <meta property="og:title" content={vm.seoTitle} />
         <meta property="og:description" content={vm.metaDescription} />
         <meta property="og:url" content={url} />
+        <meta property="og:locale" content="en_CA" />
         {vm.image && <meta property="og:image" content={vm.image} />}
         <meta property="article:published_time" content={vm.publishDate} />
         <meta property="article:modified_time" content={vm.updatedAt} />
         <meta property="article:author" content="Oscar Poon" />
+        {vm.category && <meta property="article:section" content={vm.category} />}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={vm.title} />
+        <meta name="twitter:title" content={vm.seoTitle} />
         <meta name="twitter:description" content={vm.metaDescription} />
         {vm.image && <meta name="twitter:image" content={vm.image} />}
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
@@ -240,13 +265,15 @@ export default function BlogPostPage() {
           items={[
             { name: "Home", url: "/" },
             { name: "Blog", url: "/blog" },
+            ...(vm.category && vm.categorySlug
+              ? [{ name: vm.category, url: `/category/${vm.categorySlug}` }]
+              : []),
             { name: vm.title, url: `/blog/${vm.slug}` },
           ]}
         />
       )}
 
       <div className="relative">
-        {/* Desktop sticky share rail — kept for all post types */}
         <div className="hidden lg:block absolute left-4 top-0 h-full pointer-events-none">
           <div className="sticky top-28 pointer-events-auto">
             <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={vm.title} variant="rail" />
@@ -259,17 +286,31 @@ export default function BlogPostPage() {
             url={url}
             crawlerShareUrl={crawlerShareUrl}
             publishDate={vm.publishDate}
+            updatedAt={vm.updatedAt}
           />
         ) : (
           <article className="container max-w-3xl mx-auto px-4 pt-28 pb-20">
             <header className="mb-8">
+              {vm.category && vm.categorySlug && (
+                <a
+                  href={`/category/${vm.categorySlug}`}
+                  className="inline-block mb-3 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold uppercase tracking-wider hover:bg-accent/20 transition-colors"
+                >
+                  {vm.category}
+                </a>
+              )}
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
                 {vm.title}
               </h1>
-              <p className="text-sm text-zinc-500 mb-4">
+              <p className="text-sm text-zinc-500 mb-1">
                 By <span className="font-semibold text-zinc-700">Oscar Poon</span> · {formatPublishDate(vm.publishDate)}
               </p>
-              <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={vm.title} variant="inline" className="justify-start" />
+              {vm.updatedAt && vm.updatedAt !== vm.publishDate && (
+                <p className="text-xs text-zinc-500 mb-4">
+                  Updated {formatUpdatedShort(vm.updatedAt)}
+                </p>
+              )}
+              <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={vm.title} variant="inline" className="justify-start mt-3" />
             </header>
 
             {vm.image && (
@@ -306,17 +347,25 @@ export default function BlogPostPage() {
 
             <AboutAuthorBlock />
 
-            <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
-              <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-3">
-                Continue reading
-              </h2>
-              <ul className="space-y-2 text-zinc-800">
-                <li><a href="/" className="text-accent hover:underline">LS Diet — homepage</a></li>
-                <li><a href="/what-is-ls-diet" className="text-accent hover:underline">What is the LS Diet?</a></li>
-                <li><a href="/weight-permanence-triangle" className="text-accent hover:underline">The Weight Permanence Triangle™</a></li>
-                <li><a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a></li>
-              </ul>
-            </section>
+            {vm.source === "contentful" ? (
+              <DynamicRelated
+                currentSlug={vm.slug}
+                explicit={vm.contentful?.relatedPosts ?? []}
+                categorySlug={vm.categorySlug ?? ""}
+              />
+            ) : (
+              <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
+                <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                  Continue reading
+                </h2>
+                <ul className="space-y-2 text-zinc-800">
+                  <li><a href="/" className="text-accent hover:underline">LS Diet — homepage</a></li>
+                  <li><a href="/what-is-ls-diet" className="text-accent hover:underline">What is the LS Diet?</a></li>
+                  <li><a href="/weight-permanence-triangle" className="text-accent hover:underline">The Weight Permanence Triangle™</a></li>
+                  <li><a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a></li>
+                </ul>
+              </section>
+            )}
 
             <div className="mt-10 text-center">
               <Button variant="accent" size="lg" asChild>
@@ -335,8 +384,113 @@ export default function BlogPostPage() {
 }
 
 /* ----------------------------------------------------------------
-   Supporting-article layout. Stronger hierarchy, narrower column,
-   pathway routing, true mid-flow related block via DOM injection.
+   Dynamic "Continue reading" for Contentful posts.
+   Fallback chain: explicit relatedPosts → same-category → latest.
+   ---------------------------------------------------------------- */
+
+function DynamicRelated({
+  currentSlug,
+  explicit,
+  categorySlug,
+}: {
+  currentSlug: string;
+  explicit: RelatedPostLite[];
+  categorySlug: string;
+}) {
+  const [items, setItems] = useState<
+    Array<{ title: string; slug: string; excerpt: string; category: string; categorySlug: string }>
+  >([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    // Priority 1: explicit relatedPosts.
+    const explicitFiltered = explicit
+      .filter((p) => p.slug && p.slug !== currentSlug)
+      .slice(0, 4);
+    if (explicitFiltered.length > 0) {
+      setItems(
+        explicitFiltered.map((p) => ({
+          title: p.title,
+          slug: p.slug,
+          excerpt: p.excerpt,
+          category: p.category,
+          categorySlug: p.categorySlug,
+        })),
+      );
+      return;
+    }
+
+    // Priority 2: same-category posts.
+    const loadFallback = async () => {
+      if (categorySlug) {
+        const { posts } = await fetchPostsByCategory(categorySlug);
+        const same = posts
+          .filter((p) => p.slug !== currentSlug)
+          .slice(0, 4)
+          .map((p) => ({
+            title: p.title,
+            slug: p.slug,
+            excerpt: p.excerpt,
+            category: p.category ?? "",
+            categorySlug: p.categorySlug ?? "",
+          }));
+        if (!cancelled && same.length > 0) {
+          setItems(same);
+          return;
+        }
+      }
+      // Priority 3: latest published.
+      const all = await listBlogPosts().catch(() => [] as BlogPost[]);
+      const latest = all
+        .filter((p) => p.slug !== currentSlug)
+        .slice(0, 4)
+        .map((p) => ({
+          title: p.title,
+          slug: p.slug,
+          excerpt: p.excerpt,
+          category: p.category ?? "",
+          categorySlug: p.categorySlug ?? "",
+        }));
+      if (!cancelled) setItems(latest);
+    };
+    loadFallback();
+    return () => {
+      cancelled = true;
+    };
+  }, [currentSlug, explicit, categorySlug]);
+
+  if (items.length === 0) return null;
+
+  return (
+    <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
+      <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-4">
+        Continue reading
+      </h2>
+      <ul className="space-y-4">
+        {items.map((p) => (
+          <li key={p.slug} className="border-b border-accent/10 last:border-0 pb-3 last:pb-0">
+            <a href={`/blog/${p.slug}`} className="group block">
+              <h3 className="font-bold text-zinc-900 group-hover:text-accent transition-colors">
+                {p.title}
+              </h3>
+              {p.excerpt && (
+                <p className="text-sm text-zinc-700 mt-1 line-clamp-2">{p.excerpt}</p>
+              )}
+              {p.category && (
+                <p className="text-[10px] uppercase tracking-wider text-zinc-500 mt-1">
+                  {p.category}
+                </p>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/* ----------------------------------------------------------------
+   Supporting-article layout (code-managed articles).
    ---------------------------------------------------------------- */
 
 interface ArticleLayoutProps {
@@ -344,9 +498,10 @@ interface ArticleLayoutProps {
   url: string;
   crawlerShareUrl: string;
   publishDate: string;
+  updatedAt: string;
 }
 
-function ArticleLayout({ article, url, crawlerShareUrl, publishDate }: ArticleLayoutProps) {
+function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }: ArticleLayoutProps) {
   const bodyRef = useRef<HTMLDivElement | null>(null);
   const [midSlot, setMidSlot] = useState<HTMLDivElement | null>(null);
   const [readingMin, setReadingMin] = useState<number | null>(null);
@@ -357,39 +512,25 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate }: ArticleLa
     return getRelatedArticles(article, exclude, 5);
   }, [article, pathway]);
 
-  // Mid-flow items: take top picks from related (rank 1 was reserved for
-  // pathway, but pathway already pulls foundations + accountability, so
-  // here we just take the top 4 ranked supporting articles).
   const midItems = related.slice(0, 4).map((a) => ({
     title: a.meta.title,
     href: `/blog/${a.meta.slug}`,
   }));
 
-  // Inject a placeholder div before the 2nd <h2>, or fall back to ~40%
-  // through the body's scrollHeight. Compute reading time at the same
-  // time from the body's textContent.
   useLayoutEffect(() => {
     const wrapper = bodyRef.current;
     if (!wrapper) return;
-
-    // Reading time
     const text = wrapper.textContent || "";
     setReadingMin(readingTimeMinutes(text));
-
-    // Remove any previous slot (route changes)
     wrapper.querySelectorAll("[data-mid-related-slot]").forEach((n) => n.remove());
-
     if (midItems.length === 0) return;
-
     const slot = document.createElement("div");
     slot.setAttribute("data-mid-related-slot", "");
-
     const headings = wrapper.querySelectorAll(":scope > h2");
     if (headings.length >= 2) {
       const target = headings[1];
       target.parentNode?.insertBefore(slot, target);
     } else {
-      // Fallback: paragraph closest to 40% of the wrapper height.
       const paragraphs = Array.from(wrapper.querySelectorAll(":scope > p"));
       if (paragraphs.length >= 3) {
         const target = paragraphs[Math.floor(paragraphs.length * 0.4)];
@@ -399,7 +540,6 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate }: ArticleLa
       }
     }
     setMidSlot(slot);
-
     return () => {
       slot.remove();
       setMidSlot(null);
@@ -409,6 +549,7 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate }: ArticleLa
 
   const cluster = clusterOfSlug(article.meta.slug);
   const foundationTitle = getFoundationTitle(article.meta.primaryFoundationSlug);
+  const showUpdated = updatedAt && updatedAt !== publishDate;
 
   return (
     <article className="container mx-auto px-4 pt-28 pb-20">
@@ -420,7 +561,7 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate }: ArticleLa
             {article.meta.title}
           </h1>
 
-          <p className="text-xs md:text-sm text-zinc-500 mb-2">
+          <p className="text-xs md:text-sm text-zinc-500 mb-1">
             By <span className="font-semibold text-zinc-700">Oscar Poon</span>
             <span aria-hidden> · </span>
             {formatPublishDate(publishDate)}
@@ -431,6 +572,11 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate }: ArticleLa
               </>
             )}
           </p>
+          {showUpdated && (
+            <p className="text-xs text-zinc-500 mb-2">
+              Updated {formatUpdatedShort(updatedAt)}
+            </p>
+          )}
 
           {foundationTitle && (
             <p className="text-xs text-zinc-500">

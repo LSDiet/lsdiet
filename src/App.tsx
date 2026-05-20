@@ -23,6 +23,7 @@ import CoreFAQPage from "./pages/CoreFAQPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ShareRedirectPage from "./pages/ShareRedirectPage";
+import CategoryArchivePage from "./pages/CategoryArchivePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ function AppContent() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/share/:slug" element={<ShareRedirectPage />} />
+        <Route path="/category/:slug" element={<CategoryArchivePage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

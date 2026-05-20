@@ -1,10 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
-import { listBlogPosts, type BlogPost } from "@/lib/blog";
+import {
+  listBlogPosts,
+  fetchCategories,
+  formatPublishDate,
+  type BlogPost,
+  type CategorySummary,
+} from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
 import { FOUNDATIONS } from "@/content/foundations";
 import { FoundationsCurriculum } from "@/components/FoundationsCurriculum";
@@ -15,7 +21,6 @@ type EnrichedPost = BlogPost & {
   canonicalTopic: string;
 };
 
-// Convert code-managed foundations to the BlogPost shape so they render in the grid.
 function foundationsAsBlogPosts(): BlogPost[] {
   return FOUNDATIONS.map((f) => ({
     id: `foundation:${f.meta.slug}`,
@@ -37,39 +42,42 @@ function foundationsAsBlogPosts(): BlogPost[] {
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<EnrichedPost[] | null>(null);
+  const [contentfulPosts, setContentfulPosts] = useState<BlogPost[]>([]);
+  const [categories, setCategories] = useState<CategorySummary[]>([]);
+  const [activeCategory, setActiveCategory] = useState<string>("");
   const [indexEntries, setIndexEntries] = useState<BlogIndexEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    // Contentful list may fail in early phases (no posts yet) — don't let that
-    // block foundations from rendering.
     Promise.all([
       listBlogPosts().catch(() => [] as BlogPost[]),
       fetchBlogIndex().catch(() => [] as BlogIndexEntry[]),
+      fetchCategories().catch(() => [] as CategorySummary[]),
     ])
-      .then(([raw, index]) => {
+      .then(([raw, index, cats]) => {
         if (cancelled) return;
         setIndexEntries(index);
+        setContentfulPosts(raw);
+        setCategories(cats);
         const foundations = foundationsAsBlogPosts();
         const foundationSlugs = new Set(foundations.map((p) => p.slug));
-        // Foundations win on slug collision.
         const merged: BlogPost[] = [
           ...foundations,
           ...raw.filter((p) => !foundationSlugs.has(p.slug)),
         ];
         merged.sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
-
         const bySlug = new Map(index.map((i) => [i.slug, i]));
-        const enriched: EnrichedPost[] = merged.map((p) => {
-          const meta = bySlug.get(p.slug);
-          return {
-            ...p,
-            contentType: (meta?.contentType ?? "supporting") as BlogIndexEntry["contentType"],
-            canonicalTopic: meta?.canonicalTopic ?? "",
-          };
-        });
-        setPosts(enriched);
+        setPosts(
+          merged.map((p) => {
+            const meta = bySlug.get(p.slug);
+            return {
+              ...p,
+              contentType: (meta?.contentType ?? "supporting") as BlogIndexEntry["contentType"],
+              canonicalTopic: meta?.canonicalTopic ?? "",
+            };
+          }),
+        );
       })
       .catch((e) => !cancelled && setError(e.message ?? "Failed to load"));
     return () => {
@@ -77,6 +85,10 @@ export default function BlogPage() {
     };
   }, []);
 
+  const filteredEditorial = useMemo(() => {
+    if (!activeCategory) return contentfulPosts;
+    return contentfulPosts.filter((p) => p.categorySlug === activeCategory);
+  }, [contentfulPosts, activeCategory]);
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -84,6 +96,7 @@ export default function BlogPage() {
     "@id": "https://lsdiet.com/blog#collection",
     name: "LS Diet Blog",
     url: "https://lsdiet.com/blog",
+    inLanguage: "en-CA",
     description:
       "LS Diet Foundations and real-life weight loss questions — articles on stopping weight regain, the Weight Permanence Triangle™, awareness, and practical action.",
     author: { "@type": "Person", "@id": "https://lsdiet.com/oscar-poon#person" },
@@ -94,6 +107,7 @@ export default function BlogPage() {
       url: `https://lsdiet.com/blog/${p.slug}`,
       datePublished: p.publishDate,
       dateModified: p.updatedAt,
+      inLanguage: "en-CA",
     })),
   };
 
@@ -110,6 +124,7 @@ export default function BlogPage() {
         <meta property="og:description" content="LS Diet Foundations and real-life weight loss questions." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://lsdiet.com/blog" />
+        <meta property="og:locale" content="en_CA" />
         <script type="application/ld+json">{JSON.stringify(collectionSchema)}</script>
       </Helmet>
 
@@ -150,6 +165,65 @@ export default function BlogPage() {
           <div className="space-y-16">
             <FoundationsCurriculum />
             <SearchDrivenIndex entries={indexEntries} />
+
+            {contentfulPosts.length > 0 && (
+              <section>
+                <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight mb-4">
+                  Editorial Posts
+                </h2>
+
+                {categories.length > 0 && (
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    <FilterChip
+                      label="All"
+                      count={contentfulPosts.length}
+                      active={!activeCategory}
+                      onClick={() => setActiveCategory("")}
+                    />
+                    {categories.map((c) => (
+                      <FilterChip
+                        key={c.slug}
+                        label={c.label}
+                        count={c.count}
+                        active={activeCategory === c.slug}
+                        onClick={() => setActiveCategory(c.slug)}
+                        href={`/category/${c.slug}`}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                {filteredEditorial.length === 0 ? (
+                  <p className="text-sm text-zinc-600">No posts in this category yet.</p>
+                ) : (
+                  <ul className="divide-y divide-zinc-200 border-t border-b border-zinc-200">
+                    {filteredEditorial.map((p) => (
+                      <li key={p.id}>
+                        <a
+                          href={`/blog/${p.slug}`}
+                          className="group block py-5 px-2 -mx-2 rounded hover:bg-zinc-50 transition-colors"
+                        >
+                          {p.category && p.categorySlug && (
+                            <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">
+                              {p.category}
+                            </span>
+                          )}
+                          <h3 className="text-lg md:text-xl font-bold text-zinc-900 group-hover:text-accent transition-colors mt-1">
+                            {p.title}
+                          </h3>
+                          {p.excerpt && (
+                            <p className="text-sm text-zinc-700 mt-1 line-clamp-2">{p.excerpt}</p>
+                          )}
+                          <p className="text-xs text-zinc-500 mt-1">
+                            {formatPublishDate(p.publishDate)}
+                          </p>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )}
           </div>
         )}
       </section>
@@ -159,3 +233,44 @@ export default function BlogPage() {
   );
 }
 
+function FilterChip({
+  label,
+  count,
+  active,
+  onClick,
+  href,
+}: {
+  label: string;
+  count: number;
+  active: boolean;
+  onClick: () => void;
+  href?: string;
+}) {
+  const className = `inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border transition-colors ${
+    active
+      ? "bg-accent text-accent-foreground border-accent"
+      : "bg-transparent text-zinc-700 border-zinc-300 hover:border-accent hover:text-accent"
+  }`;
+  // Render as anchor when href is provided so crawlers see the archive link.
+  // Click intercepts to apply the in-page filter without nav.
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={className}
+        onClick={(e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+          e.preventDefault();
+          onClick();
+        }}
+      >
+        {label} <span className="opacity-70">({count})</span>
+      </a>
+    );
+  }
+  return (
+    <button type="button" className={className} onClick={onClick}>
+      {label} <span className="opacity-70">({count})</span>
+    </button>
+  );
+}
