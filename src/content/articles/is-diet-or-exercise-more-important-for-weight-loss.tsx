@@ -1,6 +1,6 @@
 import type { Article } from "./types";
 
-const meta = {
+const meta: import("./types").ArticleMeta = {
   slug: "is-diet-or-exercise-more-important-for-weight-loss",
   title: "Is Diet or Exercise More Important for Weight Loss?",
   excerpt:
@@ -23,7 +23,7 @@ const meta = {
     "action-practice",
     "the-weight-permanence-triangle-how-to-stop-regaining-weight",
   ],
-} as const;
+};
 
 function Body() {
   return (

@@ -1,6 +1,6 @@
 import type { Article } from "./types";
 
-const meta = {
+const meta: import("./types").ArticleMeta = {
   slug: "can-you-lose-weight-without-going-to-the-gym",
   title: "Can You Lose Weight Without Going to the Gym?",
   excerpt:
@@ -24,7 +24,7 @@ const meta = {
     "identity-awareness",
     "the-weight-permanence-triangle-how-to-stop-regaining-weight",
   ],
-} as const;
+};
 
 function Body() {
   return (

@@ -1,6 +1,6 @@
 import type { Article } from "./types";
 
-const meta = {
+const meta: import("./types").ArticleMeta = {
   slug: "why-do-i-keep-restarting-weight-loss",
   title: "Why Do I Keep Restarting Weight Loss?",
   excerpt:
@@ -24,7 +24,7 @@ const meta = {
     "pattern-awareness",
     "action-practice",
   ],
-} as const;
+};
 
 function Body() {
   return (

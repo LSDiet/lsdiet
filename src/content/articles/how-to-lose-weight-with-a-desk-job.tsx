@@ -1,6 +1,6 @@
 import type { Article } from "./types";
 
-const meta = {
+const meta: import("./types").ArticleMeta = {
   slug: "how-to-lose-weight-with-a-desk-job",
   title: "How to Lose Weight With a Desk Job",
   excerpt:
@@ -24,7 +24,7 @@ const meta = {
     "the-weight-permanence-triangle-how-to-stop-regaining-weight",
     "friction-awareness",
   ],
-} as const;
+};
 
 function Body() {
   return (

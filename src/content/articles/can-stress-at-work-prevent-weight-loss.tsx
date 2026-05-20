@@ -1,6 +1,6 @@
 import type { Article } from "./types";
 
-const meta = {
+const meta: import("./types").ArticleMeta = {
   slug: "can-stress-at-work-prevent-weight-loss",
   title: "Can Stress at Work Prevent Weight Loss?",
   excerpt:
@@ -24,7 +24,7 @@ const meta = {
     "consequence-awareness",
     "action-practice",
   ],
-} as const;
+};
 
 function Body() {
   return (
