@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
@@ -8,11 +9,21 @@ import { Button } from "@/components/ui/button";
 import { fetchBlogPost, formatPublishDate, type BlogPost } from "@/lib/blog";
 import { RichText } from "@/lib/contentfulRenderers";
 import { ShareButtons } from "@/components/ShareButtons";
-import { ArticleByline } from "@/components/ArticleByline";
 import { AboutAuthorBlock } from "@/components/AboutAuthorBlock";
 import { RelatedFoundations } from "@/components/RelatedFoundations";
 import { getFoundationBySlug, type Foundation } from "@/content/foundations";
 import { getArticleBySlug, type Article } from "@/content/articles";
+import { ArticleBreadcrumb } from "@/components/ArticleBreadcrumb";
+import { ArticleProgression } from "@/components/ArticleProgression";
+import { MidArticleRelated } from "@/components/MidArticleRelated";
+import { clusterOfSlug } from "@/lib/searchArticleClusters";
+import {
+  getPathway,
+  pathwaySlugSet,
+  getFoundationTitle,
+} from "@/lib/behaviouralPathway";
+import { getRelatedArticles } from "@/lib/relatedArticles";
+import { readingTimeMinutes } from "@/lib/readingTime";
 
 type ViewModel = {
   source: "foundation" | "contentful" | "article";
@@ -27,7 +38,6 @@ type ViewModel = {
   imageWidth?: number;
   imageHeight?: number;
   faqs?: { q: string; a: string }[];
-  // Renderers — only one is set:
   foundation?: Foundation;
   contentful?: BlogPost;
   article?: Article;
@@ -92,7 +102,6 @@ export default function BlogPostPage() {
     let cancelled = false;
     setStatus("loading");
 
-    // 1. Code-managed foundations take priority (authority layer).
     const foundation = getFoundationBySlug(slug);
     if (foundation) {
       setVm(fromFoundation(foundation));
@@ -100,8 +109,6 @@ export default function BlogPostPage() {
       return;
     }
 
-    // 2. Contentful — curated editorial layer.
-    // 3. Code-managed articles — Search-driven utility layer (fallback).
     fetchBlogPost(slug)
       .then((p) => {
         if (cancelled) return;
@@ -120,7 +127,6 @@ export default function BlogPostPage() {
       })
       .catch(() => {
         if (cancelled) return;
-        // Contentful failure must not block Articles from resolving.
         const article = getArticleBySlug(slug);
         if (article) {
           setVm(fromArticle(article));
@@ -189,7 +195,6 @@ export default function BlogPostPage() {
     },
   };
 
-  // FAQ schema only when foundation declares FAQs.
   const faqSchema = vm.faqs && vm.faqs.length > 0
     ? {
         "@context": "https://schema.org",
@@ -201,6 +206,8 @@ export default function BlogPostPage() {
         })),
       }
     : null;
+
+  const isArticle = vm.source === "article" && !!vm.article;
 
   return (
     <div className="min-h-screen bg-background">
@@ -227,102 +234,232 @@ export default function BlogPostPage() {
       </Helmet>
 
       <Navbar />
-      <PageBreadcrumb
-        items={[
-          { name: "Home", url: "/" },
-          { name: "Blog", url: "/blog" },
-          { name: vm.title, url: `/blog/${vm.slug}` },
-        ]}
-      />
+
+      {!isArticle && (
+        <PageBreadcrumb
+          items={[
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: vm.title, url: `/blog/${vm.slug}` },
+          ]}
+        />
+      )}
 
       <div className="relative">
-        {/* Desktop sticky share rail */}
+        {/* Desktop sticky share rail — kept for all post types */}
         <div className="hidden lg:block absolute left-4 top-0 h-full pointer-events-none">
           <div className="sticky top-28 pointer-events-auto">
             <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={vm.title} variant="rail" />
           </div>
         </div>
 
-        <article className="container max-w-3xl mx-auto px-4 pb-20">
-          <header className="mb-8">
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
-              {vm.title}
-            </h1>
-            <ArticleByline
-              publishDate={vm.publishDate}
-              formattedDate={formatPublishDate(vm.publishDate)}
-              className="mb-5"
-            />
-            <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={vm.title} variant="inline" className="justify-start" />
-          </header>
+        {isArticle && vm.article ? (
+          <ArticleLayout
+            article={vm.article}
+            url={url}
+            crawlerShareUrl={crawlerShareUrl}
+            publishDate={vm.publishDate}
+          />
+        ) : (
+          <article className="container max-w-3xl mx-auto px-4 pt-8 pb-20">
+            <header className="mb-8">
+              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
+                {vm.title}
+              </h1>
+              <p className="text-sm text-zinc-500 mb-4">
+                By <span className="font-semibold text-zinc-700">Oscar Poon</span> · {formatPublishDate(vm.publishDate)}
+              </p>
+              <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={vm.title} variant="inline" className="justify-start" />
+            </header>
 
-          {vm.image && (
-            <figure className="mb-10 -mx-4 md:mx-0">
-              <img
-                src={vm.image}
-                alt={vm.imageAlt}
-                width={vm.imageWidth}
-                height={vm.imageHeight}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="w-full md:rounded-xl"
-              />
-            </figure>
-          )}
+            {vm.image && (
+              <figure className="mb-10 -mx-4 md:mx-0">
+                <img
+                  src={vm.image}
+                  alt={vm.imageAlt}
+                  width={vm.imageWidth}
+                  height={vm.imageHeight}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full md:rounded-xl"
+                />
+              </figure>
+            )}
 
-          <div className="prose-content">
-            {vm.source === "foundation" && vm.foundation ? (
-              <vm.foundation.Body />
-            ) : vm.source === "article" && vm.article ? (
-              <vm.article.Body />
-            ) : vm.contentful?.content ? (
-              <RichText document={vm.contentful.content} />
-            ) : null}
-          </div>
+            <div className="prose-content">
+              {vm.source === "foundation" && vm.foundation ? (
+                <vm.foundation.Body />
+              ) : vm.contentful?.content ? (
+                <RichText document={vm.contentful.content} />
+              ) : null}
+            </div>
 
-          <div className="mt-14 text-center">
-            <p className="text-sm text-zinc-600 mb-3">
-              Know someone struggling with weight regain? Share this article.
-            </p>
-            <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={vm.title} variant="inline" />
-          </div>
+            <div className="mt-14 text-center">
+              <p className="text-sm text-zinc-600 mb-3">
+                Know someone struggling with weight regain? Share this article.
+              </p>
+              <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={vm.title} variant="inline" />
+            </div>
 
-          <RelatedFoundations excludeSlug={vm.slug} />
+            <RelatedFoundations excludeSlug={vm.slug} />
 
-          <AboutAuthorBlock />
+            <AboutAuthorBlock />
 
-          <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
-            <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-3">
-              Continue reading
-            </h2>
-            <ul className="space-y-2 text-zinc-800">
-              <li>
-                <a href="/" className="text-accent hover:underline">LS Diet — homepage</a>
-              </li>
-              <li>
-                <a href="/what-is-ls-diet" className="text-accent hover:underline">What is the LS Diet?</a>
-              </li>
-              <li>
-                <a href="/weight-permanence-triangle" className="text-accent hover:underline">The Weight Permanence Triangle™</a>
-              </li>
-              <li>
-                <a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a>
-              </li>
-            </ul>
-          </section>
+            <section className="mt-14 p-6 rounded-xl border border-accent/30 bg-accent/5">
+              <h2 className="text-lg font-bold uppercase tracking-wider text-zinc-900 mb-3">
+                Continue reading
+              </h2>
+              <ul className="space-y-2 text-zinc-800">
+                <li><a href="/" className="text-accent hover:underline">LS Diet — homepage</a></li>
+                <li><a href="/what-is-ls-diet" className="text-accent hover:underline">What is the LS Diet?</a></li>
+                <li><a href="/weight-permanence-triangle" className="text-accent hover:underline">The Weight Permanence Triangle™</a></li>
+                <li><a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a></li>
+              </ul>
+            </section>
 
-          <div className="mt-10 text-center">
-            <Button variant="accent" size="lg" asChild>
-              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                Join LS Diet
-              </a>
-            </Button>
-          </div>
-        </article>
+            <div className="mt-10 text-center">
+              <Button variant="accent" size="lg" asChild>
+                <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
+                  Join LS Diet
+                </a>
+              </Button>
+            </div>
+          </article>
+        )}
       </div>
 
       <FooterSimple />
     </div>
+  );
+}
+
+/* ----------------------------------------------------------------
+   Supporting-article layout. Stronger hierarchy, narrower column,
+   pathway routing, true mid-flow related block via DOM injection.
+   ---------------------------------------------------------------- */
+
+interface ArticleLayoutProps {
+  article: Article;
+  url: string;
+  crawlerShareUrl: string;
+  publishDate: string;
+}
+
+function ArticleLayout({ article, url, crawlerShareUrl, publishDate }: ArticleLayoutProps) {
+  const bodyRef = useRef<HTMLDivElement | null>(null);
+  const [midSlot, setMidSlot] = useState<HTMLDivElement | null>(null);
+  const [readingMin, setReadingMin] = useState<number | null>(null);
+
+  const pathway = useMemo(() => getPathway(article), [article]);
+  const related = useMemo(() => {
+    const exclude = pathwaySlugSet(pathway);
+    return getRelatedArticles(article, exclude, 5);
+  }, [article, pathway]);
+
+  // Mid-flow items: take top picks from related (rank 1 was reserved for
+  // pathway, but pathway already pulls foundations + accountability, so
+  // here we just take the top 4 ranked supporting articles).
+  const midItems = related.slice(0, 4).map((a) => ({
+    title: a.meta.title,
+    href: `/blog/${a.meta.slug}`,
+  }));
+
+  // Inject a placeholder div before the 2nd <h2>, or fall back to ~40%
+  // through the body's scrollHeight. Compute reading time at the same
+  // time from the body's textContent.
+  useLayoutEffect(() => {
+    const wrapper = bodyRef.current;
+    if (!wrapper) return;
+
+    // Reading time
+    const text = wrapper.textContent || "";
+    setReadingMin(readingTimeMinutes(text));
+
+    // Remove any previous slot (route changes)
+    wrapper.querySelectorAll("[data-mid-related-slot]").forEach((n) => n.remove());
+
+    if (midItems.length === 0) return;
+
+    const slot = document.createElement("div");
+    slot.setAttribute("data-mid-related-slot", "");
+
+    const headings = wrapper.querySelectorAll(":scope > h2");
+    if (headings.length >= 2) {
+      const target = headings[1];
+      target.parentNode?.insertBefore(slot, target);
+    } else {
+      // Fallback: paragraph closest to 40% of the wrapper height.
+      const paragraphs = Array.from(wrapper.querySelectorAll(":scope > p"));
+      if (paragraphs.length >= 3) {
+        const target = paragraphs[Math.floor(paragraphs.length * 0.4)];
+        target.parentNode?.insertBefore(slot, target);
+      } else {
+        wrapper.appendChild(slot);
+      }
+    }
+    setMidSlot(slot);
+
+    return () => {
+      slot.remove();
+      setMidSlot(null);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [article.meta.slug, midItems.length]);
+
+  const cluster = clusterOfSlug(article.meta.slug);
+  const foundationTitle = getFoundationTitle(article.meta.primaryFoundationSlug);
+
+  return (
+    <article className="container mx-auto px-4 pt-6 pb-20">
+      <div className="mx-auto" style={{ maxWidth: "68ch" }}>
+        <ArticleBreadcrumb clusterTitle={cluster?.title} articleTitle={article.meta.title} />
+
+        <header className="mb-8">
+          <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-3 text-zinc-900 leading-tight">
+            {article.meta.title}
+          </h1>
+
+          <p className="text-xs md:text-sm text-zinc-500 mb-2">
+            By <span className="font-semibold text-zinc-700">Oscar Poon</span>
+            <span aria-hidden> · </span>
+            {formatPublishDate(publishDate)}
+            {readingMin !== null && (
+              <>
+                <span aria-hidden> · </span>
+                {readingMin} min read
+              </>
+            )}
+          </p>
+
+          {foundationTitle && (
+            <p className="text-xs text-zinc-500">
+              Part of the LS Diet Foundations ecosystem ·{" "}
+              <a
+                href={`/blog/${article.meta.primaryFoundationSlug}`}
+                className="text-zinc-700 hover:text-accent font-medium underline-offset-2 hover:underline transition-colors"
+              >
+                {foundationTitle}
+              </a>
+            </p>
+          )}
+        </header>
+
+        <div ref={bodyRef} className="prose-article">
+          <article.Body />
+        </div>
+
+        {midSlot && createPortal(<MidArticleRelated items={midItems} />, midSlot)}
+
+        <div className="mt-12 pt-6 border-t border-zinc-200 flex items-center justify-between gap-4 flex-wrap">
+          <p className="text-xs text-zinc-500">Found this useful? Share it.</p>
+          <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={article.meta.title} variant="inline" />
+        </div>
+
+        <ArticleProgression pathway={pathway} slug={article.meta.slug} />
+
+        <AboutAuthorBlock />
+      </div>
+    </article>
   );
 }
