@@ -631,3 +631,33 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
     </article>
   );
 }
+
+/* ----------------------------------------------------------------
+   Shared prose wrapper for foundation + Contentful posts.
+   Owns CTA injection (1–3 <LSDietCTA /> blocks based on word count)
+   so the same logic runs across every blog template.
+   ---------------------------------------------------------------- */
+
+interface ProseBodyProps {
+  slug: string;
+  ctaContext: CtaContext;
+  children: React.ReactNode;
+}
+
+function ProseBody({ slug, ctaContext, children }: ProseBodyProps) {
+  const bodyRef = useRef<HTMLDivElement | null>(null);
+  const ctaSlots = useCtaInjection({ bodyRef, slug });
+  return (
+    <div ref={bodyRef} className="prose-content">
+      {children}
+      {ctaSlots.map((s) => {
+        const copy = ctaCopyFor(ctaContext, s.placement);
+        return createPortal(
+          <LSDietCTA placement={s.placement} headline={copy.headline} body={copy.body} />,
+          s.node,
+          `cta-${s.placement}`,
+        );
+      })}
+    </div>
+  );
+}
