@@ -261,7 +261,7 @@ export default function BlogPostPage() {
             publishDate={vm.publishDate}
           />
         ) : (
-          <article className="container max-w-3xl mx-auto px-4 pt-8 pb-20">
+          <article className="container max-w-3xl mx-auto px-4 pt-28 pb-20">
             <header className="mb-8">
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4 text-zinc-900">
                 {vm.title}
@@ -411,7 +411,7 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate }: ArticleLa
   const foundationTitle = getFoundationTitle(article.meta.primaryFoundationSlug);
 
   return (
-    <article className="container mx-auto px-4 pt-6 pb-20">
+    <article className="container mx-auto px-4 pt-28 pb-20">
       <div className="mx-auto" style={{ maxWidth: "68ch" }}>
         <ArticleBreadcrumb clusterTitle={cluster?.title} articleTitle={article.meta.title} />
 
