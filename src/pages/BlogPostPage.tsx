@@ -19,6 +19,7 @@ import { RichText } from "@/lib/contentfulRenderers";
 import { ShareButtons } from "@/components/ShareButtons";
 import { AboutAuthorBlock } from "@/components/AboutAuthorBlock";
 import { RelatedFoundations } from "@/components/RelatedFoundations";
+import { RelatedArticles } from "@/components/RelatedArticles";
 import { getFoundationBySlug, type Foundation } from "@/content/foundations";
 import { getArticleBySlug, type Article } from "@/content/articles";
 import { ArticleBreadcrumb } from "@/components/ArticleBreadcrumb";
@@ -635,6 +636,8 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
         </div>
 
         <ArticleProgression pathway={pathway} slug={article.meta.slug} />
+
+        <RelatedArticles items={footerRelated} />
 
         <AboutAuthorBlock />
       </div>
