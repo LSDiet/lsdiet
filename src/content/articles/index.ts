@@ -22,6 +22,13 @@ import doYouNeedToCountCalories from "./do-you-need-to-count-calories-to-lose-we
 import howWeightLossChangesConfidence from "./how-weight-loss-changes-confidence-and-social-behaviour";
 import howToLoseWeightLongHours from "./how-to-lose-weight-when-you-work-long-hours";
 
+// Batch 3
+import howDoesSleepAffectWeightLoss from "./how-does-sleep-affect-your-ability-to-lose-weight";
+import canYouLoseWeightNightShifts from "./can-you-lose-weight-while-working-night-shifts";
+import howMuchWeightLossAffectsMetabolism from "./how-much-does-weight-loss-affect-your-metabolism";
+import howToLoseWeightQuietly from "./how-to-lose-weight-quietly-without-announcing-it";
+import howMuchRealisticInAMonth from "./how-much-weight-can-you-realistically-lose-in-a-month";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -35,7 +42,14 @@ export const ARTICLES: Article[] = [
   doYouNeedToCountCalories,
   howWeightLossChangesConfidence,
   howToLoseWeightLongHours,
+  // Batch 3
+  howDoesSleepAffectWeightLoss,
+  canYouLoseWeightNightShifts,
+  howMuchWeightLossAffectsMetabolism,
+  howToLoseWeightQuietly,
+  howMuchRealisticInAMonth,
 ];
+
 
 export function getArticleBySlug(slug: string): Article | undefined {
   return ARTICLES.find((a) => a.meta.slug === slug);
