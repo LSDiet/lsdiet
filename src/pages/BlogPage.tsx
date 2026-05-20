@@ -154,8 +154,6 @@ export default function BlogPage() {
             <SearchDrivenIndex entries={indexEntries} />
           </div>
         )}
-          </div>
-        )}
       </section>
 
       <FooterSimple />
