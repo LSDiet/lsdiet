@@ -8,6 +8,7 @@ import { listBlogPosts, formatPublishDate, type BlogPost } from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
 import { FOUNDATIONS } from "@/content/foundations";
 import { FoundationsCurriculum } from "@/components/FoundationsCurriculum";
+import { SearchDrivenIndex } from "@/components/SearchDrivenIndex";
 
 type EnrichedPost = BlogPost & {
   contentType: BlogIndexEntry["contentType"];
