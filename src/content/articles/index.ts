@@ -36,6 +36,34 @@ import willLosingWeightImproveCareer from "./will-losing-weight-improve-your-car
 import whatShouldYouEatForLunch from "./what-should-you-eat-for-lunch-to-lose-weight";
 import whatFoodsHelpLoseWeightFastest from "./what-foods-help-you-lose-weight-fastest";
 
+// Batch 5
+import canYouLoseWeightWithoutChangingDiet from "./can-you-lose-weight-without-changing-your-diet";
+import howToAvoidWeightGainOfficeJob from "./how-to-avoid-weight-gain-working-an-office-job";
+import canYouLoseWeightLowCarb from "./can-you-lose-weight-on-a-low-carb-diet";
+import whyHealthyHabitsCollapseStress from "./why-do-healthy-habits-collapse-during-stress";
+import whyDoIEatNotHungry from "./why-do-i-eat-even-when-im-not-hungry";
+
+// Batch 6
+import whyDoILoseMotivation from "./why-do-i-lose-motivation-after-a-few-weeks";
+import whyDoesStressMakeMeEatMore from "./why-does-stress-make-me-eat-more";
+import whyRestartEveryMonday from "./why-do-i-restart-weight-loss-every-monday";
+import canYouLoseWeightWithoutHunger from "./can-you-lose-weight-without-feeling-hungry";
+import doesWeightLossChangeDating from "./does-weight-loss-change-dating-and-attraction";
+
+// Batch 7
+import howToOvercomePlateaus from "./how-to-overcome-weight-loss-plateaus";
+import howMuchProtein from "./how-much-protein-should-you-eat-to-lose-weight";
+import whyEmotionallyEatAfterWork from "./why-do-people-emotionally-eat-after-work";
+import officeJobSuccessStories from "./office-job-weight-loss-success-stories";
+import bestProgramBusyProfessionals from "./whats-the-best-weight-loss-program-for-busy-professionals";
+
+// Batch 8
+import stayOnTrackBusySeasons from "./how-to-stay-on-track-with-weight-loss-during-busy-seasons-at-work";
+import energyToExerciseAfterWork from "./how-to-get-energy-to-exercise-after-working-all-day";
+import keepLosingAndRegaining from "./why-do-i-keep-losing-and-regaining-the-same-weight";
+import easierWhenYounger from "./why-does-weight-loss-feel-easier-when-im-younger";
+import canAccountabilityHelp from "./can-accountability-help-you-lose-weight";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -61,6 +89,30 @@ export const ARTICLES: Article[] = [
   willLosingWeightImproveCareer,
   whatShouldYouEatForLunch,
   whatFoodsHelpLoseWeightFastest,
+  // Batch 5
+  canYouLoseWeightWithoutChangingDiet,
+  howToAvoidWeightGainOfficeJob,
+  canYouLoseWeightLowCarb,
+  whyHealthyHabitsCollapseStress,
+  whyDoIEatNotHungry,
+  // Batch 6
+  whyDoILoseMotivation,
+  whyDoesStressMakeMeEatMore,
+  whyRestartEveryMonday,
+  canYouLoseWeightWithoutHunger,
+  doesWeightLossChangeDating,
+  // Batch 7
+  howToOvercomePlateaus,
+  howMuchProtein,
+  whyEmotionallyEatAfterWork,
+  officeJobSuccessStories,
+  bestProgramBusyProfessionals,
+  // Batch 8
+  stayOnTrackBusySeasons,
+  energyToExerciseAfterWork,
+  keepLosingAndRegaining,
+  easierWhenYounger,
+  canAccountabilityHelp,
 ];
 
 
