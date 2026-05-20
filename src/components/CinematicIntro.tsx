@@ -91,8 +91,11 @@ export function CinematicIntro() {
                 src={col.top.src}
                 alt={`Oscar Poon at ${col.top.label} during his weight cycling journey before LS Diet`}
                 className={`h-full w-full object-cover ${col.top.objectPos} scale-[1.03] opacity-70`}
+                {...(i === 0
+                  ? { fetchPriority: "high" as const, decoding: "async" as const }
+                  : { loading: "eager" as const, decoding: "async" as const })}
               />
-              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground/70 md:text-xs">
+              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground md:text-xs">
                 {col.top.label}
               </span>
             </div>
