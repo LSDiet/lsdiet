@@ -258,3 +258,123 @@ All colors MUST be HSL.
 .animate-letter-pop-3d {
   animation: letter-pop-3d 0.6s ease-out;
 }
+
+/* ============================================================
+   .prose-article — typography for supporting articles only.
+   Goal: stronger hierarchy + scanability while preserving
+   whitespace. Not a wall-of-text wikipedia look.
+   ============================================================ */
+
+.prose-article {
+  color: hsl(0 0% 18%);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.prose-article p {
+  margin: 0 0 1.25rem 0;
+  color: hsl(0 0% 18%);
+}
+
+/* Lead sentence rhythm: first paragraph after any H2 gets extra weight */
+.prose-article h2 + p {
+  font-size: 18px;
+  font-weight: 500;
+  color: hsl(0 0% 10%);
+}
+
+/* Article intro: the very first paragraph of the body */
+.prose-article > p:first-child {
+  font-size: 18px;
+  font-weight: 500;
+  color: hsl(0 0% 10%);
+}
+
+.prose-article h2 {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: hsl(0 0% 6%);
+  margin: 3.25rem 0 1rem 0;
+  padding-top: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .prose-article h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.prose-article h2::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 3px;
+  background: hsl(38 90% 50%);
+  border-radius: 2px;
+}
+
+.prose-article h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: hsl(0 0% 6%);
+  margin: 2.25rem 0 0.75rem 0;
+}
+
+.prose-article a {
+  color: hsl(0 0% 10%);
+  text-decoration: none;
+  background-image: linear-gradient(to top, hsl(38 90% 50% / 0.35) 0, hsl(38 90% 50% / 0.35) 2px, transparent 2px);
+  transition: color 150ms ease, background-image 150ms ease;
+}
+
+.prose-article a:hover {
+  color: hsl(38 90% 35%);
+  background-image: linear-gradient(to top, hsl(38 90% 50% / 0.75) 0, hsl(38 90% 50% / 0.75) 2px, transparent 2px);
+}
+
+.prose-article strong {
+  font-weight: 600;
+  color: hsl(0 0% 6%);
+}
+
+.prose-article ul, .prose-article ol {
+  margin: 0 0 1.25rem 0;
+  padding-left: 1.25rem;
+}
+
+.prose-article ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose-article ul > li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-article ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: hsl(38 90% 50%);
+}
+
+.prose-article ol {
+  list-style: decimal;
+}
+
+.prose-article ol > li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
