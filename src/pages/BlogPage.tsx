@@ -39,6 +39,7 @@ function foundationsAsBlogPosts(): BlogPost[] {
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<EnrichedPost[] | null>(null);
+  const [indexEntries, setIndexEntries] = useState<BlogIndexEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ export default function BlogPage() {
     ])
       .then(([raw, index]) => {
         if (cancelled) return;
+        setIndexEntries(index);
         const foundations = foundationsAsBlogPosts();
         const foundationSlugs = new Set(foundations.map((p) => p.slug));
         // Foundations win on slug collision.
@@ -77,8 +79,6 @@ export default function BlogPage() {
     };
   }, []);
 
-  // Foundations are rendered by FoundationsCurriculum from its own source.
-  const supporting = (posts ?? []).filter((p) => SUPPORTING_TYPES.has(p.contentType));
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -151,13 +151,9 @@ export default function BlogPage() {
         {posts && posts.length > 0 && (
           <div className="space-y-16">
             <FoundationsCurriculum />
-            <BlogSection
-              eyebrow="Search-driven articles"
-              title="Real Life Weight Questions"
-              description="Practical answers to the questions people actually ask while trying to stop regaining."
-              posts={supporting}
-              emptyMessage="No real-life articles yet."
-            />
+            <SearchDrivenIndex entries={indexEntries} />
+          </div>
+        )}
           </div>
         )}
       </section>
