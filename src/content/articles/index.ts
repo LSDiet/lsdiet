@@ -8,8 +8,18 @@
 
 import type { Article } from "./types";
 
+import howToLoseWeightWithADeskJob from "./how-to-lose-weight-with-a-desk-job";
+import canYouLoseWeightWithoutGoingToTheGym from "./can-you-lose-weight-without-going-to-the-gym";
+import whyDoIKeepRestartingWeightLoss from "./why-do-i-keep-restarting-weight-loss";
+import isDietOrExerciseMoreImportantForWeightLoss from "./is-diet-or-exercise-more-important-for-weight-loss";
+import canStressAtWorkPreventWeightLoss from "./can-stress-at-work-prevent-weight-loss";
+
 export const ARTICLES: Article[] = [
-  // Articles will be registered here as they are authored.
+  howToLoseWeightWithADeskJob,
+  canYouLoseWeightWithoutGoingToTheGym,
+  whyDoIKeepRestartingWeightLoss,
+  isDietOrExerciseMoreImportantForWeightLoss,
+  canStressAtWorkPreventWeightLoss,
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
