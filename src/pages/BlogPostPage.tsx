@@ -32,6 +32,9 @@ import {
 } from "@/lib/behaviouralPathway";
 import { getRelatedArticles } from "@/lib/relatedArticles";
 import { readingTimeMinutes } from "@/lib/readingTime";
+import { LSDietCTA } from "@/components/LSDietCTA";
+import { ctaCopyFor, type CtaContext } from "@/lib/ctaVariants";
+import { useCtaInjection } from "@/lib/useCtaInjection";
 
 type ViewModel = {
   source: "foundation" | "contentful" | "article";
