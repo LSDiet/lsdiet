@@ -59,6 +59,30 @@ export type Database = {
         }
         Relationships: []
       }
+      rebuild_dispatches: {
+        Row: {
+          created_at: string
+          dispatch_id: string
+          event_id: string | null
+          id: string
+          topic: string
+        }
+        Insert: {
+          created_at?: string
+          dispatch_id?: string
+          event_id?: string | null
+          id?: string
+          topic: string
+        }
+        Update: {
+          created_at?: string
+          dispatch_id?: string
+          event_id?: string | null
+          id?: string
+          topic?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
