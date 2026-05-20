@@ -331,13 +331,20 @@ export default function BlogPostPage() {
               </figure>
             )}
 
-            <div className="prose-content">
+            <ProseBody
+              slug={vm.slug}
+              ctaContext={
+                vm.source === "foundation"
+                  ? { foundationSlug: vm.slug }
+                  : { category: vm.category }
+              }
+            >
               {vm.source === "foundation" && vm.foundation ? (
                 <vm.foundation.Body />
               ) : vm.contentful?.content ? (
                 <RichText document={vm.contentful.content} />
               ) : null}
-            </div>
+            </ProseBody>
 
             <div className="mt-14 text-center">
               <p className="text-sm text-zinc-600 mb-3">
