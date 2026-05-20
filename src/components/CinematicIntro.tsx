@@ -111,8 +111,10 @@ export function CinematicIntro() {
                 src={col.bottom.src}
                 alt={`Oscar Poon at ${col.bottom.label} after losing weight with the low-starch, low-sugar lifestyle`}
                 className={`h-full w-full object-cover ${col.bottom.objectPos} scale-[1.03] opacity-70`}
+                loading="eager"
+                decoding="async"
               />
-              <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground/70 md:text-xs">
+              <span className="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-extrabold uppercase tracking-wider text-foreground md:text-xs">
                 {col.bottom.label}
               </span>
             </div>
