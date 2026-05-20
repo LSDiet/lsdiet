@@ -4,17 +4,16 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
-import { listBlogPosts, formatPublishDate, type BlogPost } from "@/lib/blog";
+import { listBlogPosts, type BlogPost } from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
 import { FOUNDATIONS } from "@/content/foundations";
 import { FoundationsCurriculum } from "@/components/FoundationsCurriculum";
+import { SearchDrivenIndex } from "@/components/SearchDrivenIndex";
 
 type EnrichedPost = BlogPost & {
   contentType: BlogIndexEntry["contentType"];
   canonicalTopic: string;
 };
-
-const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
 
 // Convert code-managed foundations to the BlogPost shape so they render in the grid.
 function foundationsAsBlogPosts(): BlogPost[] {
@@ -38,6 +37,7 @@ function foundationsAsBlogPosts(): BlogPost[] {
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<EnrichedPost[] | null>(null);
+  const [indexEntries, setIndexEntries] = useState<BlogIndexEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -50,6 +50,7 @@ export default function BlogPage() {
     ])
       .then(([raw, index]) => {
         if (cancelled) return;
+        setIndexEntries(index);
         const foundations = foundationsAsBlogPosts();
         const foundationSlugs = new Set(foundations.map((p) => p.slug));
         // Foundations win on slug collision.
@@ -76,8 +77,6 @@ export default function BlogPage() {
     };
   }, []);
 
-  // Foundations are rendered by FoundationsCurriculum from its own source.
-  const supporting = (posts ?? []).filter((p) => SUPPORTING_TYPES.has(p.contentType));
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -150,13 +149,7 @@ export default function BlogPage() {
         {posts && posts.length > 0 && (
           <div className="space-y-16">
             <FoundationsCurriculum />
-            <BlogSection
-              eyebrow="Search-driven articles"
-              title="Real Life Weight Questions"
-              description="Practical answers to the questions people actually ask while trying to stop regaining."
-              posts={supporting}
-              emptyMessage="No real-life articles yet."
-            />
+            <SearchDrivenIndex entries={indexEntries} />
           </div>
         )}
       </section>
@@ -166,65 +159,3 @@ export default function BlogPage() {
   );
 }
 
-function BlogSection({
-  eyebrow,
-  title,
-  description,
-  posts,
-  emptyMessage,
-}: {
-  eyebrow: string;
-  title: string;
-  description: string;
-  posts: EnrichedPost[];
-  emptyMessage: string;
-}) {
-  return (
-    <section>
-      <div className="mb-6 max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-2">{eyebrow}</p>
-        <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight mb-2">{title}</h2>
-        <p className="text-sm md:text-base text-zinc-700">{description}</p>
-      </div>
-
-      {posts.length === 0 ? (
-        <p className="text-sm text-zinc-500 italic">{emptyMessage}</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((p) => (
-            <a
-              key={p.id}
-              href={`/blog/${p.slug}`}
-              className="group flex flex-col rounded-xl border border-border bg-card overflow-hidden hover:border-accent/60 transition-colors"
-            >
-              {p.featuredImage?.url ? (
-                <div className="aspect-[16/9] overflow-hidden bg-muted">
-                  <img
-                    src={p.featuredImage.url}
-                    alt={p.featuredImage.title || p.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                  />
-                </div>
-              ) : (
-                <div className="aspect-[16/9] bg-gradient-to-br from-accent/10 to-muted" />
-              )}
-              <div className="p-5 flex-1 flex flex-col">
-                <p className="text-xs text-zinc-600 uppercase tracking-wider mb-2">
-                  <time dateTime={p.publishDate}>{formatPublishDate(p.publishDate)}</time>
-                </p>
-                <h3 className="text-lg md:text-xl font-bold leading-snug mb-2 text-foreground group-hover:text-accent transition-colors">
-                  {p.title}
-                </h3>
-                {p.excerpt && (
-                  <p className="text-sm text-zinc-700 leading-relaxed line-clamp-3">{p.excerpt}</p>
-                )}
-              </div>
-            </a>
-          ))}
-        </div>
-      )}
-    </section>
-  );
-}
