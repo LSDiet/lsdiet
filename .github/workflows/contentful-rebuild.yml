@@ -1,0 +1,56 @@
+name: Contentful Rebuild
+
+# Triggered by the `contentful-rebuild-hook` Supabase Edge Function via
+# GitHub repository_dispatch. Commits a timestamp file so Lovable's
+# GitHub sync auto-deploys, which re-runs `prebuild` and regenerates
+# public/blog-sitemap.xml with the latest Contentful entries.
+#
+# See docs/SITEMAP_ARCHITECTURE.md for the full flow.
+
+on:
+  repository_dispatch:
+    types: [contentful-publish]
+
+concurrency:
+  # Only one rebuild commit in flight at a time. A second event arriving
+  # mid-run will replace any queued run with itself.
+  group: contentful-rebuild
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  touch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Write last-content-sync marker
+        run: |
+          mkdir -p .lovable
+          cat > .lovable/last-content-sync.json <<JSON
+          {
+            "dispatchId": "${{ github.event.client_payload.dispatchId }}",
+            "eventId":    "${{ github.event.client_payload.eventId }}",
+            "topic":      "${{ github.event.client_payload.topic }}",
+            "entryId":    "${{ github.event.client_payload.entryId }}",
+            "updatedAt":  "${{ github.event.client_payload.updatedAt }}",
+            "syncedAt":   "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          JSON
+
+      - name: Commit and push marker
+        run: |
+          git config user.name  "lsdiet-contentful-bot"
+          git config user.email "contentful-bot@users.noreply.github.com"
+          git add .lovable/last-content-sync.json
+          if git diff --cached --quiet; then
+            echo "No marker change, skipping commit."
+            exit 0
+          fi
+          git commit -m "chore(content): contentful sync ${{ github.event.client_payload.dispatchId }}"
+          git push
