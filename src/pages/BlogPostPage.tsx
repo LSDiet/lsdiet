@@ -274,6 +274,8 @@ export default function BlogPostPage() {
           <div className="prose-content">
             {vm.source === "foundation" && vm.foundation ? (
               <vm.foundation.Body />
+            ) : vm.source === "article" && vm.article ? (
+              <vm.article.Body />
             ) : vm.contentful?.content ? (
               <RichText document={vm.contentful.content} />
             ) : null}
