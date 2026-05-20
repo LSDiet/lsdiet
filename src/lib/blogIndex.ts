@@ -1,13 +1,17 @@
 // Client for the public blog-index edge function. Used by /blog (split view)
 // and "Related Foundations" blocks.
 //
-// Two-system architecture:
-//   • Code-managed FOUNDATIONS (src/content/foundations) are merged in here so
-//     RelatedFoundations and /blog see them alongside Contentful posts.
-//   • Contentful provides the high-volume "Real Life Weight Questions" stream
-//     via the blog-index edge function.
+// Three-system architecture, merged here:
+//   1. Code-managed FOUNDATIONS (src/content/foundations) — authority layer.
+//   2. Contentful posts via the blog-index edge function — curated editorial.
+//   3. Code-managed ARTICLES (src/content/articles) — Search-driven utility layer.
+//
+// Slug-collision precedence (locked):
+//   Foundations > Contentful > Articles
+// Articles NEVER override curated editorial content; foundations override both.
 
 import { FOUNDATIONS } from "@/content/foundations";
+import { ARTICLES } from "@/content/articles";
 
 export interface BlogIndexEntry {
   title: string;
@@ -23,7 +27,7 @@ export interface BlogIndexEntry {
   parentUrl: string | null;
   parents: string[];
   relatedTopics: string[];
-  /** Featured image URL — present for foundations; optional for Contentful posts. */
+  /** Featured image URL — present for foundations; optional for others. */
   featuredImage?: { url: string; alt: string } | null;
 }
 
@@ -46,23 +50,53 @@ function foundationsAsIndex(): BlogIndexEntry[] {
   }));
 }
 
+function articlesAsIndex(): BlogIndexEntry[] {
+  return ARTICLES.map((a) => ({
+    title: a.meta.title,
+    slug: a.meta.slug,
+    url: `https://lsdiet.com/blog/${a.meta.slug}`,
+    excerpt: a.meta.excerpt,
+    publishDate: a.meta.publishDate,
+    updatedAt: a.meta.updatedAt,
+    canonicalTopic: a.meta.canonicalTopic,
+    subTopic: null,
+    topics: a.meta.topics,
+    contentType: "supporting",
+    parentUrl: `https://lsdiet.com/blog/${a.meta.primaryFoundationSlug}`,
+    parents: [a.meta.primaryFoundationSlug, ...a.meta.relatedFoundationSlugs].map(
+      (s) => `https://lsdiet.com/blog/${s}`,
+    ),
+    relatedTopics: [],
+    featuredImage: null,
+  }));
+}
+
 export async function fetchBlogIndex(): Promise<BlogIndexEntry[]> {
-  const local = foundationsAsIndex();
+  const foundations = foundationsAsIndex();
+  const articles = articlesAsIndex();
+
+  let remote: BlogIndexEntry[] = [];
   try {
     const url = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/blog-index`;
     const r = await fetch(url, {
       headers: { Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}` },
     });
-    if (!r.ok) throw new Error(`Failed to load blog index: ${r.status}`);
-    const remote = (await r.json()) as BlogIndexEntry[];
-    // Code-managed foundations win on slug collision.
-    const localSlugs = new Set(local.map((e) => e.slug));
-    const merged = [...local, ...remote.filter((e) => !localSlugs.has(e.slug))];
-    merged.sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
-    return merged;
+    if (r.ok) {
+      remote = (await r.json()) as BlogIndexEntry[];
+    }
   } catch {
-    // If the remote index is unreachable, still return foundations so the
-    // semantic authority layer keeps working.
-    return local;
+    // Network failure on the remote index must not break the local layers.
   }
+
+  // Precedence: Foundations > Contentful > Articles.
+  const foundationSlugs = new Set(foundations.map((e) => e.slug));
+  const contentful = remote.filter((e) => !foundationSlugs.has(e.slug));
+  const contentfulSlugs = new Set(contentful.map((e) => e.slug));
+  const utility = articles.filter(
+    (e) => !foundationSlugs.has(e.slug) && !contentfulSlugs.has(e.slug),
+  );
+
+  const merged = [...foundations, ...contentful, ...utility];
+  merged.sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
+  return merged;
 }

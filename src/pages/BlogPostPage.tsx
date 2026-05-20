@@ -12,6 +12,7 @@ import { ArticleByline } from "@/components/ArticleByline";
 import { AboutAuthorBlock } from "@/components/AboutAuthorBlock";
 import { RelatedFoundations } from "@/components/RelatedFoundations";
 import { getFoundationBySlug, type Foundation } from "@/content/foundations";
+import { getArticleBySlug, type Article } from "@/content/articles";
 
 type ViewModel = {
   source: "foundation" | "contentful";
