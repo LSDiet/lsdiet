@@ -1,197 +1,71 @@
-# Plan v2 — /blog clustering + supporting-article framework experience
+## Final architecture (Option B + webhook)
 
-Incorporates all feedback. Rendering-layer only. No changes to slugs, SEO schema, routing, foundations, taxonomy, sitemap, Contentful, or article body text.
+### Source of truth
+The edge function `supabase/functions/blog-sitemap` becomes the single live source of truth for `/blog/*` URLs. It merges, on every request:
 
----
+1. **Foundations** — hard-coded slug array inside the function (mirrored from `src/content/foundations/index.ts`). 9 entries today.
+2. **Supporting articles** — hard-coded slug array (mirrored from `src/content/articles/index.ts`). 40 entries today.
+3. **Contentful posts** — fetched live from the Contentful Delivery API on every invocation.
 
-## Problem 1 — Cluster the Search-driven section on /blog
+De-dupes by slug with locked precedence (Foundations > Contentful > Articles). Returns XML with `<priority>0.9</priority>` for foundations and `0.7` for the rest, `<lastmod>` from each source's updatedAt.
 
-Unchanged from v1. Five manually curated behavioural clusters replace the topic-bucketed feed; visuals mirror `FoundationsCurriculum`.
+### Static cache for branded URL
+`scripts/generate-blog-sitemap.ts` fetches the edge function and writes `public/blog-sitemap.xml` on `predev`/`prebuild`. `https://lsdiet.com/blog-sitemap.xml` stays the canonical URL Google crawls. Foundations/articles are always in sync because they ship with the code; Contentful freshness depends on the rebuild cadence below.
 
-**New file** `src/lib/searchArticleClusters.ts` — static config of `{ id, title, description, slugs[] }` for the 5 clusters, plus a `clusterOfSlug(slug)` helper consumed by Problem 2.
+### Contentful webhook → rebuild (resilient + idempotent)
+New edge function `contentful-rebuild-hook` handles webhook calls from Contentful and triggers a Lovable rebuild via GitHub `repository_dispatch` (GitHub is already connected to this project; pushes auto-deploy).
 
-**Modified** `src/components/SearchDrivenIndex.tsx` — renders clusters in fixed order. Unmapped supporting entries fall into a "More" bucket only if any exist (no empty buckets). All `<a>` links remain server-rendered (no accordions/modals).
+Resilience and idempotency rules baked into the function:
 
-Cluster visual:
-- Cluster H3: `text-sm md:text-base font-bold uppercase tracking-[0.18em]`
-- One-line muted description below H3
-- Title-only rows, `divide-y divide-zinc-100`, hover → amber + arrow
-- Desktop hover-reveal excerpt via grid-rows transition
-- Stacked vertically on all breakpoints
+- **Shared-secret auth** — Contentful sends an `X-Webhook-Secret` header; function rejects anything else with 401. Secret stored as `CONTENTFUL_WEBHOOK_SECRET`.
+- **Event filter** — only acts on `ContentManagement.Entry.publish` and `ContentManagement.Entry.unpublish` topics. Drafts (`auto_save`, `save`, `archive`) are accepted with 200 and ignored. Topic comes from the `X-Contentful-Topic` header.
+- **Environment filter** — only entries from the `master` environment trigger a rebuild. Other environments return 200 + no-op.
+- **Content type filter** — only `blogPost` entries trigger; other types return 200 + no-op.
+- **Debounce** — track `lastDispatchAt` in a tiny `rebuild_dispatches` Supabase table. If the previous dispatch happened <120 s ago, skip and return 200 with reason `debounced`. This collapses publish storms (bulk publishes, republish loops) into a single rebuild.
+- **Dispatch idempotency** — each dispatch carries a `dispatchId` (UUID). If GitHub responds non-2xx, we log + return 500 so Contentful retries; if it succeeds we record the row and ignore retries for the same `eventId`.
+- **No rebuild loop possible** — the rebuild itself doesn't touch Contentful, so it cannot fire another webhook.
 
----
+Configuration on the user side (one-time): in Contentful → Settings → Webhooks, create a webhook pointing at `https://<project-ref>.supabase.co/functions/v1/contentful-rebuild-hook`, scoped to "Entry — Publish / Unpublish", filtered by `sys.environment.sys.id == master` and `sys.contentType.sys.id == blogPost`, with the shared secret header. Steps will be in the docs file below.
 
-## Problem 2 — Supporting article pages become framework nodes
+GitHub side: a `repository_dispatch` event triggers a no-op commit (touches a `.lovable/last-content-sync` timestamp file) so Lovable's auto-deploy picks it up. Workflow file `.github/workflows/contentful-rebuild.yml` added by the build.
 
-Scope: `vm.source === "article"` branch of `BlogPostPage.tsx` only. Foundations/Contentful render unchanged.
+### Files added / changed
 
-### A. Typography & content hierarchy (the biggest visual fix)
+- `supabase/functions/blog-sitemap/index.ts` — extend to merge foundations + articles + Contentful, with hard-coded slug arrays.
+- `supabase/functions/contentful-rebuild-hook/index.ts` — new, with all filters/debounce above.
+- `supabase/config.toml` — register new function with `verify_jwt = false`.
+- `scripts/generate-blog-sitemap.ts` — already in place; no logic change required (continues to fetch the edge function and write the static file).
+- `.github/workflows/contentful-rebuild.yml` — new, listens for `repository_dispatch` type `contentful-publish` and commits a timestamp file.
+- `docs/SITEMAP_ARCHITECTURE.md` — new, full diagram + ops runbook (see below).
+- Database migration — small `rebuild_dispatches` table with RLS that locks out anon/authenticated.
 
-Goal: scanability + emphasis rhythm, **not** densification. Preserve whitespace.
+### Secrets needed
+- `CONTENTFUL_WEBHOOK_SECRET` — random string, also pasted into the Contentful webhook header config.
+- `GITHUB_DISPATCH_TOKEN` — fine-grained PAT scoped to `Actions: read/write` on this repo only.
+- `GITHUB_REPO` — `owner/repo` string for the dispatch URL.
 
-CSS additions to `src/index.css` under a new `.prose-article` class (applied only when `vm.source === "article"`):
+I will request these via the secrets tool after you approve the plan.
 
-- **Reading width**: `max-w-[68ch]` on the article wrapper. Container becomes narrower than the current `max-w-3xl`. Mobile keeps full-width.
-- **H2 hierarchy**: `text-2xl md:text-[1.75rem] font-extrabold tracking-tight`, `mt-14 mb-4`, with a short amber rule above (`::before` 32px amber bar). Strong visual section break — not just bigger text.
-- **H3** (rare in articles): `text-lg font-bold mt-10 mb-3`.
-- **Paragraphs**: `leading-[1.75]`, `mb-5`, `text-[17px]`, color `text-zinc-800`. Generous breathing room kept.
-- **First paragraph of each section**: bumped to `text-[18px] font-medium text-zinc-900` via `.prose-article h2 + p` to create a "lead sentence" rhythm without rewriting copy.
-- **Strong/em**: `<strong>` rendered as `font-semibold text-zinc-900`; existing inline emphasis from article TSX gains visual weight automatically.
-- **Lists**: tighter `space-y-2`, custom bullet using amber dot.
+### Documentation file (`docs/SITEMAP_ARCHITECTURE.md`)
 
-No wall-of-text. Just stronger section anchors and a lead-line rhythm.
+The committed doc will contain, in plain English:
 
-### B. Article header — calm, oriented, low-friction
+1. **Where sitemap truth originates** — the `blog-sitemap` edge function is the live source; `public/blog-sitemap.xml` is a cached snapshot served at the branded URL.
+2. **Foundations / Articles** — code-managed; appearing in the registry is the only "publish" step; deploy ships them automatically.
+3. **Contentful sync** — Contentful publish/unpublish → webhook → `contentful-rebuild-hook` edge function → GitHub `repository_dispatch` → workflow commits timestamp → Lovable auto-deploys → `prebuild` regenerates `blog-sitemap.xml`.
+4. **Webhook dependency + filters** — exact event topics, environment filter, content-type filter, debounce window, retry semantics.
+5. **Rebuild trigger flow** — ASCII diagram of the path from a Contentful "Publish" click to a fresh sitemap at `https://lsdiet.com/blog-sitemap.xml`.
+6. **Failure modes & recovery** — what to do if the webhook stops firing, how to manually trigger a rebuild, how to verify the sitemap is fresh.
+7. **Adding new content types** — checklist for the next time we extend the registry or add a new Contentful model.
 
-Restructure the header on supporting articles only:
+### Verification after build
+1. Deploy and hit `/functions/v1/blog-sitemap` directly — confirm ≥ 50 `<url>` entries.
+2. Confirm `public/blog-sitemap.xml` regenerates with the same set during `prebuild`.
+3. Simulate a draft save in Contentful → webhook fires → function logs `ignored: not a publish event` → no GitHub dispatch.
+4. Simulate a publish → webhook fires → GitHub Action runs → Lovable redeploys → sitemap reflects the change.
+5. Fire two publishes within 30 s → second call returns `debounced` and no second rebuild kicks off.
 
-1. **Breadcrumb (new)** — text-only line above the H1:
-   `LS Diet Foundations → Psychology & Behaviour → Why Do I Restart Weight Loss Every Monday?`
-   - Source: first segment static, middle segment from `clusterOfSlug(slug).title`, last segment is current title (truncated/aria-current).
-   - Style: `text-xs uppercase tracking-[0.18em] text-zinc-500`, arrow separators in muted accent.
-   - Replaces the generic `PageBreadcrumb` for article-source posts (foundations/Contentful keep theirs).
-
-2. **H1**: drop to `text-2xl md:text-4xl`, tighter `mb-3`.
-
-3. **Byline row** (new compact layout): `Oscar Poon · May 20, 2026 · 4 min read`
-   - Reading time computed from article body word count via a small helper `src/lib/readingTime.ts` (≈225 wpm, min 2). For TSX article bodies, the helper accepts the article slug and reads from a precomputed map built at module load by rendering bodies to a hidden static string OR — simpler — by walking `React.Children` of `<Body />` at runtime to extract text. Implementation: lightweight `useMemo` that mounts `<Body />` into a detached `DocumentFragment` via `renderToStaticMarkup` (already available through `react-dom/server`) and strips HTML.
-   - Style: `text-xs md:text-sm text-zinc-500`, single line, em-dash separators on mobile if needed.
-
-4. **Foundation authority line** (Section D from v1) — directly under byline:
-   *Part of the LS Diet Foundations ecosystem · [primary foundation title]*
-   `text-xs text-zinc-500`, foundation link in muted accent.
-
-5. **Remove share icons from header.** Sharing now lives in two places only:
-   - Desktop sticky rail (already exists, kept).
-   - Single inline share row at the bottom of the article (above the progression block), no headline copy, no card.
-
-### C. True mid-flow Related Reading block
-
-New component `src/components/MidArticleRelated.tsx` — minimal text-only `<aside>`, hairline top/bottom rules, small uppercase label, 3–4 bullet links.
-
-**Programmatic injection — no article TSX edits**:
-
-`BlogPostPage` wraps the rendered article body in a `<div ref>`. A `useLayoutEffect` runs after mount:
-
-1. Query all `<h2>` inside the wrapper.
-2. Insertion target = `headings[1]` (the 2nd H2). If fewer than 2 H2s, fall back to a paragraph at ~40% scroll height of the wrapper.
-3. Insert a `<div data-mid-related-slot>` placeholder before that target node.
-4. The placeholder is then hydrated with a React portal rendering `<MidArticleRelated items={...} />`.
-
-This delivers true mid-flow placement without splitting any article. The block visually feels embedded — not appended.
-
-Items shown: ranks 2–5 from Section E logic (rank 1 is reserved for end-of-article).
-
-### D. Behavioural pathway routing (the differentiator)
-
-Replaces v1's purely semantic ranking. New helper `src/lib/behaviouralPathway.ts` exposes:
-
-```text
-getPathway(currentArticle) → {
-  awareness:      Foundation | Article    // "see the pattern"
-  implementation: Foundation | Article    // "do the work"
-  identity:       Foundation | Article    // "become the person"
-  support:        Article                  // "don't go alone"
-}
-```
-
-Pathway stages (locked):
-
-```text
-Problem  →  Awareness  →  Implementation  →  Identity  →  Support
-(article)   (awareness   (action-practice  (identity-   (accountability /
-            foundation   foundation /       awareness    community
-            or aware-    related impl-      foundation)  article)
-            ness article)oriented article)
-```
-
-Selection rules per stage:
-
-- **Awareness**: prefer the article's `primaryFoundationSlug` if it's one of `pattern-awareness / friction-awareness / consequence-awareness / reality-awareness`. Otherwise pick the awareness foundation most-shared via `relatedFoundationSlugs` or topic overlap.
-- **Implementation**: prefer `action-practice` foundation; if the current article *is* about action-practice, pick the strongest in-cluster sibling that demonstrates a behaviour (meal prep, plateaus, exercise after work, etc.).
-- **Identity**: prefer `identity-awareness` foundation; fallback to an identity/confidence-cluster article (e.g. `how-weight-loss-changes-confidence-and-social-behaviour`).
-- **Support**: prefer `can-accountability-help-you-lose-weight`; fallback to a same-cluster supporting article not already used in the chain.
-
-Deduplication ensures no slot repeats the current article or another slot's pick.
-
-### E. Related ranking for the mid-flow block
-
-`src/lib/relatedArticles.ts` — ranking chain used by the mid-flow aside (Section C):
-
-1. Same cluster (from `searchArticleClusters`).
-2. Same `canonicalTopic`.
-3. Shared `primaryFoundationSlug`.
-4. Shared `topics` (intersection count).
-
-Returns top 5, deterministic, current slug excluded, pathway picks excluded so the two blocks don't repeat each other.
-
-### F. End-of-article progression
-
-`src/components/ArticleProgression.tsx` renders the pathway as a structured 4-row list (replaces the generic "Continue reading" card for articles only):
-
-```text
-Continue the LS Diet Framework
-─────────────────────────────────
-  Awareness        →  [pathway.awareness.title]
-  Implementation   →  [pathway.implementation.title]
-  Identity         →  [pathway.identity.title]
-  Support          →  [pathway.support.title]
-
-  [Varied CTA copy]  →  https://www.skool.com/lsdiet/about
-```
-
-Minimal styling: hairline dividers, amber accent on hover, tiny uppercase stage labels in muted grey. Not a salesy card.
-
-Foundation/Contentful posts keep the current "Continue reading" block.
-
-### G. CTA copy variation (Section H from v1)
-
-`src/lib/articleCta.ts` — deterministic slug → label hash over five variants:
-
-- "Learn the LS Diet system"
-- "Explore the free LS Diet framework"
-- "Start the free Action Practice lessons"
-- "Join the LS Diet behavioural system"
-- "Join the free LS Diet Course"
-
-URL stays the Skool URL.
-
-### H. Inline interlinking governance
-
-`GOVERNANCE.md` gains a "Supporting Article Interlinking" section: min 3 / ideal 5–8 internal links per article, ≥1 foundation, ≥1 awareness, ≥1 adjacent supporting, no duplicate anchor spam, varied CTA copy. No code-enforced check this pass; used as the author rule sheet.
-
-Light audit pass: scan each of the 40 article TSX files; only add 1–2 inline `<a>` on existing concept mentions where below threshold. **No prose rewrites.**
-
----
-
-## Files touched
-
-**New**
-- `src/lib/searchArticleClusters.ts`
-- `src/lib/relatedArticles.ts`
-- `src/lib/behaviouralPathway.ts`
-- `src/lib/articleCta.ts`
-- `src/lib/readingTime.ts`
-- `src/components/MidArticleRelated.tsx`
-- `src/components/ArticleProgression.tsx`
-- `src/components/ArticleBreadcrumb.tsx`
-
-**Modified**
-- `src/components/SearchDrivenIndex.tsx` — cluster rendering.
-- `src/pages/BlogPostPage.tsx` — article-only header (breadcrumb, byline + reading time + authority line, no share icons), narrower wrapper, mid-flow related injection, `ArticleProgression` footer, single bottom share row.
-- `src/index.css` — `.prose-article` typography block.
-- `GOVERNANCE.md` — interlinking + CTA rules.
-
-**Audit pass** on `src/content/articles/*.tsx` — additive inline links only, no body rewrites.
-
----
-
-## Out of scope (explicitly untouched)
-
-Foundations content/structure/styling/ordering/metadata, FoundationsCurriculum, real slugs, SEO JSON-LD, routing, Contentful, taxonomy, sitemap, edge functions, article URLs, article body prose.
-
-## Technical notes (for reference)
-
-- Mid-flow injection uses `useLayoutEffect` + a React portal into a DOM-inserted placeholder — no body TSX changes, no SSR risk (this app is client-rendered).
-- Reading time uses `react-dom/server`'s `renderToStaticMarkup` on `<article.Body />` once per article via `useMemo`. Bundle impact: `react-dom/server` is already in the tree via existing tooling; if not, fallback is a regex word count on the TSX module text via a Vite virtual import.
-- Reading width `68ch` keeps long-form copy inside the 65–75ch target without breaking the existing breakpoint system.
+### Out of scope
+- Migrating foundations/articles to a CMS — they stay code-managed by design.
+- Indexing speed in Google Search Console — once the sitemap is correct, discovery is on Google's schedule.
+- Canonical URLs, metadata, routing — unchanged.
