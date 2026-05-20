@@ -15,7 +15,7 @@ import { getFoundationBySlug, type Foundation } from "@/content/foundations";
 import { getArticleBySlug, type Article } from "@/content/articles";
 
 type ViewModel = {
-  source: "foundation" | "contentful";
+  source: "foundation" | "contentful" | "article";
   title: string;
   slug: string;
   excerpt: string;
@@ -30,6 +30,7 @@ type ViewModel = {
   // Renderers — only one is set:
   foundation?: Foundation;
   contentful?: BlogPost;
+  article?: Article;
 };
 
 function fromFoundation(f: Foundation): ViewModel {
@@ -67,6 +68,21 @@ function fromContentful(p: BlogPost): ViewModel {
   };
 }
 
+function fromArticle(a: Article): ViewModel {
+  return {
+    source: "article",
+    title: a.meta.title,
+    slug: a.meta.slug,
+    excerpt: a.meta.excerpt,
+    publishDate: a.meta.publishDate,
+    updatedAt: a.meta.updatedAt,
+    metaDescription: a.meta.metaDescription,
+    image: "",
+    imageAlt: "",
+    article: a,
+  };
+}
+
 export default function BlogPostPage() {
   const { slug = "" } = useParams<{ slug: string }>();
   const [vm, setVm] = useState<ViewModel | null>(null);
@@ -76,7 +92,7 @@ export default function BlogPostPage() {
     let cancelled = false;
     setStatus("loading");
 
-    // 1. Code-managed foundations take priority.
+    // 1. Code-managed foundations take priority (authority layer).
     const foundation = getFoundationBySlug(slug);
     if (foundation) {
       setVm(fromFoundation(foundation));
@@ -84,18 +100,35 @@ export default function BlogPostPage() {
       return;
     }
 
-    // 2. Fall back to Contentful for high-volume publishing.
+    // 2. Contentful — curated editorial layer.
+    // 3. Code-managed articles — Search-driven utility layer (fallback).
     fetchBlogPost(slug)
       .then((p) => {
         if (cancelled) return;
-        if (!p) {
-          setStatus("missing");
-        } else {
+        if (p) {
           setVm(fromContentful(p));
           setStatus("ok");
+          return;
+        }
+        const article = getArticleBySlug(slug);
+        if (article) {
+          setVm(fromArticle(article));
+          setStatus("ok");
+        } else {
+          setStatus("missing");
         }
       })
-      .catch(() => !cancelled && setStatus("error"));
+      .catch(() => {
+        if (cancelled) return;
+        // Contentful failure must not block Articles from resolving.
+        const article = getArticleBySlug(slug);
+        if (article) {
+          setVm(fromArticle(article));
+          setStatus("ok");
+        } else {
+          setStatus("error");
+        }
+      });
     return () => {
       cancelled = true;
     };
