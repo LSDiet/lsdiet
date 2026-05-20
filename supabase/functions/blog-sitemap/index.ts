@@ -16,6 +16,14 @@ const GATEWAY = "https://connector-gateway.lovable.dev/contentful";
 const CONTENT_TYPE = "blogPost";
 const BASE_URL = "https://lsdiet.com";
 
+function categorySlug(raw: string): string {
+  return String(raw ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 // ---- Mirrored from src/content/foundations/index.ts ----------------------
 // Order matters only for human inspection; the sitemap sorts by lastmod.
 const FOUNDATION_SLUGS: string[] = [
@@ -95,7 +103,9 @@ interface Entry {
   source: "foundation" | "contentful" | "article";
 }
 
-async function fetchContentful(): Promise<Array<{ slug: string; updatedAt: string }>> {
+async function fetchContentful(): Promise<
+  Array<{ slug: string; updatedAt: string; category: string }>
+> {
   try {
     const LOVABLE_API_KEY = env("LOVABLE_API_KEY");
     const CONTENTFUL_API_KEY = env("CONTENTFUL_API_KEY");
@@ -105,7 +115,7 @@ async function fetchContentful(): Promise<Array<{ slug: string; updatedAt: strin
       content_type: CONTENT_TYPE,
       order: "-fields.publishDate",
       "fields.publishDate[lte]": nowIso,
-      select: "fields.slug,sys.updatedAt",
+      select: "fields.slug,fields.category,sys.updatedAt",
       limit: "1000",
     }).toString();
 
@@ -125,9 +135,9 @@ async function fetchContentful(): Promise<Array<{ slug: string; updatedAt: strin
       .map((i: any) => ({
         slug: String(i.fields.slug),
         updatedAt: String(i.sys?.updatedAt ?? new Date().toISOString()),
+        category: i.fields?.category ? String(i.fields.category) : "",
       }));
   } catch (err) {
-    // Never let Contentful failure blank out the sitemap — log and keep going.
     console.error(
       "blog-sitemap: Contentful fetch failed, continuing with code-managed entries only:",
       err instanceof Error ? err.message : err,
@@ -175,6 +185,14 @@ Deno.serve(async () => {
       entries.push({ slug, lastmod: today(), priority: "0.7", source: "article" });
     }
 
+    // Derive unique category slugs from Contentful payload.
+    const categorySlugs = new Set<string>();
+    for (const c of contentful) {
+      if (!c.category) continue;
+      const s = categorySlug(c.category);
+      if (s) categorySlugs.add(s);
+    }
+
     const urls = entries
       .map(
         (e) =>
@@ -182,17 +200,25 @@ Deno.serve(async () => {
       )
       .join("\n");
 
-    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>`;
+    const categoryUrls = [...categorySlugs]
+      .map(
+        (slug) =>
+          `  <url>\n    <loc>${BASE_URL}/category/${slug}</loc>\n    <lastmod>${today()}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+      )
+      .join("\n");
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}${categoryUrls ? "\n" + categoryUrls : ""}\n</urlset>`;
 
     return new Response(xml, {
       headers: {
         "Content-Type": "application/xml; charset=utf-8",
         "Cache-Control": "public, max-age=300, s-maxage=600",
         "Access-Control-Allow-Origin": "*",
-        "X-Sitemap-Count": String(entries.length),
+        "X-Sitemap-Count": String(entries.length + categorySlugs.size),
         "X-Sitemap-Foundations": String(FOUNDATION_SLUGS.length),
         "X-Sitemap-Articles": String(ARTICLE_SLUGS.length),
         "X-Sitemap-Contentful": String(contentful.length),
+        "X-Sitemap-Categories": String(categorySlugs.size),
       },
     });
   } catch (err) {
