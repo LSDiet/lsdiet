@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
-import { listBlogPosts, formatPublishDate, type BlogPost } from "@/lib/blog";
+import { listBlogPosts, type BlogPost } from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
 import { FOUNDATIONS } from "@/content/foundations";
 import { FoundationsCurriculum } from "@/components/FoundationsCurriculum";
@@ -14,8 +14,6 @@ type EnrichedPost = BlogPost & {
   contentType: BlogIndexEntry["contentType"];
   canonicalTopic: string;
 };
-
-const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
 
 // Convert code-managed foundations to the BlogPost shape so they render in the grid.
 function foundationsAsBlogPosts(): BlogPost[] {
