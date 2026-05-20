@@ -29,6 +29,13 @@ import howMuchWeightLossAffectsMetabolism from "./how-much-does-weight-loss-affe
 import howToLoseWeightQuietly from "./how-to-lose-weight-quietly-without-announcing-it";
 import howMuchRealisticInAMonth from "./how-much-weight-can-you-realistically-lose-in-a-month";
 
+// Batch 4
+import canAPhysicalJobHelp from "./can-a-physical-job-help-you-lose-weight";
+import doStandingDesksHelp from "./do-standing-desks-help-with-weight-loss";
+import willLosingWeightImproveCareer from "./will-losing-weight-improve-your-career-prospects";
+import whatShouldYouEatForLunch from "./what-should-you-eat-for-lunch-to-lose-weight";
+import whatFoodsHelpLoseWeightFastest from "./what-foods-help-you-lose-weight-fastest";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -48,6 +55,12 @@ export const ARTICLES: Article[] = [
   howMuchWeightLossAffectsMetabolism,
   howToLoseWeightQuietly,
   howMuchRealisticInAMonth,
+  // Batch 4
+  canAPhysicalJobHelp,
+  doStandingDesksHelp,
+  willLosingWeightImproveCareer,
+  whatShouldYouEatForLunch,
+  whatFoodsHelpLoseWeightFastest,
 ];
 
 
