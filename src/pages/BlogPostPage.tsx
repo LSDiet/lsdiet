@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -32,6 +32,9 @@ import {
 } from "@/lib/behaviouralPathway";
 import { getRelatedArticles } from "@/lib/relatedArticles";
 import { readingTimeMinutes } from "@/lib/readingTime";
+import { LSDietCTA } from "@/components/LSDietCTA";
+import { ctaCopyFor, type CtaContext } from "@/lib/ctaVariants";
+import { useCtaInjection } from "@/lib/useCtaInjection";
 
 type ViewModel = {
   source: "foundation" | "contentful" | "article";
@@ -328,13 +331,20 @@ export default function BlogPostPage() {
               </figure>
             )}
 
-            <div className="prose-content">
+            <ProseBody
+              slug={vm.slug}
+              ctaContext={
+                vm.source === "foundation"
+                  ? { foundationSlug: vm.slug }
+                  : { category: vm.category }
+              }
+            >
               {vm.source === "foundation" && vm.foundation ? (
                 <vm.foundation.Body />
               ) : vm.contentful?.content ? (
                 <RichText document={vm.contentful.content} />
               ) : null}
-            </div>
+            </ProseBody>
 
             <div className="mt-14 text-center">
               <p className="text-sm text-zinc-600 mb-3">
@@ -551,6 +561,9 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
   const foundationTitle = getFoundationTitle(article.meta.primaryFoundationSlug);
   const showUpdated = updatedAt && updatedAt !== publishDate;
 
+  const ctaContext: CtaContext = { clusterId: cluster?.id };
+  const ctaSlots = useCtaInjection({ bodyRef, slug: article.meta.slug });
+
   return (
     <article className="container mx-auto px-4 pt-28 pb-20">
       <div className="mx-auto" style={{ maxWidth: "68ch" }}>
@@ -597,6 +610,15 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
 
         {midSlot && createPortal(<MidArticleRelated items={midItems} />, midSlot)}
 
+        {ctaSlots.map((s) => {
+          const copy = ctaCopyFor(ctaContext, s.placement);
+          return createPortal(
+            <LSDietCTA placement={s.placement} headline={copy.headline} body={copy.body} />,
+            s.node,
+            `cta-${s.placement}`,
+          );
+        })}
+
         <div className="mt-12 pt-6 border-t border-zinc-200 flex items-center justify-between gap-4 flex-wrap">
           <p className="text-xs text-zinc-500">Found this useful? Share it.</p>
           <ShareButtons url={url} crawlerShareUrl={crawlerShareUrl} title={article.meta.title} variant="inline" />
@@ -607,5 +629,35 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
         <AboutAuthorBlock />
       </div>
     </article>
+  );
+}
+
+/* ----------------------------------------------------------------
+   Shared prose wrapper for foundation + Contentful posts.
+   Owns CTA injection (1–3 <LSDietCTA /> blocks based on word count)
+   so the same logic runs across every blog template.
+   ---------------------------------------------------------------- */
+
+interface ProseBodyProps {
+  slug: string;
+  ctaContext: CtaContext;
+  children: React.ReactNode;
+}
+
+function ProseBody({ slug, ctaContext, children }: ProseBodyProps) {
+  const bodyRef = useRef<HTMLDivElement | null>(null);
+  const ctaSlots = useCtaInjection({ bodyRef, slug });
+  return (
+    <div ref={bodyRef} className="prose-content">
+      {children}
+      {ctaSlots.map((s) => {
+        const copy = ctaCopyFor(ctaContext, s.placement);
+        return createPortal(
+          <LSDietCTA placement={s.placement} headline={copy.headline} body={copy.body} />,
+          s.node,
+          `cta-${s.placement}`,
+        );
+      })}
+    </div>
   );
 }
