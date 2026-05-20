@@ -561,6 +561,9 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
   const foundationTitle = getFoundationTitle(article.meta.primaryFoundationSlug);
   const showUpdated = updatedAt && updatedAt !== publishDate;
 
+  const ctaContext: CtaContext = { clusterId: cluster?.id };
+  const ctaSlots = useCtaInjection({ bodyRef, slug: article.meta.slug });
+
   return (
     <article className="container mx-auto px-4 pt-28 pb-20">
       <div className="mx-auto" style={{ maxWidth: "68ch" }}>
@@ -606,6 +609,15 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
         </div>
 
         {midSlot && createPortal(<MidArticleRelated items={midItems} />, midSlot)}
+
+        {ctaSlots.map((s) => {
+          const copy = ctaCopyFor(ctaContext, s.placement);
+          return createPortal(
+            <LSDietCTA placement={s.placement} headline={copy.headline} body={copy.body} />,
+            s.node,
+            `cta-${s.placement}`,
+          );
+        })}
 
         <div className="mt-12 pt-6 border-t border-zinc-200 flex items-center justify-between gap-4 flex-wrap">
           <p className="text-xs text-zinc-500">Found this useful? Share it.</p>
