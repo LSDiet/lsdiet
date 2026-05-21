@@ -194,7 +194,7 @@ Deno.serve(async (req) => {
       headers: {
         ...CORS,
         "Content-Type": "application/json; charset=utf-8",
-        "Cache-Control": "public, max-age=300, s-maxage=600",
+        "Cache-Control": "public, max-age=30, s-maxage=30",
         "X-Content-Type-Options": "nosniff",
         "X-Taxonomy-Warnings": String(warnings.length),
       },
