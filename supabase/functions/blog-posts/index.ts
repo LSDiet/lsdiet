@@ -169,7 +169,7 @@ function jsonResponse(body: unknown, init: ResponseInit = {}, warnings: string[]
   const headers: Record<string, string> = {
     ...corsHeaders,
     "Content-Type": "application/json",
-    "Cache-Control": "public, max-age=60, s-maxage=300",
+    "Cache-Control": "public, max-age=30, s-maxage=30",
   };
   if (warnings.length) headers["X-Validation-Warnings"] = String(warnings.length);
   return new Response(JSON.stringify(body), { ...init, headers });
