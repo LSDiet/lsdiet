@@ -24,6 +24,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ShareRedirectPage from "./pages/ShareRedirectPage";
 import CategoryArchivePage from "./pages/CategoryArchivePage";
+import PartnersPage from "./pages/PartnersPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
