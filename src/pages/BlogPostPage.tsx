@@ -36,6 +36,9 @@ import { readingTimeMinutes } from "@/lib/readingTime";
 import { LSDietCTA } from "@/components/LSDietCTA";
 import { ctaCopyFor, type CtaContext } from "@/lib/ctaVariants";
 import { useCtaInjection } from "@/lib/useCtaInjection";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import { JoinFloatingBar } from "@/components/JoinFloatingBar";
+
 
 type ViewModel = {
   source: "foundation" | "contentful" | "article";
@@ -238,6 +241,8 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <ReadingProgressBar />
+
       <Helmet>
         <title>{vm.seoTitle} | LS Diet</title>
         <meta name="description" content={vm.metaDescription} />
@@ -390,6 +395,8 @@ export default function BlogPostPage() {
       </div>
 
       <FooterSimple />
+      <JoinFloatingBar />
+
     </div>
   );
 }
