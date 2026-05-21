@@ -34,7 +34,7 @@ export function HeroSection() {
           <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             Low-Starch, Low-Sugar
             <br />
-            <span className="text-accent">Stops Weight Regain.</span>
+            <span className="text-accent">Stops Weight Regain</span>
           </h1>
         </div>
 
