@@ -9,9 +9,9 @@ const meta: Foundation["meta"] = {
   listTitle: "Low-Starch, Low-Sugar (LS) Foundations",
   order: 2,
   excerpt:
-    "Many diets often don't succeed because they focus on restriction, hunger, and short-term motivation. This helpful LS Diet article explains how eating low in starch and sugar can help reduce insulin levels, ease psychological stress, and make weight loss easier to maintain over the long run.",
+    "Restrictive diets often collapse because they rely on hunger, willpower, and short-term motivation. This LS Diet article explains how a low-starch, low-sugar lifestyle reduces insulin spikes and cravings — making it the food layer behind the Weight Permanence Triangle™ and a sustainable way to stop regaining weight.",
   metaDescription:
-    "Learn why restrictive dieting often fails long term and how a low-starch, low-sugar lifestyle may help reduce insulin exposure, lower cravings, and support sustainable weight loss without constant restriction.",
+    "Learn why restrictive dieting fails long term and how a low-starch, low-sugar lifestyle reduces insulin exposure, lowers cravings, and supports weight permanence — the food layer of LS Diet's weight regain prevention system.",
   publishDate: "2026-05-19T00:00:00.000Z",
   updatedAt: "2026-05-19T00:00:00.000Z",
   canonicalTopic: "ls-diet-foundations",
