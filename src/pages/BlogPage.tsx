@@ -248,6 +248,8 @@ export default function BlogPage() {
       </section>
 
       <FooterSimple />
+      <JoinFloatingBar />
+
     </div>
   );
 }
