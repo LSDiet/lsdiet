@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
+import { JoinFloatingBar } from "@/components/JoinFloatingBar";
 import {
   listBlogPosts,
   fetchCategories,
@@ -15,6 +16,7 @@ import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
 import { FOUNDATIONS } from "@/content/foundations";
 import { FoundationsCurriculum } from "@/components/FoundationsCurriculum";
 import { SearchDrivenIndex } from "@/components/SearchDrivenIndex";
+
 
 type EnrichedPost = BlogPost & {
   contentType: BlogIndexEntry["contentType"];
