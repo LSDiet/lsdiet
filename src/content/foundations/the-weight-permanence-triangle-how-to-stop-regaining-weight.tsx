@@ -1,6 +1,7 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: weight-permanence-triangle
 import featuredImage from "@/assets/foundation-weight-permanence-triangle.png";
+import awarenessStagesImage from "@/assets/5-stages-of-awareness.png";
 import type { Foundation } from "./types";
 
 function Figure({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
@@ -128,9 +129,9 @@ function Body() {
       </P>
 
       <Figure
-        src={featuredImage}
-        alt="The Weight Permanence Triangle™ — Awareness plus Practice equals Permanence"
-        caption="The Weight Permanence Triangle™: Awareness + Practice = Permanence."
+        src={awarenessStagesImage}
+        alt="The 5 Stages of Awareness — Reality, Friction, Pattern, Consequence, and Identity Awareness — the push and pull motivation system behind LS Diet weight regain prevention"
+        caption="The 5 Stages of Awareness: the push and pull motivation behind lasting change."
       />
 
       <P>The Weight Permanence Triangle™ (WPT) was created to explain this problem. The framework focuses on helping people:</P>
