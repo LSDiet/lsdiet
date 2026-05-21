@@ -395,6 +395,8 @@ export default function BlogPostPage() {
       </div>
 
       <FooterSimple />
+      <JoinFloatingBar />
+
     </div>
   );
 }
