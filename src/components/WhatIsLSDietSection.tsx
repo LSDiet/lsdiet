@@ -16,7 +16,7 @@ export function WhatIsLSDietSection() {
         <div className="flex flex-col items-center gap-3 md:gap-4">
           {/* LS card */}
           <a
-            href="/what-is-ls-diet"
+            href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting"
             className="group block w-full rounded-2xl border border-accent/30 bg-accent/[0.06] p-5 md:p-6 hover:border-accent hover:bg-accent/[0.1] transition-colors"
           >
             <div className="flex items-center gap-4 md:gap-6">
@@ -48,7 +48,7 @@ export function WhatIsLSDietSection() {
 
           {/* WPT card */}
           <a
-            href="/weight-permanence-triangle"
+            href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
             className="group block w-full rounded-2xl border border-primary/30 bg-primary/[0.06] p-5 md:p-6 hover:border-primary hover:bg-primary/[0.1] transition-colors"
           >
             <div className="flex items-center gap-4 md:gap-6">

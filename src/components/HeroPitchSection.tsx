@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import heroPhoto from "@/assets/hero-photo.png";
 
 const bullets = [
-  { text: "How to lose 5–7 lbs per month ", strong: "consistently" },
-  { text: "How to build ", strong: "urgency to lose weight" },
-  { text: "How to ", strong: "automate weight loss behaviour" },
-  { text: "Adopt a ", strong: "Low Starch, Low Sugar lifestyle" },
-  { text: "I don't teach ", strong: "exercise" },
+  { text: "How to ", strong: "stop regaining the same weight" },
+  { text: "How to build ", strong: "PUSH and PULL motivation" },
+  { text: "How to ", strong: "automate weight regain prevention" },
+  { text: "Adopt a ", strong: "Low-Starch, Low-Sugar lifestyle" },
+  { text: "Train your brain for ", strong: "weight permanence" },
   { text: "See results in ", strong: "2 weeks", animateStrong: true },
 ];
 
