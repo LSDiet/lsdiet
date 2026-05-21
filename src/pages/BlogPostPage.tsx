@@ -241,6 +241,8 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <ReadingProgressBar />
+
       <Helmet>
         <title>{vm.seoTitle} | LS Diet</title>
         <meta name="description" content={vm.metaDescription} />
