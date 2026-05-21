@@ -31,9 +31,9 @@ const meta: Foundation["meta"] = {
   title: "Why People Regain Weight After Dieting",
   order: 1,
   excerpt:
-    "Most people don't actually fail to lose weight; instead, they find it more challenging to maintain their weight loss. This article shares insights into why weight regain happens so often, why temporary bursts of motivation tend to fade, and how the LS Diet emphasizes creating lasting habits rather than just short-term dieting spikes.",
+    "Most people don't fail at losing weight — they fail at not regaining it. This article unpacks why temporary motivation collapses, why behavioural patterns drive rebound weight gain, and how LS Diet is built as a weight regain prevention system instead of another diet.",
   metaDescription:
-    "Why do most people regain weight after dieting? Learn why temporary motivation fails, how behavioural patterns drive rebound weight gain, and how LS Diet focuses on long-term consistency rather than short-term restriction.",
+    "Why do most people regain weight after dieting? Learn why temporary motivation fails, how behavioural patterns drive rebound weight gain, and how LS Diet works as a weight regain prevention system focused on permanence — not another restart.",
   publishDate: "2026-05-19T00:00:00.000Z",
   updatedAt: "2026-05-19T00:00:00.000Z",
   canonicalTopic: "stop-weight-regain",

@@ -38,9 +38,9 @@ const meta: Foundation["meta"] = {
   listTitle: "Reality Awareness",
   order: 3.1,
   excerpt:
-    "Honest self assessment is often the first step toward permanent weight loss. Reality Awareness helps people understand their current behavioural, emotional, and physical condition before attempting sustainable change.",
+    "Honest self assessment is the first step toward weight permanence. Reality Awareness helps people see their current behavioural, emotional, and physical baseline before trying to stop the cycle of losing and regaining the same weight.",
   metaDescription:
-    "Reality Awareness helps people establish an honest baseline before trying to lose weight. Learn why self assessment matters for long term consistency and stopping repeated weight regain.",
+    "Reality Awareness helps you establish an honest baseline before trying to stop regaining weight. Stage 1 of the Weight Permanence Triangle™ — the behavioural foundation of LS Diet's weight regain prevention system.",
   publishDate: "2026-05-19T00:00:00.000Z",
   updatedAt: "2026-05-19T00:00:00.000Z",
   canonicalTopic: "awareness-stages",
