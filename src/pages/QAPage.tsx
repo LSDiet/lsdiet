@@ -506,12 +506,12 @@ export default function QAPage() {
   const openParam = searchParams.get("open");
 
   useEffect(() => {
-    document.title = "Weight Loss Q&A - Why Can't I Keep Weight Off? | Weight Permanence";
+    document.title = "Weight Regain Q&A — Stop Regaining the Same Weight | LS Diet";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Get answers to common weight loss questions. Learn why diets fail, why you're always hungry, and how a low-starch, low-sugar approach can help you lose weight permanently."
+        "Answers to the real question behind dieting: why people keep regaining weight, and how the Weight Permanence Triangle™ and a low-starch, low-sugar lifestyle help you stop restarting."
       );
     }
   }, []);
@@ -548,7 +548,7 @@ export default function QAPage() {
                 Frequently Asked Questions
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-                Questions About Weight Loss?
+                Questions About Stopping Weight Regain?
               </h1>
             </div>
           </div>
