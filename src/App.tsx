@@ -54,6 +54,7 @@ function AppContent() {
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/share/:slug" element={<ShareRedirectPage />} />
         <Route path="/category/:slug" element={<CategoryArchivePage />} />
+        <Route path="/partners" element={<PartnersPage />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
