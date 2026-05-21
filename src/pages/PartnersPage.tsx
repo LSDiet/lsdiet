@@ -277,13 +277,13 @@ export default function PartnersPage() {
                 stat: "65%",
                 text: "of Canadian adults are overweight or living with obesity",
                 source: "Government of Canada",
-                href: "https://www.canada.ca/en/public-health/services/publications/healthy-living/obesity-canada.html",
+                href: "https://www.canada.ca/en/public-health/services/publications/healthy-living/obesity-statistics-canada.html?utm",
               },
               {
                 stat: "50%",
                 text: "of people starting exercise programs drop out within 6 months",
-                source: "NIH — Exercise adherence research",
-                href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2536523/",
+                source: "BMJ Open — Exercise adherence research (PDF)",
+                href: "/research/e027987.full.pdf",
               },
             ].map((s) => (
               <div
