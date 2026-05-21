@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import lsDietLogo from "@/assets/lsdiet-wordmark.png";
+import awarenessDiagram from "@/assets/5-stages-of-awareness-v2.png";
 
 const PARTNER_TYPES = [
   "In-Person Fitness Coach",
@@ -8,9 +9,10 @@ const PARTNER_TYPES = [
   "Registered Dietitian",
 ];
 
+const APPLY_URL = "https://form.getformly.com/f/Vrs6N2";
 const CTA_LABEL = "Apply to Become a Partner";
 
-function ScrollToApply({
+function ApplyCTA({
   children,
   className,
   variant = "solid",
@@ -26,15 +28,18 @@ function ScrollToApply({
       ? "bg-[hsl(0_0%_8%)] text-white hover:bg-[hsl(0_0%_18%)] hover:-translate-y-0.5 shadow-[0_10px_30px_-10px_hsl(0_0%_0%/0.35)]"
       : "border border-[hsl(0_0%_18%)] text-[hsl(0_0%_8%)] hover:bg-[hsl(0_0%_8%)] hover:text-white";
   return (
-    <a href="#apply" className={`${base} ${styles} ${className ?? ""}`}>
+    <a
+      href={APPLY_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${base} ${styles} ${className ?? ""}`}
+    >
       {children}
     </a>
   );
 }
 
-/** Abstract behavioural-consistency visual.
- *  Concentric rings + steady pulsing dot = permanence/rhythm.
- *  No fitness imagery, no people. */
+/** Abstract behavioural-consistency visual. */
 function ConsistencyVisual() {
   return (
     <div className="relative aspect-square w-full max-w-md mx-auto">
@@ -64,7 +69,6 @@ function ConsistencyVisual() {
             strokeWidth="1"
           />
         ))}
-        {/* Steady arc — the disciplined path */}
         <circle
           cx="200"
           cy="200"
@@ -84,7 +88,6 @@ function ConsistencyVisual() {
             repeatCount="indefinite"
           />
         </circle>
-        {/* Inner anchor */}
         <circle cx="200" cy="200" r="6" fill="hsl(0 0% 8%)" />
         <circle cx="200" cy="200" r="14" fill="none" stroke="hsl(0 0% 8%)" strokeOpacity="0.2" strokeWidth="1">
           <animate attributeName="r" values="14;22;14" dur="3.5s" repeatCount="indefinite" />
@@ -106,7 +109,7 @@ function Section({
   id?: string;
   eyebrow?: string;
   title: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
 }) {
@@ -151,25 +154,9 @@ function ClientCard({ title, items }: { title: string; items: string[] }) {
 }
 
 export default function PartnersPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    type: PARTNER_TYPES[0],
-    city: "",
-    note: "",
-  });
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Placeholder: capture locally; CRM integration intentionally not wired yet.
-    console.log("Partner application", form);
-    setSubmitted(true);
-  };
 
   return (
     <main className="min-h-screen bg-[hsl(0_0%_99%)] text-[hsl(0_0%_8%)] font-sans">
@@ -194,7 +181,7 @@ export default function PartnersPage() {
           <a href="/" className="flex items-center">
             <img src={lsDietLogo} alt="LS Diet" className="h-9 w-auto" />
           </a>
-          <ScrollToApply className="!px-5 !py-2.5 !text-sm">Apply</ScrollToApply>
+          <ApplyCTA className="!px-5 !py-2.5 !text-sm">Apply</ApplyCTA>
         </div>
       </header>
 
@@ -214,7 +201,7 @@ export default function PartnersPage() {
                 behaviours required for long term weight management.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <ScrollToApply>{CTA_LABEL}</ScrollToApply>
+                <ApplyCTA>{CTA_LABEL}</ApplyCTA>
                 <a
                   href="#problem"
                   className="inline-flex items-center justify-center rounded-full px-7 py-4 text-base font-semibold text-[hsl(0_0%_30%)] hover:text-[hsl(0_0%_8%)] transition-colors"
@@ -265,9 +252,6 @@ export default function PartnersPage() {
             ]}
           />
         </div>
-        <p className="mt-12 text-center text-lg md:text-xl font-medium text-[hsl(0_0%_12%)] max-w-2xl mx-auto">
-          This is why your clients disappear.
-        </p>
       </Section>
 
       {/* SECTION 3 — STATISTICS */}
@@ -283,9 +267,24 @@ export default function PartnersPage() {
           </div>
           <div className="grid md:grid-cols-3 gap-5 md:gap-6">
             {[
-              { stat: "40%+", text: "of US adults have obesity", source: "CDC" },
-              { stat: "65%", text: "of Canadian adults are overweight or living with obesity", source: "Government of Canada" },
-              { stat: "50%", text: "of people starting exercise programs drop out within 6 months", source: "Exercise adherence research" },
+              {
+                stat: "40%+",
+                text: "of US adults have obesity",
+                source: "CDC",
+                href: "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+              },
+              {
+                stat: "65%",
+                text: "of Canadian adults are overweight or living with obesity",
+                source: "Government of Canada",
+                href: "https://www.canada.ca/en/public-health/services/publications/healthy-living/obesity-canada.html",
+              },
+              {
+                stat: "50%",
+                text: "of people starting exercise programs drop out within 6 months",
+                source: "NIH — Exercise adherence research",
+                href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2536523/",
+              },
             ].map((s) => (
               <div
                 key={s.stat}
@@ -295,9 +294,14 @@ export default function PartnersPage() {
                   {s.stat}
                 </div>
                 <p className="text-[15px] text-[hsl(0_0%_30%)] leading-snug mb-4">{s.text}</p>
-                <div className="text-xs uppercase tracking-[0.14em] text-[hsl(0_0%_50%)]">
-                  Source · {s.source}
-                </div>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-xs uppercase tracking-[0.14em] text-[hsl(0_0%_50%)] hover:text-[hsl(38_90%_40%)] underline underline-offset-4 decoration-[hsl(0_0%_80%)] hover:decoration-[hsl(38_90%_40%)] transition-colors"
+                >
+                  Source · {s.source} ↗
+                </a>
               </div>
             ))}
           </div>
@@ -308,39 +312,40 @@ export default function PartnersPage() {
       <Section
         eyebrow="The Solution"
         title="How LS Diet addresses behavioural inconsistency"
-        subtitle="LS Diet is a low-starch, low-sugar neurobehavioural system focused on long term weight management and weight regain prevention."
-      >
-        {/* Framework visual */}
-        <div className="max-w-3xl mx-auto rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-8 md:p-12 mb-12 text-center shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)]">
-          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-3">
-            Weight Permanence Triangle™
-          </div>
-          <div className="text-2xl md:text-4xl font-extrabold tracking-tight text-[hsl(0_0%_8%)]">
-            Awareness <span className="text-[hsl(38_90%_45%)]">+</span> Practice{" "}
-            <span className="text-[hsl(38_90%_45%)]">=</span> Permanence
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
-          {[
-            { n: "01", t: "Reality Awareness", d: "Build honest baseline awareness" },
-            { n: "02", t: "Friction Awareness", d: "Identify behavioural resistance" },
-            { n: "03", t: "Pattern Awareness", d: "Recognize repeating habits and triggers" },
-            { n: "04", t: "Consequence Awareness", d: "Strengthen push motivation" },
-            { n: "05", t: "Identity Awareness", d: "Strengthen pull motivation" },
-          ].map((c) => (
-            <div
-              key={c.n}
-              className="rounded-2xl bg-white border border-[hsl(0_0%_92%)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-16px_hsl(0_0%_0%/0.15)]"
+        subtitle={
+          <>
+            LS Diet developed the{" "}
+            <a
+              href="https://lsdiet.com/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
+              className="font-semibold text-[hsl(0_0%_8%)] underline underline-offset-4 decoration-[hsl(38_90%_50%)] hover:text-[hsl(38_90%_40%)] transition-colors"
             >
-              <div className="text-xs font-bold text-[hsl(38_90%_45%)] mb-3">{c.n}</div>
-              <div className="text-base font-bold text-[hsl(0_0%_8%)] mb-2 leading-snug">{c.t}</div>
-              <div className="text-sm text-[hsl(0_0%_36%)] leading-snug">{c.d}</div>
-            </div>
-          ))}
+              Weight Permanence Triangle™
+            </a>
+            , a framework built around the 5 Stages of Awareness. Each stage helps members
+            see their baseline reality, the friction blocking change, the patterns driving
+            behaviour, the consequences pushing them forward, and the identity pulling them
+            toward a healthier self. Together, these shifts help members build a new
+            identity that genuinely prioritizes weight loss, long term health, and weight
+            regain prevention.
+          </>
+        }
+      >
+        {/* Replaced framework visual — 5 Stages of Awareness diagram */}
+        <div className="max-w-4xl mx-auto rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-4 md:p-8 mb-12 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)] overflow-hidden">
+          <a
+            href="https://lsdiet.com/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
+            className="block"
+          >
+            <img
+              src={awarenessDiagram}
+              alt="The 5 Stages of Awareness — Reality, Friction, Pattern, Consequence, and Identity Awareness behind lasting behavioural change"
+              className="w-full h-auto rounded-2xl"
+              loading="lazy"
+            />
+          </a>
         </div>
 
-        <div className="mt-14 max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="mt-4 max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
           <div>
             <div className="text-sm font-semibold uppercase tracking-[0.14em] text-[hsl(0_0%_40%)] mb-3">
               LS Diet does not replace
@@ -383,12 +388,30 @@ export default function PartnersPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {[
-              { t: "100% Free Leads", d: "We only provide the connection between interested LS Diet members and partners." },
-              { t: "100% Commission Free", d: "LS Diet does not take commissions or process coaching payments." },
-              { t: "City Based Visibility", d: "Partner profiles will eventually be organized by city." },
-              { t: "3 Months Free", d: "Partners receive free lead access during the initial launch period." },
-              { t: "No Results, No Payment", d: "If partners do not receive lead opportunities, they do not pay to remain listed." },
-              { t: "Aligned Members", d: "Members are already engaged in behavioural training before any introduction." },
+              {
+                t: "Behaviourally Prepared Members",
+                d: "LS Diet members are already introduced to consistency, awareness, and long-term weight management before any partner connection.",
+              },
+              {
+                t: "100% Commission Free",
+                d: "LS Diet only provides the introduction between members and partners. All coaching and consultation revenue remains with the partner.",
+              },
+              {
+                t: "City-Based Visibility",
+                d: "Future partner listings will be organized by city to help members find local or nearby support.",
+              },
+              {
+                t: "3 Months Free",
+                d: "Partners receive free early access to the LS Diet Partner network during the initial launch period.",
+              },
+              {
+                t: "No Results, No Payment",
+                d: "If partners do not receive inquiry opportunities, there is no cost to remain listed after the free trial period.",
+              },
+              {
+                t: "Long-Term Focused Community",
+                d: "LS Diet members join to improve consistency, maintain progress, and reduce weight regain, not just pursue short-term motivation.",
+              },
             ].map((b) => (
               <div
                 key={b.t}
@@ -413,107 +436,32 @@ export default function PartnersPage() {
 
       {/* SECTION 6 — CTA / APPLY */}
       <section id="apply" className="py-20 md:py-28">
-        <div className="container max-w-3xl">
-          <div className="text-center mb-12">
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-4">
-              Applications Open
-            </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] leading-[1.1]">
-              Apply to Become a Partner
-            </h2>
-            <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
-              We are currently accepting applications for the future LS Diet Partner network.
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
-              {PARTNER_TYPES.map((t) => (
-                <span
-                  key={t}
-                  className="text-xs font-medium px-3 py-1.5 rounded-full bg-[hsl(0_0%_96%)] text-[hsl(0_0%_30%)] border border-[hsl(0_0%_92%)]"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
+        <div className="container max-w-3xl text-center">
+          <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-4">
+            Applications Open
           </div>
-
-          {submitted ? (
-            <div className="rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-10 md:p-14 text-center shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)]">
-              <div className="text-2xl md:text-3xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] mb-3">
-                Application received
-              </div>
-              <p className="text-[hsl(0_0%_36%)] leading-relaxed max-w-md mx-auto">
-                Thank you for applying to the LS Diet Partner network. We will be in touch as the
-                program opens in your region.
-              </p>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-7 md:p-10 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)] space-y-5"
-            >
-              <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Full name">
-                  <input
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className={inputCls}
-                    placeholder="Your name"
-                  />
-                </Field>
-                <Field label="Email">
-                  <input
-                    required
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className={inputCls}
-                    placeholder="you@example.com"
-                  />
-                </Field>
-              </div>
-              <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Partner type">
-                  <select
-                    value={form.type}
-                    onChange={(e) => setForm({ ...form, type: e.target.value })}
-                    className={inputCls}
-                  >
-                    {PARTNER_TYPES.map((t) => (
-                      <option key={t}>{t}</option>
-                    ))}
-                  </select>
-                </Field>
-                <Field label="City">
-                  <input
-                    required
-                    value={form.city}
-                    onChange={(e) => setForm({ ...form, city: e.target.value })}
-                    className={inputCls}
-                    placeholder="Toronto, ON"
-                  />
-                </Field>
-              </div>
-              <Field label="A short note (optional)">
-                <textarea
-                  rows={4}
-                  value={form.note}
-                  onChange={(e) => setForm({ ...form, note: e.target.value })}
-                  className={`${inputCls} resize-none`}
-                  placeholder="Tell us briefly about your practice"
-                />
-              </Field>
-              <button
-                type="submit"
-                className="w-full rounded-full bg-[hsl(0_0%_8%)] text-white px-7 py-4 text-base font-semibold tracking-tight hover:bg-[hsl(0_0%_18%)] hover:-translate-y-0.5 transition-all duration-300 shadow-[0_10px_30px_-10px_hsl(0_0%_0%/0.35)]"
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] leading-[1.1]">
+            Apply to Become a Partner
+          </h2>
+          <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
+            We are currently accepting applications for the future LS Diet Partner network.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
+            {PARTNER_TYPES.map((t) => (
+              <span
+                key={t}
+                className="text-xs font-medium px-3 py-1.5 rounded-full bg-[hsl(0_0%_96%)] text-[hsl(0_0%_30%)] border border-[hsl(0_0%_92%)]"
               >
-                Apply Now
-              </button>
-              <p className="text-xs text-[hsl(0_0%_50%)] text-center">
-                We will only contact you about the LS Diet Partner network.
-              </p>
-            </form>
-          )}
+                {t}
+              </span>
+            ))}
+          </div>
+          <div className="mt-10">
+            <ApplyCTA>{CTA_LABEL}</ApplyCTA>
+          </div>
+          <p className="mt-4 text-xs text-[hsl(0_0%_50%)]">
+            Opens our short application form in a new tab.
+          </p>
         </div>
       </section>
 
@@ -526,19 +474,5 @@ export default function PartnersPage() {
         </div>
       </footer>
     </main>
-  );
-}
-
-const inputCls =
-  "w-full rounded-xl border border-[hsl(0_0%_88%)] bg-white px-4 py-3 text-[15px] text-[hsl(0_0%_8%)] placeholder:text-[hsl(0_0%_60%)] focus:outline-none focus:border-[hsl(38_90%_50%)] focus:ring-2 focus:ring-[hsl(38_90%_50%/0.15)] transition-all";
-
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <label className="block">
-      <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[hsl(0_0%_30%)] mb-2">
-        {label}
-      </div>
-      {children}
-    </label>
   );
 }
