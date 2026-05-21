@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Free Resources", href: "/FreeResources", highlight: true },
   { label: "Q&A", href: "/qa" },
   { label: "Blog", href: "/blog" },
+  { label: "Become a Partner", href: "/partners" },
 ];
 
 export function Navbar() {
