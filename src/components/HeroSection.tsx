@@ -28,12 +28,16 @@ export function HeroSection() {
     <section className="relative w-full bg-[#0a0a0a] pt-14 text-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:gap-8 md:px-8 md:py-10">
         <div className="text-center">
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-accent sm:text-xs">
+            A Weight Regain Prevention System
+          </p>
           <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             Low-Starch, Low-Sugar
             <br />
             <span className="text-accent">Stops Weight Regain.</span>
           </h1>
         </div>
+
 
         <div className="grid gap-4 md:grid-cols-3 md:gap-6">
           {pairs.map((pair, idx) => (
