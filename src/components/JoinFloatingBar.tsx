@@ -9,15 +9,20 @@ export function JoinFloatingBar() {
     if (dismissed) return;
     const onScroll = () => {
       const trigger = document.getElementById("method");
-      if (!trigger) return;
-      const rect = trigger.getBoundingClientRect();
-      // Show once user has scrolled into / past the Method section
-      if (rect.top < window.innerHeight * 0.6) setVisible(true);
+      if (trigger) {
+        const rect = trigger.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.6) setVisible(true);
+        return;
+      }
+      // Fallback for pages without a #method anchor (e.g. /blog, /blog/:slug):
+      // show as soon as the user has scrolled at all.
+      if (window.scrollY > 200) setVisible(true);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [dismissed]);
+
 
   if (dismissed || !visible) return null;
 
