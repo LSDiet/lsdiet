@@ -215,14 +215,21 @@ export default function BlogPostPage() {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     datePublished: vm.publishDate,
     dateModified: vm.updatedAt,
-    author: { "@id": "https://lsdiet.com/oscar-poon#person" },
-    publisher: {
-      "@type": "Organization",
-      name: "LS Diet",
-      url: "https://lsdiet.com",
-      logo: { "@type": "ImageObject", url: "https://lsdiet.com/favicon.ico" },
-    },
+    author: { "@id": "https://lsdiet.com/#oscar-poon" },
+    publisher: { "@id": "https://lsdiet.com/#organization" },
+    isPartOf: { "@id": "https://lsdiet.com/#website" },
+    about: { "@type": "Thing", name: "Weight regain prevention" },
     ...(vm.category ? { articleSection: vm.category } : {}),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://lsdiet.com/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://lsdiet.com/blog" },
+      { "@type": "ListItem", position: 3, name: vm.title, item: url },
+    ],
   };
 
   const faqSchema = vm.faqs && vm.faqs.length > 0
@@ -236,6 +243,7 @@ export default function BlogPostPage() {
         })),
       }
     : null;
+
 
   const isArticle = vm.source === "article" && !!vm.article;
 
@@ -262,6 +270,8 @@ export default function BlogPostPage() {
         <meta name="twitter:description" content={vm.metaDescription} />
         {vm.image && <meta name="twitter:image" content={vm.image} />}
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+
         {faqSchema && (
           <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         )}

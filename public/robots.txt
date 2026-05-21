@@ -14,4 +14,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://lsdiet.com/sitemap.xml
-Sitemap: https://joohccchfpcshlihctsm.supabase.co/functions/v1/blog-sitemap
