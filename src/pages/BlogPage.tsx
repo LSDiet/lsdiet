@@ -166,7 +166,6 @@ export default function BlogPage() {
         {posts && posts.length > 0 && (
           <div className="space-y-16">
             <FoundationsCurriculum />
-            <SearchDrivenIndex entries={indexEntries} />
 
             {contentfulPosts.length > 0 && (
               <section>
@@ -203,22 +202,37 @@ export default function BlogPage() {
                       <li key={p.id}>
                         <a
                           href={`/blog/${p.slug}`}
-                          className="group block py-5 px-2 -mx-2 rounded hover:bg-zinc-50 transition-colors"
+                          className="group flex items-start gap-4 py-5 px-2 -mx-2 rounded hover:bg-zinc-50 transition-colors"
                         >
-                          {p.category && p.categorySlug && (
-                            <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">
-                              {p.category}
-                            </span>
-                          )}
-                          <h3 className="text-lg md:text-xl font-bold text-zinc-900 group-hover:text-accent transition-colors mt-1">
-                            {p.title}
-                          </h3>
-                          {p.excerpt && (
-                            <p className="text-sm text-zinc-700 mt-1 line-clamp-2">{p.excerpt}</p>
-                          )}
-                          <p className="text-xs text-zinc-500 mt-1">
-                            {formatPublishDate(p.publishDate)}
-                          </p>
+                          <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-md overflow-hidden bg-accent/10">
+                            {p.featuredImage?.url ? (
+                              <img
+                                src={p.featuredImage.url}
+                                alt={p.featuredImage.title || p.title}
+                                loading="lazy"
+                                decoding="async"
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5" />
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            {p.category && p.categorySlug && (
+                              <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">
+                                {p.category}
+                              </span>
+                            )}
+                            <h3 className="text-lg md:text-xl font-bold text-zinc-900 group-hover:text-accent transition-colors mt-1">
+                              {p.title}
+                            </h3>
+                            {p.excerpt && (
+                              <p className="text-sm text-zinc-700 mt-1 line-clamp-2">{p.excerpt}</p>
+                            )}
+                            <p className="text-xs text-zinc-500 mt-1">
+                              {formatPublishDate(p.publishDate)}
+                            </p>
+                          </div>
                         </a>
                       </li>
                     ))}
@@ -226,8 +240,11 @@ export default function BlogPage() {
                 )}
               </section>
             )}
+
+            <SearchDrivenIndex entries={indexEntries} />
           </div>
         )}
+
       </section>
 
       <FooterSimple />
