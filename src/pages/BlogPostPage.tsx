@@ -270,6 +270,8 @@ export default function BlogPostPage() {
         <meta name="twitter:description" content={vm.metaDescription} />
         {vm.image && <meta name="twitter:image" content={vm.image} />}
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+
         {faqSchema && (
           <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         )}

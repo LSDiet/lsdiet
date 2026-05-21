@@ -117,6 +117,16 @@ function ClusterBlock({ title, description, posts }: ClusterBlockProps) {
           </li>
         ))}
       </ul>
+      <p className="mt-4 text-xs text-zinc-500">
+        Anchor in the framework:{" "}
+        <a
+          href="/weight-permanence-triangle"
+          className="font-semibold text-zinc-700 underline-offset-2 hover:text-accent hover:underline"
+        >
+          The Weight Permanence Triangle™
+        </a>
+      </p>
     </div>
   );
 }
+
