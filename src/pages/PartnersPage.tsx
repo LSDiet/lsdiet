@@ -487,21 +487,38 @@ export default function PartnersPage() {
               The Workflow
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] leading-[1.1]">
-              A clear, simple partner relationship
+              How members find you, and how the partnership grows
             </h2>
             <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
-              No white-labelling, no commission, no client hand-off. Just a structured
-              introduction to behaviourally prepared members who want what you already offer.
+              Two parallel tracks: how a member reaches you, and how your listing evolves over time.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            <StepCard n={1} title="Partner applies" desc="Short application form. No commitment, no fees during the launch period." />
-            <StepCard n={2} title="LS Diet reviews fit" desc="We check alignment with behavioural-consistency values, not credentials alone." />
-            <StepCard n={3} title="Partner is added to the network" desc="Listed for member discovery, with city-based visibility planned." />
-            <StepCard n={4} title="Members request connections" desc="Only members actively seeking additional support are introduced to partners." />
-            <StepCard n={5} title="You deliver your normal service" desc="Coaching, programming, nutrition — your brand, your pricing, your client relationship." />
-            <StepCard n={6} title="LS Diet keeps reinforcing behaviour" desc="Consistency support continues alongside, reducing drop-off and lifting your retention." />
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(0_0%_45%)] mb-5 text-center lg:text-left">
+                How members reach you
+              </div>
+              <div className="grid gap-5">
+                <StepCard n={1} title="Member completes the free LS Diet course" desc="They finish the behavioural foundation first." />
+                <StepCard n={2} title="They decide they want additional support" desc="Muscle building, body recomposition, strength training, or hands-on nutrition support." />
+                <StepCard n={3} title="One click opens the partner list for their city" desc="Members browse partner profiles and request a connection when interested." />
+                <StepCard n={4} title="Member requests to connect" desc="LS Diet notifies the partner and follows up until contact is confirmed." />
+                <StepCard n={5} title="You deliver your normal service" desc="Your brand, your pricing, your client relationship." />
+              </div>
+            </div>
+
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-5 text-center lg:text-left">
+                How your listing evolves
+              </div>
+              <div className="grid gap-5">
+                <StepCard n={1} title="Apply and get listed — free" desc="Every coach and dietitian is welcome. Once your profile is added, it becomes visible to LS Diet members." />
+                <StepCard n={2} title="Stay listed free until the first member inquiry" desc="No clock starts until a member requests to connect with you." />
+                <StepCard n={3} title="First inquiry starts the 90-day window" desc="From the first member connection request, you have three months to evaluate whether the listing is worthwhile." />
+                <StepCard n={4} title="Choose your path after 90 days" desc="Continue your listing through LS Diet Premium ($49/month), or remain part of the ecosystem through LS Diet referral opportunities." />
+              </div>
+            </div>
           </div>
 
           <div className="mt-14 flex justify-center">
