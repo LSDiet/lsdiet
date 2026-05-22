@@ -10,7 +10,8 @@ const PARTNER_TYPES = [
 ];
 
 const APPLY_URL = "https://form.getformly.com/f/Vrs6N2";
-const CTA_LABEL = "Apply to Become a Partner";
+const APPLY_LABEL = "Apply to Become a Partner";
+const SOFT_CTA_LABEL = "See How the Partner Model Works";
 
 function ApplyCTA({
   children,
@@ -33,6 +34,28 @@ function ApplyCTA({
       target="_blank"
       rel="noopener noreferrer"
       className={`${base} ${styles} ${className ?? ""}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+function SoftCTA({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
+  return (
+    <a
+      href={href}
+      className={`inline-flex items-center justify-center rounded-full px-7 py-4 text-base font-semibold tracking-tight border border-[hsl(0_0%_18%)] text-[hsl(0_0%_8%)] hover:bg-[hsl(0_0%_8%)] hover:text-white transition-all duration-300 ${className ?? ""}`}
+    >
+      {children}
+    </a>
+  );
+}
+
+function InlineLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      className="inline-flex items-center text-[15px] font-semibold text-[hsl(0_0%_8%)] hover:text-[hsl(38_90%_40%)] underline underline-offset-4 decoration-[hsl(38_90%_50%)] transition-colors"
     >
       {children}
     </a>
@@ -137,18 +160,42 @@ function Section({
   );
 }
 
-function ClientCard({ title, items }: { title: string; items: string[] }) {
+function PainCard({
+  title,
+  items,
+  accent = false,
+}: {
+  title: string;
+  items: string[];
+  accent?: boolean;
+}) {
   return (
     <div className="rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-7 md:p-9 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)]">
       <h3 className="text-lg font-bold text-[hsl(0_0%_8%)] mb-5">{title}</h3>
       <ul className="space-y-3">
         {items.map((item) => (
           <li key={item} className="flex gap-3 text-[15px] text-[hsl(0_0%_22%)] leading-snug">
-            <span className="mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[hsl(38_90%_50%)]" />
+            <span
+              className={`mt-2 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full ${
+                accent ? "bg-[hsl(38_90%_50%)]" : "bg-[hsl(0_0%_25%)]"
+              }`}
+            />
             <span>{item}</span>
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+function StepCard({ n, title, desc }: { n: number; title: string; desc: string }) {
+  return (
+    <div className="rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-16px_hsl(0_0%_0%/0.15)]">
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[hsl(38_90%_50%/0.12)] text-[hsl(38_90%_35%)] font-bold text-sm mb-4">
+        {n}
+      </div>
+      <div className="text-lg font-bold text-[hsl(0_0%_8%)] mb-2">{title}</div>
+      <div className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">{desc}</div>
     </div>
   );
 }
@@ -170,7 +217,7 @@ export default function PartnersPage() {
         <meta property="og:title" content="LS Diet Partners — Behavioural Consistency Ecosystem" />
         <meta
           property="og:description"
-          content="Connect with LS Diet members seeking long term behavioural support. 100% free leads, 100% commission free."
+          content="Connect with LS Diet members seeking long term behavioural support. 100% commission free."
         />
         <meta property="og:url" content="https://lsdiet.com/partners" />
       </Helmet>
@@ -181,7 +228,17 @@ export default function PartnersPage() {
           <a href="/" className="flex items-center">
             <img src={lsDietLogo} alt="LS Diet" className="h-9 w-auto" />
           </a>
-          <ApplyCTA className="!px-5 !py-2.5 !text-sm">Apply</ApplyCTA>
+          <div className="flex items-center gap-2">
+            <a
+              href="#how-it-works"
+              className="hidden sm:inline-flex text-sm font-semibold text-[hsl(0_0%_30%)] hover:text-[hsl(0_0%_8%)] px-4 py-2"
+            >
+              See the model
+            </a>
+            <ApplyCTA className="!px-5 !py-2.5 !text-sm" variant="outline">
+              Apply
+            </ApplyCTA>
+          </div>
         </div>
       </header>
 
@@ -197,17 +254,24 @@ export default function PartnersPage() {
                 Are you losing clients because they struggle with consistency?
               </h1>
               <p className="mt-6 text-lg md:text-xl text-[hsl(0_0%_30%)] leading-relaxed max-w-xl lg:max-w-none mx-auto">
-                Many clients know what to do. The real problem is maintaining the
-                behaviours required for long term weight management.
+                Most clients already know what to do. What breaks long term results is the
+                behavioural layer between your sessions — and that is exactly what LS Diet
+                reinforces.
               </p>
+
+              <div className="mt-6 inline-flex items-start gap-3 rounded-2xl bg-white border border-[hsl(0_0%_92%)] px-5 py-4 text-left max-w-xl lg:max-w-none">
+                <span className="mt-1 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-[hsl(38_90%_50%)]" />
+                <p className="text-[15px] text-[hsl(0_0%_22%)] leading-snug">
+                  <strong className="text-[hsl(0_0%_8%)]">You keep your clients, your services, and your brand.</strong>{" "}
+                  LS Diet only reinforces the behavioural layer in between.
+                </p>
+              </div>
+
               <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                <ApplyCTA>{CTA_LABEL}</ApplyCTA>
-                <a
-                  href="#problem"
-                  className="inline-flex items-center justify-center rounded-full px-7 py-4 text-base font-semibold text-[hsl(0_0%_30%)] hover:text-[hsl(0_0%_8%)] transition-colors"
-                >
-                  See the problem ↓
-                </a>
+                <SoftCTA href="#how-it-works">{SOFT_CTA_LABEL}</SoftCTA>
+                <ApplyCTA variant="outline" className="!px-5 !py-3 !text-sm">
+                  {APPLY_LABEL}
+                </ApplyCTA>
               </div>
             </div>
             <div className="order-first lg:order-last">
@@ -217,15 +281,15 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* SECTION 2 — THE PROBLEM */}
+      {/* SECTION 2 — CLIENT INCONSISTENCY PROBLEM */}
       <Section
-        id="problem"
-        eyebrow="The Real Problem"
-        title="The problem is often not information"
-        subtitle="Many clients already know they should exercise, eat better, and stay consistent. The real problem is behavioural inconsistency."
+        id="client-problem"
+        eyebrow="The Client Problem"
+        title="The real problem isn't information"
+        subtitle="Your clients already know they should exercise, eat better, and stay consistent. The behaviour is where it falls apart."
       >
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          <ClientCard
+        <div className="max-w-2xl mx-auto">
+          <PainCard
             title="Clients often:"
             items={[
               "Disappear after a few weeks",
@@ -238,34 +302,57 @@ export default function PartnersPage() {
               "Stop prioritizing health once urgency fades",
             ]}
           />
-          <ClientCard
-            title="As a result, many coaches and dietitians experience:"
-            items={[
-              "High client dropout",
-              "High churn",
-              "Poor adherence",
-              "Inconsistent check ins",
-              "Stalled client progress",
-              "Lower retention",
-              "Unstable recurring revenue",
-              "Repeated relapse cycles",
-            ]}
-          />
         </div>
       </Section>
 
-      {/* SECTION 3 — STATISTICS */}
+      {/* SECTION 3 — BUSINESS PAIN */}
       <section className="py-20 md:py-28 bg-white border-y border-[hsl(0_0%_92%)]">
         <div className="container max-w-6xl">
           <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-4">
-              By the Numbers
+              The Business Cost
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] leading-[1.1]">
-              The behavioural gap is the industry gap
+              That inconsistency lands on your P&L
             </h2>
+            <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
+              Behavioural drop-off doesn't just hurt the client — it quietly eats coaching businesses from the inside.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className="max-w-2xl mx-auto">
+            <PainCard
+              title="As a result, many coaches and dietitians experience:"
+              accent
+              items={[
+                "High client dropout",
+                "High churn",
+                "Poor adherence",
+                "Inconsistent check-ins",
+                "Stalled client progress",
+                "Lower retention",
+                "Unstable recurring revenue",
+                "Repeated relapse cycles",
+              ]}
+            />
+          </div>
+          <div className="mt-10 text-center">
+            <InlineLink href="#how-it-works">See how the model fixes this →</InlineLink>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4 — STATISTICS (compact) */}
+      <section className="py-16 md:py-20">
+        <div className="container max-w-6xl">
+          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-3">
+              The Industry Gap
+            </div>
+            <p className="text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
+              Behavioural inconsistency is the gap conventional programs leave open.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5">
             {[
               {
                 stat: "40%+",
@@ -282,25 +369,25 @@ export default function PartnersPage() {
               {
                 stat: "50%",
                 text: "of people starting exercise programs drop out within 6 months",
-                source: "BMJ Open — Exercise adherence research (PDF)",
+                source: "BMJ Open (PDF)",
                 href: "/research/e027987.full.pdf",
               },
             ].map((s) => (
               <div
                 key={s.stat}
-                className="rounded-3xl bg-[hsl(0_0%_99%)] border border-[hsl(0_0%_92%)] p-8 md:p-10 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)] text-center transition-transform duration-300 hover:-translate-y-1"
+                className="rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-6 md:p-8 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)] text-center"
               >
-                <div className="text-5xl md:text-6xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] mb-3">
+                <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] mb-2">
                   {s.stat}
                 </div>
-                <p className="text-[15px] text-[hsl(0_0%_30%)] leading-snug mb-4">{s.text}</p>
+                <p className="text-sm text-[hsl(0_0%_30%)] leading-snug mb-3">{s.text}</p>
                 <a
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-xs uppercase tracking-[0.14em] text-[hsl(0_0%_50%)] hover:text-[hsl(38_90%_40%)] underline underline-offset-4 decoration-[hsl(0_0%_80%)] hover:decoration-[hsl(38_90%_40%)] transition-colors"
+                  className="inline-block text-[11px] uppercase tracking-[0.14em] text-[hsl(0_0%_50%)] hover:text-[hsl(38_90%_40%)] underline underline-offset-4 decoration-[hsl(0_0%_80%)] hover:decoration-[hsl(38_90%_40%)] transition-colors"
                 >
-                  Source · {s.source} ↗
+                  {s.source} ↗
                 </a>
               </div>
             ))}
@@ -308,30 +395,73 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {/* SECTION 4 — HOW LS DIET SOLVES */}
+      {/* SECTION 5 — COMPLEMENT, NOT REPLACE */}
+      <section className="py-20 md:py-28 bg-white border-y border-[hsl(0_0%_92%)]">
+        <div className="container max-w-6xl">
+          <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-4">
+              Complement, not replace
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] leading-[1.1]">
+              LS Diet reinforces what you already do
+            </h2>
+            <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
+              Your coaching and clinical work stays untouched. We sit underneath it, holding the
+              behavioural layer steady so your clients actually stay long enough to see results.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            <PainCard
+              title="What you continue doing"
+              items={[
+                "Coaching",
+                "Exercise programming",
+                "Accountability",
+                "Nutrition guidance",
+                "Body composition support",
+                "Client care",
+              ]}
+            />
+            <PainCard
+              title="What LS Diet reinforces"
+              accent
+              items={[
+                "Consistency",
+                "Awareness",
+                "Relapse interruption",
+                "Push and pull motivation",
+                "Sustainable behaviour patterns",
+                "Long term progress",
+              ]}
+            />
+          </div>
+
+          <div className="mt-12 text-center">
+            <InlineLink href="#how-it-works">See how the partner flow works →</InlineLink>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6 — FRAMEWORK / AUTHORITY (condensed) */}
       <Section
-        eyebrow="The Solution"
-        title="How LS Diet addresses behavioural inconsistency"
+        eyebrow="The Framework"
+        title="The behavioural system your clients keep using"
         subtitle={
           <>
-            LS Diet developed the{" "}
+            LS Diet members train inside the{" "}
             <a
               href="https://lsdiet.com/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
               className="font-semibold text-[hsl(0_0%_8%)] underline underline-offset-4 decoration-[hsl(38_90%_50%)] hover:text-[hsl(38_90%_40%)] transition-colors"
             >
               Weight Permanence Triangle™
             </a>
-            , a framework built around the 5 Stages of Awareness. Each stage helps members
-            see their baseline reality, the friction blocking change, the patterns driving
-            behaviour, the consequences pushing them forward, and the identity pulling them
-            toward a healthier self. Together, these shifts help members build a new
-            identity that genuinely prioritizes weight loss, long term health, and weight
-            regain prevention.
+            : Awareness + Practice = Permanence. The 5 Stages of Awareness handle the psychological
+            layer most diets ignore.
           </>
         }
       >
-        {/* Replaced framework visual — 5 Stages of Awareness diagram */}
-        <div className="max-w-4xl mx-auto rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-4 md:p-8 mb-12 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)] overflow-hidden">
+        <div className="max-w-4xl mx-auto rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-4 md:p-8 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)] overflow-hidden">
           <a
             href="https://lsdiet.com/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
             className="block"
@@ -344,98 +474,93 @@ export default function PartnersPage() {
             />
           </a>
         </div>
-
-        <div className="mt-4 max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
-          <div>
-            <div className="text-sm font-semibold uppercase tracking-[0.14em] text-[hsl(0_0%_40%)] mb-3">
-              LS Diet does not replace
-            </div>
-            <ul className="space-y-2 text-[15px] text-[hsl(0_0%_22%)]">
-              <li>— Fitness coaching</li>
-              <li>— Exercise programming</li>
-              <li>— Clinical nutrition care</li>
-            </ul>
-          </div>
-          <div>
-            <div className="text-sm font-semibold uppercase tracking-[0.14em] text-[hsl(38_90%_40%)] mb-3">
-              The goal is to help members become
-            </div>
-            <ul className="space-y-2 text-[15px] text-[hsl(0_0%_22%)]">
-              <li>— More self aware</li>
-              <li>— More psychologically prepared</li>
-              <li>— More behaviourally consistent</li>
-              <li>— More focused on long term sustainability</li>
-            </ul>
-          </div>
-        </div>
+        <p className="mt-8 text-center text-[15px] text-[hsl(0_0%_36%)] max-w-2xl mx-auto leading-relaxed">
+          This is the behavioural layer your clients keep using between sessions with you.
+        </p>
       </Section>
 
-      {/* SECTION 5 — WHY BECOME A PARTNER */}
-      <section className="py-20 md:py-28 bg-white border-y border-[hsl(0_0%_92%)]">
+      {/* SECTION 7 — HOW THE PARTNER MODEL WORKS */}
+      <section id="how-it-works" className="py-20 md:py-28 bg-white border-y border-[hsl(0_0%_92%)]">
         <div className="container max-w-6xl">
           <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
             <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-4">
-              The Partnership
+              The Workflow
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] leading-[1.1]">
-              Why become an LS Diet Partner
+              A clear, simple partner relationship
             </h2>
             <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
-              We connect LS Diet members seeking additional support with aligned professionals
-              focused on long term behavioural consistency and sustainable body composition change.
+              No white-labelling, no commission, no client hand-off. Just a structured
+              introduction to behaviourally prepared members who want what you already offer.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-            {[
-              {
-                t: "Behaviourally Prepared Members",
-                d: "LS Diet members are already introduced to consistency, awareness, and long-term weight management before any partner connection.",
-              },
-              {
-                t: "100% Commission Free",
-                d: "LS Diet only provides the introduction between members and partners. All coaching and consultation revenue remains with the partner.",
-              },
-              {
-                t: "City-Based Visibility",
-                d: "Future partner listings will be organized by city to help members find local or nearby support.",
-              },
-              {
-                t: "3 Months Free",
-                d: "Partners receive free early access to the LS Diet Partner network during the initial launch period.",
-              },
-              {
-                t: "No Results, No Payment",
-                d: "If partners do not receive inquiry opportunities, there is no cost to remain listed after the free trial period.",
-              },
-              {
-                t: "Long-Term Focused Community",
-                d: "LS Diet members join to improve consistency, maintain progress, and reduce weight regain, not just pursue short-term motivation.",
-              },
-            ].map((b) => (
-              <div
-                key={b.t}
-                className="rounded-3xl bg-[hsl(0_0%_99%)] border border-[hsl(0_0%_92%)] p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-16px_hsl(0_0%_0%/0.15)]"
-              >
-                <div className="text-lg font-bold text-[hsl(0_0%_8%)] mb-2">{b.t}</div>
-                <div className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">{b.d}</div>
-              </div>
-            ))}
+            <StepCard n={1} title="Partner applies" desc="Short application form. No commitment, no fees during the launch period." />
+            <StepCard n={2} title="LS Diet reviews fit" desc="We check alignment with behavioural-consistency values, not credentials alone." />
+            <StepCard n={3} title="Partner is added to the network" desc="Listed for member discovery, with city-based visibility planned." />
+            <StepCard n={4} title="Members request connections" desc="Only members actively seeking additional support are introduced to partners." />
+            <StepCard n={5} title="You deliver your normal service" desc="Coaching, programming, nutrition — your brand, your pricing, your client relationship." />
+            <StepCard n={6} title="LS Diet keeps reinforcing behaviour" desc="Consistency support continues alongside, reducing drop-off and lifting your retention." />
           </div>
 
-          <div className="mt-14 max-w-3xl mx-auto rounded-2xl bg-[hsl(0_0%_97%)] border border-[hsl(0_0%_92%)] p-6 md:p-8 text-sm text-[hsl(0_0%_36%)] leading-relaxed">
-            <div className="text-xs font-semibold uppercase tracking-[0.14em] text-[hsl(0_0%_40%)] mb-2">
-              Disclaimer
-            </div>
-            LS Diet does not guarantee client participation, retention, or business growth. All
-            partners remain independently responsible for their services, certifications, licensing,
-            and professional conduct.
+          <div className="mt-14 flex justify-center">
+            <ApplyCTA>{APPLY_LABEL}</ApplyCTA>
           </div>
         </div>
       </section>
 
-      {/* SECTION 6 — CTA / APPLY */}
-      <section id="apply" className="py-20 md:py-28">
+      {/* SECTION 8 — PARTNER BENEFITS */}
+      <Section
+        id="benefits"
+        eyebrow="The Partnership"
+        title="Why become an LS Diet Partner"
+        subtitle="We connect LS Diet members seeking additional support with aligned professionals focused on long term behavioural consistency."
+      >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          {[
+            {
+              t: "Behaviourally Prepared Members",
+              d: "LS Diet members are already introduced to consistency, awareness, and long term weight management before partner connection opportunities.",
+            },
+            {
+              t: "100% Commission Free",
+              d: "LS Diet only provides the connection between members and partners. All coaching and consultation revenue remains with the partner.",
+            },
+            {
+              t: "City Based Visibility",
+              d: "Future partner listings will eventually be organized by city to help members find local or nearby support.",
+            },
+            {
+              t: "3 Months Free",
+              d: "Partners receive free early access to the LS Diet Partner network during the initial launch period.",
+            },
+            {
+              t: "No Results, No Payment",
+              d: "If partners do not receive inquiry opportunities, there is no cost to remain listed after the free trial period.",
+            },
+            {
+              t: "Long Term Focused Community",
+              d: "LS Diet members join to improve consistency, maintain progress, and reduce weight regain — not just pursue short term motivation.",
+            },
+          ].map((b) => (
+            <div
+              key={b.t}
+              className="rounded-3xl bg-white border border-[hsl(0_0%_92%)] p-7 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_-16px_hsl(0_0%_0%/0.15)]"
+            >
+              <div className="text-lg font-bold text-[hsl(0_0%_8%)] mb-2">{b.t}</div>
+              <div className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">{b.d}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-14 flex justify-center">
+          <ApplyCTA>{APPLY_LABEL}</ApplyCTA>
+        </div>
+      </Section>
+
+      {/* SECTION 9 — FINAL CTA */}
+      <section id="apply" className="py-20 md:py-28 bg-white border-t border-[hsl(0_0%_92%)]">
         <div className="container max-w-3xl text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-4">
             Applications Open
@@ -444,7 +569,7 @@ export default function PartnersPage() {
             Apply to Become a Partner
           </h2>
           <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
-            We are currently accepting applications for the future LS Diet Partner network.
+            We are currently accepting applications for the LS Diet Partner network.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
             {PARTNER_TYPES.map((t) => (
@@ -457,7 +582,7 @@ export default function PartnersPage() {
             ))}
           </div>
           <div className="mt-10">
-            <ApplyCTA>{CTA_LABEL}</ApplyCTA>
+            <ApplyCTA>{APPLY_LABEL}</ApplyCTA>
           </div>
           <p className="mt-4 text-xs text-[hsl(0_0%_50%)]">
             Opens our short application form in a new tab.
@@ -467,6 +592,12 @@ export default function PartnersPage() {
 
       <footer className="py-10 border-t border-[hsl(0_0%_92%)] text-center text-sm text-[hsl(0_0%_50%)]">
         <div className="container max-w-6xl">
+          <p className="text-xs text-[hsl(0_0%_55%)] max-w-3xl mx-auto leading-relaxed mb-6">
+            <span className="font-semibold text-[hsl(0_0%_40%)]">Disclaimer.</span> LS Diet does
+            not guarantee client participation, retention, or business growth. All partners remain
+            independently responsible for their services, certifications, licensing, and
+            professional conduct.
+          </p>
           © {new Date().getFullYear()} LS Diet · Stop Regaining Weight ·{" "}
           <a href="/" className="hover:text-[hsl(0_0%_8%)]">
             lsdiet.com
