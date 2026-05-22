@@ -262,7 +262,7 @@ export default function PartnersPage() {
               <div className="mt-6 inline-flex items-start gap-3 rounded-2xl bg-white border border-[hsl(0_0%_92%)] px-5 py-4 text-left max-w-xl lg:max-w-none">
                 <span className="mt-1 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-[hsl(38_90%_50%)]" />
                 <p className="text-[15px] text-[hsl(0_0%_22%)] leading-snug">
-                  <strong className="text-[hsl(0_0%_8%)]">Unlimited LS Diet member referrals.</strong> You keep your clients, your services, and your brand.
+                  <strong className="text-[hsl(0_0%_8%)]">Unlimited commission-free LS Diet member referrals.</strong><br />You keep your clients, your services, and your brand.
                 </p>
               </div>
 
@@ -275,6 +275,30 @@ export default function PartnersPage() {
             </div>
             <div className="order-first lg:order-last">
               <ConsistencyVisual />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MISSION & VISION */}
+      <section className="py-16 md:py-20 border-t border-[hsl(0_0%_92%)]">
+        <div className="container max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-12">
+            <div className="border-l-2 border-[hsl(38_90%_50%)] pl-5">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-3">
+                Mission
+              </div>
+              <p className="text-lg md:text-xl font-medium text-[hsl(0_0%_8%)] leading-snug">
+                To make knowledge, awareness, and behavioural tools for preventing weight regain accessible to every overweight individual at no cost.
+              </p>
+            </div>
+            <div className="border-l-2 border-[hsl(38_90%_50%)] pl-5">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-3">
+                Vision
+              </div>
+              <p className="text-lg md:text-xl font-medium text-[hsl(0_0%_8%)] leading-snug">
+                To help 10,000 people stop regaining weight and build a future no longer limited by their physical condition.
+              </p>
             </div>
           </div>
         </div>
@@ -312,7 +336,7 @@ export default function PartnersPage() {
               The Business Cost
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] leading-[1.1]">
-              That inconsistency lands on your P&L
+              That inconsistency costs you time and money
             </h2>
             <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
               Behavioural drop-off doesn't just hurt the client — it quietly eats coaching businesses from the inside.
@@ -472,14 +496,6 @@ export default function PartnersPage() {
             />
           </a>
         </div>
-        <div className="mt-8 max-w-2xl mx-auto text-center space-y-3">
-          <p className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">
-            The goal is not temporary motivation.
-          </p>
-          <p className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">
-            The goal is long-term consistency and reduced weight regain.
-          </p>
-        </div>
       </Section>
 
       {/* SECTION 7 — HOW THE PARTNER MODEL WORKS */}
@@ -520,6 +536,7 @@ export default function PartnersPage() {
                 <StepCard n={2} title="Stay listed free until the first member inquiry" desc="No clock starts until a member requests to connect with you." />
                 <StepCard n={3} title="First inquiry starts the 90-day window" desc="From the first member connection request, you have three months to evaluate whether the listing is worthwhile." />
                 <StepCard n={4} title="Choose your path after 90 days" desc="Continue your listing through LS Diet Premium ($49/month), or remain part of the ecosystem through LS Diet referral opportunities." />
+                <StepCard n={5} title="Earn 40% referral commission — listed or not" desc="Whether you stay listed or not, refer clients into the LS Diet Advanced Accountability Program ($49/month) or 1-on-1 Coaching ($500/month) and earn 40% commission on every referral." />
               </div>
             </div>
           </div>
@@ -553,11 +570,11 @@ export default function PartnersPage() {
             },
             {
               t: "90 Days Before Anything Changes",
-              d: "Your 90-day Premium window only starts after your first member inquiry — not on the day you join.",
+              d: "Your 90-day Premium window only starts after your first member inquiry — not on the day you join. Only if you're already seeing real benefit from LS Diet referrals can you apply to upgrade at $49/month to keep the listing. No contract. Cancel whenever.",
             },
             {
               t: "Referral Revenue Opportunities",
-              d: "Partners may also qualify for recurring referral revenue opportunities through select LS Diet programs.",
+              d: "Earn 40% commission when you refer clients into the LS Diet Advanced Accountability Program ($49/month) or 1-on-1 Coaching ($500/month) — available whether or not you stay listed.",
             },
             {
               t: "Long Term Focused Community",
@@ -575,29 +592,6 @@ export default function PartnersPage() {
         </div>
       </Section>
 
-      {/* NEW — MISSION & VISION */}
-      <section className="py-16 md:py-20 border-t border-[hsl(0_0%_92%)]">
-        <div className="container max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-12">
-            <div className="border-l-2 border-[hsl(38_90%_50%)] pl-5">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-3">
-                Mission
-              </div>
-              <p className="text-lg md:text-xl font-medium text-[hsl(0_0%_8%)] leading-snug">
-                To make knowledge, awareness, and behavioural tools for preventing weight regain accessible to every overweight individual at no cost.
-              </p>
-            </div>
-            <div className="border-l-2 border-[hsl(38_90%_50%)] pl-5">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-3">
-                Vision
-              </div>
-              <p className="text-lg md:text-xl font-medium text-[hsl(0_0%_8%)] leading-snug">
-                To help 10,000 people stop regaining weight and build a future no longer limited by their physical condition.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* SECTION 9 — FINAL CTA */}
       <section id="apply" className="py-20 md:py-28 bg-white border-t border-[hsl(0_0%_92%)]">
