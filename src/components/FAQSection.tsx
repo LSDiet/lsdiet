@@ -17,10 +17,10 @@ const faqs: FaqEntry[] = [
   {
     q: "What is LS Diet?",
     schemaAnswer:
-      "LS Diet is a low-starch low-sugar lifestyle paired with the Weight Permanence Triangle, a three part behavioural framework that helps you stop regaining weight. Created by Oscar Poon, it focuses on permanence instead of restart cycles.",
+      "LS Diet is neuro-behavioural training to stop weight regain. At its core is the Weight Permanence Triangle (WPT) — a framework LS Diet invented from real-life experience after losing 80 lbs three times. It's a tested system built on basic human psychology, so it works for anyone serious about making weight loss permanent.",
     render: () => (
       <p className="text-[hsl(0_0%_20%)] leading-relaxed text-base">
-        LS Diet is a low-starch low-sugar lifestyle paired with a three part behavioural framework that helps you stop regaining weight.{" "}
+        LS Diet is neuro-behavioural training to stop weight regain. At its core is the Weight Permanence Triangle (WPT) — a framework LS Diet invented from real-life experience after losing 80 lbs three times. It's a tested system built on basic human psychology, so it works for anyone serious about making weight loss permanent.{" "}
         <a href="/what-is-ls-diet" className="text-accent hover:underline">
           Read the full definition on What Is LS Diet →
         </a>
@@ -30,10 +30,10 @@ const faqs: FaqEntry[] = [
   {
     q: "Why do people keep regaining the weight?",
     schemaAnswer:
-      "Most diets work on food alone and ignore the behavioural layers underneath. Without awareness, the same pattern that regained weight last time repeats, and the consequence catches up later. LS Diet adds an awareness layer and a permanence layer so a slip never becomes a full restart.",
+      "Regaining weight isn't a willpower problem — it's a priority problem. Every regain traces back to the moment something else (stress, convenience, social pressure, comfort) quietly outranked your health on the priority list. Diets never fix that ranking, so the same patterns return and the weight returns with them. LS Diet rebuilds the priority underneath the food rules, which is why the result holds.",
     render: () => (
       <p className="text-[hsl(0_0%_20%)] leading-relaxed text-base">
-        Most diets work on food alone and ignore the behavioural layers underneath. Without awareness, the same patterns repeat and the consequences catch up later. LS Diet adds the layers conventional plans skip.{" "}
+        Regaining weight isn't a willpower problem — it's a priority problem. Every regain traces back to the moment something else (stress, convenience, social pressure, comfort) quietly outranked your health on the priority list. Diets never fix that ranking, so the same patterns return and the weight returns with them. LS Diet rebuilds the priority underneath the food rules, which is why the result holds.{" "}
         <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
           Read the foundation →
         </a>
@@ -43,16 +43,17 @@ const faqs: FaqEntry[] = [
   {
     q: "How long does it take to see results?",
     schemaAnswer:
-      "Most people notice changes within the first two weeks of practising the low-starch low-sugar lifestyle alongside daily awareness reps. The deeper goal is permanence — building habits that hold up months and years later, not just on the scale on day fourteen.",
+      "Two weeks. Cutting starch and sugar depletes glycogen, and glycogen pulls water with it — so the scale moves fast and visibly in the first fortnight. That early drop is the signal the lifestyle is actually working in your body. From there, the daily awareness reps are what turn a two-week result into a permanent one.",
     render: () => (
       <p className="text-[hsl(0_0%_20%)] leading-relaxed text-base">
-        Most people notice changes within the first two weeks of practising the lifestyle alongside daily awareness reps. The deeper goal is permanence — habits that hold up months and years later, not just on the scale on day fourteen.{" "}
+        Two weeks. Cutting starch and sugar depletes glycogen, and glycogen pulls water with it — so the scale moves fast and visibly in the first fortnight. That early drop is the signal the lifestyle is actually working in your body. From there, the daily awareness reps are what turn a two-week result into a permanent one.{" "}
         <a href="/awareness-stages" className="text-accent hover:underline">
           Explore the 5 Awareness Stages →
         </a>
       </p>
     ),
   },
+
   {
     q: "Who created LS Diet?",
     schemaAnswer:
