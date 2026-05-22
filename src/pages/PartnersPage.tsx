@@ -541,20 +541,20 @@ export default function PartnersPage() {
               d: "LS Diet members are already introduced to consistency, awareness, and long term weight management before partner connection opportunities.",
             },
             {
-              t: "100% Commission Free",
-              d: "LS Diet only provides the connection between members and partners. All coaching and consultation revenue remains with the partner.",
+              t: "Always Free to Get Listed",
+              d: "Joining the network costs nothing. You stay listed at no charge until members are actively reaching out to you.",
             },
             {
-              t: "City Based Visibility",
-              d: "Future partner listings will eventually be organized by city to help members find local or nearby support.",
+              t: "City-Based Visibility",
+              d: "Members browse partners in their own city with one click.",
             },
             {
-              t: "3 Months Free",
-              d: "Partners receive free early access to the LS Diet Partner network during the initial launch period.",
+              t: "90 Days Before Anything Changes",
+              d: "Your 90-day Premium window only starts after your first member inquiry — not on the day you join.",
             },
             {
-              t: "No Results, No Payment",
-              d: "If partners do not receive inquiry opportunities, there is no cost to remain listed after the free trial period.",
+              t: "Referral Revenue Opportunities",
+              d: "Partners may also qualify for recurring referral revenue opportunities through select LS Diet programs.",
             },
             {
               t: "Long Term Focused Community",
