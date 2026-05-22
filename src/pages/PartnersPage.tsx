@@ -262,8 +262,7 @@ export default function PartnersPage() {
               <div className="mt-6 inline-flex items-start gap-3 rounded-2xl bg-white border border-[hsl(0_0%_92%)] px-5 py-4 text-left max-w-xl lg:max-w-none">
                 <span className="mt-1 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-[hsl(38_90%_50%)]" />
                 <p className="text-[15px] text-[hsl(0_0%_22%)] leading-snug">
-                  <strong className="text-[hsl(0_0%_8%)]">Listing is free for every coach and dietitian.</strong>{" "}
-                  You only pay once members are actually reaching out to you. You keep your clients, your services, and your brand.
+                  <strong className="text-[hsl(0_0%_8%)]">Unlimited LS Diet member referrals.</strong> You keep your clients, your services, and your brand.
                 </p>
               </div>
 
@@ -446,18 +445,17 @@ export default function PartnersPage() {
       {/* SECTION 6 — FRAMEWORK / AUTHORITY (condensed) */}
       <Section
         eyebrow="The Framework"
-        title="The behavioural system your clients keep using"
+        title="The behavioural system is designed to reduce dropout and restart cycles"
         subtitle={
           <>
-            LS Diet members train inside the{" "}
+            LS Diet trains members through a proprietary framework called the{" "}
             <a
               href="https://lsdiet.com/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
               className="font-semibold text-[hsl(0_0%_8%)] underline underline-offset-4 decoration-[hsl(38_90%_50%)] hover:text-[hsl(38_90%_40%)] transition-colors"
             >
               Weight Permanence Triangle™
             </a>
-            : Awareness + Practice = Permanence. The 5 Stages of Awareness handle the psychological
-            layer most diets ignore.
+            . The 5 Stages of Awareness help members understand why consistency breaks down, while Action Practice reinforces daily behaviours that keep health a priority even after motivation fades.
           </>
         }
       >
@@ -474,9 +472,14 @@ export default function PartnersPage() {
             />
           </a>
         </div>
-        <p className="mt-8 text-center text-[15px] text-[hsl(0_0%_36%)] max-w-2xl mx-auto leading-relaxed">
-          This is the behavioural layer your clients keep using between sessions with you.
-        </p>
+        <div className="mt-8 max-w-2xl mx-auto text-center space-y-3">
+          <p className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">
+            The goal is not temporary motivation.
+          </p>
+          <p className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">
+            The goal is long-term consistency and reduced weight regain.
+          </p>
+        </div>
       </Section>
 
       {/* SECTION 7 — HOW THE PARTNER MODEL WORKS */}
@@ -541,8 +544,8 @@ export default function PartnersPage() {
               d: "LS Diet members are already introduced to consistency, awareness, and long term weight management before partner connection opportunities.",
             },
             {
-              t: "Always Free to Get Listed",
-              d: "Joining the network costs nothing. You stay listed at no charge until members are actively reaching out to you.",
+              t: "Unlimited Member Referrals",
+              d: "The moment a member requests to connect, your 90-day window begins — unlimited LS Diet member referrals, 100% free. If you see the value, you can request an upgrade to stay listed after 90 days.",
             },
             {
               t: "City-Based Visibility",
