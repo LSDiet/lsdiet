@@ -586,7 +586,7 @@ export default function PartnersPage() {
             Apply to Become a Partner
           </h2>
           <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
-            We are currently accepting applications for the LS Diet Partner network.
+            Free until the system proves value. Join the network and become visible to LS Diet members in your city.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
             {PARTNER_TYPES.map((t) => (
