@@ -262,8 +262,8 @@ export default function PartnersPage() {
               <div className="mt-6 inline-flex items-start gap-3 rounded-2xl bg-white border border-[hsl(0_0%_92%)] px-5 py-4 text-left max-w-xl lg:max-w-none">
                 <span className="mt-1 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-[hsl(38_90%_50%)]" />
                 <p className="text-[15px] text-[hsl(0_0%_22%)] leading-snug">
-                  <strong className="text-[hsl(0_0%_8%)]">You keep your clients, your services, and your brand.</strong>{" "}
-                  LS Diet only reinforces the behavioural layer in between.
+                  <strong className="text-[hsl(0_0%_8%)]">Listing is free for every coach and dietitian.</strong>{" "}
+                  You only pay once members are actually reaching out to you. You keep your clients, your services, and your brand.
                 </p>
               </div>
 
