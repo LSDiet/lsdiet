@@ -336,7 +336,7 @@ export default function PartnersPage() {
               The Business Cost
             </div>
             <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-[hsl(0_0%_8%)] leading-[1.1]">
-              That inconsistency lands on your P&L
+              That inconsistency costs you time and money
             </h2>
             <p className="mt-5 text-base md:text-lg text-[hsl(0_0%_30%)] leading-relaxed">
               Behavioural drop-off doesn't just hurt the client — it quietly eats coaching businesses from the inside.
