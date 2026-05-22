@@ -570,11 +570,11 @@ export default function PartnersPage() {
             },
             {
               t: "90 Days Before Anything Changes",
-              d: "Your 90-day Premium window only starts after your first member inquiry — not on the day you join.",
+              d: "Your 90-day Premium window only starts after your first member inquiry — not on the day you join. Only if you're already seeing real benefit from LS Diet referrals can you apply to upgrade at $49/month to keep the listing. No contract. Cancel whenever.",
             },
             {
               t: "Referral Revenue Opportunities",
-              d: "Partners may also qualify for recurring referral revenue opportunities through select LS Diet programs.",
+              d: "Earn 40% commission when you refer clients into the LS Diet Advanced Accountability Program ($49/month) or 1-on-1 Coaching ($500/month) — available whether or not you stay listed.",
             },
             {
               t: "Long Term Focused Community",
