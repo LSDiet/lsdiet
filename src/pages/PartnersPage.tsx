@@ -615,7 +615,7 @@ export default function PartnersPage() {
             independently responsible for their services, certifications, licensing, and
             professional conduct.
           </p>
-          © {new Date().getFullYear()} LS Diet · Stop Regaining Weight ·{" "}
+          © {new Date().getFullYear()} NTL Learning Solutions Inc. All rights reserved. ·{" "}
           <a href="/" className="hover:text-[hsl(0_0%_8%)]">
             lsdiet.com
           </a>
