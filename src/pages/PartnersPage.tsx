@@ -536,6 +536,7 @@ export default function PartnersPage() {
                 <StepCard n={2} title="Stay listed free until the first member inquiry" desc="No clock starts until a member requests to connect with you." />
                 <StepCard n={3} title="First inquiry starts the 90-day window" desc="From the first member connection request, you have three months to evaluate whether the listing is worthwhile." />
                 <StepCard n={4} title="Choose your path after 90 days" desc="Continue your listing through LS Diet Premium ($49/month), or remain part of the ecosystem through LS Diet referral opportunities." />
+                <StepCard n={5} title="Earn 40% referral commission — listed or not" desc="Whether you stay listed or not, refer clients into the LS Diet Advanced Accountability Program ($49/month) or 1-on-1 Coaching ($500/month) and earn 40% commission on every referral." />
               </div>
             </div>
           </div>
