@@ -496,14 +496,6 @@ export default function PartnersPage() {
             />
           </a>
         </div>
-        <div className="mt-8 max-w-2xl mx-auto text-center space-y-3">
-          <p className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">
-            The goal is not temporary motivation.
-          </p>
-          <p className="text-[15px] text-[hsl(0_0%_36%)] leading-relaxed">
-            The goal is long-term consistency and reduced weight regain.
-          </p>
-        </div>
       </Section>
 
       {/* SECTION 7 — HOW THE PARTNER MODEL WORKS */}
