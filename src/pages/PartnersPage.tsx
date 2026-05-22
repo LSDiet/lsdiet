@@ -280,6 +280,30 @@ export default function PartnersPage() {
         </div>
       </section>
 
+      {/* MISSION & VISION */}
+      <section className="py-16 md:py-20 border-t border-[hsl(0_0%_92%)]">
+        <div className="container max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-12">
+            <div className="border-l-2 border-[hsl(38_90%_50%)] pl-5">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-3">
+                Mission
+              </div>
+              <p className="text-lg md:text-xl font-medium text-[hsl(0_0%_8%)] leading-snug">
+                To make knowledge, awareness, and behavioural tools for preventing weight regain accessible to every overweight individual at no cost.
+              </p>
+            </div>
+            <div className="border-l-2 border-[hsl(38_90%_50%)] pl-5">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[hsl(38_90%_40%)] mb-3">
+                Vision
+              </div>
+              <p className="text-lg md:text-xl font-medium text-[hsl(0_0%_8%)] leading-snug">
+                To help 10,000 people stop regaining weight and build a future no longer limited by their physical condition.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 2 — CLIENT INCONSISTENCY PROBLEM */}
       <Section
         id="client-problem"
