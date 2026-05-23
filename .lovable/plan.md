@@ -1,110 +1,80 @@
-## Refine `src/pages/PartnersPage.tsx` — messaging & flow only
+# Why blog posts feel slow
 
-Goal: restructure the page so it leads with pain, clarifies the partner model, defers commitment, and answers the six coach/dietitian questions Leo flagged (more income? more work? client theft? churn fix? what's the system? why trust you?).
+There are **three sources** powering `/blog/:slug`:
 
-**Preserve as-is:** colour palette, light-mode aesthetic, rounded cards, `ConsistencyVisual`, `ApplyCTA` styling, typography scale, statistics section visuals, framework imagery (`awarenessDiagram`), footer styling.
+1. **Foundations** — code-bundled (`src/content/foundations/*`). 9 posts. Zero network.
+2. **Articles** — code-bundled (`src/content/articles/*`). ~40 posts. Zero network.
+3. **Contentful** — fetched live through the `blog-posts` edge function → Lovable connector gateway → Contentful API.
 
-### 1. Hero — soften commitment
+### What `BlogPostPage` does today
 
-- **Primary CTA** → `See How the Partner Model Works` (anchor to new `#how-it-works`).
-- **Secondary CTA** → `Apply to Become a Partner` (smaller, ghost/outline `ApplyCTA variant="outline"` at `!px-5 !py-2.5 !text-sm`).
-- Keep the headline ("Are you losing clients because they struggle with consistency?").
-- Add a reassurance line directly below the subhead, visually distinct (small pill or bordered strip):
-
-  > "You keep your clients, your services, and your brand. LS Diet only reinforces the behavioural layer in between."
-
-- Sticky header CTA also softens to `See the model`, with `Apply` kept as secondary.
-
-### 2. Reorder sections
-
-New flow (renumbered):
+Looking at `src/pages/BlogPostPage.tsx` (lines 129–169):
 
 ```text
-1. Hero (soft CTA)
-2. Client inconsistency problem        ← existing "Clients often" card, split out
-3. Business pain for coaches           ← existing "As a result" card
-   └─ inline soft CTA: "See how the model fixes this →"
-4. Statistics (compacted, see §3)
-5. NEW — How LS Diet complements your services   ← two-column "continue doing" vs "LS Diet reinforces"
-   └─ inline CTA: "See how the partner flow works →"
-6. LS Diet framework / authority (existing, condensed — see §5)
-7. NEW — How the Partner Model Works (6-step workflow)   ← see §6
-   └─ inline CTA: "Apply to Become a Partner"
-8. Partner benefits (re-worded copy per Leo, see §7)
-9. Final CTA block
-10. Footer (disclaimer moved here, muted — see §8)
+slug → check Foundations (instant)
+     → if miss, ALWAYS call fetchBlogPost() to Contentful
+     → if Contentful returns null, fall back to Articles
 ```
 
-Sections 2 and 3 stay as two cards but get their own `Section` wrapper so the eyebrow reads "The Client Problem" / "The Business Cost" instead of one combined block.
+The problem: **articles (which are local) only get checked AFTER a full Contentful round-trip fails.** So every article load eats a ~500–1500 ms edge-function call before rendering — even though the content is already in the JS bundle.
 
-### 3. Statistics — compact & scannable
+Other contributors:
+- No client cache. Re-visiting the same post re-fetches every time.
+- The edge function `cf()` has no caching headers on the outbound Contentful call (cache is only `max-age=30` on the response).
+- No prefetch on hover from `/blog` index — clicking a Contentful card cold-starts the function.
+- Each Contentful call uses `include=2` and resolves related posts inline; that's the right shape but adds payload weight.
 
-Keep the three stats (CDC 40%+, Canada 65%, BMJ 50% dropout) and sources. Tighten:
+# The fix (in priority order)
 
-- Reduce card padding (`p-6 md:p-8`), smaller stat font (`text-4xl md:text-5xl`).
-- Shorter eyebrow: "The Industry Gap" (drop "By the Numbers").
-- Remove the H2 paragraph — one-line subtitle only: "Behavioural inconsistency is the gap conventional programs leave open."
-- Single row on desktop, no hover lift (calmer).
+## 1. Reorder source lookup — check local first (biggest win, zero risk)
 
-### 4. NEW — "How LS Diet complements your services" section
+In `BlogPostPage.tsx`, check `getArticleBySlug(slug)` **before** calling `fetchBlogPost`. Foundations + Articles cover ~50 posts that should render instantly with no network at all.
 
-Two-column card layout, eyebrow "Complement, not replace". Headline: *LS Diet reinforces what you already do.*
+```text
+slug → Foundation? render
+     → Article?    render          ← new
+     → else        fetch Contentful
+```
 
-| LEFT — What partners continue doing | RIGHT — What LS Diet reinforces |
-| --- | --- |
-| Coaching | Consistency |
-| Exercise programming | Awareness |
-| Accountability | Relapse interruption |
-| Nutrition guidance | Push & pull motivation |
-| Body composition support | Sustainable behaviour patterns |
-| Client care | Long-term progress |
+This alone makes every code-bundled post feel instant.
 
-Use existing `ClientCard` styling; left card neutral, right card with subtle amber tint on the bullet dots to differentiate.
+## 2. Client-side cache for Contentful posts (React Query)
 
-### 5. Framework section — condense
+Wrap `fetchBlogPost` / `listBlogPosts` / `fetchPostsByCategory` in `@tanstack/react-query` (already in the project per the memory: "React Query, Zustand"). Defaults:
+- `staleTime: 5 minutes` — revisits within 5 min are instant from cache.
+- `gcTime: 30 minutes`.
 
-Keep the awareness diagram and the WPT link. Tighten:
+Effect: navigating Blog → post → back → another post stops re-hitting the network.
 
-- Shorten the subtitle to ~2 sentences max: "LS Diet members are trained inside the Weight Permanence Triangle™ — Awareness + Practice = Permanence. The 5 Stages of Awareness handle the psychological layer most diets ignore."
-- Replace the "does not replace / goal is to help members become" dual-list (now redundant with §4) with a single line under the diagram: *"This is the behavioural layer your clients keep using between sessions with you."*
-- Remove the dual-list block entirely to cut redundancy.
+## 3. Prefetch on hover / viewport from `/blog` index
 
-### 6. NEW — "How the Partner Model Works" section
+On the blog listing cards, add `onMouseEnter` / `IntersectionObserver` that calls `queryClient.prefetchQuery(['blog-post', slug])`. By the time the user clicks, the post is already in cache.
 
-`id="how-it-works"` (hero primary CTA targets this).
+## 4. Edge-function response caching (low-risk tune)
 
-Eyebrow: "The Workflow". Headline: *A clear, simple partner relationship.*
+Bump `blog-posts` cache headers from `max-age=30` to something like `max-age=300, s-maxage=600, stale-while-revalidate=86400`. Contentful content doesn't change minute-to-minute, and a webhook (`contentful-rebuild-hook`) already exists for invalidation on real publishes.
 
-Six numbered step cards in a responsive grid (1 col mobile, 2 col md, 3 col lg), each with a circled step number in amber, short title, one-line description:
+## 5. Optional — slim the `get` payload
 
-1. **Partner applies** — short form, no commitment.
-2. **LS Diet reviews fit** — alignment with behavioural-consistency values.
-3. **Partner is added to the network** — listed for member discovery.
-4. **Members request connections** — only members seeking *additional* support are introduced.
-5. **Partner delivers their normal service** — coaching, programming, nutrition — your brand, your pricing.
-6. **LS Diet keeps reinforcing behaviour** — consistency support continues alongside, reducing drop-off.
+The `get` action currently uses `include=2` which pulls full related-post entries + assets. We could drop to `include=1` and resolve `relatedPosts` lazily, but this is only worth doing if 1–4 don't move the needle enough.
 
-Trailing CTA row: primary `Apply to Become a Partner` + ghost `Have questions? Watch the overview` (anchor to hero / or `mailto:info@whataboutweight.com` — confirm in §10).
+# What changes, file by file
 
-### 7. Partner benefits — copy refinement only
+- `src/pages/BlogPostPage.tsx` — reorder lookup (Foundation → Article → Contentful); wrap Contentful fetch in `useQuery`.
+- `src/lib/blog.ts` — no shape change; just consumed via React Query keys `['blog-post', slug]`, `['blog-list']`, `['blog-by-category', slug]`.
+- `src/pages/BlogPage.tsx` + blog card component — add `onMouseEnter` prefetch using `queryClient.prefetchQuery`.
+- `supabase/functions/blog-posts/index.ts` — update `Cache-Control` header on `list`, `get`, `byCategory`, `categories`.
 
-Same six-card grid layout. Replace card copy with Leo's wording verbatim (Behaviourally Prepared Members / 100% Commission Free / City Based Visibility / 3 Months Free / No Results, No Payment / Long-Term Focused Community — keep the 6th existing card).
+# What I will NOT do unless you ask
 
-### 8. Disclaimer relocation
+- No migration of Contentful posts into the repo. Keeping editorial in Contentful is the whole point of that system.
+- No service worker / offline cache — overkill for this.
+- No SSR/SSG switch — that's a much bigger architectural change.
 
-- Remove disclaimer block from the benefits section.
-- Append it to the existing `<footer>` as a small muted paragraph above the copyright line, `text-xs text-[hsl(0_0%_55%)] max-w-3xl mx-auto leading-relaxed mb-4`.
+# Expected outcome
 
-### 9. CTA density
-
-Soft inline CTA after sections 3, 5, 7. Strong `Apply` CTA in sections 6 (workflow), 8 (benefits trailing), and 9 (final). Hero stays soft.
-
-### 10. Open question (will confirm before building section 6)
-
-The workflow section has a "Have questions?" secondary CTA — should it (a) scroll back to hero, (b) open mail to `info@whataboutweight.com`, or (c) be dropped entirely?
-
-### Out of scope
-
-- No new routes, components, edge functions, or assets.
-- No changes to `Navbar`, sitemap, or SEO meta (titles/descriptions stay).
-- No palette, font, or border-radius changes.
+- Articles + Foundations: **instant** (no network).
+- First visit to a Contentful post: same as today (~500–1500 ms), but…
+- Hovered/in-view Contentful posts from `/blog`: **instant** (prefetched).
+- Revisits within 5 min: **instant** (cached).
+- Repeat traffic globally: faster (edge cache).
