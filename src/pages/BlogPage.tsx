@@ -45,12 +45,21 @@ function foundationsAsBlogPosts(): BlogPost[] {
 }
 
 export default function BlogPage() {
+  const queryClient = useQueryClient();
   const [posts, setPosts] = useState<EnrichedPost[] | null>(null);
   const [contentfulPosts, setContentfulPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<CategorySummary[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("");
   const [indexEntries, setIndexEntries] = useState<BlogIndexEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const prefetchPost = (slug: string) => {
+    queryClient.prefetchQuery({
+      queryKey: ["blog-post", slug],
+      queryFn: () => fetchBlogPost(slug),
+      staleTime: 5 * 60 * 1000,
+    });
+  };
 
   useEffect(() => {
     let cancelled = false;
