@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useQueryClient } from "@tanstack/react-query";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
@@ -8,6 +9,7 @@ import { JoinFloatingBar } from "@/components/JoinFloatingBar";
 import {
   listBlogPosts,
   fetchCategories,
+  fetchBlogPost,
   formatPublishDate,
   type BlogPost,
   type CategorySummary,
@@ -43,12 +45,21 @@ function foundationsAsBlogPosts(): BlogPost[] {
 }
 
 export default function BlogPage() {
+  const queryClient = useQueryClient();
   const [posts, setPosts] = useState<EnrichedPost[] | null>(null);
   const [contentfulPosts, setContentfulPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<CategorySummary[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("");
   const [indexEntries, setIndexEntries] = useState<BlogIndexEntry[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const prefetchPost = (slug: string) => {
+    queryClient.prefetchQuery({
+      queryKey: ["blog-post", slug],
+      queryFn: () => fetchBlogPost(slug),
+      staleTime: 5 * 60 * 1000,
+    });
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -202,6 +213,9 @@ export default function BlogPage() {
                       <li key={p.id}>
                         <a
                           href={`/blog/${p.slug}`}
+                          onMouseEnter={() => prefetchPost(p.slug)}
+                          onFocus={() => prefetchPost(p.slug)}
+                          onTouchStart={() => prefetchPost(p.slug)}
                           className="group flex items-start gap-4 py-5 px-2 -mx-2 rounded hover:bg-zinc-50 transition-colors"
                         >
                           <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-md overflow-hidden bg-accent/10">

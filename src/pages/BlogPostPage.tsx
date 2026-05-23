@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
@@ -123,50 +124,42 @@ function fromArticle(a: Article): ViewModel {
 
 export default function BlogPostPage() {
   const { slug = "" } = useParams<{ slug: string }>();
-  const [vm, setVm] = useState<ViewModel | null>(null);
-  const [status, setStatus] = useState<"loading" | "ok" | "missing" | "error">("loading");
 
-  useEffect(() => {
-    let cancelled = false;
-    setStatus("loading");
-
-    const foundation = getFoundationBySlug(slug);
-    if (foundation) {
-      setVm(fromFoundation(foundation));
-      setStatus("ok");
-      return;
-    }
-
-    fetchBlogPost(slug)
-      .then((p) => {
-        if (cancelled) return;
-        if (p) {
-          setVm(fromContentful(p));
-          setStatus("ok");
-          return;
-        }
-        const article = getArticleBySlug(slug);
-        if (article) {
-          setVm(fromArticle(article));
-          setStatus("ok");
-        } else {
-          setStatus("missing");
-        }
-      })
-      .catch(() => {
-        if (cancelled) return;
-        const article = getArticleBySlug(slug);
-        if (article) {
-          setVm(fromArticle(article));
-          setStatus("ok");
-        } else {
-          setStatus("error");
-        }
-      });
-    return () => {
-      cancelled = true;
-    };
+  // Local-first: foundations and articles are in the JS bundle. Render them
+  // instantly with zero network. Only fall through to Contentful otherwise.
+  const localVm = useMemo<ViewModel | null>(() => {
+    const f = getFoundationBySlug(slug);
+    if (f) return fromFoundation(f);
+    const a = getArticleBySlug(slug);
+    if (a) return fromArticle(a);
+    return null;
   }, [slug]);
+
+  const {
+    data: contentfulPost,
+    isLoading: contentfulLoading,
+    isError: contentfulError,
+  } = useQuery({
+    queryKey: ["blog-post", slug],
+    queryFn: () => fetchBlogPost(slug),
+    enabled: !!slug && !localVm,
+  });
+
+  const vm: ViewModel | null = localVm
+    ? localVm
+    : contentfulPost
+    ? fromContentful(contentfulPost)
+    : null;
+
+  const status: "loading" | "ok" | "missing" | "error" = localVm
+    ? "ok"
+    : contentfulLoading
+    ? "loading"
+    : contentfulError
+    ? "error"
+    : contentfulPost
+    ? "ok"
+    : "missing";
 
   if (status === "loading") {
     return (
