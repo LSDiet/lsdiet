@@ -213,6 +213,9 @@ export default function BlogPage() {
                       <li key={p.id}>
                         <a
                           href={`/blog/${p.slug}`}
+                          onMouseEnter={() => prefetchPost(p.slug)}
+                          onFocus={() => prefetchPost(p.slug)}
+                          onTouchStart={() => prefetchPost(p.slug)}
                           className="group flex items-start gap-4 py-5 px-2 -mx-2 rounded hover:bg-zinc-50 transition-colors"
                         >
                           <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-md overflow-hidden bg-accent/10">
