@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { useQueryClient } from "@tanstack/react-query";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
@@ -8,6 +9,7 @@ import { JoinFloatingBar } from "@/components/JoinFloatingBar";
 import {
   listBlogPosts,
   fetchCategories,
+  fetchBlogPost,
   formatPublishDate,
   type BlogPost,
   type CategorySummary,
