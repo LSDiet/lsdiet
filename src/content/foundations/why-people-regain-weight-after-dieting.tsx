@@ -160,7 +160,7 @@ function Body() {
       </p>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
-        Weight Loss Is Hard. Rebound Is Easier.
+        Why Temporary Weight Loss Often Leads To Weight Regain
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
         Many people believe losing weight is the difficult part. In reality, maintaining weight loss
