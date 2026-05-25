@@ -62,16 +62,11 @@ export function WhatIsLSDietSection() {
             rel="noopener noreferrer"
             className="group block rounded-2xl border border-accent/30 bg-accent/[0.06] p-5 md:p-6 hover:border-accent hover:bg-accent/[0.1] transition-colors"
           >
-            <div className="flex flex-col items-start gap-3">
-              <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-accent/30 bg-background">
-                  <Beef className="w-6 h-6 md:w-7 md:h-7 text-accent" aria-hidden="true" />
-                </div>
-                <span className="inline-flex items-center justify-center rounded-md bg-accent px-2 py-0.5 text-xs md:text-sm font-extrabold uppercase tracking-wide text-accent-foreground">
-                  LS
-                </span>
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-accent/30 bg-background">
+                <Beef className="w-6 h-6 md:w-7 md:h-7 text-accent" aria-hidden="true" />
               </div>
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-accent transition-colors">
                   Low-Starch, Low-Sugar
                 </h3>
@@ -94,16 +89,11 @@ export function WhatIsLSDietSection() {
             rel="noopener noreferrer"
             className="group block rounded-2xl border border-primary/30 bg-primary/[0.06] p-5 md:p-6 hover:border-primary hover:bg-primary/[0.1] transition-colors"
           >
-            <div className="flex flex-col items-start gap-3">
-              <div className="flex items-center gap-3">
-                <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-primary/30 bg-background">
-                  <Brain className="w-6 h-6 md:w-7 md:h-7 text-primary" aria-hidden="true" />
-                </div>
-                <span className="inline-flex items-center justify-center rounded-md bg-primary px-2 py-0.5 text-xs md:text-sm font-extrabold uppercase tracking-wide text-primary-foreground">
-                  WPT
-                </span>
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-primary/30 bg-background">
+                <Brain className="w-6 h-6 md:w-7 md:h-7 text-primary" aria-hidden="true" />
               </div>
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
                   Weight Permanence Triangle™
                 </h3>
