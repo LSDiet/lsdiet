@@ -256,12 +256,6 @@ export default function WhatIsLSDietPage() {
                 Join the LS Diet Class
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="/blog/why-people-regain-weight-after-dieting">Why People Regain Weight</a>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="/">Back to Homepage</a>
-            </Button>
           </div>
         </div>
       </article>
