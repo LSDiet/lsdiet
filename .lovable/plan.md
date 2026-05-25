@@ -1,80 +1,56 @@
-# Why blog posts feel slow
+# Speed up the homepage hero images
 
-There are **three sources** powering `/blog/:slug`:
+## Problem
 
-1. **Foundations** — code-bundled (`src/content/foundations/*`). 9 posts. Zero network.
-2. **Articles** — code-bundled (`src/content/articles/*`). ~40 posts. Zero network.
-3. **Contentful** — fetched live through the `blog-posts` edge function → Lovable connector gateway → Contentful API.
+The six "before/after" photos in `HeroSection.tsx` are PNGs totaling ~6.1 MB:
 
-### What `BlogPostPage` does today
-
-Looking at `src/pages/BlogPostPage.tsx` (lines 129–169):
-
-```text
-slug → check Foundations (instant)
-     → if miss, ALWAYS call fetchBlogPost() to Contentful
-     → if Contentful returns null, fall back to Articles
+```
+2019a 705KB  636×754      2019b 1.3MB  796×1060
+2021a 1.1MB  796×878      2021b 1.4MB  796×878
+2024a  977KB 488×1020     2024b  339KB 368×572
 ```
 
-The problem: **articles (which are local) only get checked AFTER a full Contentful round-trip fails.** So every article load eats a ~500–1500 ms edge-function call before rendering — even though the content is already in the JS bundle.
+Each picture renders inside a half-card on a 3-column grid — roughly 200–400 CSS px wide. We're shipping 5–10× more pixels than the screen ever shows, in an uncompressed format, with no `srcset`, no modern format, and no preload hint. That is the entire reason the hero takes >500 ms.
 
-Other contributors:
-- No client cache. Re-visiting the same post re-fetches every time.
-- The edge function `cf()` has no caching headers on the outbound Contentful call (cache is only `max-age=30` on the response).
-- No prefetch on hover from `/blog` index — clicking a Contentful card cold-starts the function.
-- Each Contentful call uses `include=2` and resolves related posts inline; that's the right shape but adds payload weight.
+## Approach (no perceived quality loss)
 
-# The fix (in priority order)
+1. **Add `vite-imagetools`** so we can request modern formats and sized variants at build time directly from the existing PNG sources. Nothing in `public/` or `src/assets/` gets deleted — the originals stay as masters.
 
-## 1. Reorder source lookup — check local first (biggest win, zero risk)
+2. **Update `HeroSection.tsx`** to import each photo as a responsive `<picture>` set:
 
-In `BlogPostPage.tsx`, check `getArticleBySlug(slug)` **before** calling `fetchBlogPost`. Foundations + Articles cover ~50 posts that should render instantly with no network at all.
+   ```ts
+   import img2019a from "@/assets/hero/2019a.png?w=400;800&format=avif;webp;png&as=picture"
+   ```
 
-```text
-slug → Foundation? render
-     → Article?    render          ← new
-     → else        fetch Contentful
-```
+   `vite-imagetools` returns `{ sources: { avif, webp }, img }` which we feed into:
 
-This alone makes every code-bundled post feel instant.
+   ```tsx
+   <picture>
+     <source type="image/avif" srcSet={img.sources.avif} sizes="(min-width:768px) 22vw, 45vw" />
+     <source type="image/webp" srcSet={img.sources.webp} sizes="..." />
+     <img src={img.img.src} width={img.img.w} height={img.img.h} ... />
+   </picture>
+   ```
 
-## 2. Client-side cache for Contentful posts (React Query)
+   Expected payload after AVIF at quality 70: ~15–30 KB per photo (≈ 100–180 KB total vs. 6.1 MB today), visually indistinguishable from the PNG at the rendered size.
 
-Wrap `fetchBlogPost` / `listBlogPosts` / `fetchPostsByCategory` in `@tanstack/react-query` (already in the project per the memory: "React Query, Zustand"). Defaults:
-- `staleTime: 5 minutes` — revisits within 5 min are instant from cache.
-- `gcTime: 30 minutes`.
+3. **Preload only the first pair** (2019a + 2019b AVIF @ 400w) from `index.html` so the LCP candidate starts downloading during HTML parse. Drop `fetchPriority="high"` from the other five images so they no longer compete with the LCP.
 
-Effect: navigating Blog → post → back → another post stops re-hitting the network.
+4. **Keep `loading="eager"` for the first row, `loading="lazy"` for the rest** — currently all six are eager which forces parallel decode of ~6 MB on a 3G phone.
 
-## 3. Prefetch on hover / viewport from `/blog` index
+5. **No changes to `JourneySection`, `TransformationGallery`, or `CinematicIntro`** in this change. (Those are below the fold or on other pages; we can apply the same treatment in a follow-up if you want.)
 
-On the blog listing cards, add `onMouseEnter` / `IntersectionObserver` that calls `queryClient.prefetchQuery(['blog-post', slug])`. By the time the user clicks, the post is already in cache.
+## Files touched
 
-## 4. Edge-function response caching (low-risk tune)
+- `package.json` — add `vite-imagetools` devDependency
+- `vite.config.ts` — register the plugin
+- `src/vite-env.d.ts` — add the imagetools type reference so TS accepts the query strings
+- `src/components/HeroSection.tsx` — switch the 6 imports to `?as=picture` and render `<picture>` elements
+- `index.html` — add two `<link rel="preload" as="image" imagesrcset=... type="image/avif">` for the first card
 
-Bump `blog-posts` cache headers from `max-age=30` to something like `max-age=300, s-maxage=600, stale-while-revalidate=86400`. Contentful content doesn't change minute-to-minute, and a webhook (`contentful-rebuild-hook`) already exists for invalidation on real publishes.
+## Expected result
 
-## 5. Optional — slim the `get` payload
-
-The `get` action currently uses `include=2` which pulls full related-post entries + assets. We could drop to `include=1` and resolve `relatedPosts` lazily, but this is only worth doing if 1–4 don't move the needle enough.
-
-# What changes, file by file
-
-- `src/pages/BlogPostPage.tsx` — reorder lookup (Foundation → Article → Contentful); wrap Contentful fetch in `useQuery`.
-- `src/lib/blog.ts` — no shape change; just consumed via React Query keys `['blog-post', slug]`, `['blog-list']`, `['blog-by-category', slug]`.
-- `src/pages/BlogPage.tsx` + blog card component — add `onMouseEnter` prefetch using `queryClient.prefetchQuery`.
-- `supabase/functions/blog-posts/index.ts` — update `Cache-Control` header on `list`, `get`, `byCategory`, `categories`.
-
-# What I will NOT do unless you ask
-
-- No migration of Contentful posts into the repo. Keeping editorial in Contentful is the whole point of that system.
-- No service worker / offline cache — overkill for this.
-- No SSR/SSG switch — that's a much bigger architectural change.
-
-# Expected outcome
-
-- Articles + Foundations: **instant** (no network).
-- First visit to a Contentful post: same as today (~500–1500 ms), but…
-- Hovered/in-view Contentful posts from `/blog`: **instant** (prefetched).
-- Revisits within 5 min: **instant** (cached).
-- Repeat traffic globally: faster (edge cache).
+- Hero transfer drops from ~6 MB to well under 200 KB
+- LCP image starts loading before React boots (preload)
+- No CLS — explicit width/height come from imagetools metadata
+- Visual quality unchanged at the sizes the hero actually renders

@@ -1,9 +1,48 @@
-import img2019a from "@/assets/hero/2019a.png";
-import img2019b from "@/assets/hero/2019b.png";
-import img2021a from "@/assets/hero/2021a.png";
-import img2021b from "@/assets/hero/2021b.png";
-import img2024a from "@/assets/hero/2024a.png";
-import img2024b from "@/assets/hero/2024b.png";
+import img2019a from "@/assets/hero/2019a.png?w=400;800&format=avif;webp&as=picture";
+import img2019b from "@/assets/hero/2019b.png?w=400;800&format=avif;webp&as=picture";
+import img2021a from "@/assets/hero/2021a.png?w=400;800&format=avif;webp&as=picture";
+import img2021b from "@/assets/hero/2021b.png?w=400;800&format=avif;webp&as=picture";
+import img2024a from "@/assets/hero/2024a.png?w=400;800&format=avif;webp&as=picture";
+import img2024b from "@/assets/hero/2024b.png?w=400;800&format=avif;webp&as=picture";
+
+type PictureSrc = {
+  sources: Record<string, string>;
+  img: { src: string; w: number; h: number };
+};
+
+const SIZES = "(min-width: 768px) 22vw, 45vw";
+
+function ResponsivePicture({
+  src,
+  alt,
+  className,
+  eager,
+  priority,
+}: {
+  src: PictureSrc;
+  alt: string;
+  className?: string;
+  eager?: boolean;
+  priority?: boolean;
+}) {
+  return (
+    <picture>
+      {Object.entries(src.sources).map(([type, srcset]) => (
+        <source key={type} type={`image/${type}`} srcSet={srcset} sizes={SIZES} />
+      ))}
+      <img
+        src={src.img.src}
+        width={src.img.w}
+        height={src.img.h}
+        alt={alt}
+        loading={eager ? "eager" : "lazy"}
+        decoding="async"
+        fetchPriority={priority ? "high" : "auto"}
+        className={className}
+      />
+    </picture>
+  );
+}
 
 const pairs = [
   {
@@ -21,7 +60,7 @@ const pairs = [
     before: img2024a, beforeLbs: "310 LBS", beforePos: "object-top",
     after: img2024b, afterLbs: "190 LBS", afterPos: "object-top",
   },
-];
+] as { year: string; before: PictureSrc; beforeLbs: string; beforePos: string; after: PictureSrc; afterLbs: string; afterPos: string }[];
 
 export function HeroSection() {
   return (
@@ -47,13 +86,11 @@ export function HeroSection() {
             >
               <div className="grid aspect-[4/3] grid-cols-2">
                 <div className="relative overflow-hidden">
-                  <img
+                  <ResponsivePicture
                     src={pair.before}
                     alt={`Oscar Poon in ${pair.year}, weighing ${pair.beforeLbs} before adopting the LS Diet low-starch, low-sugar lifestyle`}
-                    loading="eager"
-                    fetchPriority={idx === 0 ? "high" : "auto"}
-                    width={600}
-                    height={450}
+                    eager={idx === 0}
+                    priority={idx === 0}
                     className={`h-full w-full object-cover ${pair.beforePos}`}
                   />
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-accent backdrop-blur-sm">
@@ -61,13 +98,11 @@ export function HeroSection() {
                   </span>
                 </div>
                 <div className="relative overflow-hidden">
-                  <img
+                  <ResponsivePicture
                     src={pair.after}
                     alt={`Oscar Poon in ${pair.year}, weighing ${pair.afterLbs} after losing weight on LS Diet`}
-                    loading="eager"
-                    fetchPriority={idx === 0 ? "high" : "auto"}
-                    width={600}
-                    height={450}
+                    eager={idx === 0}
+                    priority={idx === 0}
                     className={`h-full w-full object-cover ${pair.afterPos}`}
                   />
                   <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-white backdrop-blur-sm">
