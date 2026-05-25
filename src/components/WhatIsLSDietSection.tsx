@@ -28,9 +28,16 @@ export function WhatIsLSDietSection() {
           </div>
         </div>
 
-        {/* Connector tree: one line down, branching to two */}
-        <div className="relative mx-auto w-full max-w-3xl h-10 md:h-14" aria-hidden="true">
-          <svg viewBox="0 0 300 56" preserveAspectRatio="none" className="absolute inset-0 w-full h-full">
+        {/* Connector: simple line on mobile, branching tree on desktop */}
+        <div className="relative mx-auto w-full max-w-3xl h-8 md:h-14" aria-hidden="true">
+          {/* Mobile: single vertical line */}
+          <div className="md:hidden absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-accent/50" />
+          {/* Desktop: branching tree */}
+          <svg
+            viewBox="0 0 300 56"
+            preserveAspectRatio="none"
+            className="hidden md:block absolute inset-0 w-full h-full"
+          >
             <path
               d="M150 0 L150 22 L40 22 L40 56 M150 22 L260 22 L260 56"
               fill="none"
@@ -40,6 +47,11 @@ export function WhatIsLSDietSection() {
             />
           </svg>
         </div>
+
+        {/* Mobile label between line and cards */}
+        <p className="md:hidden -mt-2 mb-2 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-accent">
+          Built on two pillars
+        </p>
 
         {/* Two foundation pillars side by side */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
