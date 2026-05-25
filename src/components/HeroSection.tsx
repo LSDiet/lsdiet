@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { ResponsivePicture, type PictureSrc } from "@/components/ui/ResponsivePicture";
 import img2019a from "@/assets/hero/2019a.png?w=400;800;1200&format=avif;webp&as=picture";
 import img2019b from "@/assets/hero/2019b.png?w=400;800;1200&format=avif;webp&as=picture";
@@ -34,47 +37,51 @@ const pairs: Pair[] = [
   },
 ];
 
-// LCP card (mobile primary, desktop first column) uses ~50vw on mobile, ~22vw on desktop.
 const LCP_SIZES = "(min-width: 768px) 22vw, 45vw";
-// Secondary cards on mobile scroll-snap strip take ~80vw of viewport.
-const MOBILE_STRIP_SIZES = "(min-width: 768px) 22vw, 70vw";
+const MOBILE_SIZES = "(min-width: 768px) 22vw, 45vw";
 
 function TransformationCard({
   pair,
   eager,
   priority,
   sizes,
+  mounted = true,
 }: {
   pair: Pair;
   eager?: boolean;
   priority?: boolean;
   sizes: string;
+  mounted?: boolean;
 }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm">
       <div className="grid aspect-[4/3] grid-cols-2">
-        <div className="relative overflow-hidden">
-          <ResponsivePicture
-            src={pair.before}
-            alt={`Oscar Poon in ${pair.year}, weighing ${pair.beforeLbs} before adopting the LS Diet low-starch, low-sugar lifestyle`}
-            eager={eager}
-            priority={priority}
-            sizes={sizes}
-            className={`h-full w-full object-cover ${pair.beforePos}`}
-          />
+        <div className="relative overflow-hidden bg-white/[0.03]">
+          {mounted && (
+            <ResponsivePicture
+              src={pair.before}
+              alt={`Oscar Poon in ${pair.year}, weighing ${pair.beforeLbs} before adopting the LS Diet low-starch, low-sugar lifestyle`}
+              eager={eager}
+              priority={priority}
+              sizes={sizes}
+              className={`h-full w-full object-cover ${pair.beforePos}`}
+            />
+          )}
           <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-accent backdrop-blur-sm">
             {pair.beforeLbs}
           </span>
         </div>
-        <div className="relative overflow-hidden">
-          <ResponsivePicture
-            src={pair.after}
-            alt={`Oscar Poon in ${pair.year}, weighing ${pair.afterLbs} after losing weight on LS Diet`}
-            eager={eager}
-            priority={priority}
-            sizes={sizes}
-            className={`h-full w-full object-cover ${pair.afterPos}`}
-          />
+        <div className="relative overflow-hidden bg-white/[0.03]">
+          {mounted && (
+            <ResponsivePicture
+              src={pair.after}
+              alt={`Oscar Poon in ${pair.year}, weighing ${pair.afterLbs} after losing weight on LS Diet`}
+              eager={eager}
+              priority={priority}
+              sizes={sizes}
+              className={`h-full w-full object-cover ${pair.afterPos}`}
+            />
+          )}
           <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-white backdrop-blur-sm">
             {pair.afterLbs}
           </span>
@@ -84,6 +91,88 @@ function TransformationCard({
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Before</span>
         <span className="text-xl font-extrabold text-accent">{pair.year}</span>
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">After</span>
+      </div>
+    </div>
+  );
+}
+
+function MobileHeroCarousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "center" },
+    [Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })],
+  );
+  const [selected, setSelected] = useState(0);
+  // Track which slides have been mounted. First slide eager; others mount
+  // on first interaction OR after idle, whichever comes first.
+  const [mounted, setMounted] = useState<boolean[]>(() => pairs.map((_, i) => i === 0));
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => {
+      const idx = emblaApi.selectedScrollSnap();
+      setSelected(idx);
+      setMounted((prev) => {
+        if (prev[idx]) return prev;
+        const next = [...prev];
+        next[idx] = true;
+        return next;
+      });
+    };
+    emblaApi.on("select", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
+
+  // Idle mount of remaining slides so autoplay has assets ready.
+  useEffect(() => {
+    const cb = () => setMounted(pairs.map(() => true));
+    const w = window as typeof window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number };
+    const id = w.requestIdleCallback
+      ? w.requestIdleCallback(cb, { timeout: 3000 })
+      : window.setTimeout(cb, 2500);
+    return () => {
+      if (w.requestIdleCallback && typeof id === "number") {
+        (window as unknown as { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback?.(id);
+      } else {
+        clearTimeout(id as number);
+      }
+    };
+  }, []);
+
+  const scrollTo = (idx: number) => emblaApi?.scrollTo(idx);
+
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="overflow-hidden" ref={emblaRef} aria-label="Transformation years carousel">
+        <div className="flex touch-pan-y">
+          {pairs.map((pair, idx) => (
+            <div key={pair.year} className="min-w-0 flex-[0_0_100%]">
+              <TransformationCard
+                pair={pair}
+                eager={idx === 0}
+                priority={idx === 0}
+                sizes={MOBILE_SIZES}
+                mounted={mounted[idx]}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-2" role="tablist" aria-label="Select transformation year">
+        {pairs.map((pair, idx) => (
+          <button
+            key={pair.year}
+            type="button"
+            role="tab"
+            aria-selected={selected === idx}
+            aria-label={`Show ${pair.year} transformation`}
+            onClick={() => scrollTo(idx)}
+            className={`h-1.5 rounded-full transition-all ${
+              selected === idx ? "w-8 bg-accent" : "w-2 bg-white/30"
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
@@ -118,26 +207,9 @@ export function HeroSection() {
           ))}
         </div>
 
-        {/* MOBILE (<md): LCP card eager + priority; remaining cards in
-            horizontal scroll-snap strip below, all lazy-loaded.
-            Cuts LCP image count from 6 to 2 on phones. */}
-        <div className="md:hidden flex flex-col gap-4">
-          <TransformationCard pair={pairs[0]} eager priority sizes={LCP_SIZES} />
-
-          <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
-            Swipe for more years →
-          </p>
-
-          <div
-            className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-            aria-label="Additional transformation years"
-          >
-            {pairs.slice(1).map((pair) => (
-              <div key={pair.year} className="w-[80vw] flex-shrink-0 snap-center">
-                <TransformationCard pair={pair} sizes={MOBILE_STRIP_SIZES} />
-              </div>
-            ))}
-          </div>
+        {/* MOBILE (<md): single full-width auto-advancing carousel */}
+        <div className="md:hidden">
+          <MobileHeroCarousel />
         </div>
 
         <p className="text-center text-sm font-medium text-white/85 sm:text-base">
