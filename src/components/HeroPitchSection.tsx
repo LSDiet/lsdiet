@@ -24,28 +24,13 @@ export function HeroPitchSection() {
         </div>
         <div className="flex flex-col justify-center px-6 py-10 md:px-10 md:py-14">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-4xl lg:text-5xl">
-            THE PROBLEM ISN'T LOSING WEIGHT.
+            LOSING WEIGHT IS ONLY HALF THE BATTLE.
             <br />
-            IT'S STAYING{" "}
+            PREVENTING{" "}
             <span className="relative inline-block">
-              <span className="relative z-10">CONSISTENT</span>
-              <svg
-                className="pointer-events-none absolute left-0 right-0 -bottom-2 w-full"
-                viewBox="0 0 300 24"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 14 Q 60 4, 130 12 T 296 10"
-                  stroke="hsl(0 85% 55%)"
-                  strokeWidth="7"
-                  strokeLinecap="round"
-                  fill="none"
-                  opacity="0.9"
-                />
-              </svg>
-            </span>
-            .
+              <span className="relative z-10 text-accent animate-pulse-glow">WEIGHT REGAIN</span>
+            </span>{" "}
+            IS THE OTHER HALF.
           </h2>
           <p className="mt-4 text-sm text-white/70 md:text-base">
             Now I teach people how to end{" "}
