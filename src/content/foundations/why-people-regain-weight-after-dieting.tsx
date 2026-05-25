@@ -449,6 +449,45 @@ function Body() {
         caption="The practical pattern: eat less often, smaller portions, and shift toward low-starch, low-sugar foods."
       />
 
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+        Related Reading
+      </h2>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
+        Companion articles that explore specific patterns inside the weight regain cycle:
+      </p>
+      <ul className="list-disc list-outside pl-6 space-y-2 mb-8 text-base md:text-lg leading-relaxed">
+        <li>
+          <a href="/blog/why-do-i-keep-losing-and-regaining-the-same-weight" className="text-accent hover:underline">
+            Why do I keep losing and regaining the same weight?
+          </a>
+        </li>
+        <li>
+          <a href="/blog/why-do-i-keep-restarting-weight-loss" className="text-accent hover:underline">
+            Why do I keep restarting weight loss?
+          </a>
+        </li>
+        <li>
+          <a href="/blog/why-do-i-restart-weight-loss-every-monday" className="text-accent hover:underline">
+            Why do I restart weight loss every Monday?
+          </a>
+        </li>
+        <li>
+          <a href="/blog/why-do-i-lose-motivation-after-a-few-weeks" className="text-accent hover:underline">
+            Why do I lose motivation after a few weeks?
+          </a>
+        </li>
+        <li>
+          <a href="/blog/why-do-healthy-habits-collapse-during-stress" className="text-accent hover:underline">
+            Why do healthy habits collapse during stress?
+          </a>
+        </li>
+        <li>
+          <a href="/blog/why-do-people-emotionally-eat-after-work" className="text-accent hover:underline">
+            Why do people emotionally eat after work?
+          </a>
+        </li>
+      </ul>
+
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-5 text-zinc-900">
         Frequently Asked Questions
       </h2>
