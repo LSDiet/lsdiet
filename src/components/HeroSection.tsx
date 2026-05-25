@@ -99,7 +99,7 @@ function TransformationCard({
 function MobileHeroCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "center" },
-    [Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })],
+    [Autoplay({ delay: 1500, stopOnInteraction: false, stopOnMouseEnter: true })],
   );
   const [selected, setSelected] = useState(0);
   // Track which slides have been mounted. First slide eager; others mount
@@ -144,6 +144,9 @@ function MobileHeroCarousel() {
 
   return (
     <div className="flex flex-col gap-3">
+      <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
+        ← Swipe left or right →
+      </p>
       <div className="overflow-hidden" ref={emblaRef} aria-label="Transformation years carousel">
         <div className="flex touch-pan-y">
           {pairs.map((pair, idx) => (
