@@ -144,6 +144,9 @@ function MobileHeroCarousel() {
 
   return (
     <div className="flex flex-col gap-3">
+      <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
+        ← Swipe left or right →
+      </p>
       <div className="overflow-hidden" ref={emblaRef} aria-label="Transformation years carousel">
         <div className="flex touch-pan-y">
           {pairs.map((pair, idx) => (
