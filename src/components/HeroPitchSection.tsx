@@ -26,16 +26,14 @@ export function HeroPitchSection() {
         </div>
         <div className="flex flex-col justify-center px-6 py-10 md:px-10 md:py-14">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-4xl lg:text-5xl">
-            LOSING WEIGHT IS ONLY HALF THE BATTLE.
-            <br />
-            PREVENTING{" "}
+            Losing Weight Is 50%. Preventing{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-accent animate-pulse-glow">WEIGHT REGAIN</span>
+              <span className="relative z-10 text-accent animate-pulse-glow">Regain</span>
             </span>{" "}
-            IS THE OTHER HALF.
+            Is 50%.
           </h2>
           <p className="mt-4 text-sm text-white/70 md:text-base">
-            Now I teach people how to end{" "}
+            Let's end{" "}
             <span className="relative inline-block whitespace-nowrap">
               <span>weight cycling</span>
               <svg
@@ -62,10 +60,10 @@ export function HeroPitchSection() {
                 />
               </svg>
             </span>
-            .
+            {" "}together!
           </p>
 
-          <p className="mt-6 text-sm text-white/80 md:text-base">You'll learn:</p>
+          <p className="mt-6 text-sm text-white/80 md:text-base">Join the free LS Diet class to learn:</p>
           <ul className="mt-3 space-y-2.5">
             {bullets.map((b, i) => (
               <li key={i} className="flex items-start gap-3">
