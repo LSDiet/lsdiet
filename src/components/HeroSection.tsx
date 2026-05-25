@@ -67,14 +67,14 @@ export function HeroSection() {
     <section className="relative w-full bg-[#0a0a0a] pt-14 text-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:gap-8 md:px-8 md:py-10">
         <div className="text-center">
-          <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             LS Diet:
-            <br className="sm:hidden" />
-            <span className="sm:ml-3">A </span>
-            <span className="relative inline-block text-accent animate-pulse-glow">
+            <br />
+            A{" "}
+            <span className="text-accent animate-pulse-glow">
               weight regain prevention
-            </span>
-            <span> system</span>
+            </span>{" "}
+            system
           </h1>
         </div>
 
