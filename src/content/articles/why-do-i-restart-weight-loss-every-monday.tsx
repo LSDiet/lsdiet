@@ -22,7 +22,12 @@ function Body() {
         "Starting again Monday" is one of the most reliable patterns in
         weight loss. Overeat on the weekend, emotionally eat through a
         stressful week, drop the routines, promise to restart Monday —
-        repeat.
+        repeat. It is one specific shape of the broader pattern explored
+        in{" "}
+        <a href="/blog/why-people-regain-weight-after-dieting">
+          why people regain weight after dieting
+        </a>
+        .
       </p>
 
       <h2>Why Restart Cycles Happen</h2>
