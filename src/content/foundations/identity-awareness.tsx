@@ -86,7 +86,11 @@ function Body() {
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Triangle™
         </a>{" "}
-        (WPT).
+        (WPT), and it is the stage that most directly addresses{" "}
+        <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
+          why weight regain happens
+        </a>{" "}
+        after motivation fades.
       </P>
       <P>This stage focuses on:</P>
       <UL

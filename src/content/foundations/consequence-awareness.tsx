@@ -86,7 +86,11 @@ function Body() {
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Triangle™
         </a>{" "}
-        (WPT).
+        (WPT). It is the stage that surfaces the long-term cost of the{" "}
+        <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
+          weight regain cycle
+        </a>{" "}
+        — and turns that cost into push motivation.
       </P>
       <P>This stage focuses on understanding the potential long term cost of:</P>
       <UL

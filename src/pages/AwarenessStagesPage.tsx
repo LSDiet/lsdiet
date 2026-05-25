@@ -79,7 +79,11 @@ export default function AwarenessStagesPage() {
           <p>
             LS Diet treats Awareness as a sequence, not a single insight. You move through five distinct stages, and
             each one unlocks the next. By the end, the low-starch, low-sugar lifestyle stops feeling like a rule and
-            starts feeling like a natural expression of who you've decided to be.
+            starts feeling like a natural expression of who you've decided to be — which is what breaks the{" "}
+            <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
+              weight regain cycle
+            </a>{" "}
+            most diets leave untouched.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">

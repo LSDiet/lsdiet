@@ -63,7 +63,11 @@ export default function WhatIsLSDietPage() {
           <p>
             The core insight is that weight regain is a structural problem, not a discipline problem. People who
             "fail" at weight loss almost always succeed in the short term; the failure is in the system that should
-            have protected the new behaviour. LS Diet is built around that gap. The food framework lets you eat
+            have protected the new behaviour — the pattern unpacked in{" "}
+            <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
+              why people regain weight after dieting
+            </a>
+            . LS Diet is built around that gap. The food framework lets you eat
             until full while keeping insulin and cravings down, and the behavioural framework — the{" "}
             <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Triangle™</a>
             {" "}— keeps you consistent across stress, travel, holidays, illness, and the everyday disruptions that
