@@ -91,6 +91,16 @@ export function WhatIsLSDietSection() {
           </div>
         </div>
 
+        <p className="mt-8 md:mt-10 text-center text-sm md:text-base text-[hsl(0_0%_30%)] max-w-2xl mx-auto">
+          New here? Start with the pillar article on{" "}
+          <a
+            href="/blog/why-people-regain-weight-after-dieting"
+            className="text-accent font-semibold hover:underline"
+          >
+            why people regain weight after dieting
+          </a>{" "}
+          — the problem LS Diet was built to solve.
+        </p>
       </div>
     </section>
   );

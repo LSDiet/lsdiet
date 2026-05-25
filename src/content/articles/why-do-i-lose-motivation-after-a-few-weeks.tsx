@@ -26,7 +26,11 @@ function Body() {
         Almost everyone starts weight loss highly motivated. A few weeks
         later, routines collapse, cravings return, and emotional eating
         creeps back in. It's not a personal failing — it's how motivation
-        actually works.
+        actually works, and it's one of the core reasons{" "}
+        <a href="/blog/why-people-regain-weight-after-dieting">
+          people regain weight after dieting
+        </a>
+        .
       </p>
 
       <h2>Why Motivation Is Temporary</h2>

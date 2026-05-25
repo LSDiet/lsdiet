@@ -1,56 +1,76 @@
-# Speed up the homepage hero images
+# Promote "Why People Regain Weight After Dieting" to cornerstone status (v2)
 
-## Problem
+ChatGPT's review confirmed the plan and added two upgrades I'm folding in: a front-loaded `<title>`, and a small **upward-link** pass on a curated set of supporting articles so the page becomes a true category parent — not just a better-linked blog post. Deferring the nav-menu change per ChatGPT's "not immediately" note.
 
-The six "before/after" photos in `HeroSection.tsx` are PNGs totaling ~6.1 MB:
+## 1. Inbound internal links (the big lever)
 
-```
-2019a 705KB  636×754      2019b 1.3MB  796×1060
-2021a 1.1MB  796×878      2021b 1.4MB  796×878
-2024a  977KB 488×1020     2024b  339KB 368×572
-```
+This page currently has **zero** inbound internal links anywhere in the repo. Adding them, varying anchor text on every surface:
 
-Each picture renders inside a half-card on a 3-column grid — roughly 200–400 CSS px wide. We're shipping 5–10× more pixels than the screen ever shows, in an uncompressed format, with no `srcset`, no modern format, and no preload hint. That is the entire reason the hero takes >500 ms.
+| Surface | Anchor text |
+|---|---|
+| Homepage — `WhatIsLSDietSection.tsx`, one inline sentence in the problem paragraph | *why people regain weight after dieting* |
+| `FooterSimple.tsx` — add as the first item in the Learn column | *Why People Regain Weight* |
+| `/weight-permanence-triangle` page — "Background reading" line in the opening section | *the weight regain cycle* |
+| `/awareness-stages` page — inline in the intro paragraph | *regain weight after dieting* |
+| `/what-is-ls-diet` page — in the section that explains the problem LS Diet solves | *stop regaining weight* |
+| Sibling foundations (WPT pillar, low-starch-vs-extreme-dieting, 5 awareness articles) — one "See also" line each | *weight regain prevention* / *why weight regain happens* (alternated) |
 
-## Approach (no perceived quality loss)
+## 2. Build the topical cluster (ChatGPT's added insight)
 
-1. **Add `vite-imagetools`** so we can request modern formats and sized variants at build time directly from the existing PNG sources. Nothing in `public/` or `src/assets/` gets deleted — the originals stay as masters.
+Pick **6 supporting articles already on site** that semantically belong under this pillar, and add a single in-context link **from each up to the pillar**. This turns the pillar into a category parent without bulk-editing all 40 articles:
 
-2. **Update `HeroSection.tsx`** to import each photo as a responsive `<picture>` set:
+- `why-do-i-keep-losing-and-regaining-the-same-weight`
+- `why-do-i-keep-restarting-weight-loss`
+- `why-do-i-restart-weight-loss-every-monday`
+- `why-do-i-lose-motivation-after-a-few-weeks`
+- `why-do-healthy-habits-collapse-during-stress`
+- `why-do-people-emotionally-eat-after-work`
 
-   ```ts
-   import img2019a from "@/assets/hero/2019a.png?w=400;800&format=avif;webp;png&as=picture"
-   ```
+One sentence added near each article's intro: "This is part of a broader pattern — see the pillar article on *why people regain weight after dieting*." Varies slightly so anchors aren't identical.
 
-   `vite-imagetools` returns `{ sources: { avif, webp }, img }` which we feed into:
+## 3. Outbound cluster links from the pillar (down)
 
-   ```tsx
-   <picture>
-     <source type="image/avif" srcSet={img.sources.avif} sizes="(min-width:768px) 22vw, 45vw" />
-     <source type="image/webp" srcSet={img.sources.webp} sizes="..." />
-     <img src={img.img.src} width={img.img.w} height={img.img.h} ... />
-   </picture>
-   ```
+The pillar already links to WPT + awareness-stages once near the bottom. Add 3 more **earlier** so the cluster reads naturally from the first scroll, plus link **down** to the 6 supporting articles in a new "Related reading" block before the FAQ:
 
-   Expected payload after AVIF at quality 70: ~15–30 KB per photo (≈ 100–180 KB total vs. 6.1 MB today), visually indistinguishable from the PNG at the rendered size.
+- First mention of "behavioural permanence" → `/weight-permanence-triangle`
+- First mention of "awareness" → `/awareness-stages`
+- LS Diet introduction → `/what-is-ls-diet`
+- New "Related reading" block listing the 6 articles above with their existing titles as anchors
 
-3. **Preload only the first pair** (2019a + 2019b AVIF @ 400w) from `index.html` so the LCP candidate starts downloading during HTML parse. Drop `fetchPriority="high"` from the other five images so they no longer compete with the LCP.
+## 4. Sharper first 150 words + front-loaded title
 
-4. **Keep `loading="eager"` for the first row, `loading="lazy"` for the rest** — currently all six are eager which forces parallel decode of ~6 MB on a 3G phone.
+**Title (front-loaded per ChatGPT):**
+`"Why People Regain Weight After Dieting | Stop Weight Regain | LS Diet"`
 
-5. **No changes to `JourneySection`, `TransformationGallery`, or `CinematicIntro`** in this change. (Those are below the fold or on other pages; we can apply the same treatment in a follow-up if you want.)
+**metaDescription:** lead with "Weight regain" instead of "Why do most people…".
+
+**Opening:** keep the dek "Most people do not fail to lose weight. They fail to maintain it." Rewrite the next 2 paragraphs to naturally include: weight regain (2–3×), regain weight, stop regaining weight, weight regain prevention, LS Diet (once each). No keyword stuffing — same tone, denser signal.
+
+## 5. After deploy — you click Request Indexing in GSC
+
+I can't trigger it from here. I'll confirm the deployed page shows the new intro + that DevTools shows the new title, then you submit the single URL in Search Console.
 
 ## Files touched
 
-- `package.json` — add `vite-imagetools` devDependency
-- `vite.config.ts` — register the plugin
-- `src/vite-env.d.ts` — add the imagetools type reference so TS accepts the query strings
-- `src/components/HeroSection.tsx` — switch the 6 imports to `?as=picture` and render `<picture>` elements
-- `index.html` — add two `<link rel="preload" as="image" imagesrcset=... type="image/avif">` for the first card
+**Pillar:**
+- `src/content/foundations/why-people-regain-weight-after-dieting.tsx` — title/meta, intro rewrite, 3 inline outbound links, "Related reading" block
 
-## Expected result
+**Inbound link surfaces:**
+- `src/components/WhatIsLSDietSection.tsx`
+- `src/components/FooterSimple.tsx`
+- `src/pages/WeightPermanenceTrianglePage.tsx`
+- `src/pages/AwarenessStagesPage.tsx`
+- `src/pages/WhatIsLSDietPage.tsx`
+- `src/content/foundations/the-weight-permanence-triangle-how-to-stop-regaining-weight.tsx`
+- `src/content/foundations/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting.tsx`
+- `src/content/foundations/{friction,reality,identity,consequence,pattern}-awareness.tsx`
 
-- Hero transfer drops from ~6 MB to well under 200 KB
-- LCP image starts loading before React boots (preload)
-- No CLS — explicit width/height come from imagetools metadata
-- Visual quality unchanged at the sizes the hero actually renders
+**Upward cluster (one-line edit each):**
+- The 6 supporting articles listed in section 2
+
+## Out of scope
+
+- Bulk update of the other ~35 articles
+- Nav-menu change (defer per ChatGPT)
+- Schema/JSON-LD changes
+- Sitemap priority changes (foundations already 1.0)

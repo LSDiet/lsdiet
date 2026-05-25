@@ -64,7 +64,12 @@ export default function WeightPermanenceTrianglePage() {
             The Triangle was built out of a frustration the founder of LS Diet,{" "}
             <a href="/oscar-poon" className="text-accent hover:underline">Oscar Poon</a>, lived three
             separate times: lose 80 lbs, regain it, repeat. Conventional advice handled food but ignored the
-            behavioural scaffolding. The Triangle is the scaffolding.
+            behavioural scaffolding. The Triangle is the scaffolding. For the background on the cycle this
+            framework solves, read{" "}
+            <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
+              why people regain weight after dieting
+            </a>
+            .
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">

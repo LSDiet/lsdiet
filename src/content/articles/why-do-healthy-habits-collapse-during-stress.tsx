@@ -26,7 +26,11 @@ function Body() {
         Almost anyone can follow a routine during a calm week. The real
         test arrives during stress, exhaustion, emotional pressure,
         deadlines, and uncertainty. That's where most weight loss systems
-        quietly fall apart.
+        quietly fall apart — and it's a key driver of the broader{" "}
+        <a href="/blog/why-people-regain-weight-after-dieting">
+          weight regain cycle
+        </a>
+        .
       </p>
 
       <h2>Why Stress Disrupts Behaviour</h2>

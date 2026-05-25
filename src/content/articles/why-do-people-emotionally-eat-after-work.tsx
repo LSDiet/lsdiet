@@ -27,6 +27,11 @@ function Body() {
         breakfast or lunch. The reason isn't appetite. Work creates stress,
         fatigue, frustration, emotional exhaustion, and dopamine
         depletion — and food temporarily changes that emotional state.
+        Repeated nightly, it's one of the most common engines behind{" "}
+        <a href="/blog/why-people-regain-weight-after-dieting">
+          weight regain after dieting
+        </a>
+        .
       </p>
 
       <h2>Why It Becomes Reinforced</h2>
