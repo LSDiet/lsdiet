@@ -1,5 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import oscarPhoto from "@/assets/oscar-photo.jpeg";
+import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
+import oscarPhoto from "@/assets/oscar-photo.jpeg?w=200;400;600&format=avif;webp&as=picture";
 
 export const AboutAuthorSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -20,9 +21,10 @@ export const AboutAuthorSection = () => {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Photo */}
             <div className="md:w-48 flex-shrink-0">
-              <img
+              <ResponsivePicture
                 src={oscarPhoto}
                 alt="Oscar Poon, founder of LS Diet"
+                sizes="(min-width: 768px) 192px, 60vw"
                 className="w-full aspect-square object-cover rounded-xl"
               />
             </div>
