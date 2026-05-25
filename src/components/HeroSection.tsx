@@ -99,7 +99,7 @@ function TransformationCard({
 function MobileHeroCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "center" },
-    [Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })],
+    [Autoplay({ delay: 1500, stopOnInteraction: false, stopOnMouseEnter: true })],
   );
   const [selected, setSelected] = useState(0);
   // Track which slides have been mounted. First slide eager; others mount
