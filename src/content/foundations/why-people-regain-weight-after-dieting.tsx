@@ -88,31 +88,75 @@ function Body() {
         Most people do not fail to lose weight. They fail to maintain it.
       </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        That distinction is the entire reason weight regain keeps happening. People lose 20, 50,
-        even 100 pounds — and then slowly regain weight after the diet ends. <strong className="text-zinc-900">LS Diet</strong> exists
-        because the real long-term problem is not weight loss. It is weight regain prevention.
+        Weight regain is the reason many people feel trapped in an endless cycle of dieting,
+        restarting, and frustration. People lose 20, 50, even 100 pounds — then slowly regain
+        weight after motivation fades, routines collapse, stress returns, or old eating patterns
+        reappear. The real long-term problem is usually not losing weight. It is stopping
+        repeated weight regain.
       </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        The weight loss industry spends enormous attention teaching people how to lose weight quickly —
-        calorie deficits, meal plans, fasting, workouts, detoxes, discipline challenges, aggressive
-        restriction. But far fewer voices discuss the question that actually decides outcomes five
-        years out: <strong className="text-zinc-900">why do people repeatedly regain weight after dieting</strong>, and what would it take to
-        finally stop regaining weight for good?
-      </p>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        The cycle of weight regain creates frustration, emotional exhaustion, self-blame, hopelessness,
-        and a deep distrust of the next attempt. The problem is rarely intelligence — most people
-        already know vegetables are healthier, processed foods drive overeating, and sugar increases
-        cravings. The real challenge is maintaining behavioural{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-          permanence
-        </a>{" "}
-        long enough for change to outlast motivation. That is the central problem LS Diet was
-        designed as a{" "}
+        LS Diet was built specifically as a{" "}
         <a href="/what-is-ls-diet" className="text-accent hover:underline">
           weight regain prevention system
+        </a>
+        . Losing 5–7 pounds per month is only one part of the equation. The larger goal is
+        helping people{" "}
+        <a href="/blog/why-do-i-keep-restarting-weight-loss" className="text-accent hover:underline">
+          stop restarting weight loss
         </a>{" "}
-        to solve.
+        by building{" "}
+        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          behavioural permanence
+        </a>{" "}
+        that can survive real life long after motivation fades.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Most weight loss programs focus heavily on temporary intensity: calorie deficits,
+        aggressive restriction, detoxes, discipline challenges, excessive cardio, meal plans,
+        fasting schedules, and rapid short-term results. LS Diet focuses differently. The system
+        combines psychology training and behavioural training to reduce the likelihood of
+        repeated regain over time.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        The psychology training — grounded in the{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          Awareness Stages
+        </a>{" "}
+        — focuses on helping people identify the connection between eating behaviours and
+        intrinsic stimulators such as stress, emotions, boredom, reward-seeking, and exhaustion,
+        while also recognizing extrinsic stimulators such as environmental triggers, convenience
+        eating, social pressure, food exposure, and routine-based habits. The goal is to explore
+        causality instead of relying purely on willpower while repeatedly building both push
+        motivation and pull motivation to reinforce long-term consistency.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        The behavioural training focuses on repeatable systems that reduce behavioural friction
+        in everyday life. This includes food awareness,{" "}
+        <a href="/what-is-ls-diet" className="text-accent hover:underline">
+          low-starch low-sugar
+        </a>{" "}
+        meal building, eating behaviour, movement routines, environmental restructuring,
+        emotional regulation, consistency training, and sustainable routines designed to help
+        people stop regaining weight instead of repeatedly restarting temporary diets.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
+        LS Diet is built around the idea that long-term success depends less on short bursts of
+        motivation and more on creating systems — anchored by the{" "}
+        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Triangle
+        </a>{" "}
+        — that remain stable when life becomes stressful, emotional, busy, repetitive, or
+        difficult. Walk through the{" "}
+        <a
+          href="https://www.skool.com/lsdiet/about"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent hover:underline"
+        >
+          full LS Diet behavioural training
+        </a>{" "}
+        to see how the system is taught end-to-end. That is the central problem LS Diet was
+        designed to solve.
       </p>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
