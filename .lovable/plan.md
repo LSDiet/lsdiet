@@ -1,76 +1,104 @@
-# Promote "Why People Regain Weight After Dieting" to cornerstone status (v2)
+## Diagnosis
 
-ChatGPT's review confirmed the plan and added two upgrades I'm folding in: a front-loaded `<title>`, and a small **upward-link** pass on a curated set of supporting articles so the page becomes a true category parent — not just a better-linked blog post. Deferring the nav-menu change per ChatGPT's "not immediately" note.
+The app is a Vite + React 18 + React Router SPA. `index.html` ships only `<div id="root"></div>`, so the initial HTML response contains no body content. Crawlers and AI extractors that don't fully execute JS see an empty page; even Helmet-managed `<title>`/canonical/JSON-LD are applied post-hydration.
 
-## 1. Inbound internal links (the big lever)
+Fix: **build-time static prerendering (SSG)** — not SSR, not a Next migration.
 
-This page currently has **zero** inbound internal links anywhere in the repo. Adding them, varying anchor text on every surface:
+- Priority page content is effectively static at build time.
+- Lovable hosting serves `dist/<route>/index.html` directly when present, with SPA fallback for everything else. No server runtime, no routing changes.
+- Zero changes to design tokens, Helmet, Zustand, React Query, or component structure.
 
-| Surface | Anchor text |
-|---|---|
-| Homepage — `WhatIsLSDietSection.tsx`, one inline sentence in the problem paragraph | *why people regain weight after dieting* |
-| `FooterSimple.tsx` — add as the first item in the Learn column | *Why People Regain Weight* |
-| `/weight-permanence-triangle` page — "Background reading" line in the opening section | *the weight regain cycle* |
-| `/awareness-stages` page — inline in the intro paragraph | *regain weight after dieting* |
-| `/what-is-ls-diet` page — in the section that explains the problem LS Diet solves | *stop regaining weight* |
-| Sibling foundations (WPT pillar, low-starch-vs-extreme-dieting, 5 awareness articles) — one "See also" line each | *weight regain prevention* / *why weight regain happens* (alternated) |
+SSR is overkill — no per-request personalization needs server rendering. Dynamic Contentful blog posts can stay client-rendered for now; they're already in the blog sitemap.
 
-## 2. Build the topical cluster (ChatGPT's added insight)
+## Tooling
 
-Pick **6 supporting articles already on site** that semantically belong under this pillar, and add a single in-context link **from each up to the pillar**. This turns the pillar into a category parent without bulk-editing all 40 articles:
+**Puppeteer-based prerender** via a small `scripts/prerender.mjs`:
 
-- `why-do-i-keep-losing-and-regaining-the-same-weight`
-- `why-do-i-keep-restarting-weight-loss`
-- `why-do-i-restart-weight-loss-every-monday`
-- `why-do-i-lose-motivation-after-a-few-weeks`
-- `why-do-healthy-habits-collapse-during-stress`
-- `why-do-people-emotionally-eat-after-work`
+1. `vite build` produces `dist/`
+2. Script spins up a static server pointing at `dist/`
+3. For each route, Puppeteer navigates, waits for a `data-rendered="true"` flag on `<html>`, snapshots the full DOM, and writes `dist/<route>/index.html`
 
-One sentence added near each article's intro: "This is part of a broader pattern — see the pillar article on *why people regain weight after dieting*." Varies slightly so anchors aren't identical.
+Why a custom script over `vite-plugin-prerender`: avoids dependency churn, gives explicit control over the wait condition (needed because of CinematicIntro animations and React Query loading states), and keeps build-time impact predictable.
 
-## 3. Outbound cluster links from the pillar (down)
+Components that touch `window`/`document` at import time (CinematicIntro, useScrollAnimation, Supabase client, Zustand persistence) are safe because Puppeteer runs the real built bundle in a real browser — no SSR-safety refactor needed.
 
-The pillar already links to WPT + awareness-stages once near the bottom. Add 3 more **earlier** so the cluster reads naturally from the first scroll, plus link **down** to the 6 supporting articles in a new "Related reading" block before the FAQ:
+## Revised Phase 1 routes (entity-defining only)
 
-- First mention of "behavioural permanence" → `/weight-permanence-triangle`
-- First mention of "awareness" → `/awareness-stages`
-- LS Diet introduction → `/what-is-ls-diet`
-- New "Related reading" block listing the 6 articles above with their existing titles as anchors
+Prerender targets that reinforce *weight regain prevention / behavioural permanence / Weight Permanence Triangle*:
 
-## 4. Sharper first 150 words + front-loaded title
+- `/`
+- `/what-is-ls-diet`
+- `/weight-permanence-triangle`
+- `/awareness-stages`
+- `/about-oscar-poon`
+- `/blog`
+- `/blog/why-people-regain-weight-after-dieting`
 
-**Title (front-loaded per ChatGPT):**
-`"Why People Regain Weight After Dieting | Stop Weight Regain | LS Diet"`
+Nothing else in Phase 1. Supporting mechanism content (GLP-1, food guide, low-carb, insulin, meal planning) is deliberately excluded so the prerendered surface area maps 1:1 to LS Diet's category ownership.
 
-**metaDescription:** lead with "Weight regain" instead of "Why do most people…".
+## Phase 2 (later, separate pass)
 
-**Opening:** keep the dek "Most people do not fail to lose weight. They fail to maintain it." Rewrite the next 2 paragraphs to naturally include: weight regain (2–3×), regain weight, stop regaining weight, weight regain prevention, LS Diet (once each). No keyword stuffing — same tone, denser signal.
+- `/ls-diet-guide`
+- `/does-glp-1-work`
+- `/faq`, `/FreeResources`
+- `/oscar-poon`
+- Remaining cornerstone foundations (`src/content/foundations/*`) and selected blog articles aligned to regain-prevention narrative
+- Legal pages (`/privacy`, `/terms`, `/disclaimer`) — useful for trust signals but not entity-defining
 
-## 5. After deploy — you click Request Indexing in GSC
+Out of scope (stays client-rendered indefinitely):
+- `/product/:handle`, `/category/:slug`, `/share/:slug`, `/blog/:slug` (dynamic Contentful posts), `/partners`.
 
-I can't trigger it from here. I'll confirm the deployed page shows the new intro + that DevTools shows the new title, then you submit the single URL in Search Console.
+## Implementation steps
 
-## Files touched
+```text
+1. devDependency: puppeteer + serve-handler (or sirv)
+2. scripts/prerender.mjs:
+   - boot static server on dist/
+   - PHASE1_ROUTES = [the 7 routes above]
+   - for each route: launch page, wait for
+     document.documentElement.dataset.rendered === "true"
+     (timeout 15s, retry once), serialize HTML, write
+     dist/<route>/index.html
+3. package.json: add "postbuild": "node scripts/prerender.mjs"
+4. src/main.tsx: after first paint (requestIdleCallback or
+   useEffect in a tiny RootReady component), set
+   document.documentElement.dataset.rendered = "true"
+5. /blog/why-people-regain-weight-after-dieting:
+   confirm the route resolves via BlogPostPage's loader using
+   either the foundations bundle (preferred — synchronous) or
+   the Contentful fetch path. If Contentful-only, mark "rendered"
+   after the fetch resolves so the snapshot has the article body.
+6. Add the 7 routes to public/sitemap-pages.xml with priority
+   weighting (1.0 home, 0.95 WPT + what-is-ls-diet + awareness,
+   0.9 about-oscar-poon + the regain article, 0.8 blog index).
+7. Verify each dist/<route>/index.html contains:
+   - full <main> body text
+   - Helmet-injected <title>, canonical, JSON-LD
+   - no hydration-breaking inline state
+8. Switch main.tsx from createRoot to hydrateRoot ONLY when
+   document.documentElement.dataset.rendered === "true" is already
+   set by prerender (detected via a build-time marker attribute).
+   Otherwise keep createRoot to avoid hydration mismatch warnings
+   on non-prerendered routes.
+9. README: short section on how to add a route to Phase 1.
+```
 
-**Pillar:**
-- `src/content/foundations/why-people-regain-weight-after-dieting.tsx` — title/meta, intro rewrite, 3 inline outbound links, "Related reading" block
+## Technical notes
 
-**Inbound link surfaces:**
-- `src/components/WhatIsLSDietSection.tsx`
-- `src/components/FooterSimple.tsx`
-- `src/pages/WeightPermanenceTrianglePage.tsx`
-- `src/pages/AwarenessStagesPage.tsx`
-- `src/pages/WhatIsLSDietPage.tsx`
-- `src/content/foundations/the-weight-permanence-triangle-how-to-stop-regaining-weight.tsx`
-- `src/content/foundations/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting.tsx`
-- `src/content/foundations/{friction,reality,identity,consequence,pattern}-awareness.tsx`
+- Lovable hosting auto-serves `dist/<route>/index.html` when present; SPA fallback handles every other route. No `_redirects` / hosting config.
+- Build-time cost: ~3–8s per route × 7 routes ≈ +30–60s on `vite build`. Acceptable.
+- Zero runtime perf impact — static HTML + the existing JS bundle.
+- Helmet works during prerender because react-helmet-async writes into the real `<head>` of the Puppeteer page; serialized snapshot captures it.
+- The `data-rendered` signal is the single source of truth for "this snapshot is ready" — avoids brittle fixed-delay waits.
 
-**Upward cluster (one-line edit each):**
-- The 6 supporting articles listed in section 2
+## What stays unchanged
 
-## Out of scope
+- React Router config (`src/App.tsx`)
+- All components, design tokens, Tailwind, Helmet usage
+- Supabase client, Zustand stores, React Query
+- Existing sitemap/robots/JSON-LD entries (only adding the 7 routes)
+- Deployment flow (still `vite build` → publish)
 
-- Bulk update of the other ~35 articles
-- Nav-menu change (defer per ChatGPT)
-- Schema/JSON-LD changes
-- Sitemap priority changes (foundations already 1.0)
+## Confirm before build
+
+Proceeding with exactly the 7 Phase 1 routes above, custom Puppeteer script, postbuild hook — yes?
