@@ -64,12 +64,12 @@ export default function WhatIsLSDietPage() {
         <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
             <strong className="text-foreground">LS Diet is a weight regain prevention system</strong> created by{" "}
-            <a href="/oscar-poon" className="text-accent hover:underline">Oscar Poon</a> to help people stop
+            <a href="/oscar-poon" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Oscar Poon</a> to help people stop
             repeatedly losing and regaining the same weight.
           </p>
           <p>
             Most diets focus heavily on temporary weight loss. LS Diet focuses on{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline">behavioural permanence</a> —
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">behavioural permanence</a> —
             the awareness, psychology, and repeatable systems that help weight loss survive stress, emotional
             eating, routine disruption, social pressure, travel, holidays, and the eventual loss of motivation.
           </p>
@@ -82,15 +82,15 @@ export default function WhatIsLSDietPage() {
           <p>
             The goal is not extreme short-term dieting. The goal is reducing repeated weight regain long term —
             which is exactly the gap explored in{" "}
-            <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
+            <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
               why people regain weight after dieting
             </a>{" "}
             and{" "}
-            <a href="/blog/why-do-i-keep-restarting-weight-loss" className="text-accent hover:underline">
+            <a href="/blog/why-do-i-keep-restarting-weight-loss" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
               stop restarting weight loss
             </a>
             . The structural answer LS Diet is built around is the{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Triangle™</a>.
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Weight Permanence Triangle™</a>.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
@@ -105,16 +105,16 @@ export default function WhatIsLSDietPage() {
             What actually drives regain is environment, stress, emotions, routines, and behavioural autopilot.
             Most diets collapse the moment life becomes difficult again — a deadline, an argument, a vacation, a
             run of bad sleep. The plan was never built to survive that. See{" "}
-            <a href="/awareness-stages" className="text-accent hover:underline">Awareness Stages</a>,{" "}
-            <a href="/blog/why-do-people-emotionally-eat-after-work" className="text-accent hover:underline">
+            <a href="/awareness-stages" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Awareness Stages</a>,{" "}
+            <a href="/blog/why-do-people-emotionally-eat-after-work" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
               why people emotionally eat after work
             </a>
             ,{" "}
-            <a href="/blog/why-do-healthy-habits-collapse-during-stress" className="text-accent hover:underline">
+            <a href="/blog/why-do-healthy-habits-collapse-during-stress" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
               why healthy habits collapse during stress
             </a>
             , and{" "}
-            <a href="/blog/why-do-i-restart-weight-loss-every-monday" className="text-accent hover:underline">
+            <a href="/blog/why-do-i-restart-weight-loss-every-monday" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
               why I restart weight loss every Monday
             </a>{" "}
             for the patterns behind it.
@@ -149,11 +149,11 @@ export default function WhatIsLSDietPage() {
             On top of stimulators, psychology training works with push motivation, pull motivation, and causality
             exploration — the practice of tracing today's eating back to the conditions that produced it. This is
             what moves people through the{" "}
-            <a href="/awareness-stages" className="text-accent hover:underline">Awareness Stages</a>, including{" "}
-            <a href="/blog/identity-awareness" className="text-accent hover:underline">identity awareness</a> and{" "}
-            <a href="/blog/consequence-awareness" className="text-accent hover:underline">consequence awareness</a>,
+            <a href="/awareness-stages" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Awareness Stages</a>, including{" "}
+            <a href="/blog/identity-awareness" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">identity awareness</a> and{" "}
+            <a href="/blog/consequence-awareness" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">consequence awareness</a>,
             and into real{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline">behavioural permanence</a>.
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">behavioural permanence</a>.
           </p>
 
           <h3 className="text-xl md:text-2xl font-bold tracking-tight pt-4 text-foreground">
@@ -225,7 +225,7 @@ export default function WhatIsLSDietPage() {
             The Weight Permanence Triangle™
           </h2>
           <p>
-            The <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Triangle™</a>{" "}
+            The <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Weight Permanence Triangle™</a>{" "}
             is the operational backbone of LS Diet: Awareness + Practice + Permanence.
           </p>
           <ul className="list-disc list-outside pl-6 space-y-1">
