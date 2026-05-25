@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,27 +6,33 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useCartSync } from "@/hooks/useCartSync";
+// Home stays eager so SSG prerender captures full HTML synchronously.
 import Index from "./pages/Index";
-import ProductDetail from "./pages/ProductDetail";
-import QAPage from "./pages/QAPage";
-import FreeResources from "./pages/FreeResources";
-import GLP1GuidePage from "./pages/GLP1GuidePage";
-import LSDietGuidePage from "./pages/LSDietGuidePage";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfUse from "./pages/TermsOfUse";
-import HealthDisclaimer from "./pages/HealthDisclaimer";
-import WhatIsLSDietPage from "./pages/WhatIsLSDietPage";
-import WeightPermanenceTrianglePage from "./pages/WeightPermanenceTrianglePage";
-import AwarenessStagesPage from "./pages/AwarenessStagesPage";
-import AboutOscarPoonPage from "./pages/AboutOscarPoonPage";
-import OscarPoonPage from "./pages/OscarPoonPage";
-import CoreFAQPage from "./pages/CoreFAQPage";
-import BlogPage from "./pages/BlogPage";
-import BlogPostPage from "./pages/BlogPostPage";
-import ShareRedirectPage from "./pages/ShareRedirectPage";
-import CategoryArchivePage from "./pages/CategoryArchivePage";
-import PartnersPage from "./pages/PartnersPage";
-import NotFound from "./pages/NotFound";
+
+// All other routes lazy-load — keeps article/foundation registries
+// (40 articles + 9 foundations with 2 MB hero PNGs each) out of the
+// main bundle. Prerendered routes are eager via the prerender script's
+// own bundle resolution; in-browser SPA navigation gets the lazy chunks.
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const QAPage = lazy(() => import("./pages/QAPage"));
+const FreeResources = lazy(() => import("./pages/FreeResources"));
+const GLP1GuidePage = lazy(() => import("./pages/GLP1GuidePage"));
+const LSDietGuidePage = lazy(() => import("./pages/LSDietGuidePage"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
+const HealthDisclaimer = lazy(() => import("./pages/HealthDisclaimer"));
+const WhatIsLSDietPage = lazy(() => import("./pages/WhatIsLSDietPage"));
+const WeightPermanenceTrianglePage = lazy(() => import("./pages/WeightPermanenceTrianglePage"));
+const AwarenessStagesPage = lazy(() => import("./pages/AwarenessStagesPage"));
+const AboutOscarPoonPage = lazy(() => import("./pages/AboutOscarPoonPage"));
+const OscarPoonPage = lazy(() => import("./pages/OscarPoonPage"));
+const CoreFAQPage = lazy(() => import("./pages/CoreFAQPage"));
+const BlogPage = lazy(() => import("./pages/BlogPage"));
+const BlogPostPage = lazy(() => import("./pages/BlogPostPage"));
+const ShareRedirectPage = lazy(() => import("./pages/ShareRedirectPage"));
+const CategoryArchivePage = lazy(() => import("./pages/CategoryArchivePage"));
+const PartnersPage = lazy(() => import("./pages/PartnersPage"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,35 +44,40 @@ const queryClient = new QueryClient({
   },
 });
 
+// Minimal fallback — invisible to avoid layout flash on route swap.
+const RouteFallback = () => <div className="min-h-screen bg-background" aria-hidden="true" />;
+
 function AppContent() {
   useCartSync();
   
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/product/:handle" element={<ProductDetail />} />
-        <Route path="/qa" element={<QAPage />} />
-        <Route path="/FreeResources" element={<FreeResources />} />
-        <Route path="/does-glp-1-work" element={<GLP1GuidePage />} />
-        <Route path="/ls-diet-guide" element={<LSDietGuidePage />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/terms" element={<TermsOfUse />} />
-        <Route path="/disclaimer" element={<HealthDisclaimer />} />
-        <Route path="/what-is-ls-diet" element={<WhatIsLSDietPage />} />
-        <Route path="/weight-permanence-triangle" element={<WeightPermanenceTrianglePage />} />
-        <Route path="/awareness-stages" element={<AwarenessStagesPage />} />
-        <Route path="/about-oscar-poon" element={<AboutOscarPoonPage />} />
-        <Route path="/oscar-poon" element={<OscarPoonPage />} />
-        <Route path="/faq" element={<CoreFAQPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:slug" element={<BlogPostPage />} />
-        <Route path="/share/:slug" element={<ShareRedirectPage />} />
-        <Route path="/category/:slug" element={<CategoryArchivePage />} />
-        <Route path="/partners" element={<PartnersPage />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<RouteFallback />}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/product/:handle" element={<ProductDetail />} />
+          <Route path="/qa" element={<QAPage />} />
+          <Route path="/FreeResources" element={<FreeResources />} />
+          <Route path="/does-glp-1-work" element={<GLP1GuidePage />} />
+          <Route path="/ls-diet-guide" element={<LSDietGuidePage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfUse />} />
+          <Route path="/disclaimer" element={<HealthDisclaimer />} />
+          <Route path="/what-is-ls-diet" element={<WhatIsLSDietPage />} />
+          <Route path="/weight-permanence-triangle" element={<WeightPermanenceTrianglePage />} />
+          <Route path="/awareness-stages" element={<AwarenessStagesPage />} />
+          <Route path="/about-oscar-poon" element={<AboutOscarPoonPage />} />
+          <Route path="/oscar-poon" element={<OscarPoonPage />} />
+          <Route path="/faq" element={<CoreFAQPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/share/:slug" element={<ShareRedirectPage />} />
+          <Route path="/category/:slug" element={<CategoryArchivePage />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

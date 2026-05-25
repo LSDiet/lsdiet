@@ -1,50 +1,22 @@
-import img2019a from "@/assets/hero/2019a.png?w=400;800&format=avif;webp&as=picture";
-import img2019b from "@/assets/hero/2019b.png?w=400;800&format=avif;webp&as=picture";
+import { ResponsivePicture, type PictureSrc } from "@/components/ui/ResponsivePicture";
+import img2019a from "@/assets/hero/2019a.png?w=400;800;1200&format=avif;webp&as=picture";
+import img2019b from "@/assets/hero/2019b.png?w=400;800;1200&format=avif;webp&as=picture";
 import img2021a from "@/assets/hero/2021a.png?w=400;800&format=avif;webp&as=picture";
 import img2021b from "@/assets/hero/2021b.png?w=400;800&format=avif;webp&as=picture";
 import img2024a from "@/assets/hero/2024a.png?w=400;800&format=avif;webp&as=picture";
 import img2024b from "@/assets/hero/2024b.png?w=400;800&format=avif;webp&as=picture";
 
-type PictureSrc = {
-  sources: Record<string, string>;
-  img: { src: string; w: number; h: number };
+type Pair = {
+  year: string;
+  before: PictureSrc;
+  beforeLbs: string;
+  beforePos: string;
+  after: PictureSrc;
+  afterLbs: string;
+  afterPos: string;
 };
 
-const SIZES = "(min-width: 768px) 22vw, 45vw";
-
-function ResponsivePicture({
-  src,
-  alt,
-  className,
-  eager,
-  priority,
-}: {
-  src: PictureSrc;
-  alt: string;
-  className?: string;
-  eager?: boolean;
-  priority?: boolean;
-}) {
-  return (
-    <picture>
-      {Object.entries(src.sources).map(([type, srcset]) => (
-        <source key={type} type={`image/${type}`} srcSet={srcset} sizes={SIZES} />
-      ))}
-      <img
-        src={src.img.src}
-        width={src.img.w}
-        height={src.img.h}
-        alt={alt}
-        loading={eager ? "eager" : "lazy"}
-        decoding="async"
-        fetchPriority={priority ? "high" : "auto"}
-        className={className}
-      />
-    </picture>
-  );
-}
-
-const pairs = [
+const pairs: Pair[] = [
   {
     year: "2019",
     before: img2019a, beforeLbs: "300 LBS", beforePos: "object-top",
@@ -60,7 +32,62 @@ const pairs = [
     before: img2024a, beforeLbs: "310 LBS", beforePos: "object-top",
     after: img2024b, afterLbs: "190 LBS", afterPos: "object-top",
   },
-] as { year: string; before: PictureSrc; beforeLbs: string; beforePos: string; after: PictureSrc; afterLbs: string; afterPos: string }[];
+];
+
+// LCP card (mobile primary, desktop first column) uses ~50vw on mobile, ~22vw on desktop.
+const LCP_SIZES = "(min-width: 768px) 22vw, 45vw";
+// Secondary cards on mobile scroll-snap strip take ~80vw of viewport.
+const MOBILE_STRIP_SIZES = "(min-width: 768px) 22vw, 70vw";
+
+function TransformationCard({
+  pair,
+  eager,
+  priority,
+  sizes,
+}: {
+  pair: Pair;
+  eager?: boolean;
+  priority?: boolean;
+  sizes: string;
+}) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm">
+      <div className="grid aspect-[4/3] grid-cols-2">
+        <div className="relative overflow-hidden">
+          <ResponsivePicture
+            src={pair.before}
+            alt={`Oscar Poon in ${pair.year}, weighing ${pair.beforeLbs} before adopting the LS Diet low-starch, low-sugar lifestyle`}
+            eager={eager}
+            priority={priority}
+            sizes={sizes}
+            className={`h-full w-full object-cover ${pair.beforePos}`}
+          />
+          <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-accent backdrop-blur-sm">
+            {pair.beforeLbs}
+          </span>
+        </div>
+        <div className="relative overflow-hidden">
+          <ResponsivePicture
+            src={pair.after}
+            alt={`Oscar Poon in ${pair.year}, weighing ${pair.afterLbs} after losing weight on LS Diet`}
+            eager={eager}
+            priority={priority}
+            sizes={sizes}
+            className={`h-full w-full object-cover ${pair.afterPos}`}
+          />
+          <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-white backdrop-blur-sm">
+            {pair.afterLbs}
+          </span>
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-4 py-3">
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Before</span>
+        <span className="text-xl font-extrabold text-accent">{pair.year}</span>
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">After</span>
+      </div>
+    </div>
+  );
+}
 
 export function HeroSection() {
   return (
@@ -78,46 +105,39 @@ export function HeroSection() {
           </h1>
         </div>
 
-
-        <div className="grid gap-4 md:grid-cols-3 md:gap-6">
+        {/* DESKTOP (md+): 3-card grid — unchanged behaviour */}
+        <div className="hidden md:grid gap-6 md:grid-cols-3">
           {pairs.map((pair, idx) => (
-            <div
+            <TransformationCard
               key={pair.year}
-              className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm"
-            >
-              <div className="grid aspect-[4/3] grid-cols-2">
-                <div className="relative overflow-hidden">
-                  <ResponsivePicture
-                    src={pair.before}
-                    alt={`Oscar Poon in ${pair.year}, weighing ${pair.beforeLbs} before adopting the LS Diet low-starch, low-sugar lifestyle`}
-                    eager={idx === 0}
-                    priority={idx === 0}
-                    className={`h-full w-full object-cover ${pair.beforePos}`}
-                  />
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-accent backdrop-blur-sm">
-                    {pair.beforeLbs}
-                  </span>
-                </div>
-                <div className="relative overflow-hidden">
-                  <ResponsivePicture
-                    src={pair.after}
-                    alt={`Oscar Poon in ${pair.year}, weighing ${pair.afterLbs} after losing weight on LS Diet`}
-                    eager={idx === 0}
-                    priority={idx === 0}
-                    className={`h-full w-full object-cover ${pair.afterPos}`}
-                  />
-                  <span className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-3 py-1 text-[11px] font-extrabold tracking-wider text-white backdrop-blur-sm">
-                    {pair.afterLbs}
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center justify-center gap-4 py-3">
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Before</span>
-                <span className="text-xl font-extrabold text-accent">{pair.year}</span>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">After</span>
-              </div>
-            </div>
+              pair={pair}
+              eager={idx === 0}
+              priority={idx === 0}
+              sizes={LCP_SIZES}
+            />
           ))}
+        </div>
+
+        {/* MOBILE (<md): LCP card eager + priority; remaining cards in
+            horizontal scroll-snap strip below, all lazy-loaded.
+            Cuts LCP image count from 6 to 2 on phones. */}
+        <div className="md:hidden flex flex-col gap-4">
+          <TransformationCard pair={pairs[0]} eager priority sizes={LCP_SIZES} />
+
+          <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
+            Swipe for more years →
+          </p>
+
+          <div
+            className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            aria-label="Additional transformation years"
+          >
+            {pairs.slice(1).map((pair) => (
+              <div key={pair.year} className="w-[80vw] flex-shrink-0 snap-center">
+                <TransformationCard pair={pair} sizes={MOBILE_STRIP_SIZES} />
+              </div>
+            ))}
+          </div>
         </div>
 
         <p className="text-center text-sm font-medium text-white/85 sm:text-base">

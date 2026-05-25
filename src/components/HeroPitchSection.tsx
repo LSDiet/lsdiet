@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroPhoto from "@/assets/hero-photo.png";
+import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
+import heroPhoto from "@/assets/hero-photo.png?w=400;800;1200&format=avif;webp&as=picture";
 
 const bullets = [
   { text: "How to ", strong: "stop regaining the same weight" },
@@ -16,9 +17,10 @@ export function HeroPitchSection() {
     <section className="bg-[#0a0a0a] text-white">
       <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
         <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[600px]">
-          <img
+          <ResponsivePicture
             src={heroPhoto}
             alt="Oscar Poon, founder of LS Diet and creator of the Weight Permanence Triangle"
+            sizes="(min-width: 768px) 50vw, 100vw"
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
