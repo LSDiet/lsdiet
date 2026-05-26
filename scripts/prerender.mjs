@@ -21,15 +21,40 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = resolve(__dirname, "..", "dist");
 const PORT = 4319;
 
-const ROUTES = [
-  "/",
-  "/what-is-ls-diet",
-  "/weight-permanence-triangle",
-  "/awareness-stages",
-  "/about-oscar-poon",
-  "/blog",
-  "/blog/why-people-regain-weight-after-dieting",
-];
+// Routes are derived from the sitemaps so prerender always matches what
+// crawlers see. This ensures every public URL ships unique <title> and
+// <meta name="description"> in static HTML (no shared index.html fallback
+// description, no duplicate-meta SEO issues).
+const PUBLIC_DIR = resolve(__dirname, "..", "public");
+
+function extractLocs(xml) {
+  const out = [];
+  const re = /<loc>([^<]+)<\/loc>/g;
+  let m;
+  while ((m = re.exec(xml))) out.push(m[1]);
+  return out;
+}
+
+async function loadRoutes() {
+  const files = ["sitemap-pages.xml", "blog-sitemap.xml"];
+  const routes = new Set();
+  for (const f of files) {
+    try {
+      const xml = await readFile(join(PUBLIC_DIR, f), "utf8");
+      for (const loc of extractLocs(xml)) {
+        const u = new URL(loc);
+        const path = u.pathname || "/";
+        // Skip non-prerenderable / external / asset routes.
+        if (path.includes(".")) continue;
+        routes.add(path === "" ? "/" : path);
+      }
+    } catch (err) {
+      console.warn(`[prerender] could not read ${f}: ${err.message}`);
+    }
+  }
+  if (!routes.has("/")) routes.add("/");
+  return [...routes];
+}
 
 const READY_TIMEOUT_MS = 20_000;
 
@@ -89,6 +114,7 @@ async function main() {
     throw new Error("dist/index.html not found — run `vite build` first.");
   }
 
+  const ROUTES = await loadRoutes();
   console.log(`\nPrerendering ${ROUTES.length} routes…`);
   const server = await startServer();
   const browser = await puppeteer.launch({

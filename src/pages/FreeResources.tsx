@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Navbar } from '@/components/Navbar';
 import { FooterSimple } from '@/components/FooterSimple';
 import { Button } from '@/components/ui/button';
@@ -65,7 +66,20 @@ export default function FreeResources() {
     await captureAndDownload(email, selectedResource.id, selectedResource.filePath, undefined, firstName);
   };
   return <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>Free LS Diet Resources | Low-Starch & GLP-1 Guides</title>
+        <meta
+          name="description"
+          content="Download free LS Diet guides: the Low-Starch Low-Sugar guide for sustainable fat loss, and the GLP-1 guide explaining why weight returns after Ozempic and how to prevent it."
+        />
+        <link rel="canonical" href="https://lsdiet.com/free-resources" />
+        <meta property="og:title" content="Free LS Diet Resources" />
+        <meta property="og:description" content="Free downloadable guides on the Low-Starch Low-Sugar lifestyle and GLP-1 weight loss." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://lsdiet.com/free-resources" />
+      </Helmet>
       <Navbar />
+      
       
       <main className="flex-1 pt-24 pb-16">
         <div className="container max-w-5xl">

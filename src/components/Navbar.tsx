@@ -5,7 +5,7 @@ import lsDietLogo from "@/assets/lsdiet-wordmark.png";
 const navLinks = [
   { label: "Weight Problem", href: "/#journey" },
   { label: "Solution", href: "/#method" },
-  { label: "Free Resources", href: "/FreeResources", highlight: true },
+  { label: "Free Resources", href: "/free-resources", highlight: true },
   { label: "Blog", href: "/blog" },
   { label: "Become a Partner", href: "/partners" },
 ];
