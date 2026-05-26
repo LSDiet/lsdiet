@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useCartSync } from "@/hooks/useCartSync";
 // Home stays eager so SSG prerender captures full HTML synchronously.
 import Index from "./pages/Index";
@@ -57,7 +57,8 @@ function AppContent() {
           <Route path="/" element={<Index />} />
           <Route path="/product/:handle" element={<ProductDetail />} />
           <Route path="/qa" element={<QAPage />} />
-          <Route path="/FreeResources" element={<FreeResources />} />
+          <Route path="/free-resources" element={<FreeResources />} />
+          <Route path="/FreeResources" element={<Navigate to="/free-resources" replace />} />
           <Route path="/does-glp-1-work" element={<GLP1GuidePage />} />
           <Route path="/ls-diet-guide" element={<LSDietGuidePage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
