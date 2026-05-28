@@ -58,7 +58,7 @@ const pains: Pain[] = [
   { label: "I don\u2019t know where to start", href: "/blog/why-do-i-keep-losing-and-regaining-the-same-weight", hsl: "0 84% 60%", Icon: Compass },
   { label: "I have no motivation", href: "/blog/why-do-i-lose-motivation-after-a-few-weeks", hsl: "212 90% 60%", Icon: BatteryLow },
   { label: "The method stops working", href: "/blog/how-to-overcome-weight-loss-plateaus", hsl: "38 92% 55%", Icon: TrendingDown },
-  { label: "I don\u2019t want to exercise", href: "/blog/how-to-get-energy-to-exercise-after-working-all-day", hsl: "150 70% 48%", Icon: Footprints },
+  { label: "I don\u2019t want to exercise", href: "/blog/is-diet-or-exercise-more-important-for-weight-loss", hsl: "150 70% 48%", Icon: Footprints },
   { label: "I stress eat", href: "/blog/why-does-stress-make-me-eat-more", hsl: "280 70% 65%", Icon: CloudRain },
 ];
 

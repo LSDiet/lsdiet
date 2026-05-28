@@ -101,11 +101,16 @@ All colors MUST be HSL.
   }
 }
 
-/* Subtle dark stroke on accent (orange/yellow) text for readability on white */
+/* Subtle dark outline around accent (orange/yellow) text for readability on white.
+   Uses text-shadow so the yellow fill stays fully intact. */
 @layer base {
   .text-accent {
-    -webkit-text-stroke: 0.4px hsl(0 0% 0% / 0.45);
-    paint-order: stroke fill;
+    text-shadow:
+      0 0 1px hsl(0 0% 0% / 0.55),
+      0.5px 0.5px 0 hsl(0 0% 0% / 0.45),
+      -0.5px -0.5px 0 hsl(0 0% 0% / 0.45),
+      0.5px -0.5px 0 hsl(0 0% 0% / 0.45),
+      -0.5px 0.5px 0 hsl(0 0% 0% / 0.45);
   }
 }
 
