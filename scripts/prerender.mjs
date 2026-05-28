@@ -91,6 +91,21 @@ async function prerenderRoute(browser, route) {
     // continues. Just serialize the full document as-is.
     const html = await page.content();
 
+    // Safety net: a valid prerender must contain the Vite bundle script and
+    // a non-empty <head>. If either is missing, the page would render as a
+    // blank white screen in production. Fail the route loudly instead of
+    // silently overwriting dist/<route>/index.html with a broken stub.
+    const hasBundle = /<script[^>]+type=["']module["'][^>]+src=/i.test(html);
+    const headMatch = html.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
+    const headInner = headMatch ? headMatch[1].trim() : "";
+    if (!hasBundle || headInner.length < 50) {
+      throw new Error(
+        `prerender produced invalid HTML for ${route} ` +
+          `(hasBundle=${hasBundle}, headLen=${headInner.length}). ` +
+          `Refusing to overwrite dist with a blank shell.`,
+      );
+    }
+
     // Mark the HTML as prerendered so main.tsx switches to hydrateRoot.
     const stamped = html.replace(
       "<html",
