@@ -62,16 +62,13 @@ const pains: Pain[] = [
   { label: "I stress eat", href: "/blog/why-does-stress-make-me-eat-more", hsl: "280 70% 65%", Icon: CloudRain },
 ];
 
-/**
- * Asymmetric desktop placements — deliberate inward pressure around the woman,
- * intentionally not mathematically even. Order matches `pains`.
- */
-const desktopPos = [
-  "left-[4%] top-[20%]",                                  // top-left
-  "right-[5%] top-[15%]",                                 // top-right
-  "left-[7%] top-[58%]",                                  // lower-left
-  "right-[6%] top-[52%]",                                 // mid-right
-  "left-1/2 -translate-x-1/2 bottom-[5%]",               // bottom-centre (over table edge)
+/** Small stagger offsets so the rail feels organic, not mechanical (desktop). */
+const railStagger = [
+  "md:ml-0",
+  "md:ml-6",
+  "md:ml-2",
+  "md:ml-8",
+  "md:ml-3",
 ];
 
 /** Layered, performance-safe neon glow (box-shadow only). */
@@ -79,22 +76,42 @@ function glow(hsl: string) {
   return `0 0 0 1px hsl(${hsl} / 0.5), 0 0 12px -2px hsl(${hsl} / 0.45), 0 0 22px -6px hsl(${hsl} / 0.3)`;
 }
 
-function NeonBox({ pain }: { pain: Pain }) {
+/**
+ * DESKTOP rail item — subdued by default, only strongly activates on hover.
+ * Premium / restrained: translucent dark bg, subtle border, muted glow.
+ */
+function RailItem({ pain, stagger }: { pain: Pain; stagger: string }) {
   const { Icon } = pain;
+  const hoverShadow = `0 0 0 1px hsl(${pain.hsl} / 0.75), 0 0 20px -2px hsl(${pain.hsl} / 0.55), 0 10px 30px -10px hsl(${pain.hsl} / 0.4)`;
   return (
     <a
       href={pain.href}
-      className="group inline-flex items-center gap-3 rounded-2xl border-2 bg-black/75 px-5 py-4 text-left transition-all duration-200 hover:-translate-y-1"
-      style={{ borderColor: `hsl(${pain.hsl})`, boxShadow: glow(pain.hsl) }}
+      className={`group relative flex w-full items-center gap-3 rounded-xl border border-white/10 bg-black/45 px-4 py-3.5 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-black/65 ${stagger}`}
+      style={{ boxShadow: "0 0 0 1px hsl(0 0% 100% / 0.04), 0 8px 24px -16px rgba(0,0,0,0.8)" }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = `0 0 0 1px hsl(${pain.hsl} / 0.7), 0 0 18px -2px hsl(${pain.hsl} / 0.6), 0 0 32px -6px hsl(${pain.hsl} / 0.45)`;
+        e.currentTarget.style.boxShadow = hoverShadow;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = glow(pain.hsl);
+        e.currentTarget.style.boxShadow = "0 0 0 1px hsl(0 0% 100% / 0.04), 0 8px 24px -16px rgba(0,0,0,0.8)";
       }}
     >
-      <Icon className="h-6 w-6 shrink-0" style={{ color: `hsl(${pain.hsl})` }} aria-hidden="true" />
-      <span className="text-base font-bold leading-tight text-white">{pain.label}</span>
+      <span
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] transition-colors duration-300 group-hover:bg-white/[0.08]"
+        style={{ color: `hsl(${pain.hsl})` }}
+      >
+        <Icon className="h-5 w-5 opacity-70 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
+      </span>
+      <span className="flex min-w-0 flex-col">
+        <span className="text-[0.95rem] font-semibold leading-snug text-white/85 transition-colors duration-300 group-hover:text-white">
+          {pain.label}
+        </span>
+        <span
+          className="mt-0.5 max-h-0 overflow-hidden text-xs font-medium tracking-wide opacity-0 transition-all duration-300 group-hover:max-h-6 group-hover:opacity-100"
+          style={{ color: `hsl(${pain.hsl})` }}
+        >
+          Read article &rarr;
+        </span>
+      </span>
     </a>
   );
 }
@@ -121,6 +138,7 @@ function Headline() {
     </h1>
   );
 }
+
 
 export function ProblemHookSection() {
   return (
