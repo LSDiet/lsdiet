@@ -104,12 +104,13 @@ function NeonChip({ pain }: { pain: Pain }) {
   return (
     <a
       href={pain.href}
-      className="flex items-center gap-2 rounded-xl border-2 bg-black/80 px-3 py-3"
+      className="flex items-center gap-3 rounded-xl border-2 bg-black/40 px-4 py-2.5 backdrop-blur-[2px]"
       style={{ borderColor: `hsl(${pain.hsl})`, boxShadow: glow(pain.hsl) }}
     >
       <Icon className="h-5 w-5 shrink-0" style={{ color: `hsl(${pain.hsl})` }} aria-hidden="true" />
-      <span className="text-sm font-bold leading-tight text-white">{pain.label}</span>
+      <span className="text-[0.95rem] font-bold leading-tight text-white">{pain.label}</span>
     </a>
+
   );
 }
 
