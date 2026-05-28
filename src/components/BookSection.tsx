@@ -128,7 +128,7 @@ export function BookSection() {
                 <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="w-3 h-3 text-accent" />
                 </div>
-                <span className="text-[hsl(0_0%_85%)] text-sm md:text-base">{feature}</span>
+                <span className="text-muted-foreground text-sm md:text-base">{feature}</span>
               </li>
             ))}
           </ul>
