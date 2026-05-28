@@ -16,7 +16,6 @@ const benefits = [
 
 
 export function HeroPitchSection() {
-export function HeroPitchSection() {
   const [idx, setIdx] = useState(0);
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -25,6 +24,7 @@ export function HeroPitchSection() {
     return () => window.clearInterval(id);
   }, []);
 
+  return (
     <section className="bg-background text-foreground">
       <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
         <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[600px]">
