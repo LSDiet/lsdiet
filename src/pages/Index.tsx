@@ -51,12 +51,13 @@ const Index = () => {
 
         <ProblemSection />
         <HeroPitchSection />
-        <WhatIsLSDietSection />
         <AwarenessStagesSection />
         
         <BookSection />
+        <WhatIsLSDietSection />
         <FAQSection />
         <AboutAuthorSection />
+
       </main>
       <FooterSimple />
       <JoinFloatingBar />
