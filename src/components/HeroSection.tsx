@@ -210,31 +210,6 @@ export function HeroSection() {
           I lived it, and I found a way to stop regaining weight
         </p>
 
-        {/* Heading — shown below the transformation on desktop only */}
-        <div className="hidden text-center md:block">
-          <h2 className="font-sans text-xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-2xl md:text-3xl lg:text-4xl">
-            I built LS Diet:
-            <br />
-            A{" "}
-            <span className="text-accent animate-pulse-glow">
-              weight regain prevention
-            </span>{" "}
-            system
-          </h2>
-        </div>
-
-        {/* Heading — shown below the stats on mobile only */}
-        <div className="text-center md:hidden">
-          <h2 className="font-sans text-xl font-extrabold uppercase leading-[1.1] tracking-tight">
-            I built LS Diet:
-            <br />
-            A{" "}
-            <span className="text-accent animate-pulse-glow">
-              weight regain prevention
-            </span>{" "}
-            system
-          </h2>
-        </div>
 
       </div>
 
