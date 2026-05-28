@@ -186,7 +186,8 @@ export function HeroSection() {
   return (
     <section className="relative w-full bg-[#0a0a0a] pt-14 text-white">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:gap-8 md:px-8 md:py-10">
-        <div className="text-center">
+        {/* Heading — shown at top on desktop only */}
+        <div className="hidden text-center md:block">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
             LS Diet:
             <br />
@@ -220,6 +221,20 @@ export function HeroSection() {
         <p className="text-center text-sm font-medium text-white/85 sm:text-base">
           Lost <span className="text-accent font-bold">80+ lbs three times</span>. Built LS Diet to stop restarting.
         </p>
+
+        {/* Heading — shown below the stats on mobile only */}
+        <div className="text-center md:hidden">
+          <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight">
+            LS Diet:
+            <br />
+            A{" "}
+            <span className="text-accent animate-pulse-glow">
+              weight regain prevention
+            </span>{" "}
+            system
+          </h2>
+        </div>
+
 
         <div className="flex justify-center pt-2">
           <a
