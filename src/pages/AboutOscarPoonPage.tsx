@@ -17,7 +17,7 @@ export default function AboutOscarPoonPage() {
   return (
     <>
       <Helmet>
-        <title>Oscar Poon | Founder of LS Diet</title>
+        <title>Redirecting to Oscar Poon profile — LS Diet</title>
         <link rel="canonical" href={CANONICAL} />
         <meta name="robots" content="noindex, follow" />
         <meta httpEquiv="refresh" content={`0; url=${CANONICAL}`} />

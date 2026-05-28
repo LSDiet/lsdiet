@@ -57,7 +57,7 @@ export default function OscarPoonPage() {
         <title>Oscar Poon | Founder of LS Diet</title>
         <meta
           name="description"
-          content="Oscar Poon is the founder of LS Diet and creator of the Weight Permanence Triangle™. He has lost 80+ lbs three times and built LS Diet from what those restarts taught him."
+          content="Oscar Poon, founder of LS Diet and creator of the Weight Permanence Triangle™. Lost 80+ lbs three times before building a system that lasts."
         />
         <link rel="canonical" href={CANONICAL} />
         <meta property="og:title" content="Oscar Poon — Founder of LS Diet" />
