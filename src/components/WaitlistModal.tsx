@@ -21,6 +21,7 @@ import {
 import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { trackEvent } from "@/lib/analytics";
 
 interface WaitlistModalProps {
   open: boolean;
@@ -50,6 +51,7 @@ function WaitlistForm({ onSuccess }: { onSuccess: () => void }) {
       });
 
       if (error) throw error;
+      trackEvent("waitlist_submit", { method: "modal" });
       onSuccess();
     } catch (err: any) {
       console.error("Waitlist error:", err);
