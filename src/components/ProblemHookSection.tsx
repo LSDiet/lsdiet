@@ -90,9 +90,6 @@ function cardShadow() {
 
 
 /**
- * DESKTOP rail item — subdued by default, only strongly activates on hover.
- * Premium / restrained: translucent dark bg, subtle border, muted glow.
-/**
  * DESKTOP rail item — dark glass, white text, subtle grey border.
  * Only the icon retains its colour.
  */
