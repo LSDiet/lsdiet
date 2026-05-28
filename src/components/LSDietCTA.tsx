@@ -25,7 +25,7 @@ export interface LSDietCTAProps {
 export function LSDietCTA({
   headline,
   body,
-  buttonLabel = "Join LS Diet",
+  buttonLabel = "Join LS Diet Community",
   trustLine = "Free to join · No credit card · Cancel anytime",
   placement,
 }: LSDietCTAProps) {
