@@ -74,18 +74,16 @@ export function HeroPitchSection() {
             {" "}together!
           </p>
 
-          <p className="mt-6 text-sm text-foreground md:text-base">The LS Diet class teaches you:</p>
-          <ul className="mt-3 space-y-2.5">
-            {bullets.map((b, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <Check className="mt-1 h-4 w-4 flex-shrink-0 text-accent" />
-                <span className="text-sm text-foreground/90 md:text-base">
-                  {b.text}
-                  <span className={`font-semibold text-accent ${b.animateStrong ? "animate-two-weeks" : ""}`}>{b.strong}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-6 text-sm text-foreground md:text-base">In the LS Diet Community, you'll practice:</p>
+          <div className="mt-3 flex items-center gap-3 min-h-[2.5rem]">
+            <Check className="h-5 w-5 flex-shrink-0 text-accent" />
+            <span
+              key={idx}
+              className="text-base md:text-lg font-semibold text-accent animate-fade-in"
+            >
+              {benefits[idx]}
+            </span>
+          </div>
 
           <div className="mt-8 flex justify-center md:justify-start">
 
@@ -96,7 +94,7 @@ export function HeroPitchSection() {
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("cta_click", { location: "pitch", destination: "skool" })}
               >
-                Join LS Diet
+                Join LS Diet Community
               </a>
             </Button>
           </div>
