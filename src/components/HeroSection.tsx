@@ -219,8 +219,11 @@ export function HeroSection() {
         </div>
 
         <p className="text-center text-sm font-medium text-white/85 sm:text-base">
-          Lost <span className="text-accent font-bold">80+ lbs three times</span>. Built LS Diet to stop restarting.
+          Lost <span className="text-accent font-bold">80+ lbs three times</span>.
+          <br />
+          And I&rsquo;m ready to share how to <span className="text-accent font-bold">prevent weight gain</span> for good.
         </p>
+
 
         {/* Heading — shown below the stats on mobile only */}
         <div className="text-center md:hidden">
