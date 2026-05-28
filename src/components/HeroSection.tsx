@@ -186,8 +186,9 @@ function MobileHeroCarousel() {
 
 export function HeroSection() {
   return (
-    <section className="relative w-full bg-[#0a0a0a] pt-14 text-white">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:gap-8 md:px-8 md:py-10">
+    <section className="relative w-full bg-background pt-4 md:pt-14 text-foreground">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-4 md:gap-8 md:px-8 md:py-10">
+
         {/* Heading — shown at top on desktop only */}
         <div className="hidden text-center md:block">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
