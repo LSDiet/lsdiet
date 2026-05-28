@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Check } from "lucide-react";
+import { Check, MousePointer2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
 import { trackEvent } from "@/lib/analytics";
@@ -8,6 +8,7 @@ import heroPhoto from "@/assets/hero-photo.png?w=400;800;1200&format=avif;webp&a
 const benefits = [
   "Lose weight",
   "Prevent regaining weight",
+
   "Build motivation on demand",
   "Identify triggers",
   "Practice daily actions",
