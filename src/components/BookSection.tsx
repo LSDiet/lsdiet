@@ -90,7 +90,7 @@ export function BookSection() {
                       {t.title}
                     </h3>
                   </div>
-                  <p className="text-[hsl(0_0%_75%)] text-sm leading-relaxed">{t.desc}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{t.desc}</p>
                 </div>
               );
             })}
