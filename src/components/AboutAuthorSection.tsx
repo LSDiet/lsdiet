@@ -37,7 +37,7 @@ export const AboutAuthorSection = () => {
                 was missing a behavioural-permanence layer. That insight became the Weight Permanence Triangle™ and
                 the low-starch, low-sugar lifestyle system that LS Diet teaches today.
               </p>
-              <p className="text-[hsl(0_0%_75%)] leading-relaxed text-sm">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 Oscar holds a degree in psychology, spent over a year supporting clients at a substance-abuse centre
                 in Vancouver, and worked a decade as a surgical market-data consultant. That mix of behavioural
                 psychology and pattern analysis shapes how LS Diet approaches weight regain — not as a food problem,
