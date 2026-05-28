@@ -116,14 +116,7 @@ export function ProblemHookSection() {
     <section className="relative w-full overflow-hidden bg-[#0a0a0a] text-white">
       {/* ============ DESKTOP / TABLET (md+) ============ */}
       <div className="relative hidden min-h-[100svh] md:block">
-        <ResponsivePicture
-          src={bg}
-          alt="A frustrated, mentally tired woman sitting at a table, struggling with repeated weight-loss attempts"
-          eager
-          priority
-          sizes="100vw"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+        <BackgroundVideo clips={desktopClips} poster={posterUrl} alt={POSTER_ALT} />
         {/* Edge-weighted darkening: keep her face bright, vignette the edges + bottom scrim */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,transparent_30%,rgba(0,0,0,0.55)_78%,rgba(0,0,0,0.85)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 to-transparent" />
@@ -143,15 +136,8 @@ export function ProblemHookSection() {
 
       {/* ============ PHONE (<md) ============ */}
       <div className="relative flex min-h-[100svh] flex-col md:hidden">
-        {/* Dominant image fills the screen; everything overlays it */}
-        <ResponsivePicture
-          src={bg}
-          alt="A frustrated, mentally tired woman sitting at a table, struggling with repeated weight-loss attempts"
-          eager
-          priority
-          sizes="100vw"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+        {/* Dominant video/image fills the screen; everything overlays it */}
+        <BackgroundVideo clips={mobileClips} poster={posterUrl} alt={POSTER_ALT} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/95" />
 
         <div className="relative z-10 flex min-h-[100svh] flex-col px-4 pt-20 pb-6">
