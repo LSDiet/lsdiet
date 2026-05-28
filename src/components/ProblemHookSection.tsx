@@ -147,22 +147,32 @@ export function ProblemHookSection() {
     <section className="relative w-full overflow-hidden bg-[#0a0a0a] text-white">
       {/* ============ DESKTOP / TABLET (md+) ============ */}
       <div className="relative hidden min-h-[100svh] md:block">
-        <BackgroundVideo clips={desktopClips} poster={posterUrl} alt={POSTER_ALT} />
-        {/* Edge-weighted darkening: keep her face bright, vignette the edges + bottom scrim */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,transparent_30%,rgba(0,0,0,0.55)_78%,rgba(0,0,0,0.85)_100%)]" />
+        {/* Video is intentionally NOT full-bleed: it anchors centre-left and
+            fades into a darker right panel so the pain cluster commands the
+            right side. Reduced width + brightness + dominance. */}
+        <div className="absolute inset-y-0 left-0 right-0 lg:right-[30%]">
+          <BackgroundVideo clips={desktopClips} poster={posterUrl} alt={POSTER_ALT} />
+          {/* Dial brightness/dominance down */}
+          <div className="absolute inset-0 bg-black/40" />
+          {/* Edge-weighted vignette keeps her face the emotional anchor */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_42%_44%,transparent_28%,rgba(0,0,0,0.6)_80%,rgba(0,0,0,0.9)_100%)]" />
+          {/* Fade the right edge into the dark composition panel */}
+          <div className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-r from-transparent to-[#0a0a0a]" />
+        </div>
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 to-transparent" />
 
         <div className="relative z-10 flex min-h-[100svh] flex-col px-8 pt-20 pb-8 lg:px-12">
           <Headline />
-          <p className="mt-3 text-center text-base font-medium text-white/70 lg:text-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-            Break free from the cycle. You&rsquo;re not alone.
-          </p>
 
-          {/* Left-side navigation rail; video remains the focal point on the right */}
-          <div className="mt-8 flex flex-1 items-center">
-            <nav aria-label="Common weight-loss struggles" className="flex w-full max-w-[20rem] flex-col gap-3 lg:max-w-[22rem]">
+          {/* Pain-point cluster pinned to the RIGHT — reads as one psychological
+              stack: tight spacing, varied widths, consistent right-edge alignment. */}
+          <div className="mt-8 flex flex-1 items-center justify-end">
+            <nav
+              aria-label="Common weight-loss struggles"
+              className="ml-auto flex w-full max-w-[23rem] flex-col items-end gap-2 lg:max-w-[25rem]"
+            >
               {pains.map((pain, i) => (
-                <RailItem key={pain.label} pain={pain} stagger={railStagger[i]} />
+                <RailItem key={pain.label} pain={pain} widthClass={railWidths[i]} />
               ))}
             </nav>
           </div>
@@ -174,6 +184,7 @@ export function ProblemHookSection() {
         </div>
 
       </div>
+
 
       {/* ============ PHONE (<md) ============ */}
       <div className="relative flex flex-col md:hidden">
