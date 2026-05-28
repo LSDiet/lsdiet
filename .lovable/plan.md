@@ -1,35 +1,56 @@
-## What's broken
+# Problem Hook — Cinematic Composition Fix (v2)
 
-Production `lsdiet.com` returns an HTML document with an empty `<head>` and no `<script type="module">` for the Vite bundle. Without that script the React app can never mount, so every page renders as a blank white screen. I confirmed this on both `/` and `/blog` — both serve the same stub. This was shipped by the most recent publish; the SPA shell itself is broken at the file level.
+This is a cinematic emotional composition problem, not a UI component problem. The live render proves the original critique: the woman isn't visible (framed hard-left with a black void on the right), the heavy overlay kills her, and the boxes float like SaaS filter chips. We fix composition, image, and hierarchy — no new functionality, no perf regressions.
 
-The likely culprit is the `scripts/prerender.mjs` Puppeteer pass writing a stripped DOM over `dist/index.html` (and every prerendered route's `index.html`). The recent GA snippet + `RouterEffects` restructuring + Helmet flow are the most recent things touching head/HTML, so one of them is corrupting `page.content()` during prerender.
+## What stays the same
+- The 5 pain points, their colors, icons, and blog-post links
+- Headline copy "How to **lose weight** when…"
+- Perf rules: responsive AVIF/WebP, one eager LCP image, lightweight `box-shadow` glow only, no parallax/video/blur/animation libraries (chevron bounce only)
+- Single `<h1>` on the headline (SEO)
 
-## Step 1 — Restore the site immediately (you do this)
+## Core principle
+**The 5 pain-point labels ARE the hook message.** No paragraphs to read — visitors self-identify instantly. The woman is the emotional anchor; the labels are pressure surrounding her.
 
-Roll back to the previous working version from chat history, then re-publish. This brings the live site back online while I diagnose the prerender properly.
+## 1. New hero image — relatable frustration, NOT despair
+Generate a replacement (saved over `src/assets/problem-hook-bg.jpg`, keeping the existing `?w=…&format=avif;webp&as=picture` import + perf pipeline). Direction:
+- **Emotion: concerned, mentally fatigued, frustrated-with-repeated-failure.** A "I'm tired of struggling with this" energy — NOT defeat, crying, despair, rock-bottom, or severe-depression energy.
+- **A normal, modern, relatable person** — slightly overweight, everyday realism. **Not a fashion-campaign / luxury-skincare-ad model, and no glamorous cinematic beauty lighting.**
+- Sitting at a table; hand-on-forehead or thinking pose; subtle stress expression.
+- **Tighter, more centered crop** — face + upper torso dominant, brighter on face/shoulders, darkness preserved only at the edges (natural vignette), minimal dead space.
+- **Composition connects her to the pain points:** her posture, gaze direction, and body angle should subtly feel surrounded/overwhelmed by the labels around her, so the cards read as her thoughts rather than pasted-on chrome.
 
-<presentation-actions>
-  <presentation-open-history>View History</presentation-open-history>
-</presentation-actions>
+A lighter, edge-weighted gradient overlay (vignette + bottom scrim) replaces today's heavy full-frame darkening so her expression is the first thing the eye lands on.
 
-Pick the most recent version from **before** the GA install / SEO sitemap work, click **Restore**, then **Publish**. After that, `lsdiet.com` should load normally again.
+## 2. Bigger pain cards, dialed-back glow
+- Larger padding, larger icon, bumped/bolder font so cards compete with the headline.
+- Thicker border + layered `box-shadow` glow — but **~20% less intense than the mockup's upper limit.** Glow supports the scene; it must read as premium emotional realism, not gaming/crypto/cyberpunk UI. Still pure layered box-shadow (no blur filter).
+- Slightly stronger hover lift/glow.
 
-## Step 2 — Fix the prerender (I do this next turn)
+## 3. Cinematic asymmetric composition (desktop)
+Replace evenly-spread positions with deliberate, slightly-uneven inward pressure around the woman:
 
-Once you've rolled back, I'll diagnose and patch the prerender pipeline so future publishes don't ship a broken shell. Concretely I'll:
+```text
+[ top-left ]                         [ top-right ]
+                  (WOMAN)
+[ lower-left ]                       [ mid-right ]
+              [ bottom-centre ]  <- overlaps table edge
+```
 
-1. **Add a sanity assertion in `scripts/prerender.mjs`** — after capturing `page.content()`, fail the route (and the build) if the HTML is missing either `<head>` content or a `<script type="module"` tag. This guarantees we can never publish a blank shell again, no matter what causes the underlying corruption.
-2. **Reproduce locally via a logged Puppeteer run** to identify which of these is stripping the head during prerender:
-   - GA inline `<script>` IIFE in `index.html` (Puppeteer's headless flags can interact oddly with inline scripts that append to `document.head`).
-   - `react-helmet-async` interaction with the prerender's `waitForFunction` timing — Helmet may have wiped+rewritten head right at snapshot time.
-   - The `RouterEffects` / `useAnalyticsPageviews` hook firing a `setTimeout` that mutates the document mid-snapshot.
-3. **Patch the root cause** (most likely guarding the GA snippet so it strictly no-ops under Puppeteer, e.g. checking `navigator.webdriver` *and* a hostname allowlist before touching `document.head`).
-4. **Verify** by running `vite build` + the prerender script and checking that `dist/index.html` still contains both the head meta tags and the bundled `<script type="module" src="/assets/...">` tag, then re-publish.
+Cards pulled closer to center, spacing intentionally not mathematically even.
 
-## Why roll back first
+## 4. Mobile — image dominates, cards overlay
+Replace the small-thumbnail + button-grid layout:
+- Headline at top
+- **Large, near-full-width image** as the emotional anchor (tall crop, far bigger than today's 24svh strip)
+- Pain cards **overlaying the lower portion of the image** (scrim behind for legibility) in a tight, slightly-crowded 2-2-1 grouping — bigger than now, readable, not full-width stacked cards
+- Subtle chevron at the very bottom to invite scroll
 
-I can't run `vite build` from plan mode to reproduce, and even in build mode the fix requires a real prerender run to validate. Restoring from history is the fastest path to a working live site — the diagnostic work then happens against a safe baseline instead of with your domain down.
+Everything fits within ~100svh so the full "that's me" message lands with no scrolling on phone and desktop.
 
-<presentation-actions>
-<presentation-link url="https://docs.lovable.dev/tips-tricks/troubleshooting">Troubleshooting docs</presentation-link>
-</presentation-actions>
+## 5. Hierarchy
+Headline → her expression → pain cards → (small low chevron). Scroll cue stays subtle.
+
+## Technical notes
+- Only `src/components/ProblemHookSection.tsx` is edited, plus regenerating `src/assets/problem-hook-bg.jpg`.
+- Glow = layered inline `box-shadow` (as today), tuned down ~20%; no Tailwind config change.
+- After building, QA both viewports (desktop + 595px mobile) via screenshot to confirm the photo reads, glow is balanced, and nothing overflows one screen.
