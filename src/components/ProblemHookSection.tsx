@@ -163,7 +163,12 @@ export function ProblemHookSection() {
             I&rsquo;ve been through this cycle{" "}
             <span className="font-extrabold not-italic text-accent">three times</span>.
           </p>
+          <p className="mt-3 text-center text-lg font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            Here&rsquo;s how I finally{" "}
+            <span className="text-accent">broke the cycle</span> &darr;
+          </p>
         </div>
+
 
       </div>
 
