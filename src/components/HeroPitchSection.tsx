@@ -1,19 +1,29 @@
+import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
 import { trackEvent } from "@/lib/analytics";
 import heroPhoto from "@/assets/hero-photo.png?w=400;800;1200&format=avif;webp&as=picture";
 
-const bullets = [
-  { text: "How to ", strong: "stop regaining the same weight" },
-  { text: "How to build ", strong: "PUSH and PULL motivation" },
-  { text: "How to ", strong: "automate weight regain prevention" },
-  { text: "Adopt a ", strong: "Low-Starch, Low-Sugar lifestyle" },
-  { text: "Train your brain for ", strong: "weight permanence" },
-  { text: "See results in ", strong: "2 weeks", animateStrong: true },
+const benefits = [
+  "Lose weight",
+  "Prevent regaining weight",
+  "Build motivation on demand",
+  "Identify triggers",
+  "Practice daily actions",
+  "See results in 2 weeks",
 ];
 
+
 export function HeroPitchSection() {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setIdx((i) => (i + 1) % benefits.length);
+    }, 2000);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <section className="bg-background text-foreground">
       <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
@@ -64,18 +74,16 @@ export function HeroPitchSection() {
             {" "}together!
           </p>
 
-          <p className="mt-6 text-sm text-foreground md:text-base">The LS Diet class teaches you:</p>
-          <ul className="mt-3 space-y-2.5">
-            {bullets.map((b, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <Check className="mt-1 h-4 w-4 flex-shrink-0 text-accent" />
-                <span className="text-sm text-foreground/90 md:text-base">
-                  {b.text}
-                  <span className={`font-semibold text-accent ${b.animateStrong ? "animate-two-weeks" : ""}`}>{b.strong}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
+          <p className="mt-6 text-sm text-foreground md:text-base">In the LS Diet Community, you'll practice:</p>
+          <div className="mt-3 flex items-center gap-3 min-h-[2.5rem]">
+            <Check className="h-5 w-5 flex-shrink-0 text-accent" />
+            <span
+              key={idx}
+              className="text-base md:text-lg font-semibold text-accent animate-fade-in-up"
+            >
+              {benefits[idx]}
+            </span>
+          </div>
 
           <div className="mt-8 flex justify-center md:justify-start">
 
@@ -86,7 +94,7 @@ export function HeroPitchSection() {
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("cta_click", { location: "pitch", destination: "skool" })}
               >
-                Join LS Diet
+                Join LS Diet Community
               </a>
             </Button>
           </div>

@@ -389,7 +389,7 @@ export default function BlogPostPage() {
             <div className="mt-10 text-center">
               <Button variant="accent" size="lg" asChild>
                 <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                  Join LS Diet
+                  Join LS Diet Community
                 </a>
               </Button>
             </div>

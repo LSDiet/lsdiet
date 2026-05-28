@@ -207,7 +207,7 @@ export function HeroSection() {
         </div>
 
         <p className="text-center text-sm font-medium text-foreground sm:text-base">
-          I lived it, and I found a way to stop regaining weight
+          ... and I learned how to stop this
         </p>
 
 
