@@ -150,17 +150,27 @@ export function ProblemHookSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,transparent_30%,rgba(0,0,0,0.55)_78%,rgba(0,0,0,0.85)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 to-transparent" />
 
-        <div className="relative z-10 flex min-h-[100svh] flex-col px-8 pt-24 pb-10">
+        <div className="relative z-10 flex min-h-[100svh] flex-col px-8 pt-20 pb-8 lg:px-12">
           <Headline />
-          <div className="relative mt-6 w-full max-w-5xl mx-auto flex-1">
-            {pains.map((pain, i) => (
-              <div key={pain.label} className={`absolute ${desktopPos[i]} max-w-[16rem]`}>
-                <NeonBox pain={pain} />
-              </div>
-            ))}
+          <p className="mt-3 text-center text-base font-medium text-white/70 lg:text-lg drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+            Break free from the cycle. You&rsquo;re not alone.
+          </p>
+
+          {/* Left-side navigation rail; video remains the focal point on the right */}
+          <div className="mt-8 flex flex-1 items-center">
+            <nav aria-label="Common weight-loss struggles" className="flex w-full max-w-[20rem] flex-col gap-3 lg:max-w-[22rem]">
+              {pains.map((pain, i) => (
+                <RailItem key={pain.label} pain={pain} stagger={railStagger[i]} />
+              ))}
+            </nav>
           </div>
-          <ChevronDown className="mx-auto mt-2 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
+
+          <p className="mt-6 text-center text-sm font-medium text-white/55 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+            I know, because I lived through this cycle <span className="text-accent font-semibold">3 times</span>.
+          </p>
+          <ChevronDown className="mx-auto mt-3 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
         </div>
+
       </div>
 
       {/* ============ PHONE (<md) ============ */}
