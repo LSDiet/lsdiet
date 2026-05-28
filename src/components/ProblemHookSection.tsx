@@ -180,10 +180,10 @@ export function ProblemHookSection() {
           <div className="mt-8 flex flex-1 items-center justify-end">
             <nav
               aria-label="Common weight-loss struggles"
-              className="ml-auto flex w-full max-w-[23rem] flex-col items-end gap-2 lg:max-w-[25rem]"
+              className="ml-auto flex w-full max-w-[23rem] flex-col items-end gap-1.5 lg:max-w-[25rem]"
             >
               {pains.map((pain, i) => (
-                <RailItem key={pain.label} pain={pain} widthClass={railWidths[i]} />
+                <RailItem key={pain.label} pain={pain} widthClass={railWidths[i]} offsetClass={railOffsets[i]} />
               ))}
             </nav>
           </div>
