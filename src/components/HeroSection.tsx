@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { trackEvent } from "@/lib/analytics";
+
 import { ResponsivePicture, type PictureSrc } from "@/components/ui/ResponsivePicture";
 import img2019a from "@/assets/hero/2019a.png?w=400;800;1200&format=avif;webp&as=picture";
 import img2019b from "@/assets/hero/2019b.png?w=400;800;1200&format=avif;webp&as=picture";
@@ -55,7 +55,7 @@ function TransformationCard({
   mounted?: boolean;
 }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm">
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.12)]">
       <div className="grid aspect-[4/3] grid-cols-2">
         <div className="relative overflow-hidden bg-white/[0.03]">
           {mounted && (
@@ -89,10 +89,11 @@ function TransformationCard({
         </div>
       </div>
       <div className="flex items-center justify-center gap-4 py-3">
-        <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Before</span>
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">Before</span>
         <span className="text-xl font-extrabold text-accent">{pair.year}</span>
-        <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">After</span>
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">After</span>
       </div>
+
     </div>
   );
 }
@@ -145,7 +146,8 @@ function MobileHeroCarousel() {
 
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
+      <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+
         ← Swipe left or right →
       </p>
       <div className="overflow-hidden" ref={emblaRef} aria-label="Transformation years carousel">
@@ -173,7 +175,7 @@ function MobileHeroCarousel() {
             aria-label={`Show ${pair.year} transformation`}
             onClick={() => scrollTo(idx)}
             className={`h-1.5 rounded-full transition-all ${
-              selected === idx ? "w-8 bg-accent" : "w-2 bg-white/30"
+              selected === idx ? "w-8 bg-accent" : "w-2 bg-muted-foreground/40"
             }`}
           />
         ))}
@@ -184,8 +186,9 @@ function MobileHeroCarousel() {
 
 export function HeroSection() {
   return (
-    <section className="relative w-full bg-[#0a0a0a] pt-14 text-white">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-6 md:gap-8 md:px-8 md:py-10">
+    <section className="relative w-full bg-background pt-4 md:pt-14 text-foreground">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-4 md:gap-8 md:px-8 md:py-10">
+
         {/* Heading — shown at top on desktop only */}
         <div className="hidden text-center md:block">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
@@ -218,7 +221,7 @@ export function HeroSection() {
           <MobileHeroCarousel />
         </div>
 
-        <p className="text-center text-sm font-medium text-white/85 sm:text-base">
+        <p className="text-center text-sm font-medium text-foreground sm:text-base">
           I learned and now I help people{" "}
           <span className="text-accent font-bold">stop regaining weight</span>.
         </p>
@@ -236,20 +239,8 @@ export function HeroSection() {
             system
           </h2>
         </div>
-
-
-        <div className="flex justify-center pt-2">
-          <a
-            href="https://www.skool.com/lsdiet/about"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackEvent("cta_click", { location: "hero", destination: "skool" })}
-            className="inline-flex items-center justify-center rounded-md bg-accent px-8 py-3 text-sm font-bold uppercase tracking-wide text-accent-foreground shadow-lg shadow-accent/20 transition-transform hover:scale-[1.02] md:text-base"
-          >
-            Join LS Diet
-          </a>
-        </div>
       </div>
+
     </section>
   );
 }

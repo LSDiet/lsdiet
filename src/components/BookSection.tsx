@@ -36,7 +36,7 @@ export function BookSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="book" className="section-dark py-14 md:py-20">
+    <section id="book" className="bg-background py-14 md:py-20">
       <div className="container max-w-5xl mx-auto">
         <div
           ref={ref}
@@ -52,7 +52,7 @@ export function BookSection() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
               The <span className="text-accent animate-pulse-glow inline-block">Free</span> LS Diet Course
             </h2>
-            <p className="max-w-2xl mx-auto text-[hsl(0_0%_80%)] text-base md:text-lg leading-relaxed">
+            <p className="max-w-2xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed">
               Build your push and pull motivations, replace old habits with daily actions, and see results in two weeks!
             </p>
           </div>
@@ -62,7 +62,7 @@ export function BookSection() {
             href={SKOOL_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="block relative rounded-2xl overflow-hidden border border-[hsl(0_0%_18%)] shadow-2xl hover:border-accent/50 transition-colors mb-8 group"
+            className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors mb-8 group"
           >
             <div className="absolute -inset-4 bg-accent/10 blur-2xl -z-10" />
             <img
@@ -80,7 +80,7 @@ export function BookSection() {
               return (
                 <div
                   key={t.title}
-                  className="bg-[hsl(0_0%_10%)] border border-[hsl(0_0%_18%)] rounded-xl p-5"
+                  className="bg-card border border-border rounded-xl p-5"
                 >
                   <div className="flex items-center gap-2.5 mb-2">
                     <div className="w-8 h-8 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0">
@@ -90,7 +90,7 @@ export function BookSection() {
                       {t.title}
                     </h3>
                   </div>
-                  <p className="text-[hsl(0_0%_75%)] text-sm leading-relaxed">{t.desc}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{t.desc}</p>
                 </div>
               );
             })}
@@ -110,7 +110,7 @@ export function BookSection() {
               href={SKOOL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block relative rounded-2xl overflow-hidden border border-[hsl(0_0%_18%)] shadow-2xl hover:border-accent/50 transition-colors group"
+              className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors group"
             >
               <img
                 src={skoolActionPractice}
@@ -128,7 +128,7 @@ export function BookSection() {
                 <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check className="w-3 h-3 text-accent" />
                 </div>
-                <span className="text-[hsl(0_0%_85%)] text-sm md:text-base">{feature}</span>
+                <span className="text-muted-foreground text-sm md:text-base">{feature}</span>
               </li>
             ))}
           </ul>

@@ -1,4 +1,4 @@
-import { Beef, Brain, Target, TrendingUp } from "lucide-react";
+import { Beef, Brain, TrendingUp } from "lucide-react";
 
 const stats = [
   {
@@ -64,39 +64,10 @@ export function WhatIsLSDietSection() {
         </div>
 
         {/* Bridge to the solution */}
-        <p className="mt-10 md:mt-12 text-center text-lg md:text-xl font-bold text-foreground max-w-2xl mx-auto">
-          To stop this for good, you need two things working together:
+        <p className="mt-10 md:mt-12 mb-6 md:mb-8 text-center text-lg md:text-xl font-bold text-foreground max-w-2xl mx-auto">
+          To prevent regaining weight, you need:
         </p>
 
-        {/* The outcome */}
-        <div className="relative w-full max-w-2xl mx-auto mt-6">
-          <div className="absolute -inset-4 bg-accent/20 blur-2xl rounded-full -z-10" aria-hidden="true" />
-          <div className="flex items-center justify-center gap-4 md:gap-6 rounded-full border-2 border-accent bg-accent/15 px-5 py-4 md:px-8 md:py-6 animate-pulse-glow">
-            <Target className="flex-shrink-0 w-8 h-8 md:w-12 md:h-12 text-accent" aria-hidden="true" />
-            <span className="block h-10 md:h-14 w-px bg-accent/40" aria-hidden="true" />
-            <span className="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-accent leading-none">
-              Stop Weight Regain
-            </span>
-          </div>
-        </div>
-
-        {/* Connector: simple line on mobile, branching tree on desktop */}
-        <div className="relative mx-auto w-full max-w-3xl h-8 md:h-14" aria-hidden="true">
-          <div className="md:hidden absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-accent/50" />
-          <svg
-            viewBox="0 0 300 56"
-            preserveAspectRatio="none"
-            className="hidden md:block absolute inset-0 w-full h-full"
-          >
-            <path
-              d="M150 0 L150 22 L40 22 L40 56 M150 22 L260 22 L260 56"
-              fill="none"
-              stroke="hsl(var(--accent))"
-              strokeWidth="2"
-              strokeOpacity="0.6"
-            />
-          </svg>
-        </div>
 
         {/* Two pillars: A) WPT training  B) LS lifestyle */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -112,7 +83,7 @@ export function WhatIsLSDietSection() {
                 <Brain className="w-6 h-6 md:w-7 md:h-7 text-primary" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-1">A) Training</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-1">Training</p>
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
                   Weight Permanence Triangle™
                 </h3>
@@ -138,7 +109,7 @@ export function WhatIsLSDietSection() {
                 <Beef className="w-6 h-6 md:w-7 md:h-7 text-accent" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-1">B) Sustainable Lifestyle</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-1">Sustainable Lifestyle</p>
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-accent transition-colors">
                   Low-Starch, Low-Sugar
                 </h3>

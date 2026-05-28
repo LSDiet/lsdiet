@@ -6,7 +6,7 @@ export const AboutAuthorSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
 
   return (
-    <section ref={ref} className="section-dark py-14 md:py-20">
+    <section ref={ref} className="bg-background py-14 md:py-20">
       <div className="container max-w-3xl mx-auto px-4">
         <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
           <div className="text-center mb-10">
@@ -31,13 +31,13 @@ export const AboutAuthorSection = () => {
 
             {/* Text content */}
             <div className="flex-1 space-y-4 text-center md:text-left">
-              <p className="text-[hsl(0_0%_85%)] leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Oscar Poon is the founder and creator of <strong className="text-foreground">LS Diet</strong>. He
                 has lost 80+ lbs three separate times — and each restart taught him that conventional diet advice
                 was missing a behavioural-permanence layer. That insight became the Weight Permanence Triangle™ and
                 the low-starch, low-sugar lifestyle system that LS Diet teaches today.
               </p>
-              <p className="text-[hsl(0_0%_75%)] leading-relaxed text-sm">
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 Oscar holds a degree in psychology, spent over a year supporting clients at a substance-abuse centre
                 in Vancouver, and worked a decade as a surgical market-data consultant. That mix of behavioural
                 psychology and pattern analysis shapes how LS Diet approaches weight regain — not as a food problem,
@@ -48,7 +48,7 @@ export const AboutAuthorSection = () => {
                 "Lose the extra weight so you can avoid a future where your choices shrink."
               </blockquote>
 
-              <p className="text-xs text-[hsl(0_0%_55%)] leading-relaxed">
+              <p className="text-xs text-muted-foreground/70 leading-relaxed">
                 He shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
                 <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
                   YouTube (@JoinLSDiet)
