@@ -146,7 +146,8 @@ function MobileHeroCarousel() {
 
   return (
     <div className="flex flex-col gap-3">
-      <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">
+      <p className="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+
         ← Swipe left or right →
       </p>
       <div className="overflow-hidden" ref={emblaRef} aria-label="Transformation years carousel">
