@@ -151,7 +151,7 @@ export function ProblemHookSection() {
         {/* Video is intentionally NOT full-bleed: it anchors centre-left and
             fades into a darker right panel so the pain cluster commands the
             right side. Reduced width + brightness + dominance. */}
-        <div className="absolute inset-y-0 left-0 right-0 lg:right-[30%]">
+        <div className="absolute inset-y-0 left-0 right-0 lg:right-[38%]">
           <BackgroundVideo clips={desktopClips} poster={posterUrl} alt={POSTER_ALT} />
           {/* Dial brightness/dominance down */}
           <div className="absolute inset-0 bg-black/40" />
@@ -170,7 +170,7 @@ export function ProblemHookSection() {
           <div className="mt-8 flex flex-1 items-center justify-end">
             <nav
               aria-label="Common weight-loss struggles"
-              className="ml-auto flex w-full max-w-[23rem] flex-col items-end gap-1.5 lg:max-w-[25rem]"
+              className="ml-auto flex w-full max-w-[30rem] flex-col items-end gap-2 lg:max-w-[34rem]"
             >
               {pains.map((pain, i) => (
                 <RailItem key={pain.label} pain={pain} widthClass={railWidths[i]} offsetClass={railOffsets[i]} />
