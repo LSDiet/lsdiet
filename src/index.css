@@ -101,6 +101,14 @@ All colors MUST be HSL.
   }
 }
 
+/* Subtle dark stroke on accent (orange/yellow) text for readability on white */
+@layer base {
+  .text-accent {
+    -webkit-text-stroke: 0.4px hsl(0 0% 0% / 0.45);
+    paint-order: stroke fill;
+  }
+}
+
 /* Section dark utility — use on sections that need a dark background */
 @layer components {
   .section-dark {
