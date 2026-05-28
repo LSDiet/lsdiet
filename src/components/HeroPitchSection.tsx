@@ -65,12 +65,12 @@ export function HeroPitchSection() {
             {" "}together!
           </p>
 
-          <p className="mt-6 text-sm text-white/80 md:text-base">Join the free LS Diet class to learn:</p>
+          <p className="mt-6 text-sm text-foreground md:text-base">Join the free LS Diet class to learn:</p>
           <ul className="mt-3 space-y-2.5">
             {bullets.map((b, i) => (
               <li key={i} className="flex items-start gap-3">
                 <Check className="mt-1 h-4 w-4 flex-shrink-0 text-accent" />
-                <span className="text-sm text-white/85 md:text-base">
+                <span className="text-sm text-foreground/90 md:text-base">
                   {b.text}
                   <span className={`font-semibold text-accent ${b.animateStrong ? "animate-two-weeks" : ""}`}>{b.strong}</span>
                 </span>
@@ -78,7 +78,8 @@ export function HeroPitchSection() {
             ))}
           </ul>
 
-          <div className="mt-8">
+          <div className="mt-8 flex justify-center md:justify-start">
+
             <Button variant="accent" size="lg" className="px-8" asChild>
               <a
                 href="https://www.skool.com/lsdiet/about"
