@@ -151,7 +151,7 @@ export function ProblemHookSection() {
         {/* Video is intentionally NOT full-bleed: it anchors centre-left and
             fades into a darker right panel so the pain cluster commands the
             right side. Reduced width + brightness + dominance. */}
-        <div className="absolute inset-y-0 left-0 right-0 lg:right-[30%]">
+        <div className="absolute inset-y-0 left-0 right-0 lg:right-[38%]">
           <BackgroundVideo clips={desktopClips} poster={posterUrl} alt={POSTER_ALT} />
           {/* Dial brightness/dominance down */}
           <div className="absolute inset-0 bg-black/40" />
