@@ -18,8 +18,23 @@
  *   - Animation limited to the chevron bounce
  */
 import { ChevronDown, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
-import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
-import bg from "@/assets/problem-hook-bg.jpg?w=400;800;1200;1600&format=avif;webp&as=picture";
+import { BackgroundVideo, type VideoClip } from "@/components/ui/BackgroundVideo";
+import posterUrl from "@/assets/problem-hook-bg.jpg";
+
+/**
+ * Background video clips. Empty until copyright-free footage is uploaded and
+ * encoded — until then BackgroundVideo gracefully shows the poster image.
+ *
+ * When clips are ready, drop the encoded files in src/assets and reference:
+ *   import clip1Webm from "@/assets/hook-clip-1.webm";
+ *   import clip1Mp4  from "@/assets/hook-clip-1.mp4";
+ *   then add { webm: clip1Webm, mp4: clip1Mp4 } to the array below.
+ */
+const desktopClips: VideoClip[] = [];
+const mobileClips: VideoClip[] = [];
+
+const POSTER_ALT =
+  "A frustrated, mentally tired woman sitting at a table, struggling with repeated weight-loss attempts";
 
 type Pain = {
   label: string;
