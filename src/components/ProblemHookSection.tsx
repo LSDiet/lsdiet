@@ -153,19 +153,18 @@ export function ProblemHookSection() {
 
         <div className="relative z-10 flex min-h-[100svh] flex-col px-4 pt-20 pb-6">
           <Headline />
-          {/* Cards overlay the lower portion of the image, tightly grouped 2-2-1 */}
-          <div className="mt-auto grid grid-cols-2 gap-2.5">
-            {pains.slice(0, 4).map((pain) => (
+          {/* Boxes stacked vertically right below the headline, overlaying the video */}
+          <div className="mt-5 flex flex-col gap-2.5">
+            {pains.map((pain) => (
               <NeonChip key={pain.label} pain={pain} />
             ))}
-            <div className="col-span-2 flex justify-center">
-              <div className="w-2/3">
-                <NeonChip pain={pains[4]} />
-              </div>
-            </div>
           </div>
-          <ChevronDown className="mx-auto mt-4 h-6 w-6 animate-bounce text-accent/80" aria-hidden="true" />
+          <p className="mt-4 text-center text-base font-semibold italic leading-snug text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            I&rsquo;ve been through this cycle three times.
+          </p>
+          <ChevronDown className="mx-auto mt-auto h-6 w-6 animate-bounce text-accent/80" aria-hidden="true" />
         </div>
+
       </div>
     </section>
   );
