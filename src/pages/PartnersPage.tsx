@@ -378,14 +378,14 @@ export default function PartnersPage() {
           <div className="grid md:grid-cols-3 gap-4 md:gap-5">
             {[
               {
-                stat: "40%+",
-                text: "of US adults have obesity",
+                stat: "42.4%",
+                text: "of US adults are obese (BMI 30+)",
                 source: "CDC",
                 href: "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
               },
               {
-                stat: "65%",
-                text: "of Canadian adults are overweight or living with obesity",
+                stat: "29.5%",
+                text: "of Canadian adults are obese (BMI 30+)",
                 source: "Government of Canada",
                 href: "https://www.canada.ca/en/public-health/services/publications/healthy-living/obesity-statistics-canada.html?utm",
               },
