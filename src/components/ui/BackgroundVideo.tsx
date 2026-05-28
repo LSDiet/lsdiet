@@ -68,6 +68,11 @@ export function BackgroundVideo({
     if (clips.length === 1 && refA.current) refA.current.loop = true;
   }, [enabled, clips.length]);
 
+  // Once the first frame of video is on screen, retire the poster so it never
+  // peeks through during crossfades.
+  const [started, setStarted] = useState(false);
+
+
   function advance(finished: "A" | "B") {
     if (clips.length < 2) return;
     const incoming = finished === "A" ? "B" : "A";
@@ -109,6 +114,7 @@ export function BackgroundVideo({
         playsInline
         preload={preload}
         aria-hidden="true"
+        onPlaying={() => setStarted(true)}
         onEnded={() => advance(which)}
         onError={() => setFailed(true)}
         // key forces a reload when the clip assigned to this layer changes
@@ -126,7 +132,7 @@ export function BackgroundVideo({
   };
 
   return (
-    <div className={`absolute inset-0 overflow-hidden ${className}`}>
+    <div className={`absolute inset-0 overflow-hidden bg-black ${className}`}>
       <img
         src={poster}
         alt={alt}
@@ -134,7 +140,8 @@ export function BackgroundVideo({
         decoding="async"
         // @ts-expect-error fetchpriority is a valid HTML attribute
         fetchpriority="high"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700"
+        style={{ opacity: started && !failed ? 0 : 1 }}
       />
       {hasClips && (
         <>
