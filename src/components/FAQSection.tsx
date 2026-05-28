@@ -1,4 +1,10 @@
 import { Helmet } from "react-helmet-async";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 type FaqEntry = {
   q: string;
@@ -98,14 +104,20 @@ export function FAQSection() {
             </h2>
           </div>
 
-          <div className="space-y-7">
-            {faqs.map((f) => (
-              <article key={f.q}>
-                <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">{f.q}</h3>
-                {f.render()}
-              </article>
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((f, i) => (
+              <AccordionItem
+                key={f.q}
+                value={`faq-${i}`}
+                className="border border-border rounded-xl px-4 bg-card"
+              >
+                <AccordionTrigger className="text-left text-lg md:text-xl font-bold text-foreground hover:no-underline">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent>{f.render()}</AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
 
           <p className="text-center mt-10 text-sm">
             <a href="/faq" className="text-accent hover:underline font-medium">

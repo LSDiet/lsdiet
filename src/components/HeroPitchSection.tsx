@@ -65,7 +65,7 @@ export function HeroPitchSection() {
             {" "}together!
           </p>
 
-          <p className="mt-6 text-sm text-foreground md:text-base">Join the free LS Diet class to learn:</p>
+          <p className="mt-6 text-sm text-foreground md:text-base">The LS Diet class teaches you:</p>
           <ul className="mt-3 space-y-2.5">
             {bullets.map((b, i) => (
               <li key={i} className="flex items-start gap-3">

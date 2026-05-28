@@ -9,14 +9,13 @@ const features = [
   "3 tracks: Start Here, Action Practice, and Tools",
   "Weekly live webinar hosted by Oscar",
   "A community of members training the same habits",
-  "100% free to join",
 ];
 
 const tracks = [
   {
     icon: Compass,
     title: "Start Here",
-    desc: "Why weight regain happens and how LS Diet helps you stop regaining weight.",
+    desc: "No theory. This psychology module trains you to understand your emotions, improve your awareness, and strengthen your sense of identity.",
   },
   {
     icon: Dumbbell,
@@ -26,7 +25,7 @@ const tracks = [
   {
     icon: BookOpen,
     title: "Tools",
-    desc: "eBooks and blogs published by Oscar to deepen the framework.",
+    desc: "eBooks, blogs and other resources published by Oscar to prevent weight regain.",
   },
 ];
 
@@ -50,7 +49,7 @@ export function BookSection() {
               Now Live on Skool
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
-              The <span className="text-accent animate-pulse-glow inline-block">Free</span> LS Diet Course
+              The LS Diet Course
             </h2>
             <p className="max-w-2xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed">
               Build your push and pull motivations, replace old habits with daily actions, and see results in two weeks!
@@ -103,7 +102,7 @@ export function BookSection() {
                 Inside Action Practice
               </p>
               <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                25+ practice lessons you can start today for free
+                25+ practice lessons you can start today
               </h3>
             </div>
             <a

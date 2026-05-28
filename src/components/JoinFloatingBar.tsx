@@ -34,7 +34,7 @@ export function JoinFloatingBar() {
             Stop regaining weight.
           </p>
           <p className="truncate text-[11px] text-white/60 sm:text-xs">
-            Join the LS Diet community on Skool — free to join.
+            Join the LS Diet community on Skool.
           </p>
         </div>
         <a

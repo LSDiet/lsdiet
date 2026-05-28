@@ -222,8 +222,7 @@ export function HeroSection() {
         </div>
 
         <p className="text-center text-sm font-medium text-foreground sm:text-base">
-          I learned and now I help people{" "}
-          <span className="text-accent font-bold">stop regaining weight</span>.
+          I turned this into <span className="text-accent font-bold">LS Diet</span>.
         </p>
 
 
