@@ -82,13 +82,13 @@ function glow(hsl: string) {
  * DESKTOP rail item — subdued by default, only strongly activates on hover.
  * Premium / restrained: translucent dark bg, subtle border, muted glow.
  */
-function RailItem({ pain, stagger }: { pain: Pain; stagger: string }) {
+function RailItem({ pain, widthClass }: { pain: Pain; widthClass: string }) {
   const { Icon } = pain;
   const hoverShadow = `0 0 0 1px hsl(${pain.hsl} / 0.75), 0 0 20px -2px hsl(${pain.hsl} / 0.55), 0 10px 30px -10px hsl(${pain.hsl} / 0.4)`;
   return (
     <a
       href={pain.href}
-      className={`group relative flex w-full items-center gap-3 rounded-xl border border-white/10 bg-black/45 px-4 py-3.5 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-black/65 ${stagger}`}
+      className={`group relative flex w-full items-center gap-3 rounded-xl border border-white/10 bg-black/55 px-4 py-3 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-black/70 ${widthClass}`}
       style={{ boxShadow: "0 0 0 1px hsl(0 0% 100% / 0.04), 0 8px 24px -16px rgba(0,0,0,0.8)" }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow = hoverShadow;
