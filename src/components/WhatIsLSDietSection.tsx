@@ -109,7 +109,7 @@ export function WhatIsLSDietSection() {
                 <Beef className="w-6 h-6 md:w-7 md:h-7 text-accent" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-1">B) Sustainable Lifestyle</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-1">Sustainable Lifestyle</p>
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-accent transition-colors">
                   Low-Starch, Low-Sugar
                 </h3>
