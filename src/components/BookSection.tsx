@@ -5,10 +5,10 @@ import skoolTracks from "@/assets/skool-course-tracks.png";
 import skoolActionPractice from "@/assets/skool-action-practice.png";
 
 const features = [
-  "All lessons are short videos, no reading required",
+  "Video-based lessons - listen to them on the go",
   "3 tracks: Start Here, Action Practice, and Tools",
   "Weekly live webinar hosted by Oscar",
-  "A community of members training the same habits",
+  "Support from a community of like-minded future-oriented people",
 ];
 
 const tracks = [
@@ -20,7 +20,7 @@ const tracks = [
   {
     icon: Dumbbell,
     title: "Action Practice",
-    desc: "Train the daily actions and mental patterns that make LS Diet automatic.",
+    desc: "From removing environmental triggers to switching from emotional to functional eating, any actionable practice will be updated in here.",
   },
   {
     icon: BookOpen,
@@ -52,7 +52,7 @@ export function BookSection() {
               The LS Diet Course
             </h2>
             <p className="max-w-2xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed">
-              Build your push and pull motivations, replace old habits with daily actions, and see results in two weeks!
+              Build your motivation on demand, replace old habits with daily actions, and see results in two weeks!
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export function BookSection() {
           <div className="text-center">
             <Button variant="accent" size="lg" className="px-8" asChild>
               <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer">
-                Join LS Diet
+                Join LS Diet Community
               </a>
             </Button>
           </div>
