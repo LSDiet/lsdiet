@@ -48,7 +48,7 @@ export const AboutAuthorSection = () => {
                 "Lose the extra weight so you can avoid a future where your choices shrink."
               </blockquote>
 
-              <p className="text-xs text-[hsl(0_0%_55%)] leading-relaxed">
+              <p className="text-xs text-muted-foreground/70 leading-relaxed">
                 He shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
                 <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
                   YouTube (@JoinLSDiet)
