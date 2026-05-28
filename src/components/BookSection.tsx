@@ -80,7 +80,7 @@ export function BookSection() {
               return (
                 <div
                   key={t.title}
-                  className="bg-[hsl(0_0%_10%)] border border-[hsl(0_0%_18%)] rounded-xl p-5"
+                  className="bg-card border border-border rounded-xl p-5"
                 >
                   <div className="flex items-center gap-2.5 mb-2">
                     <div className="w-8 h-8 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0">
