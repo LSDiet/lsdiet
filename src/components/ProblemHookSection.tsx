@@ -66,11 +66,21 @@ const pains: Pain[] = [
  *  psychological stack, not 5 identical menu buttons (desktop, right-aligned). */
 const railWidths = [
   "md:w-full",
-  "md:w-[91%]",
-  "md:w-[97%]",
-  "md:w-[86%]",
-  "md:w-[94%]",
+  "md:w-[90%]",
+  "md:w-[98%]",
+  "md:w-[85%]",
+  "md:w-[95%]",
 ];
+
+/** Tiny vertical nudges so the stack feels hand-placed, not generated. */
+const railOffsets = [
+  "md:translate-x-0",
+  "md:-translate-x-[3px]",
+  "md:translate-x-[2px]",
+  "md:-translate-x-[2px]",
+  "md:translate-x-[1px]",
+];
+
 
 
 /** Layered, performance-safe neon glow (box-shadow only). */
@@ -82,13 +92,13 @@ function glow(hsl: string) {
  * DESKTOP rail item — subdued by default, only strongly activates on hover.
  * Premium / restrained: translucent dark bg, subtle border, muted glow.
  */
-function RailItem({ pain, widthClass }: { pain: Pain; widthClass: string }) {
+function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: string; offsetClass: string }) {
   const { Icon } = pain;
   const hoverShadow = `0 0 0 1px hsl(${pain.hsl} / 0.75), 0 0 20px -2px hsl(${pain.hsl} / 0.55), 0 10px 30px -10px hsl(${pain.hsl} / 0.4)`;
   return (
     <a
       href={pain.href}
-      className={`group relative flex w-full items-center gap-3 rounded-xl border border-white/10 bg-black/55 px-4 py-3 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-black/70 ${widthClass}`}
+      className={`group relative flex w-full items-center gap-3.5 rounded-xl border border-white/10 bg-black/55 px-5 py-4 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-black/70 ${widthClass} ${offsetClass}`}
       style={{ boxShadow: "0 0 0 1px hsl(0 0% 100% / 0.04), 0 8px 24px -16px rgba(0,0,0,0.8)" }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow = hoverShadow;
@@ -98,13 +108,13 @@ function RailItem({ pain, widthClass }: { pain: Pain; widthClass: string }) {
       }}
     >
       <span
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] transition-colors duration-300 group-hover:bg-white/[0.08]"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] transition-colors duration-300 group-hover:bg-white/[0.08]"
         style={{ color: `hsl(${pain.hsl})` }}
       >
-        <Icon className="h-5 w-5 opacity-70 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
+        <Icon className="h-[1.4rem] w-[1.4rem] opacity-75 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
       </span>
       <span className="flex min-w-0 flex-col">
-        <span className="text-[0.95rem] font-semibold leading-snug text-white/85 transition-colors duration-300 group-hover:text-white">
+        <span className="text-[1.02rem] font-bold leading-snug text-white/90 transition-colors duration-300 group-hover:text-white">
           {pain.label}
         </span>
         <span
@@ -117,6 +127,7 @@ function RailItem({ pain, widthClass }: { pain: Pain; widthClass: string }) {
     </a>
   );
 }
+
 
 function NeonChip({ pain }: { pain: Pain }) {
   const { Icon } = pain;
@@ -169,10 +180,10 @@ export function ProblemHookSection() {
           <div className="mt-8 flex flex-1 items-center justify-end">
             <nav
               aria-label="Common weight-loss struggles"
-              className="ml-auto flex w-full max-w-[23rem] flex-col items-end gap-2 lg:max-w-[25rem]"
+              className="ml-auto flex w-full max-w-[23rem] flex-col items-end gap-1.5 lg:max-w-[25rem]"
             >
               {pains.map((pain, i) => (
-                <RailItem key={pain.label} pain={pain} widthClass={railWidths[i]} />
+                <RailItem key={pain.label} pain={pain} widthClass={railWidths[i]} offsetClass={railOffsets[i]} />
               ))}
             </nav>
           </div>
