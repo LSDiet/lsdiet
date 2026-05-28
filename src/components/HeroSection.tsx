@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { trackEvent } from "@/lib/analytics";
+
 import { ResponsivePicture, type PictureSrc } from "@/components/ui/ResponsivePicture";
 import img2019a from "@/assets/hero/2019a.png?w=400;800;1200&format=avif;webp&as=picture";
 import img2019b from "@/assets/hero/2019b.png?w=400;800;1200&format=avif;webp&as=picture";
