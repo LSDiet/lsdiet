@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { ProblemSection } from "@/components/ProblemSection";
 import { WhatIsLSDietSection } from "@/components/WhatIsLSDietSection";
 import { HeroPitchSection } from "@/components/HeroPitchSection";
 import { AwarenessStagesSection } from "@/components/AwarenessStagesSection";
