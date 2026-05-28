@@ -46,8 +46,8 @@ const Index = () => {
       <main>
         <HeroSection />
         <ProblemSection />
-        <WhatIsLSDietSection />
         <HeroPitchSection />
+        <WhatIsLSDietSection />
         <AwarenessStagesSection />
         
         <BookSection />
