@@ -83,7 +83,7 @@ export function WhatIsLSDietSection() {
                 <Brain className="w-6 h-6 md:w-7 md:h-7 text-primary" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-1">A) Training</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-1">Training</p>
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
                   Weight Permanence Triangle™
                 </h3>
