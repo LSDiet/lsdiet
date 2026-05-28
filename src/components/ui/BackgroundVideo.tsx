@@ -132,7 +132,7 @@ export function BackgroundVideo({
   };
 
   return (
-    <div className={`absolute inset-0 overflow-hidden ${className}`}>
+    <div className={`absolute inset-0 overflow-hidden bg-black ${className}`}>
       <img
         src={poster}
         alt={alt}
@@ -140,7 +140,8 @@ export function BackgroundVideo({
         decoding="async"
         // @ts-expect-error fetchpriority is a valid HTML attribute
         fetchpriority="high"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700"
+        style={{ opacity: started && !failed ? 0 : 1 }}
       />
       {hasClips && (
         <>
