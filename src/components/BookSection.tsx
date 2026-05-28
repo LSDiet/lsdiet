@@ -49,7 +49,7 @@ export function BookSection() {
               Now Live on Skool
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
-              The <span className="text-accent animate-pulse-glow inline-block">Free</span> LS Diet Course
+              The LS Diet Course
             </h2>
             <p className="max-w-2xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed">
               Build your push and pull motivations, replace old habits with daily actions, and see results in two weeks!
