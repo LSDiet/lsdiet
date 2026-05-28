@@ -92,36 +92,29 @@ function cardShadow() {
 /**
  * DESKTOP rail item — subdued by default, only strongly activates on hover.
  * Premium / restrained: translucent dark bg, subtle border, muted glow.
+/**
+ * DESKTOP rail item — dark glass, white text, subtle grey border.
+ * Only the icon retains its colour.
  */
 function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: string; offsetClass: string }) {
   const { Icon } = pain;
-  const hoverShadow = `0 0 0 1px hsl(${pain.hsl} / 0.75), 0 0 20px -2px hsl(${pain.hsl} / 0.55), 0 10px 30px -10px hsl(${pain.hsl} / 0.4)`;
   return (
     <a
       href={pain.href}
-      className={`group relative flex w-full items-center gap-3.5 rounded-xl border border-white/10 bg-black/55 px-5 py-4 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-black/70 ${widthClass} ${offsetClass}`}
-      style={{ boxShadow: "0 0 0 1px hsl(0 0% 100% / 0.04), 0 8px 24px -16px rgba(0,0,0,0.8)" }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = hoverShadow;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = "0 0 0 1px hsl(0 0% 100% / 0.04), 0 8px 24px -16px rgba(0,0,0,0.8)";
-      }}
+      className={`group relative flex w-full items-center gap-3.5 rounded-xl border border-white/15 bg-black/60 px-5 py-4 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/25 hover:bg-black/75 ${widthClass} ${offsetClass}`}
+      style={{ boxShadow: cardShadow() }}
     >
       <span
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/[0.04] transition-colors duration-300 group-hover:bg-white/[0.08]"
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/[0.05] transition-colors duration-300 group-hover:bg-white/[0.10]"
         style={{ color: `hsl(${pain.hsl})` }}
       >
-        <Icon className="h-[1.4rem] w-[1.4rem] opacity-75 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
+        <Icon className="h-[1.4rem] w-[1.4rem] opacity-90 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
       </span>
       <span className="flex min-w-0 flex-col">
-        <span className="text-[1.02rem] font-bold leading-snug text-white/90 transition-colors duration-300 group-hover:text-white">
+        <span className="text-[1.02rem] font-bold leading-snug text-white transition-colors duration-300">
           {pain.label}
         </span>
-        <span
-          className="mt-0.5 max-h-0 overflow-hidden text-xs font-medium tracking-wide opacity-0 transition-all duration-300 group-hover:max-h-6 group-hover:opacity-100"
-          style={{ color: `hsl(${pain.hsl})` }}
-        >
+        <span className="mt-0.5 max-h-0 overflow-hidden text-xs font-medium tracking-wide text-white/50 opacity-0 transition-all duration-300 group-hover:max-h-6 group-hover:opacity-100">
           Read article &rarr;
         </span>
       </span>
