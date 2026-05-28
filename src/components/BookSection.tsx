@@ -36,7 +36,7 @@ export function BookSection() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="book" className="section-dark py-14 md:py-20">
+    <section id="book" className="bg-background py-14 md:py-20">
       <div className="container max-w-5xl mx-auto">
         <div
           ref={ref}
