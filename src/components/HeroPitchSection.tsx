@@ -1,20 +1,30 @@
+import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
 import { trackEvent } from "@/lib/analytics";
 import heroPhoto from "@/assets/hero-photo.png?w=400;800;1200&format=avif;webp&as=picture";
 
-const bullets = [
-  { text: "How to ", strong: "stop regaining the same weight" },
-  { text: "How to build ", strong: "PUSH and PULL motivation" },
-  { text: "How to ", strong: "automate weight regain prevention" },
-  { text: "Adopt a ", strong: "Low-Starch, Low-Sugar lifestyle" },
-  { text: "Train your brain for ", strong: "weight permanence" },
-  { text: "See results in ", strong: "2 weeks", animateStrong: true },
+const benefits = [
+  "Lose weight",
+  "Prevent regaining weight",
+  "Build motivation on demand",
+  "Identify triggers",
+  "Practice daily actions",
+  "See results in 2 weeks",
 ];
 
+
 export function HeroPitchSection() {
-  return (
+export function HeroPitchSection() {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setIdx((i) => (i + 1) % benefits.length);
+    }, 2000);
+    return () => window.clearInterval(id);
+  }, []);
+
     <section className="bg-background text-foreground">
       <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
         <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[600px]">
