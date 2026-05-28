@@ -1,56 +1,63 @@
-# Problem Hook — Cinematic Composition Fix (v2)
+# Background Video Hero — Problem Hook Section
 
-This is a cinematic emotional composition problem, not a UI component problem. The live render proves the original critique: the woman isn't visible (framed hard-left with a black void on the right), the heavy overlay kills her, and the boxes float like SaaS filter chips. We fix composition, image, and hierarchy — no new functionality, no perf regressions.
+Swap the static `problem-hook-bg.jpg` for a cinematic, muted, looping, crossfading background video (Felix-style), while keeping the 5 pain-point labels as the hook and protecting page-load speed.
 
 ## What stays the same
-- The 5 pain points, their colors, icons, and blog-post links
-- Headline copy "How to **lose weight** when…"
-- Perf rules: responsive AVIF/WebP, one eager LCP image, lightweight `box-shadow` glow only, no parallax/video/blur/animation libraries (chevron bounce only)
-- Single `<h1>` on the headline (SEO)
+- The 5 pain-point labels, their colours, icons, links, and asymmetric desktop / 2-2-1 mobile layout
+- Headline "How to **lose weight** when…"
+- Single `<h1>`, dark scrim so labels/headline stay dominant
+- No sound, no parallax, no blur filters
 
-## Core principle
-**The 5 pain-point labels ARE the hook message.** No paragraphs to read — visitors self-identify instantly. The woman is the emotional anchor; the labels are pressure surrounding her.
+## What changes
+- The background image layer becomes a background **video** layer
+- 2–3 short clips **crossfade** in a loop
+- Mobile gets a **lighter, smaller** clip (your choice); desktop gets the fuller version
 
-## 1. New hero image — relatable frustration, NOT despair
-Generate a replacement (saved over `src/assets/problem-hook-bg.jpg`, keeping the existing `?w=…&format=avif;webp&as=picture` import + perf pipeline). Direction:
-- **Emotion: concerned, mentally fatigued, frustrated-with-repeated-failure.** A "I'm tired of struggling with this" energy — NOT defeat, crying, despair, rock-bottom, or severe-depression energy.
-- **A normal, modern, relatable person** — slightly overweight, everyday realism. **Not a fashion-campaign / luxury-skincare-ad model, and no glamorous cinematic beauty lighting.**
-- Sitting at a table; hand-on-forehead or thinking pose; subtle stress expression.
-- **Tighter, more centered crop** — face + upper torso dominant, brighter on face/shoulders, darkness preserved only at the edges (natural vignette), minimal dead space.
-- **Composition connects her to the pain points:** her posture, gaze direction, and body angle should subtly feel surrounded/overwhelmed by the labels around her, so the cards read as her thoughts rather than pasted-on chrome.
+## How it works (performance-first)
 
-A lighter, edge-weighted gradient overlay (vignette + bottom scrim) replaces today's heavy full-frame darkening so her expression is the first thing the eye lands on.
+1. **Poster image is the LCP.** The existing AVIF/WebP still renders instantly behind everything. Video sits on top and fades in only once it can play — so first paint is unchanged and there is no perceived slowdown.
 
-## 2. Bigger pain cards, dialed-back glow
-- Larger padding, larger icon, bumped/bolder font so cards compete with the headline.
-- Thicker border + layered `box-shadow` glow — but **~20% less intense than the mockup's upper limit.** Glow supports the scene; it must read as premium emotional realism, not gaming/crypto/cyberpunk UI. Still pure layered box-shadow (no blur filter).
-- Slightly stronger hover lift/glow.
+2. **Lazy, polite loading.** Videos use `preload="none"`/`metadata`, `muted`, `loop`, `playsInline`, `autoPlay`. We only kick off playback after first paint so video bytes never block the headline/labels.
 
-## 3. Cinematic asymmetric composition (desktop)
-Replace evenly-spread positions with deliberate, slightly-uneven inward pressure around the woman:
+3. **Two formats per clip.** `.webm` (VP9/AV1, smallest) + `.mp4` (H.264 fallback) so each browser downloads the smallest file it supports.
+
+4. **Crossfade engine.** A small React component cycles the clips: two stacked `<video>` elements, one fading out while the next fades in, advancing on each clip's `ended` (or a timer). Pure CSS opacity transition — no library.
+
+5. **Mobile = lighter clip.** Phones load a smaller, shorter, lower-bitrate version (or a single clip instead of 2–3) to save data and battery.
+
+6. **Reduced-motion + slow-network safety.** If the user has `prefers-reduced-motion`, or a clip fails to load, we fall back to the static poster image automatically.
+
+## Encoding targets (for the clips you upload)
+When you upload the raw stock clips, I'll re-encode them to these targets so they stay light:
 
 ```text
-[ top-left ]                         [ top-right ]
-                  (WOMAN)
-[ lower-left ]                       [ mid-right ]
-              [ bottom-centre ]  <- overlaps table edge
+Desktop clips
+  - Resolution : 1920x1080 (or 1280x720)
+  - Length     : 6-12s seamless loop each
+  - Frame rate : 24 fps
+  - Target size: ~1.5-2.5 MB per clip (.webm) + .mp4 fallback
+  - No audio track (stripped)
+
+Mobile clips
+  - Resolution : 720x1280 portrait crop (or 854x480)
+  - Length     : 6-10s
+  - Target size: ~0.6-1.2 MB per clip
+  - No audio track
 ```
+Total target weight: roughly 4–7 MB desktop, 2–3 MB mobile — only loaded *after* the page is interactive.
 
-Cards pulled closer to center, spacing intentionally not mathematically even.
+### Footage shopping notes (so the clips work well)
+- Mood: relatable frustration / stress-eating / tired-of-trying — not despair, not glossy ad models (matches our earlier image direction)
+- Slow, ambient motion (someone at a table, picking at food, hand-on-forehead) loops better than fast camera moves
+- Darker / moodier footage hides the loop seam and keeps text readable
+- Landscape clips for desktop, a portrait or center-safe crop for mobile
 
-## 4. Mobile — image dominates, cards overlay
-Replace the small-thumbnail + button-grid layout:
-- Headline at top
-- **Large, near-full-width image** as the emotional anchor (tall crop, far bigger than today's 24svh strip)
-- Pain cards **overlaying the lower portion of the image** (scrim behind for legibility) in a tight, slightly-crowded 2-2-1 grouping — bigger than now, readable, not full-width stacked cards
-- Subtle chevron at the very bottom to invite scroll
+## Technical scope
+- New component `BackgroundVideo.tsx` (crossfade cycler, poster, reduced-motion + fallback handling)
+- Edit `ProblemHookSection.tsx` to use it in place of the desktop and mobile `ResponsivePicture` background (labels/headline/scrim untouched)
+- Video files committed under `src/assets/` (or `public/`), encoded to the targets above
+- Keep `problem-hook-bg.jpg` as the poster/fallback
+- QA both viewports (desktop + ~595px mobile): confirm video autoplays muted, crossfade is smooth, labels stay legible, poster shows first, and nothing overflows one screen
 
-Everything fits within ~100svh so the full "that's me" message lands with no scrolling on phone and desktop.
-
-## 5. Hierarchy
-Headline → her expression → pain cards → (small low chevron). Scroll cue stays subtle.
-
-## Technical notes
-- Only `src/components/ProblemHookSection.tsx` is edited, plus regenerating `src/assets/problem-hook-bg.jpg`.
-- Glow = layered inline `box-shadow` (as today), tuned down ~20%; no Tailwind config change.
-- After building, QA both viewports (desktop + 595px mobile) via screenshot to confirm the photo reads, glow is balanced, and nothing overflows one screen.
+## Next step
+Upload the copyright-free clips (raw is fine — I'll compress them). Tell me which are intended for desktop vs mobile, or just send them and I'll crop/encode both versions.
