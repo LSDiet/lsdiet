@@ -103,7 +103,7 @@ export default function GLP1GuidePage() {
         <title>Does GLP-1 Work for Weight Loss? | Free Guide</title>
         <meta
           name="description"
-          content="Learn why GLP-1 medications like Ozempic and Wegovy work for weight loss, why weight often returns after stopping, and what determines long-term results. Free downloadable guide."
+          content="Why GLP-1 drugs like Ozempic and Wegovy work for weight loss, why weight returns after stopping, and what drives long-term results. Free guide."
         />
         <link rel="canonical" href="https://lsdiet.com/does-glp-1-work" />
         <meta name="author" content="Oscar Poon" />
