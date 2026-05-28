@@ -101,18 +101,6 @@ All colors MUST be HSL.
   }
 }
 
-/* Subtle dark outline around accent (orange/yellow) text for readability on white.
-   Uses text-shadow so the yellow fill stays fully intact. */
-@layer base {
-  .text-accent {
-    text-shadow:
-      0 0 1px hsl(0 0% 0% / 0.55),
-      0.5px 0.5px 0 hsl(0 0% 0% / 0.45),
-      -0.5px -0.5px 0 hsl(0 0% 0% / 0.45),
-      0.5px -0.5px 0 hsl(0 0% 0% / 0.45),
-      -0.5px 0.5px 0 hsl(0 0% 0% / 0.45);
-  }
-}
 
 /* Section dark utility — use on sections that need a dark background */
 @layer components {
