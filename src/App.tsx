@@ -48,12 +48,17 @@ const queryClient = new QueryClient({
 // Minimal fallback — invisible to avoid layout flash on route swap.
 const RouteFallback = () => <div className="min-h-screen bg-background" aria-hidden="true" />;
 
+function RouterEffects() {
+  useAnalyticsPageviews();
+  return null;
+}
+
 function AppContent() {
   useCartSync();
-  useAnalyticsPageviews();
-  
+
   return (
     <BrowserRouter>
+      <RouterEffects />
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -84,6 +89,7 @@ function AppContent() {
     </BrowserRouter>
   );
 }
+
 
 const App = () => (
   <HelmetProvider>
