@@ -114,6 +114,7 @@ export function BackgroundVideo({
         playsInline
         preload={preload}
         aria-hidden="true"
+        onPlaying={() => setStarted(true)}
         onEnded={() => advance(which)}
         onError={() => setFailed(true)}
         // key forces a reload when the clip assigned to this layer changes
