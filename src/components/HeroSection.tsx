@@ -188,22 +188,7 @@ export function HeroSection() {
   return (
     <section className="relative w-full bg-background pt-4 md:pt-14 text-foreground">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-4 md:gap-8 md:px-8 md:py-10">
-
-        {/* Heading — shown at top on desktop only */}
-        <div className="hidden text-center md:block">
-          <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            LS Diet:
-            <br />
-            A{" "}
-            <span className="text-accent animate-pulse-glow">
-              weight regain prevention
-            </span>{" "}
-            system
-          </h2>
-        </div>
-
-
-        {/* DESKTOP (md+): 3-card grid — unchanged behaviour */}
+        {/* DESKTOP (md+): 3-card grid — transformation shown first */}
         <div className="hidden md:grid gap-6 md:grid-cols-3">
           {pairs.map((pair, idx) => (
             <TransformationCard
@@ -225,6 +210,18 @@ export function HeroSection() {
           I turned this into <span className="text-accent font-bold">LS Diet</span>
         </p>
 
+        {/* Heading — shown below the transformation on desktop only */}
+        <div className="hidden text-center md:block">
+          <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            LS Diet:
+            <br />
+            A{" "}
+            <span className="text-accent animate-pulse-glow">
+              weight regain prevention
+            </span>{" "}
+            system
+          </h2>
+        </div>
 
         {/* Heading — shown below the stats on mobile only */}
         <div className="text-center md:hidden">
@@ -238,6 +235,7 @@ export function HeroSection() {
             system
           </h2>
         </div>
+
       </div>
 
     </section>
