@@ -128,22 +128,19 @@ function NeonChip({ pain }: { pain: Pain }) {
   return (
     <a
       href={pain.href}
-      className="mx-auto flex w-[16rem] max-w-full flex-col items-center gap-1.5 rounded-xl border-2 bg-black/40 px-4 py-2.5 text-center backdrop-blur-[2px]"
-      style={{ borderColor: `hsl(${pain.hsl})`, boxShadow: glow(pain.hsl) }}
+function NeonChip({ pain }: { pain: Pain }) {
+  const { Icon } = pain;
+  return (
+    <a
+      href={pain.href}
+      className="mx-auto flex w-[16rem] max-w-full flex-col items-center gap-1.5 rounded-xl border border-white/15 bg-black/50 px-4 py-2.5 text-center backdrop-blur-md transition-all duration-300 ease-out hover:border-white/25 hover:bg-black/65"
+      style={{ boxShadow: cardShadow() }}
     >
       <Icon className="h-5 w-5 shrink-0" style={{ color: `hsl(${pain.hsl})` }} aria-hidden="true" />
       <span className="text-[0.95rem] font-bold leading-tight text-white">{pain.label}</span>
     </a>
-
   );
 }
-
-function Headline() {
-  return (
-    <h1 className="text-center font-sans font-extrabold uppercase leading-[1.05] tracking-tight text-white text-[1.7rem] sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-      How to <span className="text-accent">lose weight</span> when&hellip;
-    </h1>
-  );
 }
 
 
