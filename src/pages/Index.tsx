@@ -45,6 +45,7 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <ProblemSection />
         <WhatIsLSDietSection />
         <HeroPitchSection />
         <AwarenessStagesSection />
