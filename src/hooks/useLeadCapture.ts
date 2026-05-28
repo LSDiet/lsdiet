@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { trackEvent } from '@/lib/analytics';
 
 const STORAGE_KEY = 'wp_lead_email';
 
@@ -30,6 +31,9 @@ export function useLeadCapture(): UseLeadCaptureReturn {
 
       // Save email to localStorage for returning user flow
       localStorage.setItem(STORAGE_KEY, email.toLowerCase().trim());
+
+      trackEvent('lead_capture_submit', { source, resource: resourceTitle ?? filePath });
+      trackEvent('resource_download', { source, resource: resourceTitle ?? filePath, returning: false });
 
       // Open signed URL in new tab to trigger download
       window.open(data.signedUrl, '_blank');
@@ -65,6 +69,8 @@ export function useLeadCapture(): UseLeadCaptureReturn {
       if (error || !data?.signedUrl) {
         throw new Error(error?.message || 'Failed to get download URL');
       }
+
+      trackEvent('resource_download', { source, resource: resourceTitle ?? filePath, returning: true });
 
       window.open(data.signedUrl, '_blank');
 

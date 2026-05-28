@@ -1,6 +1,7 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
+import { trackEvent } from "@/lib/analytics";
 import heroPhoto from "@/assets/hero-photo.png?w=400;800;1200&format=avif;webp&as=picture";
 
 const bullets = [
@@ -78,7 +79,12 @@ export function HeroPitchSection() {
 
           <div className="mt-8">
             <Button variant="accent" size="lg" className="px-8" asChild>
-              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.skool.com/lsdiet/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("cta_click", { location: "pitch", destination: "skool" })}
+              >
                 Join LS Diet
               </a>
             </Button>

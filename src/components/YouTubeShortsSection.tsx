@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Play, ExternalLink, BookOpen, Utensils, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { trackEvent } from "@/lib/analytics";
 
 const CATEGORIES = [
   {
@@ -193,6 +194,7 @@ export function YouTubeShortsSection() {
               href="https://www.youtube.com/@JoinLSDiet?sub_confirmation=1"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent("outbound_click", { network: "youtube", location: "shorts_section" })}
             >
               Subscribe on YouTube
               <ExternalLink className="w-4 h-4" />

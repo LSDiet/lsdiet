@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useCartSync } from "@/hooks/useCartSync";
+import { useAnalyticsPageviews } from "@/hooks/useAnalyticsPageviews";
 // Home stays eager so SSG prerender captures full HTML synchronously.
 import Index from "./pages/Index";
 
@@ -49,6 +50,7 @@ const RouteFallback = () => <div className="min-h-screen bg-background" aria-hid
 
 function AppContent() {
   useCartSync();
+  useAnalyticsPageviews();
   
   return (
     <BrowserRouter>
