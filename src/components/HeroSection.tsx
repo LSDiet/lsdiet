@@ -175,7 +175,7 @@ function MobileHeroCarousel() {
             aria-label={`Show ${pair.year} transformation`}
             onClick={() => scrollTo(idx)}
             className={`h-1.5 rounded-full transition-all ${
-              selected === idx ? "w-8 bg-accent" : "w-2 bg-white/30"
+              selected === idx ? "w-8 bg-accent" : "w-2 bg-muted-foreground/40"
             }`}
           />
         ))}
