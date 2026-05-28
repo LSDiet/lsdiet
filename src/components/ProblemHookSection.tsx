@@ -20,18 +20,28 @@
 import { ChevronDown, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
 import { BackgroundVideo, type VideoClip } from "@/components/ui/BackgroundVideo";
 import posterUrl from "@/assets/problem-hook-bg.jpg";
+import clip1D from "@/assets/hook-clip1-d.mp4";
+import clip2D from "@/assets/hook-clip2-d.mp4";
+import clip3D from "@/assets/hook-clip3-d.mp4";
+import clip4D from "@/assets/hook-clip4-d.mp4";
+import clip1M from "@/assets/hook-clip1-m.mp4";
+import clip2M from "@/assets/hook-clip2-m.mp4";
+import clip3M from "@/assets/hook-clip3-m.mp4";
+import clip4M from "@/assets/hook-clip4-m.mp4";
 
-/**
- * Background video clips. Empty until copyright-free footage is uploaded and
- * encoded — until then BackgroundVideo gracefully shows the poster image.
- *
- * When clips are ready, drop the encoded files in src/assets and reference:
- *   import clip1Webm from "@/assets/hook-clip-1.webm";
- *   import clip1Mp4  from "@/assets/hook-clip-1.mp4";
- *   then add { webm: clip1Webm, mp4: clip1Mp4 } to the array below.
- */
-const desktopClips: VideoClip[] = [];
-const mobileClips: VideoClip[] = [];
+/** Background clips play strictly in order 1 → 2 → 3 → 4, then loop. */
+const desktopClips: VideoClip[] = [
+  { mp4: clip1D },
+  { mp4: clip2D },
+  { mp4: clip3D },
+  { mp4: clip4D },
+];
+const mobileClips: VideoClip[] = [
+  { mp4: clip1M },
+  { mp4: clip2M },
+  { mp4: clip3M },
+  { mp4: clip4M },
+];
 
 const POSTER_ALT =
   "A frustrated, mentally tired woman sitting at a table, struggling with repeated weight-loss attempts";
