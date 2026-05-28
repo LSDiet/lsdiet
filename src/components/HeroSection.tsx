@@ -207,7 +207,7 @@ export function HeroSection() {
         </div>
 
         <p className="text-center text-sm font-medium text-foreground sm:text-base">
-          I turned this into <span className="text-accent font-bold">LS Diet</span>
+          I lived it, and I found a way to stop regaining weight
         </p>
 
         {/* Heading — shown below the transformation on desktop only */}
