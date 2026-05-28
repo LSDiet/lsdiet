@@ -221,7 +221,7 @@ export function HeroSection() {
           <MobileHeroCarousel />
         </div>
 
-        <p className="text-center text-sm font-medium text-white/85 sm:text-base">
+        <p className="text-center text-sm font-medium text-foreground sm:text-base">
           I learned and now I help people{" "}
           <span className="text-accent font-bold">stop regaining weight</span>.
         </p>
