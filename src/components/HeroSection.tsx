@@ -89,10 +89,11 @@ function TransformationCard({
         </div>
       </div>
       <div className="flex items-center justify-center gap-4 py-3">
-        <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Before</span>
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">Before</span>
         <span className="text-xl font-extrabold text-accent">{pair.year}</span>
-        <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">After</span>
+        <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">After</span>
       </div>
+
     </div>
   );
 }
