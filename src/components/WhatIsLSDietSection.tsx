@@ -1,4 +1,4 @@
-import { Beef, Brain, Target, TrendingUp } from "lucide-react";
+import { Beef, Brain, TrendingUp } from "lucide-react";
 
 const stats = [
   {
