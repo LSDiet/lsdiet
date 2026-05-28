@@ -1,108 +1,35 @@
-# Install Google Analytics 4
+## What's broken
 
-Measurement ID: `G-HSZPPVH5H8`
+Production `lsdiet.com` returns an HTML document with an empty `<head>` and no `<script type="module">` for the Vite bundle. Without that script the React app can never mount, so every page renders as a blank white screen. I confirmed this on both `/` and `/blog` — both serve the same stub. This was shipped by the most recent publish; the SPA shell itself is broken at the file level.
 
-## Goals
+The likely culprit is the `scripts/prerender.mjs` Puppeteer pass writing a stripped DOM over `dist/index.html` (and every prerendered route's `index.html`). The recent GA snippet + `RouterEffects` restructuring + Helmet flow are the most recent things touching head/HTML, so one of them is corrupting `page.content()` during prerender.
 
-1. Load GA4 sitewide on production only (real domains, not localhost / `*.lovable.app` / prerender bot)
-2. Track every React Router navigation as a `page_view`
-3. Track key conversions: waitlist signups, lead captures, resource downloads, outbound social clicks, hero CTA clicks
-4. Stay PIPEDA-friendly and ready for future cookie consent (Consent Mode v2 defaults)
-5. Verify in GA4 Realtime
+## Step 1 — Restore the site immediately (you do this)
 
-## Implementation
+Roll back to the previous working version from chat history, then re-publish. This brings the live site back online while I diagnose the prerender properly.
 
-### 1. `index.html` — inject gtag snippet
+<presentation-actions>
+  <presentation-open-history>View History</presentation-open-history>
+</presentation-actions>
 
-Add the official Google snippet in `<head>`, but wrap initialization so it no-ops on non-production hosts and during prerender. Set Consent Mode v2 defaults *before* `config` so any future banner can update them.
+Pick the most recent version from **before** the GA install / SEO sitemap work, click **Restore**, then **Publish**. After that, `lsdiet.com` should load normally again.
 
-```html
-<script>
-  (function () {
-    var host = location.hostname;
-    var isProd = /(^|\.)(lsdiet\.com|lsdiet\.ca|oscarpoon\.com|oscarpoon\.ca|whataboutweight\.com|whataboutweight\.ca|betterandyetdaily\.com)$/i.test(host);
-    var isBot = navigator.webdriver === true; // prerender headless
-    if (!isProd || isBot) return;
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'granted'
-    });
-    gtag('js', new Date());
-    gtag('config', 'G-HSZPPVH5H8', { send_page_view: false });
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HSZPPVH5H8';
-    document.head.appendChild(s);
-  })();
-</script>
-```
+## Step 2 — Fix the prerender (I do this next turn)
 
-Note: `send_page_view: false` — we'll fire pageviews from the SPA hook so the initial load and route changes are handled by one code path with the correct canonical URL.
+Once you've rolled back, I'll diagnose and patch the prerender pipeline so future publishes don't ship a broken shell. Concretely I'll:
 
-### 2. `src/lib/analytics.ts` — typed wrapper
+1. **Add a sanity assertion in `scripts/prerender.mjs`** — after capturing `page.content()`, fail the route (and the build) if the HTML is missing either `<head>` content or a `<script type="module"` tag. This guarantees we can never publish a blank shell again, no matter what causes the underlying corruption.
+2. **Reproduce locally via a logged Puppeteer run** to identify which of these is stripping the head during prerender:
+   - GA inline `<script>` IIFE in `index.html` (Puppeteer's headless flags can interact oddly with inline scripts that append to `document.head`).
+   - `react-helmet-async` interaction with the prerender's `waitForFunction` timing — Helmet may have wiped+rewritten head right at snapshot time.
+   - The `RouterEffects` / `useAnalyticsPageviews` hook firing a `setTimeout` that mutates the document mid-snapshot.
+3. **Patch the root cause** (most likely guarding the GA snippet so it strictly no-ops under Puppeteer, e.g. checking `navigator.webdriver` *and* a hostname allowlist before touching `document.head`).
+4. **Verify** by running `vite build` + the prerender script and checking that `dist/index.html` still contains both the head meta tags and the bundled `<script type="module" src="/assets/...">` tag, then re-publish.
 
-Small module exposing:
+## Why roll back first
 
-- `trackPageView(path, title)`
-- `trackEvent(name, params?)`
-- `isAnalyticsEnabled()` — checks `typeof window.gtag === 'function'`
+I can't run `vite build` from plan mode to reproduce, and even in build mode the fix requires a real prerender run to validate. Restoring from history is the fastest path to a working live site — the diagnostic work then happens against a safe baseline instead of with your domain down.
 
-All calls become no-ops when gtag isn't loaded (dev, preview, prerender). Keeps component code clean and SSR-safe.
-
-### 3. `src/hooks/useAnalyticsPageviews.ts` — SPA route tracking
-
-Hook that reads `useLocation()` and fires `page_view` on every pathname change (including the first render). Mounted once inside `AppContent` in `src/App.tsx`.
-
-```text
-location change
-  → trackPageView(pathname + search, document.title)
-  → gtag('event', 'page_view', { page_path, page_title, page_location })
-```
-
-### 4. Key event instrumentation
-
-Add `trackEvent` calls in these existing files (no behaviour change, just an extra line per handler):
-
-- `src/components/WaitlistModal.tsx` → `waitlist_submit` on successful submit
-- `src/components/EmailCaptureModal.tsx` → `lead_capture_submit` with `{ resource: 'ls-diet-guide' | 'glp1-guide' }`
-- `src/hooks/useLeadCapture.ts` → `resource_download` on download URL fetch
-- `src/components/Footer.tsx` / `src/components/YouTubeShortsSection.tsx` → `outbound_click` with `{ network: 'youtube' | 'instagram' | 'tiktok' }`
-- `src/components/HeroSection.tsx` + `HeroPitchSection.tsx` → `cta_click` with `{ location: 'hero' | 'pitch' }`
-
-### 5. Verification
-
-After deploy:
-1. Open lsdiet.com in a normal browser, check Network for `googletagmanager.com/gtag/js?id=G-HSZPPVH5H8`
-2. GA4 → Reports → Realtime — should show 1 active user
-3. Click into a blog post — Realtime should show the new `page_path`
-4. Submit the waitlist on a test account — `waitlist_submit` should appear in Realtime events
-
-## Files
-
-**New**
-- `src/lib/analytics.ts`
-- `src/hooks/useAnalyticsPageviews.ts`
-
-**Edited**
-- `index.html` — gtag snippet with prod/bot gating
-- `src/App.tsx` — mount `useAnalyticsPageviews()` inside `AppContent`
-- `src/vite-env.d.ts` — declare `window.gtag` / `dataLayer` types
-- `src/components/WaitlistModal.tsx`
-- `src/components/EmailCaptureModal.tsx`
-- `src/hooks/useLeadCapture.ts`
-- `src/components/Footer.tsx`
-- `src/components/YouTubeShortsSection.tsx`
-- `src/components/HeroSection.tsx`
-- `src/components/HeroPitchSection.tsx`
-
-## Notes / trade-offs
-
-- **No cookie banner today.** GA4 will set `_ga` cookies on first visit. For Canadian audiences this is generally acceptable under PIPEDA. If you later target EU traffic, we add a banner and flip `analytics_storage` to `denied` by default.
-- **No GTM.** Direct gtag.js is simpler and lighter for a site this size. We can migrate to GTM later if you want non-developers managing tags.
-- **Prerender safety.** The bot check prevents your own SSG prerender pass from logging hundreds of fake pageviews on every deploy.
-- **Hostname allowlist** covers all your custom domains from the project URLs list. New domains need to be added to the regex.
+<presentation-actions>
+<presentation-link url="https://docs.lovable.dev/tips-tricks/troubleshooting">Troubleshooting docs</presentation-link>
+</presentation-actions>
