@@ -128,8 +128,6 @@ function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: s
   );
 }
 
-  );
-}
 
 function NeonChip({ pain }: { pain: Pain }) {
   const { Icon } = pain;
