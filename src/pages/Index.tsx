@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
+import { ProblemHookSection } from "@/components/ProblemHookSection";
 import { HeroSection } from "@/components/HeroSection";
+
 import { ProblemSection } from "@/components/ProblemSection";
 import { WhatIsLSDietSection } from "@/components/WhatIsLSDietSection";
 import { HeroPitchSection } from "@/components/HeroPitchSection";
@@ -44,7 +46,9 @@ const Index = () => {
       </Helmet>
       <Navbar />
       <main>
+        <ProblemHookSection />
         <HeroSection />
+
         <ProblemSection />
         <HeroPitchSection />
         <WhatIsLSDietSection />
