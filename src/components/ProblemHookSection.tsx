@@ -83,10 +83,11 @@ const railOffsets = [
 
 
 
-/** Layered, performance-safe neon glow (box-shadow only). */
-function glow(hsl: string) {
-  return `0 0 0 1px hsl(${hsl} / 0.5), 0 0 12px -2px hsl(${hsl} / 0.45), 0 0 22px -6px hsl(${hsl} / 0.3)`;
+/** Subtle grey border shadow for glass cards. */
+function cardShadow() {
+  return "0 0 0 1px hsl(0 0% 100% / 0.08), 0 8px 24px -16px rgba(0,0,0,0.8)";
 }
+
 
 /**
  * DESKTOP rail item — subdued by default, only strongly activates on hover.
