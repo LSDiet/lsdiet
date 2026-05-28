@@ -146,12 +146,12 @@ export function ProblemHookSection() {
       </div>
 
       {/* ============ PHONE (<md) ============ */}
-      <div className="relative flex min-h-[100svh] flex-col md:hidden">
+      <div className="relative flex flex-col md:hidden">
         {/* Dominant video/image fills the screen; everything overlays it */}
         <BackgroundVideo clips={mobileClips} poster={posterUrl} alt={POSTER_ALT} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/95" />
 
-        <div className="relative z-10 flex min-h-[100svh] flex-col px-4 pt-20 pb-6">
+        <div className="relative z-10 flex flex-col px-4 pt-20 pb-6">
           <Headline />
           {/* Boxes stacked vertically right below the headline, overlaying the video */}
           <div className="mt-5 flex flex-col gap-2.5">
@@ -160,12 +160,13 @@ export function ProblemHookSection() {
             ))}
           </div>
           <p className="mt-4 text-center text-base font-semibold italic leading-snug text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            I&rsquo;ve been through this cycle three times.
+            I&rsquo;ve been through this cycle{" "}
+            <span className="font-extrabold not-italic text-accent">three times</span>.
           </p>
-          <ChevronDown className="mx-auto mt-auto h-6 w-6 animate-bounce text-accent/80" aria-hidden="true" />
         </div>
 
       </div>
+
     </section>
   );
 }
