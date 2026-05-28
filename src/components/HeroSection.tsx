@@ -55,7 +55,7 @@ function TransformationCard({
   mounted?: boolean;
 }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm">
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.12)]">
       <div className="grid aspect-[4/3] grid-cols-2">
         <div className="relative overflow-hidden bg-white/[0.03]">
           {mounted && (
