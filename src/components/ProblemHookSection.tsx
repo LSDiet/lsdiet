@@ -132,6 +132,8 @@ function NeonChip({ pain }: { pain: Pain }) {
       <span className="text-[0.95rem] font-bold leading-tight text-white">{pain.label}</span>
     </a>
   );
+}
+
 function Headline() {
   return (
     <h1 className="text-center font-sans font-extrabold uppercase leading-[1.05] tracking-tight text-white text-[1.7rem] sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
@@ -141,7 +143,6 @@ function Headline() {
 }
 
 
-export function ProblemHookSection() {
 export function ProblemHookSection() {
   return (
     <section className="relative w-full overflow-hidden bg-[#0a0a0a] text-white">
