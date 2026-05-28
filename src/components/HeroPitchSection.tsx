@@ -15,7 +15,7 @@ const bullets = [
 
 export function HeroPitchSection() {
   return (
-    <section className="bg-[#0a0a0a] text-white">
+    <section className="bg-background text-foreground">
       <div className="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
         <div className="relative aspect-[4/5] md:aspect-auto md:min-h-[600px]">
           <ResponsivePicture
@@ -27,12 +27,14 @@ export function HeroPitchSection() {
         </div>
         <div className="flex flex-col justify-center px-6 py-10 md:px-10 md:py-14">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-4xl lg:text-5xl">
-            I built LS Diet to stop weight{" "}
+            I built{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-accent animate-pulse-glow">regain</span>
-            </span>
+              <span className="relative z-10 text-accent animate-pulse-glow">LS Diet</span>
+            </span>{" "}
+            to stop weight regain
           </h2>
-          <p className="mt-4 text-sm text-white/70 md:text-base">
+          <p className="mt-4 text-sm text-muted-foreground md:text-base">
+
             Let's end{" "}
             <span className="relative inline-block whitespace-nowrap">
               <span>weight cycling</span>
