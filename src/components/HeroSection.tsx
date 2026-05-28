@@ -219,9 +219,8 @@ export function HeroSection() {
         </div>
 
         <p className="text-center text-sm font-medium text-white/85 sm:text-base">
-          Lost <span className="text-accent font-bold">80+ lbs three times</span>.
-          <br />
-          And I&rsquo;m ready to share how to <span className="text-accent font-bold">prevent weight gain</span> for good.
+          I learned and now I help people{" "}
+          <span className="text-accent font-bold">stop regaining weight</span>.
         </p>
 
 
