@@ -68,6 +68,11 @@ export function BackgroundVideo({
     if (clips.length === 1 && refA.current) refA.current.loop = true;
   }, [enabled, clips.length]);
 
+  // Once the first frame of video is on screen, retire the poster so it never
+  // peeks through during crossfades.
+  const [started, setStarted] = useState(false);
+
+
   function advance(finished: "A" | "B") {
     if (clips.length < 2) return;
     const incoming = finished === "A" ? "B" : "A";
