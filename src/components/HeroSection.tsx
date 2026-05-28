@@ -212,8 +212,8 @@ export function HeroSection() {
 
         {/* Heading — shown below the transformation on desktop only */}
         <div className="hidden text-center md:block">
-          <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            LS Diet:
+          <h2 className="font-sans text-xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-2xl md:text-3xl lg:text-4xl">
+            I built LS Diet:
             <br />
             A{" "}
             <span className="text-accent animate-pulse-glow">
@@ -225,8 +225,8 @@ export function HeroSection() {
 
         {/* Heading — shown below the stats on mobile only */}
         <div className="text-center md:hidden">
-          <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.1] tracking-tight">
-            LS Diet:
+          <h2 className="font-sans text-xl font-extrabold uppercase leading-[1.1] tracking-tight">
+            I built LS Diet:
             <br />
             A{" "}
             <span className="text-accent animate-pulse-glow">
