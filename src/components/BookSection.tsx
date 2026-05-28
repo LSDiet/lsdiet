@@ -110,7 +110,7 @@ export function BookSection() {
               href={SKOOL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block relative rounded-2xl overflow-hidden border border-[hsl(0_0%_18%)] shadow-2xl hover:border-accent/50 transition-colors group"
+              className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors group"
             >
               <img
                 src={skoolActionPractice}
