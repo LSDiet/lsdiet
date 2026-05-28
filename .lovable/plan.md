@@ -1,144 +1,108 @@
-# Performance recovery plan — sequenced for de-risking
+# Install Google Analytics 4
 
-Site is slow. Image weight is the visible symptom; JS weight and mobile structure may be co-conspirators. Sequence each step so the cheapest diagnostic comes first and each step shrinks the scope of the next.
+Measurement ID: `G-HSZPPVH5H8`
 
-## Step 0 — Lighthouse baseline (5 min, diagnostic)
+## Goals
 
-Run Lighthouse mobile + desktop on `/` and record:
-- LCP, TBT, CLS, INP
-- Total transfer size
-- JS bytes, image bytes
-- Largest contentful element
+1. Load GA4 sitewide on production only (real domains, not localhost / `*.lovable.app` / prerender bot)
+2. Track every React Router navigation as a `page_view`
+3. Track key conversions: waitlist signups, lead captures, resource downloads, outbound social clicks, hero CTA clicks
+4. Stay PIPEDA-friendly and ready for future cookie consent (Consent Mode v2 defaults)
+5. Verify in GA4 Realtime
 
-No code changes. Without this, "re-measure" at the end is meaningless. Save the report.
+## Implementation
 
-## Step 1 — Bundle analysis (10 min, diagnostic)
+### 1. `index.html` — inject gtag snippet
 
-Add `rollup-plugin-visualizer` as a devDependency, wire into `vite.config.ts` (gated to `mode === "analyze"`), run `vite build --mode analyze`, open the treemap.
+Add the official Google snippet in `<head>`, but wrap initialization so it no-ops on non-production hosts and during prerender. Set Consent Mode v2 defaults *before* `config` so any future banner can update them.
 
-What we're looking for specifically:
-- Is `src/content/articles/index.ts` eagerly importing all 40+ MDX-style article files into the main bundle?
-- Is `src/content/foundations/index.ts` doing the same?
-- Is every route in `src/App.tsx` statically imported instead of `React.lazy`?
-- Are heavy libs (Recharts, embla-carousel, Contentful renderer, lucide-react full import) ending up in the home chunk?
-
-If main chunk is >300 KB gzip → step 2 is mandatory. If <150 KB gzip → skip step 2, go straight to step 3.
-
-## Step 2 — Route splitting and eager-import surgery (conditional)
-
-Only execute if step 1 confirms JS bloat.
-
-- Convert every non-home route in `src/App.tsx` to `React.lazy` + `<Suspense>` with a minimal fallback. Targets: `BlogPage`, `BlogPostPage`, `WeightPermanenceTrianglePage`, `WhatIsLSDietPage`, `AwarenessStagesPage`, `AboutOscarPoonPage`, `OscarPoonPage`, `LSDietGuidePage`, `GLP1GuidePage`, `FreeResources`, `QAPage`, `CoreFAQPage`, `CategoryArchivePage`, `ProductDetail`, `ShareRedirectPage`, `PartnersPage`, legal pages.
-- Audit `src/content/articles/index.ts` and `src/content/foundations/index.ts`. If they re-export all articles eagerly, convert to a lazy registry keyed by slug (`() => import('./article-slug')`) consumed only by `BlogPostPage`.
-- Replace any `import { X } from "lucide-react"` barrel hot-spots with per-icon imports if the visualizer flags lucide as oversized.
-
-### Critical caveat: prerender compatibility
-
-The SSG script in `scripts/prerender.mjs` waits for `document.documentElement.dataset.rendered === "true"` to snapshot. Lazy chunks resolve asynchronously, so the snapshot can fire with empty `<Suspense>` fallbacks if not handled.
-
-Rule:
-- **Home page sections stay eagerly imported.** Do NOT lazy-split `HeroSection`, `WhatIsLSDietSection`, `HeroPitchSection`, `AwarenessStagesSection`, `BookSection`, `FAQSection`, `AboutAuthorSection`, `FooterSimple`. Prerender needs them inline.
-- **Only route-level components** (the other pages reached from `App.tsx`) get `React.lazy`.
-- For the 6 other prerendered routes, either keep their page components eager OR have the prerender script `await` all pending chunks before checking `data-rendered`. Eager is simpler.
-
-This is the one place SEO and perf collide; the plan must respect it.
-
-## Step 3 — Mobile hero collapse (structural, biggest mobile LCP win)
-
-Current `HeroSection.tsx` renders 6 images at mobile LCP (3 cards × before/after). Even with responsive AVIF in place for hero, that's 6 decodes during the most critical paint window on a 4G phone.
-
-Change:
-- **Desktop (≥ md):** unchanged — 3-card grid stays.
-- **Mobile (< md):** show only the first card (2019 transformation) at LCP. Years 2022 + 2024 move into an embla-carousel swipeable strip *below* the LCP element, with their `<picture>` elements **not mounted** until first interaction or `requestIdleCallback`.
-- The LCP card keeps `eager` + `fetchpriority="high"` for its 2 images. The carousel slides use `loading="lazy"` + lazy mount.
-- Preserve all alt text, captions, and the "Before / Year / After" footer styling.
-
-Done before step 4 so we don't optimize images we're about to defer.
-
-## Step 4 — AVIF + responsive widths migration (the byte pass)
-
-Tooling already in place: `vite-imagetools` is registered in `vite.config.ts` and the hero already uses `?w=400;800&format=avif;webp&as=picture`. Standardize and extend.
-
-### Standard pattern
-
-```ts
-import img from "@/assets/path.png?w=400;800;1200&format=avif;webp&as=picture";
+```html
+<script>
+  (function () {
+    var host = location.hostname;
+    var isProd = /(^|\.)(lsdiet\.com|lsdiet\.ca|oscarpoon\.com|oscarpoon\.ca|whataboutweight\.com|whataboutweight\.ca|betterandyetdaily\.com)$/i.test(host);
+    var isBot = navigator.webdriver === true; // prerender headless
+    if (!isProd || isBot) return;
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted'
+    });
+    gtag('js', new Date());
+    gtag('config', 'G-HSZPPVH5H8', { send_page_view: false });
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HSZPPVH5H8';
+    document.head.appendChild(s);
+  })();
+</script>
 ```
 
-Render via a shared `<ResponsivePicture>` helper (already prototyped in `HeroSection.tsx` — extract to `src/components/ui/ResponsivePicture.tsx` and reuse).
+Note: `send_page_view: false` — we'll fire pageviews from the SPA hook so the initial load and route changes are handled by one code path with the correct canonical URL.
 
-`sizes` defaults: `(min-width: 768px) 50vw, 100vw` for full-width hero-style, `(min-width: 768px) 33vw, 90vw` for card grids. Per-call override allowed.
+### 2. `src/lib/analytics.ts` — typed wrapper
 
-### Migration targets (all photographic PNG/JPG)
+Small module exposing:
 
-- `src/components/HeroPitchSection.tsx` — `hero-photo.png` (726 KB → ~60–100 KB AVIF)
-- `src/components/TransformationGallery.tsx` — 6 journey JPGs (~7 MB → ~3.5 MB)
-- `src/components/AboutAuthorSection.tsx` — `oscar-photo.jpeg` (1.6 MB → ~250 KB)
-- `src/content/foundations/*-awareness-hero.png` — 5 files (~10.5 MB → ~1.2 MB)
-- `src/assets/foundation-*.png` — 7 files (~7 MB → ~900 KB)
-- `src/assets/ebook-*` covers
-- `src/assets/skool-*.png`
+- `trackPageView(path, title)`
+- `trackEvent(name, params?)`
+- `isAnalyticsEnabled()` — checks `typeof window.gtag === 'function'`
 
-### Keep as-is (not photographic)
+All calls become no-ops when gtag isn't loaded (dev, preview, prerender). Keeps component code clean and SSR-safe.
 
-- `src/assets/lsdiet-logo.png`, `lsdiet-wordmark.png`, `book-cover.png`, `placeholder-do-not-use.png` — leave PNG. SVG conversion is a separate task.
+### 3. `src/hooks/useAnalyticsPageviews.ts` — SPA route tracking
 
-### Public folder one-shot
+Hook that reads `useLocation()` and fires `page_view` on every pathname change (including the first render). Mounted once inside `AppContent` in `src/App.tsx`.
 
-`public/og-image.jpg` and `public/favicon.png` are not imported through Vite. Use a one-time `sharp` CLI invocation to add `og-image.avif` alongside the JPG, update Helmet `<meta property="og:image">` to point at the AVIF with the JPG as fallback. Favicon stays PNG (browser compat).
+```text
+location change
+  → trackPageView(pathname + search, document.title)
+  → gtag('event', 'page_view', { page_path, page_title, page_location })
+```
 
-### Projected savings
+### 4. Key event instrumentation
 
-Image payload: ~42 MB → ~7–9 MB (~80% reduction). LCP image bytes: ~6–8 MB → ~0.8–1 MB on first paint.
+Add `trackEvent` calls in these existing files (no behaviour change, just an extra line per handler):
 
-## Step 5 — Below-fold deferral (polish)
+- `src/components/WaitlistModal.tsx` → `waitlist_submit` on successful submit
+- `src/components/EmailCaptureModal.tsx` → `lead_capture_submit` with `{ resource: 'ls-diet-guide' | 'glp1-guide' }`
+- `src/hooks/useLeadCapture.ts` → `resource_download` on download URL fetch
+- `src/components/Footer.tsx` / `src/components/YouTubeShortsSection.tsx` → `outbound_click` with `{ network: 'youtube' | 'instagram' | 'tiktok' }`
+- `src/components/HeroSection.tsx` + `HeroPitchSection.tsx` → `cta_click` with `{ location: 'hero' | 'pitch' }`
 
-- Every `<img>` below the fold: `loading="lazy"` + `decoding="async"`.
-- `CinematicIntro` 3×2 grid: gate mount behind `IntersectionObserver` (only mount when within 200 px of viewport). Currently mounts on initial render.
-- `JoinFloatingBar` and any animated decorative elements: defer mount via `requestIdleCallback` with `setTimeout` fallback.
-- Add `width` / `height` attributes to every `<img>` that's missing them (CLS guard).
+### 5. Verification
 
-## Step 6 — Re-measure and compare
+After deploy:
+1. Open lsdiet.com in a normal browser, check Network for `googletagmanager.com/gtag/js?id=G-HSZPPVH5H8`
+2. GA4 → Reports → Realtime — should show 1 active user
+3. Click into a blog post — Realtime should show the new `page_path`
+4. Submit the waitlist on a test account — `waitlist_submit` should appear in Realtime events
 
-Re-run Lighthouse mobile + desktop. Compare against the step 0 baseline. Targets:
+## Files
 
-| Metric | Baseline (est.) | Goal |
-|---|---|---|
-| Mobile LCP | 5–8 s | < 2.5 s |
-| Mobile TBT | 400–800 ms | < 200 ms |
-| Total transfer | 25–35 MB | < 6 MB |
-| JS bytes (gzip) | TBD | < 250 KB main chunk |
+**New**
+- `src/lib/analytics.ts`
+- `src/hooks/useAnalyticsPageviews.ts`
 
-If LCP is still > 3 s, the remaining bottleneck is almost certainly font loading, third-party scripts, or render-blocking CSS — addressed in a separate pass.
+**Edited**
+- `index.html` — gtag snippet with prod/bot gating
+- `src/App.tsx` — mount `useAnalyticsPageviews()` inside `AppContent`
+- `src/vite-env.d.ts` — declare `window.gtag` / `dataLayer` types
+- `src/components/WaitlistModal.tsx`
+- `src/components/EmailCaptureModal.tsx`
+- `src/hooks/useLeadCapture.ts`
+- `src/components/Footer.tsx`
+- `src/components/YouTubeShortsSection.tsx`
+- `src/components/HeroSection.tsx`
+- `src/components/HeroPitchSection.tsx`
 
-## What stays unchanged
+## Notes / trade-offs
 
-- All copy, design tokens, Tailwind config, Helmet usage, SEO/JSON-LD
-- React Router structure (route paths)
-- Supabase client, Zustand, React Query
-- Existing `scripts/prerender.mjs` and the 7 Phase 1 SSG routes
-- Sitemap, robots.txt
-
-## Files touched (estimate)
-
-- `vite.config.ts` — add visualizer plugin (gated)
-- `package.json` — add `rollup-plugin-visualizer`, `sharp` (devDeps)
-- `src/App.tsx` — route lazy-loading
-- `src/content/articles/index.ts`, `src/content/foundations/index.ts` — lazy registry (if needed)
-- `src/components/HeroSection.tsx` — mobile carousel collapse
-- New: `src/components/ui/ResponsivePicture.tsx`
-- ~10 components touched for AVIF migration
-- `public/og-image.avif` added; Helmet og:image updated
-- `scripts/prerender.mjs` — only if route-splitting affects prerendered pages (preferred: avoid)
-
-## Out of scope (future passes)
-
-- Logo/wordmark → SVG conversion
-- Third-party script audit (analytics, Skool embeds, etc.)
-- Font loading optimization (`font-display: swap`, preload, subsetting)
-- Service worker / HTTP caching headers
-- Contentful blog post payload reduction
-
-## Bottom line
-
-Six steps, sequenced so each one *de-risks the next* and may make the next one unnecessary. Steps 0–1 are diagnostic and take <15 min combined. Steps 2–4 are the heavy lifters. Step 5 is polish. Step 6 proves it worked.
+- **No cookie banner today.** GA4 will set `_ga` cookies on first visit. For Canadian audiences this is generally acceptable under PIPEDA. If you later target EU traffic, we add a banner and flip `analytics_storage` to `denied` by default.
+- **No GTM.** Direct gtag.js is simpler and lighter for a site this size. We can migrate to GTM later if you want non-developers managing tags.
+- **Prerender safety.** The bot check prevents your own SSG prerender pass from logging hundreds of fake pageviews on every deploy.
+- **Hostname allowlist** covers all your custom domains from the project URLs list. New domains need to be added to the regex.
