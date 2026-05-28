@@ -30,35 +30,28 @@ export const AboutAuthorSection = () => {
             </div>
 
             {/* Text content */}
+            {/* Text content */}
             <div className="flex-1 space-y-4 text-center md:text-left">
               <p className="text-muted-foreground leading-relaxed">
-                Oscar Poon is the founder and creator of <strong className="text-foreground">LS Diet</strong>. He
-                has lost 80+ lbs three separate times — and each restart taught him that conventional diet advice
-                was missing a behavioural-permanence layer. That insight became the Weight Permanence Triangle™ and
-                the low-starch, low-sugar lifestyle system that LS Diet teaches today.
+                Hi, I'm Oscar, the founder of <strong className="text-foreground">LS Diet</strong> and creator of the
+                Weight Permanence Triangle™ (WPT). LS Diet is really about you, not me. But just so you know I'm not
+                AI, I have a degree in psychology, spent time supporting people at a substance-abuse center, and
+                worked for 10 years as a surgical market data consultant in Vancouver. I love studying the human mind
+                and analyzing behaviour patterns.
               </p>
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                Oscar holds a degree in psychology, spent over a year supporting clients at a substance-abuse centre
-                in Vancouver, and worked a decade as a surgical market-data consultant. That mix of behavioural
-                psychology and pattern analysis shapes how LS Diet approaches weight regain — not as a food problem,
-                but as a system problem.
+              <p className="text-muted-foreground leading-relaxed">
+                When I tried to lose weight for the third time, I asked myself, "How can I want this badly enough so I
+                never have to repeat the cycle?" The answer was: emotional priority. When you want to lose weight
+                enough, you'll do everything to reach your goal and keep it. It's easy to "just-do-it" once, but can
+                you keep doing it even after you reach the goal? Join the community, and I'll show you how to lose
+                weight and make it permanent.
               </p>
 
               <blockquote className="text-lg italic text-accent font-medium leading-relaxed border-l-2 border-accent/40 pl-4">
                 "Lose the weight so you'll have options while you still can."
               </blockquote>
-
-              <p className="text-xs text-muted-foreground/70 leading-relaxed">
-                He shares his low-starch, low-sugar journey through monthly mini-challenges on{" "}
-                <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-                  YouTube (@JoinLSDiet)
-                </a>
-                .{" "}
-                <a href="/oscar-poon" className="text-accent hover:underline font-medium">
-                  Read Oscar's full story →
-                </a>
-              </p>
             </div>
+
           </div>
         </div>
       </div>
