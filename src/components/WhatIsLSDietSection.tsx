@@ -1,4 +1,25 @@
-import { Beef, Brain, Target } from "lucide-react";
+import { Beef, Brain, Target, TrendingUp } from "lucide-react";
+
+const stats = [
+  {
+    stat: "42.4%",
+    text: "of US adults are obese (BMI 30+)",
+    source: "CDC",
+    href: "https://www.cdc.gov/obesity/adult-obesity-facts/index.html",
+  },
+  {
+    stat: "29.5%",
+    text: "of Canadian adults are obese (BMI 30+)",
+    source: "Government of Canada",
+    href: "https://www.canada.ca/en/public-health/services/publications/healthy-living/obesity-statistics-canada.html?utm",
+  },
+  {
+    stat: "50%",
+    text: "of people starting exercise programs drop out within 6 months",
+    source: "BMJ Open (PDF)",
+    href: "/research/e027987.full.pdf",
+  },
+];
 
 export function WhatIsLSDietSection() {
   return (
@@ -11,13 +32,44 @@ export function WhatIsLSDietSection() {
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight">
             What Is <span className="text-accent">LS Diet?</span>
           </h2>
-          <p className="mt-4 text-sm md:text-base text-[hsl(0_0%_30%)] max-w-2xl mx-auto">
-            Two pillars working together. Neither stands alone.
-          </p>
         </div>
 
-        {/* Outcome at top */}
-        <div className="relative w-full max-w-2xl mx-auto">
+        {/* Step 1 — The problem, backed by stats */}
+        <div className="flex items-center justify-center gap-2 mb-5 text-accent">
+          <TrendingUp className="w-5 h-5" aria-hidden="true" />
+          <p className="text-sm md:text-base font-bold uppercase tracking-[0.15em]">
+            Obesity is on the rise
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+          {stats.map((s) => (
+            <div
+              key={s.stat}
+              className="rounded-3xl bg-card border border-border p-6 md:p-7 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)] text-center"
+            >
+              <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-2">
+                {s.stat}
+              </div>
+              <p className="text-sm text-[hsl(0_0%_30%)] leading-snug mb-3">{s.text}</p>
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-[11px] uppercase tracking-[0.14em] text-[hsl(0_0%_50%)] hover:text-accent underline underline-offset-4 decoration-[hsl(0_0%_80%)] hover:decoration-accent transition-colors"
+              >
+                {s.source} ↗
+              </a>
+            </div>
+          ))}
+        </div>
+
+        {/* Bridge to the solution */}
+        <p className="mt-10 md:mt-12 text-center text-lg md:text-xl font-bold text-foreground max-w-2xl mx-auto">
+          To stop this for good, you need two things working together:
+        </p>
+
+        {/* The outcome */}
+        <div className="relative w-full max-w-2xl mx-auto mt-6">
           <div className="absolute -inset-4 bg-accent/20 blur-2xl rounded-full -z-10" aria-hidden="true" />
           <div className="flex items-center justify-center gap-4 md:gap-6 rounded-full border-2 border-accent bg-accent/15 px-5 py-4 md:px-8 md:py-6 animate-pulse-glow">
             <Target className="flex-shrink-0 w-8 h-8 md:w-12 md:h-12 text-accent" aria-hidden="true" />
@@ -30,9 +82,7 @@ export function WhatIsLSDietSection() {
 
         {/* Connector: simple line on mobile, branching tree on desktop */}
         <div className="relative mx-auto w-full max-w-3xl h-8 md:h-14" aria-hidden="true">
-          {/* Mobile: single vertical line */}
           <div className="md:hidden absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-accent/50" />
-          {/* Desktop: branching tree */}
           <svg
             viewBox="0 0 300 56"
             preserveAspectRatio="none"
@@ -48,41 +98,9 @@ export function WhatIsLSDietSection() {
           </svg>
         </div>
 
-        {/* Mobile label between line and cards */}
-        <p className="md:hidden -mt-2 mb-2 text-center text-[11px] font-bold uppercase tracking-[0.2em] text-accent">
-          Built on two pillars
-        </p>
-
-        {/* Two foundation pillars side by side */}
+        {/* Two pillars: A) WPT training  B) LS lifestyle */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {/* LS card */}
-          <a
-            href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block rounded-2xl border border-accent/30 bg-accent/[0.06] p-5 md:p-6 hover:border-accent hover:bg-accent/[0.1] transition-colors"
-          >
-            <div className="flex items-start gap-3 md:gap-4">
-              <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-accent/30 bg-background">
-                <Beef className="w-6 h-6 md:w-7 md:h-7 text-accent" aria-hidden="true" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-accent transition-colors">
-                  Low-Starch, Low-Sugar
-                </h3>
-                <p className="mt-1 text-sm md:text-base font-semibold text-accent">Food System</p>
-                <ul className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs md:text-sm font-semibold text-[hsl(0_0%_20%)]">
-                  <li>Eat until full</li>
-                  <li className="text-accent" aria-hidden="true">·</li>
-                  <li>No counting</li>
-                  <li className="text-accent" aria-hidden="true">·</li>
-                  <li>Sustainable</li>
-                </ul>
-              </div>
-            </div>
-          </a>
-
-          {/* WPT card */}
+          {/* A) WPT card */}
           <a
             href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
             target="_blank"
@@ -94,6 +112,7 @@ export function WhatIsLSDietSection() {
                 <Brain className="w-6 h-6 md:w-7 md:h-7 text-primary" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-1">A) Training</p>
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
                   Weight Permanence Triangle™
                 </h3>
@@ -102,6 +121,34 @@ export function WhatIsLSDietSection() {
                   <li>5 Stages of Awareness</li>
                   <li className="text-primary" aria-hidden="true">·</li>
                   <li>Daily Action Practice</li>
+                </ul>
+              </div>
+            </div>
+          </a>
+
+          {/* B) LS card */}
+          <a
+            href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block rounded-2xl border border-accent/30 bg-accent/[0.06] p-5 md:p-6 hover:border-accent hover:bg-accent/[0.1] transition-colors"
+          >
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="flex-shrink-0 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full border border-accent/30 bg-background">
+                <Beef className="w-6 h-6 md:w-7 md:h-7 text-accent" aria-hidden="true" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-1">B) Sustainable Lifestyle</p>
+                <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-accent transition-colors">
+                  Low-Starch, Low-Sugar
+                </h3>
+                <p className="mt-1 text-sm md:text-base font-semibold text-accent">Food System</p>
+                <ul className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs md:text-sm font-semibold text-[hsl(0_0%_20%)]">
+                  <li>Eat until full</li>
+                  <li className="text-accent" aria-hidden="true">·</li>
+                  <li>No counting</li>
+                  <li className="text-accent" aria-hidden="true">·</li>
+                  <li>Sustainable</li>
                 </ul>
               </div>
             </div>
