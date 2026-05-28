@@ -30,7 +30,7 @@ export function WhatIsLSDietSection() {
             The Methodology
           </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight">
-            What Is <span className="text-accent">LS Diet?</span>
+            Why <span className="text-accent">LS Diet?</span>
           </h2>
         </div>
 
@@ -64,7 +64,7 @@ export function WhatIsLSDietSection() {
         </div>
 
         {/* Bridge to the solution */}
-        <p className="mt-10 md:mt-12 mb-6 md:mb-8 text-center text-lg md:text-xl font-bold text-foreground max-w-2xl mx-auto">
+        <p className="mt-10 md:mt-12 mb-6 md:mb-8 text-center text-base md:text-lg font-bold text-foreground max-w-2xl mx-auto">
           To prevent regaining weight, you need:
         </p>
 

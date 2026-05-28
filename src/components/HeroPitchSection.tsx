@@ -27,11 +27,10 @@ export function HeroPitchSection() {
         </div>
         <div className="flex flex-col justify-center px-6 py-10 md:px-10 md:py-14">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-4xl lg:text-5xl">
-            I built{" "}
+            A proven method to stop{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-accent animate-pulse-glow">LS Diet</span>
-            </span>{" "}
-            to stop weight regain
+              <span className="relative z-10 text-accent animate-pulse-glow">weight regain</span>
+            </span>
           </h2>
           <p className="mt-4 text-sm text-muted-foreground md:text-base">
 
