@@ -9,14 +9,13 @@ const features = [
   "3 tracks: Start Here, Action Practice, and Tools",
   "Weekly live webinar hosted by Oscar",
   "A community of members training the same habits",
-  "100% free to join",
 ];
 
 const tracks = [
   {
     icon: Compass,
     title: "Start Here",
-    desc: "Why weight regain happens and how LS Diet helps you stop regaining weight.",
+    desc: "No theory. This psychology module trains you to understand your emotions, improve your awareness, and strengthen your sense of identity.",
   },
   {
     icon: Dumbbell,
@@ -26,7 +25,7 @@ const tracks = [
   {
     icon: BookOpen,
     title: "Tools",
-    desc: "eBooks and blogs published by Oscar to deepen the framework.",
+    desc: "eBooks, blogs and other resources published by Oscar to prevent weight regain.",
   },
 ];
 
