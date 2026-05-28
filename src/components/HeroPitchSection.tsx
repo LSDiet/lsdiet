@@ -27,11 +27,10 @@ export function HeroPitchSection() {
         </div>
         <div className="flex flex-col justify-center px-6 py-10 md:px-10 md:py-14">
           <h2 className="font-sans text-3xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-4xl lg:text-5xl">
-            Losing Weight Is 50%. Preventing{" "}
+            I built LS Diet to stop weight{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-accent animate-pulse-glow">Regain</span>
-            </span>{" "}
-            Is 50%.
+              <span className="relative z-10 text-accent animate-pulse-glow">regain</span>
+            </span>
           </h2>
           <p className="mt-4 text-sm text-white/70 md:text-base">
             Let's end{" "}
