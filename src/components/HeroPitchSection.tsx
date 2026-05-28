@@ -79,7 +79,7 @@ export function HeroPitchSection() {
             <Check className="h-5 w-5 flex-shrink-0 text-accent" />
             <span
               key={idx}
-              className="text-base md:text-lg font-semibold text-accent animate-fade-in"
+              className="text-base md:text-lg font-semibold text-accent animate-fade-in-up"
             >
               {benefits[idx]}
             </span>
