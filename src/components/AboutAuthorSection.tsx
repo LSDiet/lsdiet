@@ -31,7 +31,7 @@ export const AboutAuthorSection = () => {
 
             {/* Text content */}
             <div className="flex-1 space-y-4 text-center md:text-left">
-              <p className="text-[hsl(0_0%_85%)] leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Oscar Poon is the founder and creator of <strong className="text-foreground">LS Diet</strong>. He
                 has lost 80+ lbs three separate times — and each restart taught him that conventional diet advice
                 was missing a behavioural-permanence layer. That insight became the Weight Permanence Triangle™ and
