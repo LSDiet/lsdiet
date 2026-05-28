@@ -28,20 +28,8 @@ export function ProblemSection() {
   return (
     <section id="the-problem" className="py-14 md:py-20">
       <div className="container max-w-4xl mx-auto px-4">
-        <div className="text-center mb-10 md:mb-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">
-            The Problem
-          </p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight">
-            Dieting Works. <span className="text-accent">Keeping It Off Doesn&apos;t.</span>
-          </h2>
-          <p className="mt-4 text-sm md:text-base text-[hsl(0_0%_30%)] max-w-2xl mx-auto">
-            Obesity keeps rising and most weight-loss attempts collapse. The hard
-            part was never losing the weight — it&apos;s preventing the regain.
-          </p>
-        </div>
-
         <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+
           {stats.map((s) => (
             <div
               key={s.stat}
