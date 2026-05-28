@@ -66,11 +66,21 @@ const pains: Pain[] = [
  *  psychological stack, not 5 identical menu buttons (desktop, right-aligned). */
 const railWidths = [
   "md:w-full",
-  "md:w-[91%]",
-  "md:w-[97%]",
-  "md:w-[86%]",
-  "md:w-[94%]",
+  "md:w-[90%]",
+  "md:w-[98%]",
+  "md:w-[85%]",
+  "md:w-[95%]",
 ];
+
+/** Tiny vertical nudges so the stack feels hand-placed, not generated. */
+const railOffsets = [
+  "md:translate-x-0",
+  "md:-translate-x-[3px]",
+  "md:translate-x-[2px]",
+  "md:-translate-x-[2px]",
+  "md:translate-x-[1px]",
+];
+
 
 
 /** Layered, performance-safe neon glow (box-shadow only). */
