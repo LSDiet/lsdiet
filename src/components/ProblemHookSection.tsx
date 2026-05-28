@@ -204,7 +204,7 @@ export function ProblemHookSection() {
             ))}
           </div>
           <p className="mt-4 text-center text-lg font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            I know this <span className="text-accent">cycle</span> too well &darr;
+            <span className="text-accent">&darr;</span> I know this <span className="text-accent">cycle</span> <span className="text-accent">&darr;</span>
           </p>
         </div>
 
