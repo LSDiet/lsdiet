@@ -75,16 +75,45 @@ export function HeroPitchSection() {
             {" "}together!
           </p>
 
-          <p className="mt-6 text-sm text-foreground md:text-base">In the LS Diet Community, you'll practice:</p>
-          <div className="mt-3 flex items-center gap-3 min-h-[2.5rem]">
-            <Check className="h-5 w-5 flex-shrink-0 text-accent" />
-            <span
-              key={idx}
-              className="text-base md:text-lg font-semibold text-accent animate-fade-in-up"
-            >
-              {benefits[idx]}
-            </span>
+          <p className="mt-6 text-sm text-foreground md:text-base">In the LS Diet Community, you will:</p>
+          <div className="relative mt-3">
+            <ul className="flex flex-col gap-1.5">
+              {benefits.map((b, i) => {
+                const active = i === idx;
+                return (
+                  <li
+                    key={b}
+                    className={`relative flex items-center gap-3 rounded-lg px-3 py-2 transition-all duration-500 ${
+                      active
+                        ? "bg-accent/15 ring-1 ring-accent/50 shadow-[0_0_24px_-6px_hsl(var(--accent)/0.55)]"
+                        : "bg-transparent ring-1 ring-transparent"
+                    }`}
+                  >
+                    <Check
+                      className={`h-5 w-5 flex-shrink-0 transition-colors duration-500 ${
+                        active ? "text-accent" : "text-muted-foreground/40"
+                      }`}
+                    />
+                    <span
+                      className={`text-base md:text-lg font-semibold transition-colors duration-500 ${
+                        active ? "text-accent" : "text-foreground/70"
+                      }`}
+                    >
+                      {b}
+                    </span>
+                    {active && (
+                      <MousePointer2
+                        className="pointer-events-none absolute -right-1 top-1/2 h-5 w-5 -translate-y-1/2 text-accent drop-shadow-[0_2px_6px_hsl(var(--accent)/0.6)] animate-fade-in"
+                        aria-hidden="true"
+                        style={{ transform: "translateY(-50%) rotate(-15deg)" }}
+                      />
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
+
 
           <div className="mt-8 flex justify-center md:justify-start">
 
