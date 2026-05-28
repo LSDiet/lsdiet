@@ -62,14 +62,16 @@ const pains: Pain[] = [
   { label: "I stress eat", href: "/blog/why-does-stress-make-me-eat-more", hsl: "280 70% 65%", Icon: CloudRain },
 ];
 
-/** Small stagger offsets so the rail feels organic, not mechanical (desktop). */
-const railStagger = [
-  "md:ml-0",
-  "md:ml-6",
-  "md:ml-2",
-  "md:ml-8",
-  "md:ml-3",
+/** Slightly varied widths so the right-edge cluster reads as ONE organic
+ *  psychological stack, not 5 identical menu buttons (desktop, right-aligned). */
+const railWidths = [
+  "md:w-full",
+  "md:w-[91%]",
+  "md:w-[97%]",
+  "md:w-[86%]",
+  "md:w-[94%]",
 ];
+
 
 /** Layered, performance-safe neon glow (box-shadow only). */
 function glow(hsl: string) {
