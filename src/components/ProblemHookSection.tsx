@@ -128,11 +128,6 @@ function NeonChip({ pain }: { pain: Pain }) {
   return (
     <a
       href={pain.href}
-function NeonChip({ pain }: { pain: Pain }) {
-  const { Icon } = pain;
-  return (
-    <a
-      href={pain.href}
       className="mx-auto flex w-[16rem] max-w-full flex-col items-center gap-1.5 rounded-xl border border-white/15 bg-black/50 px-4 py-2.5 text-center backdrop-blur-md transition-all duration-300 ease-out hover:border-white/25 hover:bg-black/65"
       style={{ boxShadow: cardShadow() }}
     >
@@ -140,7 +135,6 @@ function NeonChip({ pain }: { pain: Pain }) {
       <span className="text-[0.95rem] font-bold leading-tight text-white">{pain.label}</span>
     </a>
   );
-}
 }
 
 
