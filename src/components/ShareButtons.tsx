@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Facebook, Linkedin, Link2, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { trackEvent } from "@/lib/analytics";
 
 interface ShareButtonsProps {
   url: string;
@@ -41,16 +42,19 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
   const links = [
     {
       label: "Share on Facebook",
+      method: "facebook",
       href: `https://www.facebook.com/sharer/sharer.php?u=${u}`,
       Icon: Facebook,
     },
     {
       label: "Share on LinkedIn",
+      method: "linkedin",
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
       Icon: Linkedin,
     },
     {
       label: "Share on WhatsApp",
+      method: "whatsapp",
       href: `https://wa.me/?text=${t}%20${u}`,
       Icon: WhatsAppIcon,
     },
@@ -59,6 +63,7 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(url);
+      trackEvent("share", { method: "copy_link", content_type: "article", item_id: url });
       toast.success("Link copied");
     } catch {
       toast.error("Couldn't copy link");
@@ -68,11 +73,11 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
   const handleNativeShare = async () => {
     try {
       await navigator.share({ title, url });
+      trackEvent("share", { method: "native", content_type: "article", item_id: url });
     } catch {
       // user cancelled — ignore
     }
   };
-
   const isRail = variant === "rail";
 
   const containerCls = isRail
@@ -88,18 +93,21 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
         <a
           key={label}
           href={href}
+      {links.map(({ label, method, href, Icon }) => (
+        <a
+          key={label}
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={label}
+          onClick={() =>
+            trackEvent("share", { method, content_type: "article", item_id: url })
+          }
           className={btnCls}
         >
           <Icon className="w-4 h-4" />
         </a>
       ))}
-      <button type="button" onClick={handleCopy} aria-label="Copy link" className={btnCls}>
-        <Link2 className="w-4 h-4" />
-      </button>
-      {hasNativeShare && (
         <button
           type="button"
           onClick={handleNativeShare}

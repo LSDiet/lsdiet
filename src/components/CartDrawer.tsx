@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2 } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
+import { trackEvent } from "@/lib/analytics";
 
 export function CartDrawer() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,12 +21,32 @@ export function CartDrawer() {
   const totalPrice = items.reduce((sum, item) => sum + parseFloat(item.price.amount) * item.quantity, 0);
 
   useEffect(() => {
-    if (isOpen) syncCart();
+    if (isOpen) {
+      syncCart();
+      if (items.length > 0) {
+        trackEvent("begin_checkout", {
+          currency: items[0]?.price.currencyCode || "USD",
+          value: Number(totalPrice.toFixed(2)),
+          items: items.map((item) => ({
+            item_id: item.variantId,
+            item_name: item.product.node.title,
+            price: Number(parseFloat(item.price.amount).toFixed(2)),
+            quantity: item.quantity,
+          })),
+        });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, syncCart]);
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
+      trackEvent("checkout_redirect", {
+        currency: items[0]?.price.currencyCode || "USD",
+        value: Number(totalPrice.toFixed(2)),
+        item_count: totalItems,
+      });
       window.open(checkoutUrl, "_blank");
       setIsOpen(false);
     }

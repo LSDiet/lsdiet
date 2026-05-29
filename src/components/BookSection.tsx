@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check, Compass, Dumbbell, BookOpen } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { trackEvent } from "@/lib/analytics";
 import skoolTracks from "@/assets/skool-course-tracks.png";
 import skoolActionPractice from "@/assets/skool-action-practice.png";
 
@@ -61,6 +62,13 @@ export function BookSection() {
             href={SKOOL_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent("cta_click", {
+                location: "book_section",
+                placement: "tracks_image",
+                destination: SKOOL_URL,
+              })
+            }
             className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors mb-8 group"
           >
             <div className="absolute -inset-4 bg-accent/10 blur-2xl -z-10" />
@@ -109,6 +117,13 @@ export function BookSection() {
               href={SKOOL_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("cta_click", {
+                  location: "book_section",
+                  placement: "action_practice_image",
+                  destination: SKOOL_URL,
+                })
+              }
               className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors group"
             >
               <img
@@ -135,7 +150,19 @@ export function BookSection() {
           {/* CTA */}
           <div className="text-center">
             <Button variant="accent" size="lg" className="px-8" asChild>
-              <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer">
+              <a
+                href={SKOOL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("cta_click", {
+                    location: "book_section",
+                    placement: "primary_button",
+                    label: "Join LS Diet Community",
+                    destination: SKOOL_URL,
+                  })
+                }
+              >
                 Join LS Diet Community
               </a>
             </Button>

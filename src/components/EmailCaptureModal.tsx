@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Loader2, Download } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { trackEvent } from '@/lib/analytics';
 
 interface EmailCaptureModalProps {
   open: boolean;
@@ -124,6 +125,7 @@ export function EmailCaptureModal({
 
   const handleFormSubmit = async (email: string, firstName: string) => {
     await onSubmit(email, firstName);
+    trackEvent('email_capture', { source: 'resource_modal', resource: resourceTitle });
     onOpenChange(false);
   };
 
