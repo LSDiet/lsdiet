@@ -15,8 +15,6 @@ type Row = {
 
 const awarenessRows: Row[] = [
   {
-const awarenessRows: Row[] = [
-  {
     n: "01",
     title: "Reality",
     desc: "Estimate baseline.",
