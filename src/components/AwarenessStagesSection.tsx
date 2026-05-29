@@ -47,8 +47,6 @@ const awarenessRows: Row[] = [
     href: "/blog/identity-awareness",
   },
 ];
-    href: "/blog/identity-awareness",
-  },
 ];
 
 const practiceRow: Row = {
