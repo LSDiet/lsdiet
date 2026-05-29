@@ -439,64 +439,57 @@ const faqCategories: FAQCategoryData[] = [
           "The Weight Permanence Triangle™ helps during travel and social eating by providing flexible decision frameworks that maintain direction without requiring perfect conditions. The Permanence tools stabilise decisions when your environment, context, or routine changes.",
       },
     ],
-  },
   {
     title: "The Course",
     hasCourseCta: true,
     questions: [
       {
-        question: "Is Weight Permanence a diet course?",
+        question: "What makes LS Diet different?",
         answer:
-          "No. Weight Permanence is not a diet course because it does not prescribe rigid food rules, meal plans, or temporary restrictions. Instead, it teaches a system for making food and lifestyle decisions that hold under real-life conditions, so weight loss becomes sustainable rather than something that collapses once a diet ends.",
+          "LS Diet focuses on helping you keep the weight off once you've lost it. Although losing weight is a part of the journey, the main goal is to sustain that success. A key part of this approach is the Weight Permanence Triangle (WPT), a tool for improving mental clarity, building motivation when you need it, and strengthening the emotional link between your thoughts and actions. Instead of relying only on willpower, the WPT helps you move from simply wanting to lose weight to feeling emotionally and physically ready not only to reach your goal but also to maintain it and never regain.",
+        internalLink: { text: "Explore the Weight Permanence Triangle™ →", url: "/weight-permanence-triangle" },
       },
       {
-        question: "Who is the Weight Permanence course for?",
+        question: "Do I have to count calories or cut out entire food groups?",
         answer:
-          "While the Weight Permanence method applies to anyone who wants to lose weight, learners aged 35 and up often resonate most because of metabolic changes, accumulated life stress, and repeated experiences of weight regain that make willpower-based approaches less effective.",
+          "No. LS Diet follows a low-starch, low-sugar lifestyle, but it is not based on calorie counting. You do not need to weigh food, track every bite, or obsess over numbers. The focus is on learning how different foods affect hunger, cravings, energy, and long-term weight management, so you can make better decisions without constant tracking.",
+        internalLink: { text: "Read: Do you need to count calories to lose weight? →", url: "/blog/do-you-need-to-count-calories-to-lose-weight" },
       },
       {
-        question: "Does Weight Permanence require tracking?",
+        question: "How much time does this take each day?",
         answer:
-          "Yes, but minimally. Oscar tracks body weight once per week and uses DEXA scans every three to six months to assess body composition, focusing on long-term trends rather than daily fluctuations or obsessive tracking.",
+          "Realistically, 5 to 10 minutes per day is plenty.\n\nThe goal is not to spend hours learning about weight loss. The goal is to learn a behaviour, apply it, and observe the result. For example, one Action Practice module helps you identify the foods, snacks, and triggers in your environment that make you eat even when you're not hungry. You'll then learn simple ways to create distance, friction, and an \"out of sight, out of mind\" effect that makes those decisions easier.\n\nSmall changes applied consistently will produce more compounding results than spending hours looking for the perfect diet.",
+        internalLink: { text: "Read: Why do I eat even when I'm not hungry? →", url: "/blog/why-do-i-eat-even-when-im-not-hungry" },
       },
       {
-        question: "Can Weight Permanence work without meal plans?",
+        question: "Do I need to exercise?",
         answer:
-          "Absolutely. Weight Permanence is designed to work without meal plans by teaching decision frameworks that allow you to choose foods confidently in any environment, including restaurants, travel, and family gatherings.",
+          "Not required, but it certainly helps.\n\nWeight loss comes primarily from what you eat. Exercise is optional, but I recommend a daily brisk walk or Zone 2 jog. These activities help build fitness, improve cardiovascular health, preserve muscle, and increase daily calorie expenditure without feeling overwhelming.",
+        internalLink: { text: "Read: Is diet or exercise more important for weight loss? →", url: "/blog/is-diet-or-exercise-more-important-for-weight-loss" },
       },
       {
-        question: "How is Weight Permanence different from keto or carnivore?",
+        question: "Is this for busy professionals?",
         answer:
-          "Weight Permanence differs from keto and carnivore by focusing on low-starch, low-sugar rather than eliminating entire food groups. Keto restricts total carbohydrates to under 20–50 grams daily to maintain ketosis, excluding most fruits, legumes, and grains. Carnivore eliminates all plant foods entirely, relying exclusively on animal products. Weight Permanence allows non-starchy vegetables, legumes, some fruits, and complex carbohydrates in moderation—acknowledging that muscle building, performance, and long-term metabolic health often require some carbohydrates. Biologically, this approach reduces insulin spikes while preserving flexibility and nutritional variety, making it more sustainable for most people.\n\n**Foods allowed in low-starch, low-sugar but NOT in keto:**\n\n• **Legumes** (moderate, intentional use): Lentils, Chickpeas, Black beans, Edamame — Keto excludes these because they exceed carb limits quickly.\n\n• **Fruits** (controlled portions): Apples, Pears, Oranges, Kiwi, Bananas (rare, situational) — Keto generally restricts fruit to small berry servings only.\n\n• **Complex/functional carbohydrates**: Oats, Quinoa, Brown rice/wild rice, Sweet potato — These are fundamentally incompatible with ketosis, but usable in LSLS when intentionally planned.\n\n• **Dairy that exceeds keto carb tolerance**: Plain milk, Higher-lactose yogurt, Kefir (regular portions) — Keto favours heavy cream and hard cheeses instead.\n\n• **Higher-fiber, carb-dense plant foods**: Carrots (moderate servings), Beets, Squash — Acceptable in LSLS, limited or avoided in keto.",
+          "Yes.\nLS Diet was designed for people with jobs, families, responsibilities, and limited time. You do not need long workouts, complicated meal plans, or hours of meal preparation. The system is built around real-life, not ideal circumstances.",
+        internalLink: { text: "Read: The best weight loss program for busy professionals →", url: "/blog/whats-the-best-weight-loss-program-for-busy-professionals" },
       },
       {
-        question: "Is Weight Permanence suitable for busy professionals?",
+        question: "What happens inside the class?",
         answer:
-          "Yes. Weight Permanence was specifically designed for busy professionals. Oscar developed the method, created the course, and recorded all low-starch, low-sugar educational videos while working full time as a surgical market data consultant, ensuring the system works under real workload and time constraints.",
+          "Inside the class, you'll learn:\n• Weight problem (weight regain, information trap, how motivation disappears, and emotional priorities)\n• The Weight Permanence Triangle\n• The 5 Stages of Awareness (Reality, Friction, Pattern, Consequence, and Identity)\n• Guided step-by-step to build your PUSH and PULL motivations\n• 30+ Action Practice\n• Practical behaviours that support long-term weight management",
+        internalLink: { text: "Explore the 5 Awareness Stages →", url: "/awareness-stages" },
       },
       {
-        question: "Can Weight Permanence work with family and social life?",
+        question: "How long before I see results?",
         answer:
-          "Yes. Weight Permanence accounts for cultural traditions, shared meals, and social settings by prioritising structure over perfection, allowing you to maintain direction without isolating yourself or abandoning relationships.",
-      },
-      {
-        question: "Does Weight Permanence require intense exercise?",
-        answer:
-          "No. Weight Permanence recognises that every body is different, and functional goals, calorie needs, and physical capacity are unique to each individual. The method provides directional guidance to help you design your own movement and nutrition approach. Future Phase 2 tools will connect users with local dietitians, nutrition scientists, and trainers in Canada and the United States for personalised support.",
-      },
-      {
-        question: "How long does it take to see results with Weight Permanence?",
-        answer:
-          "During the Practice chapter, you'll adopt a low-starch, low-sugar lifestyle through structured 1, 3, 7, 15, 25, and 30-day challenges. Most people see the scale drop in the first two weeks—not from fat burn, but from water loss. Here's why: your body stores glucose as glycogen in muscles and liver, and each gram of glycogen binds 3–4 grams of water. When you reduce starch and sugar, glycogen depletes and releases that water. Oscar follows a 15–25 day challenge each month and consistently loses 10 lbs per month without daily exercise.",
-        highlightText: "Most people see the scale drop in the first two weeks",
-      },
-      {
-        question: "Is Weight Permanence about restriction or structure?",
-        answer:
-          "Weight Permanence is about structure, not restriction. It focuses on building systems that regulate hunger, guide decisions, and maintain progress without relying on constant control or deprivation.",
+          "Many people start noticing positive changes within the first two weeks. Switching to a low-starch, low-sugar lifestyle often leads to initial water weight loss, which is a normal part of the process before fat loss begins.\n\nWhen you add a daily fast walk or Zone 2 jog, losing about 5 lbs in those first two weeks is a very common and encouraging milestone. While everyone's journey is unique, most members begin to see progress well before reaching their final goals.",
+        highlightText: "losing about 5 lbs in those first two weeks",
+        internalLink: { text: "Read: Why low-starch, low-sugar is more sustainable →", url: "/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" },
       },
     ],
   },
+];
+
 ];
 
 export default function QAPage() {
