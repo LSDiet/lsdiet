@@ -47,7 +47,6 @@ const awarenessRows: Row[] = [
     href: "/blog/identity-awareness",
   },
 ];
-];
 
 const practiceRow: Row = {
   n: "06",
