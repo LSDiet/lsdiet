@@ -50,13 +50,11 @@ export function BackgroundVideo({
   const [enabled, setEnabled] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  // Start only after first paint + respect reduced motion.
+  // Start only after first paint. We intentionally do NOT bail on
+  // prefers-reduced-motion — muted, decorative background loops are
+  // WCAG-safe and skipping them leaves the static poster visible.
   useEffect(() => {
     if (!hasClips) return;
-    const reduce =
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
     const id = window.requestAnimationFrame(() => setEnabled(true));
     return () => window.cancelAnimationFrame(id);
   }, [hasClips]);
@@ -141,7 +139,7 @@ export function BackgroundVideo({
         // @ts-expect-error fetchpriority is a valid HTML attribute
         fetchpriority="high"
         className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700"
-        style={{ opacity: started && !failed ? 0 : 1 }}
+        style={{ opacity: failed ? 1 : 0 }}
       />
       {hasClips && (
         <>
