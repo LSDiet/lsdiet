@@ -6,11 +6,7 @@ import skoolTracks from "@/assets/skool-course-tracks.png";
 import skoolActionPractice from "@/assets/skool-action-practice.png";
 
 const features = [
-  "Video-based lessons - listen to them on the go",
-  "3 tracks: Start Here, Action Practice, and Tools",
-  "Weekly live webinar hosted by Oscar",
-  "Support from a community of like-minded future-oriented people",
-];
+const features: string[] = [];
 
 const tracks = [
   {
