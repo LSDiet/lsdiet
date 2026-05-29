@@ -17,7 +17,7 @@
  *   - Neon glow = lightweight layered box-shadow only (dialed back ~20%)
  *   - Animation limited to the chevron bounce
  */
-import { ChevronDown, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
+import { ChevronDown, ChevronRight, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
 import { BackgroundVideo, type VideoClip } from "@/components/ui/BackgroundVideo";
 import posterUrl from "@/assets/problem-hook-bg.jpg";
 import clip1D from "@/assets/hook-clip1-d.mp4";
