@@ -5,7 +5,6 @@ import { trackEvent } from "@/lib/analytics";
 import skoolTracks from "@/assets/skool-course-tracks.png";
 import skoolActionPractice from "@/assets/skool-action-practice.png";
 
-const features = [
 const features: string[] = [];
 
 const tracks = [
