@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Check, Compass, Dumbbell, BookOpen } from "lucide-react";
+import { Compass, Dumbbell, BookOpen } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { trackEvent } from "@/lib/analytics";
 import skoolTracks from "@/assets/skool-course-tracks.png";
 import skoolActionPractice from "@/assets/skool-action-practice.png";
 
-const features: string[] = [];
+
 
 const tracks = [
   {
