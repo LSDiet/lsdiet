@@ -89,10 +89,6 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
 
   return (
     <div className={cn(containerCls, className)} aria-label="Share this article">
-      {links.map(({ label, href, Icon }) => (
-        <a
-          key={label}
-          href={href}
       {links.map(({ label, method, href, Icon }) => (
         <a
           key={label}
@@ -108,6 +104,10 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
           <Icon className="w-4 h-4" />
         </a>
       ))}
+      <button type="button" onClick={handleCopy} aria-label="Copy link" className={btnCls}>
+        <Link2 className="w-4 h-4" />
+      </button>
+      {hasNativeShare && (
         <button
           type="button"
           onClick={handleNativeShare}
@@ -120,3 +120,4 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
     </div>
   );
 }
+
