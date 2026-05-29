@@ -491,7 +491,6 @@ const faqCategories: FAQCategoryData[] = [
   },
 ];
 
-];
 
 export default function QAPage() {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation(0.1);
