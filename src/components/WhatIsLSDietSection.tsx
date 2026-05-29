@@ -70,9 +70,14 @@ export function WhatIsLSDietSection() {
 
 
         {/* Two pillars: A) WPT training  B) LS lifestyle */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {/* A) WPT card */}
-          <a
+        {/* Bridge to the solution */}
+        <div className="flex items-center justify-center gap-2 mt-12 md:mt-14 mb-5 text-accent">
+          <TrendingUp className="w-5 h-5" aria-hidden="true" />
+          <p className="text-sm md:text-base font-bold uppercase tracking-[0.15em]">
+            Stay away from obesity:
+          </p>
+        </div>
+
             href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
             target="_blank"
             rel="noopener noreferrer"
