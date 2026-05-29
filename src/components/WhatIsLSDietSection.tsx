@@ -64,8 +64,7 @@ export function WhatIsLSDietSection() {
         </div>
 
         {/* Bridge to the solution */}
-        <div className="flex items-center justify-center gap-2 mt-12 md:mt-14 mb-5 text-accent">
-          <TrendingUp className="w-5 h-5" aria-hidden="true" />
+        <div className="flex items-center justify-center mt-12 md:mt-14 mb-5 text-accent">
           <p className="text-sm md:text-base font-bold uppercase tracking-[0.15em]">
             You can reverse obesity
           </p>
