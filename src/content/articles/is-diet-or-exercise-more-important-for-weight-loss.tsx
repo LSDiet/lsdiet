@@ -49,35 +49,49 @@ function Body() {
 
       <p>If you guess Person A, you are correct.</p>
 
+      <h3>The physiology of fasting</h3>
+
       <p>
         Weight loss starts with our bodies' physiology. When no food is
         ingested, the body begins to use stored glucose for energy. As those
         stores diminish, it increasingly turns to fat stores and produces
         ketones for fuel. At this stage, your body is drawing on its stored
-        fuel 24/7. That's why fasting can lead to faster weight loss than
-        exercise. But here's the catch: extended fasting not only burns fat
-        but also breaks down muscle tissue. Along with fat and water loss,
-        you're losing some of the muscles that help you move, stay strong,
-        keep good posture, and support your bones. So, while weight may drop
-        quickly, not all weight loss is equal or healthy.
+        fuel 24/7.
       </p>
 
       <p>
-        Let's think about exercise for a moment. Most adults burn about 1,400
-        to 1,800 calories each day just to keep our bodies running — like
-        breathing, circulating blood, managing body temperature, and keeping
-        our organs working. Interestingly, your body uses more calories doing
-        nothing for a whole day than it does during a typical gym session. To
-        give some perspective, burning 500 calories through exercise might
-        take about 45 to 60 minutes of jogging for many people, depending on
-        body size and pace. But even if you never hit the treadmill, your
-        body still burns two to three times that amount over a day. So, while
-        exercise is incredibly important, it's not just about calories. Its
-        greatest benefits are building and maintaining muscle, boosting
-        strength, supporting healthy bones, and improving what your body can
-        do. If your main goal is to lose weight quickly, fasting might seem
-        more effective. But if you want to become stronger, healthier, and
-        more capable, exercise is truly essential.
+        That's why fasting can lead to faster weight loss than exercise. But
+        here's the catch: extended fasting not only burns fat but also
+        breaks down muscle tissue. Along with fat and water loss, you're
+        losing some of the muscles that help you move, stay strong, keep
+        good posture, and support your bones. So, while weight may drop
+        quickly, not all weight loss is equal or healthy.
+      </p>
+
+      <h3>The math of exercise</h3>
+
+      <p>
+        Most adults burn about 1,400 to 1,800 calories each day just to keep
+        our bodies running — breathing, circulating blood, managing body
+        temperature, and keeping our organs working. Interestingly, your
+        body uses more calories doing nothing for a whole day than it does
+        during a typical gym session.
+      </p>
+
+      <p>
+        To give some perspective, burning 500 calories through exercise
+        might take about 45 to 60 minutes of jogging, depending on body size
+        and pace. But even if you never hit the treadmill, your body still
+        burns two to three times that amount over a day.
+      </p>
+
+      <p>
+        So while exercise is incredibly important, it's not just about
+        calories. Its greatest benefits are building and maintaining muscle,
+        boosting strength, supporting healthy bones, and improving what
+        your body can do. If your main goal is to lose weight quickly,
+        fasting might seem more effective. But if you want to become
+        stronger, healthier, and more capable, exercise is truly essential.
       </p>
 
       <p>
