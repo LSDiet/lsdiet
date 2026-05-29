@@ -121,16 +121,28 @@ function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: s
 }
 
 
-function NeonChip({ pain }: { pain: Pain }) {
+function PillChip({ pain }: { pain: Pain }) {
   const { Icon } = pain;
   return (
     <a
       href={pain.href}
-      className="mx-auto flex w-[16rem] max-w-full flex-col items-center gap-1.5 rounded-xl border border-white/15 bg-black/50 px-4 py-2.5 text-center backdrop-blur-md transition-all duration-300 ease-out hover:border-white/25 hover:bg-black/65"
-      style={{ boxShadow: cardShadow() }}
+      className="group mx-auto flex w-full max-w-[20rem] items-center gap-3 rounded-full border border-white/15 bg-black/55 pl-2 pr-4 py-1.5 backdrop-blur-md transition-all duration-300 ease-out hover:border-white/30 hover:bg-black/70"
+      style={{ boxShadow: "0 4px 14px -8px rgba(0,0,0,0.7)" }}
     >
-      <Icon className="h-5 w-5 shrink-0" style={{ color: `hsl(${pain.hsl})` }} aria-hidden="true" />
-      <span className="text-[0.95rem] font-bold leading-tight text-white">{pain.label}</span>
+      <span
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border"
+        style={{
+          borderColor: `hsl(${pain.hsl} / 0.55)`,
+          backgroundColor: `hsl(${pain.hsl} / 0.12)`,
+          color: `hsl(${pain.hsl})`,
+        }}
+      >
+        <Icon className="h-[1.05rem] w-[1.05rem]" aria-hidden="true" />
+      </span>
+      <span className="flex-1 text-[0.95rem] font-bold uppercase tracking-wide text-white">
+        {pain.shortLabel}
+      </span>
+      <ChevronRight className="h-4 w-4 shrink-0 text-white/55 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
     </a>
   );
 }
