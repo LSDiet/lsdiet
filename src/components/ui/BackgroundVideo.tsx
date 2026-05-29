@@ -139,7 +139,7 @@ export function BackgroundVideo({
         // @ts-expect-error fetchpriority is a valid HTML attribute
         fetchpriority="high"
         className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700"
-        style={{ opacity: started && !failed ? 0 : 1 }}
+        style={{ opacity: failed ? 1 : 0 }}
       />
       {hasClips && (
         <>
