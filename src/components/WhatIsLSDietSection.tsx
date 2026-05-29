@@ -67,7 +67,7 @@ export function WhatIsLSDietSection() {
         <div className="flex items-center justify-center gap-2 mt-12 md:mt-14 mb-5 text-accent">
           <TrendingUp className="w-5 h-5" aria-hidden="true" />
           <p className="text-sm md:text-base font-bold uppercase tracking-[0.15em]">
-            Stay away from obesity:
+            You can reverse obesity
           </p>
         </div>
 
