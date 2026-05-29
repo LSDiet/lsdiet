@@ -16,32 +16,32 @@ type Row = {
 const awarenessRows: Row[] = [
   {
     n: "01",
-    title: "Reality",
+    title: "Reality Awareness",
     desc: "Estimate baseline.",
     href: "/blog/reality-awareness",
   },
   {
     n: "02",
-    title: "Friction",
+    title: "Friction Awareness",
     desc: "Know where you are and determine where you want to be.",
     href: "/blog/friction-awareness",
   },
   {
     n: "03",
-    title: "Pattern",
+    title: "Pattern Awareness",
     desc: "Identify the Who, When, Where, What, Why and How.",
     href: "/blog/pattern-awareness",
   },
   {
     n: "04",
-    title: "Consequence",
+    title: "Consequence Awareness",
     tag: "PUSH motivation",
     desc: "PUSH motivation is an emotionally connected reason that pushes you away from a future, consequence, or outcome you no longer want to tolerate.",
     href: "/blog/consequence-awareness",
   },
   {
     n: "05",
-    title: "Identity",
+    title: "Identity Awareness",
     tag: "PULL motivation",
     desc: "PULL motivation is an emotionally connected reason that pulls you toward a future, identity, or outcome you genuinely want to create.",
     href: "/blog/identity-awareness",
