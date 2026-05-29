@@ -176,17 +176,21 @@ export function ProblemHookSection() {
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 to-transparent" />
 
         <div className="relative z-10 flex min-h-[100svh] flex-col px-8 pt-20 pb-8 lg:px-12">
-          <Headline />
+          <p className="text-center text-sm font-medium tracking-wide text-white/85 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+            Built for people who keep regaining weight.
+          </p>
+          <div className="mt-3">
+            <Headline />
+          </div>
 
-          {/* Pain-point cluster pinned to the RIGHT — reads as one psychological
-              stack: tight spacing, varied widths, consistent right-edge alignment. */}
+          {/* Pill stack pinned to the right — tight, connected, "tap to explore" */}
           <div className="mt-8 flex flex-1 items-center justify-end">
             <nav
               aria-label="Common weight-loss struggles"
-              className="ml-auto flex w-full max-w-[30rem] flex-col items-end gap-2 lg:max-w-[34rem]"
+              className="ml-auto flex w-full max-w-[24rem] flex-col gap-1.5 lg:max-w-[26rem]"
             >
-              {pains.map((pain, i) => (
-                <RailItem key={pain.label} pain={pain} widthClass={railWidths[i]} offsetClass={railOffsets[i]} />
+              {pains.map((pain) => (
+                <PillChip key={pain.label} pain={pain} />
               ))}
             </nav>
           </div>
