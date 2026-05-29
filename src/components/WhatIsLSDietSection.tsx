@@ -141,5 +141,3 @@ export function WhatIsLSDietSection() {
     </section>
   );
 }
-
-}
