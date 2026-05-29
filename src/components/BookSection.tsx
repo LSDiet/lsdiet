@@ -1,16 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Check, Compass, Dumbbell, BookOpen } from "lucide-react";
+import { Compass, Dumbbell, BookOpen } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { trackEvent } from "@/lib/analytics";
 import skoolTracks from "@/assets/skool-course-tracks.png";
 import skoolActionPractice from "@/assets/skool-action-practice.png";
 
-const features = [
-  "Video-based lessons - listen to them on the go",
-  "3 tracks: Start Here, Action Practice, and Tools",
-  "Weekly live webinar hosted by Oscar",
-  "Support from a community of like-minded future-oriented people",
-];
+
 
 const tracks = [
   {
@@ -110,7 +105,7 @@ export function BookSection() {
                 Inside Action Practice
               </p>
               <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                25+ practice lessons you can start today
+                30+ Video-based practice lessons you can start today
               </h3>
             </div>
             <a
@@ -135,17 +130,6 @@ export function BookSection() {
             </a>
           </div>
 
-          {/* Features list (centered) */}
-          <ul className="max-w-xl mx-auto space-y-3 mb-10">
-            {features.map((feature) => (
-              <li key={feature} className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Check className="w-3 h-3 text-accent" />
-                </div>
-                <span className="text-muted-foreground text-sm md:text-base">{feature}</span>
-              </li>
-            ))}
-          </ul>
 
           {/* CTA */}
           <div className="text-center">

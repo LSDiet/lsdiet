@@ -197,11 +197,6 @@ export function FAQSection() {
             ))}
           </Accordion>
 
-          <p className="text-center mt-10 text-sm">
-            <a href="/faq" className="text-accent hover:underline font-medium">
-              See the full LS Diet FAQ →
-            </a>
-          </p>
         </div>
       </section>
     </>

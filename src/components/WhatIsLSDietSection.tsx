@@ -64,10 +64,12 @@ export function WhatIsLSDietSection() {
         </div>
 
         {/* Bridge to the solution */}
-        <p className="mt-10 md:mt-12 mb-6 md:mb-8 text-center text-base md:text-lg font-bold text-foreground max-w-2xl mx-auto">
-          To prevent regaining weight, you need:
-        </p>
-
+        <div className="flex items-center justify-center gap-2 mt-12 md:mt-14 mb-5 text-accent">
+          <TrendingUp className="w-5 h-5" aria-hidden="true" />
+          <p className="text-sm md:text-base font-bold uppercase tracking-[0.15em]">
+            Stay away from obesity:
+          </p>
+        </div>
 
         {/* Two pillars: A) WPT training  B) LS lifestyle */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -83,7 +85,6 @@ export function WhatIsLSDietSection() {
                 <Brain className="w-6 h-6 md:w-7 md:h-7 text-primary" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-1">Training</p>
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
                   Weight Permanence Triangle™
                 </h3>
@@ -109,7 +110,6 @@ export function WhatIsLSDietSection() {
                 <Beef className="w-6 h-6 md:w-7 md:h-7 text-accent" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent mb-1">Sustainable Lifestyle</p>
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-accent transition-colors">
                   Low-Starch, Low-Sugar
                 </h3>
@@ -117,7 +117,7 @@ export function WhatIsLSDietSection() {
                 <ul className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs md:text-sm font-semibold text-[hsl(0_0%_20%)]">
                   <li>Eat until full</li>
                   <li className="text-accent" aria-hidden="true">·</li>
-                  <li>No counting</li>
+                  <li>No Calorie Counting</li>
                   <li className="text-accent" aria-hidden="true">·</li>
                   <li>Sustainable</li>
                 </ul>
@@ -127,7 +127,7 @@ export function WhatIsLSDietSection() {
         </div>
 
         <p className="mt-8 md:mt-10 text-center text-sm md:text-base text-[hsl(0_0%_30%)] max-w-2xl mx-auto">
-          New here? Start with the pillar article on{" "}
+          Read:{" "}
           <a
             href="/blog/why-people-regain-weight-after-dieting"
             target="_blank"
@@ -135,8 +135,7 @@ export function WhatIsLSDietSection() {
             className="text-accent font-semibold hover:underline"
           >
             why people regain weight after dieting
-          </a>{" "}
-          — the problem LS Diet was built to solve.
+          </a>
         </p>
       </div>
     </section>

@@ -43,37 +43,6 @@ export function HeroPitchSection() {
               <span className="relative z-10 text-accent animate-pulse-glow">weight regain</span>
             </span>
           </h2>
-          <p className="mt-4 text-sm text-muted-foreground md:text-base">
-
-            Let's end{" "}
-            <span className="relative inline-block whitespace-nowrap">
-              <span>weight cycling</span>
-              <svg
-                className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
-                viewBox="0 0 100 40"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <line
-                  x1="2" y1="34" x2="98" y2="6"
-                  stroke="hsl(0 85% 55%)"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeDasharray="140"
-                  className="animate-x-stroke-1"
-                />
-                <line
-                  x1="2" y1="6" x2="98" y2="34"
-                  stroke="hsl(0 85% 55%)"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeDasharray="140"
-                  className="animate-x-stroke-2"
-                />
-              </svg>
-            </span>
-            {" "}together!
-          </p>
 
           <p className="mt-6 text-sm text-foreground md:text-base">In the LS Diet Community, you will:</p>
           <div className="relative mt-3">
