@@ -439,6 +439,7 @@ const faqCategories: FAQCategoryData[] = [
           "The Weight Permanence Triangle™ helps during travel and social eating by providing flexible decision frameworks that maintain direction without requiring perfect conditions. The Permanence tools stabilise decisions when your environment, context, or routine changes.",
       },
     ],
+  },
   {
     title: "The Course",
     hasCourseCta: true,
