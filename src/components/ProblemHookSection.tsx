@@ -196,7 +196,7 @@ export function ProblemHookSection() {
           </div>
 
           <p className="mt-6 text-center text-sm font-medium text-white/55 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-            I know, because I lived through this cycle <span className="text-accent font-semibold">3 times</span>.
+            I lived through this cycle <span className="text-accent font-semibold">3 times</span>.
           </p>
           <ChevronDown className="mx-auto mt-3 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
         </div>
@@ -226,7 +226,7 @@ export function ProblemHookSection() {
             ))}
           </div>
           <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            <span className="text-accent">&darr;</span> I know this <span className="text-accent">cycle</span> too well <span className="text-accent">&darr;</span>
+            <span className="text-accent">&darr;</span> I know this <span className="text-accent">cycle</span> <span className="text-accent">&darr;</span>
           </p>
         </div>
 
