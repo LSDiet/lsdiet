@@ -38,21 +38,56 @@ function Body() {
       <h2>Why Diet Controls the Scale</h2>
 
       <p>
-        Most people consume far more calories than they realize, partly
-        because processed foods are engineered to dull fullness and amplify
-        cravings. That's the lever{" "}
-        <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
-          low-starch low-sugar eating
-        </a>{" "}
-        pulls first — reducing cravings and insulin spikes before willpower
-        is even on the table.
+        Let's explore this with a simple question: who will shed more weight
+        over the next two weeks?
+      </p>
+
+      <ul>
+        <li>Person A: drinks only water for two weeks (not recommended)</li>
+        <li>Person B: daily hour-long jogs for two weeks</li>
+      </ul>
+
+      <p>If you guess Person A, you are correct.</p>
+
+      <p>
+        Weight loss starts with our bodies' physiology. When no food is
+        ingested, the body begins to use stored glucose for energy. As those
+        stores diminish, it increasingly turns to fat stores and produces
+        ketones for fuel. At this stage, your body is drawing on its stored
+        fuel 24/7. That's why fasting can lead to faster weight loss than
+        exercise. But here's the catch: extended fasting not only burns fat
+        but also breaks down muscle tissue. Along with fat and water loss,
+        you're losing some of the muscles that help you move, stay strong,
+        keep good posture, and support your bones. So, while weight may drop
+        quickly, not all weight loss is equal or healthy.
       </p>
 
       <p>
-        A typical LS plate is built around protein, vegetables, and real
-        fullness. The behavioural side of this — staying consistent on bad
-        days — sits inside the{" "}
-        <a href="/blog/action-practice">Action Practice</a> lessons.
+        Let's think about exercise for a moment. Most adults burn about 1,400
+        to 1,800 calories each day just to keep our bodies running — like
+        breathing, circulating blood, managing body temperature, and keeping
+        our organs working. Interestingly, your body uses more calories doing
+        nothing for a whole day than it does during a typical gym session. To
+        give some perspective, burning 500 calories through exercise might
+        take about 45 to 60 minutes of jogging for many people, depending on
+        body size and pace. But even if you never hit the treadmill, your
+        body still burns two to three times that amount over a day. So, while
+        exercise is incredibly important, it's not just about calories. Its
+        greatest benefits are building and maintaining muscle, boosting
+        strength, supporting healthy bones, and improving what your body can
+        do. If your main goal is to lose weight quickly, fasting might seem
+        more effective. But if you want to become stronger, healthier, and
+        more capable, exercise is truly essential.
+      </p>
+
+      <p>
+        The sustainable middle ground is{" "}
+        <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
+          low-starch low-sugar eating
+        </a>
+        {" "}— it controls hunger and cravings without the muscle loss of
+        extended fasting. The behavioural side of staying consistent sits
+        inside the <a href="/blog/action-practice">Action Practice</a> lessons.
       </p>
 
       <h2>Why Exercise Still Matters</h2>
@@ -73,17 +108,22 @@ function Body() {
       <h2>Sustainability Is the Tiebreaker</h2>
 
       <p>
-        Plenty of people start extreme fitness programs and quit within
-        weeks. Sustainable systems beat heroic systems over a one-year
-        window, every time. That's the entire premise of the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>:
-        permanence beats intensity.
+        Diet is the primary driver of weight loss because it determines how
+        much energy enters the system. Exercise helps determine what happens
+        to your muscles, bones, strength, mobility, and long-term health
+        while that weight is being lost. Diet will always lose more weight,
+        while exercise helps you lose the right weight. The most sustainable
+        approach combines both: eating in a way that controls hunger and
+        cravings while moving in a way that preserves muscle and supports
+        lifelong health. Balance is where long-term success lives.
       </p>
 
       <p>
-        In practice that means daily walking, slow jogging, repeatable LS
-        meals, and routines that survive a 60-hour work week.
+        That balance is the entire premise of the{" "}
+        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>
+        {" "}— permanence beats intensity.
       </p>
+
 
       <h2>Final Thoughts</h2>
 
