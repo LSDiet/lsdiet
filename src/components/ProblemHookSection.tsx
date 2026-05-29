@@ -208,16 +208,21 @@ export function ProblemHookSection() {
         <BackgroundVideo clips={mobileClips} poster={posterUrl} alt={POSTER_ALT} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/95" />
 
-        <div className="relative z-10 flex flex-col px-4 pt-20 pb-6">
-          <Headline />
-          {/* Boxes stacked vertically right below the headline, overlaying the video */}
-          <div className="mt-5 flex flex-col gap-2.5">
+        <div className="relative z-10 flex flex-col px-4 pt-16 pb-6">
+          <p className="text-center text-sm font-medium tracking-wide text-white/85 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+            Built for people who keep regaining weight.
+          </p>
+          <div className="mt-3">
+            <Headline />
+          </div>
+          {/* Pill stack — tight spacing, reads as one connected list */}
+          <div className="mt-6 flex flex-col gap-1.5">
             {pains.map((pain) => (
-              <NeonChip key={pain.label} pain={pain} />
+              <PillChip key={pain.label} pain={pain} />
             ))}
           </div>
-          <p className="mt-4 text-center text-lg font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            <span className="text-accent">&darr;</span> I know this <span className="text-accent">cycle</span> <span className="text-accent">&darr;</span>
+          <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <span className="text-accent">&darr;</span> I know this <span className="text-accent">cycle</span> too well <span className="text-accent">&darr;</span>
           </p>
         </div>
 
