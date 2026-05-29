@@ -9,6 +9,7 @@
 //    sales language.
 
 import { ArrowRight } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export const LS_DIET_SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
@@ -47,6 +48,14 @@ export function LSDietCTA({
         href={LS_DIET_SKOOL_URL}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() =>
+          trackEvent("cta_click", {
+            location: "lsdiet_cta",
+            placement,
+            label: buttonLabel,
+            destination: LS_DIET_SKOOL_URL,
+          })
+        }
         className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-bold uppercase tracking-wider text-accent-foreground hover:bg-accent/90 transition-colors"
       >
         {buttonLabel}

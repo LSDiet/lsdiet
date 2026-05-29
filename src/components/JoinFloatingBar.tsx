@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function JoinFloatingBar() {
   const [visible, setVisible] = useState(false);
@@ -41,6 +42,13 @@ export function JoinFloatingBar() {
           href="https://www.skool.com/lsdiet/about"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() =>
+            trackEvent("cta_click", {
+              location: "floating_bar",
+              label: "Join LS Diet Community",
+              destination: "https://www.skool.com/lsdiet/about",
+            })
+          }
           className="flex-shrink-0 rounded-md bg-accent px-4 py-2 text-xs font-bold uppercase tracking-wide text-accent-foreground transition-transform hover:scale-[1.03] sm:px-6 sm:text-sm"
         >
           <span className="inline-block animate-two-weeks">Join LS Diet Community</span>
