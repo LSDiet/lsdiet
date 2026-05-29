@@ -177,7 +177,7 @@ export function ProblemHookSection() {
 
         <div className="relative z-10 flex min-h-[100svh] flex-col px-8 pt-20 pb-8 lg:px-12">
           <p className="text-center text-sm font-medium tracking-wide text-white/85 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-            Built for people who keep regaining weight.
+            Built for people who keep regaining weight
           </p>
           <div className="mt-3">
             <Headline />
@@ -214,7 +214,7 @@ export function ProblemHookSection() {
 
         <div className="relative z-10 flex flex-col px-4 pt-16 pb-6">
           <p className="text-center text-sm font-medium tracking-wide text-white/85 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            Built for people who keep regaining weight.
+            Built for people who keep regaining weight
           </p>
           <div className="mt-3">
             <Headline />
