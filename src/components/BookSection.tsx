@@ -105,7 +105,7 @@ export function BookSection() {
                 Inside Action Practice
               </p>
               <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                25+ practice lessons you can start today
+                30+ Video-based practice lessons you can start today
               </h3>
             </div>
             <a
