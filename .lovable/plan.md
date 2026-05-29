@@ -1,24 +1,18 @@
-## Add GA4 Event Tracking
+## Goal
 
-Wire `trackEvent()` from `src/lib/analytics.ts` into the components that currently lack instrumentation.
+The static woman image (`problem-hook-bg.jpg`) should **never** be visible when the videos can play. Right now it's used as the LCP poster and fades out only after the first video frame paints — so there's always a brief flash, and if reduced-motion is on it stays forever.
 
-### Changes
+## Fix — edit only `src/components/ui/BackgroundVideo.tsx`
 
-1. **`LSDietCTA.tsx`** — fire `cta_click` on the main CTA button with `{ location: 'lsdiet_cta', label, destination }`.
+1. **Remove the reduced-motion early return.** Always set `enabled = true` after first paint, so the videos load and play in every browser/OS setting.
+2. **Stop using the poster image as a visible default.** Render it with `opacity: 0` from the start. The container already has `bg-black`, so during the (very short) gap before video frame #1 paints, the user sees solid black — not the woman.
+3. **Only show the poster as an error fallback.** If all video sources error (`onError` → `failed = true`), fade the poster back in with `opacity: 1`. This preserves graceful degradation for offline/codec issues without ever showing the image during normal playback.
+4. Keep the `<img>` in the DOM (still used by `<BackgroundVideo poster={...} alt={...}>` for accessibility/SEO alt text and the failure case), but it will be visually hidden by default.
 
-2. **`JoinFloatingBar.tsx`** — fire `cta_click` on the floating join button with `{ location: 'floating_bar' }`.
+No changes to `ProblemHookSection.tsx`, no changes to video clip files, no changes to the poster JPG asset.
 
-3. **`BookSection.tsx`** — fire `cta_click` on any primary CTA(s) with `{ location: 'book_section' }`.
+## Result
 
-4. **`CartDrawer.tsx` / `useDirectCheckout`** — fire `begin_checkout` when the cart opens/checkout starts, with `{ items, value, currency }` pulled from current cart state. (`purchase` happens post-Stripe redirect, so it's deferred unless a thank-you route exists — will note in code.)
-
-5. **`ShareButtons.tsx`** — fire `share` on each share-channel click with `{ method, content_type: 'article', item_id: url }`.
-
-6. **`EmailCaptureModal.tsx`** — fire `email_capture` on successful submit with `{ source }`.
-
-### Out of scope
-- Scroll/engagement tracking (separate enhancement).
-- `purchase` server-side confirmation (requires Stripe webhook or thank-you page wiring).
-
-### Verification
-- After edits, grep for new `trackEvent` calls and confirm no TS errors. User can verify in GA4 DebugView.
+- On a normal load: black background for a split second → video 1 starts → cycles 1 → 2 → 3 → 4 → loop. Woman image never appears.
+- On video failure: woman image fades in as a fallback so the section isn't blank.
+- Reduced-motion users get the videos too (muted decorative loop, WCAG-safe).
