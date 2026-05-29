@@ -17,7 +17,7 @@
  *   - Neon glow = lightweight layered box-shadow only (dialed back ~20%)
  *   - Animation limited to the chevron bounce
  */
-import { ChevronDown, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
+import { ChevronDown, ChevronRight, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
 import { BackgroundVideo, type VideoClip } from "@/components/ui/BackgroundVideo";
 import posterUrl from "@/assets/problem-hook-bg.jpg";
 import clip1D from "@/assets/hook-clip1-d.mp4";
@@ -48,6 +48,7 @@ const POSTER_ALT =
 
 type Pain = {
   label: string;
+  shortLabel: string;
   href: string;
   /** HSL triplet used for border + glow */
   hsl: string;
@@ -55,11 +56,11 @@ type Pain = {
 };
 
 const pains: Pain[] = [
-  { label: "I don\u2019t know where to start", href: "/blog/why-do-i-keep-losing-and-regaining-the-same-weight", hsl: "0 84% 60%", Icon: Compass },
-  { label: "I have no motivation", href: "/blog/why-do-i-lose-motivation-after-a-few-weeks", hsl: "212 90% 60%", Icon: BatteryLow },
-  { label: "The method stops working", href: "/blog/how-to-overcome-weight-loss-plateaus", hsl: "38 92% 55%", Icon: TrendingDown },
-  { label: "I don\u2019t want to exercise", href: "/blog/is-diet-or-exercise-more-important-for-weight-loss", hsl: "150 70% 48%", Icon: Footprints },
-  { label: "I stress eat", href: "/blog/why-does-stress-make-me-eat-more", hsl: "280 70% 65%", Icon: CloudRain },
+  { label: "I don\u2019t know where to start", shortLabel: "Stuck", href: "/blog/why-do-i-keep-losing-and-regaining-the-same-weight", hsl: "0 84% 60%", Icon: Compass },
+  { label: "I have no motivation", shortLabel: "Unmotivated", href: "/blog/why-do-i-lose-motivation-after-a-few-weeks", hsl: "212 90% 60%", Icon: BatteryLow },
+  { label: "The method stops working", shortLabel: "Plateaued", href: "/blog/how-to-overcome-weight-loss-plateaus", hsl: "38 92% 55%", Icon: TrendingDown },
+  { label: "I don\u2019t want to exercise", shortLabel: "Hate exercise", href: "/blog/is-diet-or-exercise-more-important-for-weight-loss", hsl: "150 70% 48%", Icon: Footprints },
+  { label: "I stress eat", shortLabel: "Stress eating", href: "/blog/why-does-stress-make-me-eat-more", hsl: "280 70% 65%", Icon: CloudRain },
 ];
 
 /** Slightly varied widths so the right-edge cluster reads as ONE organic
@@ -120,16 +121,28 @@ function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: s
 }
 
 
-function NeonChip({ pain }: { pain: Pain }) {
+function PillChip({ pain }: { pain: Pain }) {
   const { Icon } = pain;
   return (
     <a
       href={pain.href}
-      className="mx-auto flex w-[16rem] max-w-full flex-col items-center gap-1.5 rounded-xl border border-white/15 bg-black/50 px-4 py-2.5 text-center backdrop-blur-md transition-all duration-300 ease-out hover:border-white/25 hover:bg-black/65"
-      style={{ boxShadow: cardShadow() }}
+      className="group mx-auto flex w-full max-w-[20rem] items-center gap-3 rounded-full border border-white/15 bg-black/55 pl-2 pr-4 py-1.5 backdrop-blur-md transition-all duration-300 ease-out hover:border-white/30 hover:bg-black/70"
+      style={{ boxShadow: "0 4px 14px -8px rgba(0,0,0,0.7)" }}
     >
-      <Icon className="h-5 w-5 shrink-0" style={{ color: `hsl(${pain.hsl})` }} aria-hidden="true" />
-      <span className="text-[0.95rem] font-bold leading-tight text-white">{pain.label}</span>
+      <span
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border"
+        style={{
+          borderColor: `hsl(${pain.hsl} / 0.55)`,
+          backgroundColor: `hsl(${pain.hsl} / 0.12)`,
+          color: `hsl(${pain.hsl})`,
+        }}
+      >
+        <Icon className="h-[1.05rem] w-[1.05rem]" aria-hidden="true" />
+      </span>
+      <span className="flex-1 text-[0.95rem] font-bold uppercase tracking-wide text-white">
+        {pain.shortLabel}
+      </span>
+      <ChevronRight className="h-4 w-4 shrink-0 text-white/55 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
     </a>
   );
 }
@@ -195,16 +208,21 @@ export function ProblemHookSection() {
         <BackgroundVideo clips={mobileClips} poster={posterUrl} alt={POSTER_ALT} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/95" />
 
-        <div className="relative z-10 flex flex-col px-4 pt-20 pb-6">
-          <Headline />
-          {/* Boxes stacked vertically right below the headline, overlaying the video */}
-          <div className="mt-5 flex flex-col gap-2.5">
+        <div className="relative z-10 flex flex-col px-4 pt-16 pb-6">
+          <p className="text-center text-sm font-medium tracking-wide text-white/85 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+            Built for people who keep regaining weight.
+          </p>
+          <div className="mt-3">
+            <Headline />
+          </div>
+          {/* Pill stack — tight spacing, reads as one connected list */}
+          <div className="mt-6 flex flex-col gap-1.5">
             {pains.map((pain) => (
-              <NeonChip key={pain.label} pain={pain} />
+              <PillChip key={pain.label} pain={pain} />
             ))}
           </div>
-          <p className="mt-4 text-center text-lg font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            <span className="text-accent">&darr;</span> I know this <span className="text-accent">cycle</span> <span className="text-accent">&darr;</span>
+          <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <span className="text-accent">&darr;</span> I know this <span className="text-accent">cycle</span> too well <span className="text-accent">&darr;</span>
           </p>
         </div>
 
