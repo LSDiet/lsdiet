@@ -9,6 +9,7 @@ const learnLinks = [
   { label: "About Oscar Poon", href: "/oscar-poon" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
+  { label: "Resources", href: "/resources" },
 ];
 
 export function FooterSimple() {
