@@ -36,6 +36,35 @@ const faqs: FaqEntry[] = [
     ),
   },
   {
+    q: "How much does LS Diet cost?",
+    schemaAnswer:
+      "LS Diet is currently free to join during our soft launch period until July 31, 2026. Starting August 1, 2026, membership will be $11 per month. Anyone who joins before July 31, 2026 will keep free lifetime access to all current and future content inside the Start Here and Action Practice modules.",
+    render: () => (
+      <div className="space-y-3">
+        <p className={paraCls}>
+          LS Diet is currently free to join during our soft launch period until July 31, 2026.
+        </p>
+        <p className={paraCls}>
+          Starting August 1, 2026, membership will be{" "}
+          <span className="font-semibold text-foreground">$11 per month</span>.
+        </p>
+        <p className={paraCls}>
+          Anyone who joins before July 31, 2026 will keep{" "}
+          <span className="font-semibold text-foreground">free lifetime access</span>{" "}
+          to all current and future content inside the Start Here and Action Practice modules.
+        </p>
+        <p className={paraCls}>
+          If you've been thinking about joining, now is the best time to get started.
+        </p>
+        <p>
+          <a href="https://www.skool.com/lsdiet/about" className={linkCls} target="_blank" rel="noopener noreferrer">
+            Join LS Diet for free →
+          </a>
+        </p>
+      </div>
+    ),
+  },
+  {
     q: "Do I have to count calories or cut out entire food groups?",
     schemaAnswer:
       "No. LS Diet follows a low-starch, low-sugar lifestyle, but it is not based on calorie counting. You do not need to weigh food, track every bite, or obsess over numbers. The focus is on learning how different foods affect hunger, cravings, energy, and long-term weight management, so you can make better decisions without constant tracking.",
