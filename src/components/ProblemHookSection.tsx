@@ -19,6 +19,7 @@
  */
 import { ChevronDown, ChevronRight, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
 import { BackgroundVideo, type VideoClip } from "@/components/ui/BackgroundVideo";
+import { trackEvent } from "@/lib/analytics";
 import posterUrl from "@/assets/problem-hook-bg.jpg";
 import clip1D from "@/assets/hook-clip1-d.mp4";
 import clip2D from "@/assets/hook-clip2-d.mp4";
@@ -99,6 +100,14 @@ function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: s
   return (
     <a
       href={pain.href}
+      onClick={() =>
+        trackEvent("problem_card_click", {
+          location: "problem_hook",
+          variant: "desktop_rail",
+          label: pain.shortLabel,
+          destination: pain.href,
+        })
+      }
       className={`group relative flex w-full items-center gap-3.5 rounded-xl border border-white/15 bg-black/60 px-5 py-4 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/25 hover:bg-black/75 ${widthClass} ${offsetClass}`}
       style={{ boxShadow: cardShadow() }}
     >
@@ -126,6 +135,14 @@ function PillChip({ pain }: { pain: Pain }) {
   return (
     <a
       href={pain.href}
+      onClick={() =>
+        trackEvent("problem_card_click", {
+          location: "problem_hook",
+          variant: "pill_chip",
+          label: pain.shortLabel,
+          destination: pain.href,
+        })
+      }
       className="group mx-auto flex w-full max-w-[20rem] items-center gap-3 rounded-full border border-white/15 bg-black/55 pl-2 pr-4 py-1.5 backdrop-blur-md transition-all duration-300 ease-out hover:border-white/30 hover:bg-black/70"
       style={{ boxShadow: "0 4px 14px -8px rgba(0,0,0,0.7)" }}
     >
