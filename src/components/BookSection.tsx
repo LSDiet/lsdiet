@@ -1,29 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Compass, Dumbbell, BookOpen } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { trackEvent } from "@/lib/analytics";
 import skoolTracks from "@/assets/skool-course-tracks.png";
 import skoolActionPractice from "@/assets/skool-action-practice.png";
-
-
-
-const tracks = [
-  {
-    icon: Compass,
-    title: "Start Here",
-    desc: "No theory. This psychology module trains you to understand your emotions, improve your awareness, and strengthen your sense of identity.",
-  },
-  {
-    icon: Dumbbell,
-    title: "Action Practice",
-    desc: "From removing environmental triggers to switching from emotional to functional eating, any actionable practice will be updated in here.",
-  },
-  {
-    icon: BookOpen,
-    title: "Tools",
-    desc: "eBooks, blogs and other resources published by Oscar to prevent weight regain.",
-  },
-];
+import skoolStartHere from "@/assets/skool-start-here.png";
 
 const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
