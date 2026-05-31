@@ -42,11 +42,9 @@ const faqs: FaqEntry[] = [
     render: () => (
       <div className="space-y-3">
         <p className={paraCls}>
-          LS Diet is currently free to join during our soft launch period until July 31, 2026.
-        </p>
-        <p className={paraCls}>
-          Starting August 1, 2026, membership will be{" "}
-          <span className="font-semibold text-foreground">$11 per month</span>.
+          LS Diet is currently{" "}
+          <span className="font-semibold text-foreground">free to join</span>{" "}
+          during our soft launch period until July 31, 2026.
         </p>
         <p className={paraCls}>
           Anyone who joins before July 31, 2026 will keep{" "}
@@ -60,6 +58,9 @@ const faqs: FaqEntry[] = [
           <a href="https://www.skool.com/lsdiet/about" className={linkCls} target="_blank" rel="noopener noreferrer">
             Join LS Diet for free →
           </a>
+        </p>
+        <p className="text-xs text-zinc-500">
+          (Starting August 1, 2026, membership will be $11 per month.)
         </p>
       </div>
     ),
