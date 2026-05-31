@@ -19,6 +19,7 @@
  */
 import { ChevronDown, ChevronRight, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
 import { BackgroundVideo, type VideoClip } from "@/components/ui/BackgroundVideo";
+import { trackEvent } from "@/lib/analytics";
 import posterUrl from "@/assets/problem-hook-bg.jpg";
 import clip1D from "@/assets/hook-clip1-d.mp4";
 import clip2D from "@/assets/hook-clip2-d.mp4";
