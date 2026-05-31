@@ -92,7 +92,7 @@ export default function ResourcesPage() {
         <div className="container max-w-5xl">
           {/* Header */}
           <div className="max-w-2xl mb-12">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[hsl(0_0%_96%)] mb-4">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-foreground mb-4">
               Recommended Resources
             </h1>
             <p className="text-base md:text-lg text-[hsl(0_0%_56%)] leading-relaxed">
