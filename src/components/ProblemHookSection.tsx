@@ -135,6 +135,14 @@ function PillChip({ pain }: { pain: Pain }) {
   return (
     <a
       href={pain.href}
+      onClick={() =>
+        trackEvent("problem_card_click", {
+          location: "problem_hook",
+          variant: "pill_chip",
+          label: pain.shortLabel,
+          destination: pain.href,
+        })
+      }
       className="group mx-auto flex w-full max-w-[20rem] items-center gap-3 rounded-full border border-white/15 bg-black/55 pl-2 pr-4 py-1.5 backdrop-blur-md transition-all duration-300 ease-out hover:border-white/30 hover:bg-black/70"
       style={{ boxShadow: "0 4px 14px -8px rgba(0,0,0,0.7)" }}
     >
