@@ -63,6 +63,7 @@ const faqs: FaqEntry[] = [
         </p>
       </div>
     ),
+  },
   {
     q: "Do I have to count calories or cut out entire food groups?",
     schemaAnswer:
