@@ -55,27 +55,36 @@ export function BookSection() {
             />
           </a>
 
-          {/* Track blurbs */}
-          <div className="grid md:grid-cols-3 gap-4 mb-12">
-            {tracks.map((t) => {
-              const Icon = t.icon;
-              return (
-                <div
-                  key={t.title}
-                  className="bg-card border border-border rounded-xl p-5"
-                >
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="w-8 h-8 rounded-lg bg-accent/15 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-4 h-4 text-accent" />
-                    </div>
-                    <h3 className="text-sm font-bold uppercase tracking-wide text-foreground">
-                      {t.title}
-                    </h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{t.desc}</p>
-                </div>
-              );
-            })}
+          {/* Inside Start Here */}
+          <div className="mb-12">
+            <div className="text-center mb-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
+                Inside Start Here
+              </p>
+              <h3 className="text-xl md:text-2xl font-bold text-foreground">
+                Intervention to weight regain, and build motivation on demand
+              </h3>
+            </div>
+            <a
+              href={SKOOL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("cta_click", {
+                  location: "book_section",
+                  placement: "start_here_image",
+                  destination: SKOOL_URL,
+                })
+              }
+              className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors group"
+            >
+              <img
+                src={skoolStartHere}
+                alt="Start Here module on Skool with lessons on the problem and the foundation"
+                className="w-full h-auto block group-hover:scale-[1.005] transition-transform duration-500"
+                loading="lazy"
+              />
+            </a>
           </div>
 
           {/* Inside Action Practice */}
