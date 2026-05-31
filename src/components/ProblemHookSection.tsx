@@ -100,6 +100,14 @@ function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: s
   return (
     <a
       href={pain.href}
+      onClick={() =>
+        trackEvent("problem_card_click", {
+          location: "problem_hook",
+          variant: "desktop_rail",
+          label: pain.shortLabel,
+          destination: pain.href,
+        })
+      }
       className={`group relative flex w-full items-center gap-3.5 rounded-xl border border-white/15 bg-black/60 px-5 py-4 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/25 hover:bg-black/75 ${widthClass} ${offsetClass}`}
       style={{ boxShadow: cardShadow() }}
     >
