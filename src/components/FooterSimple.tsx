@@ -64,7 +64,7 @@ export function FooterSimple() {
                 <a href="https://x.com/JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">X (@JoinLSDiet)</a>
               </li>
               <li>
-                <a href="mailto:info@LSDiet.com" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">info@LSDiet.com</a>
+                <a href="mailto:support@lsdiet.com" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">support@lsdiet.com</a>
               </li>
             </ul>
           </div>

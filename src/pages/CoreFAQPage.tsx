@@ -120,7 +120,7 @@ export default function CoreFAQPage() {
         <div className="mt-12 p-6 rounded-xl border border-accent/30 bg-accent/5 text-center">
           <p className="text-sm text-zinc-800 mb-4">Have a question we missed?</p>
           <Button variant="accent" size="lg" asChild>
-            <a href="mailto:info@LSDiet.com">Send Oscar a question →</a>
+            <a href="mailto:support@lsdiet.com">Send Oscar a question →</a>
           </Button>
         </div>
       </article>

@@ -40,7 +40,7 @@ export const AboutAuthorSection = () => {
               </p>
 
               <blockquote className="text-lg italic text-accent font-medium leading-relaxed border-l-2 border-accent/40 pl-4">
-                "Lose the weight so you'll have options while you still can."
+                "Build a future where your choices are not limited by your weight."
               </blockquote>
             </div>
 
