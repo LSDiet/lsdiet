@@ -210,7 +210,7 @@ export function ProblemHookSection() {
           </div>
 
           <p className="mt-6 text-center text-base font-extrabold uppercase tracking-tight text-white lg:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            Built for people who keep regaining weight
+            For people who keep regaining weight
           </p>
           <ChevronDown className="mx-auto mt-3 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
         </div>
@@ -237,7 +237,7 @@ export function ProblemHookSection() {
             ))}
           </div>
           <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            Built for people who keep regaining weight
+            For people who keep regaining weight
           </p>
         </div>
 
