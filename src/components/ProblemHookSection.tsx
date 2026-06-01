@@ -212,12 +212,6 @@ export function ProblemHookSection() {
           <p className="mt-6 text-center text-base font-extrabold uppercase tracking-tight text-white lg:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
             Built for people who keep regaining weight
           </p>
-          <p className="mt-2 text-center text-sm font-medium text-white/75 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-            I lived through this cycle <span className="text-accent font-semibold">3 times</span>
-          </p>
-          <p className="mt-1 text-center text-sm font-medium text-white/75 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-            … and finally learned how to stop this
-          </p>
           <ChevronDown className="mx-auto mt-3 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
         </div>
 
@@ -244,12 +238,6 @@ export function ProblemHookSection() {
           </div>
           <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
             Built for people who keep regaining weight
-          </p>
-          <p className="mt-2 text-center text-sm font-medium text-white/80 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            I lived through this cycle <span className="text-accent font-semibold">3 times</span>
-          </p>
-          <p className="mt-1 text-center text-sm font-medium text-white/80 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            … and finally learned how to stop this
           </p>
         </div>
 
