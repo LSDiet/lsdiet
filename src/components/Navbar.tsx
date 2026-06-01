@@ -19,7 +19,7 @@ const navLinks: NavLink[] = [
     highlight: true,
     children: [
       { label: "Join LS Diet Community (Free)", href: "https://www.skool.com/lsdiet/about", external: true },
-      { label: "Purchase the WPT Toolbook", href: "https://book.lsdiet.com/product-details/product/weight-permanence-toolbook", external: true },
+      { label: "Buy the WPT Toolbook", href: "https://book.lsdiet.com/", external: true },
     ],
   },
   { label: "Become a Partner", href: "/partners" },
