@@ -25,7 +25,7 @@ export function ContactSection() {
   });
 
   const onSubmit = (data: ContactFormValues) => {
-    const mailtoLink = `mailto:info@LSDiet.com?subject=Question from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || "Not provided"}\n\nMessage:\n${data.message}`)}`;
+    const mailtoLink = `mailto:support@lsdiet.com?subject=Question from ${encodeURIComponent(data.name)}&body=${encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || "Not provided"}\n\nMessage:\n${data.message}`)}`;
     window.open(mailtoLink, "_blank");
     toast.success("Opening your email client!", {
       description: "Your message details have been pre-filled. Just hit send!",
@@ -96,11 +96,11 @@ export function ContactSection() {
           <div className="text-center mt-8">
             <p className="text-[hsl(0_0%_22%)] text-xs">Or email us directly at</p>
             <a
-              href="mailto:info@LSDiet.com"
+              href="mailto:support@lsdiet.com"
               className="inline-flex items-center gap-2 mt-2 text-accent hover:underline font-medium text-sm transition-colors"
             >
               <Mail className="w-4 h-4" />
-              info@LSDiet.com
+              support@lsdiet.com
             </a>
           </div>
         </div>

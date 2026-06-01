@@ -49,6 +49,9 @@ export function FooterSimple() {
                 <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">LS Diet Course (Skool)</a>
               </li>
               <li>
+                <a href="https://book.lsdiet.com/product-details/product/weight-permanence-toolbook" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">Purchase WPT Toolbook</a>
+              </li>
+              <li>
                 <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">YouTube (@JoinLSDiet)</a>
               </li>
               <li>
@@ -64,7 +67,7 @@ export function FooterSimple() {
                 <a href="https://x.com/JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">X (@JoinLSDiet)</a>
               </li>
               <li>
-                <a href="mailto:info@LSDiet.com" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">info@LSDiet.com</a>
+                <a href="mailto:support@lsdiet.com" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">support@lsdiet.com</a>
               </li>
             </ul>
           </div>
