@@ -206,8 +206,11 @@ export function HeroSection() {
           <MobileHeroCarousel />
         </div>
 
-        <p className="text-center text-sm font-medium text-foreground sm:text-base">
-          ... and I learned how to stop this
+        <p className="mt-2 text-center text-sm font-medium text-foreground sm:text-base">
+          I lived through this cycle <span className="text-accent font-semibold">3 times</span>
+        </p>
+        <p className="mt-1 text-center text-sm font-medium text-foreground sm:text-base">
+          … and finally learned how to stop this
         </p>
 
 
