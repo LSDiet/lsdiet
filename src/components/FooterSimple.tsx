@@ -46,7 +46,22 @@ export function FooterSimple() {
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent mb-3">Connect</p>
             <ul className="space-y-2">
               <li>
+                <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">LS Diet Course (Skool)</a>
+              </li>
+              <li>
                 <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">YouTube (@JoinLSDiet)</a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">Facebook (@JoinLSDiet)</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/joinlsdiet/" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">Instagram (@joinlsdiet)</a>
+              </li>
+              <li>
+                <a href="https://www.tiktok.com/@joinlsdiet" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">TikTok (@joinlsdiet)</a>
+              </li>
+              <li>
+                <a href="https://x.com/JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">X (@JoinLSDiet)</a>
               </li>
               <li>
                 <a href="mailto:info@LSDiet.com" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">info@LSDiet.com</a>
