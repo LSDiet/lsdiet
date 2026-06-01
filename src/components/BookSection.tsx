@@ -27,9 +27,12 @@ export function BookSection() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
               The LS Diet Course
             </h2>
-            <p className="max-w-2xl mx-auto text-muted-foreground text-base md:text-lg leading-relaxed">
-              Build your motivation on demand, replace old habits with daily actions, and see results in two weeks!
-            </p>
+            <ul className="max-w-2xl mx-auto text-foreground text-base md:text-lg leading-relaxed text-left inline-block space-y-1.5">
+              <li>✓ Identify the patterns and triggers</li>
+              <li>✓ Discover meaningful reasons to change</li>
+              <li>✓ Build motivation on demand</li>
+              <li>✓ See results in 2 weeks</li>
+            </ul>
           </div>
 
           {/* Tracks screenshot */}

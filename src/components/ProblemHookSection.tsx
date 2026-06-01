@@ -193,9 +193,6 @@ export function ProblemHookSection() {
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 to-transparent" />
 
         <div className="relative z-10 flex min-h-[100svh] flex-col px-8 pt-20 pb-8 lg:px-12">
-          <p className="text-center text-sm font-medium tracking-wide text-white/85 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-            Built for people who keep regaining weight
-          </p>
           <div className="mt-3">
             <Headline />
           </div>
@@ -212,8 +209,14 @@ export function ProblemHookSection() {
             </nav>
           </div>
 
-          <p className="mt-6 text-center text-sm font-medium text-white/55 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
-            I lived through this cycle <span className="text-accent font-semibold">3 times</span>.
+          <p className="mt-6 text-center text-base font-extrabold uppercase tracking-tight text-white lg:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            Built for people who keep regaining weight
+          </p>
+          <p className="mt-2 text-center text-sm font-medium text-white/75 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+            I lived through this cycle <span className="text-accent font-semibold">3 times</span>
+          </p>
+          <p className="mt-1 text-center text-sm font-medium text-white/75 lg:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]">
+            … and finally learned how to stop this
           </p>
           <ChevronDown className="mx-auto mt-3 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
         </div>
@@ -230,9 +233,6 @@ export function ProblemHookSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/95" />
 
         <div className="relative z-10 flex flex-col px-4 pt-16 pb-6">
-          <p className="text-center text-sm font-medium tracking-wide text-white/85 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            Built for people who keep regaining weight
-          </p>
           <div className="mt-3">
             <Headline />
           </div>
@@ -243,7 +243,13 @@ export function ProblemHookSection() {
             ))}
           </div>
           <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            <span className="text-accent">&darr;</span> I know this <span className="text-accent">cycle</span> <span className="text-accent">&darr;</span>
+            Built for people who keep regaining weight
+          </p>
+          <p className="mt-2 text-center text-sm font-medium text-white/80 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+            I lived through this cycle <span className="text-accent font-semibold">3 times</span>
+          </p>
+          <p className="mt-1 text-center text-sm font-medium text-white/80 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+            … and finally learned how to stop this
           </p>
         </div>
 
