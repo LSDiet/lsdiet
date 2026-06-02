@@ -7,7 +7,7 @@ import heroPhoto from "@/assets/hero-photo.png?w=400;800;1200&format=avif;webp&a
 
 const benefits = [
   "Lose weight",
-  "Prevent regaining weight",
+  "Prevent weight regain",
 
   "Build motivation on demand",
   "Identify triggers",
