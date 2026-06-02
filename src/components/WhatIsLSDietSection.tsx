@@ -85,7 +85,7 @@ export function WhatIsLSDietSection() {
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-primary transition-colors">
-                  Weight Permanence Triangle™
+                  Weight Permanence Training™
                 </h3>
                 <p className="mt-1 text-sm md:text-base font-semibold text-primary">Psychology + Behaviour Training</p>
                 <ul className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs md:text-sm font-semibold text-[hsl(0_0%_20%)]">

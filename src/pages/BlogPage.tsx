@@ -111,7 +111,7 @@ export default function BlogPage() {
     url: "https://lsdiet.com/blog",
     inLanguage: "en-CA",
     description:
-      "LS Diet Foundations and real-life weight loss questions — articles on stopping weight regain, the Weight Permanence Triangle™, awareness, and practical action.",
+      "LS Diet Foundations and real-life weight loss questions — articles on stopping weight regain, the Weight Permanence Training™, awareness, and practical action.",
     author: { "@type": "Person", "@id": "https://lsdiet.com/oscar-poon#person" },
     publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
     hasPart: (posts ?? []).map((p) => ({
@@ -130,7 +130,7 @@ export default function BlogPage() {
         <title>LS Diet Blog | Foundations & Real-Life Weight Questions</title>
         <meta
           name="description"
-          content="LS Diet Foundations and real-life weight loss questions — articles on stopping weight regain, the Weight Permanence Triangle™, awareness, and practical action."
+          content="LS Diet Foundations and real-life weight loss questions — articles on stopping weight regain, the Weight Permanence Training™, awareness, and practical action."
         />
         <link rel="canonical" href="https://lsdiet.com/blog" />
         <meta property="og:title" content="LS Diet Blog" />

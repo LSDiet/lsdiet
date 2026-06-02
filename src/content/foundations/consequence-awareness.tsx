@@ -1,6 +1,6 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: awareness-stages | subTopic: consequence-awareness
-// Sub-pillar 3.4 of the Weight Permanence Triangle™.
+// Sub-pillar 3.4 of the Weight Permanence Training™.
 import featuredImage from "@/assets/foundations/consequence-awareness-hero.png";
 import type { Foundation } from "./types";
 
@@ -34,7 +34,7 @@ const meta: Foundation["meta"] = {
   excerpt:
     "PUSH motivation often develops when the consequences of inaction become impossible to ignore.",
   metaDescription:
-    "Consequence Awareness is the fourth stage of the Weight Permanence Triangle™. Learn how PUSH motivation develops when the consequences of repeated inaction become emotionally real.",
+    "Consequence Awareness is the fourth stage of the Weight Permanence Training™. Learn how PUSH motivation develops when the consequences of repeated inaction become emotionally real.",
   publishDate: "2026-05-22T16:00:00.000Z",
   updatedAt: "2026-05-22T16:00:00.000Z",
   canonicalTopic: "awareness-stages",
@@ -51,12 +51,12 @@ const meta: Foundation["meta"] = {
   relatedTopics: ["weight-permanence-triangle", "stop-weight-regain", "awareness-stages"],
   featuredImage: {
     src: featuredImage,
-    alt: "Consequence Awareness — Stage 4 of the 5 Awareness Stages in the Weight Permanence Triangle™",
+    alt: "Consequence Awareness — Stage 4 of the 5 Awareness Stages in the Weight Permanence Training™",
   },
   faqs: [
     {
       q: "What is Consequence Awareness?",
-      a: "Consequence Awareness is the fourth stage of the Weight Permanence Triangle™. It focuses on understanding the future impact of repeated unhealthy behaviour and inaction.",
+      a: "Consequence Awareness is the fourth stage of the Weight Permanence Training™. It focuses on understanding the future impact of repeated unhealthy behaviour and inaction.",
     },
     {
       q: "What is PUSH motivation?",
@@ -84,7 +84,7 @@ function Body() {
       <P>
         Consequence Awareness is the fourth stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
-          Weight Permanence Triangle™
+          Weight Permanence Training™
         </a>{" "}
         (WPT). It is the stage that surfaces the long-term cost of the{" "}
         <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">

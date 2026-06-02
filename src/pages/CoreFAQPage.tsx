@@ -29,7 +29,7 @@ const methodFaqs = [
 const lifestyleFaqs = [
   {
     q: "Can I still eat out and travel on LS Diet?",
-    a: "Yes — that's a design goal, not a workaround. The lifestyle is built to adapt to restaurants, family meals, and travel without requiring a separate menu. Practice inside the Weight Permanence Triangle™ explicitly trains for these scenarios.",
+    a: "Yes — that's a design goal, not a workaround. The lifestyle is built to adapt to restaurants, family meals, and travel without requiring a separate menu. Practice inside the Weight Permanence Training™ explicitly trains for these scenarios.",
   },
   {
     q: "What if I slip?",
@@ -37,7 +37,7 @@ const lifestyleFaqs = [
   },
   {
     q: "Do I need the free course to use LS Diet?",
-    a: "No — the homepage, the Weight Permanence Triangle page, and the 5 Awareness Stages page are enough to start. The free LS Diet course just compresses the framework into a guided week with a live webinar.",
+    a: "No — the homepage, the Weight Permanence Training page, and the 5 Awareness Stages page are enough to start. The free LS Diet course just compresses the framework into a guided week with a live webinar.",
   },
   {
     q: "Where can I follow Oscar Poon's work?",
@@ -54,7 +54,7 @@ export default function CoreFAQPage() {
         <title>LS Diet FAQ | Method, Lifestyle, and Long-Term Results</title>
         <meta
           name="description"
-          content="In-depth answers to the most common LS Diet questions — about the method, the low-starch low-sugar lifestyle, and the Weight Permanence Triangle™."
+          content="In-depth answers to the most common LS Diet questions — about the method, the low-starch low-sugar lifestyle, and the Weight Permanence Training™."
         />
         <link rel="canonical" href="https://lsdiet.com/faq" />
         <meta property="og:title" content="LS Diet FAQ" />
@@ -88,7 +88,7 @@ export default function CoreFAQPage() {
         <p className="text-zinc-800 leading-relaxed text-base md:text-lg mb-10">
           The questions below come up most often from people exploring LS Diet for the first time. For a shorter
           intro, the homepage carries a top-level FAQ. For deeper context on the framework, see the{" "}
-          <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Triangle™</a>
+          <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Training™</a>
           {" "}or the{" "}
           <a href="/what-is-ls-diet" className="text-accent hover:underline">What Is LS Diet</a> overview.
         </p>

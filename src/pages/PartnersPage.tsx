@@ -477,7 +477,7 @@ export default function PartnersPage() {
               href="https://lsdiet.com/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight"
               className="font-semibold text-[hsl(0_0%_8%)] underline underline-offset-4 decoration-[hsl(38_90%_50%)] hover:text-[hsl(38_90%_40%)] transition-colors"
             >
-              Weight Permanence Triangle™
+              Weight Permanence Training™
             </a>
             . The 5 Stages of Awareness help members understand why consistency breaks down, while Action Practice reinforces daily behaviours that keep health a priority even after motivation fades.
           </>

@@ -21,15 +21,15 @@ const faqs: FaqEntry[] = [
   {
     q: "What makes LS Diet different?",
     schemaAnswer:
-      "LS Diet focuses on helping you keep the weight off once you've lost it. Although losing weight is a part of the journey, the main goal is to sustain that success. A key part of this approach is the Weight Permanence Triangle (WPT), a tool for improving mental clarity, building motivation when you need it, and strengthening the emotional link between your thoughts and actions. Instead of relying only on willpower, the WPT helps you move from simply wanting to lose weight to feeling emotionally and physically ready not only to reach your goal but also to maintain it and never regain.",
+      "LS Diet focuses on helping you keep the weight off once you've lost it. Although losing weight is a part of the journey, the main goal is to sustain that success. A key part of this approach is the Weight Permanence Training (WPT), a tool for improving mental clarity, building motivation when you need it, and strengthening the emotional link between your thoughts and actions. Instead of relying only on willpower, the WPT helps you move from simply wanting to lose weight to feeling emotionally and physically ready not only to reach your goal but also to maintain it and never regain.",
     render: () => (
       <div className="space-y-3">
         <p className={paraCls}>
-          LS Diet focuses on helping you keep the weight off once you've lost it. Although losing weight is a part of the journey, the main goal is to sustain that success. A key part of this approach is the Weight Permanence Triangle (WPT), a tool for improving mental clarity, building motivation when you need it, and strengthening the emotional link between your thoughts and actions. Instead of relying only on willpower, the WPT helps you move from simply wanting to lose weight to feeling emotionally and physically ready not only to reach your goal but also to maintain it and never regain.
+          LS Diet focuses on helping you keep the weight off once you've lost it. Although losing weight is a part of the journey, the main goal is to sustain that success. A key part of this approach is the Weight Permanence Training (WPT), a tool for improving mental clarity, building motivation when you need it, and strengthening the emotional link between your thoughts and actions. Instead of relying only on willpower, the WPT helps you move from simply wanting to lose weight to feeling emotionally and physically ready not only to reach your goal but also to maintain it and never regain.
         </p>
         <p>
           <a href="/weight-permanence-triangle" className={linkCls}>
-            Explore the Weight Permanence Triangle™ →
+            Explore the Weight Permanence Training™ →
           </a>
         </p>
       </div>
@@ -142,13 +142,13 @@ const faqs: FaqEntry[] = [
   {
     q: "What happens inside the class?",
     schemaAnswer:
-      "Inside the class, you'll learn: the weight problem (weight regain, information trap, how motivation disappears, and emotional priorities); the Weight Permanence Triangle; the 5 Stages of Awareness (Reality, Friction, Pattern, Consequence, and Identity); guided step-by-step to build your PUSH and PULL motivations; 30+ Action Practice; and practical behaviours that support long-term weight management.",
+      "Inside the class, you'll learn: the weight problem (weight regain, information trap, how motivation disappears, and emotional priorities); the Weight Permanence Training; the 5 Stages of Awareness (Reality, Friction, Pattern, Consequence, and Identity); guided step-by-step to build your PUSH and PULL motivations; 30+ Action Practice; and practical behaviours that support long-term weight management.",
     render: () => (
       <div className="space-y-3">
         <p className={paraCls}>Inside the class, you'll learn:</p>
         <ul className="list-disc pl-6 space-y-1.5 text-[hsl(0_0%_20%)] leading-relaxed text-base">
           <li>Weight problem (weight regain, information trap, how motivation disappears, and emotional priorities)</li>
-          <li>The Weight Permanence Triangle</li>
+          <li>The Weight Permanence Training</li>
           <li>The 5 Stages of Awareness (Reality, Friction, Pattern, Consequence, and Identity)</li>
           <li>Guided step-by-step to build your PUSH and PULL motivations</li>
           <li>30+ Action Practice</li>

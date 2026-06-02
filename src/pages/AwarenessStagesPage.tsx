@@ -41,7 +41,7 @@ export default function AwarenessStagesPage() {
         />
         <link rel="canonical" href="https://lsdiet.com/awareness-stages" />
         <meta property="og:title" content="The 5 Awareness Stages" />
-        <meta property="og:description" content="The first vertex of the Weight Permanence Triangle™, in five stages." />
+        <meta property="og:description" content="The first vertex of the Weight Permanence Training™, in five stages." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://lsdiet.com/awareness-stages" />
         <script type="application/ld+json">{JSON.stringify({
@@ -71,7 +71,7 @@ export default function AwarenessStagesPage() {
         <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
             Awareness is the first vertex of the{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Triangle™</a>
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Training™</a>
             {" "}inside LS Diet, and it is rarely the part people skip on purpose — it is the part most diets simply
             never include. Without awareness, even the best food framework eventually collapses under stress because
             the underlying motivation is borrowed rather than internal.

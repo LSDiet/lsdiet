@@ -31,7 +31,7 @@ interface CurriculumRow {
 const PLACEHOLDERS: CurriculumRow[] = [
   {
     order: 3,
-    title: "Weight Permanence Triangle",
+    title: "Weight Permanence Training",
     excerpt:
       "The master framework. Three forces — awareness, practice, and identity — that decide whether weight loss sticks for good.",
     slug: null, // master pillar, coming soon

@@ -53,13 +53,13 @@ const H3 = ({ children }: { children: React.ReactNode }) => (
 
 const meta: Foundation["meta"] = {
   slug: "the-weight-permanence-triangle-how-to-stop-regaining-weight",
-  title: "The Weight Permanence Triangle™: How to Stop Regaining Weight",
-  listTitle: "Weight Permanence Triangle",
+  title: "The Weight Permanence Training™: How to Stop Regaining Weight",
+  listTitle: "Weight Permanence Training",
   order: 3,
   excerpt:
-    "Learn how the Weight Permanence Triangle™ uses awareness, action practice, and permanence to help reduce repeated weight regain and build sustainable long-term weight loss habits.",
+    "Learn how the Weight Permanence Training™ uses awareness, action practice, and permanence to help reduce repeated weight regain and build sustainable long-term weight loss habits.",
   metaDescription:
-    "Learn how the Weight Permanence Triangle™ uses awareness, action practice, and permanence to help reduce repeated weight regain and build sustainable long-term weight loss habits.",
+    "Learn how the Weight Permanence Training™ uses awareness, action practice, and permanence to help reduce repeated weight regain and build sustainable long-term weight loss habits.",
   publishDate: "2026-05-19T00:00:00.000Z",
   updatedAt: "2026-05-19T00:00:00.000Z",
   canonicalTopic: "weight-permanence-triangle",
@@ -76,12 +76,12 @@ const meta: Foundation["meta"] = {
   relatedTopics: ["stop-weight-regain", "awareness-stages", "action-practice-examples"],
   featuredImage: {
     src: featuredImage,
-    alt: "The Weight Permanence Triangle™ — Awareness, Practice, Permanence — the LS Diet framework to stop regaining weight",
+    alt: "The Weight Permanence Training™ — Awareness, Practice, Permanence — the LS Diet framework to stop regaining weight",
   },
   faqs: [
     {
-      q: "What is the Weight Permanence Triangle™?",
-      a: "The Weight Permanence Triangle™ is a behavioural framework focused on awareness, action practice, and permanence to help reduce repeated weight regain.",
+      q: "What is the Weight Permanence Training™?",
+      a: "The Weight Permanence Training™ is a behavioural framework focused on awareness, action practice, and permanence to help reduce repeated weight regain.",
     },
     {
       q: "Why do most people regain weight after dieting?",
@@ -100,7 +100,7 @@ const meta: Foundation["meta"] = {
       a: "Permanence helps behaviours remain consistent during stress, setbacks, and emotional difficulties, rather than collapsing once motivation fades.",
     },
     {
-      q: "How does LS Diet use the Weight Permanence Triangle™?",
+      q: "How does LS Diet use the Weight Permanence Training™?",
       a: "LS Diet applies the framework through low-starch, low-sugar eating, behavioural awareness, repeatable routines, and long-term consistency strategies designed to reduce repeated regain.",
     },
   ],
@@ -134,7 +134,7 @@ function Body() {
         caption="The 5 Stages of Awareness: the push and pull motivation behind lasting change."
       />
 
-      <P>The Weight Permanence Triangle™ (WPT) was created to explain this problem. The framework focuses on helping people:</P>
+      <P>The Weight Permanence Training™ (WPT) was created to explain this problem. The framework focuses on helping people:</P>
       <UL
         items={[
           "understand their psychological state",
@@ -183,8 +183,8 @@ function Body() {
         .
       </P>
 
-      <H2>What Is the Weight Permanence Triangle™?</H2>
-      <P>The Weight Permanence Triangle™ is a behavioural framework designed to help weight loss become psychologically sustainable. The framework has three connected systems:</P>
+      <H2>What Is the Weight Permanence Training™?</H2>
+      <P>The Weight Permanence Training™ is a behavioural framework designed to help weight loss become psychologically sustainable. The framework has three connected systems:</P>
       <UL items={["Awareness", "Action Practice", "Permanence"]} />
       <P>Each part supports the others:</P>
       <UL
@@ -344,7 +344,7 @@ function Body() {
         The goal is not temporary dieting. The goal is permanence.
       </blockquote>
 
-      <H2>Why LS Diet Aligns With the Weight Permanence Triangle™</H2>
+      <H2>Why LS Diet Aligns With the Weight Permanence Training™</H2>
       <P>
         <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" className="text-accent hover:underline">
           LS Diet
@@ -363,7 +363,7 @@ function Body() {
           "awareness based eating",
         ]}
       />
-      <P>The Weight Permanence Triangle™ explains the behavioural side behind that lifestyle. Together, they help explain:</P>
+      <P>The Weight Permanence Training™ explains the behavioural side behind that lifestyle. Together, they help explain:</P>
       <UL
         items={[
           "why motivation fades",

@@ -33,14 +33,14 @@ const DEFAULT: Variant = {
   },
   bottom: {
     headline: "Ready to make it permanent?",
-    body: "Join the free LS Diet Course to follow the full Weight Permanence Triangle — Awareness, Practice, Permanence — step by step.",
+    body: "Join the free LS Diet Course to follow the full Weight Permanence Training — Awareness, Practice, Permanence — step by step.",
   },
 };
 
 const PERMANENCE: Variant = {
   intro: {
     headline: "Why this time can actually stick",
-    body: "Most diets work short-term and collapse long-term. LS Diet is built around permanence — the Weight Permanence Triangle that stops regain at the root.",
+    body: "Most diets work short-term and collapse long-term. LS Diet is built around permanence — the Weight Permanence Training that stops regain at the root.",
   },
   mid: {
     headline: "Permanence is a skill, not a willpower contest",

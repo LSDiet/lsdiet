@@ -12,20 +12,20 @@ export default function WeightPermanenceTrianglePage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>The Weight Permanence Triangle™ | LS Diet Framework</title>
+        <title>The Weight Permanence Training™ | LS Diet Framework</title>
         <meta
           name="description"
-          content="The Weight Permanence Triangle™ is the three-pillar behavioural framework — Awareness, Practice, Permanence — at the heart of LS Diet."
+          content="The Weight Permanence Training™ is the three-pillar behavioural framework — Awareness, Practice, Permanence — at the heart of LS Diet."
         />
         <link rel="canonical" href="https://lsdiet.com/weight-permanence-triangle" />
-        <meta property="og:title" content="The Weight Permanence Triangle™" />
+        <meta property="og:title" content="The Weight Permanence Training™" />
         <meta property="og:description" content="Awareness, Practice, Permanence — the LS Diet framework that ends the restart cycle." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://lsdiet.com/weight-permanence-triangle" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: "The Weight Permanence Triangle™",
+          headline: "The Weight Permanence Training™",
           datePublished: PUBLISHED,
           dateModified: UPDATED,
           author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/oscar-poon" },
@@ -34,7 +34,7 @@ export default function WeightPermanenceTrianglePage() {
         })}</script>
       </Helmet>
       <Navbar />
-      <PageBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Weight Permanence Triangle™", url: "/weight-permanence-triangle" }]} />
+      <PageBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Weight Permanence Training™", url: "/weight-permanence-triangle" }]} />
 
       <article className="container max-w-3xl mx-auto px-4 pb-20">
         <header className="mb-8">
@@ -48,13 +48,13 @@ export default function WeightPermanenceTrianglePage() {
 
         <img
           src={heroPhoto}
-          alt="Oscar Poon demonstrating the Weight Permanence Triangle™ method behind LS Diet"
+          alt="Oscar Poon demonstrating the Weight Permanence Training™ method behind LS Diet"
           className="w-full rounded-xl mb-10 object-cover max-h-[420px]"
         />
 
         <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
-            The <strong className="text-foreground">Weight Permanence Triangle™</strong> is the three-pillar
+            The <strong className="text-foreground">Weight Permanence Training™</strong> is the three-pillar
             framework that powers LS Diet. Each pillar — Awareness, Practice, Permanence — solves a problem the
             other two cannot. Awareness creates the why, Practice creates the how, and Permanence creates the
             survival layer that keeps the work intact when life turns hostile. Pulled apart, each pillar fails

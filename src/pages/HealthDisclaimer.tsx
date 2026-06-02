@@ -22,7 +22,7 @@ const HealthDisclaimer = () => {
         <div className="prose prose-neutral dark:prose-invert max-w-none space-y-6">
           <p>
             The content provided by NTL Learning Solutions Inc., operating as WhatAboutWeight, LSdiet, 
-            and Weight Permanence Triangle (WPT), is for educational and informational purposes only.
+            and Weight Permanence Training (WPT), is for educational and informational purposes only.
           </p>
 
           <p>

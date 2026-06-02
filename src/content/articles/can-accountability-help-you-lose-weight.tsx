@@ -43,7 +43,7 @@ function Body() {
 
       <p>
         The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>{" "}
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
         leans hard on behavioural reinforcement. People stay more
         consistent when progress is visible, support exists, and the
         routine feels emotionally meaningful — which connects directly to{" "}

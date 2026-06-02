@@ -1,6 +1,6 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: awareness-stages | subTopic: friction-awareness
-// Sub-pillar 3.2 of the Weight Permanence Triangle™.
+// Sub-pillar 3.2 of the Weight Permanence Training™.
 import featuredImage from "@/assets/foundations/friction-awareness-hero.png";
 import type { Foundation } from "./types";
 
@@ -34,7 +34,7 @@ const meta: Foundation["meta"] = {
   excerpt:
     "Friction Awareness examines the tension between your current behaviour and the future you want.",
   metaDescription:
-    "Friction Awareness is the second stage of the Weight Permanence Triangle™. Learn how tension, honesty, procrastination, and behavioural prioritization affect long term weight loss consistency.",
+    "Friction Awareness is the second stage of the Weight Permanence Training™. Learn how tension, honesty, procrastination, and behavioural prioritization affect long term weight loss consistency.",
   publishDate: "2026-05-20T16:00:00.000Z",
   updatedAt: "2026-05-20T16:00:00.000Z",
   canonicalTopic: "awareness-stages",
@@ -51,12 +51,12 @@ const meta: Foundation["meta"] = {
   relatedTopics: ["weight-permanence-triangle", "stop-weight-regain"],
   featuredImage: {
     src: featuredImage,
-    alt: "Friction Awareness — Stage 2 of the 5 Awareness Stages in the Weight Permanence Triangle™",
+    alt: "Friction Awareness — Stage 2 of the 5 Awareness Stages in the Weight Permanence Training™",
   },
   faqs: [
     {
       q: "What is Friction Awareness?",
-      a: "Friction Awareness is the second stage of the Weight Permanence Triangle™. It focuses on recognizing the tension between your current behaviour and the future you want.",
+      a: "Friction Awareness is the second stage of the Weight Permanence Training™. It focuses on recognizing the tension between your current behaviour and the future you want.",
     },
     {
       q: "Is friction always negative?",
@@ -84,7 +84,7 @@ function Body() {
       <P>
         Friction Awareness is the second stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
-          Weight Permanence Triangle™
+          Weight Permanence Training™
         </a>{" "}
         (WPT).
       </P>
@@ -216,7 +216,7 @@ function Body() {
       </P>
       <P>The issue is not always knowledge. The issue is that sustainable behaviour never became psychologically important enough to survive:</P>
       <UL items={["stress", "emotion", "environment", "exhaustion", "routine", "convenience"]} />
-      <P>This is one reason the Weight Permanence Triangle™ exists. WPT helps people:</P>
+      <P>This is one reason the Weight Permanence Training™ exists. WPT helps people:</P>
       <UL
         items={[
           "understand their psychological state",

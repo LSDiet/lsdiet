@@ -134,7 +134,7 @@ function Body() {
 
       <p>
         That balance is the entire premise of the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>
         {" "}— permanence beats intensity.
       </p>
 

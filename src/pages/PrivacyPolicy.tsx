@@ -22,7 +22,7 @@ const PrivacyPolicy = () => {
 
         <div className="prose prose-neutral dark:prose-invert max-w-none space-y-6">
           <p>
-            NTL Learning Solutions Inc., operating as WhatAboutWeight, LSdiet, and Weight Permanence Triangle (WPT), 
+            NTL Learning Solutions Inc., operating as WhatAboutWeight, LSdiet, and Weight Permanence Training (WPT), 
             respects your privacy and is committed to protecting your personal information in accordance with 
             Canadian privacy laws, including the Personal Information Protection and Electronic Documents Act (PIPEDA).
           </p>

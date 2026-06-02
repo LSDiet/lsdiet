@@ -20,7 +20,7 @@ export function AboutAuthorBlock() {
             </a>
           </h3>
           <p className="text-sm text-zinc-700 leading-relaxed">
-            Founder of LS Diet and creator of the Weight Permanence Triangle™. Oscar has lost
+            Founder of LS Diet and creator of the Weight Permanence Training™. Oscar has lost
             80+ lbs three times — and built LS Diet from what those restarts taught him.{" "}
             <a href="/oscar-poon" className="text-accent hover:underline whitespace-nowrap">
               Read his story →

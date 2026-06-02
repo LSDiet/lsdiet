@@ -23,7 +23,7 @@ const webPageSchema = {
   isPartOf: { "@id": "https://lsdiet.com/#website" },
   about: [
     { "@type": "Thing", name: "Weight Regain Prevention", description: "Preventing weight regain after dieting through behavioural permanence and a low-starch, low-sugar lifestyle." },
-    { "@type": "Thing", name: "Weight Permanence Triangle", sameAs: "https://lsdiet.com/weight-permanence-triangle" },
+    { "@type": "Thing", name: "Weight Permanence Training", sameAs: "https://lsdiet.com/weight-permanence-triangle" },
   ],
 
   mainEntity: { "@id": "https://lsdiet.com/#organization" },
@@ -39,7 +39,7 @@ const Index = () => {
         <title>LS Diet — Weight Regain Prevention System</title>
         <meta
           name="description"
-          content="Oscar Poon's weight regain prevention system. Stop weight cycling with the Weight Permanence Triangle™ and a low-starch, low-sugar lifestyle."
+          content="Oscar Poon's weight regain prevention system. Stop weight cycling with the Weight Permanence Training™ and a low-starch, low-sugar lifestyle."
         />
         <link rel="canonical" href="https://lsdiet.com/" />
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>

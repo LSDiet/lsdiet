@@ -64,7 +64,7 @@ function Body() {
 
       <p>
         Permanence is built differently. The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>{" "}
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
         treats motivation as one ingredient, not the whole recipe — paired
         with friction reduction, pattern recognition, and repeatable practice.
       </p>

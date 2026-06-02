@@ -372,7 +372,7 @@ export default function LSDietGuidePage() {
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 Weight Permanence is the system developed after losing more than 80 pounds three
-                times. The Weight Permanence Triangle™ is built on three axes:
+                times. The Weight Permanence Training™ is built on three axes:
               </p>
               <ul className="list-disc pl-6 text-muted-foreground space-y-2 mt-4">
                 <li>
@@ -460,7 +460,7 @@ export default function LSDietGuidePage() {
           {/* Internal Link to Course */}
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">
-              Want to start using Weight Permanence Triangle™ to lose weight?
+              Want to start using Weight Permanence Training™ to lose weight?
             </p>
             <a
               href="/#book"
