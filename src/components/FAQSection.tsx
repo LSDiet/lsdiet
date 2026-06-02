@@ -56,17 +56,8 @@ const faqs: FaqEntry[] = [
         </p>
       </div>
     ),
+  },
 
-        <p>
-          <a href="https://www.skool.com/lsdiet/about" className={linkCls} target="_blank" rel="noopener noreferrer">
-            Join LS Diet for free →
-          </a>
-        </p>
-        <p className="text-xs text-zinc-500">
-          (Starting August 1, 2026, membership will be $11 per month.)
-        </p>
-      </div>
-    ),
   },
   {
     q: "Do I have to count calories or cut out entire food groups?",
