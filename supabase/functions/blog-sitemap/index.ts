@@ -224,7 +224,7 @@ Deno.serve(async () => {
   } catch (err) {
     const msg = err instanceof Error ? err.message : "unknown error";
     console.error("blog-sitemap error:", msg);
-    return new Response(`<!-- error: ${msg} -->`, {
+    return new Response(`<!-- Internal error -->`, {
       status: 500,
       headers: { "Content-Type": "application/xml" },
     });

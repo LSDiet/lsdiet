@@ -9,11 +9,37 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { fullName, email, goal } = await req.json();
+    const body = await req.json();
+    const fullName = typeof body?.fullName === 'string' ? body.fullName.trim() : '';
+    const email = typeof body?.email === 'string' ? body.email.trim() : '';
+    const goal = typeof body?.goal === 'string' ? body.goal.trim() : '';
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!fullName || !email) {
       return new Response(
         JSON.stringify({ error: 'Full name and email are required' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (fullName.length > 100) {
+      return new Response(
+        JSON.stringify({ error: 'Full name is too long (max 100 characters)' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (email.length > 255 || !emailRegex.test(email)) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid email address' }),
+        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    if (goal.length > 1000) {
+      return new Response(
+        JSON.stringify({ error: 'Goal is too long (max 1000 characters)' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
@@ -27,7 +53,7 @@ Deno.serve(async (req) => {
     let res = await fetch(webhookUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fullName, email, goal: goal || '' }),
+      body: JSON.stringify({ fullName, email, goal }),
       redirect: 'follow',
     });
 
@@ -41,7 +67,8 @@ Deno.serve(async (req) => {
 
     if (!res.ok && res.status !== 302) {
       const text = await res.text();
-      throw new Error(`Google Script error: ${res.status} ${text}`);
+      console.error('Google Script error:', res.status, text);
+      throw new Error('Upstream webhook failed');
     }
 
     return new Response(
@@ -51,7 +78,7 @@ Deno.serve(async (req) => {
   } catch (error) {
     console.error('submit-waitlist error:', error);
     return new Response(
-      JSON.stringify({ error: error.message || 'Internal server error' }),
+      JSON.stringify({ error: 'Internal server error' }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
