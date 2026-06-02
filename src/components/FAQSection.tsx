@@ -42,17 +42,9 @@ const faqs: FaqEntry[] = [
     render: () => (
       <div className="space-y-3">
         <p className={paraCls}>
-          LS Diet is currently{" "}
+          LS Diet is{" "}
           <span className="font-semibold text-foreground">free to join</span>{" "}
-          during our soft launch period until July 31, 2026.
-        </p>
-        <p className={paraCls}>
-          Anyone who joins before July 31, 2026 will keep{" "}
-          <span className="font-semibold text-foreground">free lifetime access</span>{" "}
-          to all current and future content inside the Start Here and Action Practice modules.
-        </p>
-        <p className={paraCls}>
-          If you've been thinking about joining, now is the best time to get started.
+          until July 31, 2026.
         </p>
         <p>
           <a href="https://www.skool.com/lsdiet/about" className={linkCls} target="_blank" rel="noopener noreferrer">
@@ -65,6 +57,7 @@ const faqs: FaqEntry[] = [
       </div>
     ),
   },
+
   {
     q: "Do I have to count calories or cut out entire food groups?",
     schemaAnswer:
