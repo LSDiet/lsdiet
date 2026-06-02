@@ -249,11 +249,11 @@ export default function GLP1GuidePage() {
 
             <section className="mb-10">
               <h2 className="text-2xl font-serif font-normal text-foreground mb-4">
-                The Weight Permanence Triangle™ Solution
+                The Weight Permanence Training™ Solution
               </h2>
               <p className="text-muted-foreground leading-relaxed">
                 What determines long-term success is not the medication itself—it's what happens
-                during and after. The Weight Permanence Triangle™ (WPT) is a neurobehavioural
+                during and after. The Weight Permanence Training™ (WPT) is a neurobehavioural
                 training framework designed to address exactly this.
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -347,7 +347,7 @@ export default function GLP1GuidePage() {
           {/* Internal Link to Course */}
           <div className="mt-12 text-center">
             <p className="text-muted-foreground mb-4">
-              Want to start using Weight Permanence Triangle™ to lose weight?
+              Want to start using Weight Permanence Training™ to lose weight?
             </p>
             <a
               href="/#book"

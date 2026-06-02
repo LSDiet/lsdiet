@@ -54,7 +54,7 @@ function Body() {
         No eating system survives without awareness, consistency,
         environmental control, and repeatable routines. That's the work of
         the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>.
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>.
       </p>
 
       <h2>Final Thoughts</h2>

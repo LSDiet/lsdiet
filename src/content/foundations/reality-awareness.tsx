@@ -1,6 +1,6 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: awareness-stages | subTopic: reality-awareness
-// Sub-pillar 3.1 of the Weight Permanence Triangle™.
+// Sub-pillar 3.1 of the Weight Permanence Training™.
 import featuredImage from "@/assets/foundations/reality-awareness-hero.png";
 import type { Foundation } from "./types";
 
@@ -40,7 +40,7 @@ const meta: Foundation["meta"] = {
   excerpt:
     "Honest self assessment is the first step toward weight permanence. Reality Awareness helps people see their current behavioural, emotional, and physical baseline before trying to stop the cycle of losing and regaining the same weight.",
   metaDescription:
-    "Reality Awareness helps you establish an honest baseline before trying to stop regaining weight. Stage 1 of the Weight Permanence Triangle™ — the behavioural foundation of LS Diet's weight regain prevention system.",
+    "Reality Awareness helps you establish an honest baseline before trying to stop regaining weight. Stage 1 of the Weight Permanence Training™ — the behavioural foundation of LS Diet's weight regain prevention system.",
   publishDate: "2026-05-19T00:00:00.000Z",
   updatedAt: "2026-05-19T00:00:00.000Z",
   canonicalTopic: "awareness-stages",
@@ -57,12 +57,12 @@ const meta: Foundation["meta"] = {
   relatedTopics: ["weight-permanence-triangle", "stop-weight-regain"],
   featuredImage: {
     src: featuredImage,
-    alt: "Reality Awareness — Stage 1 of the 5 Awareness Stages in the Weight Permanence Triangle™",
+    alt: "Reality Awareness — Stage 1 of the 5 Awareness Stages in the Weight Permanence Training™",
   },
   faqs: [
     {
       q: "What is Reality Awareness?",
-      a: "Reality Awareness is the first stage of the Weight Permanence Triangle™. It focuses on honestly understanding your current physical, behavioural, emotional, and environmental situation before attempting sustainable change.",
+      a: "Reality Awareness is the first stage of the Weight Permanence Training™. It focuses on honestly understanding your current physical, behavioural, emotional, and environmental situation before attempting sustainable change.",
     },
     {
       q: "Why is honest self assessment important for weight loss?",
@@ -106,7 +106,7 @@ function Body() {
       <P>
         Reality Awareness is the first stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
-          Weight Permanence Triangle™
+          Weight Permanence Training™
         </a>{" "}
         because sustainable change requires clarity first.
       </P>
@@ -362,7 +362,7 @@ function Body() {
         </a>
         , who lost 80+ lbs three times before designing the system. Explore the{" "}
         <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
-          Weight Permanence Triangle™ topic hub
+          Weight Permanence Training™ topic hub
         </a>{" "}
         for related foundations.
       </P>

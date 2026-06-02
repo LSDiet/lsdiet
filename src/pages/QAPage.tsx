@@ -223,7 +223,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Why does willpower stop working for weight loss?",
         answer:
-          "Willpower fails because it is a finite resource that collapses under stress, hunger, and environmental pressure. The Weight Permanence Triangle™ aligns your goals with internal motivation so you don't rely on mental power alone.",
+          "Willpower fails because it is a finite resource that collapses under stress, hunger, and environmental pressure. The Weight Permanence Training™ aligns your goals with internal motivation so you don't rely on mental power alone.",
       },
       {
         question: "Why does weight loss fail when life gets busy?",
@@ -243,7 +243,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Why does travelling make me regain weight?",
         answer:
-          "Travel disrupts routine, food access, and decision structure, exposing the lack of a fallback system. The Permanence stage of the Weight Permanence Triangle™ addresses this with tools that establish an internal alert system, flagging deviations and stabilizing decisions when context, emotion, or environment changes.",
+          "Travel disrupts routine, food access, and decision structure, exposing the lack of a fallback system. The Permanence stage of the Weight Permanence Training™ addresses this with tools that establish an internal alert system, flagging deviations and stabilizing decisions when context, emotion, or environment changes.",
       },
       {
         question: "Why does weight loss feel like fighting hunger all day?",
@@ -253,7 +253,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Why do I regain weight after reaching my goal?",
         answer:
-          "Weight regain happens because the system that created weight loss is often a temporary intervention rather than an adaptable lifestyle—so it's abandoned once the goal is reached. The Weight Permanence Triangle™ builds identity-level change that persists beyond any single goal.",
+          "Weight regain happens because the system that created weight loss is often a temporary intervention rather than an adaptable lifestyle—so it's abandoned once the goal is reached. The Weight Permanence Training™ builds identity-level change that persists beyond any single goal.",
       },
       {
         question: "Does GLP-1 medication like Ozempic work for weight loss?",
@@ -297,7 +297,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Can you lose weight without tracking calories?",
         answer:
-          "Absolutely. The Weight Permanence Triangle™ method discusses calorie awareness, but Oscar personally does not track calories. When hunger is regulated through a low-starch, low-sugar approach, food intake naturally decreases without the need for counting or restriction. You eat until satisfied, and your body does the rest.",
+          "Absolutely. The Weight Permanence Training™ method discusses calorie awareness, but Oscar personally does not track calories. When hunger is regulated through a low-starch, low-sugar approach, food intake naturally decreases without the need for counting or restriction. You eat until satisfied, and your body does the rest.",
       },
       {
         question: "Why does my body resist fat loss?",
@@ -332,7 +332,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "Is low-starch, low-sugar sustainable long term?",
         answer:
-          "Yes, when paired with a structure that adapts to real-life conditions. Most weight loss programmes ignore intersectionality—your culture, financial status, accessibility, and social environment. The Weight Permanence Triangle™ method teaches you when and how to be resourceful so you can navigate life's challenges without abandoning your approach.",
+          "Yes, when paired with a structure that adapts to real-life conditions. Most weight loss programmes ignore intersectionality—your culture, financial status, accessibility, and social environment. The Weight Permanence Training™ method teaches you when and how to be resourceful so you can navigate life's challenges without abandoning your approach.",
       },
       {
         question: "Why is low-starch, low-sugar hard in restaurants?",
@@ -342,7 +342,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "How do you eat low-starch, low-sugar with family meals?",
         answer:
-          "This is one of the toughest challenges. Growing up in an Asian household, carbohydrates were daily staples—rice with every meal. The Weight Permanence Triangle™ method teaches you how to communicate your situation with family so they can support your decision to look after yourself. It's not easy and requires practice. Remember: practice doesn't make perfection, but permanence.",
+          "This is one of the toughest challenges. Growing up in an Asian household, carbohydrates were daily staples—rice with every meal. The Weight Permanence Training™ method teaches you how to communicate your situation with family so they can support your decision to look after yourself. It's not easy and requires practice. Remember: practice doesn't make perfection, but permanence.",
       },
       {
         question: "Can you follow low-starch, low-sugar without a meal plan?",
@@ -357,7 +357,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "How do culture and food traditions affect weight loss?",
         answer:
-          "Culture shapes your default food choices, social eating patterns, and emotional connections to food. Any sustainable approach must account for these realities rather than ignore them. The Weight Permanence Triangle™ method teaches you how to integrate cultural traditions with low-starch, low-sugar principles—so you can honour your heritage while supporting your health goals.",
+          "Culture shapes your default food choices, social eating patterns, and emotional connections to food. Any sustainable approach must account for these realities rather than ignore them. The Weight Permanence Training™ method teaches you how to integrate cultural traditions with low-starch, low-sugar principles—so you can honour your heritage while supporting your health goals.",
       },
       {
         question: "Why is eating low-starch, low-sugar more expensive?",
@@ -367,51 +367,51 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "How do you eat low-starch, low-sugar while travelling?",
         answer:
-          "You rely on principles and fallback rules rather than ideal food options. Perfect choices are rarely available when travelling, but good-enough choices usually are. The Permanence stage of the Weight Permanence Triangle™ method addresses this with tools that stabilize decisions when your environment, context, or routine changes.",
+          "You rely on principles and fallback rules rather than ideal food options. Perfect choices are rarely available when travelling, but good-enough choices usually are. The Permanence stage of the Weight Permanence Training™ method addresses this with tools that stabilize decisions when your environment, context, or routine changes.",
       },
       {
         question: "Is low-starch, low-sugar a diet or a lifestyle?",
         answer:
-          "It becomes a lifestyle when it's integrated into your identity rather than treated as a temporary phase. A diet is something you go on and off. A lifestyle is who you are—how you naturally make food decisions without constant deliberation. The Weight Permanence Triangle™ method is designed to build that identity-level change.",
+          "It becomes a lifestyle when it's integrated into your identity rather than treated as a temporary phase. A diet is something you go on and off. A lifestyle is who you are—how you naturally make food decisions without constant deliberation. The Weight Permanence Training™ method is designed to build that identity-level change.",
       },
     ],
   },
   {
-    title: "The Weight Permanence Triangle™ Method",
+    title: "The Weight Permanence Training™ Method",
     hasCourseCta: true,
     questions: [
       {
-        question: "What is the Weight Permanence Triangle™?",
+        question: "What is the Weight Permanence Training™?",
         answer:
-          "Founded by Oscar Poon, the Weight Permanence Triangle™ (WPT) is a guided neurobehavioural training that helps you condition weight loss to become the first daily priority, make eating and movement decisions intentional, and activate an internal alert-and-accounting system that re-anchors actions when routines, environments, or emotions derail progress.",
+          "Founded by Oscar Poon, the Weight Permanence Training™ (WPT) is a guided neurobehavioural training that helps you condition weight loss to become the first daily priority, make eating and movement decisions intentional, and activate an internal alert-and-accounting system that re-anchors actions when routines, environments, or emotions derail progress.",
       },
       {
-        question: "How does the Weight Permanence Triangle™ work?",
+        question: "How does the Weight Permanence Training™ work?",
         answer:
-          "The Weight Permanence Triangle™ works by making weight loss an internal priority through emotionally encoded awareness to create push and pull motivation, translating that priority into daily action through practice, and protecting it with systems that hold during disruption.",
+          "The Weight Permanence Training™ works by making weight loss an internal priority through emotionally encoded awareness to create push and pull motivation, translating that priority into daily action through practice, and protecting it with systems that hold during disruption.",
       },
       {
-        question: "What are the three components of the Weight Permanence Triangle™?",
+        question: "What are the three components of the Weight Permanence Training™?",
         answer:
-          "The three components of the Weight Permanence Triangle™ are Awareness, which creates internal priority; Practice, which structures daily behaviour; and Permanence, an alert system that ensures consistency and compensatory effort when life gets hard.",
+          "The three components of the Weight Permanence Training™ are Awareness, which creates internal priority; Practice, which structures daily behaviour; and Permanence, an alert system that ensures consistency and compensatory effort when life gets hard.",
       },
       {
-        question: "Is the Weight Permanence Triangle™ a diet meal plan?",
+        question: "Is the Weight Permanence Training™ a diet meal plan?",
         answer:
           "Absolutely not. Every body is different, so the calories your body requires based on your functional goals are exclusive to you—and the food you need to eat accordingly is unique to you as well. However, you will receive directional guidance to build your own meal plan. In Phase 2, Oscar will launch a platform to connect you with local dietitians, nutrition scientists, and gym trainers in Canada and the U.S.",
       },
       {
-        question: "How does the Weight Permanence Triangle™ help with long-term weight loss?",
+        question: "How does the Weight Permanence Training™ help with long-term weight loss?",
         answer:
-          "The Weight Permanence Triangle™ supports long-term weight loss by preventing abandonment after success and providing structure when motivation and routine disappear.",
+          "The Weight Permanence Training™ supports long-term weight loss by preventing abandonment after success and providing structure when motivation and routine disappear.",
       },
       {
-        question: "Why does the Weight Permanence Triangle™ focus on awareness instead of motivation?",
+        question: "Why does the Weight Permanence Training™ focus on awareness instead of motivation?",
         answer:
-          "The Weight Permanence Triangle™ embeds motivation directly within the Awareness stages, where the final stages emotionally encode push and pull motivation. Tools in the Permanence axis help reassess and realign that motivation as biological, social, and environmental conditions change.",
+          "The Weight Permanence Training™ embeds motivation directly within the Awareness stages, where the final stages emotionally encode push and pull motivation. Tools in the Permanence axis help reassess and realign that motivation as biological, social, and environmental conditions change.",
       },
       {
-        question: "What are the five stages of Awareness in the Weight Permanence Triangle™?",
+        question: "What are the five stages of Awareness in the Weight Permanence Training™?",
         answer:
           "The five stages of Awareness consist of a series of questions designed to help you build a roadmap for change. Below are sample questions.",
         awarenessList: [
@@ -426,17 +426,17 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "How does emotional encoding affect weight loss?",
         answer:
-          "In the Weight Permanence Triangle™, emotional encoding within the Awareness stages creates push and pull motivation that anchors behaviour. In plain English, people are most likely to act and change when they want something badly enough or absolutely hate something that needs to stop immediately. The last two stages of Awareness help you connect facts with emotions and turn them into lasting motivation.",
+          "In the Weight Permanence Training™, emotional encoding within the Awareness stages creates push and pull motivation that anchors behaviour. In plain English, people are most likely to act and change when they want something badly enough or absolutely hate something that needs to stop immediately. The last two stages of Awareness help you connect facts with emotions and turn them into lasting motivation.",
       },
       {
-        question: "How does the Weight Permanence Triangle™ handle hunger differently from diets?",
+        question: "How does the Weight Permanence Training™ handle hunger differently from diets?",
         answer:
-          "Oscar avoids hunger-based weight loss. The Weight Permanence Triangle™ Method targets the biological drivers of appetite, so calorie intake naturally decreases without relying on forced deprivation.",
+          "Oscar avoids hunger-based weight loss. The Weight Permanence Training™ Method targets the biological drivers of appetite, so calorie intake naturally decreases without relying on forced deprivation.",
       },
       {
-        question: "How does the Weight Permanence Triangle™ help during travel and social eating?",
+        question: "How does the Weight Permanence Training™ help during travel and social eating?",
         answer:
-          "The Weight Permanence Triangle™ helps during travel and social eating by providing flexible decision frameworks that maintain direction without requiring perfect conditions. The Permanence tools stabilise decisions when your environment, context, or routine changes.",
+          "The Weight Permanence Training™ helps during travel and social eating by providing flexible decision frameworks that maintain direction without requiring perfect conditions. The Permanence tools stabilise decisions when your environment, context, or routine changes.",
       },
     ],
   },
@@ -447,8 +447,8 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "What makes LS Diet different?",
         answer:
-          "LS Diet focuses on helping you keep the weight off once you've lost it. Although losing weight is a part of the journey, the main goal is to sustain that success. A key part of this approach is the Weight Permanence Triangle (WPT), a tool for improving mental clarity, building motivation when you need it, and strengthening the emotional link between your thoughts and actions. Instead of relying only on willpower, the WPT helps you move from simply wanting to lose weight to feeling emotionally and physically ready not only to reach your goal but also to maintain it and never regain.",
-        internalLink: { text: "Explore the Weight Permanence Triangle™ →", url: "/weight-permanence-triangle" },
+          "LS Diet focuses on helping you keep the weight off once you've lost it. Although losing weight is a part of the journey, the main goal is to sustain that success. A key part of this approach is the Weight Permanence Training (WPT), a tool for improving mental clarity, building motivation when you need it, and strengthening the emotional link between your thoughts and actions. Instead of relying only on willpower, the WPT helps you move from simply wanting to lose weight to feeling emotionally and physically ready not only to reach your goal but also to maintain it and never regain.",
+        internalLink: { text: "Explore the Weight Permanence Training™ →", url: "/weight-permanence-triangle" },
       },
       {
         question: "Do I have to count calories or cut out entire food groups?",
@@ -477,7 +477,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "What happens inside the class?",
         answer:
-          "Inside the class, you'll learn:\n• Weight problem (weight regain, information trap, how motivation disappears, and emotional priorities)\n• The Weight Permanence Triangle\n• The 5 Stages of Awareness (Reality, Friction, Pattern, Consequence, and Identity)\n• Guided step-by-step to build your PUSH and PULL motivations\n• 30+ Action Practice\n• Practical behaviours that support long-term weight management",
+          "Inside the class, you'll learn:\n• Weight problem (weight regain, information trap, how motivation disappears, and emotional priorities)\n• The Weight Permanence Training\n• The 5 Stages of Awareness (Reality, Friction, Pattern, Consequence, and Identity)\n• Guided step-by-step to build your PUSH and PULL motivations\n• 30+ Action Practice\n• Practical behaviours that support long-term weight management",
         internalLink: { text: "Explore the 5 Awareness Stages →", url: "/awareness-stages" },
       },
       {
@@ -504,7 +504,7 @@ export default function QAPage() {
     if (metaDescription) {
       metaDescription.setAttribute(
         "content",
-        "Answers to the real question behind dieting: why people keep regaining weight, and how the Weight Permanence Triangle™ and a low-starch, low-sugar lifestyle help you stop restarting."
+        "Answers to the real question behind dieting: why people keep regaining weight, and how the Weight Permanence Training™ and a low-starch, low-sugar lifestyle help you stop restarting."
       );
     }
   }, []);
@@ -558,8 +558,8 @@ export default function QAPage() {
                   delay={categoryIndex * 100}
                   onJoinWaitlist={() => setWaitlistOpen(true)}
                   defaultOpenValue={
-                    openParam === "awareness-stages" && category.title === "The Weight Permanence Triangle™ Method"
-                      ? "The Weight Permanence Triangle™ Method-6"
+                    openParam === "awareness-stages" && category.title === "The Weight Permanence Training™ Method"
+                      ? "The Weight Permanence Training™ Method-6"
                       : undefined
                   }
                 />

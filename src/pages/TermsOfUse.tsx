@@ -27,7 +27,7 @@ const TermsOfUse = () => {
 
           <h2 className="text-xl font-semibold text-foreground mt-8 mb-4">Purpose of the Website</h2>
           <p>
-            NTL Learning Solutions Inc., operating as WhatAboutWeight, LSdiet, and Weight Permanence Triangle (WPT), 
+            NTL Learning Solutions Inc., operating as WhatAboutWeight, LSdiet, and Weight Permanence Training (WPT), 
             provides educational content related to weight, behaviour, and lifestyle.
           </p>
 
@@ -45,7 +45,7 @@ const TermsOfUse = () => {
           <p>
             All content on this site, including but not limited to text, graphics, logos, images, and software, 
             is the property of NTL Learning Solutions Inc. The trademarks "WhatAboutWeight," "LSdiet," and 
-            "Weight Permanence Triangle" (WPT) are owned by NTL Learning Solutions Inc. 
+            "Weight Permanence Training" (WPT) are owned by NTL Learning Solutions Inc. 
             Unauthorized use of any content or trademarks is strictly prohibited.
           </p>
 

@@ -1,6 +1,6 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: awareness-stages | subTopic: identity-awareness
-// Sub-pillar 3.5 of the Weight Permanence Triangle™.
+// Sub-pillar 3.5 of the Weight Permanence Training™.
 import featuredImage from "@/assets/foundations/identity-awareness-hero.png";
 import type { Foundation } from "./types";
 
@@ -34,7 +34,7 @@ const meta: Foundation["meta"] = {
   excerpt:
     "PULL motivation develops when future identity becomes emotionally important enough to pursue consistently.",
   metaDescription:
-    "Identity Awareness is the fifth stage of the Weight Permanence Triangle™. Learn how PULL motivation, future identity, and meaningful personal direction influence long term behavioural consistency.",
+    "Identity Awareness is the fifth stage of the Weight Permanence Training™. Learn how PULL motivation, future identity, and meaningful personal direction influence long term behavioural consistency.",
   publishDate: "2026-05-23T16:00:00.000Z",
   updatedAt: "2026-05-23T16:00:00.000Z",
   canonicalTopic: "awareness-stages",
@@ -51,12 +51,12 @@ const meta: Foundation["meta"] = {
   relatedTopics: ["weight-permanence-triangle", "stop-weight-regain", "awareness-stages"],
   featuredImage: {
     src: featuredImage,
-    alt: "Identity Awareness — Stage 5 of the 5 Awareness Stages in the Weight Permanence Triangle™",
+    alt: "Identity Awareness — Stage 5 of the 5 Awareness Stages in the Weight Permanence Training™",
   },
   faqs: [
     {
       q: "What is Identity Awareness?",
-      a: "Identity Awareness is the fifth stage of the Weight Permanence Triangle™. It focuses on connecting behaviour to future identity, meaning, and long term personal direction.",
+      a: "Identity Awareness is the fifth stage of the Weight Permanence Training™. It focuses on connecting behaviour to future identity, meaning, and long term personal direction.",
     },
     {
       q: "What is PULL motivation?",
@@ -84,7 +84,7 @@ function Body() {
       <P>
         Identity Awareness is the fifth stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
-          Weight Permanence Triangle™
+          Weight Permanence Training™
         </a>{" "}
         (WPT), and it is the stage that most directly addresses{" "}
         <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">

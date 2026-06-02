@@ -59,7 +59,7 @@ function Body() {
         recovery — you start treating your professional commitments the same
         way. That's the territory{" "}
         <a href="/blog/identity-awareness">identity awareness</a> and the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>{" "}
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
         are built around.
       </p>
 

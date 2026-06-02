@@ -20,10 +20,10 @@ const PERSON_LD = {
   image: "https://lsdiet.com/oscar-photo.jpeg",
   jobTitle: "Founder of LS Diet",
   description:
-    "Founder of LS Diet and creator of the Weight Permanence Triangle™. Lost 80+ lbs three times and built LS Diet from what those restarts taught him.",
+    "Founder of LS Diet and creator of the Weight Permanence Training™. Lost 80+ lbs three times and built LS Diet from what those restarts taught him.",
   knowsAbout: [
     "Stop Weight Regain",
-    "Weight Permanence Triangle",
+    "Weight Permanence Training",
     "5 Awareness Stages",
     "Low-Starch Low-Sugar Lifestyle",
     "Behavioural Permanence",
@@ -57,11 +57,11 @@ export default function OscarPoonPage() {
         <title>Oscar Poon | Founder of LS Diet</title>
         <meta
           name="description"
-          content="Oscar Poon, founder of LS Diet and creator of the Weight Permanence Triangle™. Lost 80+ lbs three times before building a system that lasts."
+          content="Oscar Poon, founder of LS Diet and creator of the Weight Permanence Training™. Lost 80+ lbs three times before building a system that lasts."
         />
         <link rel="canonical" href={CANONICAL} />
         <meta property="og:title" content="Oscar Poon — Founder of LS Diet" />
-        <meta property="og:description" content="Founder of LS Diet, creator of the Weight Permanence Triangle™." />
+        <meta property="og:description" content="Founder of LS Diet, creator of the Weight Permanence Training™." />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content={CANONICAL} />
         <script type="application/ld+json">{JSON.stringify(PERSON_LD)}</script>
@@ -76,13 +76,13 @@ export default function OscarPoonPage() {
             <span className="text-accent">Oscar Poon</span>
           </h1>
           <p className="text-xs text-zinc-600 uppercase tracking-wider">
-            Founder of LS Diet · Creator of the Weight Permanence Triangle™
+            Founder of LS Diet · Creator of the Weight Permanence Training™
           </p>
         </header>
 
         <img
           src={oscarPhoto}
-          alt="Oscar Poon, founder of LS Diet and creator of the Weight Permanence Triangle™"
+          alt="Oscar Poon, founder of LS Diet and creator of the Weight Permanence Training™"
           className="w-full max-w-md mx-auto rounded-xl mb-10 aspect-square object-cover"
         />
 
@@ -120,7 +120,7 @@ export default function OscarPoonPage() {
             simple. The behavioural framework is where the real engineering lives. Read the
             breakdown on the{" "}
             <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-              Weight Permanence Triangle™
+              Weight Permanence Training™
             </a>{" "}
             page, the{" "}
             <a href="/awareness-stages" className="text-accent hover:underline">5 Awareness Stages</a>,

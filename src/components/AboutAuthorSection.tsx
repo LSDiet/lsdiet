@@ -33,7 +33,7 @@ export const AboutAuthorSection = () => {
             {/* Text content */}
             <div className="flex-1 space-y-4 text-center md:text-left">
               <p className="text-muted-foreground leading-relaxed">
-                Hello! I'm Oscar, the founder of <strong className="text-foreground">LS Diet</strong> and the creator of the Weight Permanence Triangle™ (WPT). When I lost weight for the third time, I began reflecting on how I could make this my final transformation. The solution turned out to be quite simple: emotional priority.
+                Hello! I'm Oscar, the founder of <strong className="text-foreground">LS Diet</strong> and the creator of the Weight Permanence Training™ (WPT). When I lost weight for the third time, I began reflecting on how I could make this my final transformation. The solution turned out to be quite simple: emotional priority.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Join the LS Diet Community, and I'll help you move from simply wanting to lose weight to being emotionally and physically ready to do whatever it takes to reach your goal and keep it.

@@ -74,8 +74,8 @@ const meta: Foundation["meta"] = {
       a: "Short-term dieting can temporarily change behaviour. Long-term maintenance requires permanent behavioural adaptation within real-life environments.",
     },
     {
-      q: "What is the Weight Permanence Triangle?",
-      a: "The Weight Permanence Triangle is an LS Diet framework focused on awareness, practice, and permanence to help reduce repeated weight regain.",
+      q: "What is the Weight Permanence Training?",
+      a: "The Weight Permanence Training is an LS Diet framework focused on awareness, practice, and permanence to help reduce repeated weight regain.",
     },
   ],
 };
@@ -143,7 +143,7 @@ function Body() {
         LS Diet is built around the idea that long-term success depends less on short bursts of
         motivation and more on creating systems — anchored by the{" "}
         <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-          Weight Permanence Triangle
+          Weight Permanence Training
         </a>{" "}
         — that remain stable when life becomes stressful, emotional, busy, repetitive, or
         difficult. Walk through the{" "}
@@ -441,7 +441,7 @@ function Body() {
         <li>
           the{" "}
           <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-            Weight Permanence Triangle™
+            Weight Permanence Training™
           </a>
         </li>
         <li>

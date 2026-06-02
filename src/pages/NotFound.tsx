@@ -13,7 +13,7 @@ const NotFound = () => {
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <Helmet>
         <title>Page Not Found | LS Diet</title>
-        <meta name="description" content="The page you're looking for doesn't exist on LS Diet. Return to the homepage to explore the Weight Permanence Triangle and weight regain prevention." />
+        <meta name="description" content="The page you're looking for doesn't exist on LS Diet. Return to the homepage to explore the Weight Permanence Training and weight regain prevention." />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
       <div className="text-center">

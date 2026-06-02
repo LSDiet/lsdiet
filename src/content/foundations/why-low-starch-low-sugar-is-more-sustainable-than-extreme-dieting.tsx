@@ -9,7 +9,7 @@ const meta: Foundation["meta"] = {
   listTitle: "Low-Starch, Low-Sugar (LS) Foundations",
   order: 2,
   excerpt:
-    "Restrictive diets often collapse because they rely on hunger, willpower, and short-term motivation. This LS Diet article explains how a low-starch, low-sugar lifestyle reduces insulin spikes and cravings — making it the food layer behind the Weight Permanence Triangle™ and a sustainable way to stop regaining weight.",
+    "Restrictive diets often collapse because they rely on hunger, willpower, and short-term motivation. This LS Diet article explains how a low-starch, low-sugar lifestyle reduces insulin spikes and cravings — making it the food layer behind the Weight Permanence Training™ and a sustainable way to stop regaining weight.",
   metaDescription:
     "Learn why restrictive dieting fails long term and how a low-starch, low-sugar lifestyle reduces insulin exposure, lowers cravings, and supports weight permanence — the food layer of LS Diet's weight regain prevention system.",
   publishDate: "2026-05-19T00:00:00.000Z",
@@ -320,7 +320,7 @@ function Body() {
       <P>
         This is where the{" "}
         <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-          Weight Permanence Triangle
+          Weight Permanence Training
         </a>{" "}
         becomes important.
       </P>
@@ -348,7 +348,7 @@ function Body() {
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>
           <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-            Weight Permanence Triangle
+            Weight Permanence Training
           </a>
         </li>
         <li>

@@ -7,7 +7,7 @@
  *
  * Phase 1 routes are intentionally narrow — only pages that reinforce the
  * LS Diet semantic identity (weight regain prevention, behavioural permanence,
- * Weight Permanence Triangle). Supporting mechanism content (GLP-1, food
+ * Weight Permanence Training). Supporting mechanism content (GLP-1, food
  * guides) stays SPA-rendered.
  */
 import { createServer } from "node:http";

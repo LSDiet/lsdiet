@@ -45,7 +45,7 @@ function Body() {
 
       <p>
         The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>{" "}
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
         focuses on sustainability, awareness, implementation, and
         behavioural reinforcement so the system can stay alive through
         imperfect weeks instead of needing a fresh start every seven days.

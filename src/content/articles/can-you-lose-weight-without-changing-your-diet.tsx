@@ -60,7 +60,7 @@ function Body() {
         structure, and behavioural permanence — not heroic effort. The point
         is a system that holds together when life is messy, which is the
         whole purpose of the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>.
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>.
       </p>
 
       <h2>Final Thoughts</h2>

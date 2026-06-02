@@ -123,7 +123,7 @@ function ClusterBlock({ title, description, posts }: ClusterBlockProps) {
           href="/weight-permanence-triangle"
           className="font-semibold text-zinc-700 underline-offset-2 hover:text-accent hover:underline"
         >
-          The Weight Permanence Triangle™
+          The Weight Permanence Training™
         </a>
       </p>
     </div>

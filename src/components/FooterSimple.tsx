@@ -4,7 +4,7 @@ import lsDietLogo from "@/assets/lsdiet-logo.png";
 const learnLinks = [
   { label: "Why People Regain Weight", href: "/blog/why-people-regain-weight-after-dieting" },
   { label: "What Is LS Diet?", href: "/what-is-ls-diet" },
-  { label: "Weight Permanence Triangle™", href: "/weight-permanence-triangle" },
+  { label: "Weight Permanence Training™", href: "/weight-permanence-triangle" },
   { label: "5 Awareness Stages", href: "/awareness-stages" },
   { label: "About Oscar Poon", href: "/oscar-poon" },
   { label: "FAQ", href: "/faq" },

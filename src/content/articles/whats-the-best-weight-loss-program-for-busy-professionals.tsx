@@ -50,7 +50,7 @@ function Body() {
         <a href="/blog/action-practice">Action Practice</a> implementation
         — the entire point being to stop behavioural collapse during
         disruption. The structural backbone is the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>.
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>.
       </p>
 
       <h2>Why Simplicity Matters</h2>

@@ -99,7 +99,7 @@ function Body() {
         Most people say they don't have time. Usually it's not a calendar
         problem — it's a priority problem hiding inside a behaviour problem.
         That's the work the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>{" "}
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
         is designed to do: turn the invisible patterns into something you can
         actually adjust.
       </p>

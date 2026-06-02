@@ -48,7 +48,7 @@ function Body() {
 
       <p>
         The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle™</a>{" "}
+        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
         treats long-term behaviour change as an identity problem before it's
         a food problem. When you start seeing yourself differently,
         communication, social behaviour, and emotional stability shift

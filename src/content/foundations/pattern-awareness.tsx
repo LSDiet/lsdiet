@@ -1,6 +1,6 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: awareness-stages | subTopic: pattern-awareness
-// Sub-pillar 3.3 of the Weight Permanence Triangle™.
+// Sub-pillar 3.3 of the Weight Permanence Training™.
 import featuredImage from "@/assets/foundations/pattern-awareness-hero.png";
 import type { Foundation } from "./types";
 
@@ -34,7 +34,7 @@ const meta: Foundation["meta"] = {
   excerpt:
     "Pattern Awareness explores the who, what, when, where, why, and how behind repeated eating behaviour.",
   metaDescription:
-    "Pattern Awareness is the third stage of the Weight Permanence Triangle™. Learn how routines, environments, cravings, and repeated eating behaviours contribute to long term weight regain.",
+    "Pattern Awareness is the third stage of the Weight Permanence Training™. Learn how routines, environments, cravings, and repeated eating behaviours contribute to long term weight regain.",
   publishDate: "2026-05-21T16:00:00.000Z",
   updatedAt: "2026-05-21T16:00:00.000Z",
   canonicalTopic: "awareness-stages",
@@ -51,12 +51,12 @@ const meta: Foundation["meta"] = {
   relatedTopics: ["weight-permanence-triangle", "stop-weight-regain", "awareness-stages"],
   featuredImage: {
     src: featuredImage,
-    alt: "Pattern Awareness — Stage 3 of the 5 Awareness Stages in the Weight Permanence Triangle™",
+    alt: "Pattern Awareness — Stage 3 of the 5 Awareness Stages in the Weight Permanence Training™",
   },
   faqs: [
     {
       q: "What is Pattern Awareness?",
-      a: "Pattern Awareness is the third stage of the Weight Permanence Triangle™. It focuses on identifying repeated behavioural and environmental patterns influencing eating behaviour.",
+      a: "Pattern Awareness is the third stage of the Weight Permanence Training™. It focuses on identifying repeated behavioural and environmental patterns influencing eating behaviour.",
     },
     {
       q: "Why do eating patterns repeat automatically?",
@@ -84,7 +84,7 @@ function Body() {
       <P>
         Pattern Awareness is the third stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
-          Weight Permanence Triangle™
+          Weight Permanence Training™
         </a>{" "}
         (WPT).
       </P>

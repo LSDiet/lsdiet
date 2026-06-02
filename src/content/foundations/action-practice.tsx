@@ -1,6 +1,6 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: action-practice-examples | subTopic: action-practice
-// Implementation pillar of the Weight Permanence Triangle™.
+// Implementation pillar of the Weight Permanence Training™.
 import featuredImage from "@/assets/foundations/action-practice-classroom.png";
 import skoolCard from "@/assets/foundations/action-practice-skool-card.png";
 import consistencyRewards from "@/assets/foundations/action-practice-consistency-rewards.png";
@@ -51,7 +51,7 @@ const meta: Foundation["meta"] = {
   excerpt:
     "Awareness creates direction, but Action Practice is what turns consistency into real behavioural change.",
   metaDescription:
-    "Action Practice is the implementation stage of the Weight Permanence Triangle™. Learn how repeatable daily systems, environmental design, and accountability help stop weight regain long term.",
+    "Action Practice is the implementation stage of the Weight Permanence Training™. Learn how repeatable daily systems, environmental design, and accountability help stop weight regain long term.",
   publishDate: "2026-05-24T16:00:00.000Z",
   updatedAt: "2026-05-24T16:00:00.000Z",
   canonicalTopic: "action-practice-examples",
@@ -78,7 +78,7 @@ const meta: Foundation["meta"] = {
   faqs: [
     {
       q: "What is Action Practice?",
-      a: "Action Practice is the implementation stage of the Weight Permanence Triangle™. It focuses on repeatable behavioural systems and sustainable daily routines.",
+      a: "Action Practice is the implementation stage of the Weight Permanence Training™. It focuses on repeatable behavioural systems and sustainable daily routines.",
     },
     {
       q: "Why is awareness alone not enough?",
@@ -118,7 +118,7 @@ function Body() {
       <P>
         Action Practice is the implementation stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
-          Weight Permanence Triangle™
+          Weight Permanence Training™
         </a>{" "}
         (WPT).
       </P>
@@ -397,8 +397,8 @@ function Body() {
       <P>That is normal. Behavioural change is difficult when life becomes chaotic.</P>
       <P>The important thing is: people can start immediately for free. The free LS Diet classroom already includes practical systems people can begin implementing right away. For people who later decide they want additional support, accountability options are available.</P>
 
-      <H2>Why Action Practice Completes the Weight Permanence Triangle™</H2>
-      <P>The Weight Permanence Triangle™ is not just about awareness. It is about implementation.</P>
+      <H2>Why Action Practice Completes the Weight Permanence Training™</H2>
+      <P>The Weight Permanence Training™ is not just about awareness. It is about implementation.</P>
       <P>Awareness helps people:</P>
       <UL
         items={[
@@ -443,7 +443,7 @@ function Body() {
       <UL
         items={[
           <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
-            The Weight Permanence Triangle™: How to Stop Regaining Weight
+            The Weight Permanence Training™: How to Stop Regaining Weight
           </a>,
           <a href="/blog/reality-awareness" className="text-accent hover:underline">Reality Awareness</a>,
           <a href="/blog/friction-awareness" className="text-accent hover:underline">Friction Awareness</a>,

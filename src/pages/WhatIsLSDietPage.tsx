@@ -32,7 +32,7 @@ export default function WhatIsLSDietPage() {
           about: [
             { "@type": "Thing", name: "Weight regain prevention" },
             { "@type": "Thing", name: "Behavioural permanence" },
-            { "@type": "Thing", name: "Weight Permanence Triangle" },
+            { "@type": "Thing", name: "Weight Permanence Training" },
             { "@type": "Thing", name: "Low-starch low-sugar eating" },
           ],
           datePublished: PUBLISHED,
@@ -90,7 +90,7 @@ export default function WhatIsLSDietPage() {
               stop restarting weight loss
             </a>
             . The structural answer LS Diet is built around is the{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Weight Permanence Triangle™</a>.
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Weight Permanence Training™</a>.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
@@ -222,10 +222,10 @@ export default function WhatIsLSDietPage() {
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
-            The Weight Permanence Triangle™
+            The Weight Permanence Training™
           </h2>
           <p>
-            The <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Weight Permanence Triangle™</a>{" "}
+            The <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Weight Permanence Training™</a>{" "}
             is the operational backbone of LS Diet: Awareness + Practice + Permanence.
           </p>
           <ul className="list-disc list-outside pl-6 space-y-1">

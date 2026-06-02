@@ -79,7 +79,7 @@ function Body() {
         time-consuming, too emotionally expensive. Life gets busy and the
         whole structure folds. The{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight">
-          Weight Permanence Triangle™
+          Weight Permanence Training™
         </a>{" "}
         was built around this exact pattern — permanence beats intensity
         every time.
