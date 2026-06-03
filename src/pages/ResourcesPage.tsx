@@ -26,13 +26,6 @@ const resources: Resource[] = [
       "Canadian obesity statistics and public health information related to overweight and obesity trends across Canada.",
     url: "https://www.canada.ca/en/public-health/services/publications/healthy-living/obesity-statistics-canada.html",
   },
-  {
-    category: "Recommended Health Resources",
-    name: "Site Promo Health Directory",
-    description:
-      "A directory of health related websites, articles, and wellness resources covering a variety of health topics.",
-    url: "https://site-promo.com/health/",
-  },
 ];
 
 const categories = Array.from(new Set(resources.map((r) => r.category)));
