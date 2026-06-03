@@ -99,6 +99,40 @@ export default function FreeResources() {
     </div>;
 }
 
+function QuizCard() {
+  const { ref, isVisible } = useScrollAnimation();
+  return (
+    <div ref={ref} className={`grid md:grid-cols-2 gap-8 items-center transition-all duration-700 opacity-100 translate-y-0`}>
+      <div className="flex justify-center">
+        <div className="relative animate-float">
+          <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl" />
+          <div className="relative max-w-[260px] md:max-w-xs w-full aspect-[3/4] rounded-lg flex flex-col items-center justify-center bg-gradient-to-br from-accent/90 to-accent text-accent-foreground p-8 drop-shadow-2xl">
+            <span className="text-xs uppercase tracking-[0.18em] font-semibold mb-3 opacity-90">60-Second Quiz</span>
+            <span className="text-2xl font-serif font-normal text-center leading-tight">Why You Keep Regaining Weight</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span className="inline-block text-xs uppercase tracking-[0.16em] font-semibold text-accent mb-3">New • Quiz</span>
+        <h2 className="text-2xl md:text-3xl font-serif font-normal mb-3 text-primary leading-tight">
+          Why You Keep Regaining Weight
+        </h2>
+        <p className="text-sm md:text-base text-muted-foreground mb-5 leading-relaxed">
+          A free 60-second quiz that identifies your regain pattern and the next step to break the cycle.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Button size="lg" className="w-full sm:w-auto px-8 animate-pulse-glow" asChild>
+            <a href="/quiz">
+              <ArrowRight className="w-4 h-4 mr-2" />
+              Take the Quiz
+            </a>
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ResourceCard({ resource, index, onDownload, isLoading }: { resource: Resource; index: number; onDownload: (r: Resource) => void; isLoading: boolean }) {
   const { ref, isVisible } = useScrollAnimation();
 
