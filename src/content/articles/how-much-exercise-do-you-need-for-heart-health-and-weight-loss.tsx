@@ -43,17 +43,16 @@ function Body() {
         and linked to hospital and death records through October 2022,
         with a median follow-up of 7.85 years. During that period, the
         study recorded 874 cases of atrial fibrillation, 111 cases of
-        heart failure, and 92 strokes. As{" "}
+        heart failure, and 92 strokes. In one of his blogs, Carlos Solis{" "}
         <a
           href="https://site-promo.com/150-minutes-a-week-is-the-heart-health-minimum/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Site Promo's breakdown of the study
+          breaks down what the 150-minute threshold actually buys you
         </a>{" "}
-        explains, meeting roughly 150 minutes per week was associated with
-        a modest 8–9% lower risk of cardiovascular events regardless of
-        fitness level.
+        and notes that hitting it was associated with a modest 8–9% lower
+        risk of cardiovascular events regardless of fitness level.
       </p>
 
       <h2>150 Minutes Is a Solid Baseline — Not the Limit</h2>
