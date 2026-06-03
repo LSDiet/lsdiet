@@ -13,6 +13,7 @@ const navLinks: NavLink[] = [
   { label: "Weight Problem", href: "/#journey" },
   { label: "Solution", href: "/#method" },
   { label: "Free Resources", href: "/free-resources" },
+  { label: "Quiz", href: "/quiz" },
   { label: "Blog", href: "/blog" },
   {
     label: "Start Here",

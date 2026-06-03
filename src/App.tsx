@@ -34,6 +34,7 @@ const ShareRedirectPage = lazy(() => import("./pages/ShareRedirectPage"));
 const CategoryArchivePage = lazy(() => import("./pages/CategoryArchivePage"));
 const PartnersPage = lazy(() => import("./pages/PartnersPage"));
 const ResourcesPage = lazy(() => import("./pages/ResourcesPage"));
+const QuizPage = lazy(() => import("./pages/QuizPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
@@ -84,6 +85,7 @@ function AppContent() {
           <Route path="/category/:slug" element={<CategoryArchivePage />} />
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/quiz" element={<QuizPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
