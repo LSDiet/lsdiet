@@ -11,11 +11,10 @@ export function QuizTeaserSection() {
             Free 60-Second Quiz
           </p>
           <h2 className="text-2xl md:text-4xl font-serif font-normal text-primary leading-tight mb-4">
-            Not sure why the weight keeps coming back?
+            Why does the weight keep coming back?
           </h2>
           <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto">
-            Take the 60-second quiz and get a personalized read on your regain pattern —
-            plus the next step to stop the cycle.
+            Find out your Weight Regain Profile.
           </p>
           <Button
             variant="accent"
