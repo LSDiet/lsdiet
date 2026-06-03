@@ -116,6 +116,8 @@ export const ARTICLES: Article[] = [
   keepLosingAndRegaining,
   easierWhenYounger,
   canAccountabilityHelp,
+  // Batch 9
+  howMuchExerciseHeartHealth,
 ];
 
 
