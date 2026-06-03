@@ -47,7 +47,7 @@ function Body() {
         <a
           href="https://site-promo.com/150-minutes-a-week-is-the-heart-health-minimum/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           breaks down what the 150-minute threshold actually buys you
         </a>{" "}
@@ -154,7 +154,7 @@ function Body() {
         <a
           href="https://site-promo.com/150-minutes-a-week-is-the-heart-health-minimum/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
         >
           site-promo.com
         </a>
