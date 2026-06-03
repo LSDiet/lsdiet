@@ -64,6 +64,9 @@ import keepLosingAndRegaining from "./why-do-i-keep-losing-and-regaining-the-sam
 import easierWhenYounger from "./why-does-weight-loss-feel-easier-when-im-younger";
 import canAccountabilityHelp from "./can-accountability-help-you-lose-weight";
 
+// Batch 9
+import howMuchExerciseHeartHealth from "./how-much-exercise-do-you-need-for-heart-health-and-weight-loss";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
