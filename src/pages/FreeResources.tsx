@@ -87,7 +87,8 @@ export default function FreeResources() {
               <FileText className="w-12 h-12 text-muted-foreground/50 mx-auto mb-4" />
               <p className="text-muted-foreground">No free resources are published yet. Check back soon!</p>
             </div> : <div className="space-y-16">
-              {resources.map((resource, index) => <ResourceCard key={resource.id} resource={resource} index={index} onDownload={handleDownloadClick} isLoading={isLoading} />)}
+              <QuizCard />
+              {resources.map((resource, index) => <ResourceCard key={resource.id} resource={resource} index={index + 1} onDownload={handleDownloadClick} isLoading={isLoading} />)}
             </div>}
         </div>
       </main>
