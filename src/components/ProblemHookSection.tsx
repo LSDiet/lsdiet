@@ -27,9 +27,6 @@ function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
       <p className="text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center whitespace-pre-line text-lg font-bold mt-[10px] my-0">
         {"Join the LS Diet Community \nFree to start\n⬇  ⬇  ⬇ "}
       </p>
-      <p className="mt-2 text-3xl font-extrabold uppercase tracking-tight text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] md:text-4xl">
-        {"\u200B"}
-      </p>
       <a
         href={SKOOL_URL}
         target="_blank"
@@ -41,7 +38,7 @@ function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
             destination: SKOOL_URL,
           })
         }
-        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5 md:text-lg mt-0"
+        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5 md:text-lg"
       >
         Join Free — No Credit Card
         <ArrowRight className="h-5 w-5" aria-hidden />

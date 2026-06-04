@@ -218,9 +218,6 @@ export function HeroSection() {
 
         <div>
           <p className="text-center text-sm font-medium text-foreground sm:text-base">
-            I lived through this cycle <span className="text-accent font-semibold">3 times</span>
-          </p>
-          <p className="text-center text-sm font-medium text-foreground sm:text-base">
             … and finally learned how to stop this
           </p>
         </div>
