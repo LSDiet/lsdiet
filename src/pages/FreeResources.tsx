@@ -117,8 +117,8 @@ function QuizCard() {
         <h2 className="text-2xl md:text-3xl font-serif font-normal mb-3 text-primary leading-tight">
           Why does my weight <br />keep coming back?
         </h2>
-        <p className="text-sm md:text-base text-muted-foreground mb-5 leading-relaxed">
-          Find out your Weight Regain Profile
+        <p className="text-sm md:text-base text-muted-foreground mb-5 leading-relaxed whitespace-pre-line">
+          Find out your{"\n"}Weight Regain Profile
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <Button size="lg" className="w-full sm:w-auto px-8 animate-pulse-glow" asChild>
