@@ -47,7 +47,7 @@ function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
         <ArrowRight className="h-5 w-5" aria-hidden />
       </a>
       <p className="mt-2 text-[11px] font-medium text-white/60">
-        100% Free. No credit card. Cancel anytime.
+        100% Free. No credit card. 
       </p>
     </div>
   );
