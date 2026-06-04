@@ -186,8 +186,9 @@ function MobileHeroCarousel() {
 
 export function HeroSection() {
   return (
-    <section className="relative w-full bg-background pt-4 md:pt-14 text-foreground">
+    <section className="relative w-full bg-background pt-20 md:pt-28 text-foreground">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-4 md:gap-8 md:px-8 md:py-10">
+
         <div className="text-center">
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
             For people who keep regaining weight
