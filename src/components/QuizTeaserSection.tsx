@@ -13,8 +13,8 @@ export function QuizTeaserSection() {
           <h2 className="text-2xl md:text-4xl font-serif font-normal text-primary leading-tight mb-4">
             Why does my weight <br />keep coming back?
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto">
-            Find out your Weight Regain Profile
+          <p className="text-base md:text-lg text-muted-foreground mb-6 leading-relaxed max-w-2xl mx-auto whitespace-pre-line">
+            Find out your{"\n"}Weight Regain Profile
           </p>
           <Button
             variant="accent"
