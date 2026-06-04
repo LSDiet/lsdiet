@@ -35,28 +35,6 @@ export function BookSection() {
             </ul>
           </div>
 
-          {/* Tracks screenshot */}
-          <a
-            href={SKOOL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() =>
-              trackEvent("cta_click", {
-                location: "book_section",
-                placement: "tracks_image",
-                destination: SKOOL_URL,
-              })
-            }
-            className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors mb-8 group"
-          >
-            <div className="absolute -inset-4 bg-accent/10 blur-2xl -z-10" />
-            <img
-              src={skoolTracks}
-              alt="LS Diet course on Skool with three tracks: Start Here, Action Practice, and Tools"
-              className="w-full h-auto block group-hover:scale-[1.01] transition-transform duration-500"
-              loading="lazy"
-            />
-          </a>
 
           {/* Inside Start Here */}
           <div className="mb-12">
