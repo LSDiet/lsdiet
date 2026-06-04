@@ -102,7 +102,7 @@ export function AwarenessStagesSection() {
       <div ref={ref} className="container max-w-3xl mx-auto px-4">
         <div className="text-center mb-10 md:mb-14">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
-            5 Stages of Awareness <span className="text-accent">+ Action Practice</span>
+            5 STAGES OF AWARENESS <br /> <span className="text-accent">+ ACTION PRACTICE</span>
           </h2>
         </div>
 

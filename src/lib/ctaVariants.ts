@@ -85,7 +85,7 @@ const OFFICE: Variant = {
 const FOOD: Variant = {
   intro: {
     headline: "Eat until full — without the regain",
-    body: "Low-starch, low-sugar eating lets you stop counting and stop suffering. The LS Diet Course shows you how to run it sustainably.",
+    body: "Low-starch, low-sugar eating lets you stop counting and stop suffering. The FREE LS Diet Course shows you how to run it sustainably.",
   },
   mid: {
     headline: "Sustainable eating, no calorie spreadsheets",
