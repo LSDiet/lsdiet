@@ -39,27 +39,26 @@ const faqs: FaqEntry[] = [
     ),
   },
   {
-    q: "How much does LS Diet cost?",
+    q: "How much does the program cost?",
     schemaAnswer:
-      "LS Diet is currently free to join during our soft launch period until July 31, 2026. Starting August 1, 2026, membership will be $11 per month. Anyone who joins before July 31, 2026 will keep free lifetime access to all current and future content inside the Start Here and Action Practice modules.",
+      "100% free to join. The Standard plan includes unlimited access to the Weight Permanence Training™, the full Action Practice module (30+ videos), and the LS Diet community. An optional upgrade to Accountability Coaching is available for members who want guided practice and weekly group coaching. The upgrade is not required to learn the weight regain prevention skill.",
     render: () => (
       <div className="space-y-3">
         <p className={paraCls}>
-          LS Diet is{" "}
-          <span className="font-semibold text-foreground">free to join</span>{" "}
-          until July 31, 2026.
+          <span className="font-semibold text-foreground">100% free to join.</span> The Standard plan includes unlimited access to the Weight Permanence Training™, the full Action Practice module (30+ videos), and the LS Diet community.
+        </p>
+        <p className={paraCls}>
+          An optional upgrade to Accountability Coaching is available for members who want guided practice and weekly group coaching. The upgrade is <span className="font-semibold text-foreground">not</span> required to learn the weight regain prevention skill.
         </p>
         <p>
-          <a href="https://www.skool.com/lsdiet/about" className={linkCls} target="_blank" rel="noopener noreferrer">
-            Join LS Diet for free →
+          <a href="https://www.skool.com/lsdiet" className={linkCls} target="_blank" rel="noopener noreferrer">
+            Join free →
           </a>
-        </p>
-        <p className="text-xs text-zinc-500">
-          (Starting August 1, 2026, membership will be $11 per month.)
         </p>
       </div>
     ),
   },
+
 
   {
     q: "Do I have to count calories or cut out entire food groups?",
