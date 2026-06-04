@@ -24,11 +24,11 @@ const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
   return (
     <div className="mx-auto mt-5 flex w-full max-w-md flex-col items-center text-center">
-      <p className="text-[13px] font-medium text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center whitespace-pre-line">
-        {"Join the LS Diet Community \n— Free to start, free to explore."}
+      <p className="font-medium text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center whitespace-pre-line text-lg">
+        {"Join the LS Diet Community \nFree to start, free to explore."}
       </p>
       <p className="mt-2 text-3xl font-extrabold uppercase tracking-tight text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] md:text-4xl">
-        FREE
+        {"\u200B"}
       </p>
       <a
         href={SKOOL_URL}
