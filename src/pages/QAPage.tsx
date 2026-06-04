@@ -447,7 +447,7 @@ const faqCategories: FAQCategoryData[] = [
       {
         question: "What makes LS Diet different?",
         answer:
-          "LS Diet focuses on helping you keep the weight off once you've lost it. Although losing weight is a part of the journey, the main goal is to sustain that success. A key part of this approach is the Weight Permanence Training (WPT), a tool for improving mental clarity, building motivation when you need it, and strengthening the emotional link between your thoughts and actions. Instead of relying only on willpower, the WPT helps you move from simply wanting to lose weight to feeling emotionally and physically ready not only to reach your goal but also to maintain it and never regain.",
+          "Most weight-loss programs solve the \"now\" problem. They teach people what to do, but ignore why people stop doing it.\n\nLS Diet tackles the root cause: the emotional disconnect between knowing and doing. You'll learn how to make weight regain emotionally unacceptable, so you lose 5-7 lbs per month and have no desire to gain it back.",
         internalLink: { text: "Explore the Weight Permanence Training™ →", url: "/weight-permanence-triangle" },
       },
       {
