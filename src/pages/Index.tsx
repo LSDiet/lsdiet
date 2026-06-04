@@ -68,6 +68,8 @@ const Index = () => {
       </main>
       <FooterSimple />
       <JoinFloatingBar />
+      <QuizSideTab />
+
     </div>
   );
 };
