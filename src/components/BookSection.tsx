@@ -25,7 +25,7 @@ export function BookSection() {
               Now Live on Skool
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
-              The LS Diet Course
+              FREE LS Diet Course
             </h2>
             <ul className="max-w-2xl mx-auto text-foreground text-base md:text-lg leading-relaxed text-left inline-block space-y-1.5">
               <li>✓ Identify the patterns and triggers</li>
@@ -43,7 +43,7 @@ export function BookSection() {
                 Inside Start Here
               </p>
               <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                Intervention to weight regain, and build motivation on demand
+                Stop the weight regain, and <br className="hidden md:block" />build stackable motivation
               </h3>
             </div>
             <a
