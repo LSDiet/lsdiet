@@ -25,7 +25,7 @@ export function FooterSimple() {
               </span>
             </div>
             <p className="text-xs text-[hsl(0_0%_50%)] leading-relaxed max-w-xs">
-              A low-starch, low-sugar lifestyle system for permanent weight loss. Founded by Oscar Poon.
+              For people who have already lost weight at least once, know what to do, and cannot figure out why they keep undoing it.
             </p>
           </div>
 
