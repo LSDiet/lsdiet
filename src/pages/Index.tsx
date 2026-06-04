@@ -14,6 +14,9 @@ import { BookSection } from "@/components/BookSection";
 import { AboutAuthorSection } from "@/components/AboutAuthorSection";
 import { FooterSimple } from "@/components/FooterSimple";
 import { JoinFloatingBar } from "@/components/JoinFloatingBar";
+import { QuizInviteCard } from "@/components/QuizInviteCard";
+import { QuizSideTab } from "@/components/QuizSideTab";
+
 
 const webPageSchema = {
   "@context": "https://schema.org",
@@ -49,8 +52,10 @@ const Index = () => {
       <main>
         <HeroSection />
         <ProblemHookSection />
+        <QuizInviteCard />
 
         <HeroPitchSection />
+
 
         <BookSection />
         <WhatIsLSDietSection />
@@ -63,6 +68,8 @@ const Index = () => {
       </main>
       <FooterSimple />
       <JoinFloatingBar />
+      <QuizSideTab />
+
     </div>
   );
 };

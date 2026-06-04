@@ -243,11 +243,9 @@ export function ProblemHookSection() {
             </nav>
           </div>
 
-          <p className="mt-6 text-center text-base font-extrabold uppercase tracking-tight text-white lg:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            For people who keep regaining weight
-          </p>
           <HeroJoinCTA placement="desktop" />
           <ChevronDown className="mx-auto mt-4 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
+
         </div>
 
       </div>
@@ -271,10 +269,8 @@ export function ProblemHookSection() {
               <PillChip key={pain.label} pain={pain} />
             ))}
           </div>
-          <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            For people who keep regaining weight
-          </p>
           <HeroJoinCTA placement="mobile" />
+
         </div>
 
 
