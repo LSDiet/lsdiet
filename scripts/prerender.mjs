@@ -137,11 +137,20 @@ async function main() {
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
+  let successCount = 0;
+  let failCount = 0;
+  let blogSuccessCount = 0;
+  const failures = [];
+
   try {
     for (const route of ROUTES) {
       try {
         await prerenderRoute(browser, route);
+        successCount++;
+        if (route.startsWith("/blog/")) blogSuccessCount++;
       } catch (err) {
+        failCount++;
+        failures.push({ route, message: err.message });
         console.error(`  ✗ ${route}: ${err.message}`);
         // Don't fail the whole build for one route.
       }
@@ -150,7 +159,21 @@ async function main() {
     await browser.close();
     server.close();
   }
-  console.log("Prerender complete.\n");
+
+  console.log(
+    `\nPrerender complete: ${successCount} succeeded (${blogSuccessCount} /blog/* routes), ${failCount} failed.\n`,
+  );
+
+  if (successCount === 0 && ROUTES.length > 0) {
+    console.error(
+      "✗ Prerender produced ZERO successful routes. Refusing to ship a build that has no static HTML for crawlers.",
+    );
+    if (failures.length > 0) {
+      console.error("First failure for debugging:");
+      console.error(`  ${failures[0].route}: ${failures[0].message}`);
+    }
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {

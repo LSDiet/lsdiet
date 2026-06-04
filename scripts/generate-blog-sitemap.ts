@@ -17,7 +17,25 @@ async function main() {
     if (!xml.includes("<urlset")) throw new Error("Unexpected response shape");
     writeFileSync(OUTPUT_PATH, xml);
     const count = (xml.match(/<url>/g) || []).length;
-    console.log(`blog-sitemap.xml written (${count} entries)`);
+
+    // Surface the merge breakdown from the edge function's response headers
+    // so the build log makes Contentful coverage obvious.
+    const foundations = res.headers.get("x-sitemap-foundations") ?? "?";
+    const articles = res.headers.get("x-sitemap-articles") ?? "?";
+    const contentful = res.headers.get("x-sitemap-contentful") ?? "?";
+    const categories = res.headers.get("x-sitemap-categories") ?? "?";
+
+    console.log(
+      `blog-sitemap.xml written (${count} entries — foundations=${foundations}, contentful=${contentful}, articles=${articles}, categories=${categories})`,
+    );
+
+    if (contentful === "0") {
+      console.warn(
+        "\n⚠️  [generate-blog-sitemap] Contentful returned 0 entries.\n" +
+          "    Live blog posts will NOT be in the sitemap and will NOT be prerendered.\n" +
+          "    Check CONTENTFUL_API_KEY / CONTENTFUL_SPACE_ID secrets and the blog-sitemap edge function logs.\n",
+      );
+    }
   } catch (err) {
     console.warn(
       `[generate-blog-sitemap] Skipped: ${(err as Error).message}. Keeping existing public/blog-sitemap.xml if present.`,

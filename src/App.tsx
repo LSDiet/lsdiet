@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useCartSync } from "@/hooks/useCartSync";
 import { useAnalyticsPageviews } from "@/hooks/useAnalyticsPageviews";
+import { PrerenderReady } from "@/components/PrerenderReady";
 // Home stays eager so SSG prerender captures full HTML synchronously.
 import Index from "./pages/Index";
 
@@ -61,6 +62,7 @@ function AppContent() {
   return (
     <BrowserRouter>
       <RouterEffects />
+      <PrerenderReady />
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<Index />} />
