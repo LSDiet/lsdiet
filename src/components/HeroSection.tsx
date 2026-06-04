@@ -194,7 +194,7 @@ export function HeroSection() {
             For people who keep regaining weight
           </p>
           <h2 className="mt-2 text-2xl md:text-4xl lg:text-5xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground">
-            Lost 80+ lbs <span className="text-accent">three times</span>
+            I LOST 80+ LBS <span className="text-accent">THREE TIMES</span>
           </h2>
         </div>
         {/* DESKTOP (md+): 3-card grid — transformation shown first */}
