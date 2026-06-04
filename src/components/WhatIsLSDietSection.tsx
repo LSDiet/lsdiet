@@ -81,8 +81,8 @@ export function WhatIsLSDietSection() {
                 <Beef className="w-6 h-6 md:w-7 md:h-7 text-accent" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-accent transition-colors">
-                  Low-Starch, Low-Sugar
+                <h3 className="text-lg md:text-2xl font-extrabold uppercase tracking-tight text-foreground group-hover:text-accent transition-colors whitespace-pre-line">
+                  Low-Starch,{"\n"}Low-Sugar
                 </h3>
                 <p className="mt-1 text-sm md:text-base font-semibold text-accent">Food System</p>
                 <ul className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs md:text-sm font-semibold text-[hsl(0_0%_20%)]">

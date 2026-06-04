@@ -29,9 +29,9 @@ export function BookSection() {
             </h2>
             <ul className="max-w-2xl mx-auto text-foreground text-base md:text-lg leading-relaxed text-left inline-block space-y-1.5">
               <li>✓ Identify the patterns and triggers</li>
-              <li>✓ Discover meaningful reasons to change</li>
+              <li>✓ Discover hidden reasons to change</li>
               <li>✓ Build motivation on demand</li>
-              <li>✓ See results in 2 weeks</li>
+              <li>✓ Lose weight in 2 weeks</li>
             </ul>
           </div>
 
@@ -75,7 +75,7 @@ export function BookSection() {
                 Inside Action Practice
               </p>
               <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                30+ Video-based practice lessons you can start today
+                40+ Video-based practice lessons for FREE!
               </h3>
             </div>
             <a
