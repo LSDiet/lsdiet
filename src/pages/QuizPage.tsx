@@ -72,7 +72,8 @@ export default function QuizPage() {
               style={{ border: "none", width: "100%", minHeight: "600px", display: "block" }}
             />
           </div>
-
+        </div>
+      </main>
 
       <FooterSimple />
     </div>
