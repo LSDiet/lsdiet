@@ -27,7 +27,7 @@ export function QuizInviteCard() {
                 1-min quiz · Free Report
               </p>
               <h3 className="mt-1 text-lg md:text-xl font-extrabold leading-snug text-white">
-                Why do you keep regaining weight?
+                Know your Weight Regain Profile?
               </h3>
             </div>
             <span className="hidden sm:inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-accent-foreground transition-transform group-hover:translate-x-0.5">

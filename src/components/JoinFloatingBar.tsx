@@ -35,7 +35,7 @@ export function JoinFloatingBar() {
             Stop regaining weight
           </p>
           <p className="truncate text-[11px] text-white/60 sm:text-xs">
-            Build a future where your choices are not limited by your weight
+            Build a future that is not limited by your weight
           </p>
         </div>
         <a
