@@ -43,7 +43,7 @@ export function BookSection() {
                 Inside Start Here
               </p>
               <h3 className="text-xl md:text-2xl font-bold text-foreground">
-                Stop the weight regain, and <br className="hidden md:block" />build stackable motivation
+                Stop the weight regain, and <br />build stackable motivation
               </h3>
             </div>
             <a
