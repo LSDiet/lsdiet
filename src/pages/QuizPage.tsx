@@ -73,22 +73,6 @@ export default function QuizPage() {
             />
           </div>
 
-          <section className="mt-12 grid sm:grid-cols-3 gap-4 text-center">
-            {[
-              { t: "Answer", d: "A few quick questions about your eating and regain history." },
-              { t: "Get your result", d: "See which regain pattern fits you best." },
-              { t: "Next step", d: "Receive a tailored recommendation to break the cycle." },
-            ].map((step) => (
-              <div key={step.t} className="rounded-lg border border-border p-5 bg-card/50">
-                <h2 className="text-sm font-semibold uppercase tracking-wider text-primary mb-1">
-                  {step.t}
-                </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.d}</p>
-              </div>
-            ))}
-          </section>
-        </div>
-      </main>
 
       <FooterSimple />
     </div>
