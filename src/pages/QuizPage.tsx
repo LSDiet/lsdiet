@@ -56,12 +56,8 @@ export default function QuizPage() {
               Free 60-Second Quiz
             </p>
             <h1 className="text-3xl md:text-5xl font-serif font-normal text-primary leading-tight mb-4">
-              Find Out Why You Keep Regaining Weight
+              Find Out Why You<br />Keep Regaining Weight
             </h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Answer a few quick questions and get a personalized read on your regain
-              pattern — plus the next step to break the cycle.
-            </p>
             <p className="mt-4 text-xs md:text-sm uppercase tracking-[0.14em] text-muted-foreground/80">
               Free • 100% Private • Instant Result
             </p>
@@ -79,14 +75,11 @@ export default function QuizPage() {
 
           <section className="mt-12 grid sm:grid-cols-3 gap-4 text-center">
             {[
-              { n: "1", t: "Answer", d: "A few quick questions about your eating and regain history." },
-              { n: "2", t: "Get your result", d: "See which regain pattern fits you best." },
-              { n: "3", t: "Next step", d: "Receive a tailored recommendation to break the cycle." },
+              { t: "Answer", d: "A few quick questions about your eating and regain history." },
+              { t: "Get your result", d: "See which regain pattern fits you best." },
+              { t: "Next step", d: "Receive a tailored recommendation to break the cycle." },
             ].map((step) => (
-              <div key={step.n} className="rounded-lg border border-border p-5 bg-card/50">
-                <div className="w-8 h-8 rounded-full bg-accent text-accent-foreground font-bold flex items-center justify-center mx-auto mb-3">
-                  {step.n}
-                </div>
+              <div key={step.t} className="rounded-lg border border-border p-5 bg-card/50">
                 <h2 className="text-sm font-semibold uppercase tracking-wider text-primary mb-1">
                   {step.t}
                 </h2>
