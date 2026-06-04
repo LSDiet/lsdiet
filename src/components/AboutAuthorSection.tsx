@@ -1,6 +1,7 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
-import oscarPhoto from "@/assets/oscar-photo.jpeg?w=200;400;600&format=avif;webp&as=picture";
+import before2024 from "@/assets/hero/2024a.png?w=300;600&format=avif;webp&as=picture";
+import after2024 from "@/assets/hero/2024b.png?w=300;600&format=avif;webp&as=picture";
 
 export const AboutAuthorSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.1);
@@ -19,17 +20,37 @@ export const AboutAuthorSection = () => {
           </div>
 
           <div className="flex flex-col md:flex-row gap-8 items-center">
-            {/* Photo */}
-            <div className="md:w-48 flex-shrink-0">
-              <ResponsivePicture
-                src={oscarPhoto}
-                alt="Oscar Poon, founder of LS Diet"
-                sizes="(min-width: 768px) 192px, 60vw"
-                className="w-full aspect-square object-cover rounded-xl"
-              />
+            {/* Before / After transformation (2024) */}
+            <div className="md:w-56 flex-shrink-0 w-full max-w-xs">
+              <div className="grid grid-cols-2 gap-2 rounded-xl overflow-hidden border border-border">
+                <div className="relative aspect-[3/4] bg-white/[0.03]">
+                  <ResponsivePicture
+                    src={before2024}
+                    alt="Oscar Poon at 310 lbs in 2024 before losing weight on LS Diet"
+                    sizes="(min-width: 768px) 112px, 40vw"
+                    className="absolute inset-0 h-full w-full object-cover object-top"
+                  />
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-2 py-0.5 text-[10px] font-extrabold tracking-wider text-accent">
+                    310 LBS
+                  </span>
+                </div>
+                <div className="relative aspect-[3/4] bg-white/[0.03]">
+                  <ResponsivePicture
+                    src={after2024}
+                    alt="Oscar Poon at 190 lbs in 2024 after losing weight on LS Diet"
+                    sizes="(min-width: 768px) 112px, 40vw"
+                    className="absolute inset-0 h-full w-full object-cover object-top"
+                  />
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/75 px-2 py-0.5 text-[10px] font-extrabold tracking-wider text-white">
+                    190 LBS
+                  </span>
+                </div>
+              </div>
+              <p className="mt-2 text-center text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">
+                2024 · Before → After
+              </p>
             </div>
 
-            {/* Text content */}
             {/* Text content */}
             <div className="flex-1 space-y-4 text-center md:text-left">
               <p className="text-muted-foreground leading-relaxed">

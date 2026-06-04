@@ -47,17 +47,16 @@ const Index = () => {
       </Helmet>
       <Navbar />
       <main>
-        <ProblemHookSection />
         <HeroSection />
+        <ProblemHookSection />
 
         <HeroPitchSection />
-
-        <QuizTeaserSection />
 
         <BookSection />
         <WhatIsLSDietSection />
         <AwarenessStagesSection />
         <FAQSection />
+        <QuizTeaserSection />
         <AboutAuthorSection />
 
 
