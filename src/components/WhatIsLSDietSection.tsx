@@ -34,34 +34,6 @@ export function WhatIsLSDietSection() {
           </h2>
         </div>
 
-        {/* Step 1 — The problem, backed by stats */}
-        <div className="flex items-center justify-center gap-2 mb-5 text-accent">
-          <TrendingUp className="w-5 h-5" aria-hidden="true" />
-          <p className="text-sm md:text-base font-bold uppercase tracking-[0.15em]">
-            Obesity is on the rise
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-          {stats.map((s) => (
-            <div
-              key={s.stat}
-              className="rounded-3xl bg-card border border-border p-6 md:p-7 shadow-[0_2px_24px_-12px_hsl(0_0%_0%/0.08)] text-center"
-            >
-              <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-2">
-                {s.stat}
-              </div>
-              <p className="text-sm text-[hsl(0_0%_30%)] leading-snug mb-3">{s.text}</p>
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-[11px] uppercase tracking-[0.14em] text-[hsl(0_0%_50%)] hover:text-accent underline underline-offset-4 decoration-[hsl(0_0%_80%)] hover:decoration-accent transition-colors"
-              >
-                {s.source} ↗
-              </a>
-            </div>
-          ))}
-        </div>
 
         {/* Bridge to the solution */}
         <div className="flex items-center justify-center mt-12 md:mt-14 mb-5 text-accent">
