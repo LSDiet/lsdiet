@@ -12,7 +12,7 @@ const benefits = [
   "Build motivation on demand",
   "Identify triggers",
   "Practice daily actions",
-  "See results in 2 weeks",
+  "Lose weight in 2 weeks",
 ];
 
 
