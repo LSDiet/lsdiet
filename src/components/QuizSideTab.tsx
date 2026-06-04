@@ -87,7 +87,7 @@ export function QuizSideTab() {
         href="/quiz"
         onClick={onClick}
         className="md:hidden fixed right-2 top-[64px] z-40 inline-flex items-center gap-1.5 rounded-full border border-accent/50 bg-[hsl(0_0%_6%/0.92)] py-1.5 pl-2 pr-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-[0_6px_20px_-10px_hsl(var(--accent)/0.7)] animate-fade-in backdrop-blur-md"
-        aria-label="Take the 1-minute quiz: why do you keep regaining weight?"
+        aria-label="Take the 1-minute quiz: Know your Weight Regain Profile?"
       >
         <Compass className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
         <span>1-min quiz</span>
@@ -111,7 +111,7 @@ export function QuizSideTab() {
                 1-min quiz · Free Report
               </p>
               <p className="text-sm font-extrabold text-white">
-                Why do you keep regaining weight?
+                Know your Weight Regain Profile?
               </p>
             </div>
             <a
@@ -140,7 +140,7 @@ export function QuizSideTab() {
           >
             <Compass className="h-4 w-4 text-accent" aria-hidden="true" />
             <span className="[writing-mode:vertical-rl] rotate-180">
-              Why do you keep regaining weight?
+              Know your Weight Regain Profile?
             </span>
           </button>
         )}
