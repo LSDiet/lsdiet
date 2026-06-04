@@ -269,10 +269,8 @@ export function ProblemHookSection() {
               <PillChip key={pain.label} pain={pain} />
             ))}
           </div>
-          <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-            For people who keep regaining weight
-          </p>
           <HeroJoinCTA placement="mobile" />
+
         </div>
 
 

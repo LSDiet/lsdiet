@@ -188,7 +188,16 @@ export function HeroSection() {
   return (
     <section className="relative w-full bg-background pt-4 md:pt-14 text-foreground">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-4 md:gap-8 md:px-8 md:py-10">
+        <div className="text-center">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
+            For people who keep regaining weight
+          </p>
+          <h2 className="mt-2 text-2xl md:text-4xl lg:text-5xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground">
+            Lost 80+ lbs <span className="text-accent">three times</span>
+          </h2>
+        </div>
         {/* DESKTOP (md+): 3-card grid — transformation shown first */}
+
         <div className="hidden md:grid gap-6 md:grid-cols-3">
           {pairs.map((pair, idx) => (
             <TransformationCard
