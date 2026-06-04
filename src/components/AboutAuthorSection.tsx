@@ -61,7 +61,7 @@ export const AboutAuthorSection = () => {
               </p>
 
               <blockquote className="italic text-accent font-medium leading-relaxed border-l-2 border-accent/40 pl-4 text-center text-xl">
-                Build a future that is not limited by your weight.
+                Build a future that is {"\n"}not limited by your weight.
               </blockquote>
             </div>
 

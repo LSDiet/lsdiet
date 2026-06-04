@@ -28,7 +28,7 @@ export function BookSection() {
               A Peek Inside
             </h2>
             <p className="mt-3 text-sm md:text-base text-muted-foreground">
-              Two parts. Zero fluff.
+              Psychology Training + Action Practice
             </p>
           </div>
 
@@ -125,7 +125,7 @@ export function BookSection() {
               </a>
             </Button>
             <p className="mt-3 text-[11px] font-medium text-muted-foreground">
-              Free forever · Cancel anytime
+              100% FREE · Cancel anytime
             </p>
           </div>
         </div>
