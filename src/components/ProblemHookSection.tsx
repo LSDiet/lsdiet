@@ -17,7 +17,41 @@
  *   - Neon glow = lightweight layered box-shadow only (dialed back ~20%)
  *   - Animation limited to the chevron bounce
  */
-import { ChevronDown, ChevronRight, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
+import { ChevronDown, ChevronRight, ArrowRight, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
+
+const SKOOL_URL = "https://www.skool.com/lsdiet/about";
+
+function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
+  return (
+    <div className="mx-auto mt-5 flex w-full max-w-md flex-col items-center text-center">
+      <p className="text-[13px] font-medium text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+        Join the LS Diet Community — Free to start, free to explore.
+      </p>
+      <p className="mt-2 text-3xl font-extrabold uppercase tracking-tight text-accent drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] md:text-4xl">
+        FREE
+      </p>
+      <a
+        href={SKOOL_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() =>
+          trackEvent("cta_click", {
+            location: "problem_hook",
+            placement: `hero_join_${placement}`,
+            destination: SKOOL_URL,
+          })
+        }
+        className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5 md:text-lg"
+      >
+        Join Free — No Credit Card
+        <ArrowRight className="h-5 w-5" aria-hidden />
+      </a>
+      <p className="mt-2 text-[11px] font-medium text-white/60">
+        100% Free. No credit card. Cancel anytime.
+      </p>
+    </div>
+  );
+}
 import { BackgroundVideo, type VideoClip } from "@/components/ui/BackgroundVideo";
 import { trackEvent } from "@/lib/analytics";
 import posterUrl from "@/assets/problem-hook-bg.jpg";
@@ -212,7 +246,8 @@ export function ProblemHookSection() {
           <p className="mt-6 text-center text-base font-extrabold uppercase tracking-tight text-white lg:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
             For people who keep regaining weight
           </p>
-          <ChevronDown className="mx-auto mt-3 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
+          <HeroJoinCTA placement="desktop" />
+          <ChevronDown className="mx-auto mt-4 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
         </div>
 
       </div>
@@ -239,6 +274,7 @@ export function ProblemHookSection() {
           <p className="mt-5 text-center text-base font-extrabold uppercase tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
             For people who keep regaining weight
           </p>
+          <HeroJoinCTA placement="mobile" />
         </div>
 
 

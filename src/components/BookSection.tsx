@@ -79,15 +79,15 @@ export function BookSection() {
                   destination: SKOOL_URL,
                 })
               }
-              className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors group"
-            >
-              <img
-                src={skoolStartHere}
-                alt="Start Here module on Skool with lessons on the problem and the foundation"
-                className="w-full h-auto block group-hover:scale-[1.005] transition-transform duration-500"
-                loading="lazy"
-              />
-            </a>
+            className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors group mx-auto w-[60%] md:w-full"
+          >
+            <img
+              src={skoolStartHere}
+              alt="Start Here module on Skool with lessons on the problem and the foundation"
+              className="w-full h-auto block group-hover:scale-[1.005] transition-transform duration-500"
+              loading="lazy"
+            />
+          </a>
           </div>
 
           {/* Inside Action Practice */}
@@ -111,15 +111,15 @@ export function BookSection() {
                   destination: SKOOL_URL,
                 })
               }
-              className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors group"
-            >
-              <img
-                src={skoolActionPractice}
-                alt="Action Practice classroom on Skool with daily habit lessons"
-                className="w-full h-auto block group-hover:scale-[1.005] transition-transform duration-500"
-                loading="lazy"
-              />
-            </a>
+            className="block relative rounded-2xl overflow-hidden border border-border shadow-2xl hover:border-accent/50 transition-colors group mx-auto w-[60%] md:w-full"
+          >
+            <img
+              src={skoolActionPractice}
+              alt="Action Practice classroom on Skool with daily habit lessons"
+              className="w-full h-auto block group-hover:scale-[1.005] transition-transform duration-500"
+              loading="lazy"
+            />
+          </a>
           </div>
 
 
