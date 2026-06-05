@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -498,16 +499,8 @@ export default function QAPage() {
   const [searchParams] = useSearchParams();
   const openParam = searchParams.get("open");
 
-  useEffect(() => {
-    document.title = "Weight Regain Q&A — Stop Regaining the Same Weight | LS Diet";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Answers to the real question behind dieting: why people keep regaining weight, and how the Weight Permanence Training™ and a low-starch, low-sugar lifestyle help you stop restarting."
-      );
-    }
-  }, []);
+  // Title/meta managed via Helmet below (replaces previous imperative
+  // document.title which prerender couldn't capture reliably).
 
   // Scroll to and expand awareness stages question if open param is set
   useEffect(() => {
