@@ -144,7 +144,7 @@ export default function BlogPage() {
       <Navbar />
       <PageBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog" }]} />
 
-      <section className="container max-w-6xl mx-auto px-4 pb-20">
+      <main data-route-root className="container max-w-6xl mx-auto px-4 pb-20">
         <header className="mb-10 max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
             LS Diet <span className="text-accent">Blog</span>
@@ -259,7 +259,7 @@ export default function BlogPage() {
           </div>
         )}
 
-      </section>
+      </main>
 
       <FooterSimple />
       <JoinFloatingBar />
