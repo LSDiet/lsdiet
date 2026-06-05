@@ -130,6 +130,7 @@ async function main() {
   }
 
   const ROUTES = await loadRoutes();
+  console.log(`[prerender] node ${process.version}, puppeteer launching…`);
   console.log(`\nPrerendering ${ROUTES.length} routes…`);
   const server = await startServer();
   const browser = await puppeteer.launch({
