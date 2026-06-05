@@ -9,19 +9,16 @@
  *      default (proof that the route's <Helmet> has committed).
  *
  * The gate is intentionally strict and applied in both prerender and
- * runtime so we never ship a Suspense-fallback snapshot. If the route
- * never mounts, we simply never set the flag — Puppeteer's outer
- * waitForFunction timeout decides the route is broken, the prerender
- * script's safety nets fire, and that route is skipped (no overwrite).
+ * runtime so we never ship a Suspense-fallback snapshot.
  *
- * Resets the flag on every route change so per-route prerendering works.
+ * Diagnostic logging: when window.__PRERENDER__ is true, logs each gate
+ * state change with [PrerenderReady] so prerender.mjs can capture exactly
+ * which condition is blocking on timeout.
  */
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useIsFetching } from "@tanstack/react-query";
 
-// Must match the <title> in index.html. Used as a sentinel: if a non-root
-// route still shows this title, Helmet has not committed yet.
 const STATIC_INDEX_TITLE =
   "LS Diet — Stop Regaining Weight | Weight Permanence Training™";
 
@@ -31,34 +28,35 @@ declare global {
   }
 }
 
-function isRouteMounted(pathname: string): boolean {
-  if (typeof document === "undefined") return false;
-  const root = document.getElementById("root");
-  if (!root || root.childElementCount === 0) return false;
-  const hasRouteContent = !!root.querySelector(
-    "main, article, [data-route-root]",
-  );
-  if (!hasRouteContent) return false;
-  if (pathname !== "/" && document.title === STATIC_INDEX_TITLE) return false;
-  return true;
+function gateState(pathname: string, isFetching: number) {
+  const doc = typeof document !== "undefined" ? document : null;
+  const root = doc?.getElementById("root");
+  const mountedDom = !!(root && root.childElementCount > 0);
+  const hasRouteEl = !!root?.querySelector("main, article, [data-route-root]");
+  const titleOk =
+    pathname === "/" ? true : (doc?.title ?? "") !== STATIC_INDEX_TITLE;
+  const fetchingOk = isFetching === 0;
+  const ready = mountedDom && hasRouteEl && titleOk && fetchingOk;
+  return { mountedDom, hasRouteEl, titleOk, fetchingOk, isFetching, ready };
 }
 
 export function PrerenderReady() {
   const { pathname } = useLocation();
   const isFetching = useIsFetching();
+  const lastLogged = useRef<string>("");
 
-  // Clear the flag at the start of each new navigation.
   useEffect(() => {
     if (typeof document === "undefined") return;
     delete document.documentElement.dataset.rendered;
+    lastLogged.current = "";
   }, [pathname]);
 
-  // Wait until nothing is fetching AND the route is truly mounted.
-  // Never fall back to "true" on a timer — strictness is the whole point.
   useEffect(() => {
     if (typeof document === "undefined") return;
-    if (isFetching > 0) return;
     if (document.documentElement.dataset.rendered === "true") return;
+
+    const isPrerender =
+      typeof window !== "undefined" && window.__PRERENDER__ === true;
 
     let cancelled = false;
     let rafId = 0;
@@ -67,7 +65,20 @@ export function PrerenderReady() {
     const tick = () => {
       if (cancelled) return;
 
-      if (isRouteMounted(pathname)) {
+      const s = gateState(pathname, isFetching);
+
+      if (isPrerender) {
+        const sig = `${s.mountedDom}|${s.hasRouteEl}|${s.titleOk}|${s.fetchingOk}|${s.isFetching}`;
+        if (sig !== lastLogged.current) {
+          lastLogged.current = sig;
+          // eslint-disable-next-line no-console
+          console.log(
+            `[PrerenderReady] path=${pathname} mountedDom=${s.mountedDom} hasRouteEl=${s.hasRouteEl} titleOk=${s.titleOk} fetching=${s.isFetching} → ${s.ready ? "ready-candidate" : "blocked"}`,
+          );
+        }
+      }
+
+      if (s.ready) {
         consecutiveOk += 1;
       } else {
         consecutiveOk = 0;
@@ -78,6 +89,10 @@ export function PrerenderReady() {
         return;
       }
 
+      if (isPrerender) {
+        // eslint-disable-next-line no-console
+        console.log(`[PrerenderReady] path=${pathname} → ready`);
+      }
       document.documentElement.dataset.rendered = "true";
     };
 

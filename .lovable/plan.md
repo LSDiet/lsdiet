@@ -1,52 +1,47 @@
 ## Goal
 
-Every non-root URL (e.g. `/oscar-poon`, `/about-oscar-poon`, `/blog/*`) must ship a static HTML file containing its real route content — its own `<title>`, description, canonical, JSON-LD, and `<main>` markup — instead of falling back to the homepage HTML.
+Identify exactly which gate condition in `PrerenderReady` is blocking `rendered=true` on the 19 failed routes, instead of guessing.
 
-## What's broken today
+## Changes
 
-Latest deploy (`4381100`) log: `/` prerendered fine, but **all 96 lazy-loaded routes** failed safety net 2 with `bodyLen=0, hasRouteEl=false`. When a route fails, prerender doesn't overwrite `dist/<route>/index.html` — so the stale broken file from the earlier `f0347ab` deploy keeps being served. That stale file was stamped `data-prerendered="true"` but contains the homepage's `<title>`, description, canonical, and FAQ JSON-LD. That's exactly what `curl https://lsdiet.com/oscar-poon/` returns.
+### 1. `src/components/PrerenderReady.tsx` — instrument the gate
 
-Why empty body: `PrerenderReady` has a 10s "give up" path that sets `dataset.rendered = "true"` even when the route never mounted. Puppeteer then snapshots the `<Suspense fallback>` (a single empty `<div>`), which trips safety net 2.
+Replace the single boolean check with per-condition tracking. On every render (or via an effect that runs on each dependency change), log a structured line:
 
-## Fix
-
-Two coordinated changes:
-
-### 1. `src/components/PrerenderReady.tsx`
-
-- Remove the 10s timeout that force-sets `rendered = "true"`. The signal must mean "the real route is mounted", never "we gave up".
-- Apply the strict gate (`<main>`/`<article>` present **and** `document.title !== STATIC_INDEX_TITLE` for non-root) **regardless** of `window.__PRERENDER__`. The flag-based branch is the original source of weak snapshots.
-- Keep the React-Query `isFetching === 0` precondition.
-- Let Puppeteer's outer `waitForFunction` timeout (20s) be the only deadline. If a route genuinely can't mount in 20s, we want safety nets to throw and the route to be skipped — not a bad snapshot shipped.
-
-### 2. `scripts/prerender.mjs`
-
-- Change `page.goto(url, { waitUntil: "networkidle0" })` to `{ waitUntil: "domcontentloaded" }`. GTM in `index.html` keeps long-lived connections open, so `networkidle0` is unreliable and was masking the real mount signal.
-- Bump `READY_TIMEOUT_MS` from 20s → 30s so lazy chunks have headroom on a cold Cloudflare build worker.
-- Add a short pre-`waitForFunction` settle: `await page.waitForSelector('#root > *', { timeout: 15_000 })` so we don't race the very first React render.
-- Keep all three existing safety nets — they're now the authoritative gate.
-
-### 3. Force a re-prerender of every route
-
-Because failed routes leave the stale broken HTML in place, the next build needs to regenerate them. Two options:
-
-- **Preferred (no code change):** the next successful deploy after the fix will overwrite `dist/<route>/index.html` for every route that now passes — which should be all of them.
-- **Defensive:** before the per-route loop in `main()`, delete every `dist/<route>/index.html` (except `dist/index.html`) so a failed route can't silently serve a stale snapshot. This makes "fail safety net → SPA fallback to baseline `dist/index.html`" the worst case, which is still wrong but is now visibly the homepage rather than a broken stamped snapshot — easier to detect.
-
-I'll include the defensive cleanup.
-
-## Verification after deploy
-
-```bash
-curl -s https://lsdiet.com/oscar-poon/ | grep -E '<title>|canonical|data-prerendered'
-curl -s https://lsdiet.com/about-oscar-poon/ | grep -E '<title>|canonical'
-curl -s https://lsdiet.com/blog/ | grep -E '<title>|canonical'
+```
+[PrerenderReady] path=/oscar-poon titleOk=true mainOk=false fetching=2 mounted=true → blocked
 ```
 
-Each should show its own route-specific title and canonical, with `data-prerendered="true"`.
+Log only when not yet `rendered`, and only when at least one condition flips, to avoid log spam. Emit a final `→ ready` line right before setting `window.__PRERENDER_READY__ = true`.
+
+### 2. `scripts/prerender.mjs` — capture diagnostics + reduce contention
+
+- Attach listeners per page:
+  - `page.on('console', msg => { if (msg.text().startsWith('[PrerenderReady]')) routeLogs.push(msg.text()); })`
+  - `page.on('pageerror', err => routeLogs.push('[pageerror] ' + err.message))`
+  - `page.on('requestfailed', req => routeLogs.push('[requestfailed] ' + req.url() + ' ' + req.failure()?.errorText))`
+- On timeout, print the last 5–10 `[PrerenderReady]` lines and any `pageerror` / `requestfailed` entries for that route so we see exactly which gate stayed false.
+- Add a 250 ms stagger between worker starts (sequential `await sleep(250)` in the worker bootstrap loop) to reduce the cold-start race that took out the first wave.
+- Keep concurrency at 6 and the 20 s timeout unchanged — we want to reproduce the failures, not paper over them.
+
+### 3. No production behavior change
+
+All logging is `console.debug` / `console.log`-only and runs in any environment. We can leave it in for one diagnostic build, then strip it in a follow-up commit once we have the answer.
+
+## Deliverable from the next build log
+
+For each failed route we will see, e.g.:
+
+```
+✗ /oscar-poon: timeout after 20000ms
+  last gate state: titleOk=true mainOk=true fetching=3 mounted=true
+  [requestfailed] https://…supabase.co/rest/v1/posts net::ERR_CONNECTION_REFUSED
+```
+
+That tells us unambiguously whether the blocker is `isFetching`, the title check, the mount check, or a hidden JS error — no more inference.
 
 ## Out of scope
 
-- Build-time perf (the earlier "why are deploys slow" question).
-- Removing GTM from `index.html` (separate decision, not needed for this fix).
-- Restructuring lazy imports — they're fine; the issue is the prerender wait logic, not the chunk loader.
+- No changes to the actual gate semantics yet.
+- No changes to route data fetching, Suspense boundaries, or QueryClient config.
+- Once the log identifies the real blocker, we'll open a separate, targeted fix.
