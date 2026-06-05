@@ -56,7 +56,7 @@ async function loadRoutes() {
   return [...routes];
 }
 
-const READY_TIMEOUT_MS = 20_000;
+const READY_TIMEOUT_MS = 30_000;
 
 function startServer() {
   const handler = sirv(DIST, {
@@ -83,7 +83,13 @@ async function prerenderRoute(browser, route, baselineTitle) {
     });
 
     const url = `http://127.0.0.1:${PORT}${route}`;
-    await page.goto(url, { waitUntil: "networkidle0", timeout: READY_TIMEOUT_MS });
+    // domcontentloaded (not networkidle0) — GTM in index.html keeps
+    // long-lived connections open and networkidle0 was masking the real
+    // mount signal. We rely on the rendered-flag gate below instead.
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: READY_TIMEOUT_MS });
+    // Make sure React has at least started rendering before we begin
+    // polling the rendered-flag — avoids racing the very first paint.
+    await page.waitForSelector("#root > *", { timeout: 15_000 });
     await page.waitForFunction(
       () => document.documentElement.dataset.rendered === "true",
       { timeout: READY_TIMEOUT_MS },

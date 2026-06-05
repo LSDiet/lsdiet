@@ -1,57 +1,52 @@
-## Problem
+## Goal
 
-Every prerendered `dist/<route>/index.html` is identical to the homepage shell: empty `<body>`, static `<title>` from `index.html`, no per-route Helmet tags. Cloudflare is serving these files correctly — they are simply broken at write time.
+Every non-root URL (e.g. `/oscar-poon`, `/about-oscar-poon`, `/blog/*`) must ship a static HTML file containing its real route content — its own `<title>`, description, canonical, JSON-LD, and `<main>` markup — instead of falling back to the homepage HTML.
 
-Cause: `PrerenderReady` signals "ready" based only on React Query's in-flight count. It doesn't wait for `React.Suspense` to resolve the lazy-loaded route chunk. Puppeteer snapshots during the Suspense fallback, before the route component mounts and before Helmet writes per-route `<title>` / canonical / JSON-LD.
+## What's broken today
 
-The prerender script's safety net (`hasBundle` + non-empty `<head>`) passes because the static `index.html` already has a populated `<head>` and bundle script — so it never catches the empty-body case.
+Latest deploy (`4381100`) log: `/` prerendered fine, but **all 96 lazy-loaded routes** failed safety net 2 with `bodyLen=0, hasRouteEl=false`. When a route fails, prerender doesn't overwrite `dist/<route>/index.html` — so the stale broken file from the earlier `f0347ab` deploy keeps being served. That stale file was stamped `data-prerendered="true"` but contains the homepage's `<title>`, description, canonical, and FAQ JSON-LD. That's exactly what `curl https://lsdiet.com/oscar-poon/` returns.
+
+Why empty body: `PrerenderReady` has a 10s "give up" path that sets `dataset.rendered = "true"` even when the route never mounted. Puppeteer then snapshots the `<Suspense fallback>` (a single empty `<div>`), which trips safety net 2.
 
 ## Fix
 
-Two coordinated changes, both small:
+Two coordinated changes:
 
-### 1. `src/components/PrerenderReady.tsx` — wait for the route to actually mount
+### 1. `src/components/PrerenderReady.tsx`
 
-Currently fires `data-rendered=true` once `useIsFetching() === 0` plus a double-rAF. Add an additional gate: the `#root` element must contain real content (not just a Suspense fallback), AND `document.title` must have changed from the static `index.html` default (proof that the per-route `<Helmet>` has committed).
+- Remove the 10s timeout that force-sets `rendered = "true"`. The signal must mean "the real route is mounted", never "we gave up".
+- Apply the strict gate (`<main>`/`<article>` present **and** `document.title !== STATIC_INDEX_TITLE` for non-root) **regardless** of `window.__PRERENDER__`. The flag-based branch is the original source of weak snapshots.
+- Keep the React-Query `isFetching === 0` precondition.
+- Let Puppeteer's outer `waitForFunction` timeout (20s) be the only deadline. If a route genuinely can't mount in 20s, we want safety nets to throw and the route to be skipped — not a bad snapshot shipped.
 
-Implementation:
-- Poll `requestAnimationFrame` in a loop (up to ~10 s) checking:
-  - `document.querySelector('#root')?.childElementCount > 0`, AND
-  - `document.querySelector('#root main, #root article, #root [data-route-root]')` exists (proves route — not just nav/footer skeleton — mounted), AND
-  - For non-`/` routes, `document.title !== "LS Diet — Stop Regaining Weight | Weight Permanence Training™"` (proves Helmet committed).
-- Only after all three pass for two consecutive frames, set `data-rendered=true`.
+### 2. `scripts/prerender.mjs`
 
-This stays opt-in to prerender: the polling only kicks in when `window.__PRERENDER__` is true; runtime behaviour is unchanged.
+- Change `page.goto(url, { waitUntil: "networkidle0" })` to `{ waitUntil: "domcontentloaded" }`. GTM in `index.html` keeps long-lived connections open, so `networkidle0` is unreliable and was masking the real mount signal.
+- Bump `READY_TIMEOUT_MS` from 20s → 30s so lazy chunks have headroom on a cold Cloudflare build worker.
+- Add a short pre-`waitForFunction` settle: `await page.waitForSelector('#root > *', { timeout: 15_000 })` so we don't race the very first React render.
+- Keep all three existing safety nets — they're now the authoritative gate.
 
-### 2. `scripts/prerender.mjs` — stricter safety net
+### 3. Force a re-prerender of every route
 
-Add post-snapshot validation that would have caught this:
-- Parse the serialized HTML.
-- Require `<body>` to contain a non-trivial subtree (e.g. `body.innerHTML.length > 500` and contains either `<main` or `<article`).
-- For non-`/` routes, require the snapshot's `<title>` to differ from the static `index.html`'s `<title>`.
-- On failure, throw — the per-route try/catch already records the failure and the build-level "zero successful routes" guard will fail the build if everything is broken.
+Because failed routes leave the stale broken HTML in place, the next build needs to regenerate them. Two options:
 
-Read `dist/index.html` once at startup to capture the baseline title for comparison.
+- **Preferred (no code change):** the next successful deploy after the fix will overwrite `dist/<route>/index.html` for every route that now passes — which should be all of them.
+- **Defensive:** before the per-route loop in `main()`, delete every `dist/<route>/index.html` (except `dist/index.html`) so a failed route can't silently serve a stale snapshot. This makes "fail safety net → SPA fallback to baseline `dist/index.html`" the worst case, which is still wrong but is now visibly the homepage rather than a broken stamped snapshot — easier to detect.
 
-### 3. (Optional, defer) Eager-load prerendered routes
+I'll include the defensive cleanup.
 
-A more aggressive fix would be to convert the prerendered routes in `App.tsx` from `lazy()` to static imports, eliminating the Suspense race entirely. Not doing this in scope — it would balloon the initial JS bundle, and fix #1 makes it unnecessary.
+## Verification after deploy
 
-## Verification
-
-After redeploy:
-
-```
-curl -s https://lsdiet.pages.dev/oscar-poon/ | grep -iE '<title>|canonical'
+```bash
+curl -s https://lsdiet.com/oscar-poon/ | grep -E '<title>|canonical|data-prerendered'
+curl -s https://lsdiet.com/about-oscar-poon/ | grep -E '<title>|canonical'
+curl -s https://lsdiet.com/blog/ | grep -E '<title>|canonical'
 ```
 
-Expect: `<title>Oscar Poon | Founder of LS Diet</title>` and `<link rel="canonical" href="https://lsdiet.com/oscar-poon">`.
+Each should show its own route-specific title and canonical, with `data-prerendered="true"`.
 
-Spot-check 2–3 other routes (`/awareness-stages/`, `/what-is-ls-diet/`, `/weight-permanence-triangle/`) for the same — each should return its own title.
+## Out of scope
 
-Also confirm the build log: if any routes still fail, the new safety net will list them by name in the `[prerender]` output instead of silently shipping broken shells.
-
-## Files touched
-
-- `src/components/PrerenderReady.tsx` — add prerender-only wait gate
-- `scripts/prerender.mjs` — add post-snapshot validation, capture baseline title
+- Build-time perf (the earlier "why are deploys slow" question).
+- Removing GTM from `index.html` (separate decision, not needed for this fix).
+- Restructuring lazy imports — they're fine; the issue is the prerender wait logic, not the chunk loader.
