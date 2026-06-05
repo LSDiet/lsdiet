@@ -196,18 +196,24 @@ async function main() {
   const failures = [];
 
   try {
-    for (const route of ROUTES) {
-      try {
-        await prerenderRoute(browser, route, baselineTitle);
-        successCount++;
-        if (route.startsWith("/blog/")) blogSuccessCount++;
-      } catch (err) {
-        failCount++;
-        failures.push({ route, message: err.message });
-        console.error(`  ✗ ${route}: ${err.message}`);
-        // Don't fail the whole build for one route.
+    console.log(`[prerender] concurrency=${CONCURRENCY}`);
+    const queue = [...ROUTES];
+    const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
+      while (queue.length) {
+        const route = queue.shift();
+        if (!route) break;
+        try {
+          await prerenderRoute(browser, route, baselineTitle);
+          successCount++;
+          if (route.startsWith("/blog/")) blogSuccessCount++;
+        } catch (err) {
+          failCount++;
+          failures.push({ route, message: err.message });
+          console.error(`  ✗ ${route}: ${err.message}`);
+        }
       }
-    }
+    });
+    await Promise.all(workers);
   } finally {
     await browser.close();
     server.close();
