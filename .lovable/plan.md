@@ -1,56 +1,57 @@
+## Problem
 
-# Add the GHL Lead-Qualifying Quiz
+Every prerendered `dist/<route>/index.html` is identical to the homepage shell: empty `<body>`, static `<title>` from `index.html`, no per-route Helmet tags. Cloudflare is serving these files correctly — they are simply broken at write time.
 
-Goal: use the quiz as a top-of-funnel lead capture in three coordinated places, with one canonical destination.
+Cause: `PrerenderReady` signals "ready" based only on React Query's in-flight count. It doesn't wait for `React.Suspense` to resolve the lazy-loaded route chunk. Puppeteer snapshots during the Suspense fallback, before the route component mounts and before Helmet writes per-route `<title>` / canonical / JSON-LD.
 
-## 1. Canonical page: `/quiz`
+The prerender script's safety net (`hasBundle` + non-empty `<head>`) passes because the static `index.html` already has a populated `<head>` and bundle script — so it never catches the empty-body case.
 
-New route `src/pages/QuizPage.tsx` (lazy-loaded in `src/App.tsx`).
+## Fix
 
-Contents:
-- `<Navbar />` + `<FooterSimple />` to match site chrome.
-- `<Helmet>` with title "Stop Regaining Weight Quiz — LS Diet", meta description, canonical `https://lsdiet.com/quiz`, and basic `Quiz`/`WebPage` JSON-LD.
-- Hero block (dark theme, amber accent) with:
-  - H1: "Find Out Why You Keep Regaining Weight"
-  - 1-sentence subhead about a 60-second personalized result.
-  - Trust line ("Free • 100% private • Instant result").
-- Embedded GHL quiz iframe in a centered, max-width container:
-  - `<iframe src="https://api.leadconnectorhq.com/widget/quiz/1ppvQlwpv4RYQlq0zs66" id="1ppvQlwpv4RYQlq0zs66" title="LS Diet Quiz" />`
-  - Loads `https://link.msgsndr.com/js/form_embed.js` once (via a `useEffect` that appends/removes the script tag — avoids duplicate loads on SPA navigation).
-- Below the quiz: small "What happens next" 3-step strip (Answer → Get your result → Optional next step).
+Two coordinated changes, both small:
 
-Add `/quiz` to `public/sitemap-pages.xml` (priority 0.9).
+### 1. `src/components/PrerenderReady.tsx` — wait for the route to actually mount
 
-## 2. Homepage teaser
+Currently fires `data-rendered=true` once `useIsFetching() === 0` plus a double-rAF. Add an additional gate: the `#root` element must contain real content (not just a Suspense fallback), AND `document.title` must have changed from the static `index.html` default (proof that the per-route `<Helmet>` has committed).
 
-Insert a compact `QuizTeaserSection` on `src/pages/Index.tsx`, placed between `HeroPitchSection` and `BookSection` (high-intent slot, before the book pitch).
+Implementation:
+- Poll `requestAnimationFrame` in a loop (up to ~10 s) checking:
+  - `document.querySelector('#root')?.childElementCount > 0`, AND
+  - `document.querySelector('#root main, #root article, #root [data-route-root]')` exists (proves route — not just nav/footer skeleton — mounted), AND
+  - For non-`/` routes, `document.title !== "LS Diet — Stop Regaining Weight | Weight Permanence Training™"` (proves Helmet committed).
+- Only after all three pass for two consecutive frames, set `data-rendered=true`.
 
-Contents:
-- One-line headline: "Not sure why the weight keeps coming back?"
-- Sub: "Take the 60-second quiz and get a personalized read on your regain pattern."
-- Primary `Button variant="accent"` → native `<a href="/quiz">` (per Core rule on cross-page navigation).
-- No iframe on the homepage — keeps the landing page light and routes everyone to the canonical `/quiz` page (one source of analytics + lead data).
+This stays opt-in to prerender: the polling only kicks in when `window.__PRERENDER__` is true; runtime behaviour is unchanged.
 
-## 3. Free Resources card
+### 2. `scripts/prerender.mjs` — stricter safety net
 
-In `src/pages/FreeResources.tsx`, add the quiz as a new resource card at the top of the grid (newest-first rule from Free Resources memory), styled like existing cards:
-- Badge: "Quiz"
-- Title: "Why You Keep Regaining Weight"
-- CTA "Take the Quiz" → `/quiz`.
+Add post-snapshot validation that would have caught this:
+- Parse the serialized HTML.
+- Require `<body>` to contain a non-trivial subtree (e.g. `body.innerHTML.length > 500` and contains either `<main` or `<article`).
+- For non-`/` routes, require the snapshot's `<title>` to differ from the static `index.html`'s `<title>`.
+- On failure, throw — the per-route try/catch already records the failure and the build-level "zero successful routes" guard will fail the build if everything is broken.
 
-## 4. Navbar (optional, recommended)
+Read `dist/index.html` once at startup to capture the baseline title for comparison.
 
-Add "Quiz" as a top-level nav link in `src/components/Navbar.tsx` between "Free Resources" and "Blog" so it's persistently discoverable. Skip if you'd rather keep nav lean.
+### 3. (Optional, defer) Eager-load prerendered routes
 
-## Technical notes
+A more aggressive fix would be to convert the prerendered routes in `App.tsx` from `lazy()` to static imports, eliminating the Suspense race entirely. Not doing this in scope — it would balloon the initial JS bundle, and fix #1 makes it unnecessary.
 
-- Script injection: load `form_embed.js` from inside `QuizPage.tsx` via `useEffect`, guarding with `document.querySelector('script[src*="form_embed.js"]')` so it only loads once.
-- Iframe sizing: GHL's `form_embed.js` auto-resizes the iframe height via `postMessage`; we set `width:100%`, `border:none`, `scrolling="no"` as in their snippet. Provide a min-height (e.g. 600px) to avoid layout shift before resize.
-- Analytics: add `trackEvent("quiz_start_click", { location: "homepage" | "free_resources" | "navbar" })` on each CTA link, mirroring existing `cta_click` pattern.
-- Respect existing rules: no background photo overlays, dark high-contrast theme, amber-orange accent, Canadian spelling.
+## Verification
 
-## Out of scope
+After redeploy:
 
-- No new backend — GHL handles capture.
-- No A/B testing infrastructure.
-- No quiz result page on our domain (GHL hosts result/redirect).
+```
+curl -s https://lsdiet.pages.dev/oscar-poon/ | grep -iE '<title>|canonical'
+```
+
+Expect: `<title>Oscar Poon | Founder of LS Diet</title>` and `<link rel="canonical" href="https://lsdiet.com/oscar-poon">`.
+
+Spot-check 2–3 other routes (`/awareness-stages/`, `/what-is-ls-diet/`, `/weight-permanence-triangle/`) for the same — each should return its own title.
+
+Also confirm the build log: if any routes still fail, the new safety net will list them by name in the `[prerender]` output instead of silently shipping broken shells.
+
+## Files touched
+
+- `src/components/PrerenderReady.tsx` — add prerender-only wait gate
+- `scripts/prerender.mjs` — add post-snapshot validation, capture baseline title
