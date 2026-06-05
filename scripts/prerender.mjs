@@ -74,33 +74,50 @@ function startServer() {
 
 async function prerenderRoute(browser, route, baselineTitle) {
   const page = await browser.newPage();
+  const routeLogs = [];
+  const gateLogs = [];
+  page.on("console", (msg) => {
+    const text = msg.text();
+    if (text.startsWith("[PrerenderReady]")) {
+      gateLogs.push(text);
+    } else if (msg.type() === "error" || msg.type() === "warning") {
+      routeLogs.push(`[console.${msg.type()}] ${text}`);
+    }
+  });
+  page.on("pageerror", (err) => {
+    routeLogs.push(`[pageerror] ${err.message}`);
+  });
+  page.on("requestfailed", (req) => {
+    const failure = req.failure();
+    routeLogs.push(
+      `[requestfailed] ${req.url()} ${failure ? failure.errorText : "unknown"}`,
+    );
+  });
+
   try {
     await page.setViewport({ width: 1280, height: 800, deviceScaleFactor: 1 });
-    // Mark prerender environment so the app can short-circuit animations
-    // and so PrerenderReady waits for the route to actually mount before
-    // signalling ready (guards against Suspense-fallback snapshots).
     await page.evaluateOnNewDocument(() => {
       window.__PRERENDER__ = true;
     });
 
     const url = `http://127.0.0.1:${PORT}${route}`;
-    // domcontentloaded (not networkidle0) — GTM in index.html keeps
-    // long-lived connections open and networkidle0 was masking the real
-    // mount signal. We rely on the rendered-flag gate below instead.
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: READY_TIMEOUT_MS });
-    // Make sure React has at least started rendering before we begin
-    // polling the rendered-flag — avoids racing the very first paint.
     await page.waitForSelector("#root > *", { timeout: 15_000 });
-    await page.waitForFunction(
-      () => document.documentElement.dataset.rendered === "true",
-      { timeout: READY_TIMEOUT_MS },
-    );
+    try {
+      await page.waitForFunction(
+        () => document.documentElement.dataset.rendered === "true",
+        { timeout: READY_TIMEOUT_MS },
+      );
+    } catch (waitErr) {
+      const tail = gateLogs.slice(-6).join("\n      ") || "(no gate logs)";
+      const errs = routeLogs.slice(-10).join("\n      ") || "(no page errors)";
+      throw new Error(
+        `${waitErr.message}\n      last gate logs:\n      ${tail}\n      page diagnostics:\n      ${errs}`,
+      );
+    }
 
-    // Serialize the full document as-is. Keep bundle <script> tags so the
-    // shipped HTML continues to hydrate on the client.
     const html = await page.content();
 
-    // Safety net 1: bundle script + populated <head>.
     const hasBundle = /<script[^>]+type=["']module["'][^>]+src=/i.test(html);
     const headMatch = html.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
     const headInner = headMatch ? headMatch[1].trim() : "";
@@ -112,8 +129,6 @@ async function prerenderRoute(browser, route, baselineTitle) {
       );
     }
 
-    // Safety net 2: <body> must contain real route content (not just a
-    // Suspense fallback or empty shell).
     const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
     const bodyInner = bodyMatch ? bodyMatch[1] : "";
     const hasRouteEl = /<main\b|<article\b/i.test(bodyInner);
@@ -125,8 +140,6 @@ async function prerenderRoute(browser, route, baselineTitle) {
       );
     }
 
-    // Safety net 3: non-root routes must have their own <title> (proof
-    // that Helmet committed before the snapshot).
     if (route !== "/" && baselineTitle) {
       const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
       const snapshotTitle = titleMatch ? titleMatch[1].trim() : "";
@@ -138,7 +151,6 @@ async function prerenderRoute(browser, route, baselineTitle) {
       }
     }
 
-    // Mark the HTML as prerendered so main.tsx switches to hydrateRoot.
     const stamped = html.replace(
       "<html",
       `<html data-prerendered="true"`,
