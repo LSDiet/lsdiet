@@ -56,7 +56,8 @@ async function loadRoutes() {
   return [...routes];
 }
 
-const READY_TIMEOUT_MS = 30_000;
+const READY_TIMEOUT_MS = 20_000;
+const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY ?? 6);
 
 function startServer() {
   const handler = sirv(DIST, {
