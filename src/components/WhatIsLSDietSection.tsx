@@ -37,8 +37,8 @@ export function WhatIsLSDietSection() {
 
         {/* Bridge to the solution */}
         <div className="flex items-center justify-center mt-12 md:mt-14 mb-5 text-accent">
-          <p className="text-sm md:text-base font-bold uppercase tracking-[0.15em]">
-            You can reverse obesity
+          <p className="md:text-base font-bold uppercase tracking-[0.15em] text-xs text-center whitespace-pre-line">
+            You already know how to lose weight. {"\n"}So why does it always come back?
           </p>
         </div>
 
