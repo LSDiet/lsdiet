@@ -11,7 +11,7 @@
  * guides) stays SPA-rendered.
  */
 import { createServer } from "node:http";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import sirv from "sirv";
@@ -56,7 +56,7 @@ async function loadRoutes() {
   return [...routes];
 }
 
-const READY_TIMEOUT_MS = 20_000;
+const READY_TIMEOUT_MS = 30_000;
 
 function startServer() {
   const handler = sirv(DIST, {
@@ -83,7 +83,13 @@ async function prerenderRoute(browser, route, baselineTitle) {
     });
 
     const url = `http://127.0.0.1:${PORT}${route}`;
-    await page.goto(url, { waitUntil: "networkidle0", timeout: READY_TIMEOUT_MS });
+    // domcontentloaded (not networkidle0) — GTM in index.html keeps
+    // long-lived connections open and networkidle0 was masking the real
+    // mount signal. We rely on the rendered-flag gate below instead.
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: READY_TIMEOUT_MS });
+    // Make sure React has at least started rendering before we begin
+    // polling the rendered-flag — avoids racing the very first paint.
+    await page.waitForSelector("#root > *", { timeout: 15_000 });
     await page.waitForFunction(
       () => document.documentElement.dataset.rendered === "true",
       { timeout: READY_TIMEOUT_MS },
@@ -164,6 +170,17 @@ async function main() {
   }
 
   const ROUTES = await loadRoutes();
+
+  // Defensive cleanup: delete any pre-existing per-route index.html
+  // (from a previous deploy) so a failed safety net cannot silently
+  // continue serving a stale stamped snapshot. The root dist/index.html
+  // is the SPA fallback and is intentionally preserved.
+  for (const route of ROUTES) {
+    if (route === "/") continue;
+    const dir = join(DIST, ...route.split("/").filter(Boolean));
+    await rm(join(dir, "index.html"), { force: true });
+  }
+
   console.log(`[prerender] node ${process.version}, puppeteer launching…`);
   console.log(`\nPrerendering ${ROUTES.length} routes…`);
   const server = await startServer();
