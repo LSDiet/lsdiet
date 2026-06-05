@@ -148,10 +148,19 @@ async function prerenderRoute(browser, route, baselineTitle) {
 }
 
 async function main() {
+  let baselineIndexHtml;
   try {
-    await readFile(join(DIST, "index.html"));
+    baselineIndexHtml = await readFile(join(DIST, "index.html"), "utf8");
   } catch {
     throw new Error("dist/index.html not found — run `vite build` first.");
+  }
+
+  const baselineTitleMatch = baselineIndexHtml.match(
+    /<title[^>]*>([\s\S]*?)<\/title>/i,
+  );
+  const baselineTitle = baselineTitleMatch ? baselineTitleMatch[1].trim() : "";
+  if (baselineTitle) {
+    console.log(`[prerender] baseline index.html title: "${baselineTitle}"`);
   }
 
   const ROUTES = await loadRoutes();
@@ -171,7 +180,7 @@ async function main() {
   try {
     for (const route of ROUTES) {
       try {
-        await prerenderRoute(browser, route);
+        await prerenderRoute(browser, route, baselineTitle);
         successCount++;
         if (route.startsWith("/blog/")) blogSuccessCount++;
       } catch (err) {
