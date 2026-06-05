@@ -519,6 +519,15 @@ export default function QAPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Weight Regain Q&amp;A — Stop Regaining the Same Weight | LS Diet</title>
+        <meta name="description" content="Answers to the real question behind dieting: why people keep regaining weight, and how the Weight Permanence Training™ and a low-starch, low-sugar lifestyle help you stop restarting." />
+        <link rel="canonical" href="https://lsdiet.com/qa" />
+        <meta property="og:title" content="Weight Regain Q&amp;A — LS Diet" />
+        <meta property="og:description" content="Why people keep regaining weight, and how Weight Permanence Training™ helps you stop restarting." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://lsdiet.com/qa" />
+      </Helmet>
       <Navbar />
       
       <main className="flex-1 pt-16">
