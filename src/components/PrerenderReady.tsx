@@ -30,20 +30,18 @@ export function PrerenderReady() {
     if (document.documentElement.dataset.rendered === "true") return;
 
     let cancelled = false;
-    const raf1 = requestAnimationFrame(() => {
-      const raf2 = requestAnimationFrame(() => {
+    let innerRaf = 0;
+    const outerRaf = requestAnimationFrame(() => {
+      innerRaf = requestAnimationFrame(() => {
         if (cancelled) return;
         document.documentElement.dataset.rendered = "true";
       });
-      // Store inner id on outer closure for cleanup.
-      (raf1 as unknown as { _inner?: number })._inner = raf2;
     });
 
     return () => {
       cancelled = true;
-      cancelAnimationFrame(raf1);
-      const inner = (raf1 as unknown as { _inner?: number })._inner;
-      if (typeof inner === "number") cancelAnimationFrame(inner);
+      cancelAnimationFrame(outerRaf);
+      if (innerRaf) cancelAnimationFrame(innerRaf);
     };
   }, [pathname, isFetching]);
 
