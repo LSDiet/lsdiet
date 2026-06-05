@@ -71,11 +71,13 @@ function startServer() {
   });
 }
 
-async function prerenderRoute(browser, route) {
+async function prerenderRoute(browser, route, baselineTitle) {
   const page = await browser.newPage();
   try {
     await page.setViewport({ width: 1280, height: 800, deviceScaleFactor: 1 });
-    // Mark prerender environment so the app can short-circuit animations.
+    // Mark prerender environment so the app can short-circuit animations
+    // and so PrerenderReady waits for the route to actually mount before
+    // signalling ready (guards against Suspense-fallback snapshots).
     await page.evaluateOnNewDocument(() => {
       window.__PRERENDER__ = true;
     });
@@ -87,14 +89,11 @@ async function prerenderRoute(browser, route) {
       { timeout: READY_TIMEOUT_MS },
     );
 
-    // Strip script tags that are bundle entries? No — keep them so hydration
-    // continues. Just serialize the full document as-is.
+    // Serialize the full document as-is. Keep bundle <script> tags so the
+    // shipped HTML continues to hydrate on the client.
     const html = await page.content();
 
-    // Safety net: a valid prerender must contain the Vite bundle script and
-    // a non-empty <head>. If either is missing, the page would render as a
-    // blank white screen in production. Fail the route loudly instead of
-    // silently overwriting dist/<route>/index.html with a broken stub.
+    // Safety net 1: bundle script + populated <head>.
     const hasBundle = /<script[^>]+type=["']module["'][^>]+src=/i.test(html);
     const headMatch = html.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
     const headInner = headMatch ? headMatch[1].trim() : "";
@@ -104,6 +103,32 @@ async function prerenderRoute(browser, route) {
           `(hasBundle=${hasBundle}, headLen=${headInner.length}). ` +
           `Refusing to overwrite dist with a blank shell.`,
       );
+    }
+
+    // Safety net 2: <body> must contain real route content (not just a
+    // Suspense fallback or empty shell).
+    const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    const bodyInner = bodyMatch ? bodyMatch[1] : "";
+    const hasRouteEl = /<main\b|<article\b/i.test(bodyInner);
+    if (bodyInner.length < 500 || !hasRouteEl) {
+      throw new Error(
+        `prerender produced empty body for ${route} ` +
+          `(bodyLen=${bodyInner.length}, hasRouteEl=${hasRouteEl}). ` +
+          `Suspense fallback was likely snapshotted — refusing to ship.`,
+      );
+    }
+
+    // Safety net 3: non-root routes must have their own <title> (proof
+    // that Helmet committed before the snapshot).
+    if (route !== "/" && baselineTitle) {
+      const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+      const snapshotTitle = titleMatch ? titleMatch[1].trim() : "";
+      if (snapshotTitle === baselineTitle) {
+        throw new Error(
+          `prerender produced default index.html title for ${route} ` +
+            `(Helmet did not commit). Refusing to ship.`,
+        );
+      }
     }
 
     // Mark the HTML as prerendered so main.tsx switches to hydrateRoot.
