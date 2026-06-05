@@ -45,7 +45,7 @@ export default function WhatIsLSDietPage() {
       <Navbar />
       <PageBreadcrumb items={[{ name: "Home", url: "/" }, { name: "What Is LS Diet?", url: "/what-is-ls-diet" }]} />
 
-      <article className="container max-w-3xl mx-auto px-4 pb-20">
+      <article data-route-root className="container max-w-3xl mx-auto px-4 pb-20">
         <header className="mb-8">
           <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
             What Is <span className="text-accent">LS Diet?</span>
