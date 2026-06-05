@@ -210,7 +210,10 @@ async function main() {
   try {
     console.log(`[prerender] concurrency=${CONCURRENCY}`);
     const queue = [...ROUTES];
-    const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+    const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async (_, i) => {
+      // Stagger worker starts to avoid cold-start chromium contention.
+      await sleep(i * 250);
       while (queue.length) {
         const route = queue.shift();
         if (!route) break;
