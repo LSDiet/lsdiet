@@ -83,7 +83,7 @@ export default function CategoryArchivePage() {
         ]}
       />
 
-      <section className="container max-w-5xl mx-auto px-4 pb-20">
+      <main data-route-root className="container max-w-5xl mx-auto px-4 pb-20">
         <header className="mb-10">
           <p className="text-xs uppercase tracking-widest text-zinc-500 mb-2">Category</p>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-3 text-zinc-900">
