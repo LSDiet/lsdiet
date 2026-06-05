@@ -60,15 +60,27 @@ const READY_TIMEOUT_MS = 45_000;
 const MOUNT_TIMEOUT_MS = 30_000;
 const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY ?? 2);
 
-function startServer() {
-  const handler = sirv(DIST, {
-    single: true,
+function startServer(baselineIndexHtml) {
+  // Serve hashed assets from disk, but always serve the in-memory baseline
+  // index.html as the SPA fallback. This prevents a race where the `/` route's
+  // prerender output overwrites dist/index.html while concurrent workers are
+  // still loading other routes, which produced empty `#root` responses and the
+  // `Cannot read properties of null (reading 'hasChildNodes')` crash.
+  const assets = sirv(DIST, {
+    single: false,
     dev: false,
     etag: false,
     maxAge: 0,
   });
   return new Promise((res) => {
-    const server = createServer((req, r) => handler(req, r));
+    const server = createServer((req, r) => {
+      assets(req, r, () => {
+        r.statusCode = 200;
+        r.setHeader("Content-Type", "text/html; charset=utf-8");
+        r.setHeader("Cache-Control", "no-store");
+        r.end(baselineIndexHtml);
+      });
+    });
     server.listen(PORT, () => res(server));
   });
 }
@@ -216,7 +228,7 @@ async function main() {
 
   console.log(`[prerender] node ${process.version}, puppeteer launching…`);
   console.log(`\nPrerendering ${ROUTES.length} routes…`);
-  const server = await startServer();
+  const server = await startServer(baselineIndexHtml);
   const browser = await puppeteer.launch({
     headless: "new",
     args: ["--no-sandbox", "--disable-setuid-sandbox"],

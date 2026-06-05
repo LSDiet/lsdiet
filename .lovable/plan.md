@@ -1,22 +1,41 @@
-## Plan
+Do I know what the issue is? Yes.
 
-1. **Make route mounting deterministic during prerender**
-   - In `src/App.tsx`, detect `window.__PRERENDER__` and use eager route components for all prerendered sitemap routes instead of `React.lazy` chunks.
-   - Keep normal browser behaviour lazy-loaded so the production SPA bundle strategy is unchanged for users.
+The direct crash is in `src/main.tsx`:
 
-2. **Fix the remaining explicit gate failure**
-   - `/what-is-ls-diet` mounted, but `PrerenderReady` reported `hasRouteEl=false` and `titleOk=false`.
-   - Add an explicit `[data-route-root]` marker at the page root so the readiness gate can detect it even if nested article detection is delayed.
-   - Keep the title gate aligned with the current readiness policy rather than relying on stale diagnostic comments.
+```ts
+const container = document.getElementById("root")!;
+const isPrerendered =
+  document.documentElement.dataset.prerendered === "true" &&
+  container.hasChildNodes();
+```
 
-3. **Improve diagnostics for `#root > *` failures**
-   - In `scripts/prerender.mjs`, wrap the `#root > *` wait the same way as the rendered wait, so failures include page console errors, page errors, request failures, current URL, and a short root/body snapshot.
-   - This turns the current opaque failures (`Waiting for selector #root > * failed`) into actionable output if anything remains.
+During prerender, `container` is sometimes `null`, so `container.hasChildNodes()` crashes before React mounts. The reason it only happens after some successful routes is a prerender race: `scripts/prerender.mjs` overwrites `dist/index.html` for `/` while the same file is also being used by `sirv(single: true)` as the SPA fallback for every other route. Under concurrency, Chromium can receive a partially-written or stamped fallback HTML document, leaving no `#root` and causing the crash.
 
-4. **Reduce build flakiness without hiding failures**
-   - Keep concurrency conservative.
-   - Keep the serial retry pass, but ensure recovered routes are clearly counted and final unrecovered failures remain visible in the summary.
+Plan:
 
-5. **Validate from the next build log**
-   - Expected signal: route pages should no longer fail at `#root > *` due to lazy chunk starvation.
-   - If anything still fails, the updated log will identify whether the issue is a JS exception, missing route root, network failure, or a true timeout.
+1. **Make the prerender server use an immutable fallback**
+   - Load the original built `dist/index.html` into memory before prerendering.
+   - Serve hashed assets from `dist/` normally.
+   - For app routes, return the in-memory baseline HTML instead of reading the mutable `dist/index.html` from disk.
+   - This prevents `/` prerender output from corrupting or racing with later route loads.
+
+2. **Harden React boot in `src/main.tsx`**
+   - Replace the unsafe non-null assertion with an explicit `#root` guard.
+   - Replace `hasChildNodes()` with `container.children.length > 0` so comments/text nodes do not trigger hydration.
+   - Keep normal hydration for genuinely prerendered pages and normal `createRoot` for the baseline SPA shell.
+
+3. **Keep the existing diagnostics, but make failures faster and clearer**
+   - Preserve the route snapshot/pageerror logging.
+   - Once the root race is removed, the 30-second-per-route mount timeout should stop cascading, so deploy should no longer sit for several minutes retrying doomed routes.
+
+4. **Validation after implementation**
+   - Run the prerender/build path via the project’s normal verification flow.
+   - Confirm routes no longer fail with `Cannot read properties of null (reading 'hasChildNodes')` or `#root > *` mount timeouts.
+
+<presentation-actions>
+  <presentation-open-history>View History</presentation-open-history>
+</presentation-actions>
+
+<presentation-actions>
+<presentation-link url="https://docs.lovable.dev/tips-tricks/troubleshooting">Troubleshooting docs</presentation-link>
+</presentation-actions>

@@ -35,13 +35,21 @@ if (typeof document !== "undefined") {
 
 
 
-const container = document.getElementById("root")!;
-const isPrerendered =
-  document.documentElement.dataset.prerendered === "true" &&
-  container.hasChildNodes();
-
-if (isPrerendered) {
-  hydrateRoot(container, <App />);
+const container = document.getElementById("root");
+if (!container) {
+  // Defensive: if the SPA shell was served without #root (e.g. a stale
+  // fallback during prerender), bail out cleanly instead of throwing.
+  console.error("[boot] #root not found; skipping React mount.");
 } else {
-  createRoot(container).render(<App />);
+  const hasElementChild = Array.from(container.childNodes).some(
+    (n) => n.nodeType === 1,
+  );
+  const isPrerendered =
+    document.documentElement.dataset.prerendered === "true" && hasElementChild;
+
+  if (isPrerendered) {
+    hydrateRoot(container, <App />);
+  } else {
+    createRoot(container).render(<App />);
+  }
 }
