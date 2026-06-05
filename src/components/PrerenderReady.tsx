@@ -8,9 +8,6 @@
  *   3. For non-root routes the <title> differs from the static index.html
  *      default (proof that the route's <Helmet> has committed).
  *
- * The gate is intentionally strict and applied in both prerender and
- * runtime so we never ship a Suspense-fallback snapshot.
- *
  * Diagnostic logging: when window.__PRERENDER__ is true, logs each gate
  * state change with [PrerenderReady] so prerender.mjs can capture exactly
  * which condition is blocking on timeout.
@@ -44,11 +41,15 @@ export function PrerenderReady() {
   const { pathname } = useLocation();
   const isFetching = useIsFetching();
   const lastLogged = useRef<string>("");
+  // consecutiveOk is a ref so transient isFetching flickers that re-run the
+  // effect don't reset the settle counter (Bucket C bug).
+  const consecutiveOk = useRef<number>(0);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
     delete document.documentElement.dataset.rendered;
     lastLogged.current = "";
+    consecutiveOk.current = 0;
   }, [pathname]);
 
   useEffect(() => {
@@ -60,7 +61,6 @@ export function PrerenderReady() {
 
     let cancelled = false;
     let rafId = 0;
-    let consecutiveOk = 0;
 
     const tick = () => {
       if (cancelled) return;
@@ -79,12 +79,12 @@ export function PrerenderReady() {
       }
 
       if (s.ready) {
-        consecutiveOk += 1;
+        consecutiveOk.current += 1;
       } else {
-        consecutiveOk = 0;
+        consecutiveOk.current = 0;
       }
 
-      if (consecutiveOk < 2) {
+      if (consecutiveOk.current < 2) {
         rafId = requestAnimationFrame(tick);
         return;
       }
