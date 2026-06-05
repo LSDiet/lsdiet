@@ -131,7 +131,7 @@ export default function CategoryArchivePage() {
             ))}
           </ul>
         )}
-      </section>
+      </main>
 
       <FooterSimple />
     </div>
