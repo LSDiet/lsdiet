@@ -40,10 +40,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>LS Diet — Weight Regain Prevention System</title>
+        <title>LS Diet — Stop Regaining Weight | Weight Permanence Training™</title>
         <meta
           name="description"
-          content="Oscar Poon's weight regain prevention system. Stop weight cycling with the Weight Permanence Training™ and a low-starch, low-sugar lifestyle."
+          content="Lost weight before but keep gaining it back? LS Diet helps men and women 35+ break the weight regain cycle using Weight Permanence Training™. Free community. No calorie counting."
         />
         <link rel="canonical" href="https://lsdiet.com/" />
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
