@@ -56,9 +56,28 @@ async function loadRoutes() {
   return [...routes];
 }
 
-const READY_TIMEOUT_MS = 45_000;
-const MOUNT_TIMEOUT_MS = 30_000;
-const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY ?? 2);
+const READY_TIMEOUT_MS = 20_000;
+const MOUNT_TIMEOUT_MS = 15_000;
+const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY ?? 4);
+
+// Hosts/resourceTypes we block during prerender to cut wall time. These
+// have zero impact on the static HTML payload (Helmet/meta/JSON-LD all
+// resolve from the JS bundle alone) but a large impact on Chromium time.
+const BLOCKED_HOSTS = [
+  "googletagmanager.com",
+  "google-analytics.com",
+  "googletagservices.com",
+  "doubleclick.net",
+  "youtube.com",
+  "youtu.be",
+  "skool.com",
+];
+const BLOCKED_RESOURCE_TYPES = new Set([
+  "image",
+  "media",
+  "font",
+  "stylesheet",
+]);
 
 function startServer(baselineIndexHtml) {
   // Serve hashed assets from disk, but always serve the in-memory baseline
@@ -113,8 +132,18 @@ async function prerenderRoute(browser, route, baselineTitle) {
       window.__PRERENDER__ = true;
     });
 
+    // Block requests that don't affect the rendered HTML payload.
+    await page.setRequestInterception(true);
+    page.on("request", (req) => {
+      const type = req.resourceType();
+      const url = req.url();
+      if (BLOCKED_RESOURCE_TYPES.has(type)) return req.abort();
+      if (BLOCKED_HOSTS.some((h) => url.includes(h))) return req.abort();
+      req.continue();
+    });
+
     const url = `http://127.0.0.1:${PORT}${route}`;
-    await page.goto(url, { waitUntil: "load", timeout: READY_TIMEOUT_MS });
+    await page.goto(url, { waitUntil: "domcontentloaded", timeout: READY_TIMEOUT_MS });
     try {
       await page.waitForSelector("#root > *", { timeout: MOUNT_TIMEOUT_MS });
     } catch (waitErr) {
@@ -183,6 +212,36 @@ async function prerenderRoute(browser, route, baselineTitle) {
       }
     }
 
+    // Duplicate-tag guard: every indexable route must ship exactly one of
+    // each SEO-critical head tag. react-helmet-async does not remove
+    // pre-existing static meta tags from index.html — if a future change
+    // reintroduces one, this assertion fails the build loudly instead of
+    // silently shipping duplicate canonicals/descriptions to crawlers.
+    const tagCounts = await page.evaluate(() => ({
+      title: document.querySelectorAll("title").length,
+      description: document.querySelectorAll('meta[name="description"]').length,
+      ogTitle: document.querySelectorAll('meta[property="og:title"]').length,
+      ogDescription: document.querySelectorAll('meta[property="og:description"]').length,
+      canonical: document.querySelectorAll('link[rel="canonical"]').length,
+    }));
+    const dupes = Object.entries(tagCounts).filter(([, n]) => n !== 1);
+    if (dupes.length > 0) {
+      // /qa, /privacy, /terms etc. may legitimately omit og:* if they're
+      // not indexed. Only canonical/title/description are strictly required.
+      const strict = dupes.filter(([k]) =>
+        ["title", "description", "canonical"].includes(k),
+      );
+      if (strict.length > 0) {
+        throw new Error(
+          `duplicate or missing SEO tags on ${route}: ${JSON.stringify(tagCounts)}`,
+        );
+      }
+      // Warn-only for og:* drift.
+      console.warn(
+        `  ⚠ ${route} og:* tag-count drift: ${JSON.stringify(tagCounts)}`,
+      );
+    }
+
     const stamped = html.replace(
       "<html",
       `<html data-prerendered="true"`,
@@ -242,10 +301,7 @@ async function main() {
   try {
     console.log(`[prerender] concurrency=${CONCURRENCY}`);
     const queue = [...ROUTES];
-    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-    const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async (_, i) => {
-      // Stagger worker starts to avoid cold-start chromium contention.
-      await sleep(i * 250);
+    const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
       while (queue.length) {
         const route = queue.shift();
         if (!route) break;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -498,16 +499,8 @@ export default function QAPage() {
   const [searchParams] = useSearchParams();
   const openParam = searchParams.get("open");
 
-  useEffect(() => {
-    document.title = "Weight Regain Q&A — Stop Regaining the Same Weight | LS Diet";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Answers to the real question behind dieting: why people keep regaining weight, and how the Weight Permanence Training™ and a low-starch, low-sugar lifestyle help you stop restarting."
-      );
-    }
-  }, []);
+  // Title/meta managed via Helmet below (replaces previous imperative
+  // document.title which prerender couldn't capture reliably).
 
   // Scroll to and expand awareness stages question if open param is set
   useEffect(() => {
@@ -526,6 +519,15 @@ export default function QAPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Weight Regain Q&amp;A — Stop Regaining the Same Weight | LS Diet</title>
+        <meta name="description" content="Answers to the real question behind dieting: why people keep regaining weight, and how the Weight Permanence Training™ and a low-starch, low-sugar lifestyle help you stop restarting." />
+        <link rel="canonical" href="https://lsdiet.com/qa" />
+        <meta property="og:title" content="Weight Regain Q&amp;A — LS Diet" />
+        <meta property="og:description" content="Why people keep regaining weight, and how Weight Permanence Training™ helps you stop restarting." />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://lsdiet.com/qa" />
+      </Helmet>
       <Navbar />
       
       <main className="flex-1 pt-16">
