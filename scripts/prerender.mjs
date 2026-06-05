@@ -56,8 +56,9 @@ async function loadRoutes() {
   return [...routes];
 }
 
-const READY_TIMEOUT_MS = 30_000;
-const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY ?? 4);
+const READY_TIMEOUT_MS = 45_000;
+const MOUNT_TIMEOUT_MS = 30_000;
+const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY ?? 2);
 
 function startServer() {
   const handler = sirv(DIST, {
@@ -101,8 +102,27 @@ async function prerenderRoute(browser, route, baselineTitle) {
     });
 
     const url = `http://127.0.0.1:${PORT}${route}`;
-    await page.goto(url, { waitUntil: "domcontentloaded", timeout: READY_TIMEOUT_MS });
-    await page.waitForSelector("#root > *", { timeout: 15_000 });
+    await page.goto(url, { waitUntil: "load", timeout: READY_TIMEOUT_MS });
+    try {
+      await page.waitForSelector("#root > *", { timeout: MOUNT_TIMEOUT_MS });
+    } catch (waitErr) {
+      const errs = routeLogs.slice(-10).join("\n      ") || "(no page errors)";
+      const snapshot = await page
+        .evaluate(() => {
+          const root = document.getElementById("root");
+          return {
+            url: location.href,
+            readyState: document.readyState,
+            rootChildren: root ? root.childElementCount : -1,
+            bodyLen: document.body ? document.body.innerHTML.length : 0,
+            title: document.title,
+          };
+        })
+        .catch((e) => ({ snapshotError: e.message }));
+      throw new Error(
+        `mount timeout (#root > *): ${waitErr.message}\n      snapshot: ${JSON.stringify(snapshot)}\n      page diagnostics:\n      ${errs}`,
+      );
+    }
     try {
       await page.waitForFunction(
         () => document.documentElement.dataset.rendered === "true",
