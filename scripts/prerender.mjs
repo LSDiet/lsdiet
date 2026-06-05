@@ -170,6 +170,17 @@ async function main() {
   }
 
   const ROUTES = await loadRoutes();
+
+  // Defensive cleanup: delete any pre-existing per-route index.html
+  // (from a previous deploy) so a failed safety net cannot silently
+  // continue serving a stale stamped snapshot. The root dist/index.html
+  // is the SPA fallback and is intentionally preserved.
+  for (const route of ROUTES) {
+    if (route === "/") continue;
+    const dir = join(DIST, ...route.split("/").filter(Boolean));
+    await rm(join(dir, "index.html"), { force: true });
+  }
+
   console.log(`[prerender] node ${process.version}, puppeteer launching…`);
   console.log(`\nPrerendering ${ROUTES.length} routes…`);
   const server = await startServer();
