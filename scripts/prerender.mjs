@@ -222,13 +222,33 @@ async function main() {
           successCount++;
           if (route.startsWith("/blog/")) blogSuccessCount++;
         } catch (err) {
-          failCount++;
           failures.push({ route, message: err.message });
           console.error(`  ✗ ${route}: ${err.message}`);
         }
       }
     });
     await Promise.all(workers);
+
+    // Serial retry pass for failures. Most timeouts in the concurrent
+    // pass are resource contention (Chromium CPU starvation, slow Helmet
+    // commit under load). Retrying one-at-a-time with a fresh budget
+    // recovers them without flaking the build.
+    if (failures.length > 0) {
+      const toRetry = failures.splice(0, failures.length);
+      console.log(`\n[prerender] retrying ${toRetry.length} failed routes serially…`);
+      for (const { route } of toRetry) {
+        try {
+          await prerenderRoute(browser, route, baselineTitle);
+          successCount++;
+          if (route.startsWith("/blog/")) blogSuccessCount++;
+          console.log(`  ↻ ${route} (recovered on retry)`);
+        } catch (err) {
+          failCount++;
+          failures.push({ route, message: err.message });
+          console.error(`  ✗ ${route} (retry failed): ${err.message}`);
+        }
+      }
+    }
   } finally {
     await browser.close();
     server.close();
