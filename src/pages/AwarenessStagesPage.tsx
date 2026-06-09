@@ -99,31 +99,53 @@ export default function AwarenessStagesPage() {
 
         <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
-            Awareness is the first vertex of the{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Training™</a>
-            {" "}inside LS Diet, and it is rarely the part people skip on purpose — it is the part most diets simply
-            never include. Without awareness, even the best food framework eventually collapses under stress because
-            the underlying motivation is borrowed rather than internal.
+            Most diets fail at the same place. Not the food plan. Not the exercise. The part nobody teaches: WHY you
+            were doing it in the first place, and WHAT happens to that reason when life gets hard.
           </p>
           <p>
-            LS Diet treats Awareness as a sequence, not a single insight. You move through five distinct stages, and
-            each one unlocks the next. By the end, the low-starch, low-sugar lifestyle stops feeling like a rule and
-            starts feeling like a natural expression of who you've decided to be — which is what breaks the{" "}
+            Awareness is the first vertex of the{" "}
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Training™</a>
+            {" "}inside LS Diet. It is not a single moment of clarity.
+          </p>
+          <p>
+            It is a sequence of five stages, each one building on the last. You cannot skip to Identity Awareness
+            without passing through Pattern Awareness first. The sequence exists because that is the actual order in
+            which emotional readiness gets built.
+          </p>
+          <p>
+            By the time you complete all five stages, the diet lifestyle stops feeling like something you are forcing
+            yourself to do. It starts feeling like a natural expression of who you have decided to become. That shift
+            is what breaks the{" "}
             <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
               weight regain cycle
             </a>{" "}
-            most diets leave untouched.
+            that most diets leave completely untouched.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
             Push Motivation vs Pull Motivation
           </h2>
           <p>
-            The five stages produce two kinds of motivation that work together. Push motivation comes from
-            consequence — the clarity of what continuing as you are will cost you. Pull motivation comes from
-            identity — the person you're becoming and the life that person already lives. Push gets you started on
-            the hardest days; pull keeps you going on the easy ones. Most weight-loss attempts try to run on one
-            and burn out fast.
+            The five stages produce two kinds of motivation that work together.
+          </p>
+          <p>
+            <strong>PUSH</strong> motivation comes from Consequence Awareness. It is the emotional clarity of what
+            continuing as you are will actually cost you, not in abstract terms, but in specific, personal, undeniable
+            ones. <strong>PUSH</strong> gets you moving on your hardest days.
+          </p>
+          <p>
+            <strong>PULL</strong> motivation comes from Identity Awareness. It is the emotional pull of the person you
+            are becoming and the life that person already lives. <strong>PULL</strong> keeps you moving when the
+            initial urgency fades.
+          </p>
+          <p>
+            Most weight-loss attempts run on one or the other and burn out quickly. What makes the{" "}
+            <strong>Weight Permanence Training™</strong> different is that these motivations are stackable.
+          </p>
+          <p>
+            The more PUSH and PULL motivations you build, the lower your likelihood of regaining weight. People who
+            cannot clearly articulate why they are doing this are the ones who restart. People who have multiple-layered
+            motivations anchored to real consequences and a real identity rarely do.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
