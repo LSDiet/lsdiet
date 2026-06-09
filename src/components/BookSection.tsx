@@ -115,12 +115,12 @@ export function BookSection() {
                   trackEvent("cta_click", {
                     location: "book_section",
                     placement: "primary_button",
-                    label: "Join LS Diet Community",
+                    label: "START YOUR FREE TRAINING TODAY",
                     destination: SKOOL_URL,
                   })
                 }
               >
-                Join Free — No Credit Card
+                JOIN THE COMMUNITY{"\n"}
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
             </Button>

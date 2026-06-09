@@ -168,7 +168,7 @@ export default function BlogPage() {
             <p className="text-zinc-700 mb-4">No posts published yet. Check back soon.</p>
             <Button variant="accent" asChild>
               <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                Join LS Diet Community
+                START YOUR FREE TRAINING TODAY
               </a>
             </Button>
           </div>

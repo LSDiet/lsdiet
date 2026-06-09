@@ -57,7 +57,7 @@ export const AboutAuthorSection = () => {
                 Hello! I'm Oscar, the founder of <strong className="text-foreground">LS Diet</strong> and the creator of the Weight Permanence Training™ (WPT). When I lost weight for the third time, I began reflecting on how I could make this my final transformation. The solution turned out to be quite straightforward: emotional priority.
               </p>
               <p className="text-muted-foreground leading-relaxed text-justify">
-                Join the LS Diet Community, and I'll help you move from simply wanting to lose weight to being emotionally and physically ready to do whatever it takes to reach your goal and keep it.
+                Start your free training today, and I'll help you move from simply wanting to lose weight to being emotionally and physically ready to do whatever it takes to reach your goal and keep it.
               </p>
 
               <blockquote className="italic text-accent font-medium leading-relaxed border-l-2 border-accent/40 pl-4 text-center text-xl">
