@@ -6,29 +6,56 @@ import { Button } from "@/components/ui/button";
 
 const PUBLISHED = "2026-05-14T12:00:00+00:00";
 const UPDATED = "2026-05-14T12:00:00+00:00";
+const CANONICAL = "https://lsdiet.com/awareness-stages";
+const WPT_TERMSET_ID = `${CANONICAL}#weight-permanence-training`;
 
 const stages = [
   {
     name: "Reality Awareness",
-    body: "Reality Awareness is the honest baseline: weight, habits, energy, the shape of an average week. Most weight loss attempts skip this and start with a goal weight, which is why the gap between today and the goal feels overwhelming. Reality Awareness names where you actually stand without flinching.",
+    slug: "reality-awareness",
+    body: "Reality Awareness is the first stage of the Weight Permanence Training. It is the practice of establishing an honest, undefended baseline of your current physical state, eating patterns, and daily behaviours. Most people in a weight regain cycle avoid this stage because accurate self-assessment is uncomfortable. Reality Awareness does not require perfection. It requires honesty about where you actually are, not where you wish you were or where you used to be.",
   },
   {
     name: "Friction Awareness",
-    body: "Friction Awareness surfaces the daily resistance points — the meeting that always ends in takeout, the late-night fridge visit, the social setting that quietly derails you. These aren't moral failings; they're predictable patterns. Naming them is the first step to redesigning around them.",
+    slug: "friction-awareness",
+    body: "Friction Awareness is the second stage of the Weight Permanence Training. It maps the gap between your current reality and your intended direction. Friction is not failure. It is the measurable distance between who you are behaving as today and who you need to become to stop the regain cycle permanently. Naming that gap precisely is what makes the next stages possible.",
   },
   {
     name: "Pattern Awareness",
-    body: "Pattern Awareness examines the how, who, what, when, and why of your eating. It looks for the loops you repeat without thinking — the people you eat differently around, the times of day you reach for sugar, the emotional states that precede a binge. Patterns become predictable; predictable becomes solvable.",
+    slug: "pattern-awareness",
+    body: "Pattern Awareness is the third stage of the Weight Permanence Training. It identifies the specific conditions under which your weight regain behaviour occurs, using six lenses: who you are with, when it happens, where you are, what triggers it, why it feels justified in the moment, and how it unfolds. Pattern Awareness is the diagnostic stage. Without it, behaviour change targets the wrong problem.",
   },
   {
     name: "Consequence Awareness",
-    body: "Consequence Awareness is the root of push motivation. It is the clear-eyed look at what staying the same will cost you over five, ten, twenty years — physically, socially, financially, emotionally. Push motivation is uncomfortable on purpose. It is also the most reliable fuel when discipline runs out.",
+    slug: "consequence-awareness",
+    body: "Consequence Awareness is the fourth stage of the Weight Permanence Training and the foundation of PUSH motivation. PUSH motivation is an emotionally connected reason that moves you away from a future outcome, consequence, or version of yourself that you are no longer willing to tolerate. Consequence Awareness makes the cost of regain feel real and personal rather than abstract and distant. It is what gives urgency to change.",
   },
   {
     name: "Identity Awareness",
-    body: "Identity Awareness is the root of pull motivation. It defines the person for whom LS Diet is simply how they live — the version of you who doesn't have to fight cravings because the lifestyle is already who they are. Pull motivation feels lighter than push, but you usually need both.",
+    slug: "identity-awareness",
+    body: "Identity Awareness is the fifth stage of the Weight Permanence Training and the foundation of PULL motivation. PULL motivation is an emotionally connected reason that draws you toward a future identity, outcome, or version of yourself that you genuinely want to create. Identity Awareness shifts the question from \"how do I lose weight\" to \"who am I becoming.\" When your future identity is specific and emotionally real, weight permanence stops being an act of discipline and becomes an expression of who you already are.",
   },
 ];
+
+const DEFINED_TERM_SET_LD = {
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "@id": WPT_TERMSET_ID,
+  name: "Weight Permanence Training",
+  alternateName: "WPT",
+  url: CANONICAL,
+  inDefinedTermSet: CANONICAL,
+  creator: { "@id": "https://lsdiet.com/oscar-poon#person" },
+  hasDefinedTerm: stages.map((s) => ({
+    "@type": "DefinedTerm",
+    "@id": `https://lsdiet.com/blog/${s.slug}#term`,
+    name: s.name,
+    description: s.body,
+    url: `https://lsdiet.com/blog/${s.slug}`,
+    inDefinedTermSet: WPT_TERMSET_ID,
+  })),
+};
+
 
 export default function AwarenessStagesPage() {
   return (
@@ -39,21 +66,23 @@ export default function AwarenessStagesPage() {
           name="description"
           content="Inside LS Diet, Awareness moves through five stages: Reality, Friction, Pattern, Consequence, and Identity. Together they produce push and pull motivation."
         />
-        <link rel="canonical" href="https://lsdiet.com/awareness-stages" />
+        <link rel="canonical" href={CANONICAL} />
         <meta property="og:title" content="The 5 Awareness Stages" />
         <meta property="og:description" content="The first vertex of the Weight Permanence Training™, in five stages." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://lsdiet.com/awareness-stages" />
+        <meta property="og:url" content={CANONICAL} />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Article",
           headline: "The 5 Awareness Stages",
           datePublished: PUBLISHED,
           dateModified: UPDATED,
-          author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/oscar-poon" },
+          author: { "@type": "Person", "@id": "https://lsdiet.com/oscar-poon#person", name: "Oscar Poon", url: "https://lsdiet.com/oscar-poon" },
           publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
-          mainEntityOfPage: "https://lsdiet.com/awareness-stages",
+          mainEntityOfPage: CANONICAL,
+          about: { "@id": WPT_TERMSET_ID },
         })}</script>
+        <script type="application/ld+json">{JSON.stringify(DEFINED_TERM_SET_LD)}</script>
       </Helmet>
       <Navbar />
       <PageBreadcrumb items={[{ name: "Home", url: "/" }, { name: "5 Awareness Stages", url: "/awareness-stages" }]} />
