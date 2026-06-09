@@ -43,7 +43,7 @@ const Index = () => {
         <title>LS Diet — Stop Regaining Weight | Weight Permanence Training™</title>
         <meta
           name="description"
-          content="Lost weight before but keep gaining it back? LS Diet helps men and women 35+ break the weight regain cycle using Weight Permanence Training™. Free community. No calorie counting."
+          content="Lost weight before but keep gaining it back? LS Diet helps men and women 35+ break the weight regain cycle using Weight Permanence Training™. Free training. No calorie counting."
         />
         <link rel="canonical" href="https://lsdiet.com/" />
         <meta property="og:title" content="LS Diet — Stop Regaining Weight | Weight Permanence Training™" />
