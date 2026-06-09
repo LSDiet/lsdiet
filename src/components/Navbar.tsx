@@ -10,11 +10,6 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: "Weight Problem", href: "/#journey" },
-  { label: "Solution", href: "/#method" },
-  { label: "Free Resources", href: "/free-resources" },
-  { label: "Quiz", href: "/quiz" },
-  { label: "Blog", href: "/blog" },
   {
     label: "Start Here",
     highlight: true,
@@ -23,6 +18,11 @@ const navLinks: NavLink[] = [
       { label: "Weight Permanence Toolbook", href: "https://book.lsdiet.com/", external: true },
     ],
   },
+  { label: "Weight Problem", href: "/#journey" },
+  { label: "Solution", href: "/#method" },
+  { label: "Free Resources", href: "/free-resources" },
+  { label: "Quiz", href: "/quiz" },
+  { label: "Blog", href: "/blog" },
   { label: "Become a Partner", href: "/partners" },
 ];
 
