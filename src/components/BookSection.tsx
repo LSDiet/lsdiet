@@ -115,7 +115,7 @@ export function BookSection() {
                   trackEvent("cta_click", {
                     location: "book_section",
                     placement: "primary_button",
-                    label: "Join LS Diet Community",
+                    label: "START YOUR FREE TRAINING TODAY",
                     destination: SKOOL_URL,
                   })
                 }

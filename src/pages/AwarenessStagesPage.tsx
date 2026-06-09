@@ -121,7 +121,7 @@ export default function AwarenessStagesPage() {
           <p className="text-sm text-zinc-800 mb-4">Ready to apply Awareness in real life?</p>
           <Button variant="accent" size="lg" asChild>
             <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-              Join LS Diet Community
+              START YOUR FREE TRAINING TODAY
             </a>
           </Button>
         </div>
