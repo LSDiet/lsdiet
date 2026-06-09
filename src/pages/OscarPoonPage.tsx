@@ -99,11 +99,10 @@ export default function OscarPoonPage() {
             He holds a BA in Psychology from Simon Fraser University and spent a year working with clients in a Detox centre in Vancouver, where he observed firsthand how people in active behavioural change either build lasting habits or relapse into old ones. He then spent 10 years as a surgical market research consultant at iData Research, studying how decision-makers in high-stakes environments change their behaviour under pressure.
           </p>
           <p>
-            He applied that background to his own weight loss. He has lost more than 80 lbs three separate times. In November 2024, he weighed 310 lbs. Today he weighs 195 lbs. His weight has not fluctuated more than 5 lbs in either direction in over 14 months.
+            He applied that background to his own weight loss. He has lost more than 80 lbs three separate times. After reaching 310 lbs in November 2024, he lost more than 100 lbs and has maintained that loss without repeated restarts. Most importantly, his weight has not fluctuated more than 5 lbs in either direction in over 14 months.
           </p>
           <p>
-            That result is not a personal anecdote. It is a proof of concept for the system he
-            now teaches.
+            The experience became the foundation for the Weight Permanence Training, a system designed to help people stop restarting weight loss and prevent weight regain.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
