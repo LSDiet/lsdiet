@@ -124,13 +124,20 @@ export function AwarenessStagesSection() {
           </ol>
         </div>
 
-        <p className="mt-10 text-center text-sm md:text-base text-[hsl(0_0%_20%)] leading-relaxed">
-          Continue to{" "}
-          <a href="/blog" className="text-accent hover:underline font-medium">
-            the full Foundations curriculum
+        <div className="mt-10 mx-auto flex w-full max-w-md flex-col items-center text-center">
+          <a
+            href="https://www.skool.com/lsdiet/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5"
+          >
+            FREE AWARENESS TRAINING
           </a>
-          .
-        </p>
+          <p className="mt-2 text-[11px] font-medium text-muted-foreground">
+            100% Free. No credit card.
+          </p>
+        </div>
+
       </div>
     </section>
   );
