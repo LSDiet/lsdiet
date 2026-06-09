@@ -96,18 +96,10 @@ export default function OscarPoonPage() {
             (WPT).
           </p>
           <p>
-            He holds a BA in Psychology from Simon Fraser University and spent a year working
-            inside a Vancouver detox and day treatment centre, where he observed firsthand how
-            people in active behavioural change either build lasting habits or collapse back into
-            old ones. He then spent 10 years as a surgical market research consultant at iData
-            Research, studying how decision makers in high-stakes environments change behaviour
-            under pressure.
+            He holds a BA in Psychology from Simon Fraser University and spent a year working with clients in a Detox centre in Vancouver, where he observed firsthand how people in active behavioural change either build lasting habits or relapse into old ones. He then spent 10 years as a surgical market research consultant at iData Research, studying how decision-makers in high-stakes environments change their behaviour under pressure.
           </p>
           <p>
-            He applied that background to his own weight loss. He has lost more than 80 lbs three
-            separate times. In November 2024 he weighed 310 lbs. Today he weighs 195 lbs. His
-            weight has not fluctuated more than 10 lbs in either direction in over 14 months,
-            with no restart.
+            He applied that background to his own weight loss. He has lost more than 80 lbs three separate times. In November 2024, he weighed 310 lbs. Today he weighs 195 lbs. His weight has not fluctuated more than 5 lbs in either direction in over 14 months.
           </p>
           <p>
             That result is not a personal anecdote. It is a proof of concept for the system he
@@ -140,8 +132,8 @@ export default function OscarPoonPage() {
             community where that training is applied through daily{" "}
             <a href="/blog/action-practice" className="text-accent hover:underline">behavioural practice</a>.
           </p>
-          <blockquote className="border-l-2 border-accent/40 pl-4 italic text-accent">
-            "Lose the extra weight so you can avoid a future where your choices shrink."
+          <blockquote className="border-l-2 border-accent/40 pl-4 italic text-accent text-center text-xl font-serif font-extrabold">
+            "Build a future that is not limited by your weight."
           </blockquote>
         </div>
 
