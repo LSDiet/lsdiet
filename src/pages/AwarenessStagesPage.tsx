@@ -132,7 +132,12 @@ export default function AwarenessStagesPage() {
           <div className="space-y-5">
             {stages.map((s, i) => (
               <div key={s.name}>
-                <h3 className="text-xl font-bold text-foreground">{i + 1}. {s.name}</h3>
+                <h3 className="text-xl font-bold text-foreground">
+                  {i + 1}.{" "}
+                  <a href={`/blog/${s.slug}`} className="text-accent hover:underline">
+                    {s.name}
+                  </a>
+                </h3>
                 <p className="mt-1">{s.body}</p>
               </div>
             ))}

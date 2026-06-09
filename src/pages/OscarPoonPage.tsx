@@ -11,6 +11,8 @@ const CANONICAL = "https://lsdiet.com/oscar-poon";
 
 // Single source of truth for the Oscar Poon Person entity. Every article and
 // entity hub references this @id via JSON-LD author.@id.
+const WPT_TERMSET_ID = "https://lsdiet.com/awareness-stages#weight-permanence-training";
+
 const PERSON_LD = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -32,6 +34,12 @@ const PERSON_LD = {
     "@type": "Organization",
     name: "LS Diet",
     url: "https://lsdiet.com",
+  },
+  subjectOf: {
+    "@type": "DefinedTermSet",
+    "@id": WPT_TERMSET_ID,
+    name: "Weight Permanence Training",
+    url: "https://lsdiet.com/awareness-stages",
   },
   sameAs: [
     "https://www.youtube.com/@JoinLSDiet",
