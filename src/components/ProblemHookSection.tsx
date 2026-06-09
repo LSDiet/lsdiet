@@ -25,7 +25,7 @@ function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
   return (
     <div className="mx-auto mt-5 flex w-full max-w-md flex-col items-center text-center">
       <p className="text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center whitespace-pre-line text-lg font-bold mt-[10px] my-0">
-        {"Join the LS Diet Community \nFree to start\n⬇  ⬇  ⬇ "}
+        {"START YOUR FREE TRAINING TODAY \nFree to start\n⬇  ⬇  ⬇ "}
       </p>
       <a
         href={SKOOL_URL}
