@@ -93,7 +93,7 @@ export function HeroPitchSection() {
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("cta_click", { location: "pitch", destination: "skool" })}
               >
-                Join LS Diet Community
+                START YOUR FREE TRAINING TODAY
               </a>
             </Button>
           </div>

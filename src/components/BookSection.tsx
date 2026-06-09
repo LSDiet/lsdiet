@@ -120,7 +120,7 @@ export function BookSection() {
                   })
                 }
               >
-                Join Free — No Credit Card
+                JOIN THE COMMUNITY{"\n"}
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
             </Button>

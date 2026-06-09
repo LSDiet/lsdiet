@@ -37,7 +37,7 @@ export function StickyCountdown() {
               className="whitespace-nowrap text-xs sm:text-sm"
               onClick={() => setWaitlistOpen(true)}
             >
-              Join LS Diet Community
+              START YOUR FREE TRAINING TODAY
             </Button>
             <button
               onClick={() => setDismissed(true)}

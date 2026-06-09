@@ -19,7 +19,7 @@ const navLinks: NavLink[] = [
     label: "Start Here",
     highlight: true,
     children: [
-      { label: "Join LS Diet Community (Free)", href: "https://www.skool.com/lsdiet/about", external: true },
+      { label: "START YOUR FREE TRAINING TODAY (Free)", href: "https://www.skool.com/lsdiet/about", external: true },
       { label: "Weight Permanence Toolbook", href: "https://book.lsdiet.com/", external: true },
     ],
   },
