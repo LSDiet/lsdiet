@@ -226,6 +226,30 @@ export function HeroSection() {
           </p>
         </div>
 
+        {/* MOBILE-ONLY duplicate CTA — appears after carousel, before next section */}
+        <div className="md:hidden mx-auto flex w-full max-w-md flex-col items-center text-center">
+          <a
+            href={SKOOL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent("cta_click", {
+                location: "hero_post_carousel",
+                placement: "hero_join_mobile_duplicate",
+                destination: SKOOL_URL,
+              })
+            }
+            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5"
+          >
+            Join Free — No Credit Card
+            <ArrowRight className="h-5 w-5" aria-hidden />
+          </a>
+          <p className="mt-2 text-[11px] font-medium text-muted-foreground">
+            100% Free. No credit card.
+          </p>
+        </div>
+
+
 
       </div>
 
