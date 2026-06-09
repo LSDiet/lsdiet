@@ -88,56 +88,57 @@ export default function OscarPoonPage() {
 
         <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
-            Oscar Poon is the founder and creator of <strong className="text-foreground">LS Diet</strong>.
-            He has lost 80+ lbs three separate times — and each restart was a tuition payment that
-            eventually became the method he teaches now. The diets worked. The behavioural
-            infrastructure underneath them did not. That gap is what LS Diet exists to close.
-          </p>
-          <p>
-            Today Oscar shares the low-starch, low-sugar lifestyle and the Weight Permanence
-            Triangle™ through monthly mini-challenges on{" "}
-            <a href="https://www.youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-              YouTube (@JoinLSDiet)
-            </a>
-            , a weekly live webinar, and the free LS Diet course. The work is deliberately
-            oriented around people who have already lost weight and don't want to do it again.
-          </p>
-
-          <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
-            Background and Method
-          </h2>
-          <p>
-            Oscar holds a degree in psychology and spent over a year supporting clients at a
-            substance-abuse centre in Vancouver. That work shaped how he thinks about cravings,
-            identity, and relapse — the vocabulary of addiction recovery maps almost directly onto
-            the cycle of losing and regaining weight. He also spent a decade as a surgical
-            market-data consultant, which trained him to see patterns in messy human behaviour and
-            to design systems that hold up in real environments rather than ideal ones.
-          </p>
-          <p>
-            That mix — clinical psychology plus pattern analysis — is what makes LS Diet
-            structurally different from typical diet content. The food framework is intentionally
-            simple. The behavioural framework is where the real engineering lives. Read the
-            breakdown on the{" "}
+            Oscar Poon is a behavioural weight loss coach, the founder of{" "}
+            <a href="/what-is-ls-diet" className="text-accent hover:underline">LS Diet</a>, and the creator of the{" "}
             <a href="/weight-permanence-triangle" className="text-accent hover:underline">
               Weight Permanence Training™
             </a>{" "}
-            page, the{" "}
-            <a href="/awareness-stages" className="text-accent hover:underline">5 Awareness Stages</a>,
-            or the{" "}
-            <a href="/what-is-ls-diet" className="text-accent hover:underline">What Is LS Diet</a> overview.
+            (WPT).
+          </p>
+          <p>
+            He holds a BA in Psychology from Simon Fraser University and spent a year working
+            inside a Vancouver detox and day treatment centre, where he observed firsthand how
+            people in active behavioural change either build lasting habits or collapse back into
+            old ones. He then spent 10 years as a surgical market research consultant at iData
+            Research, studying how decision makers in high-stakes environments change behaviour
+            under pressure.
+          </p>
+          <p>
+            He applied that background to his own weight loss. He has lost more than 80 lbs three
+            separate times. In November 2024 he weighed 310 lbs. Today he weighs 195 lbs. His
+            weight has not fluctuated more than 10 lbs in either direction in over 14 months,
+            with no restart.
+          </p>
+          <p>
+            That result is not a personal anecdote. It is a proof of concept for the system he
+            now teaches.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
-            Why He Built LS Diet
+            The Weight Permanence Training
           </h2>
           <p>
-            After the third restart, Oscar stopped looking for a better diet and started looking
-            for the missing layer underneath every diet he had tried. The pattern was always the
-            same: the food worked while life was calm; the food collapsed when life wasn't. The
-            intervention had to operate above food, not below it. LS Diet is the result — a
-            low-starch, low-sugar lifestyle paired with awareness work, daily practice, and
-            permanence systems that course-correct early instead of demanding another restart.
+            The{" "}
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+              Weight Permanence Training
+            </a>{" "}
+            is built on five sequential{" "}
+            <a href="/awareness-stages" className="text-accent hover:underline">awareness stages</a>:{" "}
+            <a href="/blog/reality-awareness" className="text-accent hover:underline">Reality</a>,{" "}
+            <a href="/blog/friction-awareness" className="text-accent hover:underline">Friction</a>,{" "}
+            <a href="/blog/pattern-awareness" className="text-accent hover:underline">Pattern</a>,{" "}
+            <a href="/blog/consequence-awareness" className="text-accent hover:underline">Consequence</a>, and{" "}
+            <a href="/blog/identity-awareness" className="text-accent hover:underline">Identity</a>.
+            The Consequence stage builds PUSH motivation, which is an emotionally connected
+            reason to move away from outcomes you no longer accept. The Identity stage builds
+            PULL motivation, which is an emotionally connected reason to move toward the future
+            person you are becoming. Together they create enough emotional momentum that weight
+            regain becomes unacceptable rather than inevitable.
+          </p>
+          <p>
+            <a href="/what-is-ls-diet" className="text-accent hover:underline">LS Diet</a> is the
+            community where that training is applied through daily{" "}
+            <a href="/blog/action-practice" className="text-accent hover:underline">behavioural practice</a>.
           </p>
           <blockquote className="border-l-2 border-accent/40 pl-4 italic text-accent">
             "Lose the extra weight so you can avoid a future where your choices shrink."
