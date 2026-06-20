@@ -626,6 +626,19 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
           )}
         </header>
 
+        {article.meta.heroImage && (
+          <figure className="mb-8 -mx-4 md:mx-0">
+            <img
+              src={article.meta.heroImage}
+              alt={article.meta.heroImageAlt ?? article.meta.title}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full md:rounded-xl"
+            />
+          </figure>
+        )}
+
         <div ref={bodyRef} className="prose-article">
           <article.Body />
         </div>

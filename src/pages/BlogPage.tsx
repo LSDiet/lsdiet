@@ -44,6 +44,66 @@ function foundationsAsBlogPosts(): BlogPost[] {
   }));
 }
 
+
+interface LatestArticlesProps {
+  entries: import("@/lib/blogIndex").BlogIndexEntry[];
+}
+
+function LatestArticles({ entries }: LatestArticlesProps) {
+  const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
+  const latest = entries
+    .filter((e) => SUPPORTING_TYPES.has(e.contentType))
+    .sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1))
+    .slice(0, 3);
+
+  if (latest.length === 0) return null;
+
+  return (
+    <section>
+      <div className="mb-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-2">
+          Just published
+        </p>
+        <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight">
+          Latest Articles
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {latest.map((e) => (
+          <a
+            key={e.slug}
+            href={`/blog/${e.slug}`}
+            className="group flex flex-col rounded-xl border border-zinc-200 overflow-hidden hover:border-accent transition-colors"
+          >
+            <div className="w-full aspect-video bg-accent/10 overflow-hidden flex-shrink-0">
+              {e.featuredImage?.url ? (
+                <img
+                  src={e.featuredImage.url}
+                  alt={e.featuredImage.alt || e.title}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5" />
+              )}
+            </div>
+            <div className="p-4 flex flex-col gap-2 flex-1">
+              <p className="text-xs text-zinc-500">{formatPublishDate(e.publishDate)}</p>
+              <h3 className="text-base font-bold text-zinc-900 group-hover:text-accent transition-colors leading-snug">
+                {e.title}
+              </h3>
+              {e.excerpt && (
+                <p className="text-sm text-zinc-600 line-clamp-2 mt-auto">{e.excerpt}</p>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function BlogPage() {
   const queryClient = useQueryClient();
   const [posts, setPosts] = useState<EnrichedPost[] | null>(null);
@@ -177,6 +237,8 @@ export default function BlogPage() {
         {posts && posts.length > 0 && (
           <div className="space-y-16">
             <FoundationsCurriculum />
+
+            <LatestArticles entries={indexEntries} />
 
             {false && contentfulPosts.length > 0 && (
               <section>

@@ -67,7 +67,9 @@ function articlesAsIndex(): BlogIndexEntry[] {
       (s) => `https://lsdiet.com/blog/${s}`,
     ),
     relatedTopics: [],
-    featuredImage: null,
+    featuredImage: a.meta.heroImage
+      ? { url: a.meta.heroImage, alt: a.meta.heroImageAlt ?? a.meta.title }
+      : null,
   }));
 }
 

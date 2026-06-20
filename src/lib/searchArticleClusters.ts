@@ -48,6 +48,8 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "why-do-healthy-habits-collapse-during-stress",
       "can-accountability-help-you-lose-weight",
       "how-to-stay-motivated-to-lose-weight-when-working-full-time",
+      "why-ozempic-wont-keep-the-weight-off",
+      "why-you-eat-at-night-even-when-youre-not-hungry",
     ],
   },
   {
@@ -77,6 +79,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "why-do-i-keep-losing-and-regaining-the-same-weight",
       "is-diet-or-exercise-more-important-for-weight-loss",
       "can-you-lose-weight-without-going-to-the-gym",
+      "youre-losing-muscle-not-just-fat-on-glp1-drugs",
     ],
   },
   {
