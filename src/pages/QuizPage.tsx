@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
@@ -19,7 +19,31 @@ const quizSchema = {
   about: { "@type": "Thing", name: "Weight Regain Prevention" },
 };
 
+function QuizSkeleton() {
+  return (
+    <div className="p-6 md:p-10 space-y-6 animate-pulse">
+      <div className="space-y-3">
+        <div className="h-3 w-24 rounded bg-muted" />
+        <div className="h-5 w-3/4 rounded bg-muted" />
+      </div>
+      <div className="space-y-3 pt-2">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="flex items-center gap-3">
+            <div className="h-5 w-5 rounded-full bg-muted flex-shrink-0" />
+            <div className="h-4 rounded bg-muted" style={{ width: `${55 + i * 8}%` }} />
+          </div>
+        ))}
+      </div>
+      <div className="pt-4 flex justify-end">
+        <div className="h-9 w-24 rounded-lg bg-muted" />
+      </div>
+    </div>
+  );
+}
+
 export default function QuizPage() {
+  const [loaded, setLoaded] = useState(false);
+
   useEffect(() => {
     if (document.querySelector(`script[src="${EMBED_SCRIPT}"]`)) return;
     const s = document.createElement("script");
@@ -64,12 +88,19 @@ export default function QuizPage() {
           </header>
 
           <div className="rounded-xl border border-border bg-card overflow-hidden shadow-xl">
+            {!loaded && <QuizSkeleton />}
             <iframe
               src={QUIZ_SRC}
               id={QUIZ_ID}
               title="LS Diet Quiz"
               scrolling="no"
-              style={{ border: "none", width: "100%", minHeight: "600px", display: "block" }}
+              onLoad={() => setLoaded(true)}
+              style={{
+                border: "none",
+                width: "100%",
+                minHeight: "600px",
+                display: loaded ? "block" : "none",
+              }}
             />
           </div>
         </div>
