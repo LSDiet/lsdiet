@@ -6,6 +6,7 @@ const learnLinks = [
   { label: "What Is LS Diet?", href: "/what-is-ls-diet" },
   { label: "Weight Permanence Training™", href: "/weight-permanence-triangle" },
   { label: "5 Awareness Stages", href: "/awareness-stages" },
+  { label: "Weight Regain Profiles", href: "/weight-regain-profiles" },
   { label: "About Oscar Poon", href: "/oscar-poon" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
