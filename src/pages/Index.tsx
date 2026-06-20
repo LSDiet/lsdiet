@@ -2,21 +2,12 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { ProblemHookSection } from "@/components/ProblemHookSection";
 import { HeroSection } from "@/components/HeroSection";
-
-
-import { WhatIsLSDietSection } from "@/components/WhatIsLSDietSection";
-import { HeroPitchSection } from "@/components/HeroPitchSection";
-import { AwarenessStagesSection } from "@/components/AwarenessStagesSection";
-import { QuizTeaserSection } from "@/components/QuizTeaserSection";
-
-import { FAQSection } from "@/components/FAQSection";
+import { QuizInviteCard } from "@/components/QuizInviteCard";
 import { BookSection } from "@/components/BookSection";
-import { AboutAuthorSection } from "@/components/AboutAuthorSection";
+import { FAQSection } from "@/components/FAQSection";
+import { QuizTeaserSection } from "@/components/QuizTeaserSection";
 import { FooterSimple } from "@/components/FooterSimple";
 import { JoinFloatingBar } from "@/components/JoinFloatingBar";
-import { QuizInviteCard } from "@/components/QuizInviteCard";
-import { QuizSideTab } from "@/components/QuizSideTab";
-
 
 const webPageSchema = {
   "@context": "https://schema.org",
@@ -29,7 +20,6 @@ const webPageSchema = {
     { "@type": "Thing", name: "Weight Regain Prevention", description: "Preventing weight regain after dieting through behavioural permanence and a low-starch, low-sugar lifestyle." },
     { "@type": "Thing", name: "Weight Permanence Training", sameAs: "https://lsdiet.com/weight-permanence-triangle" },
   ],
-
   mainEntity: { "@id": "https://lsdiet.com/#organization" },
   primaryImageOfPage: { "@id": "https://lsdiet.com/#logo" },
   author: { "@id": "https://lsdiet.com/#oscar-poon" },
@@ -54,26 +44,21 @@ const Index = () => {
       </Helmet>
       <Navbar />
       <main>
-        <HeroSection />
+        {/* 1 — Problem hook + quiz CTA (hero) */}
         <ProblemHookSection />
+        {/* 2 — Quiz invite (captures intent immediately) */}
         <QuizInviteCard />
-
-        <HeroPitchSection />
-
-
+        {/* 3 — Before/after carousel (credibility) */}
+        <HeroSection />
+        {/* 4 — What's inside the community */}
         <BookSection />
-        <WhatIsLSDietSection />
-        <AwarenessStagesSection />
+        {/* 5 — FAQ / objection handling */}
         <FAQSection />
+        {/* 6 — Final join CTA */}
         <QuizTeaserSection />
-        <AboutAuthorSection />
-
-
       </main>
       <FooterSimple />
       <JoinFloatingBar />
-      <QuizSideTab />
-
     </div>
   );
 };
