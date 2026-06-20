@@ -326,6 +326,7 @@ export default function AwarenessStagesPage() {
               <div
                 key={i}
                 id={`stage-${i}`}
+                style={{ scrollMarginTop: "100px" }}
                 className={`rounded-xl border bg-card p-6 transition-all duration-300 ${
                   locked ? "opacity-30 pointer-events-none select-none" : "border-border"
                 }`}
