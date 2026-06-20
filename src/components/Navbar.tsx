@@ -14,7 +14,9 @@ const navLinks: NavLink[] = [
     label: "Start Here",
     highlight: true,
     children: [
-      { label: "START YOUR FREE TRAINING TODAY (Free)", href: "https://www.skool.com/lsdiet/about", external: true },
+      { label: "The 5 Awareness Stages", href: "/awareness-stages" },
+      { label: "Weight Regain Profile Quiz", href: "/quiz" },
+      { label: "Join Free Community (Skool)", href: "https://www.skool.com/lsdiet/about", external: true },
       { label: "Weight Permanence Toolbook", href: "https://book.lsdiet.com/", external: true },
     ],
   },
