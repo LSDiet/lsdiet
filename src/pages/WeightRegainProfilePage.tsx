@@ -219,24 +219,31 @@ export default function WeightRegainProfilePage() {
             <p className="text-lg font-medium leading-relaxed">{profile.outcome}</p>
           </div>
 
-          {/* Primary CTA */}
+          {/* CTA block */}
           <div className="rounded-xl border border-border bg-card p-6 md:p-8 text-center space-y-4">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Ready to stop the cycle?</p>
-            <h3 className="text-2xl font-bold text-foreground">Join the free LS Diet community</h3>
+            <h3 className="text-2xl font-bold text-foreground">Start the training. It's free.</h3>
             <p className="text-muted-foreground">
               Weight Permanence Training is free inside the Skool community. No upsell. No trial. Just the system.
             </p>
+            {/* Primary — Skool */}
             <a
               href="https://www.skool.com/lsdiet/about"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-primary text-primary-foreground font-semibold px-8 py-3 rounded-lg hover:opacity-90 transition-opacity"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.6)] transition-all hover:brightness-110 hover:-translate-y-0.5"
             >
               Join Free — Skool Community
             </a>
-            <p className="text-xs text-muted-foreground pt-1">
-              Want your personalised email series?{" "}
-              <Link to="/quiz" className="underline">Take the full Weight Regain Profile Quiz</Link>.
+            {/* Secondary — GHL quiz */}
+            <Link
+              to="/quiz"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-transparent px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:border-foreground/40 hover:bg-foreground/5"
+            >
+              Take the Full Quiz — Get Your Profile by Email
+            </Link>
+            <p className="text-[11px] text-muted-foreground">
+              Quiz takes 60 seconds. Skool is 100% free.
             </p>
           </div>
 

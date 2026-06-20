@@ -86,11 +86,11 @@ type Pain = {
 };
 
 const pains: Pain[] = [
-  { label: "I don\u2019t know where to start", shortLabel: "Stuck", href: "/blog/why-do-i-keep-losing-and-regaining-the-same-weight", hsl: "0 84% 60%", Icon: Compass },
-  { label: "I have no motivation", shortLabel: "Unmotivated", href: "/blog/why-do-i-lose-motivation-after-a-few-weeks", hsl: "212 90% 60%", Icon: BatteryLow },
-  { label: "The method stops working", shortLabel: "Plateaued", href: "/blog/how-to-overcome-weight-loss-plateaus", hsl: "38 92% 55%", Icon: TrendingDown },
-  { label: "I don\u2019t want to exercise", shortLabel: "Hate exercise", href: "/blog/is-diet-or-exercise-more-important-for-weight-loss", hsl: "150 70% 48%", Icon: Footprints },
-  { label: "I stress eat", shortLabel: "Stress eating", href: "/blog/why-does-stress-make-me-eat-more", hsl: "280 70% 65%", Icon: CloudRain },
+  { label: "I don\u2019t know where to start", shortLabel: "Stuck", href: "/weight-regain-profile/overwhelmed-beginner", hsl: "0 84% 60%", Icon: Compass },
+  { label: "I have no motivation", shortLabel: "Unmotivated", href: "/weight-regain-profile/motivation-chaser", hsl: "212 90% 60%", Icon: BatteryLow },
+  { label: "The method stops working", shortLabel: "Plateaued", href: "/weight-regain-profile/weight-cycler", hsl: "38 92% 55%", Icon: TrendingDown },
+  { label: "I don\u2019t want to exercise", shortLabel: "Hate exercise", href: "/weight-regain-profile/motivation-chaser", hsl: "150 70% 48%", Icon: Footprints },
+  { label: "I stress eat", shortLabel: "Stress eating", href: "/weight-regain-profile/stress-eater", hsl: "280 70% 65%", Icon: CloudRain },
 ];
 
 /** Slightly varied widths so the right-edge cluster reads as ONE organic
@@ -135,6 +135,7 @@ function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: s
           variant: "desktop_rail",
           label: pain.shortLabel,
           destination: pain.href,
+          type: "profile",
         })
       }
       className={`group relative flex w-full items-center gap-3.5 rounded-xl border border-white/15 bg-black/60 px-5 py-4 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/25 hover:bg-black/75 ${widthClass} ${offsetClass}`}
@@ -170,6 +171,7 @@ function PillChip({ pain }: { pain: Pain }) {
           variant: "pill_chip",
           label: pain.shortLabel,
           destination: pain.href,
+          type: "profile",
         })
       }
       className="group mx-auto flex w-full max-w-[20rem] items-center gap-3 rounded-full border border-white/15 bg-black/55 pl-2 pr-4 py-1.5 backdrop-blur-md transition-all duration-300 ease-out hover:border-white/30 hover:bg-black/70"
