@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
@@ -213,6 +214,20 @@ export default function AwarenessStagesPage() {
   const [selections, setSelections] = useState<Record<number, number | null>>({});
   const [sliderVal, setSliderVal] = useState(7);
   const [showCta, setShowCta] = useState(false);
+  const navigate = useNavigate();
+
+  // Assign profile based on Stage 3 (pattern) + Stage 0 (regain count)
+  const getProfile = (sels: Record<number, number | null>): string => {
+    const stage3 = sels[3]; // 0=stressed, 1=bored, 2=social, 3=habit
+    const stage0 = sels[0]; // 0=first time, 1=once or twice, 2=more than I want to count
+    if (stage3 === 0) return "stress-eater";
+    if (stage3 === 1) return "overwhelmed-beginner";
+    if (stage3 === 2) return "motivation-chaser";
+    // habit: tiebreak on regain count
+    if (stage0 === 1) return "weight-cycler";
+    if (stage0 === 2) return "restarter";
+    return "overwhelmed-beginner"; // fallback (first time + habit)
+  };
 
   const handleOption = (stageIdx: number, optIdx: number) => {
     setSelections((prev) => ({ ...prev, [stageIdx]: optIdx }));
@@ -221,7 +236,8 @@ export default function AwarenessStagesPage() {
   const handleNext = (stageIdx: number) => {
     const next = stageIdx + 1;
     if (next > 5) {
-      setShowCta(true);
+      const profile = getProfile(selections);
+      navigate(`/weight-regain-profile/${profile}`);
     } else {
       setUnlocked(next);
       setTimeout(() => {

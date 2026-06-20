@@ -36,6 +36,7 @@ const CategoryArchivePage = lazy(() => import("./pages/CategoryArchivePage"));
 const PartnersPage = lazy(() => import("./pages/PartnersPage"));
 const ResourcesPage = lazy(() => import("./pages/ResourcesPage"));
 const QuizPage = lazy(() => import("./pages/QuizPage"));
+const WeightRegainProfilePage = lazy(() => import("./pages/WeightRegainProfilePage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient({
@@ -88,6 +89,7 @@ function AppContent() {
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/quiz" element={<QuizPage />} />
+          <Route path="/weight-regain-profile/:slug" element={<WeightRegainProfilePage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
