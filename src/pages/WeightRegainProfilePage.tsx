@@ -8,6 +8,7 @@ const profiles: Record<string, {
   name: string;
   youtubeId: string;
   banner: string;
+  painStatement: string;
   tagline: string;
   whatItMeans: string;
   whyYouStruggle: string;
@@ -23,6 +24,7 @@ const profiles: Record<string, {
     name: "Motivation Chaser",
     youtubeId: "ot6uJo7In24",
     banner: "/profiles/motivation-chaser.png",
+    painStatement: "I always run out of motivation.",
     tagline: "The person who never has to restart isn't more motivated than you. They just stopped depending on motivation to show up.",
     whatItMeans: "You start with genuine fire. The pantry gets cleaned out. The gym bag comes back. For a few weeks, everything works. Then life gets ordinary again — and ordinary is the enemy of motivation. Most Motivation Chasers have lost weight before. The problem isn't starting. It's that your entire system depends on a feeling that was never designed to last six months.",
     whyYouStruggle: "Motivation is a spark, not a fuel source. Every time you rely on it to drive consistency, you're one bad week away from stopping. And when you stop, the restart becomes harder — because now there's shame attached to it too. Over time, the cycle shortens. The starts get smaller. The gaps get longer.",
@@ -43,6 +45,7 @@ const profiles: Record<string, {
     name: "Overwhelmed Beginner",
     youtubeId: "XvJoKFvXe0M",
     banner: "/profiles/overwhelmed-beginner.png",
+    painStatement: "I don’t know where to start.",
     tagline: "You don't need a better diet. You need to stop letting the search for the perfect diet keep you from starting the one in front of you.",
     whatItMeans: "You're not a beginner at dieting. You're overwhelmed by the industry built around it. One expert says eat less and move more. Another says that's outdated. One study says breakfast is essential. Another says skip it entirely. After years of this, your default response to new information isn't excitement — it's exhaustion.",
     whyYouStruggle: "Analysis paralysis is real. When you can't decide what's right, you default to either doing nothing or bouncing between systems. Neither produces the consistent behaviour that actually drives weight change. Every new piece of information introduces a new reason to wait.",
@@ -63,26 +66,28 @@ const profiles: Record<string, {
     name: "Restarter",
     youtubeId: "L45rGwguXWA",
     banner: "/profiles/restarter.png",
-    tagline: "The goal isn't to stop having bad days. It's to stop letting bad days reset the clock.",
-    whatItMeans: "Every Monday has been a potential turning point. You're not lazy — if anything, you've put more effort into weight loss than most people. The problem is that your system doesn't survive contact with real life. A stressful project, a vacation, a family situation — and the whole structure collapses. Then you rebuild from scratch instead of picking up where you left off.",
-    whyYouStruggle: "You've been treating consistency as an all-or-nothing state. Either you're fully on the plan, or you've failed and need to start again. This binary thinking turns every interruption into a reset. The longer the restart takes, the deeper the regression. Over time, the gaps between starts get longer and the starts themselves get smaller.",
-    biggestMistake: "Believing the fix is a stronger plan — more detailed, more structured, more bulletproof. The real skill you're missing isn't planning. It's recovery. Knowing what to do the day after a bad day is more valuable than having a perfect day.",
-    howWPTHelps: "Weight Permanence Training treats recovery as a specific skill, not an afterthought. Pattern Awareness shows you exactly when and how your consistency starts to break down — before it becomes a full restart. Consequence Awareness makes the cost of each restart feel real rather than abstract. Identity Awareness gives you a version of yourself to return to, not a new plan to follow.",
+    painStatement: "I jump from one method to the next before seeing results.",
+    tagline: "The problem isn’t that nothing works. It’s that you leave before anything has time to.",
+    whatItMeans: "You’ve tried more approaches to weight loss than most people have heard of. Keto, intermittent fasting, the app, the coach, the meal plan. Each one gets a few weeks. Then something new comes along that seems more promising — better science, better results, fewer restrictions — and you switch. The old program gets abandoned. The new one starts fresh. And the cycle continues. You’ve been in week one of dozens of programs. You’ve almost never experienced week eight.",
+    whyYouStruggle: "Weight loss has a feedback gap. The behaviour changes immediately. The physical results take weeks. Most methods produce almost no visible change in the first two to three weeks — which is exactly when a Restarter finds the next thing. So you’ve been stuck in the gap between starting and results your entire weight loss journey, never staying long enough to find out whether anything actually works for your body.",
+    biggestMistake: "Believing the problem is the method. That the right program is still out there, and if you can just find it, you’ll finally commit. But the issue isn’t commitment to a specific diet — it’s commitment to a direction. Any sound method, followed consistently for long enough, would have produced results. The switching is the problem, not the methods.",
+    howWPTHelps: "Weight Permanence Training starts with Pattern Awareness — mapping exactly how many times you’ve switched, at what point you switched, and what triggered the switch each time. That pattern is almost always the same. Once you can see it clearly, you can interrupt it before it fires. Consequence Awareness makes the cost of continued switching feel real: every switch resets the feedback clock and delays the result by weeks. Identity Awareness builds a version of you that identifies as someone who sees things through — not because of discipline, but because finishing is now who you are.",
     helpPoints: [
-      "Identify the exact moment your consistency starts to slip — before it becomes a restart",
-      "Learn to recover from a bad day or week without starting over",
-      "Understand what specifically interrupts your consistency — every time",
-      "Build an identity that survives real-life disruptions",
+      "Map your switching pattern — how many methods, how quickly you left each one, what triggered the switch",
+      "Understand the feedback gap and why results take longer than the first two to three weeks you’ve been giving methods",
+      "Build commitment to a direction, not loyalty to a specific program",
+      "Learn to distinguish ‘this isn’t working’ from ‘this hasn’t had enough time yet’",
     ],
-    outcome: "You don't need another fresh start. You need to become someone who recovers faster than they drift.",
-    seoTitle: "Restarter Weight Regain Profile | Why You Keep Starting Over With Weight Loss",
-    seoDescription: "Every Monday feels like day one. Learn why Restarters keep cycling back to the beginning and how Weight Permanence Training breaks that pattern.",
+    outcome: "You don’t need a better method. You need to stay with one long enough to find out if it works.",
+    seoTitle: "Restarter Weight Regain Profile | Shiny Object Syndrome and Weight Loss",
+    seoDescription: "You keep switching programs before any of them have time to work. Learn why Restarters never see results and how Weight Permanence Training breaks the cycle.",
   },
   "stress-eater": {
     slug: "stress-eater",
     name: "Stress Eater",
     youtubeId: "3gvPOGk03qs",
     banner: "/profiles/stress-eater.png",
+    painStatement: "I eat when I’m stressed.",
     tagline: "You're not trying to eliminate stress. You're building a version of yourself for whom food is no longer the default response to it.",
     whatItMeans: "You know more about nutrition than most people. The problem isn't knowledge — it's that food has a second job in your life. When you're stressed, overwhelmed, exhausted, or running on empty, food reliably makes it quieter for a few minutes. Your brain has filed that under \"effective coping strategy.\" And it's not wrong — it works in the short term. That's exactly why it keeps happening.",
     whyYouStruggle: "You can't willpower your way out of a coping mechanism. Every time you try to white-knuckle past stress-driven eating, you're fighting a behaviour your nervous system reinforced hundreds of times. The harder you resist, the more depleted you become — and the more vulnerable you are the next time stress shows up.",
@@ -103,6 +108,7 @@ const profiles: Record<string, {
     name: "Weight Cycler",
     youtubeId: "TScfhpE7YyI",
     banner: "/profiles/weight-cycler.png",
+    painStatement: "I lose weight but it always comes back.",
     tagline: "You already know how to lose weight. What you need to learn is how to become someone who doesn't have to.",
     whatItMeans: "You've already proven you can lose weight. That's not the problem. The problem is that every program you followed was designed to get you to a number on a scale — and then it stopped. No one taught you what to do with the life you were supposed to live once you got there. So old habits slowly refilled the space the diet vacated.",
     whyYouStruggle: "Weight loss programs end. Old environments don't. The people, places, habits, and patterns that existed before the diet are still there after it. Without a system designed for maintenance, you're relying on willpower to hold the line indefinitely — and willpower is a finite resource that was already depleted by the diet itself.",
@@ -162,7 +168,10 @@ export default function WeightRegainProfilePage() {
         {/* Header */}
         <div className="mb-8">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Your Weight Regain Profile</p>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{profile.name}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">{profile.name}</h1>
+          <p className="inline-block rounded-full border border-border bg-muted/50 px-4 py-1.5 text-sm font-medium text-muted-foreground mb-4">
+            You said: &ldquo;{profile.painStatement}&rdquo;
+          </p>
           <p className="text-lg text-muted-foreground leading-relaxed italic">{profile.tagline}</p>
         </div>
 

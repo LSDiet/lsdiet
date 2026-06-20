@@ -17,7 +17,7 @@
  *   - Neon glow = lightweight layered box-shadow only (dialed back ~20%)
  *   - Animation limited to the chevron bounce
  */
-import { ChevronDown, ChevronRight, ArrowRight, Compass, BatteryLow, TrendingDown, Footprints, CloudRain } from "lucide-react";
+import { ChevronDown, ChevronRight, ArrowRight, Compass, BatteryLow, TrendingDown, RotateCcw, CloudRain } from "lucide-react";
 
 const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
@@ -86,11 +86,11 @@ type Pain = {
 };
 
 const pains: Pain[] = [
-  { label: "I don\u2019t know where to start", shortLabel: "Stuck", href: "/weight-regain-profile/overwhelmed-beginner", hsl: "0 84% 60%", Icon: Compass },
-  { label: "I have no motivation", shortLabel: "Unmotivated", href: "/weight-regain-profile/motivation-chaser", hsl: "212 90% 60%", Icon: BatteryLow },
-  { label: "The method stops working", shortLabel: "Plateaued", href: "/weight-regain-profile/weight-cycler", hsl: "38 92% 55%", Icon: TrendingDown },
-  { label: "I don\u2019t want to exercise", shortLabel: "Hate exercise", href: "/weight-regain-profile/motivation-chaser", hsl: "150 70% 48%", Icon: Footprints },
-  { label: "I stress eat", shortLabel: "Stress eating", href: "/weight-regain-profile/stress-eater", hsl: "280 70% 65%", Icon: CloudRain },
+  { label: "I don\u2019t know where to start", shortLabel: "Overwhelmed", href: "/weight-regain-profile/overwhelmed-beginner", hsl: "0 84% 60%", Icon: Compass },
+  { label: "I always run out of motivation", shortLabel: "No motivation", href: "/weight-regain-profile/motivation-chaser", hsl: "212 90% 60%", Icon: BatteryLow },
+  { label: "I lose weight but it always comes back", shortLabel: "Always regain", href: "/weight-regain-profile/weight-cycler", hsl: "38 92% 55%", Icon: TrendingDown },
+  { label: "I jump from one method to the next before seeing results", shortLabel: "Can\u2019t commit", href: "/weight-regain-profile/restarter", hsl: "150 70% 48%", Icon: RotateCcw },
+  { label: "I eat when I\u2019m stressed", shortLabel: "Stress eating", href: "/weight-regain-profile/stress-eater", hsl: "280 70% 65%", Icon: CloudRain },
 ];
 
 /** Slightly varied widths so the right-edge cluster reads as ONE organic
