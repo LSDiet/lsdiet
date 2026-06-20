@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { FooterSimple } from "@/components/FooterSimple";
 
 const profiles: Record<string, {
   slug: string;
@@ -23,16 +23,16 @@ const profiles: Record<string, {
     name: "Motivation Chaser",
     youtubeId: "ot6uJo7In24",
     banner: "/profiles/motivation-chaser.png",
-    tagline: "You don't have a discipline problem. You have a dependency problem — on motivation.",
-    whatItMeans: "You are someone who can get highly motivated and make impressive progress when you're emotionally engaged in the goal. Starting is rarely your problem. Maintaining momentum after the initial excitement fades is usually where things become difficult.",
-    whyYouStruggle: "Most Motivation Chasers unknowingly depend on motivation to carry the entire journey. When motivation is high, healthy choices feel easy. When motivation drops, consistency often drops with it. Over time, this creates a cycle of starting, stopping, and restarting.",
-    biggestMistake: "Many people believe they need more motivation. In reality, they need motivation that lasts longer than a Monday morning promise to themselves.",
-    howWPTHelps: "Weight Permanence Training teaches you how to intentionally build and strengthen both push motivations (what you want to avoid) and pull motivations (who you want to become) so your commitment becomes more durable over time. The goal is not to feel motivated every day. The goal is to make weight loss important enough that consistency survives even when motivation doesn't.",
+    tagline: "The person who never has to restart isn't more motivated than you. They just stopped depending on motivation to show up.",
+    whatItMeans: "You start with genuine fire. The pantry gets cleaned out. The gym bag comes back. For a few weeks, everything works. Then life gets ordinary again — and ordinary is the enemy of motivation. Most Motivation Chasers have lost weight before. The problem isn't starting. It's that your entire system depends on a feeling that was never designed to last six months.",
+    whyYouStruggle: "Motivation is a spark, not a fuel source. Every time you rely on it to drive consistency, you're one bad week away from stopping. And when you stop, the restart becomes harder — because now there's shame attached to it too. Over time, the cycle shortens. The starts get smaller. The gaps get longer.",
+    biggestMistake: "Believing the fix is finding stronger motivation. More videos, better quotes, a new program with a better community. The real problem is structural — you've never built a system that doesn't require motivation to run.",
+    howWPTHelps: "Weight Permanence Training builds two specific types of motivation — PUSH (what you're moving away from) and PULL (who you're becoming) — and then trains you to strengthen the emotional connection to both. The goal isn't to feel motivated every day. It's to make your identity clear enough that the habits maintain themselves even when motivation disappears.",
     helpPoints: [
-      "Build emotional connections to both push and pull motivations",
-      "Replace motivation-dependency with identity-driven consistency",
-      "Develop systems that work even when you don't feel like it",
-      "Learn why your past restarts happened — and how to prevent the next one",
+      "Build PUSH motivation: an emotionally connected reason to stop the regain cycle",
+      "Build PULL motivation: a specific identity to move toward, not just a weight goal",
+      "Learn why your past restarts happened — the exact trigger, not a vague explanation",
+      "Develop a system that runs on identity, not feelings",
     ],
     outcome: "You don't need another restart. You need a system that makes restarting unnecessary.",
     seoTitle: "Motivation Chaser Weight Regain Profile | Why Motivation Alone Fails",
@@ -43,38 +43,38 @@ const profiles: Record<string, {
     name: "Overwhelmed Beginner",
     youtubeId: "XvJoKFvXe0M",
     banner: "/profiles/overwhelmed-beginner.png",
-    tagline: "You don't need more information. You need clarity on what actually matters.",
-    whatItMeans: "You are likely carrying around a lot of weight loss information already. The challenge is not a lack of knowledge. The challenge is knowing which advice to trust and what to focus on first.",
-    whyYouStruggle: "When there are too many options, every decision becomes harder. Many people end up jumping between diets, watching endless videos, reading conflicting advice, and second-guessing themselves. Instead of moving forward, they become stuck in analysis mode.",
-    biggestMistake: "Most people assume they need more information. In reality, they often need less information and more clarity.",
-    howWPTHelps: "Weight Permanence Training helps you cut through the noise and focus on the few behaviours that matter most. Instead of giving you more information, it helps you simplify decisions, identify what actually matters, and build confidence through consistent action.",
+    tagline: "You don't need a better diet. You need to stop letting the search for the perfect diet keep you from starting the one in front of you.",
+    whatItMeans: "You're not a beginner at dieting. You're overwhelmed by the industry built around it. One expert says eat less and move more. Another says that's outdated. One study says breakfast is essential. Another says skip it entirely. After years of this, your default response to new information isn't excitement — it's exhaustion.",
+    whyYouStruggle: "Analysis paralysis is real. When you can't decide what's right, you default to either doing nothing or bouncing between systems. Neither produces the consistent behaviour that actually drives weight change. Every new piece of information introduces a new reason to wait.",
+    biggestMistake: "Assuming more research will eventually give you enough confidence to start. It usually does the opposite. The diet industry is designed to keep you consuming content — not to get you to a decision. More information is how they keep you engaged, not how you lose weight.",
+    howWPTHelps: "Weight Permanence Training doesn't give you more information to evaluate. It gives you a framework for understanding your own behaviour — why you eat the way you eat, what triggers it, what it costs you, and who you want to become. That's the data that actually moves people. Not another nutrition study.",
     helpPoints: [
-      "Stop chasing conflicting advice from different experts",
-      "Focus on actions instead of endless research",
-      "Build confidence through consistency — not knowledge",
-      "Create a simple system that supports long-term success",
+      "Stop collecting strategies and start understanding your actual patterns",
+      "Identify the specific friction points that stall your progress — yours, not everyone's",
+      "Build confidence through consistent action, not through more research",
+      "Learn to make decisions from self-awareness instead of expert consensus",
     ],
-    outcome: "You do not need another expert to confuse you. You need a process that helps you act on what already matters.",
+    outcome: "You already have enough information. What you need is a reason to act on it.",
     seoTitle: "Overwhelmed Beginner Weight Regain Profile | Information Overload and Weight Loss",
-    seoDescription: "Too much advice is making you stuck. Learn why Overwhelmed Beginners struggle with weight loss and how Weight Permanence Training provides clarity.",
+    seoDescription: "Too much advice is keeping you stuck. Learn why Overwhelmed Beginners struggle with weight loss and how Weight Permanence Training cuts through the noise.",
   },
   "restarter": {
     slug: "restarter",
     name: "Restarter",
     youtubeId: "L45rGwguXWA",
     banner: "/profiles/restarter.png",
-    tagline: "You're not someone who quits. You're someone who hasn't learned to recover yet.",
-    whatItMeans: "You are someone who has likely started many weight loss efforts throughout your life. The challenge is not getting started. The challenge is staying connected to the process when life interrupts your routine.",
-    whyYouStruggle: "Most people expect consistency to be perfect. When a setback happens, they feel like they've failed and decide to start over later instead of recovering immediately. Over time, small interruptions become long breaks and long breaks become complete restarts.",
-    biggestMistake: "Restarters often believe their problem is discipline. More often, the problem is recovery. One difficult day becomes a difficult week. One missed workout becomes a lost month. One off-plan meal becomes permission to abandon the entire effort.",
-    howWPTHelps: "Weight Permanence Training teaches you how to recognise setbacks early and recover before they become restarts. The goal is not to be perfect. The goal is to become someone who recovers faster than they drift.",
+    tagline: "The goal isn't to stop having bad days. It's to stop letting bad days reset the clock.",
+    whatItMeans: "Every Monday has been a potential turning point. You're not lazy — if anything, you've put more effort into weight loss than most people. The problem is that your system doesn't survive contact with real life. A stressful project, a vacation, a family situation — and the whole structure collapses. Then you rebuild from scratch instead of picking up where you left off.",
+    whyYouStruggle: "You've been treating consistency as an all-or-nothing state. Either you're fully on the plan, or you've failed and need to start again. This binary thinking turns every interruption into a reset. The longer the restart takes, the deeper the regression. Over time, the gaps between starts get longer and the starts themselves get smaller.",
+    biggestMistake: "Believing the fix is a stronger plan — more detailed, more structured, more bulletproof. The real skill you're missing isn't planning. It's recovery. Knowing what to do the day after a bad day is more valuable than having a perfect day.",
+    howWPTHelps: "Weight Permanence Training treats recovery as a specific skill, not an afterthought. Pattern Awareness shows you exactly when and how your consistency starts to break down — before it becomes a full restart. Consequence Awareness makes the cost of each restart feel real rather than abstract. Identity Awareness gives you a version of yourself to return to, not a new plan to follow.",
     helpPoints: [
-      "Identify when consistency is beginning to break down",
-      "Recover from mistakes without starting all over",
-      "Build habits that survive real-life disruptions",
-      "Reduce the restart cycle that keeps you stuck",
+      "Identify the exact moment your consistency starts to slip — before it becomes a restart",
+      "Learn to recover from a bad day or week without starting over",
+      "Understand what specifically interrupts your consistency — every time",
+      "Build an identity that survives real-life disruptions",
     ],
-    outcome: "You don't need another fresh start. You need fewer reasons to start over in the first place.",
+    outcome: "You don't need another fresh start. You need to become someone who recovers faster than they drift.",
     seoTitle: "Restarter Weight Regain Profile | Why You Keep Starting Over With Weight Loss",
     seoDescription: "Every Monday feels like day one. Learn why Restarters keep cycling back to the beginning and how Weight Permanence Training breaks that pattern.",
   },
@@ -83,18 +83,18 @@ const profiles: Record<string, {
     name: "Stress Eater",
     youtubeId: "3gvPOGk03qs",
     banner: "/profiles/stress-eater.png",
-    tagline: "You're not out of control. Your brain has learned to use food as a coping tool.",
-    whatItMeans: "You likely understand more about healthy eating than you give yourself credit for. The challenge is not knowledge. The challenge is that stress, frustration, boredom, loneliness, or exhaustion often influence eating decisions.",
-    whyYouStruggle: "Stress creates a strong desire for relief. For many people, food becomes the fastest and most reliable source of comfort. Over time, the brain begins to associate difficult emotions with eating, making healthy intentions harder to follow when stress levels rise.",
-    biggestMistake: "Many Stress Eaters focus entirely on food — trying harder diets, stricter rules, or more willpower. The real issue is that the emotional trigger remains untouched. As long as food remains the primary coping strategy, the cycle tends to repeat itself.",
-    howWPTHelps: "Weight Permanence Training helps you recognise the situations, emotions, and patterns that lead to stress eating before they take over. Permanent weight loss doesn't happen when stress disappears. It happens when stress stops making your decisions for you.",
+    tagline: "You're not trying to eliminate stress. You're building a version of yourself for whom food is no longer the default response to it.",
+    whatItMeans: "You know more about nutrition than most people. The problem isn't knowledge — it's that food has a second job in your life. When you're stressed, overwhelmed, exhausted, or running on empty, food reliably makes it quieter for a few minutes. Your brain has filed that under \"effective coping strategy.\" And it's not wrong — it works in the short term. That's exactly why it keeps happening.",
+    whyYouStruggle: "You can't willpower your way out of a coping mechanism. Every time you try to white-knuckle past stress-driven eating, you're fighting a behaviour your nervous system reinforced hundreds of times. The harder you resist, the more depleted you become — and the more vulnerable you are the next time stress shows up.",
+    biggestMistake: "Focusing exclusively on food rules. Stricter macros, no-eating-after-8pm rules, removing trigger foods from the house. These reduce opportunity but don't touch the underlying response. The next stressor finds a way through anyway, because the emotional trigger was never addressed.",
+    howWPTHelps: "Weight Permanence Training starts with Pattern Awareness — mapping exactly when, where, and why stress eating happens in your specific life. Not in general. In yours. Then Consequence Awareness builds a real reason to interrupt the pattern. Identity Awareness gives you a version of yourself that responds to stress differently — not because you forced it, but because you changed what you believe about who you are.",
     helpPoints: [
-      "Identify emotional eating triggers before they take over",
-      "Increase awareness of automatic eating decisions",
-      "Build alternative responses to stress and difficult emotions",
-      "Create habits that support long-term consistency",
+      "Map your specific stress eating triggers — the situations, emotions, and times that drive it",
+      "Build awareness before the automatic response fires, not after",
+      "Develop a PUSH motivation strong enough to interrupt the pattern in the moment",
+      "Build an identity that doesn't use food as a stress management tool",
     ],
-    outcome: "The goal is not to eliminate stress. The goal is to stop stress from controlling your eating decisions.",
+    outcome: "The food is not the problem. The food is the symptom. WPT addresses what's underneath.",
     seoTitle: "Stress Eater Weight Regain Profile | Emotional Eating and Weight Regain",
     seoDescription: "You're not weak — your brain learned to cope with food. Learn why Stress Eaters regain weight and how Weight Permanence Training rewires that pattern.",
   },
@@ -103,18 +103,18 @@ const profiles: Record<string, {
     name: "Weight Cycler",
     youtubeId: "TScfhpE7YyI",
     banner: "/profiles/weight-cycler.png",
-    tagline: "You know how to lose weight. The real problem is what happens after.",
-    whatItMeans: "You've probably experienced successful weight loss before. Unlike many others, your main challenge isn't figuring out how to lose weight — it's maintaining your progress and preventing the weight from coming back over time.",
-    whyYouStruggle: "Many weight-loss plans focus on achieving a target weight. They overlook what comes next. When the initial motivation, structure, and excitement fade away, old habits tend to creep back in. The program ends, but the environment that caused the weight gain never changed.",
-    biggestMistake: "Most Weight Cyclers assume they need a better weight loss plan. In reality, they often need a better weight maintenance plan. The issue is not losing weight. The issue is what happens after the weight is lost.",
-    howWPTHelps: "Weight Permanence Training builds the awareness and habits needed to prevent the regain cycle from repeating itself. You'll gain clarity on why weight comes back, what sparks the cycle, how to respond early before things get out of hand, and how to treat maintenance as a permanent achievement rather than an afterthought.",
+    tagline: "You already know how to lose weight. What you need to learn is how to become someone who doesn't have to.",
+    whatItMeans: "You've already proven you can lose weight. That's not the problem. The problem is that every program you followed was designed to get you to a number on a scale — and then it stopped. No one taught you what to do with the life you were supposed to live once you got there. So old habits slowly refilled the space the diet vacated.",
+    whyYouStruggle: "Weight loss programs end. Old environments don't. The people, places, habits, and patterns that existed before the diet are still there after it. Without a system designed for maintenance, you're relying on willpower to hold the line indefinitely — and willpower is a finite resource that was already depleted by the diet itself.",
+    biggestMistake: "Looking for a better weight loss plan. You don't need one. You need a weight maintenance plan — built before you reach your goal weight, not after. The window between reaching goal and starting to regain is usually weeks. Most people don't act on it because they're still celebrating.",
+    howWPTHelps: "Weight Permanence Training treats maintenance as the primary objective, not an afterthought. The 5 Awareness Stages are specifically designed to build the self-understanding needed to sustain change — not just achieve it. Consequence Awareness makes the next regain feel preventable rather than inevitable. Identity Awareness builds a version of you that identifies as someone who maintains, not someone who is currently on a diet.",
     helpPoints: [
-      "Understand exactly why your weight returned after past success",
-      "Build push and pull motivations that survive the post-diet phase",
-      "Develop awareness of the patterns that trigger regain",
-      "Create a maintenance identity, not just a weight-loss identity",
+      "Understand exactly why your weight returned after each successful loss",
+      "Build a maintenance identity before you reach your goal — not after",
+      "Identify the specific patterns that signal the start of a regain cycle",
+      "Develop PUSH and PULL motivations strong enough to survive the post-diet phase",
     ],
-    outcome: "The real finish line isn't losing the weight. The real finish line is never having to lose the same weight again.",
+    outcome: "The real finish line isn't losing the weight. It's never having to lose the same weight again.",
     seoTitle: "Weight Cycler Profile | Why You Keep Regaining Weight After Losing It",
     seoDescription: "You've lost weight before — but it keeps coming back. Learn why Weight Cyclers regain and how Weight Permanence Training ends the cycle for good.",
   },
@@ -133,7 +133,7 @@ export default function WeightRegainProfilePage() {
           <p className="text-muted-foreground">That weight regain profile doesn't exist.</p>
           <Link to="/awareness-stages" className="text-primary underline">Go back to Awareness Stages</Link>
         </div>
-        <Footer />
+        <FooterSimple />
       </div>
     );
   }
@@ -163,7 +163,7 @@ export default function WeightRegainProfilePage() {
         <div className="mb-8">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Your Weight Regain Profile</p>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{profile.name}</h1>
-          <p className="text-lg text-muted-foreground leading-relaxed">{profile.tagline}</p>
+          <p className="text-lg text-muted-foreground leading-relaxed italic">{profile.tagline}</p>
         </div>
 
         {/* YouTube video */}
@@ -188,21 +188,21 @@ export default function WeightRegainProfilePage() {
           <hr className="border-border" />
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mb-3">Why {profile.name}s Struggle</h2>
+            <h2 className="text-xl font-bold text-foreground mb-3">Why You Keep Struggling</h2>
             <p className="text-muted-foreground leading-relaxed">{profile.whyYouStruggle}</p>
           </section>
 
           <hr className="border-border" />
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mb-3">The Biggest Mistake</h2>
+            <h2 className="text-xl font-bold text-foreground mb-3">The Mistake Most {profile.name}s Make</h2>
             <p className="text-muted-foreground leading-relaxed">{profile.biggestMistake}</p>
           </section>
 
           <hr className="border-border" />
 
           <section>
-            <h2 className="text-xl font-bold text-foreground mb-3">How Weight Permanence Training Helps</h2>
+            <h2 className="text-xl font-bold text-foreground mb-3">How Weight Permanence Training Addresses This</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">{profile.howWPTHelps}</p>
             <ul className="space-y-2">
               {profile.helpPoints.map((point, i) => (
@@ -235,9 +235,8 @@ export default function WeightRegainProfilePage() {
               Join Free — Skool Community
             </a>
             <p className="text-xs text-muted-foreground pt-1">
-              Want to go deeper?{" "}
-              <Link to="/quiz" className="underline">Take the full Weight Regain Profile Quiz</Link>
-              {" "}to get your personalised email series.
+              Want your personalised email series?{" "}
+              <Link to="/quiz" className="underline">Take the full Weight Regain Profile Quiz</Link>.
             </p>
           </div>
 
@@ -254,7 +253,7 @@ export default function WeightRegainProfilePage() {
         </div>
       </main>
 
-      <Footer />
+      <FooterSimple />
     </div>
   );
 }
