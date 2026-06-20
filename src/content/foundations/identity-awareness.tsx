@@ -80,260 +80,154 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
-      <Lead>Many people try to lose weight because they want to escape discomfort. But long term consistency often requires something more powerful.</Lead>
+      <Lead>You've been trying to change your behaviour. You should be trying to change who you are.</Lead>
       <P>
-        Identity Awareness is the fifth stage of the{" "}
+        Behaviour follows identity. What you do consistently is a reflection of how you see
+        yourself — not the other way around. This is why people who lose weight and then
+        regain it are not failing at the diet. They're succeeding at being the version of
+        themselves they still believe they are.
+      </P>
+      <P>
+        Identity Awareness is the fifth and final awareness stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
-        </a>{" "}
-        (WPT), and it is the stage that most directly addresses{" "}
-        <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
-          why weight regain happens
-        </a>{" "}
-        after motivation fades.
+        </a>
+        . It builds PULL motivation — the forward force that draws you toward a version
+        of yourself you genuinely want to become, rather than pushing you away from
+        consequences you're trying to avoid.
       </P>
-      <P>This stage focuses on:</P>
-      <UL
-        items={[
-          "future identity",
-          "future possibility",
-          "personal meaning",
-          "emotional direction",
-          "long term purpose",
-        ]}
-      />
-      <P>PULL motivation develops when future identity becomes emotionally important enough to pursue consistently.</P>
       <P>
-        Unlike PUSH motivation, which moves people away from pain (see{" "}
-        <a href="/blog/consequence-awareness" className="text-accent hover:underline">Consequence Awareness</a>),
-        PULL motivation moves people toward possibility.
+        PUSH motivation from{" "}
+        <a href="/blog/consequence-awareness" className="text-accent hover:underline">
+          Consequence Awareness
+        </a>{" "}
+        creates urgency. Identity Awareness creates direction.
       </P>
-      <P>This stage asks:</P>
-      <UL
-        items={[
-          "Who do you want to become?",
-          "What kind of future are you moving toward?",
-          "What would long term consistency allow you to experience?",
-          "What would change emotionally, physically, socially, or professionally?",
-        ]}
-      />
-      <P>Because behaviour often becomes more sustainable when it aligns with identity.</P>
 
       <H2>What Is Identity Awareness?</H2>
-      <P>Identity Awareness focuses on future self connection. This stage examines:</P>
+      <P>
+        Identity Awareness asks you to articulate who you are becoming — not who you
+        want to be eventually, but who you are actively deciding to become right now.
+        That distinction matters. "Someday" is a deferral. "I am becoming" is a decision.
+      </P>
+      <P>
+        The stage examines three things:
+      </P>
       <UL
         items={[
-          "the future you want",
-          "the life you want",
-          "the capability you want",
-          "the identity you want to build",
-        ]}
-      />
-      <P>Many people approach weight loss only as:</P>
-      <UL items={["restriction", "punishment", "temporary suffering", "obligation"]} />
-      <P>That mindset often creates resistance. Identity Awareness changes the emotional direction of change.</P>
-      <P>Instead of only asking:</P>
-      <blockquote className="border-l-4 border-accent pl-5 my-6 text-lg md:text-xl italic text-zinc-900">
-        “What am I trying to avoid?”
-      </blockquote>
-      <P>It also asks:</P>
-      <blockquote className="border-l-4 border-accent pl-5 my-6 text-lg md:text-xl italic text-zinc-900">
-        “What am I trying to become?”
-      </blockquote>
-      <P>Examples:</P>
-      <UL
-        items={[
-          "a healthier parent",
-          "someone physically capable",
-          "someone consistent",
-          "someone energetic",
-          "someone confident",
-          "someone who no longer feels controlled by food",
-          "someone free to travel, move, and participate fully in life",
-        ]}
-      />
-      <P>Identity Awareness helps make future possibility emotionally meaningful. Because people often sustain difficult behaviour longer when it feels personally important.</P>
-
-      <H2>Why Identity Often Shapes Behaviour</H2>
-      <P>Human behaviour is heavily influenced by identity. Examples:</P>
-      <UL
-        items={[
-          "smokers smoke",
-          "athletes train",
-          "organized people maintain systems",
-          "healthy people prioritize healthy behaviour",
-        ]}
-      />
-      <P>Identity influences:</P>
-      <UL items={["priorities", "routines", "decisions", "standards", "consistency"]} />
-      <P>This matters because many people repeatedly attempt behavioural change without changing identity perception. Examples:</P>
-      <UL
-        items={[
-          "“I’m lazy.”",
-          "“I’ve always struggled.”",
-          "“I’m not disciplined.”",
-          "“I always fail eventually.”",
+          "Who is the version of you that has already solved this problem? What do they do, value, and prioritize?",
+          "What gap exists between who you are today and who that person is?",
+          "What one or two behaviours, if practised consistently, would begin closing that gap?",
         ]}
       />
       <P>
-        Over time, repeated failure experiences can become psychologically internalized. People begin identifying with
-        inconsistency itself. For more on those repeating loops, see{" "}
-        <a href="/blog/pattern-awareness" className="text-accent hover:underline">Pattern Awareness</a>.
+        Identity Awareness is not about visualization or positive thinking. It is about
+        building a specific, concrete picture of the person you're choosing to become —
+        and then making decisions from that identity instead of from your current one.
       </P>
-      <P>Identity Awareness helps interrupt that cycle. Because when behaviour aligns with meaningful identity, consistency often feels less forced.</P>
 
-      <H2>Why PULL Motivation Matters</H2>
-      <P>Many people initially change because of PUSH motivation. Examples:</P>
-      <UL
-        items={[
-          "fear",
-          "discomfort",
-          "declining health",
-          "frustration",
-          "physical limitation",
-        ]}
-      />
-      <P>But fear alone often fades over time. PULL motivation helps sustain long term direction. Examples:</P>
-      <UL
-        items={[
-          "wanting confidence",
-          "wanting freedom",
-          "wanting capability",
-          "wanting self respect",
-          "wanting energy",
-          "wanting a different future",
-          "wanting alignment between behaviour and identity",
-        ]}
-      />
-      <P>PULL motivation changes the emotional tone of behaviour.</P>
-      <P>Instead of:</P>
-      <blockquote className="border-l-4 border-accent pl-5 my-6 text-lg md:text-xl italic text-zinc-900">
-        “I have to lose weight.”
+      <H2>Why Behaviour Follows Identity</H2>
+      <P>
+        People don't act consistently with what they know. They act consistently with
+        how they see themselves. A person who sees themselves as "someone who tries to
+        eat healthy" will eventually eat unhealthily, because the identity has a built-in
+        escape hatch — trying is not the same as being.
+      </P>
+      <P>
+        A person who has decided "I am someone who prioritizes healthy behaviour" makes
+        a different calculation every time a decision comes up. Not because they have
+        more willpower, but because the decision is no longer a negotiation. It's an
+        expression of who they are.
+      </P>
+      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
+        Smokers smoke. Healthy people prioritize healthy behaviour. You become what you
+        repeatedly decide you are.
       </blockquote>
-      <P>The mindset gradually becomes:</P>
-      <blockquote className="border-l-4 border-accent pl-5 my-6 text-lg md:text-xl italic text-zinc-900">
-        “This is the kind of person I want to become.”
-      </blockquote>
-      <P>That shift matters psychologically. Because identity based behaviour often feels more purposeful and sustainable than behaviour driven only by fear or restriction.</P>
+      <P>
+        This is the Identity-Alignment Rule at the core of Weight Permanence Training.
+        Behaviour that conflicts with your identity creates internal tension. Behaviour
+        that aligns with your identity feels natural, even when it's difficult.
+      </P>
 
-      <H2>Why Future Possibility Matters</H2>
-      <P>Many people become trapped focusing only on current problems. Examples:</P>
-      <UL
-        items={[
-          "current body weight",
-          "current frustration",
-          "current limitations",
-          "current setbacks",
-          "current failures",
-        ]}
-      />
-      <P>Identity Awareness shifts focus toward future possibility. Examples:</P>
-      <UL
-        items={[
-          "future mobility",
-          "future freedom",
-          "future relationships",
-          "future confidence",
-          "future experiences",
-          "future opportunities",
-          "future self respect",
-        ]}
-      />
-      <P>This matters because people move more consistently toward emotionally meaningful futures.</P>
-      <P>Without future direction, behaviour often feels:</P>
-      <UL items={["forced", "repetitive", "restrictive", "exhausting"]} />
-      <P>Identity Awareness helps behaviour feel connected to something bigger than dieting itself. That emotional connection strengthens long term consistency.</P>
+      <H2>Why PULL Motivation Lasts Longer Than PUSH Motivation</H2>
+      <P>
+        PUSH motivation — the urgency that comes from consequences, fear, or pain —
+        is powerful but temporary. Once the discomfort fades, so does the motivation.
+        This is why people restart weight loss after a health scare, stay disciplined
+        for a few weeks, then gradually drift back when the fear loses its edge.
+      </P>
+      <P>
+        PULL motivation works differently. It doesn't depend on how bad you feel
+        right now. It depends on how clearly you can see the person you're becoming
+        and how much you want to be that person. That clarity doesn't fade the same
+        way urgency does — it compounds. Every action you take that aligns with your
+        intended identity reinforces the identity itself.
+      </P>
+      <P>
+        The goal of Identity Awareness is to build PULL motivation strong enough that
+        behaviour change stops requiring daily willpower. You're not fighting your old
+        habits. You're expressing your new identity.
+      </P>
 
-      <H2>Why Identity Awareness Is Not Fantasy</H2>
-      <P>Identity Awareness is not pretending. It is not:</P>
-      <UL
-        items={[
-          "unrealistic optimism",
-          "motivational fantasy",
-          "perfectionism",
-          "fake confidence",
-        ]}
-      />
-      <P>The purpose is not to imagine becoming flawless. The purpose is to create meaningful direction.</P>
-      <P>Many people never clearly define:</P>
-      <UL
-        items={[
-          "who they want to become",
-          "why change matters personally",
-          "what long term consistency would emotionally improve",
-        ]}
-      />
-      <P>Without that clarity, behaviour often loses emotional importance during stress. Identity Awareness helps create psychological anchoring. Because behaviour becomes easier to repeat when it aligns with meaningful identity.</P>
+      <H2>The Moral Licensing Trap</H2>
+      <P>
+        One of the most common reasons identity-based change fails is moral licensing —
+        the unconscious belief that doing something good earlier in the day earns you
+        permission to do something self-sabotaging later. "I exercised this morning,
+        so I deserve this."
+      </P>
+      <P>
+        Moral licensing is an identity problem. It means the behaviour was performed as
+        an action, not as an expression of identity. A healthy person doesn't think
+        "I earned this" — because the action was never a sacrifice to be compensated.
+        It was just what they do.
+      </P>
+      <P>
+        WPT actively counters moral licensing through the "I am… so I…" framework.
+        When behaviour is anchored to identity rather than effort, the compensation
+        logic breaks down.
+      </P>
 
-      <H2>Why Weight Loss Often Becomes More Sustainable When Connected to Identity</H2>
-      <P>Many people approach weight loss temporarily. Examples:</P>
-      <UL
-        items={[
-          "“I’ll do this for 3 months.”",
-          "“I just need motivation.”",
-          "“I’ll go back to normal afterward.”",
-        ]}
-      />
-      <P>But if “normal” created repeated regain previously, returning to old identity patterns often recreates old outcomes.</P>
-      <P>Identity Awareness shifts the focus from temporary dieting toward long term behavioural identity. Examples:</P>
-      <UL
-        items={[
-          "becoming someone who prioritizes consistency",
-          "becoming someone who plans intentionally",
-          "becoming someone who handles stress differently",
-          "becoming someone who values long term health",
-          "becoming someone who no longer feels controlled by cravings",
-        ]}
-      />
-      <P>This is one reason behavioural permanence matters. Because sustainable weight loss usually requires sustainable identity alignment.</P>
+      <H2>Why Identity Change Feels Uncomfortable at First</H2>
+      <P>
+        Your current identity has been reinforced for years. Every choice you've made
+        has strengthened it. Choosing differently feels like a contradiction — which
+        the brain interprets as a threat. This is why change that feels right in theory
+        still feels wrong in practice at first.
+      </P>
+      <P>
+        That discomfort is not a sign you're doing it wrong. It's a sign that the
+        old identity is being challenged. The discomfort decreases as the new behaviour
+        becomes the new norm — not through discipline, but through repetition.
+        Repetition builds identity. Identity makes behaviour feel automatic.
+      </P>
 
       <H2>How LS Diet Uses Identity Awareness</H2>
-      <P>LS Diet focuses heavily on behavioural permanence. Many people already understand:</P>
-      <UL items={["nutrition basics", "calorie concepts", "exercise recommendations"]} />
-      <P>But consistency still collapses repeatedly. Why? Because behaviour is heavily influenced by:</P>
-      <UL
-        items={[
-          "emotional meaning",
-          "identity",
-          "routines",
-          "environments",
-          "psychological prioritization",
-        ]}
-      />
-      <P>Identity Awareness helps people emotionally connect behaviour to:</P>
-      <UL
-        items={[
-          "future capability",
-          "future freedom",
-          "future confidence",
-          "future direction",
-          "future self respect",
-        ]}
-      />
       <P>
-        <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" className="text-accent hover:underline">
-          LS Diet
-        </a>{" "}
-        then helps simplify long term consistency through:
+        Every stage of the awareness training builds toward this one. Reality Awareness
+        shows you where you are. Friction Awareness names the gap. Pattern Awareness maps
+        the behaviour driving the gap. Consequence Awareness makes the cost of staying
+        in the gap feel real. Identity Awareness gives you a direction to move toward.
       </P>
-      <UL
-        items={[
-          "low-starch, low-sugar eating",
-          "improved fullness",
-          "reduced cravings",
-          "awareness training",
-          "repeatable Action Practice systems",
-          "sustainable routines",
-          "slow jogging as sustainable movement",
-        ]}
-      />
-      <P>The goal is not temporary dieting intensity. The goal is building a sustainable lifestyle aligned with the future you genuinely want.</P>
+      <P>
+        From here, the practical work begins in{" "}
+        <a href="/blog/action-practice" className="text-accent hover:underline">
+          Action Practice
+        </a>{" "}
+        — daily behavioural modules designed to make your new identity feel lived-in
+        rather than aspirational. But identity has to come first. Action Practice
+        without a clear identity is just willpower with extra steps.
+      </P>
       <P>
         Built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
         </a>
-        , who lost 80+ lbs three times before designing the system.
+        , who lost 80+ lbs three times before designing the system. Explore the{" "}
+        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™ topic hub
+        </a>{" "}
+        for related foundations.
       </P>
       <P>
         Stop regaining weight:{" "}

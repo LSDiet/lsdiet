@@ -80,233 +80,149 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
-      <Lead>Many people believe weight loss starts with motivation. But sustainable change often starts with friction.</Lead>
+      <Lead>You know what you should do. Something keeps stopping you. This stage names it.</Lead>
+      <P>
+        Friction is the gap between your current behaviour and the life you actually want.
+        It's not vague dissatisfaction. It's a specific, nameable distance between where
+        you are and where you're trying to go.
+      </P>
+      <P>
+        Most people skip this stage entirely. They try to fix behaviour before they've
+        honestly named what's making the current behaviour so persistent. So they get
+        motivated, start a new plan, hit the same invisible wall, and restart.
+      </P>
       <P>
         Friction Awareness is the second stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>{" "}
-        (WPT).
+        because you can't resolve friction you haven't acknowledged. The gap between
+        knowing and doing is not motivation — it's friction. And friction has a source.
       </P>
-      <P>This stage examines the tension between:</P>
-      <UL items={["your current behaviour", "your current condition", "the future you want"]} />
-      <P>Without friction, people rarely change consistently.</P>
-      <P>The purpose of Friction Awareness is not shame. It is honesty.</P>
-      <P>Not to attack yourself. Not to judge yourself. Not to feel hopeless.</P>
-      <P>The goal is to recognize the gap between:</P>
-      <UL items={["where you are today", "and where you genuinely want to go"]} />
-      <P>Because until that gap becomes psychologically meaningful, change usually remains optional.</P>
 
       <H2>What Is Friction Awareness?</H2>
-      <P>Friction Awareness focuses on identifying internal tension.</P>
-      <P>Sometimes that tension is painful. Examples include:</P>
-      <UL
-        items={[
-          "feeling physically limited",
-          "struggling with mobility",
-          "frustration from repeated regain",
-          "emotional exhaustion from dieting",
-          "low confidence",
-          "discomfort in social situations",
-          "worrying about long term health",
-        ]}
-      />
-      <P>But friction is not always negative. Sometimes friction comes from possibility. Examples include:</P>
-      <UL
-        items={[
-          "wanting confidence",
-          "wanting capability",
-          "wanting energy",
-          "wanting freedom while travelling",
-          "wanting to become athletic again",
-          "wanting to climb a mountain",
-          "wanting a different future",
-        ]}
-      />
-      <P>Both forms of tension matter.</P>
-      <P>Some people change because they want to escape pain. Others change because they want to pursue possibility. Most people experience both.</P>
-      <P>Friction Awareness simply asks:</P>
-      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        “What tension exists between my current condition and the future I want?”
-      </blockquote>
-      <P>That tension creates psychological movement. Without it, routines usually stay the same.</P>
+      <P>
+        Friction Awareness identifies the specific tension that exists between your current
+        reality and your intended direction. That tension can come from two places.
+      </P>
+      <P>
+        Sometimes it's pain: feeling physically limited, struggling with mobility,
+        exhaustion from repeated dieting cycles, low confidence, discomfort in social
+        situations, worry about long-term health consequences.
+      </P>
+      <P>
+        Sometimes it's possibility: wanting the energy you had five years ago, wanting
+        to travel without physical limitations, wanting to set an example for your kids,
+        wanting to recognize yourself in photos again.
+      </P>
+      <P>
+        Both forms of tension matter. Some people change because they want to escape pain.
+        Others change because they want to pursue something. Most experience both at once.
+        Friction Awareness simply asks: what is the real gap, and is it close enough to
+        feel urgent?
+      </P>
 
       <H2>Why Tension Often Precedes Change</H2>
-      <P>Most meaningful behaviour change begins when remaining the same becomes psychologically harder than changing.</P>
-      <P>This does not always mean crisis. Sometimes it is:</P>
-      <UL items={["frustration", "discomfort", "exhaustion", "disappointment", "ambition", "aspiration", "desire for growth"]} />
       <P>
-        The important point is this:{" "}
-        <strong className="text-zinc-900">
-          people rarely sustain difficult behavioural changes without emotionally meaningful reasons.
-        </strong>
+        People don't change when they think about changing. They change when not changing
+        feels worse than changing. That's what tension does — it makes the cost of
+        staying the same impossible to ignore.
       </P>
-      <P>Temporary dieting often fails because the motivation is weak, vague, or disconnected from daily life.</P>
-      <P>Many people say:</P>
-      <UL items={["“I should lose weight.”", "“I know what to do.”", "“I need more discipline.”"]} />
-      <P>But those thoughts often lack emotional urgency. Friction Awareness helps make the problem psychologically real. Not exaggerated. Not catastrophic. Just real.</P>
-      <P>The later stages of WPT expand this further:</P>
-      <UL
-        items={[
-          "Consequence Awareness develops PUSH motivation",
-          "Identity Awareness develops PULL motivation",
-        ]}
-      />
-      <P>Friction Awareness is where the tension first becomes visible.</P>
+      <P>
+        Without named friction, change stays optional. You can always start "next week"
+        because there's no real urgency. The Monday restart cycle exists largely because
+        people never make their friction concrete enough to feel immediate.
+      </P>
+      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
+        Comfortable dissatisfaction is the most common reason people don't change.
+        The situation is bad enough to complain about, but not bad enough to act on.
+      </blockquote>
+      <P>
+        Friction Awareness moves dissatisfaction from vague to specific — from
+        "I'm not happy with my weight" to "this is what my current direction is
+        actually costing me, and I can't keep pretending otherwise."
+      </P>
 
       <H2>Why People Rationalize and Procrastinate Change</H2>
-      <P>Many people do not fail because they lack information. They fail because change is not psychologically prioritized strongly enough.</P>
-      <P>This often appears as procrastination. Examples:</P>
-      <UL
-        items={[
-          "“I’ll start next month.”",
-          "“Work is too stressful right now.”",
-          "“I need more motivation first.”",
-          "“Things will calm down later.”",
-          "“I’ll focus after vacation.”",
-        ]}
-      />
-      <P>Behaviourally, the problem appears physical. Psychologically, the problem is often priority.</P>
-      <P>When something becomes truly important, people usually create time, attention, and energy for it.</P>
-      <P>This is one reason repeated restarting happens. Weight loss remains emotionally secondary compared to:</P>
-      <UL
-        items={[
-          "stress relief",
-          "convenience",
-          "comfort eating",
-          "emotional escape",
-          "work exhaustion",
-          "automatic routines",
-        ]}
-      />
-      <P>People also rationalize problems psychologically. Examples include:</P>
-      <UL
-        items={[
-          "minimizing the problem",
-          "pretending the situation is temporary",
-          "distracting themselves",
-          "emotionally eating to avoid discomfort",
-          "avoiding self reflection",
-          "endlessly blaming circumstances",
-        ]}
-      />
-      <P>These coping patterns temporarily reduce emotional tension. But they also delay behavioural change.</P>
-      <P>Friction Awareness helps interrupt avoidance. Not through shame. Through honesty.</P>
+      <P>
+        The brain is extremely good at making the current situation feel temporary.
+        "I'll get serious after the holidays." "Things will calm down soon."
+        "I've done it before — I can do it again whenever I decide to."
+        These aren't lies. They're rationalizations that protect you from having
+        to act right now.
+      </P>
+      <P>
+        The longer you stay in that holding pattern, the more normal the discomfort
+        becomes. Tighter clothing gets replaced. Activities get quietly dropped. The
+        baseline shifts, and you adapt to it — until the next health scare or
+        emotional breaking point forces the restart cycle again.
+      </P>
+      <P>
+        Friction Awareness interrupts that normalization. It asks you to look at
+        your current direction honestly — not the temporary version you're planning
+        to change, but the actual trajectory if nothing changes.
+      </P>
 
       <H2>Weight Is Often Not the Real Problem</H2>
-      <P>Many people think body weight itself is the main issue. But weight is often the visible symptom. The deeper issue is usually behavioural prioritization.</P>
-      <P>People may genuinely want to lose weight. But psychologically:</P>
-      <UL
-        items={[
-          "convenience becomes higher priority",
-          "emotional relief becomes higher priority",
-          "work becomes higher priority",
-          "food becomes stress management",
-          "routines become automatic",
-        ]}
-      />
-      <P>As a result, long term consistency disappears.</P>
       <P>
-        This is why many people repeatedly regain weight even after successfully losing weight temporarily. For the
-        deeper psychology, read{" "}
+        The number on the scale is a symptom. The real friction is usually underneath it:
+        the energy you've lost, the things you've stopped doing, the version of yourself
+        you keep deferring. Weight is how the friction shows up physically. But that's
+        not where it lives.
+      </P>
+      <P>
+        This is why diets that focus purely on food almost always fail long term. They
+        address the symptom without naming the friction. When the diet ends, the friction
+        is still there — and old behaviour refills the space the diet temporarily vacated.
+      </P>
+      <P>
+        For the deeper explanation of why this cycle repeats, read{" "}
         <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
           Why People Regain Weight After Dieting
         </a>
         .
       </P>
-      <P>The issue is not always knowledge. The issue is that sustainable behaviour never became psychologically important enough to survive:</P>
-      <UL items={["stress", "emotion", "environment", "exhaustion", "routine", "convenience"]} />
-      <P>This is one reason the Weight Permanence Training™ exists. WPT helps people:</P>
-      <UL
-        items={[
-          "understand their psychological state",
-          "identify behavioural patterns",
-          "recognize meaningful motivations",
-          "expose avoidance honestly",
-          "psychologically prioritize change",
-          "build sustainable consistency",
-        ]}
-      />
-      <P>The goal is not temporary dieting intensity. The goal is permanence.</P>
 
       <H2>Friction Awareness Is About Honesty, Not Shame</H2>
-      <P>Many people avoid self assessment because they fear guilt or judgment. But honesty and shame are not the same thing.</P>
-      <P>Friction Awareness is not:</P>
-      <UL items={["self hatred", "punishment", "humiliation", "perfectionism"]} />
-      <P>It is simply the willingness to acknowledge reality clearly. Examples:</P>
-      <UL
-        items={[
-          "“I emotionally eat during stress.”",
-          "“My habits are inconsistent.”",
-          "“I avoid difficult self reflection.”",
-          "“I keep restarting.”",
-          "“My current direction is not leading where I want.”",
-        ]}
-      />
-      <P>Honest awareness creates direction. Avoidance creates stagnation.</P>
-      <P>This stage matters because unresolved friction quietly affects:</P>
-      <UL
-        items={[
-          "confidence",
-          "mobility",
-          "emotional state",
-          "energy",
-          "relationships",
-          "future opportunities",
-          "long term health",
-        ]}
-      />
       <P>
-        Many people try to skip awareness and jump directly into action. But actions without awareness usually collapse
-        under stress. Friction Awareness slows people down long enough to ask:
+        Naming friction is not the same as attacking yourself. You're not building a
+        case for why you're failing. You're identifying what's actually in the way —
+        so you can work with it instead of around it.
       </P>
-      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        “What is truly preventing change right now?”
-      </blockquote>
-      <P>Because the answer is often deeper than food itself. Friction Awareness builds on the baseline established in <a href="/blog/reality-awareness" className="text-accent hover:underline">Reality Awareness</a>.</P>
+      <P>
+        The goal is not to feel bad about the gap. The goal is to make it specific
+        enough that it stops being deniable. A gap you can see clearly is one you can
+        close. A gap you keep softening in your own mind stays open indefinitely.
+      </P>
+      <P>
+        From here, the next stage —{" "}
+        <a href="/blog/pattern-awareness" className="text-accent hover:underline">
+          Pattern Awareness
+        </a>{" "}
+        — maps exactly how and when the behaviour that created this friction keeps
+        repeating.
+      </P>
 
       <H2>How LS Diet Uses Friction Awareness</H2>
-      <P>LS Diet is not only focused on food. It focuses heavily on behavioural permanence.</P>
-      <P>Many people already know:</P>
-      <UL items={["calories matter", "movement matters", "processed foods affect appetite"]} />
-      <P>But long term consistency still fails. Why? Because behaviour is heavily influenced by:</P>
-      <UL
-        items={[
-          "stress",
-          "emotion",
-          "routine",
-          "environment",
-          "avoidance",
-          "coping patterns",
-          "psychological prioritization",
-        ]}
-      />
-      <P>Friction Awareness helps expose those deeper patterns honestly.</P>
       <P>
-        <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" className="text-accent hover:underline">
-          LS Diet
-        </a>{" "}
-        then helps simplify behaviour through:
+        LS Diet doesn't try to motivate you past friction. It helps you map the friction
+        clearly so the right changes target the right problems.
       </P>
-      <UL
-        items={[
-          "low-starch, low-sugar eating",
-          "improved fullness",
-          "reduced cravings",
-          "sustainable routines",
-          "awareness training",
-          "repeatable Action Practice systems",
-          "slow jogging as sustainable movement",
-          "behavioural consistency",
-        ]}
-      />
-      <P>The goal is not perfection. The goal is building a lifestyle sustainable enough to continue during real life.</P>
+      <P>
+        Most people try to change everything at once and overwhelm themselves within two
+        weeks. Friction Awareness shows you where the actual resistance is — which means
+        you can address it directly instead of burning energy on the wrong things.
+      </P>
       <P>
         Built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
         </a>
-        , who lost 80+ lbs three times before designing the system.
+        , who lost 80+ lbs three times before designing the system. Explore the{" "}
+        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™ topic hub
+        </a>{" "}
+        for related foundations.
       </P>
       <P>
         Stop regaining weight:{" "}

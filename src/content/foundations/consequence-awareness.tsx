@@ -80,255 +80,157 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
-      <Lead>Many people know they should change. But knowing is often not enough.</Lead>
+      <Lead>Knowing you should change has never been enough. This stage makes the cost feel real.</Lead>
+      <P>
+        You already know weight regain is bad for you. You've known that for years.
+        And yet the behaviour continues. That's not a knowledge problem — it's an
+        urgency problem. The consequences of staying the same don't feel immediate
+        enough to override the comfort of the current moment.
+      </P>
       <P>
         Consequence Awareness is the fourth stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
-        </a>{" "}
-        (WPT). It is the stage that surfaces the long-term cost of the{" "}
-        <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
-          weight regain cycle
-        </a>{" "}
-        — and turns that cost into push motivation.
+        </a>
+        . Its job is to close the psychological distance between where you are today
+        and where your current direction is actually leading — and to make that future
+        feel as real as tonight's craving.
       </P>
-      <P>This stage focuses on understanding the potential long term cost of:</P>
-      <UL
-        items={[
-          "repeated unhealthy behaviour",
-          "repeated procrastination",
-          "repeated inconsistency",
-          "repeated weight regain",
-          "repeated inaction",
-        ]}
-      />
-      <P>PUSH motivation often develops when the consequences of inaction become impossible to ignore.</P>
-      <P>The goal of this stage is not fear mongering. It is clarity. Because many people delay change while assuming:</P>
-      <UL
-        items={[
-          "there will always be more time",
-          "things will improve later",
-          "current habits are temporary",
-          "future consequences will somehow not apply to them",
-        ]}
-      />
-      <P>But repeated behaviour eventually creates repeated outcomes. Consequence Awareness helps people examine where their current direction may eventually lead.</P>
 
       <H2>What Is Consequence Awareness?</H2>
-      <P>Consequence Awareness focuses on future outcomes. This stage asks questions like:</P>
+      <P>
+        Consequence Awareness asks a question most people avoid: if nothing changes,
+        what does five years from now actually look like?
+      </P>
+      <P>
+        Not the optimistic version where you somehow get serious later. The realistic
+        version — based on your current direction, your current patterns, your current
+        trajectory.
+      </P>
       <UL
         items={[
-          "What happens if nothing changes?",
-          "What direction is my current behaviour leading toward?",
-          "How might my future health, mobility, confidence, or lifestyle be affected?",
-          "What are the long term consequences of repeated regain?",
-          "How will future limitations affect daily life?",
+          "What happens to your mobility, your energy, your health?",
+          "What activities do you quietly stop doing?",
+          "What medical conversations become inevitable?",
+          "What version of yourself do the people around you have to deal with?",
+          "What do your children or grandchildren watch you become?",
         ]}
       />
-      <P>Many people stay disconnected from consequences because the future feels psychologically distant. The body often changes gradually.</P>
-      <P>Energy declines gradually. Mobility declines gradually. Confidence declines gradually.</P>
-      <P>As a result, people adapt slowly to worsening conditions without realizing how much has changed.</P>
-      <P>Consequence Awareness interrupts that gradual normalization. It helps people honestly examine:</P>
-      <UL items={["current direction", "long term patterns", "future implications"]} />
-      <P>Because behaviour repeated long enough eventually compounds.</P>
+      <P>
+        The goal is not fear. The goal is clarity. Because behaviour that feels
+        optional in the short term often has consequences that feel inevitable in
+        the long term — and most people don't make that connection until it's
+        already arrived.
+      </P>
 
       <H2>Why PUSH Motivation Matters</H2>
-      <P>Many people change only after consequences become emotionally meaningful. This is called PUSH motivation.</P>
-      <P>PUSH motivation develops when people no longer want to continue experiencing:</P>
-      <UL
-        items={[
-          "pain",
-          "limitation",
-          "exhaustion",
-          "discomfort",
-          "frustration",
-          "declining health",
-          "reduced mobility",
-          "emotional suffering",
-        ]}
-      />
-      <P>Examples:</P>
-      <UL
-        items={[
-          "struggling to climb stairs",
-          "avoiding photos",
-          "difficulty travelling comfortably",
-          "low energy",
-          "worsening bloodwork",
-          "physical limitations",
-          "emotional exhaustion from restarting repeatedly",
-        ]}
-      />
-      <P>This does not mean people should live in fear. But avoiding reality entirely often delays change.</P>
-      <P>Consequence Awareness helps create psychological urgency. Because if the consequences of staying the same feel emotionally insignificant, behaviour often remains unchanged.</P>
-      <P>Later in WPT:</P>
-      <UL
-        items={[
-          "Identity Awareness develops PULL motivation",
-          "Action Practice develops behavioural implementation",
-        ]}
-      />
-      <P>But Consequence Awareness strengthens the seriousness of change.</P>
+      <P>
+        PUSH motivation is the emotional force that moves you away from a future
+        you're no longer willing to accept. It's not the same as anxiety or fear.
+        It's a clear-eyed decision: this is where I'm heading, and I'm done
+        pretending that's acceptable.
+      </P>
+      <P>
+        People with strong PUSH motivation don't need to feel inspired to act.
+        They act because the alternative — continuing the current pattern — feels
+        worse than the difficulty of changing. That shift in emotional weight is
+        what makes behaviour change durable instead of temporary.
+      </P>
+      <P>
+        Without PUSH motivation, every behavioural change is a negotiation. With
+        it, the negotiation largely disappears — because the outcome of not changing
+        is no longer emotionally acceptable.
+      </P>
 
       <H2>Why People Often Ignore Consequences</H2>
-      <P>Many people intellectually understand consequences. But psychologically, the brain often prioritizes immediate comfort over future outcomes. Examples:</P>
-      <UL
-        items={[
-          "stress relief through food",
-          "convenience eating",
-          "emotional escape",
-          "avoiding discomfort",
-          "procrastination",
-          "temporary pleasure",
-        ]}
-      />
-      <P>Future consequences feel abstract. Current comfort feels immediate.</P>
       <P>
-        This is one reason people repeatedly delay change despite knowing health is worsening, mobility is declining,
-        confidence is decreasing, and routines are unsustainable. For the underlying tension that precedes this stage,
-        read <a href="/blog/friction-awareness" className="text-accent hover:underline">Friction Awareness</a>.
+        The brain prioritizes immediate comfort over future outcomes. Always. This
+        isn't a weakness — it's how human cognition is built. The food in front
+        of you is concrete and immediate. The health consequences ten years from
+        now are abstract and distant.
       </P>
-      <P>Humans are highly adaptable. People gradually normalize worsening conditions:</P>
-      <UL
-        items={[
-          "tighter clothing",
-          "reduced energy",
-          "physical limitations",
-          "emotional exhaustion",
-          "repeated restarting",
-        ]}
-      />
-      <P>Eventually, unhealthy conditions start feeling normal. Consequence Awareness helps interrupt normalization. Because normalization does not remove consequences. It only delays recognition.</P>
+      <P>
+        So people adapt. Clothing sizes change quietly. Activities get dropped
+        without announcement. Energy declines so gradually it feels like just getting
+        older. Each individual change is small enough to rationalize, and the full
+        picture never assembles itself in one uncomfortable moment.
+      </P>
+      <P>
+        Consequence Awareness interrupts that gradual normalization. It assembles
+        the full picture deliberately — not to create panic, but to prevent the
+        slow drift from continuing unexamined.
+      </P>
 
       <H2>Why Environmental Influence Matters</H2>
-      <P>Many people blame themselves entirely for unhealthy behaviour. But environments strongly influence behaviour. Examples:</P>
-      <UL
-        items={[
-          "highly processed food environments",
-          "social eating culture",
-          "convenience-driven routines",
-          "stress-heavy lifestyles",
-          "sedentary work",
-          "constant food stimulation",
-        ]}
-      />
       <P>
-        This matters because repeated environmental exposure shapes automatic behaviour over time. For more on
-        repeating loops, see{" "}
-        <a href="/blog/pattern-awareness" className="text-accent hover:underline">Pattern Awareness</a>.
+        The people around you affect your behaviour more than most people acknowledge.
+        If your household, your social group, or your workplace normalizes the patterns
+        that drive weight regain, those patterns become almost invisible to you. They
+        feel like just how things are.
       </P>
-      <P>Consequence Awareness is not about self punishment. It is about recognizing:</P>
-      <UL
-        items={[
-          "what influences behaviour",
-          "what reinforces inconsistency",
-          "what conditions repeatedly lead to regain",
-        ]}
-      />
-      <P>This stage helps people understand that future outcomes are often influenced by repeated environmental exposure combined with repeated behavioural patterns. That awareness creates opportunities for intentional change.</P>
+      <P>
+        Consequence Awareness includes examining not just where your behaviour leads,
+        but what environment is reinforcing it — and what the cost of that environment
+        is over time. For the underlying patterns that built this environment, read{" "}
+        <a href="/blog/pattern-awareness" className="text-accent hover:underline">
+          Pattern Awareness
+        </a>
+        .
+      </P>
 
       <H2>The Definition of Insanity</H2>
-      <P>Many people repeatedly restart the same approach expecting a different result. Examples:</P>
-      <UL
-        items={[
-          "crash dieting repeatedly",
-          "relying only on motivation",
-          "restarting every Monday",
-          "using temporary restriction",
-          "ignoring emotional eating patterns",
-          "returning to the same environments unchanged",
-        ]}
-      />
-      <P>Repeated behaviour usually creates repeated outcomes. This is one reason many people lose weight temporarily but regain it later.</P>
-      <P>Consequence Awareness helps people honestly ask:</P>
-      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        “If nothing changes psychologically or behaviourally, why would the outcome change permanently?”
-      </blockquote>
-      <P>This question matters. Because sustainable weight loss often requires:</P>
-      <UL
-        items={[
-          "behavioural consistency",
-          "environmental awareness",
-          "psychological prioritization",
-          "repeatable routines",
-          "long term systems",
-        ]}
-      />
-      <P>Not temporary intensity.</P>
+      <P>
+        The phrase is overused but structurally accurate: doing the same thing and
+        expecting a different result. Most weight regain cycles follow exactly this
+        structure. The diet ends. The old patterns return. The weight comes back.
+        Then the next diet starts.
+      </P>
+      <P>
+        Consequence Awareness asks you to honestly examine what that cycle has already
+        cost you — and what it will continue to cost you if the pattern doesn't change.
+        Not as motivation by guilt. As information. Because the first step toward
+        breaking a cycle is refusing to pretend it isn't one.
+      </P>
 
       <H2>Why Consequences Become Harder to Ignore Over Time</H2>
-      <P>Consequences often compound slowly. Examples:</P>
-      <UL
-        items={[
-          "declining mobility",
-          "worsening energy",
-          "chronic frustration",
-          "increasing limitations",
-          "social avoidance",
-          "reduced confidence",
-          "worsening health markers",
-          "emotional burnout",
-        ]}
-      />
-      <P>Many people try to ignore these changes temporarily. But repeated behaviour eventually affects:</P>
-      <UL
-        items={[
-          "quality of life",
-          "future opportunities",
-          "relationships",
-          "physical capability",
-          "emotional wellbeing",
-        ]}
-      />
-      <P>Consequence Awareness encourages honest future reflection. Not to create hopelessness. But to create direction. Because behavioural change becomes more likely when future outcomes become emotionally meaningful.</P>
+      <P>
+        The consequences of weight regain compound. The fifth restart is harder than
+        the first — physically, emotionally, and psychologically. The body becomes
+        more resistant. The shame accumulates. The belief that this time will be
+        different gets harder to sustain.
+      </P>
+      <P>
+        This is why Consequence Awareness belongs in the middle of the Weight
+        Permanence Training, not at the end. It creates urgency before the pattern
+        has compounded further — not after the next health scare has already happened.
+      </P>
+      <P>
+        From here, the fifth stage —{" "}
+        <a href="/blog/identity-awareness" className="text-accent hover:underline">
+          Identity Awareness
+        </a>{" "}
+        — builds the PULL motivation that completes the emotional foundation for
+        lasting change.
+      </P>
 
       <H2>How LS Diet Uses Consequence Awareness</H2>
-      <P>LS Diet focuses heavily on behavioural permanence. Many people already understand:</P>
-      <UL items={["nutrition basics", "calorie concepts", "exercise recommendations"]} />
-      <P>But repeated inconsistency still leads to regain. Why? Because behaviour is heavily influenced by:</P>
-      <UL
-        items={[
-          "stress",
-          "routine",
-          "emotion",
-          "environment",
-          "automatic coping systems",
-          "psychological prioritization",
-        ]}
-      />
-      <P>Consequence Awareness helps people honestly evaluate:</P>
-      <UL
-        items={[
-          "where current behaviour is leading",
-          "what patterns are repeating",
-          "what future consequences may develop",
-          "why change matters long term",
-        ]}
-      />
       <P>
-        <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" className="text-accent hover:underline">
-          LS Diet
-        </a>{" "}
-        then helps simplify consistency through:
+        LS Diet doesn't use consequences to shame people into changing. It uses
+        them to create the emotional seriousness that behaviour change requires.
+        Temporary motivation produces temporary results. Consequence Awareness
+        produces the kind of internal shift that doesn't require motivation to
+        maintain — because the cost of reverting has become personally unacceptable.
       </P>
-      <UL
-        items={[
-          "low-starch, low-sugar eating",
-          "improved fullness",
-          "reduced cravings",
-          "repeatable Action Practice systems",
-          "awareness training",
-          "sustainable routines",
-          "slow jogging as sustainable movement",
-        ]}
-      />
-      <P>The goal is not temporary fear-based dieting. The goal is long term behavioural permanence.</P>
       <P>
         Built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
         </a>
-        , who lost 80+ lbs three times before designing the system.
+        , who lost 80+ lbs three times before designing the system. Explore the{" "}
+        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™ topic hub
+        </a>{" "}
+        for related foundations.
       </P>
       <P>
         Stop regaining weight:{" "}

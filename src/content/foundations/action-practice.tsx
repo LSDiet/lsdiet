@@ -102,331 +102,175 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
-      <Lead>Awareness creates direction. But awareness alone does not stop weight regain.</Lead>
-      <P>Many people:</P>
-      <UL
-        items={[
-          "understand nutrition",
-          "know they should exercise",
-          "understand the risks of regain",
-          "want to lose weight badly",
-          "genuinely want their life to improve",
-        ]}
-      />
-      <P>Yet consistency still collapses repeatedly.</P>
-      <P>Why? Because understanding is not the same as implementation.</P>
+      <Lead>Awareness creates direction. Practice is what actually changes behaviour.</Lead>
+      <P>
+        You can understand exactly why you regain weight, identify the patterns driving it,
+        feel the full cost of staying the same, and have a clear picture of who you want
+        to become — and still not change. Because none of that is implementation.
+        Understanding and doing are two completely different things.
+      </P>
       <P>
         Action Practice is the implementation stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
-        </a>{" "}
-        (WPT).
+        </a>
+        . It's where awareness becomes behaviour — not through motivation or willpower,
+        but through deliberate, repeatable daily practice.
       </P>
-      <P>This stage focuses on:</P>
-      <UL
-        items={[
-          "repeatable daily action",
-          "behavioural implementation",
-          "environmental design",
-          "habit integration",
-          "consistency systems",
-        ]}
-      />
-      <P>Without action, awareness remains theoretical. Without repeatable practice, behaviour usually returns to automatic patterns.</P>
-      <P>Action Practice exists to bridge the gap between knowing and doing.</P>
 
       <H2>What Is Action Practice?</H2>
-      <P>Action Practice focuses on implementation. This stage asks:</P>
+      <P>
+        Action Practice is a set of daily behavioural modules built on one principle:
+        consistency beats intensity, every time. The people who make permanent change
+        are not the ones who try the hardest for the shortest time. They're the ones
+        who practise the right things repeatedly until those things become automatic.
+      </P>
+      <P>
+        Each module targets a specific behaviour pattern identified in the awareness stages:
+      </P>
       <UL
         items={[
-          "What actions are realistically repeatable?",
-          "What routines improve consistency?",
-          "What environments support better decisions?",
-          "What systems reduce behavioural drift?",
-          "What habits simplify long term execution?",
+          "interrupting emotional eating triggers before they fire",
+          "redesigning environments that produce automatic overeating",
+          "building decision routines that don't depend on willpower",
+          "making the low-starch, low-sugar approach repeatable without overthinking it",
+          "practising the identity-based responses that align with who you're becoming",
         ]}
       />
-      <P>Many people approach weight loss emotionally. Examples:</P>
-      <UL
-        items={[
-          "waiting for motivation",
-          "relying on willpower",
-          "chasing perfection",
-          "restarting repeatedly",
-          "becoming intense temporarily",
-        ]}
-      />
-      <P>But long term consistency usually depends more on systems than emotion.</P>
-      <P>Action Practice helps simplify behaviour into repeatable routines. Because sustainable results usually require sustainable behaviour.</P>
+      <P>
+        The modules are available free inside the LS Diet Skool community. They run
+        daily, take minutes, and are designed to stack — each one building on the
+        last until the behaviour stops requiring conscious effort.
+      </P>
 
       <H2>Why Awareness Alone Is Not Enough</H2>
       <P>
-        The{" "}
+        The five{" "}
         <a href="/awareness-stages" className="text-accent hover:underline">
           Awareness Stages
         </a>{" "}
-        help people:
+        build a complete picture: where you are (
+        <a href="/blog/reality-awareness" className="text-accent hover:underline">
+          Reality
+        </a>
+        ), what's stopping you (
+        <a href="/blog/friction-awareness" className="text-accent hover:underline">
+          Friction
+        </a>
+        ), what keeps repeating (
+        <a href="/blog/pattern-awareness" className="text-accent hover:underline">
+          Pattern
+        </a>
+        ), what it's costing you (
+        <a href="/blog/consequence-awareness" className="text-accent hover:underline">
+          Consequence
+        </a>
+        ), and who you're choosing to become (
+        <a href="/blog/identity-awareness" className="text-accent hover:underline">
+          Identity
+        </a>
+        ).
       </P>
-      <UL
-        items={[
-          <>
-            establish{" "}
-            <a href="/blog/reality-awareness" className="text-accent hover:underline">
-              reality
-            </a>
-          </>,
-          <>
-            identify{" "}
-            <a href="/blog/friction-awareness" className="text-accent hover:underline">
-              friction
-            </a>
-          </>,
-          <>
-            recognize behavioural{" "}
-            <a href="/blog/pattern-awareness" className="text-accent hover:underline">
-              patterns
-            </a>
-          </>,
-          <>
-            develop PUSH motivation (
-            <a href="/blog/consequence-awareness" className="text-accent hover:underline">
-              consequence
-            </a>
-            )
-          </>,
-          <>
-            develop PULL motivation (
-            <a href="/blog/identity-awareness" className="text-accent hover:underline">
-              identity
-            </a>
-            )
-          </>,
-        ]}
-      />
-      <P>Those stages create clarity, emotional direction, self understanding, and psychological prioritization.</P>
-      <P>But awareness alone does not automatically change behaviour. People still need:</P>
-      <UL
-        items={[
-          "implementation",
-          "repetition",
-          "behavioural interruption",
-          "environmental support",
-          "practical systems",
-        ]}
-      />
-      <P>This is where many people struggle. They understand what to do. But consistency collapses during:</P>
-      <UL
-        items={[
-          "stress",
-          "exhaustion",
-          "social situations",
-          "emotional eating",
-          "busy schedules",
-          "low motivation periods",
-        ]}
-      />
-      <P>Action Practice helps transform awareness into behavioural consistency.</P>
-
-      <H2>Why Behaviour Usually Returns to Automatic Patterns</H2>
-      <P>Human behaviour is highly automatic. Many decisions happen through:</P>
-      <UL items={["habit loops", "routines", "emotional triggers", "environmental cues", "convenience", "repetition"]} />
-      <P>This is why many people repeatedly return to:</P>
-      <UL
-        items={[
-          "stress eating",
-          "convenience eating",
-          "late night eating",
-          "inactivity",
-          "takeout routines",
-          "emotional coping behaviour",
-        ]}
-      />
-      <P>Even when they genuinely want to change.</P>
-      <P>Awareness identifies the problem. Action Practice helps interrupt the pattern. Repeated behaviour eventually becomes automatic. That is behavioural permanence.</P>
-
-      <H2>The LS Diet Action Practice System</H2>
-      <P>LS Diet includes more than 20 Action Practice modules inside the free Skool classroom. These modules focus on practical implementation — not motivation speeches.</P>
-
-      <Figure
-        src={featuredImage}
-        alt="LS Diet Action Practice modules list inside the Skool classroom"
-        caption="The Action Practice section of the LS Diet classroom — repeatable behavioural modules, not motivation speeches."
-      />
-
-      <P>Examples include:</P>
-      <UL
-        items={[
-          "Identify triggers & environmental cues",
-          "Interrupt patterns: respond, don’t react",
-          "How to read a label",
-          "Reduce decision friction",
-          "Restructure your food environment",
-          "Eating out & social situations",
-          "Think habits, not one action",
-          "Measure weight in time",
-          "Emotional vs functional eating",
-          "LS meal building",
-          "Track with LS pictures",
-          "Be resourceful",
-          "Walk 30 minutes after waking up",
-          "Stop eating at the first burp",
-          "Gratitude training",
-          "180 BPM Zone 2 jogging",
-          "The power of association",
-          "Master the loser lifestyle",
-          "Take risks in life",
-          "Run toward or away from the future",
-        ]}
-      />
-      <P>These systems are designed to help people:</P>
-      <UL
-        items={[
-          "simplify consistency",
-          "reduce overwhelm",
-          "interrupt automatic behaviour",
-          "reduce behavioural drift",
-          "improve awareness implementation",
-          "create sustainable routines",
-        ]}
-      />
       <P>
-        The Action Practice system is continuously updated by{" "}
+        But awareness is a map, not a destination. The map tells you where to go.
+        Action Practice is the walking. Without it, awareness becomes a sophisticated
+        way of understanding why you're stuck — but you stay stuck.
+      </P>
+      <P>
+        This is the most common failure mode in weight loss programs: people learn,
+        feel motivated, then life intervenes and behaviour defaults back to automatic.
+        Action Practice is specifically designed to interrupt that default.
+      </P>
+
+      <H2>Why Systems Beat Willpower</H2>
+      <P>
+        Willpower is finite. It depletes across the day. Every decision you make — at
+        work, in traffic, in relationships — draws from the same pool. By the time
+        you're making food decisions in the evening, that pool is often nearly empty.
+      </P>
+      <P>
+        Systems don't deplete. A well-designed routine runs on habit, not decision.
+        When you've practised a behaviour enough times that it becomes automatic,
+        it no longer requires willpower to execute. It just happens — the same way
+        brushing your teeth happens, regardless of how tired or stressed you are.
+      </P>
+      <P>
+        Action Practice builds those systems deliberately. Instead of trying to out-
+        discipline your patterns, you replace them with new ones that serve you better.
+      </P>
+
+      <H2>Why Consistency Requires Environmental Design</H2>
+      <P>
+        Your environment is constantly making decisions for you. The food in your
+        kitchen, the route you drive, the habits of the people you eat with — these
+        aren't neutral. They're inputs that produce predictable outputs.
+      </P>
+      <P>
+        Trying to maintain healthy behaviour in an environment designed to produce
+        unhealthy behaviour is like trying to stay dry while standing in the rain —
+        the effort is real, but the environment is working against you. Action Practice
+        includes environmental redesign as a core component, not an afterthought.
+      </P>
+      <P>
+        Small environmental changes compound. When the default choice is the better
+        choice, you stop needing to fight for consistency. You just live in an
+        environment that makes consistency easier.
+      </P>
+
+      <H2>Why Repetition Builds Identity</H2>
+      <P>
+        Every time you practise a behaviour that aligns with the identity you're
+        building in{" "}
+        <a href="/blog/identity-awareness" className="text-accent hover:underline">
+          Identity Awareness
+        </a>
+        , you cast a vote for that identity. One vote doesn't change much. But
+        repeated votes — daily practice over weeks and months — fundamentally shift
+        how you see yourself.
+      </P>
+      <P>
+        This is the mechanism behind permanent change. You don't decide to be
+        a healthy person once and maintain it forever through discipline. You practise
+        being a healthy person daily until that's just who you are. The practice
+        creates the identity. The identity makes the behaviour feel natural.
+      </P>
+
+      <H2>How Action Practice Connects to LS Diet</H2>
+      <P>
+        The{" "}
+        <a href="/what-is-ls-diet" className="text-accent hover:underline">
+          LS Diet low-starch, low-sugar approach
+        </a>{" "}
+        dramatically reduces the decision load around food. When cravings are lower
+        and meals are simpler, the behavioural work becomes easier. Action Practice
+        is built on top of that foundation — using the reduced friction of LS eating
+        to make the daily practice of new behaviour more sustainable.
+      </P>
+      <P>
+        The two systems reinforce each other: better food decisions reduce the cravings
+        and energy swings that make behaviour change difficult, and consistent Action
+        Practice makes the food decisions easier to maintain long term.
+      </P>
+      <P>
+        Built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
+        </a>
+        , who lost 80+ lbs three times before designing the system. Explore the{" "}
+        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™ topic hub
         </a>{" "}
-        and the LS Diet team. New systems, examples, behavioural tools, and implementation modules continue getting added over time.
+        for related foundations.
       </P>
-      <P>People do not need to pay anything to begin. The free LS Diet classroom already includes actionable systems people can begin using immediately.</P>
-
-      <Figure
-        src={skoolCard}
-        alt="LSDiet: End Weight Rebound — free Skool classroom for the low-starch, low-sugar lifestyle"
-        caption="The free LS Diet Skool classroom — start the Action Practice modules immediately."
-      />
-
-      <H2>Why Environment Often Matters More Than Motivation</H2>
-      <P>Many people believe consistency problems are caused by lack of discipline. But environments strongly influence behaviour. Examples:</P>
-      <UL
-        items={[
-          "visible snacks",
-          "stress-heavy routines",
-          "convenience eating",
-          "processed food exposure",
-          "sedentary lifestyles",
-          "emotional triggers",
-        ]}
-      />
-      <P>Action Practice helps redesign environments to reduce behavioural friction. Examples:</P>
-      <UL
-        items={[
-          "keeping water visible",
-          "restructuring food access",
-          "reducing trigger exposure",
-          "simplifying healthy decisions",
-          "creating behavioural cues",
-          "interrupting automatic reactions",
-        ]}
-      />
-      <P>People often repeat what feels easiest, fastest, and most automatic. Action Practice helps make better behaviour easier to repeat.</P>
-
-      <H2>Why Accountability Changes Behaviour</H2>
-      <P>Many people already know what they should do. The problem is staying consistent long enough for behaviour to stabilize.</P>
-      <P>People often fall off because:</P>
-      <UL
-        items={[
-          "life becomes busy",
-          "old habits return",
-          "progress feels slow",
-          "motivation fades",
-          "nobody notices behavioural drift",
-          "they restart alone repeatedly",
-        ]}
-      />
-      <P>This is where accountability becomes important. Some people can implement independently. Others need:</P>
-      <UL
-        items={[
-          "behavioural reminders",
-          "structure",
-          "consistency tracking",
-          "guidance",
-          "support",
-          "external reinforcement",
-        ]}
-      />
-      <P>The LS Diet accountability system exists to help people avoid disappearing during difficult periods. It includes:</P>
-      <UL
-        items={[
-          "tracked daily accountability",
-          "behavioural reminders",
-          "awareness question systems",
-          "consistency reinforcement",
-          "priority support",
-          "weekly group coaching",
-        ]}
-      />
-
-      <Figure
-        src={consistencyRewards}
-        alt="LS Diet Consistency Rewards — $25 at 45 days, $75 at 60 days, $150 at 90 days"
-        caption="Consistency rewards reinforce behavioural permanence over weeks and months — not just days."
-      />
-
-      <P>The goal is not punishment. The goal is preventing behavioural drift before regain happens again.</P>
-      <P>Because many people do not fail from lack of information. They fail from:</P>
-      <UL
-        items={[
-          "inconsistency",
-          "disappearing",
-          "isolation",
-          "loss of priority",
-          "behavioural drift over time",
-        ]}
-      />
-
-      <H2>You Do Not Need To Do This Alone</H2>
-      <P>Some people can begin independently using the free classroom. Others may eventually realize:</P>
-      <UL
-        items={[
-          "they are unsure whether they can truly do this alone",
-          "they need additional guidance",
-          "they need accountability",
-          "they repeatedly restart without support",
-          "consistency collapses during stress",
-        ]}
-      />
-      <P>That is normal. Behavioural change is difficult when life becomes chaotic.</P>
-      <P>The important thing is: people can start immediately for free. The free LS Diet classroom already includes practical systems people can begin implementing right away. For people who later decide they want additional support, accountability options are available.</P>
-
-      <H2>Why Action Practice Completes the Weight Permanence Training™</H2>
-      <P>The Weight Permanence Training™ is not just about awareness. It is about implementation.</P>
-      <P>Awareness helps people:</P>
-      <UL
-        items={[
-          "understand themselves",
-          "identify behavioural problems",
-          "recognize repeated patterns",
-          "develop emotional direction",
-        ]}
-      />
-      <P>Action Practice helps transform that awareness into repeatable daily behaviour.</P>
-      <P>Without action, awareness remains theoretical. Without repetition, behaviour usually returns to automatic patterns. But when awareness and repeatable practice work together, consistency becomes more sustainable.</P>
-      <P>That is the goal of LS Diet: not temporary dieting intensity — but behavioural permanence.</P>
-
-      <Figure
-        src={unlockAccountability}
-        alt="Don’t let this be you again — the LS Diet system keeps you on track with daily accountability"
-        caption="Awareness + Action Practice + Accountability = behavioural permanence."
-      />
-
       <P>
-        Stop regaining weight:{" "}
+        Start the daily practice free:{" "}
         <a
           href="https://www.skool.com/lsdiet/about"
           target="_blank"
           rel="noopener noreferrer"
           className="text-accent hover:underline"
         >
-          join the free LS Diet classroom
+          join the LS Diet community
         </a>
         .
       </P>
@@ -438,20 +282,6 @@ function Body() {
           <p className="text-base md:text-lg text-zinc-800 leading-relaxed">{f.a}</p>
         </div>
       ))}
-
-      <H2>Continue Reading</H2>
-      <UL
-        items={[
-          <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
-            The Weight Permanence Training™: How to Stop Regaining Weight
-          </a>,
-          <a href="/blog/reality-awareness" className="text-accent hover:underline">Reality Awareness</a>,
-          <a href="/blog/friction-awareness" className="text-accent hover:underline">Friction Awareness</a>,
-          <a href="/blog/pattern-awareness" className="text-accent hover:underline">Pattern Awareness</a>,
-          <a href="/blog/consequence-awareness" className="text-accent hover:underline">Consequence Awareness</a>,
-          <a href="/blog/identity-awareness" className="text-accent hover:underline">Identity Awareness</a>,
-        ]}
-      />
     </>
   );
 }

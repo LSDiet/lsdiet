@@ -86,93 +86,63 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
-      <Lead>Honest self assessment is often the first step toward permanent weight loss.</Lead>
-      <P>Many people want change.</P>
-      <P>But very few accurately understand their current situation before trying to change it.</P>
-      <P>This creates one of the biggest problems in weight loss:</P>
+      <Lead>Most people start weight loss without knowing where they actually are.</Lead>
       <P>
-        <strong className="text-zinc-900">People try to solve problems they have not clearly identified yet.</strong>
+        Not approximately. Not emotionally. <strong className="text-zinc-900">Actually.</strong>
       </P>
-      <P>Without a clear baseline:</P>
-      <UL
-        items={[
-          "goals become emotional",
-          "expectations become unrealistic",
-          "progress becomes difficult to measure",
-          "motivation becomes unstable",
-          "frustration increases quickly",
-        ]}
-      />
+      <P>
+        You know roughly what you weigh. You know your habits are off. But if someone asked you
+        to describe exactly when you overeat, what triggers it, how often it happens, and what
+        environments make it worse — most people can't answer that with any precision.
+      </P>
+      <P>
+        That gap is why so many weight loss efforts stall immediately. You're trying to fix
+        a problem you haven't clearly identified yet. Without a real baseline, goals become
+        emotional, expectations become unrealistic, and the first hard week breaks everything.
+      </P>
       <P>
         Reality Awareness is the first stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>{" "}
-        because sustainable change requires clarity first.
+        because sustainable change requires clarity first. Before behaviour changes, awareness
+        must change.
       </P>
-      <P>Before behaviour changes, awareness must change.</P>
 
       <H2>Why Most People Avoid Honest Self Assessment</H2>
-      <P>Reality can feel uncomfortable.</P>
-      <P>Many people avoid:</P>
-      <UL
-        items={[
-          "weighing themselves",
-          "looking at photos",
-          "tracking eating habits",
-          "assessing emotional eating",
-          "acknowledging regain",
-          "evaluating their routines honestly",
-        ]}
-      />
-      <P>This avoidance is understandable.</P>
-      <UL
-        items={[
-          "Self judgement often creates shame.",
-          "Shame creates emotional discomfort.",
-          "Emotional discomfort increases avoidance.",
-        ]}
-      />
-      <P>Over time, people stop measuring reality entirely.</P>
-      <P>Instead, they rely on:</P>
-      <UL items={["assumptions", "emotions", "temporary motivation", "wishful thinking"]} />
-      <P>This usually weakens consistency long term.</P>
       <P>
-        Reality Awareness is not about self punishment. <strong className="text-zinc-900">It is about removing uncertainty.</strong>
+        Because reality feels like a verdict. Stepping on the scale, looking at photos,
+        honestly tracking what you eat — these feel like moments of judgment, not information.
+        So you avoid them. And the avoidance feels like self-protection, but it's actually
+        self-sabotage.
+      </P>
+      <P>
+        When you stop measuring reality, you replace it with assumptions. You assume things
+        aren't that bad. You assume you'll get serious next week. You assume the problem is
+        motivation, not behaviour. None of those assumptions help you change anything.
+      </P>
+      <P>
+        Reality Awareness is not self-punishment.{" "}
+        <strong className="text-zinc-900">It is removing uncertainty.</strong> The goal is
+        observation — clear, factual, non-emotional. What's actually happening, not what
+        you wish were happening.
       </P>
 
       <H2>Why Weight Loss Without a Baseline Becomes Emotional</H2>
-      <P>Many people start weight loss with vague goals like:</P>
-      <UL
-        items={[
-          "“I need to get healthier.”",
-          "“I need to lose weight.”",
-          "“I need to stop eating badly.”",
-        ]}
-      />
-      <P>But they often cannot clearly answer:</P>
-      <UL
-        items={[
-          "How much weight have I regained?",
-          "What behaviours are repeating?",
-          "When do I overeat most?",
-          "What emotional patterns exist?",
-          "What environments trigger poor decisions?",
-          "What routines are hurting consistency?",
-        ]}
-      />
-      <P>Without measurable awareness, decision making becomes emotional instead of behavioural.</P>
-      <P>This creates:</P>
-      <UL
-        items={[
-          "inconsistent effort",
-          "unrealistic expectations",
-          "discouragement",
-          "repeated restarting",
-        ]}
-      />
       <P>
-        Reality Awareness creates direction. For the deeper psychology behind repeated regain, read{" "}
+        "I need to get healthier." "I need to stop eating so badly." These feel like goals,
+        but they're not. They're feelings. Without a measurable baseline, you can't track
+        progress, can't calibrate effort, and can't tell the difference between a real
+        setback and a normal hard week.
+      </P>
+      <P>
+        This is why people lose motivation so fast. They're measuring effort against an
+        emotional ideal, not against actual behaviour. Every day that isn't perfect feels
+        like failure, because there's no real baseline to anchor progress to.
+      </P>
+      <P>
+        Reality Awareness creates direction. For the psychology behind why people keep
+        restarting despite genuine effort, read{" "}
         <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
           Why People Regain Weight After Dieting
         </a>
@@ -180,40 +150,35 @@ function Body() {
       </P>
 
       <H2>Reality Awareness Is About Observation, Not Shame</H2>
-      <P>One of the biggest misunderstandings about self assessment is believing honesty equals self criticism.</P>
-      <P>It does not.</P>
-      <P>Reality Awareness is not:</P>
-      <UL items={["self hatred", "guilt", "humiliation", "perfectionism", "obsession"]} />
-      <P>It is observation.</P>
-      <P>The purpose is to:</P>
-      <UL
-        items={[
-          "identify patterns",
-          "understand behaviours",
-          "establish baselines",
-          "reduce uncertainty",
-          "improve decision making",
-        ]}
-      />
-      <P>Many people remain stuck because they emotionally resist reality instead of learning from it.</P>
+      <P>
+        Honesty is not the same as self-criticism. Reality Awareness is not about cataloguing
+        your failures or building a case against yourself. It is about seeing clearly — the
+        same way a doctor reads bloodwork. The numbers aren't a judgment. They're information.
+      </P>
       <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        The future arrives whether we acknowledge reality or not. Reality Awareness helps people move toward the future
-        consciously instead of reactively.
+        The future arrives whether you acknowledge reality or not. Reality Awareness helps you
+        move toward it consciously instead of reactively.
       </blockquote>
+      <P>
+        The people who struggle most with weight loss are often the ones who stop looking.
+        They avoid the scale, avoid photos, avoid honest conversations with themselves —
+        because looking feels worse than not knowing. In practice, not knowing is always worse.
+      </P>
 
       <H2>What Should People Assess Honestly?</H2>
-      <P>Reality Awareness includes both physical and behavioural assessment.</P>
+      <P>
+        Reality Awareness goes beyond the number on the scale. The full assessment covers
+        four areas:
+      </P>
 
       <H3>Physical Awareness</H3>
       <UL
         items={[
-          "current weight",
-          "waist size",
-          "energy levels",
-          "mobility",
+          "current weight and waist measurements",
+          "energy levels throughout the day",
+          "mobility and physical limitations",
           "sleep quality",
-          "physical limitations",
-          "blood work if available",
+          "bloodwork if available",
         ]}
       />
 
@@ -221,140 +186,99 @@ function Body() {
       <UL
         items={[
           "emotional eating frequency",
-          "snacking patterns",
-          "processed food exposure",
-          "late night eating",
-          "eating speed",
-          "stress eating",
-          "binge eating patterns",
-          "social eating habits",
+          "snacking and late-night eating patterns",
+          "processed food and liquid calorie intake",
+          "eating speed and portion awareness",
+          "stress eating and binge patterns",
         ]}
       />
 
       <H3>Environmental Awareness</H3>
       <UL
         items={[
-          "food availability",
+          "food availability at home and at work",
           "household eating culture",
-          "work schedule",
           "convenience eating exposure",
-          "delivery app usage",
-          "social pressure",
+          "delivery app reliance",
+          "social pressure around food",
         ]}
       />
 
       <H3>Emotional Awareness</H3>
       <UL
         items={[
-          "shame",
-          "frustration",
-          "self criticism",
-          "hopelessness",
-          "emotional exhaustion",
+          "shame or frustration around weight",
           "avoidance patterns",
+          "emotional exhaustion from repeated restarting",
+          "self-criticism cycles",
         ]}
       />
-      <P>Most people focus only on food. Reality Awareness examines the full system surrounding behaviour.</P>
+      <P>
+        Most people focus only on food. Reality Awareness examines the full system surrounding
+        behaviour — because the food is usually not the root problem.
+      </P>
 
       <H2>Why People Underestimate Their Behaviour</H2>
-      <P>Human behaviour naturally becomes automatic over time.</P>
-      <P>People often underestimate:</P>
-      <UL
-        items={[
-          "portion sizes",
-          "snacking frequency",
-          "liquid calories",
-          "emotional eating",
-          "processed food intake",
-          "convenience eating",
-        ]}
-      />
-      <P>Not because they are dishonest. Because automatic behaviour becomes invisible.</P>
-      <P>This is why awareness matters. Observation exposes patterns that emotions often hide.</P>
+      <P>
+        Automatic behaviour becomes invisible. You don't consciously decide to grab a handful
+        of something while making dinner, or eat faster when stressed, or finish what's on
+        your plate regardless of hunger. It just happens. Which means you can't report it
+        accurately — not because you're dishonest, but because you genuinely don't see it.
+      </P>
+      <P>
+        This is why observation matters more than memory. Tracking creates awareness that
+        emotions hide. You can't change what you can't see.
+      </P>
 
       <H2>The Goal Is Clarity, Not Perfection</H2>
-      <P>Many people avoid self assessment because they fear feeling discouraged.</P>
-      <P>But uncertainty often creates more anxiety than reality itself.</P>
-      <P>Clarity creates:</P>
-      <UL
-        items={[
-          "direction",
-          "measurable progress",
-          "realistic expectations",
-          "behavioural understanding",
-          "emotional honesty",
-        ]}
-      />
-      <P>Reality Awareness helps people stop negotiating with uncertainty.</P>
       <P>
-        <strong className="text-zinc-900">The goal is not perfection. The goal is understanding.</strong>
+        Uncertainty creates more anxiety than reality does. When you don't know where you
+        stand, your brain fills the gap with worst-case assumptions and vague dread. When
+        you know exactly where you stand — even if it's uncomfortable — you have something
+        to work with.
+      </P>
+      <P>
+        <strong className="text-zinc-900">The goal is not perfection. The goal is understanding.</strong>{" "}
+        Once you understand your actual patterns, the rest of the Weight Permanence Training™
+        becomes possible.
       </P>
 
       <H2>Why Reality Awareness Matters for Permanent Weight Loss</H2>
-      <P>Temporary motivation can create short term effort. But long term consistency usually requires deeper behavioural understanding.</P>
-      <P>Reality Awareness helps people identify:</P>
-      <UL
-        items={[
-          "what is actually happening",
-          "what repeatedly causes regain",
-          "what environments create problems",
-          "what emotions trigger eating",
-          "what behaviours need interruption",
-        ]}
-      />
-      <P>Without awareness, behaviour stays automatic. Automatic behaviour eventually overpowers temporary motivation.</P>
-      <P>This is one reason many people repeatedly restart weight loss despite wanting change sincerely.</P>
-
-      <H2>How Reality Awareness Connects to LS Diet</H2>
-      <P>LS Diet focuses heavily on sustainability and behavioural permanence.</P>
-      <P>Reality Awareness supports that process by helping people:</P>
-      <UL
-        items={[
-          "understand their current patterns",
-          "identify behavioural friction",
-          "recognize emotional eating",
-          "reduce denial",
-          "simplify future decisions",
-          "establish realistic expectations",
-        ]}
-      />
-      <P>The system encourages observation before aggressive intervention.</P>
-      <P>Instead of chasing perfection, the goal is building awareness that supports repeatable long term behaviour.</P>
-      <P>Reality Awareness becomes the foundation for:</P>
-      <UL
-        items={[
-          "Friction Awareness",
-          "Pattern Awareness",
-          "Consequence Awareness",
-          "Identity Awareness",
-          "Action Practice",
-          "long term permanence",
-        ]}
-      />
+      <P>
+        Temporary motivation can produce short-term effort. But consistent behaviour over
+        months and years requires something that motivation can't provide: a clear picture
+        of what's actually happening and why.
+      </P>
+      <P>
+        Without awareness, behaviour stays automatic. Automatic behaviour eventually
+        overpowers temporary motivation — every time. This is why people who genuinely
+        want to change still end up back where they started.
+      </P>
+      <P>
+        Reality Awareness breaks that loop by making the invisible visible. Once you can
+        see your patterns clearly, you can begin working on{" "}
+        <a href="/blog/friction-awareness" className="text-accent hover:underline">
+          Friction Awareness
+        </a>{" "}
+        — identifying exactly what keeps stopping you.
+      </P>
 
       <H2>How Does LS Diet Use Reality Awareness?</H2>
-      <P>Many people already know basic nutrition information.</P>
-      <P>The difficult part is understanding:</P>
-      <UL
-        items={[
-          "why behaviour repeats",
-          "why consistency collapses",
-          "why emotional eating returns",
-          "why regain keeps happening",
-        ]}
-      />
-      <P>Reality Awareness helps identify those patterns honestly.</P>
-      <P>LS Diet uses awareness training alongside:</P>
-      <UL
-        items={[
-          "low-starch low-sugar eating",
-          "simplified food decisions",
-          "repeatable routines",
-          "sustainable movement",
-          "behavioural permanence strategies",
-        ]}
-      />
-      <P>The goal is not temporary motivation. The goal is long term consistency without repeatedly restarting.</P>
+      <P>
+        You already know the basics of nutrition. The difficult part isn't knowing what to
+        eat — it's understanding why you keep not doing it. Reality Awareness addresses
+        that by exposing the behavioural and emotional patterns that keep overriding your
+        intentions.
+      </P>
+      <P>
+        LS Diet pairs this awareness with a{" "}
+        <a href="/what-is-ls-diet" className="text-accent hover:underline">
+          low-starch, low-sugar eating approach
+        </a>{" "}
+        that reduces cravings and decision fatigue — making the behaviours you identified
+        in Reality Awareness easier to change systematically. The goal is not temporary
+        motivation. The goal is long-term consistency without repeatedly restarting.
+      </P>
       <P>
         Built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">

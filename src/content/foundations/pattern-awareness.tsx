@@ -80,240 +80,165 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
-      <Lead>Many people focus heavily on food itself. But long term weight regain is often driven by repeated behavioural patterns.</Lead>
+      <Lead>You keep doing the same things in the same situations. You just can't see them yet.</Lead>
+      <P>
+        Behaviour that repeats consistently is not random. It has a structure — a specific
+        set of conditions under which it reliably shows up. Pattern Awareness maps that
+        structure so you can finally see what's actually driving the behaviour, instead of
+        blaming willpower for something that was never a willpower problem.
+      </P>
       <P>
         Pattern Awareness is the third stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
-        </a>{" "}
-        (WPT).
+        </a>
+        . It uses six diagnostic lenses — who, what, when, where, why, and how — to
+        map the specific conditions under which weight-regaining behaviour occurs in
+        your life. Not in general. In yours.
       </P>
-      <P>This stage focuses on identifying:</P>
-      <UL
-        items={[
-          "repeated routines",
-          "repeated environments",
-          "repeated emotional triggers",
-          "repeated behaviours",
-          "repeated decision patterns",
-        ]}
-      />
-      <P>Because repeated behaviour eventually becomes automatic behaviour.</P>
-      <P>Pattern Awareness explores the who, what, when, where, why, and how behind repeated eating behaviour.</P>
-      <P>Without this stage, many people continue repeating the same cycles unconsciously:</P>
-      <UL
-        items={[
-          "emotional eating",
-          "convenience eating",
-          "stress eating",
-          "late-night snacking",
-          "binge eating",
-          "restarting diets repeatedly",
-        ]}
-      />
-      <P>The goal of Pattern Awareness is not blame. The goal is understanding. Because patterns predict outcomes.</P>
 
       <H2>What Is Pattern Awareness?</H2>
-      <P>Pattern Awareness examines how repeated behaviours shape eating decisions over time.</P>
-      <P>Many food choices feel spontaneous. But most are highly patterned. Examples:</P>
+      <P>
+        Pattern Awareness is the diagnostic stage of WPT. Its job is to expose the
+        automatic routines and environmental triggers that drive eating behaviour before
+        you have a chance to make a conscious choice.
+      </P>
+      <P>
+        The six lenses each reveal a different dimension of the pattern:
+      </P>
       <UL
         items={[
-          "eating while stressed",
-          "overeating during social events",
-          "snacking while watching screens",
-          "eating differently on weekends",
-          "ordering takeout after work",
-          "losing consistency during travel",
-          "eating certain foods at certain times automatically",
-        ]}
-      />
-      <P>These behaviours often repeat so frequently that they stop feeling like decisions. They become routines.</P>
-      <P>Pattern Awareness helps bring those routines into conscious awareness. This stage asks questions like:</P>
-      <UL
-        items={[
-          "Who do you usually eat with?",
-          "What foods trigger overeating?",
-          "When do cravings appear most often?",
-          "Where are you most likely to lose control?",
-          "Why do certain situations lead to emotional eating?",
-          "How do your routines affect consistency?",
-        ]}
-      />
-      <P>The purpose is not perfection. The purpose is visibility. Because invisible patterns are difficult to change.</P>
-
-      <H2>Why Repeated Behaviour Becomes Automatic</H2>
-      <P>The brain constantly tries to conserve energy. Repeated behaviour eventually becomes more automatic because automatic routines require less mental effort.</P>
-      <P>This is useful for:</P>
-      <UL items={["driving", "brushing teeth", "morning routines"]} />
-      <P>But automatic behaviour can also create unhealthy eating patterns. Examples:</P>
-      <UL
-        items={[
-          "automatically buying snacks during stress",
-          "emotionally eating after work",
-          "associating television with overeating",
-          "eating dessert every night regardless of hunger",
-          "using food as reward or relief",
-        ]}
-      />
-      <P>Over time, these behaviours stop feeling intentional. They begin feeling normal. Many people then believe:</P>
-      <UL items={["“This is just who I am.”", "“I have no discipline.”", "“I can’t control myself.”"]} />
-      <P>But often, repeated behaviour has simply become neurologically reinforced.</P>
-      <P>Pattern Awareness helps interrupt automaticity. Because behaviour repeated consistently becomes easier to repeat again.</P>
-
-      <H2>Why Environment Shapes Eating Behaviour</H2>
-      <P>Many people assume weight loss depends entirely on willpower. But environments strongly influence behaviour. Examples:</P>
-      <UL
-        items={[
-          "visible snacks increase eating frequency",
-          "social groups influence food choices",
-          "workplace stress affects cravings",
-          "sleep deprivation affects hunger",
-          "convenience affects decision making",
-          "restaurant culture affects portions",
-        ]}
-      />
-      <P>This is important because many people repeatedly return to the same environments after dieting. Nothing around them changed. So the same behavioural patterns return. Examples:</P>
-      <UL
-        items={[
-          "stressful workdays",
-          "emotional exhaustion",
-          "social pressure",
-          "highly processed foods",
-          "late-night routines",
-          "convenience eating",
+          "Who — which people or social contexts shift your eating behaviour?",
+          "What — which specific foods, situations, or emotions consistently trigger overeating?",
+          "When — what times of day, week, or season does the behaviour repeat?",
+          "Where — which locations or environments make the pattern harder to resist?",
+          "Why — what emotional state or need is the eating actually serving?",
+          "How — how does the pattern unfold from trigger to response?",
         ]}
       />
       <P>
-        Many people regain weight not because they forgot nutrition information. They regain because the environments
-        reinforcing old patterns never changed. For the deeper psychology, read{" "}
+        Most people have never answered all six of these for their own behaviour. Which
+        means they've been trying to solve a pattern they only understand in fragments.
+      </P>
+
+      <H2>Why Repeated Behaviour Becomes Automatic</H2>
+      <P>
+        The brain is efficient. Behaviour that gets repeated enough stops requiring
+        conscious decision-making and becomes automatic. You don't decide to reach for
+        something at 3pm — you just do it. You don't decide to eat more when you're
+        stressed — it just happens before you've finished the thought.
+      </P>
+      <P>
+        Automatic behaviour is invisible behaviour. You can't report it accurately
+        because you're not actually conscious of it in the moment. This is why
+        people are often genuinely surprised by what pattern mapping reveals — the
+        behaviour has been there all along, just below the level of observation.
+      </P>
+      <P>
+        You can't interrupt a pattern you haven't seen clearly. Pattern Awareness
+        makes the invisible visible.
+      </P>
+
+      <H2>Why Environment Shapes Eating Behaviour</H2>
+      <P>
+        Environment is a stronger driver of eating behaviour than most people realize.
+        The food in your kitchen, the route you drive home, the people you eat lunch
+        with, the office that provides free snacks, the couch you sit on at 10pm —
+        these aren't neutral settings. They're cues. And cues trigger patterns.
+      </P>
+      <P>
+        This is why willpower fails so consistently. Willpower is a finite resource
+        that depletes across the day. Environment keeps working regardless of how tired
+        you are. When a pattern is deeply established, the environment can trigger the
+        behaviour faster than a conscious decision can intervene.
+      </P>
+      <P>
+        Pattern Awareness identifies your specific environmental triggers so you can
+        redesign the environment instead of fighting it with willpower every single day.
+      </P>
+
+      <H2>Why Emotional Eating Often Becomes a Pattern</H2>
+      <P>
+        Food reliably produces a short-term feeling of relief. Not much relief, and
+        not for long — but reliably. When you're stressed, overwhelmed, bored, or
+        exhausted, the brain files that away: food equals relief. Over time, the
+        connection becomes automatic. The emotional state triggers the eating before
+        any conscious decision is made.
+      </P>
+      <P>
+        This is not a character flaw. It's a learned pattern. And like any pattern,
+        once you can see the structure of it — the specific emotion, the specific
+        trigger, the specific sequence — you can begin interrupting it deliberately
+        instead of trying to overpower it with willpower.
+      </P>
+      <P>
+        For more on the emotional mechanics of this, read{" "}
         <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
           Why People Regain Weight After Dieting
         </a>
         .
       </P>
-      <P>Pattern Awareness helps identify those environmental loops honestly.</P>
-
-      <H2>Why Emotional Eating Often Becomes a Pattern</H2>
-      <P>Many eating behaviours are emotional coping systems. Food may temporarily provide:</P>
-      <UL items={["comfort", "distraction", "stimulation", "stress relief", "emotional escape", "reward", "numbness"]} />
-      <P>This is why emotional eating often repeats automatically. Not because someone lacks intelligence. But because the brain remembers relief.</P>
-      <P>Over time, emotional eating becomes conditioned behaviour. Examples:</P>
-      <UL
-        items={[
-          "stress triggers cravings",
-          "boredom triggers snacking",
-          "loneliness triggers takeout",
-          "anxiety triggers overeating",
-          "exhaustion triggers convenience eating",
-        ]}
-      />
-      <P>The behaviour becomes associated with emotional regulation. Pattern Awareness helps expose these loops clearly.</P>
-      <P>Because sustainable change requires understanding:</P>
-      <UL
-        items={[
-          "what triggers behaviour",
-          "what behaviour accomplishes emotionally",
-          "what environments reinforce it",
-          "what patterns repeatedly lead to regain",
-        ]}
-      />
 
       <H2>Why Diets Often Fail Repeatedly</H2>
-      <P>Many diets focus heavily on short term restriction. But repeated behavioural patterns underneath remain unchanged. Examples:</P>
-      <UL
-        items={[
-          "emotional eating still exists",
-          "stress coping remains unchanged",
-          "routines remain inconsistent",
-          "processed foods remain highly rewarding",
-          "environments remain the same",
-          "automatic eating behaviour continues",
-        ]}
-      />
-      <P>As a result:</P>
-      <UL items={["motivation fades", "old patterns return", "consistency collapses", "regain happens again"]} />
-      <P>This is one reason many people repeatedly restart weight loss. The problem is often not information. The problem is repeated behavioural reinforcement.</P>
       <P>
-        Pattern Awareness builds on{" "}
-        <a href="/blog/reality-awareness" className="text-accent hover:underline">Reality Awareness</a> and{" "}
-        <a href="/blog/friction-awareness" className="text-accent hover:underline">Friction Awareness</a>, slowing
-        people down enough to examine:
+        Most diets address the food without ever touching the pattern. They tell you
+        what to eat, when to eat it, and how much. But they don't map why you ate
+        differently before — the who, what, when, where, why, and how of the behaviour
+        that caused the weight gain in the first place.
       </P>
-      <UL
-        items={[
-          "what repeatedly happens",
-          "when it happens",
-          "why it happens",
-          "what conditions reinforce it",
-        ]}
-      />
-      <P>Because without awareness, patterns continue automatically.</P>
+      <P>
+        So the diet runs in parallel with the pattern for a while. Then life gets
+        stressful, a familiar trigger fires, the automatic response takes over — and
+        the diet collapses. Not because of weak willpower, but because the underlying
+        pattern was never identified or addressed.
+      </P>
 
       <H2>Why Pattern Interrupts Matter</H2>
-      <P>Patterns continue because they are repeated. Interrupting patterns creates opportunities for behavioural change. Examples of pattern interrupts:</P>
-      <UL
-        items={[
-          "changing eating environments",
-          "removing trigger foods",
-          "walking after meals",
-          "replacing late-night routines",
-          "slowing eating speed",
-          "planning meals earlier",
-          "reducing highly processed foods",
-          "interrupting emotional eating triggers consciously",
-        ]}
-      />
-      <P>Small repeated interruptions matter. Because behavioural permanence develops gradually through repetition.</P>
-      <P>Many people try to rely on motivation alone. But sustainable consistency usually requires:</P>
-      <UL
-        items={[
-          "awareness",
-          "environmental adjustments",
-          "repeatable systems",
-          "reduced friction",
-          "simpler routines",
-        ]}
-      />
-      <P>Pattern Awareness helps identify where interruption is needed most.</P>
+      <P>
+        Once you've mapped a pattern clearly, you can insert a deliberate interrupt
+        at the right point in the sequence. Not at the end, when the behaviour has
+        already happened. At the trigger point — before the automatic response fires.
+      </P>
+      <P>
+        This is the work of{" "}
+        <a href="/blog/action-practice" className="text-accent hover:underline">
+          Action Practice
+        </a>
+        , which begins after all five awareness stages are complete. But the interrupt
+        can only be placed accurately if the pattern has been mapped first.
+      </P>
+      <P>
+        From Pattern Awareness, the next stage is{" "}
+        <a href="/blog/consequence-awareness" className="text-accent hover:underline">
+          Consequence Awareness
+        </a>{" "}
+        — making the long-term cost of these patterns feel emotionally real, not
+        intellectually abstract.
+      </P>
 
       <H2>How LS Diet Uses Pattern Awareness</H2>
-      <P>LS Diet focuses heavily on behavioural consistency. Many people already understand:</P>
-      <UL items={["calories exist", "processed foods affect appetite", "movement matters"]} />
-      <P>But repeated behavioural patterns still overpower temporary motivation. Pattern Awareness helps expose:</P>
-      <UL
-        items={[
-          "emotional eating patterns",
-          "stress eating routines",
-          "environmental triggers",
-          "convenience habits",
-          "highly processed food dependence",
-          "inconsistency loops",
-        ]}
-      />
       <P>
-        <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" className="text-accent hover:underline">
-          LS Diet
-        </a>{" "}
-        then helps simplify behaviour through:
+        LS Diet uses Pattern Awareness to make the low-starch, low-sugar eating approach
+        actually stick. Knowing what to eat is not the problem. The problem is the
+        specific conditions under which you stop eating that way — and those conditions
+        are different for every person.
       </P>
-      <UL
-        items={[
-          "low-starch, low-sugar eating",
-          "improved fullness",
-          "reduced cravings",
-          "repeatable routines",
-          "awareness training",
-          "Action Practice systems",
-          "sustainable movement like slow jogging",
-        ]}
-      />
-      <P>The goal is not temporary dieting intensity. The goal is reducing repeated regain through behavioural permanence.</P>
+      <P>
+        By mapping your patterns first, the behavioural interventions that follow are
+        targeted instead of generic. You're not trying to overhaul everything. You're
+        identifying the handful of specific patterns that account for most of the regain,
+        and addressing those directly.
+      </P>
       <P>
         Built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
         </a>
-        , who lost 80+ lbs three times before designing the system.
+        , who lost 80+ lbs three times before designing the system. Explore the{" "}
+        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™ topic hub
+        </a>{" "}
+        for related foundations.
       </P>
       <P>
         Stop regaining weight:{" "}
