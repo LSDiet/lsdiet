@@ -20,5 +20,3 @@
 /qa/    /qa    301
 /FreeResources  /free-resources 301
 
-# Redirect from non-existent blog slug to nearest related article
-/blog/will-losing-weight-change-how-people-treat-you-at-work /blog/will-losing-weight-improve-your-career-prospects 301

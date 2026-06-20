@@ -66,6 +66,7 @@ import canAccountabilityHelp from "./can-accountability-help-you-lose-weight";
 
 // Batch 9
 import howMuchExerciseHeartHealth from "./how-much-exercise-do-you-need-for-heart-health-and-weight-loss";
+import willLosingWeightChangeTreatment from "./will-losing-weight-change-how-people-treat-you-at-work";
 
 export const ARTICLES: Article[] = [
   // Batch 1
@@ -118,6 +119,7 @@ export const ARTICLES: Article[] = [
   canAccountabilityHelp,
   // Batch 9
   howMuchExerciseHeartHealth,
+  willLosingWeightChangeTreatment,
 ];
 
 
