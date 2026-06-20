@@ -10,23 +10,12 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  {
-    label: "Start Here",
-    highlight: true,
-    children: [
-      { label: "The 5 Awareness Stages", href: "/awareness-stages" },
-      { label: "Weight Regain Profile Quiz", href: "/quiz" },
-      { label: "Join Free Community (Skool)", href: "https://www.skool.com/lsdiet/about", external: true },
-      { label: "Weight Permanence Toolbook", href: "https://book.lsdiet.com/", external: true },
-    ],
-  },
-  { label: "Weight Problem", href: "/#journey" },
-  { label: "Solution", href: "/#method" },
-  { label: "Free Resources", href: "/free-resources" },
+  { label: "Awareness Stages", href: "/awareness-stages" },
   { label: "Quiz", href: "/quiz" },
   { label: "Blog", href: "/blog" },
-  { label: "Become a Partner", href: "/partners" },
 ];
+
+const CTA_HREF = "https://www.skool.com/lsdiet/about";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -88,7 +77,16 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          {/* CTA button — desktop */}
+          <a
+            href={CTA_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center px-4 py-2 rounded-md bg-accent text-accent-foreground text-xs font-bold uppercase tracking-[0.1em] hover:opacity-90 transition-opacity"
+          >
+            Join Free →
+          </a>
           {/* Mobile menu button */}
           <button
             className="md:hidden p-2 text-[hsl(0_0%_96%)]"
@@ -150,6 +148,16 @@ export function Navbar() {
                 </a>
               );
             })}
+            {/* Mobile CTA */}
+            <a
+              href={CTA_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 block text-center py-3 rounded-md bg-accent text-accent-foreground text-sm font-bold uppercase tracking-[0.1em]"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Join Free →
+            </a>
           </div>
         </nav>
       )}
