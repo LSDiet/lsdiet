@@ -10,6 +10,7 @@ const profiles: Record<string, {
   banner: string;
   painStatement: string;
   tagline: string;
+  mobileInsight: string;
   whatItMeans: string;
   whyYouStruggle: string;
   biggestMistake: string;
@@ -25,6 +26,7 @@ const profiles: Record<string, {
     youtubeId: "ot6uJo7In24",
     banner: "/profiles/motivation-chaser.png",
     painStatement: "I always run out of motivation.",
+    mobileInsight: "You start strong because you genuinely want to change. But your entire system runs on motivation — and motivation was never designed to last six months.",
     tagline: "The person who never has to restart isn't more motivated than you. They just stopped depending on motivation to show up.",
     whatItMeans: "You start with genuine fire. The pantry gets cleaned out. The gym bag comes back. For a few weeks, everything works. Then life gets ordinary again — and ordinary is the enemy of motivation. Most Motivation Chasers have lost weight before. The problem isn't starting. It's that your entire system depends on a feeling that was never designed to last six months.",
     whyYouStruggle: "Motivation is a spark, not a fuel source. Every time you rely on it to drive consistency, you're one bad week away from stopping. And when you stop, the restart becomes harder — because now there's shame attached to it too. Over time, the cycle shortens. The starts get smaller. The gaps get longer.",
@@ -46,6 +48,7 @@ const profiles: Record<string, {
     youtubeId: "XvJoKFvXe0M",
     banner: "/profiles/overwhelmed-beginner.png",
     painStatement: "I don’t know where to start.",
+    mobileInsight: "You're not new to dieting. You're exhausted by an industry that produces more conflicting advice than results. More research has never produced more action.",
     tagline: "You don't need a better diet. You need to stop letting the search for the perfect diet keep you from starting the one in front of you.",
     whatItMeans: "You're not a beginner at dieting. You're overwhelmed by the industry built around it. One expert says eat less and move more. Another says that's outdated. One study says breakfast is essential. Another says skip it entirely. After years of this, your default response to new information isn't excitement — it's exhaustion.",
     whyYouStruggle: "Analysis paralysis is real. When you can't decide what's right, you default to either doing nothing or bouncing between systems. Neither produces the consistent behaviour that actually drives weight change. Every new piece of information introduces a new reason to wait.",
@@ -67,6 +70,7 @@ const profiles: Record<string, {
     youtubeId: "L45rGwguXWA",
     banner: "/profiles/restarter.png",
     painStatement: "I jump from one method to the next before seeing results.",
+    mobileInsight: "You've never stayed with one method long enough to find out if it actually works. Most approaches need six to eight weeks before results appear. You've been leaving in week two.",
     tagline: "The problem isn’t that nothing works. It’s that you leave before anything has time to.",
     whatItMeans: "You’ve tried more approaches to weight loss than most people have heard of. Keto, intermittent fasting, the app, the coach, the meal plan. Each one gets a few weeks. Then something new comes along that seems more promising — better science, better results, fewer restrictions — and you switch. The old program gets abandoned. The new one starts fresh. And the cycle continues. You’ve been in week one of dozens of programs. You’ve almost never experienced week eight.",
     whyYouStruggle: "Weight loss has a feedback gap. The behaviour changes immediately. The physical results take weeks. Most methods produce almost no visible change in the first two to three weeks — which is exactly when a Restarter finds the next thing. So you’ve been stuck in the gap between starting and results your entire weight loss journey, never staying long enough to find out whether anything actually works for your body.",
@@ -88,6 +92,7 @@ const profiles: Record<string, {
     youtubeId: "3gvPOGk03qs",
     banner: "/profiles/stress-eater.png",
     painStatement: "I eat when I’m stressed.",
+    mobileInsight: "The problem isn't the food. Food has a second job in your life — it reliably makes stress quieter for a few minutes. Your brain learned that and filed it as an effective coping strategy.",
     tagline: "You're not trying to eliminate stress. You're building a version of yourself for whom food is no longer the default response to it.",
     whatItMeans: "You know more about nutrition than most people. The problem isn't knowledge — it's that food has a second job in your life. When you're stressed, overwhelmed, exhausted, or running on empty, food reliably makes it quieter for a few minutes. Your brain has filed that under \"effective coping strategy.\" And it's not wrong — it works in the short term. That's exactly why it keeps happening.",
     whyYouStruggle: "You can't willpower your way out of a coping mechanism. Every time you try to white-knuckle past stress-driven eating, you're fighting a behaviour your nervous system reinforced hundreds of times. The harder you resist, the more depleted you become — and the more vulnerable you are the next time stress shows up.",
@@ -109,6 +114,7 @@ const profiles: Record<string, {
     youtubeId: "TScfhpE7YyI",
     banner: "/profiles/weight-cycler.png",
     painStatement: "I lose weight but it always comes back.",
+    mobileInsight: "You've already proven you can lose weight. The program worked. What it didn't do was prepare you for what comes after — so old habits refilled the space the diet vacated.",
     tagline: "You already know how to lose weight. What you need to learn is how to become someone who doesn't have to.",
     whatItMeans: "You've already proven you can lose weight. That's not the problem. The problem is that every program you followed was designed to get you to a number on a scale — and then it stopped. No one taught you what to do with the life you were supposed to live once you got there. So old habits slowly refilled the space the diet vacated.",
     whyYouStruggle: "Weight loss programs end. Old environments don't. The people, places, habits, and patterns that existed before the diet are still there after it. Without a system designed for maintenance, you're relying on willpower to hold the line indefinitely — and willpower is a finite resource that was already depleted by the diet itself.",
@@ -154,10 +160,10 @@ export default function WeightRegainProfilePage() {
 
       <Navbar />
 
-      <main className="max-w-3xl mx-auto px-4 py-12 md:py-16">
+      <main className="max-w-2xl mx-auto px-4 py-10 md:py-14">
 
-        {/* Banner */}
-        <div className="rounded-xl overflow-hidden mb-8 shadow-sm">
+        {/* ── Move 1: Banner + identity ── */}
+        <div className="rounded-xl overflow-hidden mb-6 shadow-sm">
           <img
             src={profile.banner}
             alt={`${profile.name} weight regain profile`}
@@ -165,18 +171,17 @@ export default function WeightRegainProfilePage() {
           />
         </div>
 
-        {/* Header */}
-        <div className="mb-8">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Your Weight Regain Profile</p>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">{profile.name}</h1>
-          <p className="inline-block rounded-full border border-border bg-muted/50 px-4 py-1.5 text-sm font-medium text-muted-foreground mb-4">
+        <div className="mb-6">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-2">Your Weight Regain Profile</p>
+          <h1 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3">{profile.name}</h1>
+          <span className="inline-block rounded-full border border-border bg-muted/40 px-3 py-1 text-xs font-medium text-muted-foreground mb-4">
             You said: &ldquo;{profile.painStatement}&rdquo;
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed italic">{profile.tagline}</p>
+          </span>
+          <p className="text-base text-muted-foreground leading-relaxed italic">{profile.tagline}</p>
         </div>
 
-        {/* YouTube video */}
-        <div className="mb-10 rounded-xl overflow-hidden shadow-sm aspect-video">
+        {/* ── Move 2: Video ── */}
+        <div className="mb-8 rounded-xl overflow-hidden shadow-sm aspect-video">
           <iframe
             className="w-full h-full"
             src={`https://www.youtube.com/embed/${profile.youtubeId}`}
@@ -186,81 +191,62 @@ export default function WeightRegainProfilePage() {
           />
         </div>
 
-        {/* Content sections */}
-        <div className="space-y-8">
+        {/* ── Move 3: Insight + bullets + outcome + CTA ── */}
+        <div className="space-y-6">
 
-          <section>
-            <h2 className="text-xl font-bold text-foreground mb-3">What {profile.name} Means</h2>
-            <p className="text-muted-foreground leading-relaxed">{profile.whatItMeans}</p>
-          </section>
+          {/* Core insight — 1-2 sentences */}
+          <p className="text-base md:text-lg text-foreground leading-relaxed font-medium">
+            {profile.mobileInsight}
+          </p>
 
-          <hr className="border-border" />
-
-          <section>
-            <h2 className="text-xl font-bold text-foreground mb-3">Why You Keep Struggling</h2>
-            <p className="text-muted-foreground leading-relaxed">{profile.whyYouStruggle}</p>
-          </section>
-
-          <hr className="border-border" />
-
-          <section>
-            <h2 className="text-xl font-bold text-foreground mb-3">The Mistake Most {profile.name}s Make</h2>
-            <p className="text-muted-foreground leading-relaxed">{profile.biggestMistake}</p>
-          </section>
-
-          <hr className="border-border" />
-
-          <section>
-            <h2 className="text-xl font-bold text-foreground mb-3">How Weight Permanence Training Addresses This</h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">{profile.howWPTHelps}</p>
-            <ul className="space-y-2">
-              {profile.helpPoints.map((point, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="mt-1 w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 text-xs font-bold">{i + 1}</span>
-                  <span className="text-muted-foreground">{point}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+          {/* Scannable bullets — what WPT addresses */}
+          <ul className="space-y-3">
+            {profile.helpPoints.map((point, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent text-xs font-extrabold ring-1 ring-accent/30">
+                  {i + 1}
+                </span>
+                <span className="text-sm md:text-base text-muted-foreground leading-relaxed">{point}</span>
+              </li>
+            ))}
+          </ul>
 
           {/* Outcome callout */}
-          <div className="rounded-xl bg-zinc-950 text-white px-6 py-6 text-center">
-            <p className="text-lg font-medium leading-relaxed">{profile.outcome}</p>
+          <div className="rounded-xl bg-zinc-950 text-white px-6 py-5 text-center">
+            <p className="text-base md:text-lg font-medium leading-relaxed">{profile.outcome}</p>
           </div>
 
           {/* CTA block */}
-          <div className="rounded-xl border border-border bg-card p-6 md:p-8 text-center space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Ready to stop the cycle?</p>
-            <h3 className="text-2xl font-bold text-foreground">Start the training. It's free.</h3>
-            <p className="text-muted-foreground">
-              Weight Permanence Training is free inside the Skool community. No upsell. No trial. Just the system.
+          <div className="rounded-xl border border-accent/30 bg-card px-5 py-6 md:px-8 md:py-8 text-center space-y-3">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Ready to stop the cycle?</p>
+            <h3 className="text-xl md:text-2xl font-extrabold text-foreground">Start the training. It's free.</h3>
+            <p className="text-sm text-muted-foreground">
+              Full Weight Permanence Training inside Skool. No upsell. No trial.
             </p>
-            {/* Primary — Skool */}
             <a
               href="https://www.skool.com/lsdiet/about"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.6)] transition-all hover:brightness-110 hover:-translate-y-0.5"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-sm font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.6)] transition-all hover:brightness-110"
             >
               Join Free — Skool Community
             </a>
-            {/* Secondary — GHL quiz */}
             <Link
               to="/quiz"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-transparent px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:border-foreground/40 hover:bg-foreground/5"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-transparent px-6 py-3 text-xs font-bold uppercase tracking-wider text-foreground transition-all hover:border-foreground/40 hover:bg-foreground/5"
             >
               Take the Full Quiz — Get Your Profile by Email
             </Link>
-            <p className="text-[11px] text-muted-foreground">
+            <p className="text-[11px] text-muted-foreground pt-1">
               Quiz takes 60 seconds. Skool is 100% free.
             </p>
           </div>
 
-          {/* Navigation back */}
-          <div className="text-center pt-2">
+          {/* Back link */}
+          <div className="text-center pb-2">
             <Link
               to="/awareness-stages"
-              className="text-sm text-muted-foreground hover:text-foreground underline transition-colors"
+              className="text-xs text-muted-foreground hover:text-foreground underline transition-colors"
             >
               ← Back to the 5 Awareness Stages
             </Link>
