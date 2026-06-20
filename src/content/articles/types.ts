@@ -26,6 +26,10 @@ export interface ArticleMeta {
   primaryFoundationSlug: string;
   /** 2–4 more foundation slugs woven contextually into the body. */
   relatedFoundationSlugs: string[];
+  /** Optional hero image — imported via Vite asset import in the article file. */
+  heroImage?: string;
+  /** Alt text for the hero image. */
+  heroImageAlt?: string;
 }
 
 export interface Article {

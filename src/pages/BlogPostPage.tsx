@@ -117,8 +117,8 @@ function fromArticle(a: Article): ViewModel {
     publishDate: a.meta.publishDate,
     updatedAt: a.meta.updatedAt,
     metaDescription: a.meta.metaDescription,
-    image: "",
-    imageAlt: "",
+    image: a.meta.heroImage ?? "https://lsdiet.com/og-image.jpg",
+    imageAlt: a.meta.heroImageAlt ?? a.meta.title,
     article: a,
   };
 }

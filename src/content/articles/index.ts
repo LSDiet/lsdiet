@@ -68,6 +68,11 @@ import canAccountabilityHelp from "./can-accountability-help-you-lose-weight";
 import howMuchExerciseHeartHealth from "./how-much-exercise-do-you-need-for-heart-health-and-weight-loss";
 import willLosingWeightChangeTreatment from "./will-losing-weight-change-how-people-treat-you-at-work";
 
+// Batch 10 — GLP-1 & behaviour
+import whyOzempicWontKeepWeightOff from "./why-ozempic-wont-keep-the-weight-off";
+import whyYouEatAtNightWhenNotHungry from "./why-you-eat-at-night-even-when-youre-not-hungry";
+import losingMuscleNotFatOnGlp1 from "./youre-losing-muscle-not-just-fat-on-glp1-drugs";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -120,6 +125,10 @@ export const ARTICLES: Article[] = [
   // Batch 9
   howMuchExerciseHeartHealth,
   willLosingWeightChangeTreatment,
+  // Batch 10
+  whyOzempicWontKeepWeightOff,
+  whyYouEatAtNightWhenNotHungry,
+  losingMuscleNotFatOnGlp1,
 ];
 
 
