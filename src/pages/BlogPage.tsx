@@ -150,8 +150,8 @@ export default function BlogPage() {
             LS Diet <span className="text-accent">Blog</span>
           </h1>
           <p className="text-base md:text-lg text-zinc-700">
-            Long-form notes on the LS Diet system — and the real-life questions that come with
-            stopping weight regain for good.
+            The Weight Permanence Training system — and answers to the real questions people ask
+            when they're tired of losing the same weight twice.
           </p>
         </header>
 
@@ -178,7 +178,7 @@ export default function BlogPage() {
           <div className="space-y-16">
             <FoundationsCurriculum />
 
-            {contentfulPosts.length > 0 && (
+            {false && contentfulPosts.length > 0 && (
               <section>
                 <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight mb-4">
                   Editorial Posts
