@@ -38,7 +38,7 @@ export default function WeightPermanenceTrianglePage() {
 
       <article className="container max-w-3xl mx-auto px-4 pb-20">
         <header className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
+          <h1 className="text-3xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
             The Weight Permanence <span className="text-accent">Triangle™</span>
           </h1>
           <p className="text-xs text-zinc-600 uppercase tracking-wider">

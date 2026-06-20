@@ -24,7 +24,7 @@ const UL = ({ items }: { items: React.ReactNode[] }) => (
 );
 
 const H2 = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+  <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
     {children}
   </h2>
 );

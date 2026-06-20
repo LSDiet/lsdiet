@@ -159,7 +159,7 @@ function Body() {
         designed to solve.
       </p>
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Why Temporary Weight Loss Often Leads To Weight Regain
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
@@ -189,7 +189,7 @@ function Body() {
         But repeated regain is often a systems problem, not a character flaw.
       </blockquote>
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Why Most Diets Fail Long Term
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
@@ -228,7 +228,7 @@ function Body() {
         of perfection.
       </p>
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         The Real Problem Is Behavioural Autopilot
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
@@ -256,7 +256,7 @@ function Body() {
         create obesity — repeated exposure changes outcomes.
       </p>
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Why Weight Regain Happens So Easily
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
@@ -280,7 +280,7 @@ function Body() {
         motivation.
       </p>
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         The Insulin Connection
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
@@ -324,7 +324,7 @@ function Body() {
         caption="Sugar triggers a fast glucose spike — and it hides in foods marketed as healthy."
       />
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Starch Is Often The Hidden Problem
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
@@ -355,7 +355,7 @@ function Body() {
         caption="Starch produces the same insulin response as sugar — and it shows up at almost every meal."
       />
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Why Consistency Matters More Than Intensity
       </h2>
       <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
@@ -394,7 +394,7 @@ function Body() {
         The objective is sustainability.
       </p>
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         There Is No Perfect Diet
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
@@ -429,7 +429,7 @@ function Body() {
         caption="Most diet approaches collapse on long-term sustainability. LS is designed for consistency."
       />
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Why LS Diet Focuses On Permanence
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
@@ -458,7 +458,7 @@ function Body() {
         fluctuates. But systems can remain.
       </p>
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         The Goal Is Not Temporary Weight Loss
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
@@ -493,7 +493,7 @@ function Body() {
         caption="The practical pattern: eat less often, smaller portions, and shift toward low-starch, low-sugar foods."
       />
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Related Reading
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">

@@ -221,7 +221,7 @@ export default function WeightRegainProfilePage() {
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Ready to stop the cycle?</p>
             <h3 className="text-xl md:text-2xl font-extrabold text-foreground">Start the training. It's free.</h3>
             <p className="text-sm text-muted-foreground">
-              Full Weight Permanence Training inside Skool. No upsell. No trial.
+              Full Weight Permanence Training inside Skool.
             </p>
             <a
               href="https://www.skool.com/lsdiet/about"

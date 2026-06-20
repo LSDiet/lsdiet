@@ -62,7 +62,7 @@ const P = ({ children }: { children: React.ReactNode }) => (
   <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">{children}</p>
 );
 const H2 = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-4 text-zinc-900">
+  <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
     {children}
   </h2>
 );

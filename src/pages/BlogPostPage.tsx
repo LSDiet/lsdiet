@@ -302,7 +302,7 @@ export default function BlogPostPage() {
             updatedAt={vm.updatedAt}
           />
         ) : (
-          <article className="container max-w-3xl mx-auto px-4 pt-28 pb-20">
+          <article className="container max-w-3xl mx-auto px-4 pt-4 md:pt-16 pb-20">
             <header className="mb-8">
               {vm.category && vm.categorySlug && (
                 <a
