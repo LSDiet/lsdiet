@@ -1,0 +1,21 @@
+# Strip trailing slashes — keeps served URL matching canonical tags
+# Cloudflare Pages auto-redirects /path → /path/ for prerendered dirs,
+# this rule reverses that so crawlers always land on the canonical no-slash URL.
+/blog/:slug/    /blog/:slug    301
+/category/:slug/    /category/:slug    301
+/what-is-ls-diet/   /what-is-ls-diet   301
+/weight-permanence-triangle/    /weight-permanence-triangle    301
+/awareness-stages/  /awareness-stages  301
+/oscar-poon/    /oscar-poon    301
+/faq/   /faq   301
+/free-resources/    /free-resources    301
+/quiz/  /quiz  301
+/ls-diet-guide/ /ls-diet-guide 301
+/does-glp-1-work/   /does-glp-1-work   301
+/partners/  /partners  301
+/resources/ /resources 301
+/privacy/   /privacy   301
+/terms/ /terms 301
+/disclaimer/    /disclaimer    301
+/qa/    /qa    301
+/FreeResources  /free-resources 301
