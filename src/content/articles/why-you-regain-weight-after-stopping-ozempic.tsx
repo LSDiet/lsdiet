@@ -122,6 +122,28 @@ function Body() {
         and what makes WPT different from another diet cycle.
       </p>
 
+
+      <section aria-label="Frequently Asked Questions">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Why do most people regain weight after stopping Ozempic?</h3>
+        <p>
+          Because the medication suppressed appetite without changing the underlying triggers. Once the drug stops, hunger returns to its previous level. If the cues, habits, and environments that drove overeating were never identified or interrupted, the same eating patterns resume. A 2026 systematic review published in <em>The BMJ</em> found that people regain weight after stopping GLP-1 medications at a rate approximately 0.3 kg per month faster than those who end a structured diet program (West et al., 2026).
+        </p>
+
+        <h3>What is Pattern Awareness, and why does it matter after stopping Ozempic?</h3>
+        <p>
+          Pattern Awareness is Stage 3 of Weight Permanence Training. It is a structured process that maps the full sequence of your eating behaviour: the trigger, the context, the emotion, the time of day, and the story you tell yourself in that moment. Across 83 questions, it makes the pattern visible so you can interrupt it at the cue rather than fighting the urge once it has already formed. This is the diagnostic step GLP-1 medications skip entirely. Without it, stopping the drug leaves the behavioural pattern intact and waiting. See the full{" "}
+          <a href="/awareness-stages">5 Awareness Stages</a>{" "}
+          to understand how this fits into the broader process.
+        </p>
+
+        <h3>Is there an eating approach that actually supports lasting weight loss after stopping a GLP-1 drug?</h3>
+        <p>
+          Yes. Low starch, low sugar eating stabilises blood sugar, which quiets the biological drive to overeat without requiring the drug to do it. When insulin stays low, the body shifts toward burning stored fat rather than storing more. The practical result is that hunger becomes manageable and cravings lose most of their intensity. Combined with Pattern Awareness to address behavioural triggers, this approach addresses both the physical and psychological sides of the regain problem.
+        </p>
+      </section>
+
       <section aria-label="References">
         <h2>References</h2>
         <ul style={{ listStyle: "none", padding: 0, fontSize: "0.9rem", lineHeight: "1.7" }}>
