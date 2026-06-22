@@ -1,56 +1,77 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { useQueryClient } from "@tanstack/react-query";
+import { ChevronDown } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
-import { PageBreadcrumb } from "@/components/PageBreadcrumb";
-import { Button } from "@/components/ui/button";
 import { JoinFloatingBar } from "@/components/JoinFloatingBar";
-import {
-  listBlogPosts,
-  fetchCategories,
-  fetchBlogPost,
-  formatPublishDate,
-  type BlogPost,
-  type CategorySummary,
-} from "@/lib/blog";
+import { formatPublishDate, type BlogPost } from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
-import { FOUNDATIONS } from "@/content/foundations";
-import { FoundationsCurriculum } from "@/components/FoundationsCurriculum";
-import { SearchDrivenIndex } from "@/components/SearchDrivenIndex";
+import { SEARCH_ARTICLE_CLUSTERS } from "@/lib/searchArticleClusters";
 
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
 
-type EnrichedPost = BlogPost & {
-  contentType: BlogIndexEntry["contentType"];
-  canonicalTopic: string;
-};
+const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
 
-function foundationsAsBlogPosts(): BlogPost[] {
-  return FOUNDATIONS.map((f) => ({
-    id: `foundation:${f.meta.slug}`,
-    createdAt: f.meta.publishDate,
-    updatedAt: f.meta.updatedAt,
-    title: f.meta.title,
-    slug: f.meta.slug,
-    excerpt: f.meta.excerpt,
-    content: null,
-    featuredImage: {
-      url: f.meta.featuredImage.src,
-      title: f.meta.featuredImage.alt,
-      width: f.meta.featuredImage.width,
-      height: f.meta.featuredImage.height,
-    },
-    publishDate: f.meta.publishDate,
-  }));
+// ---------------------------------------------------------------------------
+// Hero — single latest article with image
+// ---------------------------------------------------------------------------
+
+function HeroArticle({ entry }: { entry: BlogIndexEntry }) {
+  return (
+    <a
+      href={`/blog/${entry.slug}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block overflow-hidden rounded-2xl border border-zinc-200 hover:border-accent transition-colors"
+    >
+      <div className="grid md:grid-cols-2">
+        {/* Image */}
+        <div className="aspect-video md:aspect-auto md:min-h-[320px] bg-accent/10 overflow-hidden">
+          {entry.featuredImage?.url ? (
+            <img
+              src={entry.featuredImage.url}
+              alt={entry.featuredImage.alt || entry.title}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5" />
+          )}
+        </div>
+        {/* Text */}
+        <div className="flex flex-col justify-center p-6 md:p-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-3">
+            Latest
+          </p>
+          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-zinc-900 group-hover:text-accent transition-colors leading-snug mb-4">
+            {entry.title}
+          </h2>
+          {entry.excerpt && (
+            <p className="text-sm md:text-base text-zinc-600 line-clamp-3 mb-6">
+              {entry.excerpt}
+            </p>
+          )}
+          <div className="flex items-center gap-3">
+            <p className="text-xs text-zinc-500">{formatPublishDate(entry.publishDate)}</p>
+            <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent uppercase tracking-wider">
+              Read →
+            </span>
+          </div>
+        </div>
+      </div>
+    </a>
+  );
 }
 
+// ---------------------------------------------------------------------------
+// Latest Articles — 3 most recent cards
+// ---------------------------------------------------------------------------
 
-interface LatestArticlesProps {
-  entries: import("@/lib/blogIndex").BlogIndexEntry[];
-}
-
-function LatestArticles({ entries }: LatestArticlesProps) {
-  const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
+function LatestArticles({ entries }: { entries: BlogIndexEntry[] }) {
   const latest = entries
     .filter((e) => SUPPORTING_TYPES.has(e.contentType))
     .sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1))
@@ -60,22 +81,24 @@ function LatestArticles({ entries }: LatestArticlesProps) {
 
   return (
     <section>
-      <div className="mb-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-2">
+      <div className="mb-5">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1">
           Just published
         </p>
-        <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight">
+        <h2 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight">
           Latest Articles
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {latest.map((e) => (
           <a
             key={e.slug}
             href={`/blog/${e.slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex flex-col rounded-xl border border-zinc-200 overflow-hidden hover:border-accent transition-colors"
           >
-            <div className="w-full aspect-video bg-accent/10 overflow-hidden flex-shrink-0">
+            <div className="aspect-video bg-accent/10 overflow-hidden flex-shrink-0">
               {e.featuredImage?.url ? (
                 <img
                   src={e.featuredImage.url}
@@ -88,14 +111,11 @@ function LatestArticles({ entries }: LatestArticlesProps) {
                 <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5" />
               )}
             </div>
-            <div className="p-4 flex flex-col gap-2 flex-1">
+            <div className="p-4 flex flex-col gap-1 flex-1">
               <p className="text-xs text-zinc-500">{formatPublishDate(e.publishDate)}</p>
-              <h3 className="text-base font-bold text-zinc-900 group-hover:text-accent transition-colors leading-snug">
+              <h3 className="text-sm font-bold text-zinc-900 group-hover:text-accent transition-colors leading-snug">
                 {e.title}
               </h3>
-              {e.excerpt && (
-                <p className="text-sm text-zinc-600 line-clamp-2 mt-auto">{e.excerpt}</p>
-              )}
             </div>
           </a>
         ))}
@@ -104,64 +124,169 @@ function LatestArticles({ entries }: LatestArticlesProps) {
   );
 }
 
-export default function BlogPage() {
-  const queryClient = useQueryClient();
-  const [posts, setPosts] = useState<EnrichedPost[] | null>(null);
-  const [contentfulPosts, setContentfulPosts] = useState<BlogPost[]>([]);
-  const [categories, setCategories] = useState<CategorySummary[]>([]);
-  const [activeCategory, setActiveCategory] = useState<string>("");
-  const [indexEntries, setIndexEntries] = useState<BlogIndexEntry[]>([]);
-  const [error, setError] = useState<string | null>(null);
+// ---------------------------------------------------------------------------
+// Start Here links — shown at top of each expanded category block
+// ---------------------------------------------------------------------------
 
-  const prefetchPost = (slug: string) => {
-    queryClient.prefetchQuery({
-      queryKey: ["blog-post", slug],
-      queryFn: () => fetchBlogPost(slug),
-      staleTime: 5 * 60 * 1000,
-    });
-  };
+interface StartHereLink { label: string; href: string; }
+
+function StartHereRow({ links }: { links: StartHereLink[] }) {
+  return (
+    <div className="mb-4 px-4 py-3 rounded-lg bg-accent/5 border border-accent/10">
+      <p className="text-[10px] font-semibold uppercase tracking-widest text-accent mb-2">
+        Start here
+      </p>
+      <div className="flex flex-col gap-1">
+        {links.map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-zinc-800 hover:text-accent transition-colors flex items-center gap-2"
+          >
+            <span className="text-accent">→</span>
+            {l.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Category Block — accordion
+// ---------------------------------------------------------------------------
+
+const START_HERE: Record<string, StartHereLink[]> = {
+  "ls-way": [
+    { label: "Why Low Starch, Low Sugar Works", href: "/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" },
+    { label: "Action Practice", href: "/blog/action-practice" },
+  ],
+  "weight-permanence-training": [
+    { label: "The Weight Permanence Triangle", href: "/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" },
+    { label: "The 5 Awareness Stages", href: "/awareness-stages" },
+    { label: "Why People Regain Weight After Dieting", href: "/blog/why-people-regain-weight-after-dieting" },
+  ],
+  "what-people-are-searching": [],
+};
+
+interface CategoryBlockProps {
+  cluster: (typeof SEARCH_ARTICLE_CLUSTERS)[number];
+  entries: BlogIndexEntry[];
+  defaultOpen?: boolean;
+}
+
+function CategoryBlock({ cluster, entries, defaultOpen = false }: CategoryBlockProps) {
+  const [open, setOpen] = useState(defaultOpen);
+  const startHere = START_HERE[cluster.id] ?? [];
+  const count = entries.length;
+
+  return (
+    <div className="border border-zinc-200 rounded-xl overflow-hidden">
+      {/* Header — always visible */}
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-4 px-5 py-5 md:py-6 text-left hover:bg-zinc-50 transition-colors"
+        aria-expanded={open}
+      >
+        <div className="min-w-0">
+          <h2 className="text-lg md:text-xl font-extrabold uppercase tracking-tight text-zinc-900 leading-tight">
+            {cluster.title}
+          </h2>
+          <p className="text-sm text-zinc-500 mt-0.5">{cluster.tagline}</p>
+        </div>
+        <div className="flex items-center gap-3 shrink-0">
+          <span className="hidden sm:block text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+            {count} {count === 1 ? "article" : "articles"}
+          </span>
+          <ChevronDown
+            className={`h-5 w-5 text-zinc-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+            aria-hidden
+          />
+        </div>
+      </button>
+
+      {/* Expanded content */}
+      {open && (
+        <div className="border-t border-zinc-100 px-5 py-4">
+          {startHere.length > 0 && <StartHereRow links={startHere} />}
+          <ul className="divide-y divide-zinc-100">
+            {entries.map((e) => (
+              <li key={e.slug}>
+                <a
+                  href={`/blog/${e.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-3 py-3 hover:text-accent transition-colors"
+                >
+                  {e.featuredImage?.url && (
+                    <img
+                      src={e.featuredImage.url}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      className="w-12 h-12 rounded-md object-cover flex-shrink-0 mt-0.5"
+                    />
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-semibold text-zinc-800 group-hover:text-accent leading-snug transition-colors">
+                      {e.title}
+                    </p>
+                    <p className="text-xs text-zinc-400 mt-0.5">{formatPublishDate(e.publishDate)}</p>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Main BlogPage
+// ---------------------------------------------------------------------------
+
+export default function BlogPage() {
+  const [entries, setEntries] = useState<BlogIndexEntry[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let cancelled = false;
-    Promise.all([
-      listBlogPosts().catch(() => [] as BlogPost[]),
-      fetchBlogIndex().catch(() => [] as BlogIndexEntry[]),
-      fetchCategories().catch(() => [] as CategorySummary[]),
-    ])
-      .then(([raw, index, cats]) => {
-        if (cancelled) return;
-        setIndexEntries(index);
-        setContentfulPosts(raw);
-        setCategories(cats);
-        const foundations = foundationsAsBlogPosts();
-        const foundationSlugs = new Set(foundations.map((p) => p.slug));
-        const merged: BlogPost[] = [
-          ...foundations,
-          ...raw.filter((p) => !foundationSlugs.has(p.slug)),
-        ];
-        merged.sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
-        const bySlug = new Map(index.map((i) => [i.slug, i]));
-        setPosts(
-          merged.map((p) => {
-            const meta = bySlug.get(p.slug);
-            return {
-              ...p,
-              contentType: (meta?.contentType ?? "supporting") as BlogIndexEntry["contentType"],
-              canonicalTopic: meta?.canonicalTopic ?? "",
-            };
-          }),
-        );
-      })
-      .catch((e) => !cancelled && setError(e.message ?? "Failed to load"));
-    return () => {
-      cancelled = true;
-    };
+    fetchBlogIndex()
+      .then((data) => { setEntries(data); setLoading(false); })
+      .catch(() => setLoading(false));
   }, []);
 
-  const filteredEditorial = useMemo(() => {
-    if (!activeCategory) return contentfulPosts;
-    return contentfulPosts.filter((p) => p.categorySlug === activeCategory);
-  }, [contentfulPosts, activeCategory]);
+  const supporting = entries.filter((e) => SUPPORTING_TYPES.has(e.contentType));
+
+  // Hero: latest supporting article with a featuredImage
+  const hero = supporting
+    .filter((e) => !!e.featuredImage?.url)
+    .sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1))[0] ?? supporting[0];
+
+  // Build cluster → entry map
+  const slugToCluster = new Map<string, string>();
+  for (const c of SEARCH_ARTICLE_CLUSTERS) {
+    for (const s of c.slugs) slugToCluster.set(s, c.id);
+  }
+
+  const clusterEntries = new Map<string, BlogIndexEntry[]>();
+  for (const c of SEARCH_ARTICLE_CLUSTERS) clusterEntries.set(c.id, []);
+
+  // Unmapped entries fall into "what-people-are-searching"
+  for (const e of supporting) {
+    const cid = slugToCluster.get(e.slug) ?? "what-people-are-searching";
+    const arr = clusterEntries.get(cid);
+    if (arr) arr.push(e);
+  }
+
+  // Sort each cluster by publishDate desc
+  for (const arr of clusterEntries.values()) {
+    arr.sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
+  }
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -171,30 +296,22 @@ export default function BlogPage() {
     url: "https://lsdiet.com/blog",
     inLanguage: "en-CA",
     description:
-      "LS Diet Foundations and real-life weight loss questions — articles on stopping weight regain, the Weight Permanence Training™, awareness, and practical action.",
+      "LS Diet articles on low-starch low-sugar eating, Weight Permanence Training, and the real questions people ask when they're tired of regaining the same weight.",
     author: { "@type": "Person", "@id": "https://lsdiet.com/oscar-poon#person" },
     publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
-    hasPart: (posts ?? []).map((p) => ({
-      "@type": "Article",
-      headline: p.title,
-      url: `https://lsdiet.com/blog/${p.slug}`,
-      datePublished: p.publishDate,
-      dateModified: p.updatedAt,
-      inLanguage: "en-CA",
-    })),
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>LS Diet Blog | Foundations & Real-Life Weight Questions</title>
+        <title>LS Diet Blog | The LS Way & Weight Permanence Training</title>
         <meta
           name="description"
-          content="LS Diet Foundations and real-life weight loss questions — articles on stopping weight regain, the Weight Permanence Training™, awareness, and practical action."
+          content="Articles on low-starch low-sugar eating, Weight Permanence Training, and real weight loss questions — from someone who lost 80 lbs three times and figured out why."
         />
         <link rel="canonical" href="https://lsdiet.com/blog" />
         <meta property="og:title" content="LS Diet Blog" />
-        <meta property="og:description" content="LS Diet Foundations and real-life weight loss questions." />
+        <meta property="og:description" content="The LS Way, Weight Permanence Training, and real questions — answered." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://lsdiet.com/blog" />
         <meta property="og:locale" content="en_CA" />
@@ -202,172 +319,43 @@ export default function BlogPage() {
       </Helmet>
 
       <Navbar />
-      <PageBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Blog", url: "/blog" }]} />
 
-      <main data-route-root className="container max-w-6xl mx-auto px-4 pb-20">
-        <header className="mb-10 max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-3">
-            LS Diet <span className="text-accent">Blog</span>
-          </h1>
-          <p className="text-base md:text-lg text-zinc-700">
-            The Weight Permanence Training system — and answers to the real questions people ask
-            when they're tired of losing the same weight twice.
-          </p>
-        </header>
+      <main className="container max-w-5xl mx-auto px-4 pt-24 pb-20 space-y-14">
 
-        {error && (
-          <div className="rounded-lg border border-destructive/40 bg-destructive/10 p-6 text-zinc-800">
-            Couldn't load posts. Please refresh in a moment.
-          </div>
+        {loading && (
+          <div className="text-zinc-500 text-sm pt-8">Loading…</div>
         )}
 
-        {!error && posts === null && <div className="text-zinc-600">Loading posts…</div>}
+        {!loading && hero && <HeroArticle entry={hero} />}
 
-        {!error && posts && posts.length === 0 && (
-          <div className="rounded-xl border border-border p-8 text-center">
-            <p className="text-zinc-700 mb-4">No posts published yet. Check back soon.</p>
-            <Button variant="accent" asChild>
-              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                START YOUR FREE TRAINING TODAY
-              </a>
-            </Button>
-          </div>
+        {!loading && supporting.length > 0 && (
+          <LatestArticles entries={supporting} />
         )}
 
-        {posts && posts.length > 0 && (
-          <div className="space-y-16">
-            <FoundationsCurriculum />
-
-            <LatestArticles entries={indexEntries} />
-
-            {false && contentfulPosts.length > 0 && (
-              <section>
-                <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight mb-4">
-                  Editorial Posts
-                </h2>
-
-                {categories.length > 0 && (
-                  <div className="mb-6 flex flex-wrap gap-2">
-                    <FilterChip
-                      label="All"
-                      count={contentfulPosts.length}
-                      active={!activeCategory}
-                      onClick={() => setActiveCategory("")}
-                    />
-                    {categories.map((c) => (
-                      <FilterChip
-                        key={c.slug}
-                        label={c.label}
-                        count={c.count}
-                        active={activeCategory === c.slug}
-                        onClick={() => setActiveCategory(c.slug)}
-                        href={`/category/${c.slug}`}
-                      />
-                    ))}
-                  </div>
-                )}
-
-                {filteredEditorial.length === 0 ? (
-                  <p className="text-sm text-zinc-600">No posts in this category yet.</p>
-                ) : (
-                  <ul className="divide-y divide-zinc-200 border-t border-b border-zinc-200">
-                    {filteredEditorial.map((p) => (
-                      <li key={p.id}>
-                        <a
-                          href={`/blog/${p.slug}`}
-                          onMouseEnter={() => prefetchPost(p.slug)}
-                          onFocus={() => prefetchPost(p.slug)}
-                          onTouchStart={() => prefetchPost(p.slug)}
-                          className="group flex items-start gap-4 py-5 px-2 -mx-2 rounded hover:bg-zinc-50 transition-colors"
-                        >
-                          <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-md overflow-hidden bg-accent/10">
-                            {p.featuredImage?.url ? (
-                              <img
-                                src={p.featuredImage.url}
-                                alt={p.featuredImage.title || p.title}
-                                loading="lazy"
-                                decoding="async"
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            ) : (
-                              <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5" />
-                            )}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            {p.category && p.categorySlug && (
-                              <span className="text-[10px] uppercase tracking-wider text-accent font-semibold">
-                                {p.category}
-                              </span>
-                            )}
-                            <h3 className="text-lg md:text-xl font-bold text-zinc-900 group-hover:text-accent transition-colors mt-1">
-                              {p.title}
-                            </h3>
-                            {p.excerpt && (
-                              <p className="text-sm text-zinc-700 mt-1 line-clamp-2">{p.excerpt}</p>
-                            )}
-                            <p className="text-xs text-zinc-500 mt-1">
-                              {formatPublishDate(p.publishDate)}
-                            </p>
-                          </div>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </section>
-            )}
-
-            <SearchDrivenIndex entries={indexEntries} />
-          </div>
+        {!loading && supporting.length > 0 && (
+          <section className="space-y-4">
+            <div className="mb-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1">
+                Explore
+              </p>
+              <h2 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight">
+                Browse by Topic
+              </h2>
+            </div>
+            {SEARCH_ARTICLE_CLUSTERS.map((cluster) => (
+              <CategoryBlock
+                key={cluster.id}
+                cluster={cluster}
+                entries={clusterEntries.get(cluster.id) ?? []}
+              />
+            ))}
+          </section>
         )}
 
       </main>
 
       <FooterSimple />
       <JoinFloatingBar />
-
     </div>
-  );
-}
-
-function FilterChip({
-  label,
-  count,
-  active,
-  onClick,
-  href,
-}: {
-  label: string;
-  count: number;
-  active: boolean;
-  onClick: () => void;
-  href?: string;
-}) {
-  const className = `inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border transition-colors ${
-    active
-      ? "bg-accent text-accent-foreground border-accent"
-      : "bg-transparent text-zinc-700 border-zinc-300 hover:border-accent hover:text-accent"
-  }`;
-  // Render as anchor when href is provided so crawlers see the archive link.
-  // Click intercepts to apply the in-page filter without nav.
-  if (href) {
-    return (
-      <a
-        href={href}
-        className={className}
-        onClick={(e) => {
-          if (e.metaKey || e.ctrlKey || e.shiftKey) return;
-          e.preventDefault();
-          onClick();
-        }}
-      >
-        {label} <span className="opacity-70">({count})</span>
-      </a>
-    );
-  }
-  return (
-    <button type="button" className={className} onClick={onClick}>
-      {label} <span className="opacity-70">({count})</span>
-    </button>
   );
 }
