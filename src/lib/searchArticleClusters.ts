@@ -35,7 +35,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
   {
     id: "weight-permanence-training",
     title: "Weight Permanence Training",
-    tagline: "Why you keep regaining — and what to change",
+    tagline: "Why you keep regaining weight and what to change",
     slugs: [
       "why-do-i-keep-restarting-weight-loss",
       "why-do-i-restart-weight-loss-every-monday",
@@ -60,7 +60,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
   {
     id: "what-people-are-searching",
     title: "What People Are Searching",
-    tagline: "Real questions from real people — answered",
+    tagline: "Real questions from real people, answered",
     slugs: [
       "how-to-lose-weight-with-a-desk-job",
       "how-to-lose-weight-when-you-work-long-hours",
