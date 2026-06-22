@@ -73,6 +73,9 @@ import whyOzempicWontKeepWeightOff from "./why-ozempic-wont-keep-the-weight-off"
 import whyYouEatAtNightWhenNotHungry from "./why-you-eat-at-night-even-when-youre-not-hungry";
 import losingMuscleNotFatOnGlp1 from "./youre-losing-muscle-not-just-fat-on-glp1-drugs";
 
+// Batch 11
+import whyYouRegainWeightAfterStoppingOzempic from "./why-you-regain-weight-after-stopping-ozempic";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -129,6 +132,8 @@ export const ARTICLES: Article[] = [
   whyOzempicWontKeepWeightOff,
   whyYouEatAtNightWhenNotHungry,
   losingMuscleNotFatOnGlp1,
+  // Batch 11
+  whyYouRegainWeightAfterStoppingOzempic,
 ];
 
 

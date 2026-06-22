@@ -50,6 +50,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "how-to-stay-motivated-to-lose-weight-when-working-full-time",
       "why-ozempic-wont-keep-the-weight-off",
       "why-you-eat-at-night-even-when-youre-not-hungry",
+      "why-you-regain-weight-after-stopping-ozempic",
     ],
   },
   {
