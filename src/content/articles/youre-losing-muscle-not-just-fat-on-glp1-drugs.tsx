@@ -42,7 +42,7 @@ function Body() {
 
       <p>
         The COURAGE trial found a similar pattern, with roughly 35% of
-        semaglutide-induced weight loss attributed to lean mass reduction.
+        semaglutide induced weight loss attributed to lean mass reduction.
         Across multiple studies, the range sits between 35% and 45% depending
         on the patient population, the dose, and the duration of treatment.
       </p>

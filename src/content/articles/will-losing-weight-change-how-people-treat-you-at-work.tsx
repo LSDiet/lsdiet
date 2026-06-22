@@ -31,7 +31,7 @@ function Body() {
         Some people will treat you differently. Some won't notice at all. And a
         few — usually the ones closest to you — will react in ways you didn't
         expect. The honest answer to this question is more complicated than most
-        weight-loss content admits.
+        weight loss content admits.
       </p>
 
       <h2>What Actually Changes at Work</h2>
@@ -101,8 +101,8 @@ function Body() {
         <a href="/blog/consequence-awareness">consequence awareness</a> work
         in Weight Permanence Training™, this shows up as distinguishing between
         motivations that last and ones that evaporate the moment circumstances
-        shift. External validation is high-energy at the start and unreliable
-        over a two-year horizon.
+        shift. External validation is high energy at the start and unreliable
+        over a two year horizon.
       </p>
 
       <h2>What the Stable Version of This Looks Like</h2>
@@ -111,7 +111,7 @@ function Body() {
         The people who stop regaining weight don't usually do it because their
         boss finally complimented them. They do it because their relationship
         with themselves shifted — what they tolerate, what they expect from
-        themselves, what they consider non-negotiable.
+        themselves, what they consider non negotiable.
       </p>
 
       <p>

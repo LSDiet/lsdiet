@@ -57,7 +57,7 @@ function Body() {
         <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
           a low-starch low-sugar baseline
         </a>{" "}
-        is easier to course-correct from than an aggressive crash diet.
+        is easier to course correct from than an aggressive crash diet.
       </p>
 
       <h2>Final Thoughts</h2>

@@ -29,12 +29,12 @@ function Body() {
     <>
       <p>
         Most meal prep fails for a boring reason: it's too ambitious. Five
-        elaborate recipes, perfect macros, colour-coded containers — until
+        elaborate recipes, perfect macros, colour coded containers — until
         Wednesday hits, exhaustion wins, and the takeout app reopens.
       </p>
 
       <p>
-        LS-style meal prep moves in the opposite direction. Boring on
+        LS style meal prep moves in the opposite direction. Boring on
         purpose. Repeatable on a bad day. That's a deliberate design choice
         from the{" "}
         <a href="/blog/action-practice">Action Practice</a> lessons.
@@ -50,7 +50,7 @@ function Body() {
       <ul>
         <li>Boiled or roasted chicken with a sauce or two</li>
         <li>Eggs and vegetables</li>
-        <li>Pre-portioned protein you don't have to think about</li>
+        <li>Pre portioned protein you don't have to think about</li>
         <li>One or two reheatable bases</li>
       </ul>
 
@@ -65,8 +65,8 @@ function Body() {
 
       <p>
         Most restaurants — including vegetarian and vegan ones — build meals
-        around rice, noodles, bread, deep-fried items, and sweet sauces.
-        Even healthy-looking bowls can be 70% starch. A{" "}
+        around rice, noodles, bread, deep fried items, and sweet sauces.
+        Even healthy looking bowls can be 70% starch. A{" "}
         <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
           low-starch low-sugar fridge
         </a>{" "}

@@ -97,7 +97,7 @@ function Body() {
 
       <p>
         If TV time is the trigger, the intervention is not to stop watching TV.
-        It is to change what is available when the cue fires. Air-fried
+        It is to change what is available when the cue fires. Air fried
         broccoli or roasted cauliflower sitting in a bowl on the coffee table
         serves the same behavioural function as the chips did — something to
         reach for, something to chew, something that goes with the screen. The
@@ -113,7 +113,7 @@ function Body() {
         </a>{" "}
         — is not about deprivation. It is about replacing foods that disrupt
         your metabolism with foods that do not, while keeping the pattern
-        intact enough that you do not feel like you are white-knuckling every
+        intact enough that you do not feel like you are white knuckling every
         evening.
       </p>
 

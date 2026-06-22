@@ -26,7 +26,7 @@ function Body() {
   return (
     <>
       <p>
-        Lunch is where most office weight-loss plans quietly fall apart.
+        Lunch is where most office weight loss plans quietly fall apart.
         Convenience usually wins — sandwiches, rice bowls, takeout, sugary
         drinks. The fix isn't a better recipe. It's a simpler, more repeatable
         default.

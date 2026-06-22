@@ -26,7 +26,7 @@ function Body() {
         Stress eating isn't really about hunger. Food temporarily changes
         emotional state — that's the actual draw. Stress reliably
         increases cravings, impulsive eating, comfort eating, and
-        reward-seeking behaviour even when the body needs nothing.
+        reward seeking behaviour even when the body needs nothing.
       </p>
 
       <h2>Why Stress Eating Becomes Automatic</h2>

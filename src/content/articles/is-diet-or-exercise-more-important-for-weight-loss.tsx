@@ -44,7 +44,7 @@ function Body() {
 
       <ul>
         <li>Person A: drinks only water for two weeks (not recommended)</li>
-        <li>Person B: daily hour-long jogs for two weeks</li>
+        <li>Person B: daily hour long jogs for two weeks</li>
       </ul>
 
       <p>If you guess Person A, you are correct.</p>
@@ -109,7 +109,7 @@ function Body() {
       <ul>
         <li>Cardiovascular and metabolic health</li>
         <li>Muscle preservation, especially after age 35</li>
-        <li>Bone density and long-term mobility</li>
+        <li>Bone density and long term mobility</li>
         <li>Stress regulation and sleep quality</li>
       </ul>
 
@@ -124,12 +124,12 @@ function Body() {
       <p>
         Diet is the primary driver of weight loss because it determines how
         much energy enters the system. Exercise helps determine what happens
-        to your muscles, bones, strength, mobility, and long-term health
+        to your muscles, bones, strength, mobility, and long term health
         while that weight is being lost. Diet will always lose more weight,
         while exercise helps you lose the right weight. The most sustainable
         approach combines both: eating in a way that controls hunger and
         cravings while moving in a way that preserves muscle and supports
-        lifelong health. Balance is where long-term success lives.
+        lifelong health. Balance is where long term success lives.
       </p>
 
       <p>
@@ -143,7 +143,7 @@ function Body() {
 
       <p>
         If the only question is weight loss: diet matters more. If the
-        question is long-term health and stopping the regain cycle:
+        question is long term health and stopping the regain cycle:
         sustainable food, sustainable movement, and behavioural permanence
         all belong in the same system.
       </p>

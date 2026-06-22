@@ -30,10 +30,10 @@ function Body() {
   return (
     <>
       <p>
-        Sleep is one of the most under-credited levers in weight loss. Most
+        Sleep is one of the most under credited levers in weight loss. Most
         people pour energy into calories, exercise, and meal plans while
         quietly ignoring recovery — and recovery is where cravings,
-        emotional regulation, and decision-making either hold or fall apart.
+        emotional regulation, and decision making either hold or fall apart.
       </p>
 
       <h2>Why Poor Sleep Spikes Cravings</h2>
@@ -72,7 +72,7 @@ function Body() {
         Treat sleep the same way you treat meal prep: a designed input. The{" "}
         <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
         treats recovery as part of the system, not a bonus — and a small,
-        repeatable wind-down routine from{" "}
+        repeatable wind down routine from{" "}
         <a href="/blog/action-practice">Action Practice</a> usually
         outperforms any single "I'll sleep more this week" intention.
       </p>

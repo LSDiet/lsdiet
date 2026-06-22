@@ -3,11 +3,11 @@ import type { Article } from "./types";
 const meta: import("./types").ArticleMeta = {
   slug: "how-much-exercise-do-you-need-for-heart-health-and-weight-loss",
   title:
-    "150 Minutes a Week Is the Heart-Health Minimum — Here's How Much More Helps (And Why Diet Still Decides Your Weight)",
+    "150 Minutes a Week Is the Heart Health Minimum — Here's How Much More Helps (And Why Diet Still Decides Your Weight)",
   excerpt:
     "150 minutes a week protects your heart, but it won't reverse weight regain on its own. Here's what the research says — and where the LS Diet fits in.",
   metaDescription:
-    "New UK Biobank research shows 150 minutes weekly is a heart-health baseline, not a weight-loss formula. Learn how exercise and the LS Diet work together.",
+    "New UK Biobank research shows 150 minutes weekly is a heart health baseline, not a weight loss formula. Learn how exercise and the LS Diet work together.",
   publishDate: "2026-06-03",
   updatedAt: "2026-06-03",
   canonicalTopic: "action-practice-examples",
@@ -25,11 +25,11 @@ function Body() {
     <>
       <p>
         General medical guidelines recommend at least 150 minutes of
-        moderate- or vigorous-intensity activity per week — brisk walking,
+        moderate- or vigorous intensity activity per week — brisk walking,
         cycling, or running. It's the number most doctors quote, and it's
         the number most people aim for when they're trying to "get
         healthier." But a closer look at the research shows 150 minutes is
-        a heart-health <em>floor</em>, not a weight-loss formula — and
+        a heart health <em>floor</em>, not a weight loss formula — and
         understanding the difference matters if you've ever exercised
         consistently and still regained the weight.
       </p>
@@ -41,7 +41,7 @@ function Body() {
         Biobank who wore wrist accelerometers to measure movement and
         completed a fitness test. Activity data was collected in 2013–2015
         and linked to hospital and death records through October 2022,
-        with a median follow-up of 7.85 years. During that period, the
+        with a median follow up of 7.85 years. During that period, the
         study recorded 874 cases of atrial fibrillation, 111 cases of
         heart failure, and 92 strokes. In one of his blogs, Carlos Solis{" "}
         <a
@@ -58,7 +58,7 @@ function Body() {
       <h2>150 Minutes Is a Solid Baseline — Not the Limit</h2>
 
       <p>
-        The analysis found that bigger heart-health gains required a lot
+        The analysis found that bigger heart health gains required a lot
         more movement. A greater than 30% reduction in cardiovascular risk
         corresponded to roughly three to four times the weekly activity —
         about 560–610 minutes per week, or 80–90 minutes per day. For
@@ -84,8 +84,8 @@ function Body() {
 
       <p>
         The link between activity, fitness, and risk was nonlinear. People
-        with higher fitness had a built-in protective reserve, and
-        increasing activity reduced their risk faster. The least-fit
+        with higher fitness had a built in protective reserve, and
+        increasing activity reduced their risk faster. The least fit
         participants needed about 370 minutes per week to hit a roughly
         20% risk reduction, while the most fit needed about 340. To reach
         roughly a 30% reduction, estimates rose to about 610 minutes per

@@ -41,10 +41,10 @@ function Body() {
 
       <p>
         Muscle moves the resting metabolic needle. Repeated starvation
-        cycles and pure-cardio fixes tend to strip muscle along with fat,
+        cycles and pure cardio fixes tend to strip muscle along with fat,
         and over years that compounds into a slower metabolism and an
         easier regain. This is part of why pure calorie cutting backfires
-        long-term — and why{" "}
+        long term — and why{" "}
         <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
           a sustainable LS approach
         </a>{" "}
@@ -64,7 +64,7 @@ function Body() {
       <h2>Why Restart Cycles Get Heavier</h2>
 
       <p>
-        Each round of lose-and-regain costs more — mentally, hormonally,
+        Each round of lose and regain costs more — mentally, hormonally,
         and behaviourally. That's the loop unpacked in{" "}
         <a href="/blog/why-people-regain-weight-after-dieting">
           Why People Regain Weight After Dieting

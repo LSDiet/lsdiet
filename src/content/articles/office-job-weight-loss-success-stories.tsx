@@ -26,7 +26,7 @@ function Body() {
         A lot of people assume office work quietly cancels out any chance
         of sustainable weight loss. Oscar Poon's documented experience says
         otherwise. The full journey — through stressful weeks, deadlines,
-        and full-time work — is publicly recorded on{" "}
+        and full time work — is publicly recorded on{" "}
         <a href="https://youtube.com/@JoinLSDiet" target="_blank" rel="noopener noreferrer">
           @JoinLSDiet
         </a>

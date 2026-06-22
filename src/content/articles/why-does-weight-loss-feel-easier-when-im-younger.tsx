@@ -37,7 +37,7 @@ function Body() {
         shifts, and behavioural flexibility changes. That affects
         cravings, activity, recovery, and consistency — explored more
         directly in{" "}
-        <a href="/blog/how-much-does-weight-loss-affect-your-metabolism">
+        <a href="/blog/how-much-does-weight loss-affect-your-metabolism">
           how weight loss affects your metabolism
         </a>
         .

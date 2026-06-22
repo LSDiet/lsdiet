@@ -43,7 +43,7 @@ function Body() {
       <p>
         Lose weight aggressively without preserving muscle and long term
         metabolism takes the hit. Movement and protein matter even when
-        weight loss is mostly diet-driven — which is one of the points
+        weight loss is mostly diet driven — which is one of the points
         inside{" "}
         <a href="/blog/can-you-lose-weight-without-going-to-the-gym">
           can you lose weight without going to the gym

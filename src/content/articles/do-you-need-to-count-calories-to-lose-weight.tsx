@@ -31,7 +31,7 @@ function Body() {
       <p>
         No. Many people can lose weight without ever counting a calorie —
         and{" "}
-        <a href="/oscar-poon">Oscar Poon</a> doesn't count them for long-term
+        <a href="/oscar-poon">Oscar Poon</a> doesn't count them for long term
         maintenance either. The honest answer though: context matters.
       </p>
 
@@ -71,7 +71,7 @@ function Body() {
       <h2>Why Counting Burns People Out</h2>
 
       <p>
-        Constant tracking, guilt over off-days, perfectionism, and obsessive
+        Constant tracking, guilt over off days, perfectionism, and obsessive
         measurement quietly drain people. They quit. Then they restart.
         Then they quit again. That's the loop unpacked in{" "}
         <a href="/blog/why-people-regain-weight-after-dieting">

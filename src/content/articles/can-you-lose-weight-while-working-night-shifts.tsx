@@ -38,7 +38,7 @@ function Body() {
 
       <ul>
         <li>Irregular eating schedules</li>
-        <li>Late-night fatigue eating</li>
+        <li>Late night fatigue eating</li>
         <li>Vending machines and fast food as the path of least resistance</li>
         <li>Sugary energy drinks instead of sleep</li>
         <li>Inconsistent routines week to week</li>
@@ -51,7 +51,7 @@ function Body() {
         precondition for changing them.
       </p>
 
-      <h2>Why Meal Prep Is Non-Negotiable on Nights</h2>
+      <h2>Why Meal Prep Is Non Negotiable on Nights</h2>
 
       <p>
         When the surrounding food environment is junk, meal prep is the only
@@ -66,11 +66,11 @@ function Body() {
       <h2>Fatigue Eating Is Predictable</h2>
 
       <p>
-        Late-night exhaustion drives quick-energy cravings. You'll plan
+        Late night exhaustion drives quick energy cravings. You'll plan
         less, snack more, and reach for sugar to push through. Building one
         small, repeatable habit from{" "}
         <a href="/blog/action-practice">Action Practice</a> beats trying to
-        white-knuckle the whole shift.
+        white knuckle the whole shift.
       </p>
 
       <h2>Final Thoughts</h2>

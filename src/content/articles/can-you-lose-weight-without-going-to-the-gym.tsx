@@ -76,7 +76,7 @@ function Body() {
 
       <p>
         Most aggressive gym plans collapse the same way: too intense, too
-        time-consuming, too emotionally expensive. Life gets busy and the
+        time consuming, too emotionally expensive. Life gets busy and the
         whole structure folds. The{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight">
           Weight Permanence Training™
@@ -103,7 +103,7 @@ function Body() {
 
       <ul>
         <li>Sustainable LS eating you can repeat all week</li>
-        <li>Daily walking as a non-negotiable</li>
+        <li>Daily walking as a non negotiable</li>
         <li>Stress management instead of stress eating</li>
         <li>A clear identity shift — covered in{" "}
           <a href="/blog/identity-awareness">identity awareness</a>

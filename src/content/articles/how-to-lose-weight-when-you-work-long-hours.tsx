@@ -62,9 +62,9 @@ function Body() {
       <h2>Simple Systems Survive Real Life</h2>
 
       <ul>
-        <li>One go-to LS meal you can reheat in five minutes</li>
+        <li>One go to LS meal you can reheat in five minutes</li>
         <li>A 15-minute walk that doesn't require gym clothes</li>
-        <li>Pre-decided takeout orders for the worst nights</li>
+        <li>Pre decided takeout orders for the worst nights</li>
         <li>A short daily rep from{" "}
           <a href="/blog/action-practice">Action Practice</a> instead of an
           overhaul
@@ -72,7 +72,7 @@ function Body() {
       </ul>
 
       <p>
-        Recognising the long-term cost of not changing — the territory of{" "}
+        Recognising the long term cost of not changing — the territory of{" "}
         <a href="/blog/consequence-awareness">consequence awareness</a> —
         often supplies the priority shift these systems need to stick.
       </p>

@@ -33,19 +33,19 @@ function Body() {
         Office jobs get blamed for weight gain, but the desk isn't really the
         villain. The environment around it is. Most workplaces are quietly
         designed around convenience eating, long sitting hours, takeout, and
-        the kind of low-grade stress that nudges people toward sugar and starch
-        by mid-afternoon.
+        the kind of low grade stress that nudges people toward sugar and starch
+        by mid afternoon.
       </p>
 
       <p>
         Even restaurants near most offices are built around carbohydrates —
-        noodles, rice, bread, deep-fried sides, sweet sauces. Vegetarian and
+        noodles, rice, bread, deep fried sides, sweet sauces. Vegetarian and
         vegan spots are often no different. That's why{" "}
         <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
           a low-starch low-sugar approach
         </a>{" "}
         tends to outlast extreme dieting for desk workers: it removes the
-        hardest-to-control inputs without asking you to white-knuckle through
+        hardest to control inputs without asking you to white knuckle through
         every lunch.
       </p>
 

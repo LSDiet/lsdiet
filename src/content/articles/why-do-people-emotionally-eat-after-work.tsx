@@ -6,7 +6,7 @@ const meta: import("./types").ArticleMeta = {
   excerpt:
     "After long workdays, food often becomes emotional relief rather than physical fuel.",
   metaDescription:
-    "Many people emotionally eat after work because stress, fatigue, and behavioural conditioning increase reward-seeking behaviour.",
+    "Many people emotionally eat after work because stress, fatigue, and behavioural conditioning increase reward seeking behaviour.",
   publishDate: "2026-05-20",
   updatedAt: "2026-05-20",
   canonicalTopic: "awareness-stages",
@@ -68,7 +68,7 @@ function Body() {
       <h2>Final Thoughts</h2>
 
       <p>
-        After-work emotional eating is extremely common. Awareness and a
+        After work emotional eating is extremely common. Awareness and a
         simple behavioural system reduce it more reliably than discipline
         ever will.
       </p>

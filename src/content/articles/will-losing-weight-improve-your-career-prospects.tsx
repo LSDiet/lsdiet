@@ -36,7 +36,7 @@ function Body() {
       <h2>Behaviour Moves the Needle More Than Appearance</h2>
 
       <p>
-        What often shifts during a real weight-loss journey isn't just the
+        What often shifts during a real weight loss journey isn't just the
         body — it's posture, eye contact, vocal steadiness, emotional
         regulation, and willingness to take up space. Those changes get read by
         the room long before anyone notices the actual number on the scale.
@@ -45,7 +45,7 @@ function Body() {
       <h2>Some Industries Weigh Appearance More Heavily</h2>
 
       <p>
-        Public-facing roles — airlines, entertainment, modelling, certain
+        Public facing roles — airlines, entertainment, modelling, certain
         fitness industries — do place explicit weight on physical presentation.
         Most knowledge work doesn't. Be honest about the context you're in
         before assuming the body has to change for the career to move.
@@ -72,7 +72,7 @@ function Body() {
       <h2>Final Thoughts</h2>
 
       <p>
-        Weight loss can shift how you carry yourself. Long-term career success
+        Weight loss can shift how you carry yourself. Long term career success
         still rides on competence, communication, consistency, and the kind of
         emotional stability that compounds in any room.
       </p>

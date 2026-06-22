@@ -45,7 +45,7 @@ function Body() {
       <h2>Environment Beats Willpower</h2>
 
       <p>
-        LS Diet treats environment as a first-class lever, which is the entire
+        LS Diet treats environment as a first class lever, which is the entire
         point of{" "}
         <a href="/blog/friction-awareness">friction awareness</a>. Where food
         sits, how your desk is set up, what's within arm's reach — all of it
@@ -64,7 +64,7 @@ function Body() {
       <ul>
         <li>Emotional eating</li>
         <li>Chronic overeating</li>
-        <li>Convenience-driven food choices</li>
+        <li>Convenience driven food choices</li>
         <li>Weeks of behavioural inconsistency</li>
       </ul>
 

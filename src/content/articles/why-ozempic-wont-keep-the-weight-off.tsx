@@ -28,7 +28,7 @@ function Body() {
       <p>
         But she still ate chocolate almost every day. Neither of them changed
         what was on their plates. The drug was doing the work — suppressing
-        appetite, slowing digestion, keeping hunger quiet. Around the six-month
+        appetite, slowing digestion, keeping hunger quiet. Around the six month
         mark, the weight loss stalled. Same dosage, no more results. The only
         way forward was to increase the dose.
       </p>

@@ -49,7 +49,7 @@ function Body() {
       <p>
         The{" "}
         <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
-        treats long-term behaviour change as an identity problem before it's
+        treats long term behaviour change as an identity problem before it's
         a food problem. When you start seeing yourself differently,
         communication, social behaviour, and emotional stability shift
         downstream — which is exactly the work inside{" "}
@@ -63,7 +63,7 @@ function Body() {
         and self-trust is built from repeated action you actually follow
         through on. That's why the daily reps inside{" "}
         <a href="/blog/action-practice">Action Practice</a> matter more than
-        any single motivational moment. Recognising the long-term cost of
+        any single motivational moment. Recognising the long term cost of
         not changing is the territory of{" "}
         <a href="/blog/consequence-awareness">consequence awareness</a>, and
         it's often what makes the identity shift stick.

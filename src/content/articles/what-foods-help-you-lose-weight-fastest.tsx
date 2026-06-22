@@ -68,7 +68,7 @@ function Body() {
       <h2>There Is No Magic Food</h2>
 
       <p>
-        Long-term success leans on habits, environmental structure, awareness,
+        Long term success leans on habits, environmental structure, awareness,
         and behavioural reinforcement — not on a single ingredient. That's the
         whole reason the{" "}
         <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}

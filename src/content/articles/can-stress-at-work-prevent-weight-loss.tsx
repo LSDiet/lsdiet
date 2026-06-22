@@ -34,7 +34,7 @@ function Body() {
         sleep, energy, emotional regulation, and the consistency of every
         single habit you're trying to keep. That's why{" "}
         <a href="/what-is-ls-diet">LS Diet</a> is a psycho-behavioural system
-        first and a meal-planning exercise second.
+        first and a meal planning exercise second.
       </p>
 
       <h2>How Stress Quietly Rewrites Eating</h2>
@@ -77,9 +77,9 @@ function Body() {
       <h2>What Actually Helps</h2>
 
       <ul>
-        <li>Pre-decided LS meals in the fridge before stressful weeks hit</li>
+        <li>Pre decided LS meals in the fridge before stressful weeks hit</li>
         <li>A short, repeatable evening routine to drain stress without food</li>
-        <li>One stress-eating trigger identified and disarmed at a time</li>
+        <li>One stress eating trigger identified and disarmed at a time</li>
         <li>
           Small daily reps from the{" "}
           <a href="/blog/action-practice">Action Practice</a> lessons

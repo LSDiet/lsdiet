@@ -67,7 +67,7 @@ function Body() {
       </p>
 
       <p>
-        Once you can see the pattern, you can interrupt it. Not by white-knuckling through an urge, but by changing what happens at the cue — before the urge fully forms. This is what CBT and DBT do in clinical settings. Pattern Awareness applies the same principle specifically to eating behaviour, and it does it in a way you can work through on your own.
+        Once you can see the pattern, you can interrupt it. Not by white knuckling through an urge, but by changing what happens at the cue — before the urge fully forms. This is what CBT and DBT do in clinical settings. Pattern Awareness applies the same principle specifically to eating behaviour, and it does it in a way you can work through on your own.
       </p>
 
       <p>

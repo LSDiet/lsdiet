@@ -26,7 +26,7 @@ function Body() {
         changing what they eat. But context decides almost everything. If your
         current diet is already reasonable, adding movement may shift the
         scale. For most people, the food is doing too much of the damage to
-        out-walk.
+        outwalk.
       </p>
 
       <h2>Why Food Usually Matters Most</h2>

@@ -81,7 +81,7 @@ function Body() {
 
       <p>
         Once action becomes consistent, the action itself starts producing
-        reward. Gratitude work, present-moment awareness, behavioural
+        reward. Gratitude work, present moment awareness, behavioural
         tracking, and the small daily reps inside{" "}
         <a href="/blog/action-practice">Action Practice</a> are designed to
         make consistency self-reinforcing — so you're not relying on
