@@ -87,6 +87,30 @@ export async function onRequest(context) {
         headers: { ...supabaseHeaders(env), Prefer: 'return=minimal' },
       }
     );
+
+    if (env.RESEND_API_KEY) {
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: 'LS Diet <noreply@lsdiet.com>',
+          to: normalizedEmail,
+          subject: 'Your Motivation Navigator access has been removed',
+          html: `
+<h2>Your access has been removed</h2>
+<p>Hi,</p>
+<p>Your access to the Motivation Navigator has been removed from our system.</p>
+<p>If you believe this was a mistake, click the button below and Oscar will follow up with you within 24 hours.</p>
+<p><a href="mailto:oscar@lsdiet.com?subject=Motivation Navigator access removed in error&body=Hi Oscar, my access was removed but I believe this was a mistake. My email is ${normalizedEmail}." style="display:inline-block;background:#f59e0b;color:#000;font-weight:bold;padding:12px 24px;border-radius:6px;text-decoration:none;">This was a mistake</a></p>
+<p>Oscar</p>
+          `.trim(),
+        }),
+      });
+    }
+
     return json({ removed: normalizedEmail });
   }
 
