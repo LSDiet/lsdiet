@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -196,6 +196,11 @@ export default function AppPage() {
         </div>
         <div className="flex items-center gap-4">
           <span className="text-zinc-500 text-xs hidden md:block">{user.email}</span>
+          {user.email === 'oscar@lsdiet.com' && (
+            <Link to="/app/admin" className="text-zinc-400 text-sm hover:text-white transition hidden md:block">
+              Admin
+            </Link>
+          )}
           <button onClick={signOut} className="text-zinc-400 text-sm hover:text-white transition">
             Sign out
           </button>

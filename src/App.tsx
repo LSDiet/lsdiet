@@ -41,6 +41,7 @@ const WeightRegainProfilesPage = lazy(() => import("./pages/WeightRegainProfiles
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AppPage = lazy(() => import("./pages/AppPage"));
 const AppLoginPage = lazy(() => import("./pages/AppLoginPage"));
+const AppAdminPage = lazy(() => import("./pages/AppAdminPage"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -96,6 +97,7 @@ function AppContent() {
           <Route path="/weight-regain-profiles" element={<WeightRegainProfilesPage />} />
           <Route path="/app" element={<AppPage />} />
           <Route path="/app/login" element={<AppLoginPage />} />
+          <Route path="/app/admin" element={<AppAdminPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
