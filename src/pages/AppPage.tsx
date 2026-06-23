@@ -34,7 +34,9 @@ export default function AppPage() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if (!loading && !user) navigate('/app/login');
+    // If there's a hash with access_token, Supabase is mid-auth — don't redirect yet
+    const hasAuthHash = window.location.hash.includes('access_token');
+    if (!loading && !user && !hasAuthHash) navigate('/app/login');
   }, [user, loading, navigate]);
 
   useEffect(() => {
