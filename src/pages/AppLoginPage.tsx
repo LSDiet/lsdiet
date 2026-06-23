@@ -12,15 +12,29 @@ export default function AppLoginPage() {
     setLoading(true);
     setError('');
 
-    const { error } = await supabase.auth.signInWithOtp({
-      email,
+    // Check whitelist via server-side function
+    const checkRes = await fetch('/api/check-member', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email.trim().toLowerCase() }),
+    });
+    const checkData = await checkRes.json();
+
+    if (!checkData.allowed) {
+      setError('This email doesn\'t have access. Please upgrade to Premium on Skool first, then follow the activation steps.');
+      setLoading(false);
+      return;
+    }
+
+    const { error: authError } = await supabase.auth.signInWithOtp({
+      email: email.trim().toLowerCase(),
       options: {
         emailRedirectTo: `${window.location.origin}/app`,
       },
     });
 
-    if (error) {
-      setError(error.message);
+    if (authError) {
+      setError(authError.message);
     } else {
       setSent(true);
     }
@@ -57,13 +71,15 @@ export default function AppLoginPage() {
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-500"
               />
             </div>
-            {error && <p className="text-red-400 text-sm">{error}</p>}
+            {error && (
+              <p className="text-red-400 text-sm leading-relaxed">{error}</p>
+            )}
             <button
               type="submit"
               disabled={loading}
               className="w-full bg-white text-zinc-950 font-semibold rounded-lg py-3 hover:bg-zinc-100 transition disabled:opacity-50"
             >
-              {loading ? 'Sending...' : 'Send login link'}
+              {loading ? 'Checking...' : 'Send login link'}
             </button>
           </form>
         )}
