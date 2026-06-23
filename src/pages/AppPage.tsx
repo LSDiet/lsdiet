@@ -119,6 +119,34 @@ export default function AppPage() {
       setConversations(prev => prev.map(c => c.id === activeId ? { ...c, title } : c));
     }
 
+    // Call AI
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      const token = session?.access_token;
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ conversationId: activeId }),
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        const assistantMsg: Message = {
+          id: crypto.randomUUID(),
+          role: 'assistant',
+          content: data.content,
+          created_at: new Date().toISOString(),
+        };
+        setMessages(prev => [...prev, assistantMsg]);
+      }
+    } catch (err) {
+      console.error('Chat error:', err);
+    }
+
     setSending(false);
   }
 
