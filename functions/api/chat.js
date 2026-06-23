@@ -168,7 +168,7 @@ export async function onRequestPost(context) {
     const token = authHeader.slice(7);
 
     // Verify JWT with Supabase
-    const userRes = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
+    const userRes = await fetch(`${supabaseUrl(env)}/auth/v1/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
         apikey: env.SUPABASE_SERVICE_ROLE_KEY,
@@ -183,7 +183,7 @@ export async function onRequestPost(context) {
 
     // Verify conversation belongs to this user
     const convRes = await fetch(
-      `${env.SUPABASE_URL}/rest/v1/conversations?id=eq.${conversationId}&user_id=eq.${userId}&select=id`,
+      `${supabaseUrl(env)}/rest/v1/conversations?id=eq.${conversationId}&user_id=eq.${userId}&select=id`,
       { headers: supabaseHeaders(env) }
     );
     const convData = await convRes.json();
@@ -193,7 +193,7 @@ export async function onRequestPost(context) {
 
     // Load full message history
     const msgsRes = await fetch(
-      `${env.SUPABASE_URL}/rest/v1/messages?conversation_id=eq.${conversationId}&order=created_at.asc&select=role,content`,
+      `${supabaseUrl(env)}/rest/v1/messages?conversation_id=eq.${conversationId}&order=created_at.asc&select=role,content`,
       { headers: supabaseHeaders(env) }
     );
     const messages = await msgsRes.json();
@@ -224,7 +224,7 @@ export async function onRequestPost(context) {
     const assistantContent = claudeData.content[0].text;
 
     // Save assistant message server-side
-    await fetch(`${env.SUPABASE_URL}/rest/v1/messages`, {
+    await fetch(`${supabaseUrl(env)}/rest/v1/messages`, {
       method: 'POST',
       headers: { ...supabaseHeaders(env), 'Content-Type': 'application/json', Prefer: 'return=minimal' },
       body: JSON.stringify({ conversation_id: conversationId, role: 'assistant', content: assistantContent }),
@@ -247,6 +247,10 @@ function supabaseHeaders(env) {
     apikey: env.SUPABASE_SERVICE_ROLE_KEY,
     Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
   };
+}
+
+function supabaseUrl(env) {
+  return env.SUPABASE_URL || env.VITE_SUPABASE_URL;
 }
 
 function json(body, status) {
