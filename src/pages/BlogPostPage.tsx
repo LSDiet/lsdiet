@@ -198,9 +198,7 @@ export default function BlogPostPage() {
   const url = `https://lsdiet.com/blog/${vm.slug}`;
   // Local articles are prerendered with correct OG tags at the canonical URL.
   // Contentful posts use the Supabase edge function to serve OG metadata.
-  const crawlerShareUrl = localVm
-    ? url
-    : `https://joohccchfpcshlihctsm.supabase.co/functions/v1/share-blog/${vm.slug}`;
+  const crawlerShareUrl = `https://lsdiet.com/share/${vm.slug}`;
 
   const articleSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
