@@ -26,7 +26,7 @@ function Body() {
         At the American Diabetes Association's 2026 Scientific Sessions in New Orleans,
         AstraZeneca presented Phase 2 trial data for elecoglipron, an oral GLP-1 receptor
         agonist taken as a single daily pill. Participants with obesity who took the 75 mg dose
-        lost an average of 10.5% of their body weight over 36 weeks. Seventy-two percent of
+        lost an average of 10.5% of their body weight over 36 weeks. 72% of
         those in the treatment groups achieved at least a 5% reduction. No injections required.
         Results were published simultaneously in <em>The Lancet</em> (Davies et al., 2026).
       </p>
@@ -91,6 +91,29 @@ function Body() {
         plan. That is a dependency, not a solution.
       </p>
 
+      <h2>Medication Dependency Is a Weight Limitation</h2>
+      <p>
+        Here is the point most people avoid saying out loud: if you need to take a pill every day
+        for the rest of your life to keep your weight down, your weight is still limiting your
+        life. The limitation just looks different. Instead of the scale controlling what you
+        can do, your pharmacy does.
+      </p>
+      <p>
+        The whole premise of building a life not limited by your weight is that food, body size,
+        and the daily anxiety around both stop being the organizing force of your decisions.
+        Permanent medication dependency does not accomplish that. It replaces one form of
+        limitation with another. You are not free from your weight. You are tethered to a
+        drug that manages it for you. The moment that drug becomes unavailable, unaffordable,
+        or medically contraindicated, the limitation snaps back — often harder than before
+        because of the muscle loss and metabolic slowdown that accumulated during treatment.
+      </p>
+      <p>
+        This is not an argument against using GLP-1 medications. It is an argument against
+        using them as a permanent ceiling instead of a temporary scaffold. The goal is a body
+        and a set of habits that work without the drug. That goal requires building something
+        the drug cannot build for you.
+      </p>
+
       <h2>The Friction the Pill Does Not Remove</h2>
       <p>
         This is where <a href="/awareness-stages">the 5 Awareness Stages</a> in Weight Permanence
@@ -150,7 +173,9 @@ function Body() {
         because a drug is managing their hunger signal.
       </p>
       <p>
-        The pill is coming. The identity work has always been your responsibility.
+        The pill is coming. The identity work has always been your responsibility. And the goal
+        is not just to weigh less — it is to live without your weight, or any drug managing it,
+        holding you back.
       </p>
 
       <section aria-label="Frequently Asked Questions">
@@ -189,9 +214,10 @@ function Body() {
           drive your eating — patterns a pill cannot touch. Identity Awareness, Stage 5, asks
           the harder question: who are you when the drug is gone? If the answer is the same
           person who gained the weight originally, regain is not a failure of willpower. It is
-          a predictable outcome. The people who maintain weight loss after stopping are those
-          who built new patterns and a new sense of self during the time the drug was reducing
-          the friction of hunger.
+          a predictable outcome. The goal is to reach a point where you do not need the drug —
+          not because you are white-knuckling it, but because your identity, habits, and
+          environment no longer require it. That is what a life not limited by your weight
+          actually looks like.
         </p>
       </section>
 
