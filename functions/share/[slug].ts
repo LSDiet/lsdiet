@@ -74,6 +74,7 @@ const ARTICLES = {
   "will-losing-weight-change-how-people-treat-you-at-work": { title: "Will Losing Weight Change How People Treat You at Work?", description: "Some colleagues will notice. Some won't. What actually shifts is how you treat yourself.", image: false },
   "will-losing-weight-improve-your-career-prospects": { title: "Will Losing Weight Improve Your Career Prospects?", description: "Career outcomes are influenced more heavily by confidence, communication, and behaviour than appearance alone.", image: false },
   "youre-losing-muscle-not-just-fat-on-glp1-drugs": { title: "You're Losing Muscle, Not Just Fat, on GLP-1 Drugs | LS Diet", description: "GLP-1 drugs like Ozempic cause significant muscle loss alongside fat loss.", image: true },
+  "oral-glp-1-pill-what-happens-when-you-stop": { title: "No More Injections? The New Oral Weight Loss Pill and What Happens When You Stop | LS Diet", description: "Elecoglipron is an oral GLP-1 drug that may replace injections. Here is what the science says about what happens when you stop taking it.", image: true },
 };
 
 function esc(s) {

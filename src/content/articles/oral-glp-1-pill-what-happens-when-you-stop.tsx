@@ -1,4 +1,4 @@
-import heroImage from "@/assets/blog/oral-glp-1-pill-what-happens-when-you-stop-hero.jpg";
+import heroImage from "@/assets/blog/oral-glp-1-pill-what-happens-when-you-stop-hero.webp";
 import type { Article } from "./types";
 
 const meta: import("./types").ArticleMeta = {
