@@ -1,16 +1,1 @@
-project_id = "joohccchfpcshlihctsm"
-
-[functions.blog-posts]
-verify_jwt = false
-
-[functions.blog-sitemap]
-verify_jwt = false
-
-[functions.share-blog]
-verify_jwt = false
-
-[functions.blog-index]
-verify_jwt = false
-
-[functions.contentful-rebuild-hook]
-verify_jwt = false
+project_id = "uxaspyjnrkjzzztkgeat"
