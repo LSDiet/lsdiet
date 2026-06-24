@@ -100,7 +100,7 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
 
   const shareTarget = crawlerShareUrl ?? url;
   const u = encodeURIComponent(shareTarget);
-  const t = encodeURIComponent(title);
+  const t = encodeURIComponent(title + " | LS Diet");
 
   const links = [
     {
@@ -124,7 +124,7 @@ export function ShareButtons({ url, title, variant, className, crawlerShareUrl }
     {
       label: "Share on WhatsApp",
       method: "whatsapp",
-      href: `https://wa.me/?text=${t}%20${u}`,
+      href: `https://wa.me/?text=${t}%20${encodeURIComponent(url)}`,
       Icon: WhatsAppIcon,
     },
   ];
