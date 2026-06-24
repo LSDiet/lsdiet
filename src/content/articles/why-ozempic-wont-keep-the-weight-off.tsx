@@ -1,4 +1,4 @@
-import heroImage from "@/assets/blog/blog-ozempic-identity.jpg";
+import heroImage from "@/assets/blog/blog-ozempic-identity.webp";
 import type { Article } from "./types";
 
 const meta: import("./types").ArticleMeta = {

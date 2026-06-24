@@ -1,4 +1,4 @@
-import heroImage from "@/assets/blog/blog-night-eating-pattern.jpg";
+import heroImage from "@/assets/blog/blog-night-eating-pattern.webp";
 import type { Article } from "./types";
 
 const meta: import("./types").ArticleMeta = {

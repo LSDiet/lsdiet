@@ -1,4 +1,4 @@
-import heroImage from "@/assets/blog/why-you-regain-weight-after-stopping-ozempic-hero.jpg";
+import heroImage from "@/assets/blog/why-you-regain-weight-after-stopping-ozempic-hero.webp";
 import type { Article } from "./types";
 
 const meta: import("./types").ArticleMeta = {
