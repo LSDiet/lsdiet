@@ -55,6 +55,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "how-weight-loss-changes-confidence-and-social-behaviour",
       "how-much-does-weight-loss-affect-your-metabolism",
       "why-does-weight-loss-feel-easier-when-im-younger",
+      "oral-glp-1-pill-what-happens-when-you-stop",
     ],
   },
   {

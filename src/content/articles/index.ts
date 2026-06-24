@@ -76,6 +76,9 @@ import losingMuscleNotFatOnGlp1 from "./youre-losing-muscle-not-just-fat-on-glp1
 // Batch 11
 import whyYouRegainWeightAfterStoppingOzempic from "./why-you-regain-weight-after-stopping-ozempic";
 
+// Batch 12
+import oralGlp1PillWhatHappensWhenYouStop from "./oral-glp-1-pill-what-happens-when-you-stop";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -134,6 +137,8 @@ export const ARTICLES: Article[] = [
   losingMuscleNotFatOnGlp1,
   // Batch 11
   whyYouRegainWeightAfterStoppingOzempic,
+  // Batch 12
+  oralGlp1PillWhatHappensWhenYouStop,
 ];
 
 
