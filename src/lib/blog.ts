@@ -88,8 +88,17 @@ export async function fetchPostsByCategory(
   }
 }
 
+/** Parse a date string without UTC-offset shift.
+ *  "2026-06-24" → June 24 in every timezone, not June 23 in UTC-7. */
+function parseLocalDate(iso: string): Date {
+  // Date-only strings (YYYY-MM-DD) are parsed as UTC midnight by spec,
+  // which shifts the displayed day back in negative-offset timezones.
+  // Appending T12:00:00 treats it as local noon, safe across all zones.
+  return new Date(iso.length === 10 ? iso + "T12:00:00" : iso);
+}
+
 export function formatPublishDate(iso: string): string {
-  return new Date(iso).toLocaleDateString("en-CA", {
+  return parseLocalDate(iso).toLocaleDateString("en-CA", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -98,7 +107,7 @@ export function formatPublishDate(iso: string): string {
 
 /** "Updated May 2026" — used for freshness display on article pages. */
 export function formatUpdatedShort(iso: string): string {
-  return new Date(iso).toLocaleDateString("en-CA", {
+  return parseLocalDate(iso).toLocaleDateString("en-CA", {
     year: "numeric",
     month: "long",
   });
