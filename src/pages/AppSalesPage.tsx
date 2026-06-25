@@ -18,11 +18,11 @@ export default function AppSalesPage() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        setCheckoutError('Something went wrong. Please try again.');
+        setCheckoutError(data.error || 'Something went wrong. Please try again.');
         setCheckoutLoading(false);
       }
     } catch {
-      setCheckoutError('Something went wrong. Please try again.');
+      setCheckoutError('Could not reach the server. Please try again.');
       setCheckoutLoading(false);
     }
   }
@@ -43,7 +43,7 @@ export default function AppSalesPage() {
               Find out what's actually stopping you.
             </h1>
             <p className="text-[hsl(0_0%_64%)] text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-              Most people know what to eat. The real problem is the patterns, triggers, and blind spots that never get examined. The Motivation Navigator guides you through a structured 30 to 45 minute conversation — then gives you a personal summary of your PUSH and PULL motivations.
+              Most people know what to eat. The real problem is the patterns, triggers, and blind spots that never get examined. The Motivation Navigator guides you through a structured 30 to 45 minute conversation and gives you a personal summary of your PUSH and PULL motivations.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
@@ -51,7 +51,7 @@ export default function AppSalesPage() {
                 disabled={checkoutLoading}
                 className="px-8 py-4 bg-accent text-accent-foreground font-bold uppercase tracking-[0.1em] text-sm rounded-md hover:opacity-90 transition disabled:opacity-50"
               >
-                {checkoutLoading ? 'Loading…' : 'Get Access — $29/month'}
+                {checkoutLoading ? 'Loading…' : 'Get Access · $29/month'}
               </button>
               <Link
                 to="/app/login"
@@ -87,7 +87,7 @@ export default function AppSalesPage() {
                 {
                   step: '01',
                   title: 'Answer guided questions',
-                  body: 'The Navigator walks you through Oscar\'s 5-stage awareness system — one question at a time. No multiple choice. No skipping.',
+                  body: 'The Navigator walks you through Oscar\'s 5-stage awareness system. One question at a time. No multiple choice. No skipping.',
                 },
                 {
                   step: '02',
@@ -116,11 +116,11 @@ export default function AppSalesPage() {
             <h2 className="text-2xl font-bold text-center mb-10">What you get</h2>
             <ul className="space-y-4 max-w-xl mx-auto">
               {[
-                'A structured 30–45 minute awareness conversation',
-                'Questions built from the WPT Toolbook — the same framework used in Oscar\'s coaching',
+                'A structured 30 to 45 minute awareness conversation',
+                'Questions built from the WPT Toolbook, the same framework used in Oscar\'s coaching',
                 'A personal summary of your PUSH and PULL motivations',
                 'Saved conversation history so you can pick up where you left off',
-                'Private and secure — your answers are never shared',
+                'Private and secure. Your answers are never shared.',
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <span className="text-accent font-bold mt-0.5 flex-shrink-0">→</span>

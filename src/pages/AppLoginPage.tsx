@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 
+async function redirectToCheckout() {
+  const res = await fetch('/api/stripe-checkout', { method: 'POST' });
+  const data = await res.json();
+  if (data.url) window.location.href = data.url;
+}
+
 export default function AppLoginPage() {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
@@ -49,6 +55,10 @@ export default function AppLoginPage() {
           <p className="text-zinc-400 text-sm">Enter your email to receive a login link</p>
         </div>
 
+        <p className="text-zinc-500 text-xs text-center mb-6">
+          This page is for paid members only.
+        </p>
+
         {sent ? (
           <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 text-center">
             <div className="text-4xl mb-4">📬</div>
@@ -83,6 +93,15 @@ export default function AppLoginPage() {
             </button>
           </form>
         )}
+        <div className="mt-6 pt-6 border-t border-zinc-800 text-center">
+          <p className="text-zinc-500 text-xs mb-3">Not a member yet?</p>
+          <button
+            onClick={redirectToCheckout}
+            className="text-sm text-white underline underline-offset-4 hover:text-zinc-300 transition"
+          >
+            Activate your Motivation Navigator subscription
+          </button>
+        </div>
       </div>
     </div>
   );
