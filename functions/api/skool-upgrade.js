@@ -44,7 +44,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         email: normalizedEmail,
         data: { skool_name: name || '' },
-        redirect_to: 'https://lsdiet.com/app',
+        redirect_to: 'https://lsdiet.com/app/activation',
       }),
     });
 

@@ -45,6 +45,11 @@ export function FooterSimple() {
 
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent mb-3">Connect</p>
+            <ul className="space-y-2 mb-4">
+              <li>
+                <a href="/app/login" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors font-semibold">Member Login →</a>
+              </li>
+            </ul>
             <ul className="space-y-2">
               <li>
                 <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer" className="text-xs text-[hsl(0_0%_60%)] hover:text-[hsl(0_0%_90%)] transition-colors">LS Diet Course (Skool)</a>

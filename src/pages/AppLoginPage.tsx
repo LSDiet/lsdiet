@@ -29,7 +29,7 @@ export default function AppLoginPage() {
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email.trim().toLowerCase(),
       options: {
-        emailRedirectTo: `${window.location.origin}/app`,
+        emailRedirectTo: `${window.location.origin}/app/activation`,
       },
     });
 

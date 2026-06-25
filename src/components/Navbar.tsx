@@ -78,6 +78,13 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          {/* Member login — desktop */}
+          <a
+            href="/app/login"
+            className="hidden md:inline-flex items-center px-3 py-2 rounded-md border border-[hsl(0_0%_28%)] text-xs font-semibold uppercase tracking-[0.1em] text-[hsl(0_0%_70%)] hover:text-[hsl(0_0%_96%)] hover:border-[hsl(0_0%_50%)] transition"
+          >
+            Member Login
+          </a>
           {/* CTA button — desktop */}
           <a
             href={CTA_HREF}
@@ -157,6 +164,13 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Join Free →
+            </a>
+            <a
+              href="/app/login"
+              className="block text-center py-2.5 rounded-md border border-[hsl(0_0%_28%)] text-sm font-semibold uppercase tracking-[0.1em] text-[hsl(0_0%_70%)] hover:text-[hsl(0_0%_96%)]"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Member Login
             </a>
           </div>
         </nav>
