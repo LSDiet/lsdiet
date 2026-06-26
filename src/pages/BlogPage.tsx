@@ -24,45 +24,22 @@ function HeroArticle({ entry }: { entry: BlogIndexEntry }) {
       href={`/blog/${entry.slug}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block overflow-hidden rounded-2xl border border-zinc-200 hover:border-accent transition-colors"
+      className="group block rounded-2xl bg-zinc-900 border-l-4 border-accent px-7 py-8 md:px-12 md:py-10 hover:bg-zinc-800 transition-colors"
     >
-      <div className="grid md:grid-cols-2">
-        {/* Image */}
-        <div className="aspect-video md:aspect-auto md:min-h-[320px] bg-accent/10 overflow-hidden">
-          {entry.featuredImage?.url ? (
-            <img
-              src={entry.featuredImage.url}
-              alt={entry.featuredImage.alt || entry.title}
-              loading="eager"
-              fetchPriority="high"
-              decoding="async"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5" />
-          )}
-        </div>
-        {/* Text */}
-        <div className="flex flex-col justify-center p-6 md:p-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-3">
-            Start Here
-          </p>
-          <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-zinc-900 group-hover:text-accent transition-colors leading-snug mb-4">
-            {entry.title}
-          </h2>
-          {entry.excerpt && (
-            <p className="text-sm md:text-base text-zinc-600 line-clamp-3 mb-6">
-              {entry.excerpt}
-            </p>
-          )}
-          <div className="flex items-center gap-3">
-            <p className="text-xs text-zinc-500">{formatPublishDate(entry.publishDate)}</p>
-            <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent uppercase tracking-wider">
-              Read →
-            </span>
-          </div>
-        </div>
-      </div>
+      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-accent mb-3">
+        The Problem
+      </p>
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white leading-snug mb-3 group-hover:text-accent transition-colors">
+        {entry.title}
+      </h2>
+      {entry.excerpt && (
+        <p className="text-sm text-zinc-400 line-clamp-1 mb-6">
+          {entry.excerpt}
+        </p>
+      )}
+      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-900 bg-accent px-4 py-2 rounded-full group-hover:bg-white transition-colors">
+        Read the article →
+      </span>
     </a>
   );
 }
@@ -159,16 +136,17 @@ function StartHereRow({ links }: { links: StartHereLink[] }) {
 // ---------------------------------------------------------------------------
 
 const START_HERE: Record<string, StartHereLink[]> = {
-  "ls-way": [
-    { label: "Why Low Starch, Low Sugar Works", href: "/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" },
-    { label: "Action Practice", href: "/blog/action-practice" },
-  ],
-  "weight-permanence-training": [
+  "ozempic-and-weight-loss-drugs": [],
+  "mind-and-habits": [
     { label: "The Weight Permanence Triangle", href: "/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" },
     { label: "The 5 Awareness Stages", href: "/awareness-stages" },
     { label: "Why People Regain Weight After Dieting", href: "/blog/why-people-regain-weight-after-dieting" },
   ],
-  "what-people-are-searching": [],
+  "body-and-what-to-eat": [
+    { label: "Why Low Starch, Low Sugar Works", href: "/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" },
+    { label: "Action Practice", href: "/blog/action-practice" },
+  ],
+  "weight-loss-at-work": [],
 };
 
 interface CategoryBlockProps {
@@ -258,13 +236,13 @@ function WPTCurriculumStrip({ entries }: { entries: BlogIndexEntry[] }) {
     <section>
       <div className="mb-5">
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1">
-          The Method
+          The Solution
         </p>
         <h2 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight">
-          The 5-Stage Method
+          How to Stop Regaining Weight
         </h2>
         <p className="text-sm text-zinc-500 mt-1">
-          Weight Permanence Training — in order
+          Five stages. Work through them in order.
         </p>
       </div>
       {/* Horizontal scroll on mobile, grid on md+ */}
@@ -335,9 +313,9 @@ export default function BlogPage() {
   const clusterEntries = new Map<string, BlogIndexEntry[]>();
   for (const c of SEARCH_ARTICLE_CLUSTERS) clusterEntries.set(c.id, []);
 
-  // Unmapped entries fall into "what-people-are-searching"
+  // Unmapped entries fall into "mind-and-habits"
   for (const e of supporting) {
-    const cid = slugToCluster.get(e.slug) ?? "what-people-are-searching";
+    const cid = slugToCluster.get(e.slug) ?? "mind-and-habits";
     const arr = clusterEntries.get(cid);
     if (arr) arr.push(e);
   }
