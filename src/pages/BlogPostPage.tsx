@@ -350,6 +350,7 @@ export default function BlogPostPage() {
                   ? { foundationSlug: vm.slug }
                   : { category: vm.category }
               }
+              disableCta={vm.source === "foundation"}
             >
               {vm.source === "foundation" && vm.foundation ? (
                 <vm.foundation.Body />
@@ -389,13 +390,6 @@ export default function BlogPostPage() {
               </section>
             )}
 
-            <div className="mt-10 text-center">
-              <Button variant="accent" size="lg" asChild>
-                <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                  START YOUR FREE TRAINING TODAY
-                </a>
-              </Button>
-            </div>
           </article>
         )}
       </div>
@@ -683,15 +677,16 @@ interface ProseBodyProps {
   slug: string;
   ctaContext: CtaContext;
   children: React.ReactNode;
+  disableCta?: boolean;
 }
 
-function ProseBody({ slug, ctaContext, children }: ProseBodyProps) {
+function ProseBody({ slug, ctaContext, children, disableCta }: ProseBodyProps) {
   const bodyRef = useRef<HTMLDivElement | null>(null);
   const ctaSlots = useCtaInjection({ bodyRef, slug });
   return (
     <div ref={bodyRef} className="prose-content">
       {children}
-      {ctaSlots.map((s) => {
+      {!disableCta && ctaSlots.map((s) => {
         const copy = ctaCopyFor(ctaContext, s.placement);
         return createPortal(
           <LSDietCTA placement={s.placement} headline={copy.headline} body={copy.body} />,

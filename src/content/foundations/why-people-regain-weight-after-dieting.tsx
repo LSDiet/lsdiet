@@ -388,25 +388,21 @@ function Body() {
           Ready to build your ten reasons?
         </p>
         <p className="text-base text-zinc-700 mb-4">
-          Start with the free quiz to identify your weight regain pattern, then join the LS Diet
-          community to work through Awareness Training and Action Practice.
+          Join the free LS Diet community to work through Awareness Training and Action Practice.
+          Or{" "}
+          <a href="/quiz" className="text-accent hover:underline">
+            take the quiz first
+          </a>{" "}
+          to identify your weight regain pattern.
         </p>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <a
-            href="https://www.skool.com/lsdiet/about"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-accent text-white font-semibold px-5 py-3 rounded-lg text-center hover:opacity-90 transition-opacity"
-          >
-            Join the free community
-          </a>
-          <a
-            href="/quiz"
-            className="inline-block border border-accent text-accent font-semibold px-5 py-3 rounded-lg text-center hover:bg-accent/5 transition-colors"
-          >
-            Take the quiz
-          </a>
-        </div>
+        <a
+          href="https://www.skool.com/lsdiet/about"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-accent text-white font-semibold px-5 py-3 rounded-lg text-center hover:opacity-90 transition-opacity"
+        >
+          Join the free community
+        </a>
       </div>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
