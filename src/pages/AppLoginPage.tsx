@@ -130,8 +130,8 @@ export default function AppLoginPage() {
                 inputMode="numeric"
                 required
                 value={code}
-                onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                placeholder="123456"
+                onChange={(e) => setCode(e.target.value.replace(/\D/g, '').slice(0, 8))}
+                placeholder="12345678"
                 className="w-full bg-zinc-800 border border-zinc-700 rounded-lg px-4 py-3 text-white text-center text-xl tracking-[0.3em] placeholder-zinc-600 focus:outline-none focus:border-zinc-500"
               />
             </div>
