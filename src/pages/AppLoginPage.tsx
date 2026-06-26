@@ -120,7 +120,7 @@ export default function AppLoginPage() {
         {phase === 'code' && (
           <form onSubmit={handleCodeSubmit} className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 space-y-4">
             <div className="text-center mb-2">
-              <p className="text-zinc-300 text-sm">We sent a 6-digit code to</p>
+              <p className="text-zinc-300 text-sm">We sent an 8-digit code to</p>
               <p className="text-white font-semibold text-sm mt-1">{email}</p>
             </div>
             <div>
