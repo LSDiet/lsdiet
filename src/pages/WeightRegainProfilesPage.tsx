@@ -22,8 +22,8 @@ const profiles = [
     slug: "restarter",
     name: "Restarter",
     banner: "/profiles/restarter.webp",
-    tagline: "Every interruption becomes a full reset.",
-    description: "You're not someone who quits. You're someone who hasn't learned to recover yet. Every bad week becomes a reason to start from scratch.",
+    tagline: "Leaves before results show up. Every time.",
+    description: "You've tried more methods than most people have heard of — and left each one in week two. The problem isn't the method. It's that results take longer than your patience does.",
   },
   {
     slug: "stress-eater",
