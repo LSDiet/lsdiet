@@ -45,8 +45,8 @@ export async function onRequestPost(context) {
       }),
     });
 
-    // Create or update GHL contact with MN-Active tag (non-blocking)
-    createGhlContact(env, normalizedEmail, session.customer || null).catch(err =>
+    // Create or update GHL contact via webhook (non-blocking)
+    createGhlContact(env, normalizedEmail, session.customer_details || {}).catch(err =>
       console.error('GHL contact error:', err)
     );
 
@@ -57,29 +57,28 @@ export async function onRequestPost(context) {
   }
 }
 
-async function createGhlContact(env, email, stripeCustomerId) {
-  const locationId = 'TbGkGzbilMiCgVKspWsY';
+async function createGhlContact(env, email, customerDetails) {
+  const nameParts = (customerDetails.name || '').trim().split(' ');
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts.slice(1).join(' ') || '';
+  const phone = customerDetails.phone || '';
+
   const body = {
-    locationId,
     email,
-    tags: ['MN-Active'],
+    firstName,
+    lastName,
+    ...(phone && { phone }),
     source: 'Motivation Navigator',
-    customFields: stripeCustomerId
-      ? [{ key: 'stripe_customer_id', field_value: stripeCustomerId }]
-      : [],
   };
-  const res = await fetch('https://services.leadconnectorhq.com/contacts/', {
+
+  const res = await fetch('https://services.leadconnectorhq.com/hooks/TbGkGzbiIMiCgVKspWsY/webhook-trigger/78db4af5-c298-4361-8c4f-9f83f74f591b', {
     method: 'POST',
-    headers: {
-      Authorization: `Bearer ${env.GHL_API_KEY}`,
-      Version: '2021-07-28',
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
   if (!res.ok) {
     const err = await res.text();
-    console.error('GHL API error:', res.status, err);
+    console.error('GHL webhook error:', res.status, err);
   }
 }
 
