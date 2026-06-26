@@ -5,6 +5,13 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { Button } from "@/components/ui/button";
 
+import stagesDiagram from "@/assets/5-stages-of-awareness-v2.png";
+import aware1 from "@/assets/awareness/aware1.png";
+import aware2 from "@/assets/awareness/aware2.png";
+import aware3 from "@/assets/awareness/aware3.png";
+import aware4 from "@/assets/awareness/aware4.png";
+import aware5 from "@/assets/awareness/aware5.png";
+
 const PUBLISHED = "2026-05-14T12:00:00+00:00";
 const UPDATED = "2026-06-20T12:00:00+00:00";
 const CANONICAL = "https://lsdiet.com/awareness-stages";
@@ -14,28 +21,38 @@ const stages = [
   {
     name: "Reality Awareness",
     slug: "reality-awareness",
-    body: "Reality Awareness is the first stage of the Weight Permanence Training. It is the practice of establishing an honest, undefended baseline of your current physical state, eating patterns, and daily behaviours. Most people in a weight regain cycle avoid this stage because accurate self-assessment is uncomfortable. Reality Awareness does not require perfection. It requires honesty about where you actually are, not where you wish you were or where you used to be.",
+    body: "Reality Awareness is the first stage of the Weight Permanence Training. It is the practice of establishing an honest, undefended baseline of your current physical state, eating patterns, and daily behaviours.",
   },
   {
     name: "Friction Awareness",
     slug: "friction-awareness",
-    body: "Friction Awareness is the second stage of the Weight Permanence Training. It maps the gap between your current reality and your intended direction. Friction is not failure. It is the measurable distance between who you are behaving as today and who you need to become to stop the regain cycle permanently. Naming that gap precisely is what makes the next stages possible.",
+    body: "Friction Awareness maps the gap between your current reality and your intended direction. Naming that gap precisely is what makes the next stages possible.",
   },
   {
     name: "Pattern Awareness",
     slug: "pattern-awareness",
-    body: "Pattern Awareness is the third stage of the Weight Permanence Training. It identifies the specific conditions under which your weight regain behaviour occurs, using six lenses: who you are with, when it happens, where you are, what triggers it, why it feels justified in the moment, and how it unfolds. Pattern Awareness is the diagnostic stage. Without it, behaviour change targets the wrong problem.",
+    body: "Pattern Awareness identifies the specific conditions under which your weight regain behaviour occurs: who, when, where, what, why, and how. Without it, behaviour change targets the wrong problem.",
   },
   {
     name: "Consequence Awareness",
     slug: "consequence-awareness",
-    body: "Consequence Awareness is the fourth stage of the Weight Permanence Training and the foundation of PUSH motivation. PUSH motivation is an emotionally connected reason that moves you away from a future outcome, consequence, or version of yourself that you are no longer willing to tolerate. Consequence Awareness makes the cost of regain feel real and personal rather than abstract and distant. It is what gives urgency to change.",
+    body: "Consequence Awareness is the foundation of PUSH motivation. It makes the cost of regain feel real and personal rather than abstract and distant.",
   },
   {
     name: "Identity Awareness",
     slug: "identity-awareness",
-    body: "Identity Awareness is the fifth stage of the Weight Permanence Training and the foundation of PULL motivation. PULL motivation is an emotionally connected reason that draws you toward a future identity, outcome, or version of yourself that you genuinely want to create. Identity Awareness shifts the question from 'how do I lose weight' to 'who am I becoming.' When your future identity is specific and emotionally real, weight permanence stops being an act of discipline and becomes an expression of who you already are.",
+    body: "Identity Awareness is the foundation of PULL motivation. It shifts the question from 'how do I lose weight' to 'who am I becoming.'",
   },
+];
+
+const stageIcons = [aware1, aware2, aware3, aware4, aware5];
+
+const stageMeta = [
+  { name: "Reality",     full: "Reality Awareness",     purpose: "Establish your honest baseline",          questions: 14, slug: "reality-awareness"     },
+  { name: "Friction",    full: "Friction Awareness",    purpose: "Name the gap between knowing and doing",  questions: 48, slug: "friction-awareness"    },
+  { name: "Pattern",     full: "Pattern Awareness",     purpose: "Map when, where, and why you eat",        questions: 83, slug: "pattern-awareness"     },
+  { name: "Consequence", full: "Consequence Awareness", purpose: "Feel the real cost of staying the same",  questions: 66, slug: "consequence-awareness" },
+  { name: "Identity",    full: "Identity Awareness",    purpose: "Build the future self who doesn't regain",questions: 56, slug: "identity-awareness"    },
 ];
 
 const DEFINED_TERM_SET_LD = {
@@ -78,16 +95,16 @@ const stageConfig = [
     num: "1",
     label: "Stage 1 of 5 · 14 questions",
     title: "Reality awareness",
-    intro: "Before anything else, you need an honest baseline. Not what you think — what's actually true. Most people soften this in their own minds. We're going to be specific.",
+    intro: "Before anything else, you need an honest baseline — not what you think, but what's actually true.",
     question: "On a scale of 1–10, how accurately do you track what you actually eat each day?",
     isSlider: true,
     sliderMin: 1,
     sliderMax: 10,
     sliderDefault: 7,
     sliderReveals: {
-      low: "Most people overestimate this by 2–3 points. Research shows we underreport calorie intake by 30–50% on average. That's not dishonesty — it's how memory works. This stage is about closing that gap.",
-      mid: "That's more honest than most. The question isn't whether your tracking is perfect — it's whether you know your patterns well enough to change them. That's what we're building.",
-      high: "People who track very precisely often still struggle with weight — because awareness of intake isn't the same as awareness of why you eat. That's what the next stages uncover.",
+      low: "Most people overestimate this by 2–3 points. Research shows we underreport calorie intake by 30–50% on average. That's not dishonesty — it's how memory works. This stage closes that gap.",
+      mid: "That's more honest than most. The question isn't whether your tracking is perfect — it's whether you know your patterns well enough to change them.",
+      high: "People who track very precisely often still struggle — because awareness of intake isn't the same as awareness of why you eat. That's what the next stages uncover.",
     },
     revealType: "neutral",
     nextLabel: "Stage 2: Friction →",
@@ -97,20 +114,20 @@ const stageConfig = [
     num: "2",
     label: "Stage 2 of 5 · 48 questions",
     title: "Friction awareness",
-    intro: "You know what you should do. Something keeps stopping you. This stage names that something — without judgment, without excuses. Just facts.",
+    intro: "You know what you should do. Something keeps stopping you. This stage names that something.",
     question: "Do you like your current weight?",
     options: [
       {
         label: "No",
-        reveal: "That gap between knowing and doing — that's friction. It's not laziness. Something in your current situation makes the healthy choice feel harder than the easy one. This stage names exactly what that is.",
+        reveal: "That gap between knowing and doing — that's friction. Something in your current situation makes the healthy choice feel harder than the easy one. This stage names exactly what that is.",
       },
       {
         label: "Somewhat — I've accepted it",
-        reveal: "Acceptance is a coping mechanism, not a choice. When you say you've accepted it, you mean you've stopped fighting — because fighting hasn't worked. That's important information. Let's look at why.",
+        reveal: "Acceptance is a coping mechanism, not a choice. When you say you've accepted it, you mean you've stopped fighting — because fighting hasn't worked. That's important information.",
       },
       {
         label: "Yes, I'm happy with it",
-        reveal: "Then something else brought you here. Maybe you're here for someone else, or for preventive reasons, or you're just curious. That's okay — motivation that isn't yours rarely lasts, but curiosity is a fine place to start.",
+        reveal: "Then something else brought you here. Maybe curiosity, or preventive reasons. That's okay — curiosity is a fine place to start.",
       },
     ],
     revealType: "neutral",
@@ -121,16 +138,16 @@ const stageConfig = [
     num: "3",
     label: "Stage 3 of 5 · 83 questions",
     title: "Pattern awareness",
-    intro: "Most eating behaviour is automatic — you're on autopilot and don't know it. This stage maps exactly when, where, why, and how you eat. You can't change a pattern you haven't seen clearly.",
+    intro: "Most eating is automatic. This stage maps exactly when, where, and why it happens.",
     question: "When do you find yourself eating even though you're not hungry?",
     options: [
       {
         label: "When I'm stressed or overwhelmed",
-        reveal: "Stress eating is the most common pattern — and the hardest to see, because it feels justified. 'I had a hard day' is real. But the food doesn't fix the stress. It just makes the feeling quieter for a few minutes. That's the loop.",
+        reveal: "Stress eating feels justified — 'I had a hard day.' But the food doesn't fix the stress. It just makes the feeling quieter for a few minutes. That's the loop.",
       },
       {
         label: "When I'm bored",
-        reveal: "Boredom eating is usually about stimulation, not hunger. The body knows food equals dopamine. When nothing else is interesting, it reaches for the fastest reward available. Knowing this changes how you respond.",
+        reveal: "Boredom eating is usually about stimulation, not hunger. The body knows food equals dopamine. When nothing else is interesting, it reaches for the fastest reward available.",
       },
       {
         label: "In social settings — I eat what's there",
@@ -138,7 +155,7 @@ const stageConfig = [
       },
       {
         label: "Out of habit — certain times or places",
-        reveal: "Habitual eating is the most automatic of all. You eat at 3pm because you always eat at 3pm. No hunger, no emotion — just a trigger and a response. These are the easiest patterns to interrupt once you see them.",
+        reveal: "Habitual eating is the most automatic of all. No hunger, no emotion — just a trigger and a response. These are the easiest patterns to interrupt once you see them.",
       },
     ],
     revealType: "neutral",
@@ -149,24 +166,24 @@ const stageConfig = [
     num: "4",
     label: "Stage 4 of 5 · 66 questions · PUSH",
     title: "Consequence awareness",
-    intro: "This is the stage most people skip — and it's why they go back to old habits. You need to feel what staying the same actually costs you. Not in theory. In your real life, five years from now.",
+    intro: "This is the stage most people skip. You need to feel what staying the same actually costs you.",
     question: "If nothing changes, what's the most likely outcome in 5 years?",
     options: [
       {
         label: "More medication, more health problems",
-        reveal: "That's not abstract — that's a specific future you can already see coming. This stage makes that future feel as real and immediate as today's craving. When the cost of inaction feels real, the motivation to change stops depending on willpower.",
+        reveal: "That's not abstract — that's a specific future you can already see coming. When the cost of inaction feels real, the motivation to change stops depending on willpower.",
       },
       {
         label: "Less energy, fewer experiences",
-        reveal: "The experiences you're not having right now — that's not a future problem. That's already happening. Every summer, every trip, every activity you quietly opted out of. That's the consequence.",
+        reveal: "The experiences you're not having right now — that's not a future problem. Every summer, every trip, every activity you quietly opted out of. That's the consequence.",
       },
       {
         label: "Deeper disconnection from who I want to be",
-        reveal: "This is the deepest one. You know who you want to be. Every day you live outside that identity, there's a quiet dissonance. That gap is exhausting. And it's optional.",
+        reveal: "Every day you live outside that identity, there's a quiet dissonance. That gap is exhausting. And it's optional.",
       },
       {
         label: "Not being there for people I love",
-        reveal: "People often change for others before they change for themselves. That's okay — use whatever motivation is real. The goal of this stage is to connect the stakes to real, specific, named people. Abstract consequences don't move us. Personal ones do.",
+        reveal: "The goal of this stage is to connect the stakes to real, specific, named people. Abstract consequences don't move us. Personal ones do.",
       },
     ],
     revealType: "push",
@@ -177,24 +194,24 @@ const stageConfig = [
     num: "5",
     label: "Stage 5 of 5 · 56 questions · PULL",
     title: "Identity awareness",
-    intro: "The person you want to become already has the habits you're trying to build. This stage isn't about goals — it's about who. When your identity changes, the behaviour follows automatically.",
+    intro: "The person you want to become already has the habits you're trying to build. This stage isn't about goals — it's about who.",
     question: "Complete this sentence: \"The version of me I most want to become is someone who...\"",
     options: [
       {
         label: "Shows up with energy every single day",
-        reveal: "That person doesn't drag themselves out of bed thinking about motivation. They sleep well, move regularly, and eat in a way that sustains their energy. That's not discipline — that's identity. When you decide you're that person, the choices that support it start feeling obvious.",
+        reveal: "That person doesn't drag themselves out of bed thinking about motivation. They eat in a way that sustains their energy. That's not discipline — that's identity.",
       },
       {
         label: "Is in control of food — not controlled by it",
-        reveal: "Food controlled by you, not the other way around. When you identify as that person — the craving shows up and you respond, rather than react. That shift is the entire game.",
+        reveal: "When you identify as that person — the craving shows up and you respond, rather than react. That shift is the entire game.",
       },
       {
         label: "Feels proud when they look in the mirror",
-        reveal: "That feeling isn't vanity — it's alignment. It means your outside matches your inside. The person you see reflects the choices you've been making. That's what Weight Permanence feels like.",
+        reveal: "That feeling isn't vanity — it's alignment. It means your outside matches your inside. That's what Weight Permanence feels like.",
       },
       {
         label: "Sets the example for the people they love",
-        reveal: "This is one of the most powerful and most sustainable motivators that exists — because it's not about you anymore. It's about what your habits are teaching the people watching you.",
+        reveal: "One of the most powerful motivators that exists — because it's not about you anymore. It's about what your habits are teaching the people watching you.",
       },
     ],
     revealType: "pull",
@@ -216,17 +233,15 @@ export default function AwarenessStagesPage() {
   const [showCta, setShowCta] = useState(false);
   const navigate = useNavigate();
 
-  // Assign profile based on Stage 3 (pattern) + Stage 0 (regain count)
   const getProfile = (sels: Record<number, number | null>): string => {
-    const stage3 = sels[3]; // 0=stressed, 1=bored, 2=social, 3=habit
-    const stage0 = sels[0]; // 0=first time, 1=once or twice, 2=more than I want to count
+    const stage3 = sels[3];
+    const stage0 = sels[0];
     if (stage3 === 0) return "stress-eater";
     if (stage3 === 1) return "overwhelmed-beginner";
     if (stage3 === 2) return "motivation-chaser";
-    // habit: tiebreak on regain count
     if (stage0 === 1) return "weight-cycler";
     if (stage0 === 2) return "restarter";
-    return "overwhelmed-beginner"; // fallback (first time + habit)
+    return "overwhelmed-beginner";
   };
 
   const handleOption = (stageIdx: number, optIdx: number) => {
@@ -236,6 +251,7 @@ export default function AwarenessStagesPage() {
   const handleNext = (stageIdx: number) => {
     const next = stageIdx + 1;
     if (next > 5) {
+      setShowCta(true);
       const profile = getProfile(selections);
       navigate(`/weight-regain-profile/${profile}`);
     } else {
@@ -298,17 +314,57 @@ export default function AwarenessStagesPage() {
           <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold mb-3">
             Weight Permanence Training™
           </p>
-          <h1 className="text-3xl md:text-5xl font-serif font-normal text-primary leading-tight mb-4">
-            You don't have a willpower problem.<br />You have an identity problem.
+          <h1 className="text-3xl md:text-4xl font-serif font-normal text-primary leading-tight mb-4">
+            Most diets work.<br />The problem is living inside one permanently.
           </h1>
-          <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-lg mx-auto">
-            Every diet you've tried worked. The problem is you couldn't live inside it forever.
-            Let's find out why — in 5 steps.
+          <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto">
+            Every failed diet left you with data. What it didn't give you was self-knowledge — <em>why</em> you eat the way you do, and what's actually driving the regain cycle.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto mt-2">
+            The 5 Stages of Awareness fix that gap. When you have this clarity, weight permanence stops depending on willpower.
           </p>
         </header>
 
+        {/* Diagram */}
+        <div className="mb-10">
+          <img
+            src={stagesDiagram}
+            alt="The 5 Stages of Awareness — Reality, Friction, Pattern, Consequence, Identity"
+            className="w-full rounded-xl shadow-md"
+          />
+        </div>
+
+        {/* Stage icon row */}
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-4 text-center">
+            The 5 stages
+          </p>
+          <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4">
+            {stageMeta.map((s, i) => (
+              <a
+                key={s.slug}
+                href={`/blog/${s.slug}`}
+                className="snap-start shrink-0 w-36 rounded-xl border border-border bg-card p-3 flex flex-col items-center text-center hover:border-accent/50 transition-colors"
+              >
+                <img src={stageIcons[i]} alt={s.full} className="w-14 h-14 object-contain mb-2" />
+                <p className="text-xs font-semibold text-foreground leading-snug mb-1">{s.name}</p>
+                <span className="text-[10px] text-muted-foreground">{s.questions} questions</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Quiz section header */}
+        <div className="flex items-center gap-3 mb-6">
+          <div className="flex-1 h-px bg-border" />
+          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold whitespace-nowrap">
+            Try one question from each stage
+          </p>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+
         {/* Progress */}
-        <div className="mb-8">
+        <div className="mb-6">
           <div className="flex gap-2 mb-3 flex-wrap">
             {["Start", "Reality", "Friction", "Pattern", "Consequence", "Identity"].map((label, i) => (
               <span
@@ -343,12 +399,12 @@ export default function AwarenessStagesPage() {
                 key={i}
                 id={`stage-${i}`}
                 style={{ scrollMarginTop: "100px" }}
-                className={`rounded-xl border bg-card p-6 transition-all duration-300 ${
+                className={`rounded-xl border bg-card p-5 transition-all duration-300 ${
                   locked ? "opacity-30 pointer-events-none select-none" : "border-border"
                 }`}
               >
                 {/* Stage header */}
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-3">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 ${
                     i === 0 ? "bg-zinc-100 text-zinc-500" :
                     i === 1 ? "bg-blue-50 text-blue-700" :
@@ -394,7 +450,7 @@ export default function AwarenessStagesPage() {
                         <button
                           key={oi}
                           onClick={() => handleOption(i, oi)}
-                          className={`text-left text-sm px-4 py-2.5 rounded-lg border transition-all ${
+                          className={`text-left text-sm px-4 py-3 rounded-lg border transition-all ${
                             selectedOpt === oi
                               ? "border-foreground bg-background font-medium"
                               : "border-border bg-background hover:bg-muted/50"
@@ -431,7 +487,7 @@ export default function AwarenessStagesPage() {
                     )}
                     <button
                       onClick={() => handleNext(i)}
-                      className="ml-auto text-sm font-semibold bg-foreground text-background px-5 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                      className="ml-auto text-sm font-semibold bg-foreground text-background px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
                     >
                       {cfg.nextLabel}
                     </button>
@@ -442,63 +498,51 @@ export default function AwarenessStagesPage() {
           })}
         </div>
 
-        {/* Final CTA */}
+        {/* Dual CTA */}
         {showCta && (
-          <div className="mt-8 rounded-xl border border-accent/30 bg-accent/5 p-8 text-center">
-            <p className="text-xs uppercase tracking-widest text-accent font-semibold mb-3">
+          <div className="mt-10 rounded-xl border border-accent/30 bg-accent/5 p-6 md:p-8">
+            <p className="text-xs uppercase tracking-widest text-accent font-semibold mb-2 text-center">
               You just did what most people never do
             </p>
-            <h2 className="text-2xl md:text-3xl font-serif font-normal text-primary mb-4 leading-snug">
-              You went through all 5 stages.<br />Now go deeper — for free.
+            <h2 className="text-2xl md:text-3xl font-serif font-normal text-primary mb-2 text-center leading-snug">
+              You went through all 5 stages.
             </h2>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-md mx-auto">
-              The full Weight Permanence Training has 267 questions across these stages, plus 30+ daily
-              Practice modules to build the habits that stick. The community is free. No credit card.
+            <p className="text-sm text-muted-foreground text-center mb-6">
+              The community gives you structure. The Navigator gives you answers in the moment.
             </p>
-            <Button variant="accent" size="lg" asChild>
-              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                Join the free community
-              </a>
-            </Button>
+
+            <div className="flex flex-col md:flex-row gap-4">
+              {/* Card 1 — Skool */}
+              <div className="flex-1 rounded-xl border border-border bg-card p-5 flex flex-col">
+                <span className="text-[10px] uppercase tracking-widest text-emerald-600 font-semibold mb-2">Free</span>
+                <p className="text-base font-semibold text-foreground mb-2">Practice Training Community</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                  30+ daily behaviour modules, group accountability, and guided exercises. No credit card required.
+                </p>
+                <Button variant="default" className="w-full" asChild>
+                  <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
+                    Join free on Skool →
+                  </a>
+                </Button>
+              </div>
+
+              {/* Card 2 — Motivation Navigator */}
+              <div className="flex-1 rounded-xl border border-border bg-card p-5 flex flex-col">
+                <span className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-2">AI Coaching</span>
+                <p className="text-base font-semibold text-foreground mb-2">Motivation Navigator</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                  Ask about your eating habits, motivation, and hurdles. Get personalised responses grounded in the WPT system — plus clear, stackable motivations for when you feel like quitting.
+                </p>
+                <Button variant="accent" className="w-full" asChild>
+                  <a href="/app">
+                    Try the Navigator →
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
         )}
 
-        {/* SEO content — educational text for crawlers */}
-        <section className="mt-16 pt-10 border-t border-border space-y-6 text-sm text-muted-foreground leading-relaxed">
-          <h2 className="text-lg font-semibold text-foreground">About the 5 Awareness Stages</h2>
-          <p>
-            The 5 Awareness Stages are the first half of{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-              Weight Permanence Training™
-            </a>
-            . They are designed in a specific chronological order because each stage builds the emotional
-            readiness required for the next. You cannot skip to{" "}
-            <a href="/blog/identity-awareness" className="text-accent hover:underline">Identity Awareness</a>{" "}
-            without first mapping your patterns and consequences — the insights won't land without the foundation
-            underneath them.
-          </p>
-          <div className="space-y-4">
-            {stages.map((s, i) => (
-              <div key={s.slug}>
-                <h3 className="font-semibold text-foreground mb-1">
-                  {i + 1}.{" "}
-                  <a href={`/blog/${s.slug}`} className="text-accent hover:underline">
-                    {s.name}
-                  </a>
-                </h3>
-                <p>{s.body}</p>
-              </div>
-            ))}
-          </div>
-          <p>
-            Once the five stages have done their work, the{" "}
-            <a href="/blog/action-practice" className="text-accent hover:underline">
-              Practice Training
-            </a>{" "}
-            translates that clarity into daily behaviour. Read more about the founder's path on the{" "}
-            <a href="/oscar-poon" className="text-accent hover:underline">About Oscar Poon</a> page.
-          </p>
-        </section>
       </main>
 
       <FooterSimple />
