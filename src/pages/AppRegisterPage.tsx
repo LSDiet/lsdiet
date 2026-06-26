@@ -98,7 +98,10 @@ export default function AppRegisterPage() {
   async function sendOtp(target: string) {
     const { error } = await supabase.auth.signInWithOtp({
       email: target,
-      options: { shouldCreateUser: true },
+      options: {
+        shouldCreateUser: true,
+        emailRedirectTo: `${window.location.origin}/app/chat`,
+      },
     });
     if (error) {
       setErrorMsg(error.message);

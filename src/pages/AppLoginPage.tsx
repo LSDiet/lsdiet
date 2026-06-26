@@ -42,7 +42,10 @@ export default function AppLoginPage() {
     // Send OTP
     const { error: otpError } = await supabase.auth.signInWithOtp({
       email: normalized,
-      options: { shouldCreateUser: true },
+      options: {
+        shouldCreateUser: true,
+        emailRedirectTo: `${window.location.origin}/app/chat`,
+      },
     });
 
     if (otpError) {
