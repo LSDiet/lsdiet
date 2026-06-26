@@ -86,7 +86,7 @@ const stageConfig = [
       { label: "Once or twice" },
       { label: "More than I want to count" },
     ],
-    reveal: "That's exactly why you're here. Most people who struggle with weight aren't lazy or weak — they've been solving the wrong problem. You've been trying to lose weight. WPT helps you become someone who never has to lose it again.",
+    reveal: "That's exactly why you're here. Most people who struggle with weight aren't lazy or weak. They've been solving the wrong problem. You've been trying to lose weight. WPT helps you become someone who never has to lose it again.",
     revealType: "neutral",
     nextLabel: "Begin Stage 1: Reality →",
     stageRef: null,
@@ -95,16 +95,16 @@ const stageConfig = [
     num: "1",
     label: "Stage 1 of 5 · 14 questions",
     title: "Reality awareness",
-    intro: "Before anything else, you need an honest baseline — not what you think, but what's actually true.",
+    intro: "Before anything else, you need an honest baseline. Not what you think. What is actually true.",
     question: "On a scale of 1–10, how accurately do you track what you actually eat each day?",
     isSlider: true,
     sliderMin: 1,
     sliderMax: 10,
     sliderDefault: 7,
     sliderReveals: {
-      low: "Most people overestimate this by 2–3 points. Research shows we underreport calorie intake by 30–50% on average. That's not dishonesty — it's how memory works. This stage closes that gap.",
-      mid: "That's more honest than most. The question isn't whether your tracking is perfect — it's whether you know your patterns well enough to change them.",
-      high: "People who track very precisely often still struggle — because awareness of intake isn't the same as awareness of why you eat. That's what the next stages uncover.",
+      low: "Most people overestimate this by 2–3 points. Research shows we underreport calorie intake by 30–50% on average. That's not dishonesty. It's how memory works. This stage closes that gap.",
+      mid: "That's more honest than most. The question isn't whether your tracking is perfect. It's whether you know your patterns well enough to change them.",
+      high: "People who track very precisely often still struggle. Awareness of intake isn't the same as awareness of why you eat. That's what the next stages uncover.",
     },
     revealType: "neutral",
     nextLabel: "Stage 2: Friction →",
@@ -119,15 +119,15 @@ const stageConfig = [
     options: [
       {
         label: "No",
-        reveal: "That gap between knowing and doing — that's friction. Something in your current situation makes the healthy choice feel harder than the easy one. This stage names exactly what that is.",
+        reveal: "That gap between knowing and doing is friction. Something in your current situation makes the healthy choice feel harder than the easy one. This stage names exactly what that is.",
       },
       {
-        label: "Somewhat — I've accepted it",
-        reveal: "Acceptance is a coping mechanism, not a choice. When you say you've accepted it, you mean you've stopped fighting — because fighting hasn't worked. That's important information.",
+        label: "Somewhat. I've made peace with it.",
+        reveal: "Acceptance is a coping mechanism, not a choice. When you say you've accepted it, you mean you've stopped fighting because fighting hasn't worked. That's important information.",
       },
       {
         label: "Yes, I'm happy with it",
-        reveal: "Then something else brought you here. Maybe curiosity, or preventive reasons. That's okay — curiosity is a fine place to start.",
+        reveal: "Then something else brought you here. Maybe curiosity, or preventive reasons. That's okay. Curiosity is a fine place to start.",
       },
     ],
     revealType: "neutral",
@@ -143,19 +143,19 @@ const stageConfig = [
     options: [
       {
         label: "When I'm stressed or overwhelmed",
-        reveal: "Stress eating feels justified — 'I had a hard day.' But the food doesn't fix the stress. It just makes the feeling quieter for a few minutes. That's the loop.",
+        reveal: "Stress eating always feels justified. You think: I had a hard day. But the food doesn't fix the stress. It just makes the feeling quieter for a few minutes. That's the loop.",
       },
       {
         label: "When I'm bored",
         reveal: "Boredom eating is usually about stimulation, not hunger. The body knows food equals dopamine. When nothing else is interesting, it reaches for the fastest reward available.",
       },
       {
-        label: "In social settings — I eat what's there",
-        reveal: "Environmental eating is invisible to most people. You don't decide to eat — the food is just there. This pattern shows up most in people who do well alone but struggle at gatherings.",
+        label: "In social settings when food is around",
+        reveal: "Environmental eating is invisible to most people. You don't decide to eat. The food is just there.. This pattern shows up most in people who do well alone but struggle at gatherings.",
       },
       {
-        label: "Out of habit — certain times or places",
-        reveal: "Habitual eating is the most automatic of all. No hunger, no emotion — just a trigger and a response. These are the easiest patterns to interrupt once you see them.",
+        label: "Out of habit at certain times or places",
+        reveal: "Habitual eating is the most automatic of all. No hunger, no emotion. Just a trigger and a response.. These are the easiest patterns to interrupt once you see them.",
       },
     ],
     revealType: "neutral",
@@ -171,11 +171,11 @@ const stageConfig = [
     options: [
       {
         label: "More medication, more health problems",
-        reveal: "That's not abstract — that's a specific future you can already see coming. When the cost of inaction feels real, the motivation to change stops depending on willpower.",
+        reveal: "That's not abstract. That's a specific future you can already see coming. When the cost of inaction feels real, the motivation to change stops depending on willpower.",
       },
       {
         label: "Less energy, fewer experiences",
-        reveal: "The experiences you're not having right now — that's not a future problem. Every summer, every trip, every activity you quietly opted out of. That's the consequence.",
+        reveal: "The experiences you're not having right now. That is not a future problem.. Every summer, every trip, every activity you quietly opted out of. That's the consequence.",
       },
       {
         label: "Deeper disconnection from who I want to be",
@@ -194,24 +194,24 @@ const stageConfig = [
     num: "5",
     label: "Stage 5 of 5 · 56 questions · PULL",
     title: "Identity awareness",
-    intro: "The person you want to become already has the habits you're trying to build. This stage isn't about goals — it's about who.",
+    intro: "The person you want to become already has the habits you're trying to build. This stage isn't about goals. It's about who.",
     question: "Complete this sentence: \"The version of me I most want to become is someone who...\"",
     options: [
       {
         label: "Shows up with energy every single day",
-        reveal: "That person doesn't drag themselves out of bed thinking about motivation. They eat in a way that sustains their energy. That's not discipline — that's identity.",
+        reveal: "That person doesn't drag themselves out of bed thinking about motivation. They eat in a way that sustains their energy. That's not discipline. That's identity..",
       },
       {
-        label: "Is in control of food — not controlled by it",
-        reveal: "When you identify as that person — the craving shows up and you respond, rather than react. That shift is the entire game.",
+        label: "In control of food, not controlled by it",
+        reveal: "When you identify as that person, the craving shows up and you respond rather than react. That shift is the entire game.",
       },
       {
         label: "Feels proud when they look in the mirror",
-        reveal: "That feeling isn't vanity — it's alignment. It means your outside matches your inside. That's what Weight Permanence feels like.",
+        reveal: "That feeling isn't vanity. It's alignment.. It means your outside matches your inside. That's what Weight Permanence feels like.",
       },
       {
         label: "Sets the example for the people they love",
-        reveal: "One of the most powerful motivators that exists — because it's not about you anymore. It's about what your habits are teaching the people watching you.",
+        reveal: "One of the most powerful motivators that exists. It's not about you anymore.. It's about what your habits are teaching the people watching you.",
       },
     ],
     revealType: "pull",
@@ -318,7 +318,7 @@ export default function AwarenessStagesPage() {
             Most diets work.<br />The problem is living inside one permanently.
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto">
-            Every failed diet left you with data. What it didn't give you was self-knowledge — <em>why</em> you eat the way you do, and what's actually driving the regain cycle.
+            Every failed diet left you with data. What it didn't give you was self-knowledge: <em>why</em> you eat the way you do, and what's actually driving the regain cycle.
           </p>
           <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto mt-2">
             The 5 Stages of Awareness fix that gap. When you have this clarity, weight permanence stops depending on willpower.
@@ -329,7 +329,7 @@ export default function AwarenessStagesPage() {
         <div className="mb-10">
           <img
             src={stagesDiagram}
-            alt="The 5 Stages of Awareness — Reality, Friction, Pattern, Consequence, Identity"
+            alt="The 5 Stages of Awareness: Reality, Friction, Pattern, Consequence, Identity"
             className="w-full rounded-xl shadow-md"
           />
         </div>
@@ -531,7 +531,7 @@ export default function AwarenessStagesPage() {
                 <span className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-2">AI Coaching</span>
                 <p className="text-base font-semibold text-foreground mb-2">Motivation Navigator</p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                  Ask about your eating habits, motivation, and hurdles. Get personalised responses grounded in the WPT system — plus clear, stackable motivations for when you feel like quitting.
+                  Ask about your eating habits, motivation, and hurdles. Get personalised responses grounded in the WPT system, with clear stackable motivations for when you feel like quitting.
                 </p>
                 <Button variant="accent" className="w-full" asChild>
                   <a href="/app">
