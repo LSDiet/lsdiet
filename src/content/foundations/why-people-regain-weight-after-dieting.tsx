@@ -33,7 +33,7 @@ const meta: Foundation["meta"] = {
   excerpt:
     "Weight regain is the real failure mode of dieting — most people lose weight successfully, then slowly regain it. This LS Diet pillar article explains why repeated weight regain happens, why temporary motivation collapses, and how LS Diet is built as a weight regain prevention system instead of another diet.",
   metaDescription:
-    "Weight regain after dieting is the real long-term problem. Learn why people regain weight and how LS Diet's permanence system helps you stop the cycle for good.",
+    "Weight regain is the real long-term problem. Learn why it keeps happening, why motivation collapses, and how LS Diet's weight permanence system helps you stop the cycle for good.",
   publishDate: "2026-05-19T00:00:00.000Z",
   updatedAt: "2026-05-25T00:00:00.000Z",
   canonicalTopic: "stop-weight-regain",
@@ -122,12 +122,11 @@ function Body() {
         <a href="/awareness-stages" className="text-accent hover:underline">
           Awareness Stages
         </a>{" "}
-        — focuses on helping people identify the connection between eating behaviours and
-        intrinsic stimulators such as stress, emotions, boredom, reward-seeking, and exhaustion,
-        while also recognizing extrinsic stimulators such as environmental triggers, convenience
-        eating, social pressure, food exposure, and routine-based habits. The goal is to explore
-        causality instead of relying purely on willpower while repeatedly building both push
-        motivation and pull motivation to reinforce long-term consistency.
+        — helps people understand what is actually driving their eating. Not just hunger, but
+        stress, boredom, exhaustion, social pressure, convenience, and routine. The goal is to
+        build real awareness of why eating happens the way it does, then use that awareness to
+        develop both push motivation (the cost of staying the same) and pull motivation (the
+        person you want to become) to support long-term consistency.
       </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
         The behavioural training focuses on repeatable systems that reduce behavioural friction
@@ -163,9 +162,8 @@ function Body() {
         Why Temporary Weight Loss Often Leads To Weight Regain
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Many people believe losing weight is the difficult part. In reality, maintaining weight loss
-        is often harder. Temporary motivation can produce temporary behaviour. But permanent results
-        usually require permanent behavioural change.
+        Losing weight is not the hard part. Keeping it off is. Temporary motivation produces
+        temporary behaviour. Permanent results require permanent behavioural change.
       </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
         This is why many people experience:
@@ -177,7 +175,7 @@ function Body() {
         <li>followed by another restart attempt</li>
       </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Over time, restarting becomes psychologically exhausting. Many people begin believing:
+        After enough restarts, people start believing:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>they lack discipline</li>
@@ -239,14 +237,14 @@ function Body() {
         “There is no autopilot.” Every meal is a decision.
       </blockquote>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Many people unintentionally develop automatic patterns such as:
+        People build automatic patterns without realising it:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>stress eating after work</li>
         <li>overeating during social events</li>
         <li>convenience eating during exhaustion</li>
         <li>emotional reward eating</li>
-        <li>binge–restriction cycles</li>
+        <li>binge-restrict cycles</li>
         <li>frequent snacking</li>
         <li>reacting emotionally to setbacks</li>
       </ul>
@@ -328,8 +326,7 @@ function Body() {
         Starch Is Often The Hidden Problem
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Many people focus only on obvious sugar. But starch is frequently consumed multiple times
-        every day:
+        Most people focus only on obvious sugar. But starch shows up multiple times every day:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>bread</li>
@@ -374,7 +371,7 @@ function Body() {
         <li>convenience eating</li>
       </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Many people fail because they think:
+        This trap looks like:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>one healthy day fixes everything</li>
@@ -398,9 +395,8 @@ function Body() {
         There Is No Perfect Diet
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Many people search endlessly for the perfect meal plan, the perfect macro ratio, the
-        perfect calorie target, the perfect fasting schedule. But long-term success usually depends
-        more on:
+        People spend years chasing the perfect meal plan, the perfect macro ratio, the perfect
+        calorie target. But long-term success depends more on:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>sustainability</li>
@@ -433,9 +429,9 @@ function Body() {
         Why LS Diet Focuses On Permanence
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        LS Diet was built after losing 80+ lbs three separate times — and regaining it each time.
+        LS Diet was built after losing 80+ lbs three separate times and regaining it each time.
         Losing weight temporarily was never the hard part. Keeping it off permanently was. That
-        question — how do you build a version of yourself that never does this again? — led to the
+        question, how do you build a version of yourself that never does this again, led to the
         development of:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
@@ -454,16 +450,16 @@ function Body() {
         <li>behavioural permanence concepts</li>
       </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        The central idea is this: long-term weight control requires psychological prioritization —
-        not just temporary motivation. Because motivation fluctuates. Life fluctuates. Stress
-        fluctuates. But systems can remain.
+        The central idea is this: long-term weight control requires psychological prioritization,
+        not just temporary motivation. Motivation fluctuates. Life fluctuates. Stress fluctuates.
+        But systems can remain.
       </p>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         The Goal Is Not Temporary Weight Loss
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Many people approach weight loss like a short project. Then eventually return to:
+        Most people treat weight loss like a short project. Then life pulls them back to:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>old environments</li>
