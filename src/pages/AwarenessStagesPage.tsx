@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { Button } from "@/components/ui/button";
 
-import stagesDiagram from "@/assets/5-stages-of-awareness-v2.png";
+import stagesDiagram from "@/assets/5-stages-of-awareness-v3.jpg";
 import aware1 from "@/assets/awareness/aware1.png";
 import aware2 from "@/assets/awareness/aware2.png";
 import aware3 from "@/assets/awareness/aware3.png";
@@ -333,7 +333,8 @@ export default function AwarenessStagesPage() {
           <img
             src={stagesDiagram}
             alt="The 5 Stages of Awareness: Reality, Friction, Pattern, Consequence, Identity"
-            className="w-full rounded-xl shadow-md"
+            className="w-full rounded-xl shadow-sm"
+            loading="lazy"
           />
         </div>
 
