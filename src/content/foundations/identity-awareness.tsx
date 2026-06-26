@@ -246,6 +246,16 @@ function Body() {
         .
       </P>
 
+      <div className="my-8 rounded-xl border border-accent/20 bg-accent/5 p-5 flex items-center justify-between gap-4">
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-1">Training Complete — What's Next</p>
+          <p className="text-base font-bold text-zinc-900">See the full Weight Permanence Training™ framework</p>
+        </div>
+        <a href="/weight-permanence-triangle" className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-accent-foreground hover:brightness-110 transition-all">
+          Explore →
+        </a>
+      </div>
+
       <H2>Frequently Asked Questions</H2>
       {meta.faqs?.map((f) => (
         <div key={f.q} className="mb-6">
