@@ -79,7 +79,6 @@ const stageConfig = [
     num: "?",
     label: "Before we begin",
     title: "Quick question",
-    intro: "Not a trick. Just an honest starting point.",
     question: "How many times have you lost weight and regained it?",
     options: [
       {
@@ -104,7 +103,6 @@ const stageConfig = [
     num: "1",
     label: "Stage 1 of 5 · 14 questions",
     title: "Reality awareness",
-    intro: "Before anything else, you need an honest baseline. Not what you think. What is actually true.",
     question: "On a scale of 1–10, how accurately do you track what you actually eat each day?",
     isSlider: true,
     sliderMin: 1,
@@ -123,7 +121,6 @@ const stageConfig = [
     num: "2",
     label: "Stage 2 of 5 · 48 questions",
     title: "Friction awareness",
-    intro: "You know what you should do. Something keeps stopping you. This stage names that something.",
     question: "Do you like your current weight?",
     options: [
       {
@@ -147,7 +144,6 @@ const stageConfig = [
     num: "3",
     label: "Stage 3 of 5 · 83 questions",
     title: "Pattern awareness",
-    intro: "Most eating is automatic. This stage maps exactly when, where, and why it happens.",
     question: "When do you find yourself eating even though you're not hungry?",
     options: [
       {
@@ -175,7 +171,6 @@ const stageConfig = [
     num: "4",
     label: "Stage 4 of 5 · 66 questions · PUSH",
     title: "Consequence awareness",
-    intro: "This is the stage most people skip. You need to feel what staying the same actually costs you.",
     question: "If nothing changes, what's the most likely outcome in 5 years?",
     options: [
       {
@@ -203,7 +198,6 @@ const stageConfig = [
     num: "5",
     label: "Stage 5 of 5 · 56 questions · PULL",
     title: "Identity awareness",
-    intro: "The person you want to become already has the habits you're trying to build. This stage isn't about goals. It's about who.",
     question: "Complete this sentence: \"The version of me I most want to become is someone who...\"",
     options: [
       {
@@ -429,8 +423,6 @@ export default function AwarenessStagesPage() {
                     <p className="text-base font-semibold text-foreground capitalize">{cfg.title}</p>
                   </div>
                 </div>
-
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{cfg.intro}</p>
 
                 {/* Question */}
                 <div className="bg-muted/40 rounded-lg p-4 mb-4">
