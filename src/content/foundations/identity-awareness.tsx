@@ -83,16 +83,20 @@ function Body() {
       <Lead>You've been trying to change your behaviour. You should be trying to change who you are.</Lead>
       <P>
         Behaviour follows identity. What you do consistently is a reflection of how you see
-        yourself — not the other way around. This is why people who lose weight and then
+        yourself. Not the other way around. This is why people who lose weight and then
         regain it are not failing at the diet. They're succeeding at being the version of
         themselves they still believe they are.
       </P>
       <P>
-        Identity Awareness is the fifth and final awareness stage of the{" "}
+        Identity Awareness is Stage 5 of the{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          5 Awareness Stages
+        </a>{" "}
+        in the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>
-        . It builds PULL motivation — the forward force that draws you toward a version
+        . It builds PULL motivation: the forward force that draws you toward a version
         of yourself you genuinely want to become, rather than pushing you away from
         consequences you're trying to avoid.
       </P>
@@ -106,7 +110,7 @@ function Body() {
 
       <H2>What Is Identity Awareness?</H2>
       <P>
-        Identity Awareness asks you to articulate who you are becoming — not who you
+        Identity Awareness asks you to articulate who you are becoming. Not who you
         want to be eventually, but who you are actively deciding to become right now.
         That distinction matters. "Someday" is a deferral. "I am becoming" is a decision.
       </P>
@@ -130,8 +134,7 @@ function Body() {
       <P>
         People don't act consistently with what they know. They act consistently with
         how they see themselves. A person who sees themselves as "someone who tries to
-        eat healthy" will eventually eat unhealthily, because the identity has a built-in
-        escape hatch — trying is not the same as being.
+        eat healthy" will eventually eat unhealthily, because the identity has a built-in escape hatch. Trying is not the same as being.
       </P>
       <P>
         A person who has decided "I am someone who prioritizes healthy behaviour" makes
@@ -151,8 +154,7 @@ function Body() {
 
       <H2>Why PULL Motivation Lasts Longer Than PUSH Motivation</H2>
       <P>
-        PUSH motivation — the urgency that comes from consequences, fear, or pain —
-        is powerful but temporary. Once the discomfort fades, so does the motivation.
+        PUSH motivation is powerful but temporary. It comes from consequences, fear, or pain. Once the discomfort fades, so does the motivation.
         This is why people restart weight loss after a health scare, stay disciplined
         for a few weeks, then gradually drift back when the fear loses its edge.
       </P>
@@ -160,7 +162,7 @@ function Body() {
         PULL motivation works differently. It doesn't depend on how bad you feel
         right now. It depends on how clearly you can see the person you're becoming
         and how much you want to be that person. That clarity doesn't fade the same
-        way urgency does — it compounds. Every action you take that aligns with your
+        way urgency does. It compounds. Every action you take that aligns with your
         intended identity reinforces the identity itself.
       </P>
       <P>
@@ -179,7 +181,7 @@ function Body() {
       <P>
         Moral licensing is an identity problem. It means the behaviour was performed as
         an action, not as an expression of identity. A healthy person doesn't think
-        "I earned this" — because the action was never a sacrifice to be compensated.
+        "I earned this." The action was never a sacrifice to be compensated.
         It was just what they do.
       </P>
       <P>
@@ -191,53 +193,55 @@ function Body() {
       <H2>Why Identity Change Feels Uncomfortable at First</H2>
       <P>
         Your current identity has been reinforced for years. Every choice you've made
-        has strengthened it. Choosing differently feels like a contradiction — which
+        has strengthened it. Choosing differently feels like a contradiction, which
         the brain interprets as a threat. This is why change that feels right in theory
         still feels wrong in practice at first.
       </P>
       <P>
         That discomfort is not a sign you're doing it wrong. It's a sign that the
         old identity is being challenged. The discomfort decreases as the new behaviour
-        becomes the new norm — not through discipline, but through repetition.
+        becomes the new norm. Not through discipline. Through repetition.
         Repetition builds identity. Identity makes behaviour feel automatic.
       </P>
 
       <H2>How LS Diet Uses Identity Awareness</H2>
       <P>
-        Every stage of the awareness training builds toward this one. Reality Awareness
-        shows you where you are. Friction Awareness names the gap. Pattern Awareness maps
-        the behaviour driving the gap. Consequence Awareness makes the cost of staying
-        in the gap feel real. Identity Awareness gives you a direction to move toward.
+        Every stage of the awareness training builds toward this one.{" "}
+        <a href="/blog/reality-awareness" className="text-accent hover:underline">Reality Awareness</a>{" "}
+        shows you where you are.{" "}
+        <a href="/blog/friction-awareness" className="text-accent hover:underline">Friction Awareness</a>{" "}
+        names the gap.{" "}
+        <a href="/blog/pattern-awareness" className="text-accent hover:underline">Pattern Awareness</a>{" "}
+        maps the behaviour driving the gap.{" "}
+        <a href="/blog/consequence-awareness" className="text-accent hover:underline">Consequence Awareness</a>{" "}
+        makes the cost of staying in the gap feel real. Identity Awareness gives you a direction to move toward.
       </P>
       <P>
         From here, the practical work begins in{" "}
         <a href="/blog/action-practice" className="text-accent hover:underline">
           Action Practice
         </a>{" "}
-        — daily behavioural modules designed to make your new identity feel lived-in
+        : daily behavioural modules designed to make your new identity feel lived-in
         rather than aspirational. But identity has to come first. Action Practice
         without a clear identity is just willpower with extra steps.
       </P>
       <P>
-        Built by{" "}
+        The system was built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
         </a>
-        , who lost 80+ lbs three times before designing the system. Explore the{" "}
-        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
-          Weight Permanence Training™ topic hub
+        . Identity Awareness is where the shift finally happened for him after years of losing and regaining the same weight. Explore the full{" "}
+        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™
         </a>{" "}
-        for related foundations.
-      </P>
-      <P>
-        Stop regaining weight:{" "}
+        or{" "}
         <a
           href="https://www.skool.com/lsdiet/about"
           target="_blank"
           rel="noopener noreferrer"
           className="text-accent hover:underline"
         >
-          join the LS Diet community
+          join the free LS Diet community
         </a>
         .
       </P>

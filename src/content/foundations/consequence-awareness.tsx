@@ -83,18 +83,20 @@ function Body() {
       <Lead>Knowing you should change has never been enough. This stage makes the cost feel real.</Lead>
       <P>
         You already know weight regain is bad for you. You've known that for years.
-        And yet the behaviour continues. That's not a knowledge problem — it's an
-        urgency problem. The consequences of staying the same don't feel immediate
+        And yet the behaviour continues. That's not a knowledge problem. It's an urgency problem. The consequences of staying the same don't feel immediate
         enough to override the comfort of the current moment.
       </P>
       <P>
-        Consequence Awareness is the fourth stage of the{" "}
+        Consequence Awareness is Stage 4 of the{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          5 Awareness Stages
+        </a>{" "}
+        in the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>
         . Its job is to close the psychological distance between where you are today
-        and where your current direction is actually leading — and to make that future
-        feel as real as tonight's craving.
+        and where your current direction is actually leading. The goal is to make that future feel as real as tonight's craving.
       </P>
 
       <H2>What Is Consequence Awareness?</H2>
@@ -104,7 +106,7 @@ function Body() {
       </P>
       <P>
         Not the optimistic version where you somehow get serious later. The realistic
-        version — based on your current direction, your current patterns, your current
+        version: based on your current direction, your current patterns, your current
         trajectory.
       </P>
       <UL
@@ -119,7 +121,7 @@ function Body() {
       <P>
         The goal is not fear. The goal is clarity. Because behaviour that feels
         optional in the short term often has consequences that feel inevitable in
-        the long term — and most people don't make that connection until it's
+        the long term. Most people don't make that connection until it's
         already arrived.
       </P>
 
@@ -132,20 +134,20 @@ function Body() {
       </P>
       <P>
         People with strong PUSH motivation don't need to feel inspired to act.
-        They act because the alternative — continuing the current pattern — feels
+        They act because the alternative of continuing the current pattern feels
         worse than the difficulty of changing. That shift in emotional weight is
         what makes behaviour change durable instead of temporary.
       </P>
       <P>
         Without PUSH motivation, every behavioural change is a negotiation. With
-        it, the negotiation largely disappears — because the outcome of not changing
+        it, the negotiation largely disappears. The outcome of not changing
         is no longer emotionally acceptable.
       </P>
 
       <H2>Why People Often Ignore Consequences</H2>
       <P>
         The brain prioritizes immediate comfort over future outcomes. Always. This
-        isn't a weakness — it's how human cognition is built. The food in front
+        isn't a weakness. It's how human cognition is built. The food in front
         of you is concrete and immediate. The health consequences ten years from
         now are abstract and distant.
       </P>
@@ -157,7 +159,7 @@ function Body() {
       </P>
       <P>
         Consequence Awareness interrupts that gradual normalization. It assembles
-        the full picture deliberately — not to create panic, but to prevent the
+        the full picture deliberately. Not to create panic, but to prevent the
         slow drift from continuing unexamined.
       </P>
 
@@ -170,7 +172,7 @@ function Body() {
       </P>
       <P>
         Consequence Awareness includes examining not just where your behaviour leads,
-        but what environment is reinforcing it — and what the cost of that environment
+        but what environment is reinforcing it, and what the cost of that environment
         is over time. For the underlying patterns that built this environment, read{" "}
         <a href="/blog/pattern-awareness" className="text-accent hover:underline">
           Pattern Awareness
@@ -178,7 +180,7 @@ function Body() {
         .
       </P>
 
-      <H2>The Definition of Insanity</H2>
+      <H2>Why the Restart Cycle Keeps Repeating</H2>
       <P>
         The phrase is overused but structurally accurate: doing the same thing and
         expecting a different result. Most weight regain cycles follow exactly this
@@ -187,7 +189,7 @@ function Body() {
       </P>
       <P>
         Consequence Awareness asks you to honestly examine what that cycle has already
-        cost you — and what it will continue to cost you if the pattern doesn't change.
+        cost you, and what it will continue to cost you if the pattern doesn't change.
         Not as motivation by guilt. As information. Because the first step toward
         breaking a cycle is refusing to pretend it isn't one.
       </P>
@@ -195,21 +197,21 @@ function Body() {
       <H2>Why Consequences Become Harder to Ignore Over Time</H2>
       <P>
         The consequences of weight regain compound. The fifth restart is harder than
-        the first — physically, emotionally, and psychologically. The body becomes
+        the first, physically, emotionally, and psychologically. The body becomes
         more resistant. The shame accumulates. The belief that this time will be
         different gets harder to sustain.
       </P>
       <P>
         This is why Consequence Awareness belongs in the middle of the Weight
         Permanence Training, not at the end. It creates urgency before the pattern
-        has compounded further — not after the next health scare has already happened.
+        has compounded further. Not after the next health scare has already happened.
       </P>
       <P>
         From here, the fifth stage —{" "}
         <a href="/blog/identity-awareness" className="text-accent hover:underline">
           Identity Awareness
         </a>{" "}
-        — builds the PULL motivation that completes the emotional foundation for
+        . It builds the PULL motivation that completes the emotional foundation for
         lasting change.
       </P>
 
@@ -219,28 +221,29 @@ function Body() {
         them to create the emotional seriousness that behaviour change requires.
         Temporary motivation produces temporary results. Consequence Awareness
         produces the kind of internal shift that doesn't require motivation to
-        maintain — because the cost of reverting has become personally unacceptable.
+        maintain. The cost of reverting has become personally unacceptable.
       </P>
       <P>
-        Built by{" "}
+        This is Stage 4 of the{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          5 Awareness Stages
+        </a>
+        .{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
-        </a>
-        , who lost 80+ lbs three times before designing the system. Explore the{" "}
-        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
-          Weight Permanence Training™ topic hub
         </a>{" "}
-        for related foundations.
-      </P>
-      <P>
-        Stop regaining weight:{" "}
+        describes Consequence Awareness as the stage he kept skipping during the years he kept regaining weight. Explore the{" "}
+        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™
+        </a>{" "}
+        or{" "}
         <a
           href="https://www.skool.com/lsdiet/about"
           target="_blank"
           rel="noopener noreferrer"
           className="text-accent hover:underline"
         >
-          join the LS Diet community
+          join the free LS Diet community
         </a>
         .
       </P>

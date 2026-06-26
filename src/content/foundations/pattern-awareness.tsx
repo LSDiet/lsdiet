@@ -82,18 +82,21 @@ function Body() {
     <>
       <Lead>You keep doing the same things in the same situations. You just can't see them yet.</Lead>
       <P>
-        Behaviour that repeats consistently is not random. It has a structure — a specific
+        Behaviour that repeats consistently is not random. It has a structure: a specific
         set of conditions under which it reliably shows up. Pattern Awareness maps that
         structure so you can finally see what's actually driving the behaviour, instead of
         blaming willpower for something that was never a willpower problem.
       </P>
       <P>
-        Pattern Awareness is the third stage of the{" "}
+        Pattern Awareness is Stage 3 of the{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          5 Awareness Stages
+        </a>{" "}
+        in the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>
-        . It uses six diagnostic lenses — who, what, when, where, why, and how — to
-        map the specific conditions under which weight-regaining behaviour occurs in
+        . It uses six diagnostic lenses: who, what, when, where, why, and how. These map the specific conditions under which weight-regaining behaviour occurs in
         your life. Not in general. In yours.
       </P>
 
@@ -108,12 +111,12 @@ function Body() {
       </P>
       <UL
         items={[
-          "Who — which people or social contexts shift your eating behaviour?",
-          "What — which specific foods, situations, or emotions consistently trigger overeating?",
-          "When — what times of day, week, or season does the behaviour repeat?",
-          "Where — which locations or environments make the pattern harder to resist?",
-          "Why — what emotional state or need is the eating actually serving?",
-          "How — how does the pattern unfold from trigger to response?",
+          "Who: which people or social contexts shift your eating behaviour?",
+          "What: which specific foods, situations, or emotions consistently trigger overeating?",
+          "When: what times of day, week, or season does the behaviour repeat?",
+          "Where: which locations or environments make the pattern harder to resist?",
+          "Why: what emotional state or need is the eating actually serving?",
+          "How: how does the pattern unfold from trigger to response?",
         ]}
       />
       <P>
@@ -125,13 +128,13 @@ function Body() {
       <P>
         The brain is efficient. Behaviour that gets repeated enough stops requiring
         conscious decision-making and becomes automatic. You don't decide to reach for
-        something at 3pm — you just do it. You don't decide to eat more when you're
-        stressed — it just happens before you've finished the thought.
+        something at 3pm. You just do it. You don't decide to eat more when you're
+        stressed. It just happens before you've finished the thought.
       </P>
       <P>
         Automatic behaviour is invisible behaviour. You can't report it accurately
         because you're not actually conscious of it in the moment. This is why
-        people are often genuinely surprised by what pattern mapping reveals — the
+        people are often genuinely surprised by what pattern mapping reveals. The
         behaviour has been there all along, just below the level of observation.
       </P>
       <P>
@@ -160,15 +163,14 @@ function Body() {
       <H2>Why Emotional Eating Often Becomes a Pattern</H2>
       <P>
         Food reliably produces a short-term feeling of relief. Not much relief, and
-        not for long — but reliably. When you're stressed, overwhelmed, bored, or
+        not for long. But reliably. When you're stressed, overwhelmed, bored, or
         exhausted, the brain files that away: food equals relief. Over time, the
         connection becomes automatic. The emotional state triggers the eating before
         any conscious decision is made.
       </P>
       <P>
         This is not a character flaw. It's a learned pattern. And like any pattern,
-        once you can see the structure of it — the specific emotion, the specific
-        trigger, the specific sequence — you can begin interrupting it deliberately
+        once you can see the structure of it: the specific emotion, the specific trigger, the specific sequence. Then you can begin interrupting it deliberately
         instead of trying to overpower it with willpower.
       </P>
       <P>
@@ -183,12 +185,12 @@ function Body() {
       <P>
         Most diets address the food without ever touching the pattern. They tell you
         what to eat, when to eat it, and how much. But they don't map why you ate
-        differently before — the who, what, when, where, why, and how of the behaviour
+        differently before: the who, what, when, where, why, and how of the behaviour
         that caused the weight gain in the first place.
       </P>
       <P>
         So the diet runs in parallel with the pattern for a while. Then life gets
-        stressful, a familiar trigger fires, the automatic response takes over — and
+        stressful, a familiar trigger fires, the automatic response takes over. And
         the diet collapses. Not because of weak willpower, but because the underlying
         pattern was never identified or addressed.
       </P>
@@ -197,7 +199,7 @@ function Body() {
       <P>
         Once you've mapped a pattern clearly, you can insert a deliberate interrupt
         at the right point in the sequence. Not at the end, when the behaviour has
-        already happened. At the trigger point — before the automatic response fires.
+        already happened. At the trigger point, before the automatic response fires.
       </P>
       <P>
         This is the work of{" "}
@@ -212,7 +214,7 @@ function Body() {
         <a href="/blog/consequence-awareness" className="text-accent hover:underline">
           Consequence Awareness
         </a>{" "}
-        — making the long-term cost of these patterns feel emotionally real, not
+        . Making the long-term cost of these patterns feel emotionally real, not
         intellectually abstract.
       </P>
 
@@ -220,7 +222,7 @@ function Body() {
       <P>
         LS Diet uses Pattern Awareness to make the low-starch, low-sugar eating approach
         actually stick. Knowing what to eat is not the problem. The problem is the
-        specific conditions under which you stop eating that way — and those conditions
+        specific conditions under which you stop eating that way. Those conditions
         are different for every person.
       </P>
       <P>
@@ -230,25 +232,26 @@ function Body() {
         and addressing those directly.
       </P>
       <P>
-        Built by{" "}
+        This is Stage 3 of the{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          5 Awareness Stages
+        </a>
+        . Once your patterns are mapped, the work of changing them becomes targeted. Built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
         </a>
-        , who lost 80+ lbs three times before designing the system. Explore the{" "}
-        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
-          Weight Permanence Training™ topic hub
+        , who recognised his own patterns only after years of restarting. Explore the{" "}
+        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™
         </a>{" "}
-        for related foundations.
-      </P>
-      <P>
-        Stop regaining weight:{" "}
+        or{" "}
         <a
           href="https://www.skool.com/lsdiet/about"
           target="_blank"
           rel="noopener noreferrer"
           className="text-accent hover:underline"
         >
-          join the LS Diet community
+          join the free LS Diet community
         </a>
         .
       </P>

@@ -92,12 +92,16 @@ function Body() {
         motivated, start a new plan, hit the same invisible wall, and restart.
       </P>
       <P>
-        Friction Awareness is the second stage of the{" "}
+        Friction Awareness is Stage 2 of the{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          5 Awareness Stages
+        </a>{" "}
+        in the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
-        </a>{" "}
-        because you can't resolve friction you haven't acknowledged. The gap between
-        knowing and doing is not motivation — it's friction. And friction has a source.
+        </a>
+        . You can't resolve friction you haven't acknowledged. The gap between
+        knowing and doing is not a motivation problem. It's friction. And friction has a source.
       </P>
 
       <H2>What Is Friction Awareness?</H2>
@@ -125,7 +129,7 @@ function Body() {
       <H2>Why Tension Often Precedes Change</H2>
       <P>
         People don't change when they think about changing. They change when not changing
-        feels worse than changing. That's what tension does — it makes the cost of
+        feels worse than changing. That's what tension does. It makes the cost of
         staying the same impossible to ignore.
       </P>
       <P>
@@ -138,29 +142,25 @@ function Body() {
         The situation is bad enough to complain about, but not bad enough to act on.
       </blockquote>
       <P>
-        Friction Awareness moves dissatisfaction from vague to specific — from
-        "I'm not happy with my weight" to "this is what my current direction is
-        actually costing me, and I can't keep pretending otherwise."
+        Friction Awareness moves dissatisfaction from vague to specific. From "I'm not happy with my weight" to "this is what my current direction is costing me, and I can't keep pretending otherwise."
       </P>
 
       <H2>Why People Rationalize and Procrastinate Change</H2>
       <P>
         The brain is extremely good at making the current situation feel temporary.
         "I'll get serious after the holidays." "Things will calm down soon."
-        "I've done it before — I can do it again whenever I decide to."
+        "I've done it before. I can do it again whenever I decide to."
         These aren't lies. They're rationalizations that protect you from having
         to act right now.
       </P>
       <P>
         The longer you stay in that holding pattern, the more normal the discomfort
         becomes. Tighter clothing gets replaced. Activities get quietly dropped. The
-        baseline shifts, and you adapt to it — until the next health scare or
-        emotional breaking point forces the restart cycle again.
+        baseline shifts and you adapt to it. Until the next health scare or emotional breaking point forces the restart cycle again.
       </P>
       <P>
         Friction Awareness interrupts that normalization. It asks you to look at
-        your current direction honestly — not the temporary version you're planning
-        to change, but the actual trajectory if nothing changes.
+        your current direction honestly. Not the temporary version you're planning to change. The actual trajectory if nothing changes.
       </P>
 
       <H2>Weight Is Often Not the Real Problem</H2>
@@ -173,7 +173,7 @@ function Body() {
       <P>
         This is why diets that focus purely on food almost always fail long term. They
         address the symptom without naming the friction. When the diet ends, the friction
-        is still there — and old behaviour refills the space the diet temporarily vacated.
+        is still there. Old behaviour refills the space the diet temporarily vacated.
       </P>
       <P>
         For the deeper explanation of why this cycle repeats, read{" "}
@@ -186,21 +186,18 @@ function Body() {
       <H2>Friction Awareness Is About Honesty, Not Shame</H2>
       <P>
         Naming friction is not the same as attacking yourself. You're not building a
-        case for why you're failing. You're identifying what's actually in the way —
-        so you can work with it instead of around it.
+        case for why you're failing. You're identifying what's actually in the way, so you can work with it instead of around it.
       </P>
       <P>
-        The goal is not to feel bad about the gap. The goal is to make it specific
-        enough that it stops being deniable. A gap you can see clearly is one you can
+        Name the gap clearly enough that it stops being deniable. A gap you can see clearly is one you can
         close. A gap you keep softening in your own mind stays open indefinitely.
       </P>
       <P>
-        From here, the next stage —{" "}
+        From here,{" "}
         <a href="/blog/pattern-awareness" className="text-accent hover:underline">
           Pattern Awareness
         </a>{" "}
-        — maps exactly how and when the behaviour that created this friction keeps
-        repeating.
+        maps exactly how and when the behaviour that created this friction keeps repeating.
       </P>
 
       <H2>How LS Diet Uses Friction Awareness</H2>
@@ -210,29 +207,29 @@ function Body() {
       </P>
       <P>
         Most people try to change everything at once and overwhelm themselves within two
-        weeks. Friction Awareness shows you where the actual resistance is — which means
-        you can address it directly instead of burning energy on the wrong things.
+        weeks. Friction Awareness shows you where the actual resistance is. You can address it directly instead of burning energy on the wrong things.
       </P>
       <P>
-        Built by{" "}
+        This is Stage 2 of the{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          5 Awareness Stages
+        </a>
+        . The full system was built by{" "}
         <a href="/oscar-poon" className="text-accent hover:underline">
           Oscar Poon
         </a>
-        , who lost 80+ lbs three times before designing the system. Explore the{" "}
-        <a href="/topics/weight-permanence-triangle" className="text-accent hover:underline">
-          Weight Permanence Training™ topic hub
+        , who spent years restarting before mapping why it kept happening. Explore the{" "}
+        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training™
         </a>{" "}
-        for related foundations.
-      </P>
-      <P>
-        Stop regaining weight:{" "}
+        or{" "}
         <a
           href="https://www.skool.com/lsdiet/about"
           target="_blank"
           rel="noopener noreferrer"
           className="text-accent hover:underline"
         >
-          join the LS Diet community
+          join the free LS Diet community
         </a>
         .
       </P>
