@@ -28,12 +28,12 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption?: str
 
 const meta: Foundation["meta"] = {
   slug: "why-people-regain-weight-after-dieting",
-  title: "Why People Regain Weight After Dieting | Stop Weight Regain | LS Diet",
+  title: "Why Do I Keep Gaining Weight? | LS Diet",
   order: 1,
   excerpt:
     "Weight regain is the real failure mode of dieting — most people lose weight successfully, then slowly regain it. This LS Diet pillar article explains why repeated weight regain happens, why temporary motivation collapses, and how LS Diet is built as a weight regain prevention system instead of another diet.",
   metaDescription:
-    "Why do I keep gaining weight back? Research shows 50% of dieters regain all lost weight within 5 years. Learn why it keeps happening and how to stop the cycle for good.",
+    "Why do you keep gaining weight back? You're not failing — you're missing a system. Learn why weight regain keeps happening and how Weight Permanence Training stops the cycle for good.",
   publishDate: "2026-05-19T00:00:00.000Z",
   updatedAt: "2026-05-25T00:00:00.000Z",
   canonicalTopic: "stop-weight-regain",
@@ -47,7 +47,7 @@ const meta: Foundation["meta"] = {
   ],
   contentType: "pillar",
   parentUrl: "https://lsdiet.com/topics/stop-weight-regain",
-  relatedTopics: ["weight-permanence-triangle", "awareness-stages", "action-practice-examples"],
+  relatedTopics: ["ls-diet-foundations", "awareness-stages", "weight-permanence-triangle"],
   featuredImage: {
     src: featuredImage,
     alt: "Why people regain weight after dieting — LS Diet pillar article",

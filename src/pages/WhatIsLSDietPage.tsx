@@ -12,14 +12,14 @@ export default function WhatIsLSDietPage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>What Is LS Diet? | A Weight Regain Prevention System</title>
+        <title>Best Diet for Permanent Weight Loss | LS Diet</title>
         <meta
           name="description"
-          content="LS Diet is a weight regain prevention system that combines psychology training, behavioural training, and low-starch low-sugar eating to help people stop regaining weight long term."
+          content="The best diet isn't the one that helps you lose weight — it's the one that stops you from gaining it back. LS Diet combines low-starch eating with behavioural training for permanent results."
         />
         <link rel="canonical" href="https://lsdiet.com/what-is-ls-diet" />
-        <meta property="og:title" content="What Is LS Diet? | A Weight Regain Prevention System" />
-        <meta property="og:description" content="A weight regain prevention system built on psychology training, behavioural training, and low-starch low-sugar eating." />
+        <meta property="og:title" content="Best Diet for Permanent Weight Loss | LS Diet" />
+        <meta property="og:description" content="The best diet isn't the one that helps you lose weight — it's the one that stops you from gaining it back. Low starch, low sugar, and behaviour change." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://lsdiet.com/what-is-ls-diet" />
         <script type="application/ld+json">{JSON.stringify({

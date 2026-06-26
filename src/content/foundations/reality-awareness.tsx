@@ -28,7 +28,7 @@ const H2 = ({ children }: { children: React.ReactNode }) => (
 
 const meta: Foundation["meta"] = {
   slug: "reality-awareness",
-  title: "Reality Awareness | The First Step Toward Permanent Weight Loss",
+  title: "Reality Awareness: Be Honest About Where You Actually Are",
   listTitle: "Reality Awareness",
   order: 3.1,
   excerpt:
@@ -48,7 +48,7 @@ const meta: Foundation["meta"] = {
   ],
   contentType: "pillar",
   parentUrl: "https://lsdiet.com/awareness-stages",
-  relatedTopics: ["weight-permanence-triangle", "stop-weight-regain"],
+  relatedTopics: ["awareness-stages", "weight-permanence-triangle", "stop-weight-regain"],
   featuredImage: {
     src: featuredImage,
     alt: "Reality Awareness — Stage 1 of the 5 Awareness Stages in the Weight Permanence Training™",

@@ -284,14 +284,14 @@ export default function AwarenessStagesPage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>The 5 Awareness Stages | LS Diet</title>
+        <title>How to Stop Weight Regain | Weight Permanence Training™</title>
         <meta
           name="description"
-          content="Inside LS Diet, Awareness moves through five stages: Reality, Friction, Pattern, Consequence, and Identity. Together they produce push and pull motivation."
+          content="Weight Permanence Training™ is a 5-stage awareness system that builds the identity and motivation needed to stop regaining weight — permanently. Free inside LS Diet."
         />
         <link rel="canonical" href={CANONICAL} />
-        <meta property="og:title" content="The 5 Awareness Stages" />
-        <meta property="og:description" content="The first vertex of the Weight Permanence Training™, in five stages." />
+        <meta property="og:title" content="How to Stop Weight Regain | Weight Permanence Training™" />
+        <meta property="og:description" content="5-stage awareness system that builds the identity and motivation needed to stop regaining weight — permanently." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={CANONICAL} />
         <script type="application/ld+json">{JSON.stringify({

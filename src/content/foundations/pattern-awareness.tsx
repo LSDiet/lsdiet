@@ -28,7 +28,7 @@ const H2 = ({ children }: { children: React.ReactNode }) => (
 
 const meta: Foundation["meta"] = {
   slug: "pattern-awareness",
-  title: "Pattern Awareness: The Behavioural Patterns Behind Weight Regain",
+  title: "Pattern Awareness: Why You Keep Overeating Even When You Know Better",
   listTitle: "Pattern Awareness",
   order: 3.3,
   excerpt:

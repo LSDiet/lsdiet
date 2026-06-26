@@ -28,7 +28,7 @@ const H2 = ({ children }: { children: React.ReactNode }) => (
 
 const meta: Foundation["meta"] = {
   slug: "identity-awareness",
-  title: "Identity Awareness: Why Future Identity Drives Long Term Weight Loss",
+  title: "Identity Awareness: How to Change Your Relationship With Food",
   listTitle: "Identity Awareness",
   order: 3.5,
   excerpt:

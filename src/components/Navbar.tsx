@@ -10,9 +10,11 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: "Awareness Stages", href: "/awareness-stages" },
-  { label: "Quiz", href: "/quiz" },
+  { label: "Problem", href: "/blog/why-people-regain-weight-after-dieting" },
+  { label: "The Solution", href: "/awareness-stages" },
+  { label: "LS Diet", href: "/what-is-ls-diet" },
   { label: "Blog", href: "/blog" },
+  { label: "Quiz", href: "/quiz" },
 ];
 
 const CTA_HREF = "https://www.skool.com/lsdiet/about";

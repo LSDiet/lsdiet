@@ -28,7 +28,7 @@ const H2 = ({ children }: { children: React.ReactNode }) => (
 
 const meta: Foundation["meta"] = {
   slug: "friction-awareness",
-  title: "Friction Awareness: Why Change Starts When Tension Becomes Clear",
+  title: "Friction Awareness: Why Losing Weight Feels So Hard",
   listTitle: "Friction Awareness",
   order: 3.2,
   excerpt:
@@ -48,7 +48,7 @@ const meta: Foundation["meta"] = {
   ],
   contentType: "pillar",
   parentUrl: "https://lsdiet.com/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight",
-  relatedTopics: ["weight-permanence-triangle", "stop-weight-regain"],
+  relatedTopics: ["awareness-stages", "weight-permanence-triangle", "stop-weight-regain"],
   featuredImage: {
     src: featuredImage,
     alt: "Friction Awareness — Stage 2 of the 5 Awareness Stages in the Weight Permanence Training™",

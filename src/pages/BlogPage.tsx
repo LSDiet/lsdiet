@@ -45,7 +45,7 @@ function HeroArticle({ entry }: { entry: BlogIndexEntry }) {
         {/* Text */}
         <div className="flex flex-col justify-center p-6 md:p-10">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-3">
-            Latest
+            Start Here
           </p>
           <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-zinc-900 group-hover:text-accent transition-colors leading-snug mb-4">
             {entry.title}
@@ -247,6 +247,53 @@ function CategoryBlock({ cluster, entries, defaultOpen = false }: CategoryBlockP
 }
 
 // ---------------------------------------------------------------------------
+// WPT Curriculum Strip — 5 awareness stages in order
+// ---------------------------------------------------------------------------
+
+const STAGE_LABELS = ["Stage 1", "Stage 2", "Stage 3", "Stage 4", "Stage 5"];
+
+function WPTCurriculumStrip({ entries }: { entries: BlogIndexEntry[] }) {
+  if (entries.length === 0) return null;
+  return (
+    <section>
+      <div className="mb-5">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1">
+          The Method
+        </p>
+        <h2 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight">
+          The 5-Stage Method
+        </h2>
+        <p className="text-sm text-zinc-500 mt-1">
+          Weight Permanence Training — in order
+        </p>
+      </div>
+      {/* Horizontal scroll on mobile, grid on md+ */}
+      <div className="flex gap-3 overflow-x-auto pb-2 md:pb-0 md:grid md:grid-cols-5 snap-x snap-mandatory">
+        {entries.map((e, i) => (
+          <a
+            key={e.slug}
+            href={`/blog/${e.slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex-shrink-0 w-52 md:w-auto snap-start flex flex-col rounded-xl border border-zinc-200 hover:border-accent transition-colors p-4 gap-2"
+          >
+            <span className="text-[10px] font-bold uppercase tracking-widest text-accent">
+              {STAGE_LABELS[i]}
+            </span>
+            <p className="text-sm font-bold text-zinc-900 group-hover:text-accent transition-colors leading-snug">
+              {e.title}
+            </p>
+            {e.excerpt && (
+              <p className="text-xs text-zinc-500 line-clamp-2">{e.excerpt}</p>
+            )}
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Main BlogPage
 // ---------------------------------------------------------------------------
 
@@ -262,10 +309,22 @@ export default function BlogPage() {
 
   const supporting = entries.filter((e) => SUPPORTING_TYPES.has(e.contentType));
 
-  // Hero: latest supporting article with a featuredImage
-  const hero = supporting
-    .filter((e) => !!e.featuredImage?.url)
-    .sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1))[0] ?? supporting[0];
+  // Hero: pin the Problem article; fall back to latest supporting post with image
+  const PROBLEM_SLUG = "why-people-regain-weight-after-dieting";
+  const hero =
+    entries.find((e) => e.slug === PROBLEM_SLUG) ??
+    supporting.filter((e) => !!e.featuredImage?.url).sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1))[0] ??
+    supporting[0];
+
+  // WPT Curriculum: 5 awareness stages in stage order
+  const STAGE_SLUGS = [
+    "reality-awareness",
+    "friction-awareness",
+    "pattern-awareness",
+    "consequence-awareness",
+    "identity-awareness",
+  ];
+  const stageEntries = STAGE_SLUGS.map((s) => entries.find((e) => e.slug === s)).filter(Boolean) as BlogIndexEntry[];
 
   // Build cluster → entry map
   const slugToCluster = new Map<string, string>();
@@ -327,6 +386,10 @@ export default function BlogPage() {
         )}
 
         {!loading && hero && <HeroArticle entry={hero} />}
+
+        {!loading && stageEntries.length > 0 && (
+          <WPTCurriculumStrip entries={stageEntries} />
+        )}
 
         {!loading && supporting.length > 0 && (
           <LatestArticles entries={supporting} />

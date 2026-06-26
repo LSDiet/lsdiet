@@ -62,14 +62,14 @@ export default function OscarPoonPage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Oscar Poon | Founder of LS Diet</title>
+        <title>I Lost 80 Lbs Three Times. Here's Why It Kept Coming Back.</title>
         <meta
           name="description"
-          content="Oscar Poon, founder of LS Diet and creator of the Weight Permanence Training™. Lost 80+ lbs three times before building a system that lasts."
+          content="Oscar Poon lost 80+ lbs three times and regained it every time — until he built Weight Permanence Training™. This is his story and the system it created."
         />
         <link rel="canonical" href={CANONICAL} />
-        <meta property="og:title" content="Oscar Poon — Founder of LS Diet" />
-        <meta property="og:description" content="Founder of LS Diet, creator of the Weight Permanence Training™." />
+        <meta property="og:title" content="I Lost 80 Lbs Three Times. Here's Why It Kept Coming Back." />
+        <meta property="og:description" content="Oscar Poon lost 80+ lbs three times and regained it every time — until he built Weight Permanence Training™." />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content={CANONICAL} />
         <script type="application/ld+json">{JSON.stringify(PERSON_LD)}</script>

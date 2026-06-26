@@ -28,7 +28,7 @@ const H2 = ({ children }: { children: React.ReactNode }) => (
 
 const meta: Foundation["meta"] = {
   slug: "consequence-awareness",
-  title: "Consequence Awareness: When the Cost of Staying the Same Becomes Clear",
+  title: "Consequence Awareness: What Happens If You Never Lose the Weight",
   listTitle: "Consequence Awareness",
   order: 3.4,
   excerpt:
