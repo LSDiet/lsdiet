@@ -30,7 +30,7 @@ export function QuizTeaserSection() {
             }
             className="inline-flex items-center gap-2 rounded-xl bg-accent px-8 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5 md:text-lg"
           >
-            Join Free
+            Start Free Training
             <ArrowRight className="h-5 w-5" aria-hidden />
           </a>
           <p className="mt-3 text-[11px] font-medium text-muted-foreground">

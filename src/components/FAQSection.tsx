@@ -52,7 +52,7 @@ const faqs: FaqEntry[] = [
         </p>
         <p>
           <a href="https://www.skool.com/lsdiet" className={linkCls} target="_blank" rel="noopener noreferrer">
-            Join free →
+            Start free training →
           </a>
         </p>
       </div>

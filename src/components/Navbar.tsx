@@ -94,7 +94,7 @@ export function Navbar() {
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center px-4 py-2 rounded-md bg-accent text-accent-foreground text-xs font-bold uppercase tracking-[0.1em] hover:opacity-90 transition-opacity"
           >
-            Join Free →
+            Start Training →
           </a>
           {/* Mobile menu button */}
           <button
@@ -165,7 +165,7 @@ export function Navbar() {
               className="mt-3 block text-center py-3 rounded-md bg-accent text-accent-foreground text-sm font-bold uppercase tracking-[0.1em]"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Join Free →
+              Start Training →
             </a>
             <a
               href="/app/login"
