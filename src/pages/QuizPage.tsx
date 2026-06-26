@@ -61,13 +61,20 @@ export default function QuizPage() {
           content="Take the free 60-second LS Diet quiz to find out why you keep regaining weight and get a personalized next step."
         />
         <link rel="canonical" href="https://lsdiet.com/quiz" />
-        <meta property="og:title" content="Stop Regaining Weight Quiz — LS Diet" />
+        <meta property="og:title" content="Which Weight Regain Profile Are You? — Free Quiz" />
         <meta
           property="og:description"
-          content="Find out why the weight keeps coming back. 60-second personalized result."
+          content="Find out which of the 5 weight regain profiles fits you — and what to do about it. Takes 60 seconds."
         />
         <meta property="og:url" content="https://lsdiet.com/quiz" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://lsdiet.com/og-image.jpg" />
+        <meta property="og:image:width" content="1536" />
+        <meta property="og:image:height" content="1024" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Which Weight Regain Profile Are You? — Free Quiz" />
+        <meta name="twitter:description" content="Find out which of the 5 weight regain profiles fits you — and what to do about it. Takes 60 seconds." />
+        <meta name="twitter:image" content="https://lsdiet.com/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify(quizSchema)}</script>
       </Helmet>
 
