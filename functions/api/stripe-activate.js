@@ -1,5 +1,5 @@
 // Activates a new member after Stripe payment.
-// Whitelists their chosen email, then sends a magic link.
+// Whitelists their chosen email. OTP is sent client-side after this returns.
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -44,26 +44,6 @@ export async function onRequestPost(context) {
         active: true,
       }),
     });
-
-    // Send magic link via Supabase invite
-    const inviteRes = await fetch(`${supabaseUrl(env)}/auth/v1/invite`, {
-      method: 'POST',
-      headers: {
-        ...supabaseHeaders(env),
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: normalizedEmail,
-        data: { plan: 'app-only' },
-        redirect_to: 'https://lsdiet.com/app/activation',
-      }),
-    });
-
-    if (!inviteRes.ok) {
-      const err = await inviteRes.text();
-      // User may already exist in auth — that's fine, they just need the whitelist entry
-      console.log('Invite note:', err);
-    }
 
     return json({ success: true }, 200);
   } catch (err) {

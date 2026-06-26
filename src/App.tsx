@@ -43,7 +43,6 @@ const AppSalesPage = lazy(() => import("./pages/AppSalesPage"));
 const AppPage = lazy(() => import("./pages/AppPage"));
 const AppLoginPage = lazy(() => import("./pages/AppLoginPage"));
 const AppRegisterPage = lazy(() => import("./pages/AppRegisterPage"));
-const AppActivationPage = lazy(() => import("./pages/AppActivationPage"));
 const AppAdminPage = lazy(() => import("./pages/AppAdminPage"));
 
 const queryClient = new QueryClient({
@@ -101,7 +100,6 @@ function AppContent() {
           <Route path="/app" element={<AppSalesPage />} />
           <Route path="/app/login" element={<AppLoginPage />} />
           <Route path="/app/register" element={<AppRegisterPage />} />
-          <Route path="/app/activation" element={<AppActivationPage />} />
           <Route path="/app/chat" element={<AppPage />} />
           <Route path="/app/admin" element={<AppAdminPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

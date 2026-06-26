@@ -1,6 +1,6 @@
 // Called by Zapier when a Skool member upgrades to Premium.
 // Zapier sends: { email, name, secret }
-// Whitelists the member in Supabase and sends them a magic link activation email.
+// Whitelists the member in Supabase. Member then logs in via /app/login OTP flow.
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -31,28 +31,6 @@ export async function onRequestPost(context) {
         skool_name: name || null,
       }),
     });
-
-    // Create Supabase auth user and send magic link
-    // First ensure the user exists in auth.users
-    const inviteRes = await fetch(`${supabaseUrl(env)}/auth/v1/invite`, {
-      method: 'POST',
-      headers: {
-        apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-        Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: normalizedEmail,
-        data: { skool_name: name || '' },
-        redirect_to: 'https://lsdiet.com/app/activation',
-      }),
-    });
-
-    if (!inviteRes.ok) {
-      const err = await inviteRes.text();
-      // User may already exist — that's fine, just whitelist was the goal
-      console.log('Invite response:', err);
-    }
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
