@@ -82,11 +82,20 @@ const stageConfig = [
     intro: "Not a trick. Just an honest starting point.",
     question: "How many times have you lost weight and regained it?",
     options: [
-      { label: "This would be my first time" },
-      { label: "Once or twice" },
-      { label: "More than I want to count" },
+      {
+        label: "This would be my first time",
+        reveal: "You're here before the cycle starts. Most people don't find this until after several attempts. Take your time going through the stages.",
+      },
+      {
+        label: "Once or twice",
+        reveal: "You've already learned what doesn't work. That's useful information. The stages ahead are about understanding what was missing, not what went wrong.",
+      },
+      {
+        label: "More than I want to count",
+        reveal: "Most people in this situation have tried harder than anyone around them realises. The problem was never effort. Something else has been missing. That's what these stages look at.",
+      },
     ],
-    reveal: "That's exactly why you're here. Most people who struggle with weight aren't lazy or weak. They've been solving the wrong problem. You've been trying to lose weight. WPT helps you become someone who never has to lose it again.",
+    reveal: "",
     revealType: "neutral",
     nextLabel: "Begin Stage 1: Reality →",
     stageRef: null,
