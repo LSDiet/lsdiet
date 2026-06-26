@@ -45,10 +45,41 @@ export async function onRequestPost(context) {
       }),
     });
 
+    // Create or update GHL contact with MN-Active tag (non-blocking)
+    createGhlContact(env, normalizedEmail, session.customer || null).catch(err =>
+      console.error('GHL contact error:', err)
+    );
+
     return json({ success: true }, 200);
   } catch (err) {
     console.error('stripe-activate error:', err);
     return json({ error: 'Internal error' }, 500);
+  }
+}
+
+async function createGhlContact(env, email, stripeCustomerId) {
+  const locationId = 'TbGkGzbilMiCgVKspWsY';
+  const body = {
+    locationId,
+    email,
+    tags: ['MN-Active'],
+    source: 'Motivation Navigator',
+    customFields: stripeCustomerId
+      ? [{ key: 'stripe_customer_id', field_value: stripeCustomerId }]
+      : [],
+  };
+  const res = await fetch('https://services.leadconnectorhq.com/contacts/', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.GHL_API_KEY}`,
+      Version: '2021-07-28',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    console.error('GHL API error:', res.status, err);
   }
 }
 
