@@ -24,7 +24,7 @@ const profiles: Record<string, {
     slug: "motivation-chaser",
     name: "Motivation Chaser",
     youtubeId: "ot6uJo7In24",
-    banner: "/profiles/motivation-chaser.png",
+    banner: "/profiles/motivation-chaser.webp",
     painStatement: "I always run out of motivation.",
     mobileInsight: "You start strong because you genuinely want to change. But your entire system runs on motivation — and motivation was never designed to last six months.",
     tagline: "The person who never has to restart isn't more motivated than you. They just stopped depending on motivation to show up.",
@@ -46,7 +46,7 @@ const profiles: Record<string, {
     slug: "overwhelmed-beginner",
     name: "Overwhelmed Beginner",
     youtubeId: "XvJoKFvXe0M",
-    banner: "/profiles/overwhelmed-beginner.png",
+    banner: "/profiles/overwhelmed-beginner.webp",
     painStatement: "I don’t know where to start.",
     mobileInsight: "You're not new to dieting. You're exhausted by an industry that produces more conflicting advice than results. More research has never produced more action.",
     tagline: "You don't need a better diet. You need to stop letting the search for the perfect diet keep you from starting the one in front of you.",
@@ -68,7 +68,7 @@ const profiles: Record<string, {
     slug: "restarter",
     name: "Restarter",
     youtubeId: "L45rGwguXWA",
-    banner: "/profiles/restarter.png",
+    banner: "/profiles/restarter.webp",
     painStatement: "I jump from one method to the next before seeing results.",
     mobileInsight: "You've never stayed with one method long enough to find out if it actually works. Most approaches need six to eight weeks before results appear. You've been leaving in week two.",
     tagline: "The problem isn’t that nothing works. It’s that you leave before anything has time to.",
@@ -90,7 +90,7 @@ const profiles: Record<string, {
     slug: "stress-eater",
     name: "Stress Eater",
     youtubeId: "3gvPOGk03qs",
-    banner: "/profiles/stress-eater.png",
+    banner: "/profiles/stress-eater.webp",
     painStatement: "I eat when I’m stressed.",
     mobileInsight: "The problem isn't the food. Food has a second job in your life — it reliably makes stress quieter for a few minutes. Your brain learned that and filed it as an effective coping strategy.",
     tagline: "You're not trying to eliminate stress. You're building a version of yourself for whom food is no longer the default response to it.",
@@ -112,7 +112,7 @@ const profiles: Record<string, {
     slug: "weight-cycler",
     name: "Weight Cycler",
     youtubeId: "TScfhpE7YyI",
-    banner: "/profiles/weight-cycler.png",
+    banner: "/profiles/weight-cycler.webp",
     painStatement: "I lose weight but it always comes back.",
     mobileInsight: "You've already proven you can lose weight. The program worked. What it didn't do was prepare you for what comes after — so old habits refilled the space the diet vacated.",
     tagline: "You already know how to lose weight. What you need to learn is how to become someone who doesn't have to.",
@@ -167,6 +167,10 @@ export default function WeightRegainProfilePage() {
           <img
             src={profile.banner}
             alt={`${profile.name} weight regain profile`}
+            width={1200}
+            height={525}
+            loading="eager"
+            decoding="async"
             className="w-full h-auto object-cover"
           />
         </div>

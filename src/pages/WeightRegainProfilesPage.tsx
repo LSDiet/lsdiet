@@ -7,35 +7,35 @@ const profiles = [
   {
     slug: "motivation-chaser",
     name: "Motivation Chaser",
-    banner: "/profiles/motivation-chaser.png",
+    banner: "/profiles/motivation-chaser.webp",
     tagline: "Starts strong. Loses steam. Restarts. Repeat.",
     description: "Motivation gets you started but can't sustain you. This profile is for people whose consistency collapses the moment the initial excitement fades.",
   },
   {
     slug: "overwhelmed-beginner",
     name: "Overwhelmed Beginner",
-    banner: "/profiles/overwhelmed-beginner.png",
+    banner: "/profiles/overwhelmed-beginner.webp",
     tagline: "Too much advice. Zero clarity. Stuck in research mode.",
     description: "Not a beginner at dieting — a beginner at deciding. Years of conflicting information have made starting feel impossible.",
   },
   {
     slug: "restarter",
     name: "Restarter",
-    banner: "/profiles/restarter.png",
+    banner: "/profiles/restarter.webp",
     tagline: "Every interruption becomes a full reset.",
     description: "You're not someone who quits. You're someone who hasn't learned to recover yet. Every bad week becomes a reason to start from scratch.",
   },
   {
     slug: "stress-eater",
     name: "Stress Eater",
-    banner: "/profiles/stress-eater.png",
+    banner: "/profiles/stress-eater.webp",
     tagline: "Food has a second job — and it's not nutrition.",
     description: "You know what to eat. The problem is that stress, exhaustion, and emotion keep overriding that knowledge before you can act on it.",
   },
   {
     slug: "weight-cycler",
     name: "Weight Cycler",
-    banner: "/profiles/weight-cycler.png",
+    banner: "/profiles/weight-cycler.webp",
     tagline: "Loses weight. Gains it back. Loses it again.",
     description: "You've already proven you can lose weight. The problem is what happens after — no system for maintenance, so old habits slowly refill the space.",
   },
@@ -45,7 +45,7 @@ export default function WeightRegainProfilesPage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>The 5 Weight Regain Profiles | LS Diet</title>
+        <title>The 5 Weight Regain Profiles — Find Yours | LS Diet</title>
         <meta name="description" content="Five distinct profiles that explain why people regain weight after losing it. Each profile points to a different root cause — and a different WPT solution." />
         <link rel="canonical" href="https://lsdiet.com/weight-regain-profiles" />
       </Helmet>
@@ -56,7 +56,7 @@ export default function WeightRegainProfilesPage() {
 
         <div className="mb-10">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Weight Regain Profiles</p>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">The 5 Reasons People Regain Weight</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">The 5 Weight Regain Profiles</h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
             Weight regain isn't random. There are five distinct patterns — each with a different root cause and a different WPT solution. Find the one that fits.
           </p>
@@ -73,6 +73,10 @@ export default function WeightRegainProfilesPage() {
                 <img
                   src={profile.banner}
                   alt={profile.name}
+                  width={1200}
+                  height={525}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
