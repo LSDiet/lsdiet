@@ -12,8 +12,14 @@ import aware3 from "@/assets/awareness/aware3.png";
 import aware4 from "@/assets/awareness/aware4.png";
 import aware5 from "@/assets/awareness/aware5.png";
 
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+  }
+}
+
 const PUBLISHED = "2026-05-14T12:00:00+00:00";
-const UPDATED = "2026-06-20T12:00:00+00:00";
+const UPDATED = "2026-06-26T12:00:00+00:00";
 const CANONICAL = "https://lsdiet.com/awareness-stages";
 const WPT_TERMSET_ID = `${CANONICAL}#weight-permanence-training`;
 
@@ -156,11 +162,11 @@ const stageConfig = [
       },
       {
         label: "In social settings when food is around",
-        reveal: "Environmental eating is invisible to most people. You don't decide to eat. The food is just there.. This pattern shows up most in people who do well alone but struggle at gatherings.",
+        reveal: "Environmental eating is invisible to most people. You don't decide to eat. The food is just there. This pattern shows up most in people who do well alone but struggle at gatherings.",
       },
       {
         label: "Out of habit at certain times or places",
-        reveal: "Habitual eating is the most automatic of all. No hunger, no emotion. Just a trigger and a response.. These are the easiest patterns to interrupt once you see them.",
+        reveal: "Habitual eating is the most automatic of all. No hunger, no emotion. Just a trigger and a response. These are the easiest patterns to interrupt once you see them.",
       },
     ],
     revealType: "neutral",
@@ -179,7 +185,7 @@ const stageConfig = [
       },
       {
         label: "Less energy, fewer experiences",
-        reveal: "The experiences you're not having right now. That is not a future problem.. Every summer, every trip, every activity you quietly opted out of. That's the consequence.",
+        reveal: "The experiences you're not having right now. That is not a future problem. Every summer, every trip, every activity you quietly opted out of. That's the consequence.",
       },
       {
         label: "Deeper disconnection from who I want to be",
@@ -202,7 +208,7 @@ const stageConfig = [
     options: [
       {
         label: "Shows up with energy every single day",
-        reveal: "That person doesn't drag themselves out of bed thinking about motivation. They eat in a way that sustains their energy. That's not discipline. That's identity..",
+        reveal: "That person doesn't drag themselves out of bed thinking about motivation. They eat in a way that sustains their energy. That's not discipline. That's identity.",
       },
       {
         label: "In control of food, not controlled by it",
@@ -210,11 +216,11 @@ const stageConfig = [
       },
       {
         label: "Feels proud when they look in the mirror",
-        reveal: "That feeling isn't vanity. It's alignment.. It means your outside matches your inside. That's what Weight Permanence feels like.",
+        reveal: "That feeling isn't vanity. It's alignment. It means your outside matches your inside. That's what Weight Permanence feels like.",
       },
       {
         label: "Sets the example for the people they love",
-        reveal: "One of the most powerful motivators that exists. It's not about you anymore.. It's about what your habits are teaching the people watching you.",
+        reveal: "One of the most powerful motivators that exists. It's not about you anymore. It's about what your habits are teaching the people watching you.",
       },
     ],
     revealType: "pull",
@@ -234,6 +240,7 @@ export default function AwarenessStagesPage() {
   const [selections, setSelections] = useState<Record<number, number | null>>({});
   const [sliderVal, setSliderVal] = useState(7);
   const [showCta, setShowCta] = useState(false);
+  const [chosenPath, setChosenPath] = useState<"stages" | "profile" | null>(null);
   const navigate = useNavigate();
 
   const getProfile = (sels: Record<number, number | null>): string => {
@@ -281,6 +288,16 @@ export default function AwarenessStagesPage() {
 
   const progressPct = Math.round((unlocked / 5) * 100);
 
+  const selectPath = (path: "stages" | "profile") => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "awareness_path_selected", path });
+    setChosenPath(path);
+    setTimeout(() => {
+      const el = document.getElementById("path-content");
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -321,183 +338,236 @@ export default function AwarenessStagesPage() {
             Most diets work.<br />The problem is living inside one permanently.
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto">
-            Every failed diet left you with data. What it didn't give you was self-knowledge: <em>why</em> you eat the way you do, and what's actually driving the regain cycle.
+            Most people come to me because they have lost weight before — sometimes multiple times — and cannot figure out why they always end up back where they started. The way I help them prevent weight gain after losing 5 to 7 pounds a month is not another meal plan. It is five stages of self-awareness training that identify exactly what is driving their behaviour and build the motivation to change it permanently.
           </p>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto mt-2">
-            The 5 Stages of Awareness fix that gap. When you have this clarity, weight permanence stops depending on willpower.
+          <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto mt-3">
+            What that means to you is this: for the first time, you are not fighting with willpower alone. You have a clear target, a reason that is emotionally real, and a system that keeps working after the motivation fades.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto mt-3">
+            How can we achieve this? The solution is Weight Permanence Training (WPT) — free inside the LS Diet community on Skool. To get started, choose your path:
           </p>
         </header>
 
-        {/* Diagram */}
-        <div className="mb-10">
-          <img
-            src={stagesDiagram}
-            alt="The 5 Stages of Awareness: Reality, Friction, Pattern, Consequence, Identity"
-            className="w-full rounded-xl shadow-sm"
-            loading="lazy"
-          />
+        {/* Path Gate */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          <button
+            onClick={() => selectPath("stages")}
+            className={`text-left rounded-xl border p-5 transition-colors ${
+              chosenPath === "stages"
+                ? "border-primary bg-primary/5"
+                : "border-border bg-card hover:border-accent/50"
+            }`}
+          >
+            <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mb-2">~10 min read</p>
+            <p className="text-base font-semibold text-foreground mb-2">Learn the 5 stages</p>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              What each stage does, how they build on each other, and what to expect.
+            </p>
+            <span className="text-sm font-semibold text-foreground">Explore the stages →</span>
+          </button>
+
+          <button
+            onClick={() => selectPath("profile")}
+            className={`text-left rounded-xl border p-5 transition-colors ${
+              chosenPath === "profile"
+                ? "border-accent bg-accent/5"
+                : "border-border bg-card hover:border-accent/50"
+            }`}
+          >
+            <p className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-2">Free · ~30 seconds</p>
+            <p className="text-base font-semibold text-foreground mb-2">Find your weight regain profile</p>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              Answer one question from each stage and discover your weight regain pattern.
+            </p>
+            <span className="text-sm font-semibold text-foreground">Get my profile →</span>
+          </button>
         </div>
 
-        {/* Stage icon row */}
-        <div className="mb-10">
-          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-4 text-center">
-            The 5 stages
-          </p>
-          <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4">
-            {stageMeta.map((s, i) => (
-              <a
-                key={s.slug}
-                href={`/blog/${s.slug}`}
-                className="snap-start shrink-0 w-36 rounded-xl border border-border bg-card p-3 flex flex-col items-center text-center hover:border-accent/50 transition-colors"
-              >
-                <img src={stageIcons[i]} alt={s.full} className="w-14 h-14 object-contain mb-2" />
-                <p className="text-xs font-semibold text-foreground leading-snug mb-1">{s.name}</p>
-                <span className="text-[10px] text-muted-foreground">{s.questions} questions</span>
-              </a>
-            ))}
-          </div>
-        </div>
+        {/* Path content */}
+        <div id="path-content">
 
-        {/* Quiz section header */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="flex-1 h-px bg-border" />
-          <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold whitespace-nowrap">
-            Try one question from each stage
-          </p>
-          <div className="flex-1 h-px bg-border" />
-        </div>
-
-        {/* Progress */}
-        <div className="mb-6">
-          <div className="flex gap-2 mb-3 flex-wrap">
-            {["Start", "Reality", "Friction", "Pattern", "Consequence", "Identity"].map((label, i) => (
-              <span
-                key={i}
-                className={`text-xs px-3 py-1 rounded-full border transition-all ${
-                  i <= unlocked
-                    ? "bg-foreground text-background border-foreground"
-                    : "text-muted-foreground border-border"
-                }`}
-              >
-                {label}
-              </span>
-            ))}
-          </div>
-          <div className="h-[3px] bg-border rounded-full">
-            <div
-              className="h-full bg-foreground rounded-full transition-all duration-500"
-              style={{ width: `${progressPct}%` }}
-            />
-          </div>
-        </div>
-
-        {/* Stage cards */}
-        <div className="space-y-4">
-          {stageConfig.map((cfg, i) => {
-            const locked = i > unlocked;
-            const answered = isStageAnswered(i);
-            const selectedOpt = selections[i] ?? null;
-
-            return (
-              <div
-                key={i}
-                id={`stage-${i}`}
-                style={{ scrollMarginTop: "100px" }}
-                className={`rounded-xl border bg-card p-5 transition-all duration-300 ${
-                  locked ? "opacity-30 pointer-events-none select-none" : "border-border"
-                }`}
-              >
-                {/* Stage header */}
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 ${
-                    i === 0 ? "bg-zinc-100 text-zinc-500" :
-                    i === 1 ? "bg-blue-50 text-blue-700" :
-                    i === 2 ? "bg-amber-50 text-amber-700" :
-                    i === 3 ? "bg-green-50 text-green-700" :
-                    i === 4 ? "bg-red-50 text-red-700" :
-                    "bg-emerald-50 text-emerald-700"
-                  }`}>
-                    {cfg.num}
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{cfg.label}</p>
-                    <p className="text-base font-semibold text-foreground capitalize">{cfg.title}</p>
-                  </div>
-                </div>
-
-                {/* Question */}
-                <div className="bg-muted/40 rounded-lg p-4 mb-4">
-                  <p className="text-sm font-medium text-foreground mb-3">{cfg.question}</p>
-
-                  {cfg.isSlider ? (
-                    <div>
-                      <div className="flex items-center gap-3">
-                        <input
-                          type="range"
-                          min={cfg.sliderMin}
-                          max={cfg.sliderMax}
-                          value={sliderVal}
-                          onChange={(e) => setSliderVal(Number(e.target.value))}
-                          className="flex-1"
-                        />
-                        <span className="text-base font-semibold w-6 text-center">{sliderVal}</span>
-                      </div>
-                      <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
-                        <span>Not at all</span><span>Perfectly</span>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col gap-2">
-                      {cfg.options?.map((opt, oi) => (
-                        <button
-                          key={oi}
-                          onClick={() => handleOption(i, oi)}
-                          className={`text-left text-sm px-4 py-3 rounded-lg border transition-all ${
-                            selectedOpt === oi
-                              ? "border-foreground bg-background font-medium"
-                              : "border-border bg-background hover:bg-muted/50"
-                          }`}
-                        >
-                          {opt.label}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Reveal */}
-                {answered && (
-                  <div className={`rounded-lg p-4 text-sm leading-relaxed mb-4 ${revealBg[cfg.revealType]}`}>
-                    {cfg.isSlider
-                      ? sliderReveal(sliderVal)
-                      : selectedOpt !== null && cfg.options
-                        ? (cfg.options[selectedOpt] as { label: string; reveal?: string }).reveal ?? cfg.reveal
-                        : cfg.reveal}
-                  </div>
-                )}
-
-                {/* Next button */}
-                {answered && (
-                  <div className="flex items-center justify-between">
-                    {cfg.stageRef && (
-                      <a
-                        href={`/blog/${cfg.stageRef}`}
-                        className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground"
-                      >
-                        Read full {cfg.title} →
-                      </a>
-                    )}
-                    <button
-                      onClick={() => handleNext(i)}
-                      className="ml-auto text-sm font-semibold bg-foreground text-background px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
-                    >
-                      {cfg.nextLabel}
-                    </button>
-                  </div>
-                )}
+          {/* Path A: Stages overview */}
+          {chosenPath === "stages" && (
+            <>
+              {/* Diagram */}
+              <div className="mb-10">
+                <img
+                  src={stagesDiagram}
+                  alt="The 5 Stages of Awareness: Reality, Friction, Pattern, Consequence, Identity"
+                  className="w-full rounded-xl shadow-sm"
+                  loading="lazy"
+                />
               </div>
-            );
-          })}
+
+              {/* Stage icon row */}
+              <div className="mb-10">
+                <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-4 text-center">
+                  The 5 stages
+                </p>
+                <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4">
+                  {stageMeta.map((s, i) => (
+                    <a
+                      key={s.slug}
+                      href={`/blog/${s.slug}`}
+                      className="snap-start shrink-0 w-36 rounded-xl border border-border bg-card p-3 flex flex-col items-center text-center hover:border-accent/50 transition-colors"
+                    >
+                      <img src={stageIcons[i]} alt={s.full} className="w-14 h-14 object-contain mb-2" />
+                      <p className="text-xs font-semibold text-foreground leading-snug mb-1">{s.name}</p>
+                      <span className="text-[10px] text-muted-foreground">{s.questions} questions</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Path B: Quiz */}
+          {chosenPath === "profile" && (
+            <>
+              {/* Quiz section header */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex-1 h-px bg-border" />
+                <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold whitespace-nowrap">
+                  Try one question from each stage
+                </p>
+                <div className="flex-1 h-px bg-border" />
+              </div>
+
+              {/* Progress */}
+              <div className="mb-6">
+                <div className="flex gap-2 mb-3 flex-wrap">
+                  {["Start", "Reality", "Friction", "Pattern", "Consequence", "Identity"].map((label, i) => (
+                    <span
+                      key={i}
+                      className={`text-xs px-3 py-1 rounded-full border transition-all ${
+                        i <= unlocked
+                          ? "bg-foreground text-background border-foreground"
+                          : "text-muted-foreground border-border"
+                      }`}
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
+                <div className="h-[3px] bg-border rounded-full">
+                  <div
+                    className="h-full bg-foreground rounded-full transition-all duration-500"
+                    style={{ width: `${progressPct}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* Stage cards */}
+              <div className="space-y-4">
+                {stageConfig.map((cfg, i) => {
+                  const locked = i > unlocked;
+                  const answered = isStageAnswered(i);
+                  const selectedOpt = selections[i] ?? null;
+
+                  return (
+                    <div
+                      key={i}
+                      id={`stage-${i}`}
+                      style={{ scrollMarginTop: "100px" }}
+                      className={`rounded-xl border bg-card p-5 transition-all duration-300 ${
+                        locked ? "opacity-30 pointer-events-none select-none" : "border-border"
+                      }`}
+                    >
+                      {/* Stage header */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 ${
+                          i === 0 ? "bg-zinc-100 text-zinc-500" :
+                          i === 1 ? "bg-blue-50 text-blue-700" :
+                          i === 2 ? "bg-amber-50 text-amber-700" :
+                          i === 3 ? "bg-green-50 text-green-700" :
+                          i === 4 ? "bg-red-50 text-red-700" :
+                          "bg-emerald-50 text-emerald-700"
+                        }`}>
+                          {cfg.num}
+                        </div>
+                        <div>
+                          <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{cfg.label}</p>
+                          <p className="text-base font-semibold text-foreground capitalize">{cfg.title}</p>
+                        </div>
+                      </div>
+
+                      {/* Question */}
+                      <div className="bg-muted/40 rounded-lg p-4 mb-4">
+                        <p className="text-sm font-medium text-foreground mb-3">{cfg.question}</p>
+
+                        {cfg.isSlider ? (
+                          <div>
+                            <div className="flex items-center gap-3">
+                              <input
+                                type="range"
+                                min={cfg.sliderMin}
+                                max={cfg.sliderMax}
+                                value={sliderVal}
+                                onChange={(e) => setSliderVal(Number(e.target.value))}
+                                className="flex-1"
+                              />
+                              <span className="text-base font-semibold w-6 text-center">{sliderVal}</span>
+                            </div>
+                            <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
+                              <span>Not at all</span><span>Perfectly</span>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex flex-col gap-2">
+                            {cfg.options?.map((opt, oi) => (
+                              <button
+                                key={oi}
+                                onClick={() => handleOption(i, oi)}
+                                className={`text-left text-sm px-4 py-3 rounded-lg border transition-all ${
+                                  selectedOpt === oi
+                                    ? "border-foreground bg-background font-medium"
+                                    : "border-border bg-background hover:bg-muted/50"
+                                }`}
+                              >
+                                {opt.label}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Reveal */}
+                      {answered && (
+                        <div className={`rounded-lg p-4 text-sm leading-relaxed mb-4 ${revealBg[cfg.revealType]}`}>
+                          {cfg.isSlider
+                            ? sliderReveal(sliderVal)
+                            : selectedOpt !== null && cfg.options
+                              ? (cfg.options[selectedOpt] as { label: string; reveal?: string }).reveal ?? cfg.reveal
+                              : cfg.reveal}
+                        </div>
+                      )}
+
+                      {/* Next button */}
+                      {answered && (
+                        <div className="flex items-center justify-between">
+                          {cfg.stageRef && (
+                            <a
+                              href={`/blog/${cfg.stageRef}`}
+                              className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground"
+                            >
+                              Read full {cfg.title} →
+                            </a>
+                          )}
+                          <button
+                            onClick={() => handleNext(i)}
+                            className="ml-auto text-sm font-semibold bg-foreground text-background px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
+                          >
+                            {cfg.nextLabel}
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
+
         </div>
 
         {/* Dual CTA */}
