@@ -56,6 +56,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "how-much-does-weight-loss-affect-your-metabolism",
       "why-does-weight-loss-feel-easier-when-im-younger",
       "oral-glp-1-pill-what-happens-when-you-stop",
+      "yo-yo-dieting-metabolism-myth",
     ],
   },
   {

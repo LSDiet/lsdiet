@@ -78,6 +78,7 @@ import whyYouRegainWeightAfterStoppingOzempic from "./why-you-regain-weight-afte
 
 // Batch 12
 import oralGlp1PillWhatHappensWhenYouStop from "./oral-glp-1-pill-what-happens-when-you-stop";
+import yoYoDietingMetabolismMyth from "./yo-yo-dieting-metabolism-myth";
 
 export const ARTICLES: Article[] = [
   // Batch 1
@@ -139,6 +140,8 @@ export const ARTICLES: Article[] = [
   whyYouRegainWeightAfterStoppingOzempic,
   // Batch 12
   oralGlp1PillWhatHappensWhenYouStop,
+  // Batch 13
+  yoYoDietingMetabolismMyth,
 ];
 
 
