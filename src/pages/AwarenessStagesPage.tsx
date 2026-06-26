@@ -330,7 +330,7 @@ export default function AwarenessStagesPage() {
       <main className="container max-w-2xl mx-auto px-4 pt-28 pb-24">
 
         {/* Hero */}
-        <header className="mb-10 text-center">
+        <header className="mb-8 text-center">
           <p className="text-xs uppercase tracking-[0.18em] text-accent font-semibold mb-3">
             Weight Permanence Training™
           </p>
@@ -338,48 +338,64 @@ export default function AwarenessStagesPage() {
             This Is What Makes Weight Loss Permanent
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto">
-            Most people come to me because they have lost weight before — sometimes multiple times — and cannot figure out why they always end up back where they started. The way I help them prevent weight gain after losing 5 to 7 pounds a month is not another meal plan. It is five stages of self-awareness training that identify exactly what is driving their behaviour and build the motivation to change it permanently.
+            Most people who come to me have already lost weight before. Sometimes more than once. Losing the weight was never the problem. Keeping it off was.
           </p>
           <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto mt-3">
-            What that means to you is this: for the first time, you are not fighting with willpower alone. You have a clear target, a reason that is emotionally real, and a system that keeps working after the motivation fades.
+            There is a reason the weight keeps coming back, and it is not willpower. This is a free, 5-stage system that finds that reason, fixes it, and helps you lose 5 to 7 pounds a month without Monday resets, without guilt, and without worrying about what you eat at every meal.
           </p>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto mt-3">
-            How can we achieve this? The solution is Weight Permanence Training (WPT) — free inside the LS Diet community on Skool. To get started, choose your path:
+          <p className="text-sm font-semibold text-foreground mt-6">
+            Two ways to start — both free. Pick the one that fits right now:
           </p>
         </header>
 
         {/* Path Gate */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          {/* Card A — Stages */}
           <button
             onClick={() => selectPath("stages")}
-            className={`text-left rounded-xl border p-5 transition-colors ${
+            className={`text-left rounded-xl border overflow-hidden transition-colors ${
               chosenPath === "stages"
-                ? "border-primary bg-primary/5"
+                ? "border-primary"
                 : "border-border bg-card hover:border-accent/50"
             }`}
           >
-            <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mb-2">~10 min read</p>
-            <p className="text-base font-semibold text-foreground mb-2">Learn the 5 stages</p>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              What each stage does, how they build on each other, and what to expect.
-            </p>
-            <span className="text-sm font-semibold text-foreground">Explore the stages →</span>
+            <img
+              src={stagesDiagram}
+              alt="The 5 Stages of Awareness diagram"
+              className="w-full h-32 object-cover"
+            />
+            <div className="p-4">
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mb-1">~10 min</p>
+              <p className="text-base font-semibold text-foreground mb-1">Build the identity that makes weight loss permanent</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                Five stages of awareness training build your new identity and stack the motivations that keep working long after willpower runs out.
+              </p>
+              <span className="text-sm font-semibold text-foreground">Explore the stages →</span>
+            </div>
           </button>
 
+          {/* Card B — Profile */}
           <button
             onClick={() => selectPath("profile")}
-            className={`text-left rounded-xl border p-5 transition-colors ${
+            className={`text-left rounded-xl border overflow-hidden transition-colors ${
               chosenPath === "profile"
-                ? "border-accent bg-accent/5"
+                ? "border-accent"
                 : "border-border bg-card hover:border-accent/50"
             }`}
           >
-            <p className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-2">Free · ~30 seconds</p>
-            <p className="text-base font-semibold text-foreground mb-2">Find your weight regain profile</p>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              Answer one question from each stage and discover your weight regain pattern.
-            </p>
-            <span className="text-sm font-semibold text-foreground">Get my profile →</span>
+            <div className="w-full h-32 bg-primary flex items-center justify-center px-5 py-4">
+              <p className="text-accent text-base font-semibold text-center leading-snug">
+                5 types of weight regain.<br />Which one are you?
+              </p>
+            </div>
+            <div className="p-4">
+              <p className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-1">~30 seconds</p>
+              <p className="text-base font-semibold text-foreground mb-1">Do you know the real reason your weight keeps coming back?</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                Answer 5 quick questions. Get a personalised weight regain profile and a clear starting point — for free!
+              </p>
+              <span className="text-sm font-semibold text-foreground">Get my profile →</span>
+            </div>
           </button>
         </div>
 
