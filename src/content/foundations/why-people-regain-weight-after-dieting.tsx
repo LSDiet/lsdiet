@@ -33,7 +33,7 @@ const meta: Foundation["meta"] = {
   excerpt:
     "Weight regain is the real failure mode of dieting — most people lose weight successfully, then slowly regain it. This LS Diet pillar article explains why repeated weight regain happens, why temporary motivation collapses, and how LS Diet is built as a weight regain prevention system instead of another diet.",
   metaDescription:
-    "Weight regain after dieting is the real long-term problem. Learn why people regain weight, why temporary motivation collapses, and how LS Diet's weight regain prevention system helps you stop regaining weight for good.",
+    "Weight regain after dieting is the real long-term problem. Learn why people regain weight and how LS Diet's permanence system helps you stop the cycle for good.",
   publishDate: "2026-05-19T00:00:00.000Z",
   updatedAt: "2026-05-25T00:00:00.000Z",
   canonicalTopic: "stop-weight-regain",
@@ -433,9 +433,10 @@ function Body() {
         Why LS Diet Focuses On Permanence
       </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        LS Diet was built after repeated personal weight regain experiences. Losing weight
-        temporarily was possible. Maintaining it consistently was much harder. This eventually led
-        to the development of:
+        LS Diet was built after losing 80+ lbs three separate times — and regaining it each time.
+        Losing weight temporarily was never the hard part. Keeping it off permanently was. That
+        question — how do you build a version of yourself that never does this again? — led to the
+        development of:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>
@@ -531,6 +532,32 @@ function Body() {
           </a>
         </li>
       </ul>
+
+      <div className="my-10 p-6 bg-zinc-50 border border-zinc-200 rounded-xl">
+        <p className="text-base md:text-lg font-semibold text-zinc-900 mb-3">
+          Not sure where to start?
+        </p>
+        <p className="text-base text-zinc-700 mb-4">
+          Take the free quiz to identify your weight regain pattern — then get a personalized
+          starting point inside the LS Diet community.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a
+            href="https://www.skool.com/lsdiet/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-accent text-white font-semibold px-5 py-3 rounded-lg text-center hover:opacity-90 transition-opacity"
+          >
+            Join the free community
+          </a>
+          <a
+            href="/quiz"
+            className="inline-block border border-accent text-accent font-semibold px-5 py-3 rounded-lg text-center hover:bg-accent/5 transition-colors"
+          >
+            Take the quiz
+          </a>
+        </div>
+      </div>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-5 text-zinc-900">
         Frequently Asked Questions
