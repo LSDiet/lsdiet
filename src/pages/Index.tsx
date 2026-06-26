@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { ProblemHookSection } from "@/components/ProblemHookSection";
 import { HeroSection } from "@/components/HeroSection";
-import { QuizInviteCard } from "@/components/QuizInviteCard";
 import { BookSection } from "@/components/BookSection";
 import { FAQSection } from "@/components/FAQSection";
 import { QuizTeaserSection } from "@/components/QuizTeaserSection";
@@ -105,9 +104,7 @@ const Index = () => {
       <main>
         {/* 1 — Problem hook + quiz CTA (hero) */}
         <ProblemHookSection />
-        {/* 2 — Quiz invite (captures intent immediately) */}
-        <QuizInviteCard />
-        {/* 3 — Before/after carousel (credibility) */}
+        {/* 2 — Before/after carousel (credibility) */}
         <HeroSection />
         {/* 4 — What's inside the community */}
         <BookSection />
