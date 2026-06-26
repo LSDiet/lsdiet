@@ -50,7 +50,14 @@ export default function AppPage() {
       .from('conversations')
       .select('id, title, created_at')
       .order('created_at', { ascending: false });
-    if (data) setConversations(data);
+    if (data) {
+      setConversations(data);
+      if (data.length === 0) {
+        await startNewConversation();
+      } else {
+        selectConversation(data[0].id);
+      }
+    }
   }
 
   async function loadMessages(conversationId: string) {
