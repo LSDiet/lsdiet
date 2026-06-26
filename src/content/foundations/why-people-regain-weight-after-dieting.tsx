@@ -31,11 +31,11 @@ const meta: Foundation["meta"] = {
   title: "Why Do I Keep Gaining Weight? | LS Diet",
   order: 1,
   excerpt:
-    "Weight regain is the real failure mode of dieting — most people lose weight successfully, then slowly regain it. This LS Diet pillar article explains why repeated weight regain happens, why temporary motivation collapses, and how LS Diet is built as a weight regain prevention system instead of another diet.",
+    "Weight regain is the real failure mode of dieting. Most people lose weight successfully, then slowly regain it. This article explains why repeated weight regain happens, why one reason is never enough, and how LS Diet and WPT are built to stop the cycle permanently.",
   metaDescription:
     "Why do you keep gaining weight back? You're not failing — you're missing a system. Learn why weight regain keeps happening and how Weight Permanence Training stops the cycle for good.",
   publishDate: "2026-05-19T00:00:00.000Z",
-  updatedAt: "2026-05-25T00:00:00.000Z",
+  updatedAt: "2026-06-26T00:00:00.000Z",
   canonicalTopic: "stop-weight-regain",
   subTopic: null,
   topics: [
@@ -55,27 +55,27 @@ const meta: Foundation["meta"] = {
   faqs: [
     {
       q: "Why do most people regain weight after dieting?",
-      a: "Many people rely on temporary motivation, restriction, or unsustainable routines. When stress, cravings, and normal life pressures return, previous behaviours often return as well.",
+      a: "Most people rely on a single motivation to lose weight. When that motivation fades, old eating patterns return. Repeated weight regain is almost always a pattern problem, not a discipline problem.",
     },
     {
-      q: "What is behavioural permanence?",
-      a: "Behavioural permanence refers to creating sustainable habits and systems that continue long after motivation fades.",
+      q: "What is the real reason diets fail long term?",
+      a: "Diets run on temporary motivation. When motivation fades, ingrained habits take over. Without replacing the underlying patterns, the old behaviour always returns.",
     },
     {
       q: "Why does LS Diet focus on starch and sugar?",
-      a: "Starch and sugar both affect glucose and insulin levels. LS Diet attempts to reduce excessive insulin exposure by lowering starch and sugar intake sustainably.",
+      a: "Both starch and sugar break down into glucose and trigger insulin release. Keeping insulin elevated throughout the day suppresses fat burning. LS Diet reduces that insulin burden without going high fat, which carries cardiovascular risks.",
     },
     {
-      q: "Is LS Diet low carb?",
-      a: "Not exactly. LS Diet focuses more specifically on controlling starch and sugar while improving long-term consistency and reducing behavioural friction.",
+      q: "Is LS Diet the same as keto?",
+      a: "No. Keto is high fat and very low carb. LS Diet is low starch and low sugar, without going high fat. It reduces insulin burden while staying sustainable and cardiovascular-friendly over the long term.",
     },
     {
-      q: "Why is maintaining weight loss harder than losing weight?",
-      a: "Short-term dieting can temporarily change behaviour. Long-term maintenance requires permanent behavioural adaptation within real-life environments.",
+      q: "What is Weight Permanence Training?",
+      a: "Weight Permanence Training (WPT) is a psycho-behavioural framework that builds the identity and habits needed to maintain weight loss permanently. It works through Awareness Training (five stages of self-awareness) and Action Practice (daily behavioural exercises).",
     },
     {
-      q: "What is the Weight Permanence Training?",
-      a: "The Weight Permanence Training is an LS Diet framework focused on awareness, practice, and permanence to help reduce repeated weight regain.",
+      q: "Why is maintaining weight loss harder than losing it?",
+      a: "Losing weight requires short-term motivation. Maintaining it requires a routine aligned with your identity. Without that identity shift, the effort of maintaining feels like fighting yourself every day, and eventually the old patterns win.",
     },
   ],
 };
@@ -88,104 +88,18 @@ function Body() {
         Most people do not fail to lose weight. They fail to maintain it.
       </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Weight regain is the reason many people feel trapped in an endless cycle of dieting,
-        restarting, and frustration. People lose 20, 50, even 100 pounds — then slowly regain
-        weight after motivation fades, routines collapse, stress returns, or old eating patterns
-        reappear. The real long-term problem is usually not losing weight. It is stopping
-        repeated weight regain.
+        You have been here before. You picked a diet. You stuck to it. The weight came off. You
+        felt good. Then, somewhere along the way, things fell apart. The routine collapsed. Stress
+        returned. Old eating patterns crept in. And slowly, the weight came back with them. Maybe
+        all of it. Maybe more. Does that sound familiar?
       </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        LS Diet was built specifically as a{" "}
-        <a href="/what-is-ls-diet" className="text-accent hover:underline">
-          weight regain prevention system
-        </a>
-        . Losing 5–7 pounds per month is only one part of the equation. The larger goal is
-        helping people{" "}
-        <a href="/blog/why-do-i-keep-restarting-weight-loss" className="text-accent hover:underline">
-          stop restarting weight loss
-        </a>{" "}
-        by building{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-          behavioural permanence
-        </a>{" "}
-        that can survive real life long after motivation fades.
+        What if I told you there is nothing wrong with you, and I can back that up with data.
+        Peer-reviewed clinical research shows roughly 50% of people who diet regain all lost weight
+        within 5 years. Half. That is not a discipline problem. That is not a willpower problem.
+        That is a systems problem. And the reason it keeps happening has almost nothing to do with
+        the diet you chose.
       </p>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Most weight loss programs focus heavily on temporary intensity: calorie deficits,
-        aggressive restriction, detoxes, discipline challenges, excessive cardio, meal plans,
-        fasting schedules, and rapid short-term results. LS Diet focuses differently. The system
-        combines psychology training and behavioural training to reduce the likelihood of
-        repeated regain over time.
-      </p>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        The psychology training — grounded in the{" "}
-        <a href="/awareness-stages" className="text-accent hover:underline">
-          Awareness Stages
-        </a>{" "}
-        — helps people understand what is actually driving their eating. Not just hunger, but
-        stress, boredom, exhaustion, social pressure, convenience, and routine. The goal is to
-        build real awareness of why eating happens the way it does, then use that awareness to
-        develop both push motivation (the cost of staying the same) and pull motivation (the
-        person you want to become) to support long-term consistency.
-      </p>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        The behavioural training focuses on repeatable systems that reduce behavioural friction
-        in everyday life. This includes food awareness,{" "}
-        <a href="/what-is-ls-diet" className="text-accent hover:underline">
-          low-starch low-sugar
-        </a>{" "}
-        meal building, eating behaviour, movement routines, environmental restructuring,
-        emotional regulation, consistency training, and sustainable routines designed to help
-        people stop regaining weight instead of repeatedly restarting temporary diets.
-      </p>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        LS Diet is built around the idea that long-term success depends less on short bursts of
-        motivation and more on creating systems — anchored by the{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-          Weight Permanence Training
-        </a>{" "}
-        — that remain stable when life becomes stressful, emotional, busy, repetitive, or
-        difficult. Walk through the{" "}
-        <a
-          href="https://www.skool.com/lsdiet/about"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent hover:underline"
-        >
-          full LS Diet behavioural training
-        </a>{" "}
-        to see how the system is taught end-to-end. That is the central problem LS Diet was
-        designed to solve.
-      </p>
-
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        Why Temporary Weight Loss Often Leads To Weight Regain
-      </h2>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Losing weight is not the hard part. Keeping it off is. Temporary motivation produces
-        temporary behaviour. Permanent results require permanent behavioural change.
-      </p>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        This is why many people experience:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>successful short-term dieting</li>
-        <li>followed by gradual behavioural collapse</li>
-        <li>followed by weight regain</li>
-        <li>followed by another restart attempt</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        After enough restarts, people start believing:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>they lack discipline</li>
-        <li>they are lazy</li>
-        <li>something is wrong with them</li>
-        <li>long-term success is impossible</li>
-      </ul>
-      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        But repeated regain is often a systems problem, not a character flaw.
-      </blockquote>
 
       {/* Infographic: 5-year weight regain data */}
       <div className="my-8 -mx-4 md:mx-0">
@@ -196,61 +110,36 @@ function Body() {
           role="img"
           aria-label="Chart showing weight regain after dieting: approximately 50% of people regain all lost weight within 5 years"
         >
-          {/* Background */}
           <rect width="640" height="400" fill="#18181b" rx="12" />
-
-          {/* Top label */}
           <text x="48" y="52" fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="600" fill="#a1a1aa" letterSpacing="2">WHAT HAPPENS AFTER DIETING</text>
-
-          {/* Headline stat */}
           <text x="48" y="118" fontFamily="system-ui, sans-serif" fontSize="80" fontWeight="800" fill="hsl(38,90%,50%)">50%</text>
           <text x="48" y="148" fontFamily="system-ui, sans-serif" fontSize="16" fill="#e4e4e7">of people who diet regain</text>
           <text x="48" y="170" fontFamily="system-ui, sans-serif" fontSize="16" fill="#e4e4e7">
             <tspan fontWeight="700" fill="#ffffff">all lost weight within 5 years</tspan>
           </text>
           <text x="48" y="192" fontFamily="system-ui, sans-serif" fontSize="12" fill="#71717a">Peer-reviewed clinical meta-analysis data</text>
-
-          {/* Divider */}
           <line x1="48" y1="210" x2="592" y2="210" stroke="#3f3f46" strokeWidth="1" />
-
-          {/* Bar chart */}
-          {/* Y-axis label */}
           <text x="48" y="240" fontFamily="system-ui, sans-serif" fontSize="11" fill="#71717a">% who regained all lost weight</text>
-
-          {/* Bars: years 1–5, approximate values from meta-analysis literature */}
-          {/* Year 1: ~18% */}
           <rect x="80"  y={370 - 108} width="60" height="108" fill="#3f3f46" rx="4" />
           <rect x="80"  y={370 - 108} width="60" height="108" fill="hsl(38,90%,50%)" fillOpacity="0.25" rx="4" />
           <text x="110" y={370 - 114} fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="hsl(38,90%,50%)" textAnchor="middle">18%</text>
           <text x="110" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fill="#a1a1aa" textAnchor="middle">Year 1</text>
-
-          {/* Year 2: ~30% */}
           <rect x="180" y={370 - 180} width="60" height="180" fill="#3f3f46" rx="4" />
           <rect x="180" y={370 - 180} width="60" height="180" fill="hsl(38,90%,50%)" fillOpacity="0.35" rx="4" />
           <text x="210" y={370 - 186} fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="hsl(38,90%,50%)" textAnchor="middle">30%</text>
           <text x="210" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fill="#a1a1aa" textAnchor="middle">Year 2</text>
-
-          {/* Year 3: ~38% */}
           <rect x="280" y={370 - 228} width="60" height="228" fill="#3f3f46" rx="4" />
           <rect x="280" y={370 - 228} width="60" height="228" fill="hsl(38,90%,50%)" fillOpacity="0.50" rx="4" />
           <text x="310" y={370 - 234} fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="hsl(38,90%,50%)" textAnchor="middle">38%</text>
           <text x="310" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fill="#a1a1aa" textAnchor="middle">Year 3</text>
-
-          {/* Year 4: ~45% */}
           <rect x="380" y={370 - 270} width="60" height="270" fill="#3f3f46" rx="4" />
           <rect x="380" y={370 - 270} width="60" height="270" fill="hsl(38,90%,50%)" fillOpacity="0.65" rx="4" />
           <text x="410" y={370 - 276} fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="hsl(38,90%,50%)" textAnchor="middle">45%</text>
           <text x="410" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fill="#a1a1aa" textAnchor="middle">Year 4</text>
-
-          {/* Year 5: 50% — highlighted */}
           <rect x="480" y={370 - 300} width="60" height="300" fill="hsl(38,90%,50%)" rx="4" />
           <text x="510" y={370 - 308} fontFamily="system-ui, sans-serif" fontSize="15" fontWeight="800" fill="hsl(38,90%,50%)" textAnchor="middle">50%</text>
           <text x="510" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="#ffffff" textAnchor="middle">Year 5</text>
-
-          {/* Baseline */}
           <line x1="64" y1="370" x2="576" y2="370" stroke="#52525b" strokeWidth="1" />
-
-          {/* Footer */}
           <text x="48" y="400" fontFamily="system-ui, sans-serif" fontSize="11" fill="#52525b">lsdiet.com</text>
           <text x="592" y="400" fontFamily="system-ui, sans-serif" fontSize="11" fill="#52525b" textAnchor="end">Source: Anderson et al. (2001), Am J Clin Nutr</text>
         </svg>
@@ -260,145 +149,114 @@ function Body() {
       </div>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        Why Most Diets Fail Long Term
+        Why You Keep Regaining Weight (And It Is Not What You Think)
       </h2>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Most people who regain weight think they failed. They did not. They just ran out of the
+        wrong fuel.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Diets run on motivation. Motivation is temporary. The moment the excitement fades, the
+        routine slips, or life gets hard again, the behaviours that built the old body start coming
+        back. Not because you gave up. Because those patterns were never actually replaced. They
+        were just suppressed.
+      </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Many diets fail because they rely too heavily on temporary intensity. Examples include:
+        Here is what the cycle actually looks like:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>extreme restriction</li>
-        <li>unsustainable meal rules</li>
-        <li>excessive cardio</li>
-        <li>fear-based dieting</li>
-        <li>constant hunger</li>
-        <li>rigid food elimination</li>
-        <li>motivational hype</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        These approaches can temporarily reduce weight. But eventually:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>cravings increase</li>
-        <li>stress returns</li>
-        <li>routines collapse</li>
-        <li>emotional eating returns</li>
-        <li>motivation fades</li>
-        <li>life becomes busy again</li>
+        <li>diet starts, weight drops</li>
+        <li>routine holds as long as motivation holds</li>
+        <li>stress hits, convenience eating returns, social pressure builds</li>
+        <li>behaviour slowly reverts to the old default</li>
+        <li>weight comes back</li>
+        <li>restart</li>
       </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Then people slowly return to previous behavioural patterns. Repeated behaviour matters more
-        than temporary effort.
+        After enough cycles, people stop blaming the diet and start blaming themselves. They decide
+        they lack discipline. That they are lazy. That something is wrong with them.
       </p>
       <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        “You are what you repeatedly consume.”
+        But repeated regain is almost never a character flaw. It is a pattern problem.
       </blockquote>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Eating unhealthy once does not define someone. Repeating behaviours daily eventually does.
-        The same principle applies positively. Long-term consistency matters more than short bursts
-        of perfection.
+        The eating patterns that caused the weight gain in the first place did not disappear during
+        the diet. They went quiet. And they came back the moment the willpower ran out. That is
+        behavioural autopilot: the body defaulting to what it has practised most. Every meal feels
+        like a decision, but most meals are habits.
       </p>
-
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        The Real Problem Is Behavioural Autopilot
-      </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Many people believe weight gain happens because of occasional bad decisions. Usually it
-        happens because of repeated automatic behaviour.
-      </p>
-      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        “There is no autopilot.” Every meal is a decision.
-      </blockquote>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        People build automatic patterns without realising it:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>stress eating after work</li>
-        <li>overeating during social events</li>
-        <li>convenience eating during exhaustion</li>
-        <li>emotional reward eating</li>
-        <li>binge-restrict cycles</li>
-        <li>frequent snacking</li>
-        <li>reacting emotionally to setbacks</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Over time, these repeated behaviours become normal. Eventually the body reflects those
-        patterns. Just like smoking once does not make someone a smoker, overeating once does not
-        create obesity — repeated exposure changes outcomes.
-      </p>
-
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        Why Weight Regain Happens So Easily
-      </h2>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        The modern environment constantly pushes people toward:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>convenience eating</li>
-        <li>processed foods</li>
-        <li>high sugar intake</li>
-        <li>high starch intake</li>
-        <li>emotional coping through food</li>
-        <li>sitting for long periods</li>
-        <li>sleep disruption</li>
-        <li>stress</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Most people are surrounded by behavioural friction all day. This is one reason weight regain
-        happens so frequently after dieting. Many people temporarily force themselves into highly
-        restrictive behaviour. But eventually their environment overwhelms temporary willpower. LS
-        Diet focuses heavily on reducing behavioural friction instead of relying purely on
-        motivation.
+        The question is not why did you fail. The question is why the old patterns were stronger
+        than the new ones. In most cases, the answer is simple: the diet gave you one reason to
+        change, and your old life gave you a hundred reasons to keep the old habits, because they
+        were comforting and easy.
       </p>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         The Insulin Connection
       </h2>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Here is what is happening inside your body.
+      </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        LS Diet is built around controlling sugar, starch, and insulin. The reasoning is simple.
-        Food breaks down into glucose. The body releases insulin to manage that glucose. When
-        insulin stays elevated frequently:
+        Every time you eat carbohydrates, or anything that breaks down into sugar, your blood
+        glucose rises. Your pancreas releases insulin to manage it. Insulin's job is to shuttle
+        that glucose into your cells for energy. So far, normal.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
+        The problem is what happens when insulin stays elevated constantly throughout the day. When
+        insulin is high:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>fat burning becomes more difficult</li>
-        <li>hunger may increase</li>
-        <li>cravings may increase</li>
-        <li>energy instability may increase</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        This becomes especially problematic when people consume:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>refined starches</li>
-        <li>sugary drinks</li>
-        <li>ultra-processed foods</li>
-        <li>high-frequency meals</li>
-        <li>constant snacks</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        LS Diet focuses on reducing insulin burden by:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>lowering starch intake</li>
-        <li>lowering sugar intake</li>
-        <li>reducing excessive eating frequency</li>
-        <li>improving food quality</li>
-        <li>improving consistency</li>
+        <li>fat burning is suppressed</li>
+        <li>hunger tends to increase</li>
+        <li>cravings tend to increase</li>
+        <li>energy becomes unstable</li>
       </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        The goal is not perfection. The goal is sustainable control.
+        Your body cannot be in fat-burning mode and fat-storing mode at the same time. High insulin
+        means storage mode is on. You can be eating less and still not burning fat, because the
+        hormonal environment is not allowing it.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        When this pattern repeats for years, cells stop responding to insulin properly. The
+        pancreas compensates by producing more. This is insulin resistance, and it makes everything
+        harder: weight loss, energy, cravings, and hunger control. The good news is it is
+        reversible.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        The fix is not just eating less. It is reducing how often and how sharply insulin spikes
+        throughout the day.
+      </p>
+
+      <Figure
+        src={reverseInsulinImg}
+        alt="Three steps to reverse insulin resistance: eat less often, eat smaller portions, choose low-sugar low-starch whole foods"
+        caption="The practical pattern: eat less often, smaller portions, and shift toward low-starch, low-sugar foods."
+      />
+
+      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
+        Starch and Sugar Are The Bigger Problem Than You Think
+      </h2>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Most people know sugar is a problem. What most people do not realise is that starch does
+        the same thing.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
+        Sugar spikes blood glucose fast. It hides in obvious places: candy, soda, desserts. But
+        also in things marketed as healthy: fruit juice, flavoured yogurt, sauces, smoothies,
+        protein bars.
       </p>
 
       <Figure
         src={obviousSugarImg}
         alt="The obvious sugar — soda, candy, cakes, and hidden sugar in juice, smoothies, yogurt, and sauces"
-        caption="Sugar triggers a fast glucose spike — and it hides in foods marketed as healthy."
+        caption="Sugar triggers a fast glucose spike, and it hides in foods marketed as healthy."
       />
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        Starch Is Often The Hidden Problem
-      </h2>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Most people focus only on obvious sugar. But starch shows up multiple times every day:
+        Starch is slower but just as real. It breaks down into glucose just like sugar does. And it
+        shows up at almost every meal:
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>bread</li>
@@ -407,160 +265,149 @@ function Body() {
         <li>cereal</li>
         <li>crackers</li>
         <li>chips</li>
-        <li>pastries</li>
         <li>oats</li>
-        <li>processed grains</li>
+        <li>pastries</li>
       </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        Starch eventually breaks down into glucose. This means many people maintain elevated insulin
-        exposure constantly throughout the day without realizing it. LS Diet emphasizes awareness,
-        consistency, repeatable food decisions, and long-term sustainability — not temporary
-        elimination phases.
+        Combined, most people are creating multiple insulin spikes every single day, before they
+        have had a single cookie.
       </p>
 
       <Figure
         src={starchHiddenImg}
         alt="Starch is the hidden problem — rice, bread, noodles, cereals, potatoes, corn, and oats produce the same insulin response as sugar"
-        caption="Starch produces the same insulin response as sugar — and it shows up at almost every meal."
+        caption="Starch produces the same insulin response as sugar, and it shows up at almost every meal."
       />
 
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        Why Consistency Matters More Than Intensity
-      </h2>
-      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        “The dose makes the poison.”
-      </blockquote>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        One unhealthy meal usually does not create long-term damage. Repeated behaviour does. This
-        applies to:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>eating frequency</li>
-        <li>portion size</li>
-        <li>sugar intake</li>
-        <li>starch intake</li>
-        <li>emotional eating</li>
-        <li>convenience eating</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        This trap looks like:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>one healthy day fixes everything</li>
-        <li>one workout justifies overeating</li>
-        <li>one restrictive phase reverses months of habits</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        This creates reactive dieting behaviour. LS Diet instead emphasizes proactive behaviour:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>making better decisions before overeating happens</li>
-        <li>reducing food friction early</li>
-        <li>improving consistency gradually</li>
-        <li>building repeatable systems</li>
-      </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        The objective is sustainability.
+        One solution some people try is a high-fat, very low carb diet: ketogenic eating. It does
+        reduce insulin. But high fat intake carries its own cardiovascular risks that are not worth
+        trading one problem for another, particularly over the long term.
       </p>
-
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        There Is No Perfect Diet
-      </h2>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        People spend years chasing the perfect meal plan, the perfect macro ratio, the perfect
-        calorie target. But long-term success depends more on:
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        <a href="/what-is-ls-diet" className="text-accent hover:underline">
+          LS Diet
+        </a>{" "}
+        takes a different path. Low starch, low sugar, without going high fat. The goal is to
+        reduce insulin burden in a way that is sustainable for real life, not just for a 90-day
+        experiment.
       </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>sustainability</li>
-        <li>repeatability</li>
-        <li>behavioural consistency</li>
-        <li>environmental control</li>
-        <li>emotional resilience</li>
-      </ul>
-      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
-        “You need to be selective to be effective.”
-      </blockquote>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        The best diet is usually the one:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>you can repeat</li>
-        <li>you can sustain</li>
-        <li>that reduces behavioural chaos</li>
-        <li>that reduces regain risk</li>
-        <li>that fits real life</li>
-      </ul>
 
       <Figure
         src={dietsComparisonImg}
         alt="How popular diets handle sugar and starch compared to LS Diet (low-starch, low-sugar)"
-        caption="Most diet approaches collapse on long-term sustainability. LS is designed for consistency."
+        caption="Most diet approaches collapse on long-term sustainability. LS Diet is designed for consistency without the cardiovascular risk of high-fat diets."
       />
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        Why LS Diet Focuses On Permanence
+        Why One Reason Is Never Enough
       </h2>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        LS Diet was built after losing 80+ lbs three separate times and regaining it each time.
-        Losing weight temporarily was never the hard part. Keeping it off permanently was. That
-        question, how do you build a version of yourself that never does this again, led to the
-        development of:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>
-          the{" "}
-          <a href="/weight-permanence-triangle" className="text-accent hover:underline">
-            Weight Permanence Training™
-          </a>
-        </li>
-        <li>
-          <a href="/awareness-stages" className="text-accent hover:underline">
-            Awareness Stages
-          </a>
-        </li>
-        <li>Action Practice systems</li>
-        <li>behavioural permanence concepts</li>
-      </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        The central idea is this: long-term weight control requires psychological prioritization,
-        not just temporary motivation. Motivation fluctuates. Life fluctuates. Stress fluctuates.
-        But systems can remain.
+        You can understand insulin. You can know that starch spikes your blood glucose. You can eat
+        LS for three weeks and lose 8 pounds. And still end up back where you started, because the
+        thing pushing you forward was not strong enough to last.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Most people start a diet with one reason. "I want to lose weight." "I hate how I look." "My
+        doctor told me to." That is one reason going up against years of ingrained eating patterns,
+        social habits, emotional coping, and convenience. One reason almost always loses.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
+        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          Weight Permanence Training (WPT)
+        </a>{" "}
+        asks a different question: what if you had ten?
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Five of them are the situations you genuinely cannot wait to leave behind. The daily
+        physical discomfort. The health risks building in the background. The limitations on what
+        you can do, wear, or keep up with. The possibility of becoming dependent on medication just
+        to stay at a healthy weight. The version of yourself in the mirror that does not match who
+        you think you are.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Five of them are the person you are actively becoming. Someone with real energy. Someone
+        who moves through the world differently. Someone who knows how to build motivation when
+        they need it, not just borrow it from a temporary spike of inspiration. Someone whose
+        habits are just their life.
+      </p>
+      <blockquote className="border-l-4 border-accent pl-5 my-8 text-lg md:text-xl italic text-zinc-900">
+        When those ten reasons are emotionally real, felt rather than just listed, the routine
+        becomes something you want to protect, not something you have to force.
+      </blockquote>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        That is what{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">
+          Awareness Training
+        </a>{" "}
+        is designed to build. It runs through five stages (Reality, Friction, Pattern, Consequence,
+        Identity) that are structured to surface your specific reasons, make them vivid, and
+        connect you to them at a level that generic goal setting never reaches. Because generic
+        goals produce generic effort. Specific, emotionally vivid reasons produce permanent
+        behaviour change.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Action Practice then builds the new patterns into daily life until they stop feeling like
+        effort, until the new identity is more natural than the old one.
       </p>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
-        The Goal Is Not Temporary Weight Loss
+        What You Are Actually Working Toward
       </h2>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        Most people treat weight loss like a short project. Then life pulls them back to:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>old environments</li>
-        <li>old coping systems</li>
-        <li>old eating patterns</li>
-        <li>old behaviours</li>
-      </ul>
-      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        LS Diet approaches weight loss differently. The goal is:
-      </p>
-      <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
-        <li>reducing repeated regain</li>
-        <li>improving long-term consistency</li>
-        <li>reducing behavioural friction</li>
-        <li>improving food awareness</li>
-        <li>building sustainable routines</li>
-        <li>creating permanence</li>
-      </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-        This is why LS Diet focuses on low-starch, low-sugar eating, consistency, awareness,
-        sustainable movement, repeatable systems, and behavioural psychology — not extreme dieting
-        cycles.
+        Think about the ten reasons you would build if you did this properly.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        On the consequence side, the five things you are escaping: What would it mean to never
+        depend on medication to manage your weight? To not have your daily choices narrowed by what
+        your body can or cannot handle? To stop the cycle of restarting, regaining, and rebuilding
+        from scratch? Those are not abstract outcomes. They are on the line right now.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        On the identity side, the five things you are becoming: Someone who creates motivation on
+        demand, not just when a health scare forces it. Someone who does not need a new year or a
+        new Monday to stay on track. Someone whose routine is just who they are, not a performance
+        they have to maintain.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        Short-term willpower gets you started. A routine aligned with your identity keeps you
+        going. The emotional struggle of changing habits is real, but it is also finite.{" "}
+        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          WPT
+        </a>{" "}
+        is designed to get you through that window, and build enough reasons on the other side that
+        going back never feels worth it.
+      </p>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
+        That is what weight permanence means. Not a number on a scale you have to defend forever.
+        A future that is not limited by your weight.
       </p>
 
-      <Figure
-        src={reverseInsulinImg}
-        alt="Three steps to reverse insulin resistance: eat less often, eat smaller portions, choose low-sugar low-starch whole foods"
-        caption="The practical pattern: eat less often, smaller portions, and shift toward low-starch, low-sugar foods."
-      />
+      <div className="my-10 p-6 bg-zinc-50 border border-zinc-200 rounded-xl">
+        <p className="text-base md:text-lg font-semibold text-zinc-900 mb-3">
+          Ready to build your ten reasons?
+        </p>
+        <p className="text-base text-zinc-700 mb-4">
+          Start with the free quiz to identify your weight regain pattern, then join the LS Diet
+          community to work through Awareness Training and Action Practice.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <a
+            href="https://www.skool.com/lsdiet/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-accent text-white font-semibold px-5 py-3 rounded-lg text-center hover:opacity-90 transition-opacity"
+          >
+            Join the free community
+          </a>
+          <a
+            href="/quiz"
+            className="inline-block border border-accent text-accent font-semibold px-5 py-3 rounded-lg text-center hover:bg-accent/5 transition-colors"
+          >
+            Take the quiz
+          </a>
+        </div>
+      </div>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Related Reading
@@ -600,32 +447,6 @@ function Body() {
           </a>
         </li>
       </ul>
-
-      <div className="my-10 p-6 bg-zinc-50 border border-zinc-200 rounded-xl">
-        <p className="text-base md:text-lg font-semibold text-zinc-900 mb-3">
-          Not sure where to start?
-        </p>
-        <p className="text-base text-zinc-700 mb-4">
-          Take the free quiz to identify your weight regain pattern — then get a personalized
-          starting point inside the LS Diet community.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <a
-            href="https://www.skool.com/lsdiet/about"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-accent text-white font-semibold px-5 py-3 rounded-lg text-center hover:opacity-90 transition-opacity"
-          >
-            Join the free community
-          </a>
-          <a
-            href="/quiz"
-            className="inline-block border border-accent text-accent font-semibold px-5 py-3 rounded-lg text-center hover:bg-accent/5 transition-colors"
-          >
-            Take the quiz
-          </a>
-        </div>
-      </div>
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-12 mb-5 text-zinc-900">
         Frequently Asked Questions
