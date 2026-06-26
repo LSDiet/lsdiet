@@ -335,7 +335,7 @@ export default function AwarenessStagesPage() {
             Weight Permanence Training™
           </p>
           <h1 className="text-3xl md:text-4xl font-serif font-normal text-primary leading-tight mb-4">
-            Most diets work.<br />The problem is living inside one permanently.
+            This Is What Makes Weight Loss Permanent
           </h1>
           <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto">
             Most people come to me because they have lost weight before — sometimes multiple times — and cannot figure out why they always end up back where they started. The way I help them prevent weight gain after losing 5 to 7 pounds a month is not another meal plan. It is five stages of self-awareness training that identify exactly what is driving their behaviour and build the motivation to change it permanently.
