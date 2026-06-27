@@ -43,7 +43,7 @@ const ARTICLES: Record<string, { title: string; description: string; image: bool
 
 <h2>References</h2>
 <p>City Attorney of San Francisco. (2025, December 2). <em>San Francisco City Attorney Chiu sues largest manufacturers of ultra-processed foods.</em> https://sfcityattorney.org/san-francisco-city-attorney-chiu-sues-largest-manufacturers-of-ultra-processed-foods/</p>
-<p>Magkos, F., &amp; Stefan, N. (2026). Is weight cycling clinically harmful? <em>The Lancet Diabetes &amp; Endocrinology</em>. https://doi.org/10.1016/S2213-8587(26)00037-9</p>`}
+<p>Magkos, F., &amp; Stefan, N. (2026). Is weight cycling clinically harmful? <em>The Lancet Diabetes &amp; Endocrinology</em>. https://doi.org/10.1016/S2213-8587(26)00037-9</p>`},
   "why-people-regain-weight-after-dieting":{"title":"Why People Regain Weight After Dieting | LS Diet","description":"Weight regain after dieting is the real long-term problem. Learn why people regain weight and how LS Diet helps you stop for good.","image":false},
   "why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting":{"title":"Why Low Starch Low Sugar Is More Sustainable Than Extreme Dieting | LS Diet","description":"Extreme diets rely on restriction and willpower. Low-starch, low-sugar eating reduces cravings and insulin load, making it easier to sustain long-term.","image":false},
   "the-weight-permanence-triangle-how-to-stop-regaining-weight":{"title":"The Weight Permanence Triangle | How to Stop Regaining Weight | LS Diet","description":"The Weight Permanence Triangle is the core LS Diet framework combining Awareness, Action Practice, and Permanence to stop the cycle of losing and regaining weight.","image":false},
