@@ -641,7 +641,7 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
           <article.Body />
         </div>
 
-        {midSlot && createPortal(<MidArticleRelated items={midItems} />, midSlot)}
+        {article.meta.canonicalTopic !== "stop-weight-regain" && midSlot && createPortal(<MidArticleRelated items={midItems} />, midSlot)}
 
         {article.meta.canonicalTopic !== "stop-weight-regain" && ctaSlots.map((s) => {
           const copy = ctaCopyFor(ctaContext, s.placement);
@@ -652,7 +652,9 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
           );
         })}
 
-        <WPTAwarenessCallout primaryFoundationSlug={article.meta.primaryFoundationSlug} />
+        {article.meta.canonicalTopic !== "stop-weight-regain" && (
+          <WPTAwarenessCallout primaryFoundationSlug={article.meta.primaryFoundationSlug} />
+        )}
 
         <div className="pt-6 border-t border-zinc-200 flex items-center justify-between gap-4 flex-wrap">
           <p className="text-xs text-zinc-500">Found this useful? Share it.</p>
