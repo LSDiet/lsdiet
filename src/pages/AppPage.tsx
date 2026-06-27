@@ -29,6 +29,7 @@ export default function AppPage() {
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -173,6 +174,17 @@ export default function AppPage() {
     }
   }
 
+  function copyConversation() {
+    if (!messages.length) return;
+    const transcript = messages
+      .map(m => `[${m.role === 'assistant' ? 'Navigator' : 'You'}]: ${m.content}`)
+      .join('\n\n');
+    navigator.clipboard.writeText(transcript).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
   if (loading) {
     return (
       <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
@@ -268,6 +280,34 @@ export default function AppPage() {
 
         {/* Main area */}
         <main className="flex-1 flex flex-col overflow-hidden">
+          {/* Copy conversation button — shown when there are messages */}
+          {activeId && messages.length > 0 && (
+            <div className="border-b border-zinc-800 px-4 py-2 flex justify-end flex-shrink-0">
+              <button
+                onClick={copyConversation}
+                title="Copy conversation"
+                className="flex items-center gap-1.5 text-zinc-500 hover:text-zinc-300 transition text-xs"
+              >
+                {copied ? (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                    Copy conversation
+                  </>
+                )}
+              </button>
+            </div>
+          )}
+
           {!activeId ? (
             <div className="flex-1 flex flex-col items-center justify-center px-4 text-center gap-4">
               <p className="text-zinc-400 text-sm max-w-xs">
