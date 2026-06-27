@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import oscarPhoto from "@/assets/oscar-photo.jpeg";
 
 const PUBLISHED = "2026-05-14T12:00:00+00:00";
-const UPDATED = "2026-05-25T12:00:00+00:00";
+const UPDATED = "2026-06-26T12:00:00+00:00";
 
 export default function WhatIsLSDietPage() {
   return (
@@ -15,11 +15,11 @@ export default function WhatIsLSDietPage() {
         <title>Best Diet for Permanent Weight Loss | LS Diet</title>
         <meta
           name="description"
-          content="The best diet isn't the one that helps you lose weight — it's the one that stops you from gaining it back. LS Diet combines low-starch eating with behavioural training for permanent results."
+          content="The best diet isn't the one that helps you lose weight. It's the one that stops you from gaining it back. LS Diet combines low-starch eating with behavioural training for permanent results."
         />
         <link rel="canonical" href="https://lsdiet.com/what-is-ls-diet" />
         <meta property="og:title" content="Best Diet for Permanent Weight Loss | LS Diet" />
-        <meta property="og:description" content="The best diet isn't the one that helps you lose weight — it's the one that stops you from gaining it back. Low starch, low sugar, and behaviour change." />
+        <meta property="og:description" content="The best diet isn't the one that helps you lose weight. It's the one that stops you from gaining it back. Low starch, low sugar, and behaviour change." />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://lsdiet.com/what-is-ls-diet" />
         <script type="application/ld+json">{JSON.stringify({
@@ -64,12 +64,12 @@ export default function WhatIsLSDietPage() {
         <div className="space-y-5 text-zinc-800 leading-relaxed text-base md:text-lg">
           <p>
             <strong className="text-foreground">LS Diet is a weight regain prevention system</strong> created by{" "}
-            <a href="/oscar-poon" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Oscar Poon</a> to help people stop
+            <a href="/oscar-poon" className="text-accent hover:underline">Oscar Poon</a> to help people stop
             repeatedly losing and regaining the same weight.
           </p>
           <p>
             Most diets focus heavily on temporary weight loss. LS Diet focuses on{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">behavioural permanence</a> —
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline">behavioural permanence</a>:
             the awareness, psychology, and repeatable systems that help weight loss survive stress, emotional
             eating, routine disruption, social pressure, travel, holidays, and the eventual loss of motivation.
           </p>
@@ -80,17 +80,16 @@ export default function WhatIsLSDietPage() {
             <li>Low-starch low-sugar eating</li>
           </ol>
           <p>
-            The goal is not extreme short-term dieting. The goal is reducing repeated weight regain long term —
-            which is exactly the gap explored in{" "}
-            <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            The goal is not extreme short-term dieting. The goal is reducing repeated weight regain long term, which is exactly the gap explored in{" "}
+            <a href="/blog/why-people-regain-weight-after-dieting" className="text-accent hover:underline">
               why people regain weight after dieting
             </a>{" "}
             and{" "}
-            <a href="/blog/why-do-i-keep-restarting-weight-loss" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href="/blog/why-do-i-keep-restarting-weight-loss" className="text-accent hover:underline">
               stop restarting weight loss
             </a>
             . The structural answer LS Diet is built around is the{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Weight Permanence Training™</a>.
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Training™</a>.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
@@ -98,23 +97,23 @@ export default function WhatIsLSDietPage() {
           </h2>
           <p>
             Weight regain is usually a systems problem, not a discipline problem. Temporary motivation creates
-            temporary behaviour. Most people already know basic nutrition — the calories, the food groups, the
+            temporary behaviour. Most people already know basic nutrition: the calories, the food groups, the
             broad strokes of "eat less, move more." Knowledge is rarely the missing piece.
           </p>
           <p>
             What actually drives regain is environment, stress, emotions, routines, and behavioural autopilot.
-            Most diets collapse the moment life becomes difficult again — a deadline, an argument, a vacation, a
+            Most diets collapse the moment life becomes difficult again. A deadline, an argument, a vacation, a
             run of bad sleep. The plan was never built to survive that. See{" "}
-            <a href="/awareness-stages" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Awareness Stages</a>,{" "}
-            <a href="/blog/why-do-people-emotionally-eat-after-work" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href="/awareness-stages" className="text-accent hover:underline">Awareness Stages</a>,{" "}
+            <a href="/blog/why-do-people-emotionally-eat-after-work" className="text-accent hover:underline">
               why people emotionally eat after work
             </a>
             ,{" "}
-            <a href="/blog/why-do-healthy-habits-collapse-during-stress" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href="/blog/why-do-healthy-habits-collapse-during-stress" className="text-accent hover:underline">
               why healthy habits collapse during stress
             </a>
             , and{" "}
-            <a href="/blog/why-do-i-restart-weight-loss-every-monday" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href="/blog/why-do-i-restart-weight-loss-every-monday" className="text-accent hover:underline">
               why I restart weight loss every Monday
             </a>{" "}
             for the patterns behind it.
@@ -146,14 +145,14 @@ export default function WhatIsLSDietPage() {
             <li>Routines</li>
           </ul>
           <p>
-            On top of stimulators, psychology training works with push motivation, pull motivation, and causality
-            exploration — the practice of tracing today's eating back to the conditions that produced it. This is
+            On top of stimulators, psychology training works with push motivation, pull motivation, and tracing
+            today's eating back to the conditions that produced it. This is
             what moves people through the{" "}
-            <a href="/awareness-stages" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Awareness Stages</a>, including{" "}
-            <a href="/blog/identity-awareness" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">identity awareness</a> and{" "}
-            <a href="/blog/consequence-awareness" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">consequence awareness</a>,
+            <a href="/awareness-stages" className="text-accent hover:underline">Awareness Stages</a>, including{" "}
+            <a href="/blog/identity-awareness" className="text-accent hover:underline">identity awareness</a> and{" "}
+            <a href="/blog/consequence-awareness" className="text-accent hover:underline">consequence awareness</a>,
             and into real{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">behavioural permanence</a>.
+            <a href="/weight-permanence-triangle" className="text-accent hover:underline">behavioural permanence</a>.
           </p>
 
           <h3 className="text-xl md:text-2xl font-bold tracking-tight pt-4 text-foreground">
@@ -210,14 +209,14 @@ export default function WhatIsLSDietPage() {
             Why Low-Starch Low-Sugar Matters
           </h2>
           <p>
-            Low-starch low-sugar eating is the food mechanism inside LS Diet — not the brand identity, and not the
+            Low-starch low-sugar eating is the food mechanism inside LS Diet, not the brand identity and not the
             whole system. It earns its place because it makes the behavioural work much easier to sustain.
           </p>
           <p>
             Starch and sugar drive most of the day's glucose exposure, which drives insulin, which drives the
             cravings and hunger instability that quietly sabotage long-term consistency. Reducing both stabilises
             appetite, smooths energy, and removes the constant background pull toward another snack. Sustainability
-            matters far more than perfection — the point is an eating pattern you can hold for years, not a clean
+            matters far more than perfection. The point is an eating pattern you can hold for years, not a clean
             streak you eventually break.
           </p>
 
@@ -225,7 +224,7 @@ export default function WhatIsLSDietPage() {
             The Weight Permanence Training™
           </h2>
           <p>
-            The <a href="/weight-permanence-triangle" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Weight Permanence Training™</a>{" "}
+            The <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Training™</a>{" "}
             is the operational backbone of LS Diet: Awareness + Practice + Permanence.
           </p>
           <ul className="list-disc list-outside pl-6 space-y-1">
@@ -238,7 +237,7 @@ export default function WhatIsLSDietPage() {
             Why LS Diet Exists
           </h2>
           <p>
-            Oscar Poon lost more than 80 pounds — three times. The first two times, the weight came back. LS Diet
+            Oscar Poon lost more than 80 pounds. Three times. The first two times, the weight came back. LS Diet
             exists because temporary weight loss is common, but preventing repeated regain is much harder, and
             almost nothing in the diet industry is actually built for that second problem.
           </p>
@@ -249,11 +248,12 @@ export default function WhatIsLSDietPage() {
         </div>
 
         <div className="mt-10 p-6 rounded-xl border border-accent/30 bg-accent/5 text-center space-y-3">
-          <p className="text-sm text-zinc-800">Ready to stop regaining?</p>
+          <p className="text-base font-semibold text-zinc-900">Start the free LS Diet training.</p>
+          <p className="text-sm text-zinc-600">Awareness Training + Action Practice. No credit card.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button variant="accent" size="lg" asChild>
               <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                Join the LS Diet Class
+                Join the free community
               </a>
             </Button>
           </div>
