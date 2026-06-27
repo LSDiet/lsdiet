@@ -396,54 +396,55 @@ export default function AwarenessStagesPage() {
 
           {/* Path A: Stages overview */}
           {chosenPath === "stages" && (
-            <>
-              {/* Diagram — desktop only */}
-              <div className="hidden md:block mb-10">
-                <img
-                  src={stagesDiagram}
-                  alt="The 5 Stages of Awareness: Reality, Friction, Pattern, Consequence, Identity"
-                  className="w-full rounded-xl shadow-sm"
-                  loading="lazy"
-                />
-              </div>
-
-              <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-4 text-center">
-                The 5 stages
-              </p>
-
-              {/* Mobile: vertical list */}
-              <div className="flex flex-col gap-2 mb-10 md:hidden">
-                {stageMeta.map((s, i) => (
-                  <a
-                    key={s.slug}
-                    href={`/blog/${s.slug}`}
-                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-3 hover:border-accent/50 transition-colors"
-                  >
-                    <img src={stageIcons[i]} alt={s.full} className="w-10 h-10 object-contain shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-foreground leading-snug">{s.full}</p>
-                      <p className="text-xs text-muted-foreground truncate">{s.purpose}</p>
-                    </div>
-                    <span className="text-[10px] text-muted-foreground shrink-0">{s.questions}q →</span>
-                  </a>
-                ))}
-              </div>
-
-              {/* Desktop: horizontal scroll */}
-              <div className="hidden md:flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 mb-10">
-                {stageMeta.map((s, i) => (
-                  <a
-                    key={s.slug}
-                    href={`/blog/${s.slug}`}
-                    className="snap-start shrink-0 w-36 rounded-xl border border-border bg-card p-3 flex flex-col items-center text-center hover:border-accent/50 transition-colors"
-                  >
-                    <img src={stageIcons[i]} alt={s.full} className="w-14 h-14 object-contain mb-2" />
-                    <p className="text-xs font-semibold text-foreground leading-snug mb-1">{s.name}</p>
-                    <span className="text-[10px] text-muted-foreground">{s.questions} questions</span>
-                  </a>
-                ))}
-              </div>
-            </>
+            <div className="divide-y divide-border mb-10">
+              {[
+                {
+                  num: "01",
+                  name: "Reality Awareness",
+                  slug: "reality-awareness",
+                  reframe: "You've thought about your weight. But have you ever sat with an honest, undefended picture of where you actually are right now?",
+                },
+                {
+                  num: "02",
+                  name: "Friction Awareness",
+                  slug: "friction-awareness",
+                  reframe: "You know something needs to change. This stage names the specific gap between where you are and where you don't want to end up — before anything else.",
+                },
+                {
+                  num: "03",
+                  name: "Pattern Awareness",
+                  slug: "pattern-awareness",
+                  reframe: "You've noticed the same thing keeps happening. This stage maps the exact who, when, where, and why behind it.",
+                },
+                {
+                  num: "04",
+                  name: "Consequence Awareness",
+                  slug: "consequence-awareness",
+                  reframe: "You've thought about what might happen if nothing changes. This stage makes that cost feel real enough to actually move you.",
+                },
+                {
+                  num: "05",
+                  name: "Identity Awareness",
+                  slug: "identity-awareness",
+                  reframe: "You've pictured a different version of yourself. This stage builds that person deliberately — so your habits match who you're becoming.",
+                },
+              ].map((s) => (
+                <a
+                  key={s.slug}
+                  href={`/blog/${s.slug}`}
+                  className="flex items-start gap-5 py-6 group hover:bg-muted/30 -mx-4 px-4 transition-colors"
+                >
+                  <span className="text-3xl font-extrabold text-muted-foreground/30 leading-none shrink-0 w-10 text-right">
+                    {s.num}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-base font-semibold text-foreground mb-1">{s.name}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{s.reframe}</p>
+                  </div>
+                  <span className="text-muted-foreground group-hover:text-foreground transition-colors shrink-0 mt-1">→</span>
+                </a>
+              ))}
+            </div>
           )}
 
         </div>
