@@ -73,7 +73,7 @@ function fromFoundation(f: Foundation): ViewModel {
     publishDate: f.meta.publishDate,
     updatedAt: f.meta.updatedAt,
     metaDescription: f.meta.metaDescription,
-    image: f.meta.featuredImage.src,
+    image: f.meta.featuredImage.src.startsWith("https://") ? f.meta.featuredImage.src : `https://lsdiet.com${f.meta.featuredImage.src}`,
     imageAlt: f.meta.featuredImage.alt,
     imageWidth: f.meta.featuredImage.width,
     imageHeight: f.meta.featuredImage.height,
@@ -117,7 +117,9 @@ function fromArticle(a: Article): ViewModel {
     publishDate: a.meta.publishDate,
     updatedAt: a.meta.updatedAt,
     metaDescription: a.meta.metaDescription,
-    image: a.meta.heroImage ?? "https://lsdiet.com/og-image.jpg",
+    image: a.meta.heroImage
+      ? (a.meta.heroImage.startsWith("https://") ? a.meta.heroImage : `https://lsdiet.com${a.meta.heroImage}`)
+      : "https://lsdiet.com/og-image.jpg",
     imageAlt: a.meta.heroImageAlt ?? a.meta.title,
     article: a,
   };
