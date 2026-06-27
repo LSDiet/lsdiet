@@ -341,10 +341,10 @@ export default function AwarenessStagesPage() {
             Most people who come to me have already lost weight before. Sometimes more than once. Losing the weight was never the problem. Keeping it off was.
           </p>
           <p className="text-base text-muted-foreground leading-relaxed max-w-md mx-auto mt-3">
-            There is a reason the weight keeps coming back, and it is not willpower. This is a free, 5-stage system that finds that reason, fixes it, and helps you lose 5 to 7 pounds a month without Monday resets, without guilt, and without worrying about what you eat at every meal.
+            The reason it keeps coming back is not discipline. It is a pattern you have not identified yet. These five stages walk you through exactly why — and help you build the awareness and identity that make change stick the second time.
           </p>
           <p className="text-sm font-semibold text-foreground mt-6">
-            Two ways to start — both free. Pick the one that fits right now:
+            Your first step is free. Start wherever you are right now.
           </p>
         </header>
 
@@ -359,13 +359,11 @@ export default function AwarenessStagesPage() {
                 : "border-border bg-card hover:border-accent/50"
             }`}
           >
-            <img
-              src={stagesDiagram}
-              alt="The 5 Stages of Awareness diagram"
-              className="w-full h-32 object-cover"
-            />
+            <div className="w-full h-32 bg-primary flex flex-col items-center justify-center gap-1">
+              <p className="text-4xl font-extrabold text-white tracking-tight">10 min</p>
+              <p className="text-[11px] uppercase tracking-widest text-accent font-semibold">Deep dive</p>
+            </div>
             <div className="p-4">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold mb-1">~10 min</p>
               <p className="text-base font-semibold text-foreground mb-1">Build the identity that makes weight loss permanent</p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                 Five stages of awareness training build your new identity and stack the motivations that keep working long after willpower runs out.
@@ -383,13 +381,11 @@ export default function AwarenessStagesPage() {
                 : "border-border bg-card hover:border-accent/50"
             }`}
           >
-            <div className="w-full h-32 bg-primary flex items-center justify-center px-5 py-4">
-              <p className="text-accent text-base font-semibold text-center leading-snug">
-                5 types of weight regain.<br />Which one are you?
-              </p>
+            <div className="w-full h-32 bg-primary flex flex-col items-center justify-center gap-1">
+              <p className="text-4xl font-extrabold text-accent tracking-tight">30 sec</p>
+              <p className="text-[11px] uppercase tracking-widest text-white/60 font-semibold">Quick start</p>
             </div>
             <div className="p-4">
-              <p className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-1">~30 seconds</p>
               <p className="text-base font-semibold text-foreground mb-1">Do you know the real reason your weight keeps coming back?</p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                 Answer 5 quick questions. Get a personalised weight regain profile and a clear starting point — for free!
