@@ -17,6 +17,21 @@ const ARTICLES_DIR = resolve("src/content/articles");
 const SITE = "https://lsdiet.com";
 const SKIP_FILES = new Set(["index.ts", "index.tsx", "types.ts", "types.tsx"]);
 
+
+// Slugs whose Contentful/Supabase backend no longer exists.
+// Remove from sitemap permanently to avoid dead prerender attempts and bad SEO.
+const DEAD_SLUGS = new Set([
+  "can-weight-loss-cause-stretch-marks",
+  "can-weight-loss-cause-hair-loss",
+  "how-to-join-a-weight-loss-coaching-program-online",
+  "how-many-calories-to-lose-weight-safely",
+  "can-you-lose-160-pounds-sitting-at-a-desk-all-day",
+  "sustainable-weight-loss-strategies",
+  "does-weight-loss-lower-tsh-levels",
+  "how-much-weight-can-you-lose-from-a-physical-job",
+  "can-losing-weight-help-you-get-a-better-job",
+]);
+
 function localArticleSlugs(): string[] {
   try {
     return readdirSync(ARTICLES_DIR)
@@ -51,6 +66,13 @@ async function main() {
     const categories = res.headers.get("x-sitemap-categories") ?? "?";
 
     // Append any local TSX articles the Supabase function doesn't know about.
+    // Strip dead slugs from fetched XML before writing.
+    const deadPattern = new RegExp(
+      `<url>[^<]*<loc>[^<]*(${[...DEAD_SLUGS].join("|")})[^<]*</loc>[\\s\\S]*?</url>`,
+      "g",
+    );
+    xml = xml.replace(deadPattern, "");
+
     const inSitemap = slugsInXml(xml);
     const local = localArticleSlugs();
     const missing = local.filter((s) => !inSitemap.has(s));
