@@ -1,6 +1,5 @@
 import heroImage from "@/assets/blog/yo-yo-dieting-metabolism-myth-hero.jpg";
 import { Article } from "@/lib/types";
-import { Link } from "@/components/ui/link";
 
 const meta = {
   slug: "yo-yo-dieting-metabolism-myth",
@@ -84,7 +83,7 @@ function Body() {
 
         <h3>If my metabolism is not broken, why do I keep regaining weight?</h3>
         <p>
-          Weight regain is not a failure of your metabolism. It is a failure of the environment to support your choices. Adults in the United States consume 57 percent of their calories from ultra-processed foods. These foods are engineered to trigger addictive-like responses, meeting scientific criteria for addictive substances. Research using the Yale Food Addiction Scale across 36 countries found that these engineered foods trigger the brain's reward system in ways similar to nicotine and alcohol. More than 80 percent of people regain their weight within five years, not because they are weak, but because they are navigating a system designed to make overeating the path of least resistance. Permanent weight management requires either changing the environment or building systems that work within it. That is where <Link href="/awareness-stages">Reality Awareness</Link> begins.
+          Weight regain is not a failure of your metabolism. It is a failure of the environment to support your choices. Adults in the United States consume 57 percent of their calories from ultra-processed foods. These foods are engineered to trigger addictive-like responses, meeting scientific criteria for addictive substances. Research using the Yale Food Addiction Scale across 36 countries found that these engineered foods trigger the brain's reward system in ways similar to nicotine and alcohol. More than 80 percent of people regain their weight within five years, not because they are weak, but because they are navigating a system designed to make overeating the path of least resistance. Permanent weight management requires either changing the environment or building systems that work within it. That is where <a href="/awareness-stages" className="text-accent hover:underline">Reality Awareness</a> begins.
         </p>
       </section>
 
