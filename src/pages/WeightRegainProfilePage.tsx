@@ -162,29 +162,14 @@ export default function WeightRegainProfilePage() {
 
       <main className="max-w-2xl mx-auto px-4 py-10 md:py-14">
 
-        {/* ── Move 1: Banner + identity ── */}
-        <div className="rounded-xl overflow-hidden mb-6 shadow-sm">
-          <img
-            src={profile.banner}
-            alt={`${profile.name} weight regain profile`}
-            width={1200}
-            height={525}
-            loading="eager"
-            decoding="async"
-            className="w-full h-auto object-cover"
-          />
-        </div>
-
+        {/* ── Profile name ── */}
         <div className="mb-6">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-2">Your Weight Regain Profile</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary mb-2">Weight Regain Profile</p>
           <h1 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3">{profile.name}</h1>
-          <span className="inline-block rounded-full border border-border bg-muted/40 px-3 py-1 text-xs font-medium text-muted-foreground mb-4">
-            You said: &ldquo;{profile.painStatement}&rdquo;
-          </span>
           <p className="text-base text-muted-foreground leading-relaxed italic">{profile.tagline}</p>
         </div>
 
-        {/* ── Move 2: Video ── */}
+        {/* ── Video ── */}
         <div className="mb-8 rounded-xl overflow-hidden shadow-sm aspect-video">
           <iframe
             className="w-full h-full"
@@ -195,15 +180,13 @@ export default function WeightRegainProfilePage() {
           />
         </div>
 
-        {/* ── Move 3: Insight + bullets + outcome + CTA ── */}
+        {/* ── Insight + bullets + outcome + CTA ── */}
         <div className="space-y-6">
 
-          {/* Core insight — 1-2 sentences */}
           <p className="text-base md:text-lg text-foreground leading-relaxed font-medium">
             {profile.mobileInsight}
           </p>
 
-          {/* Scannable bullets — what WPT addresses */}
           <ul className="space-y-3">
             {profile.helpPoints.map((point, i) => (
               <li key={i} className="flex items-start gap-3">
@@ -215,45 +198,40 @@ export default function WeightRegainProfilePage() {
             ))}
           </ul>
 
-          {/* Outcome callout */}
           <div className="rounded-xl bg-zinc-950 text-white px-6 py-5 text-center">
             <p className="text-base md:text-lg font-medium leading-relaxed">{profile.outcome}</p>
           </div>
 
           {/* CTA block */}
-          <div className="rounded-xl border border-accent/30 bg-card px-5 py-6 md:px-8 md:py-8 text-center space-y-3">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Ready to stop the cycle?</p>
-            <h3 className="text-xl md:text-2xl font-extrabold text-foreground">Start the training. It's free.</h3>
-            <p className="text-sm text-muted-foreground">
-              Full Weight Permanence Training inside Skool.
-            </p>
-            <a
-              href="https://www.skool.com/lsdiet/about"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-sm font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.6)] transition-all hover:brightness-110"
-            >
-              Join Free — Skool Community
-            </a>
+          <div className="rounded-xl border border-border bg-card px-5 py-6 md:px-8 md:py-8 text-center space-y-4">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Not sure which profile is yours?</p>
             <Link
               to="/quiz"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-transparent px-6 py-3 text-xs font-bold uppercase tracking-wider text-foreground transition-all hover:border-foreground/40 hover:bg-foreground/5"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-sm font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.6)] transition-all hover:brightness-110"
             >
-              Take the Full Quiz — Get Your Profile by Email
+              Find Out Which Profile Is Yours — Take the Free Quiz
             </Link>
-            <p className="text-[11px] text-muted-foreground pt-1">
-              Quiz takes 60 seconds. Skool is 100% free.
-            </p>
-          </div>
+            <p className="text-[11px] text-muted-foreground">60 seconds. Instant result. Free.</p>
 
-          {/* Back link */}
-          <div className="text-center pb-2">
-            <Link
-              to="/awareness-stages"
-              className="text-xs text-muted-foreground hover:text-foreground underline transition-colors"
-            >
-              ← Back to the 5 Awareness Stages
-            </Link>
+            <div className="pt-2 border-t border-border">
+              <p className="text-xs text-muted-foreground mb-3">Already took the quiz?</p>
+              <div className="flex flex-col gap-2">
+                <a
+                  href="https://www.skool.com/lsdiet/about"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Start your free training on Skool →
+                </a>
+                <a
+                  href="https://lsdiet.com/app"
+                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                >
+                  Activate your Motivation Navigator Subscription (Advanced) →
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>

@@ -58,7 +58,7 @@ export default function WeightRegainProfilesPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Weight Regain Profiles</p>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">The 5 Weight Regain Profiles</h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            Weight regain isn't random. There are five distinct patterns — each with a different root cause and a different WPT solution. Find the one that fits.
+            Weight regain isn't random. Five distinct patterns — each with a different root cause. Find out which one fits you.
           </p>
         </div>
 
@@ -91,9 +91,9 @@ export default function WeightRegainProfilesPage() {
         </div>
 
         <div className="mt-12 rounded-xl border border-border bg-card p-6 md:p-8 text-center space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Not sure which profile fits you?</p>
-          <h3 className="text-xl font-bold text-foreground">Take the Weight Regain Profile Quiz</h3>
-          <p className="text-muted-foreground text-sm">Answer a few questions and get your profile — plus a personalised email series on how WPT addresses your specific pattern.</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Not sure which one is you?</p>
+          <h3 className="text-xl font-bold text-foreground">Take the Free Quiz — 60 seconds</h3>
+          <p className="text-muted-foreground text-sm">You'll get your profile by email plus a personalised next step.</p>
           <Link
             to="/quiz"
             className="inline-block bg-primary text-primary-foreground font-semibold px-7 py-3 rounded-lg hover:opacity-90 transition-opacity"
