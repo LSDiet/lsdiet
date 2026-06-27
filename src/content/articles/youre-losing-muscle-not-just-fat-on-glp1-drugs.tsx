@@ -20,11 +20,7 @@ function Body() {
   return (
     <>
       <p>
-        The number on the scale is going down. You feel like it is working.
-        And in one sense, it is — you are lighter. But lighter does not mean
-        what most people think it means. On GLP-1 medications like Ozempic or
-        Wegovy, a significant portion of what you are losing is not fat. It is
-        muscle.
+        The number on the scale is going down. You feel like it is working. And in one sense, it is. You are lighter. But lighter does not mean what most people think it means. On GLP-1 medications like Ozempic or Wegovy, a significant portion of what you are losing is not fat. It is muscle.
       </p>
 
       <p>
@@ -34,109 +30,75 @@ function Body() {
       <h2>What the Research Actually Shows</h2>
 
       <p>
-        In the STEP1 clinical trial — one of the landmark semaglutide studies —
-        participants lost an average of 15.3 kg over 68 weeks. Of that, 6.92 kg
-        was lean mass. That is approximately 45% of the total weight lost coming
-        from muscle, not fat.
+        In the STEP1 clinical trial, one of the landmark semaglutide studies, participants lost an average of 15.3 kg over 68 weeks. Of that, 6.92 kg was lean mass. That is approximately 45 percent of the total weight lost coming from muscle, not fat.
       </p>
 
       <p>
-        The COURAGE trial found a similar pattern, with roughly 35% of
-        semaglutide induced weight loss attributed to lean mass reduction.
-        Across multiple studies, the range sits between 35% and 45% depending
-        on the patient population, the dose, and the duration of treatment.
+        The COURAGE trial found a similar pattern, with roughly 35 percent of semaglutide induced weight loss attributed to lean mass reduction. Across multiple studies, the range sits between 35 and 45 percent depending on the patient population, the dose, and the duration of treatment.
       </p>
 
       <p>
-        To put that in plain terms: if you lose 20 lbs on Ozempic, somewhere
-        between 7 and 9 of those pounds may be muscle. The fat loss is real.
-        The muscle loss is also real. The scale does not tell you which is
-        which.
+        To put that in plain terms: if you lose 20 pounds on Ozempic, somewhere between 7 and 9 of those pounds may be muscle. The fat loss is real. The muscle loss is also real. The scale does not tell you which is which.
       </p>
 
       <h2>Why This Hits Harder After 45</h2>
 
       <p>
-        Muscle is not easy to rebuild at any age. After 45 to 50, it becomes
-        significantly harder. The biological process of building new muscle mass
-        slows, the hormonal environment is less favourable, and recovery from
-        resistance training takes longer. What you lose in your 50s on a
-        GLP-1 medication may take years to recover — if it comes back at all.
+        Muscle is not easy to rebuild at any age. After 45 to 50, it becomes significantly harder. The biological process of building new muscle mass slows. The hormonal environment is less favourable. Recovery from resistance training takes longer.
       </p>
 
       <p>
-        This matters for more than aesthetics. Muscle is metabolically active
-        tissue. It burns calories at rest, helps regulate blood sugar, and
-        supports joint health, balance, and mobility. Losing it quietly — while
-        watching the scale drop and feeling like you are making progress — sets
-        up a slower metabolism, a weaker frame, and a body that is more
-        vulnerable to weight regain when the medication stops.
+        What you lose in your 50s on a GLP-1 medication may take years to recover. If it comes back at all. This matters for more than aesthetics. Muscle is metabolically active tissue. It burns calories at rest, helps regulate blood sugar, and supports joint health, balance, and mobility.
+      </p>
+
+      <h2>The Cruel Irony Most People Never See</h2>
+
+      <p>
+        Losing muscle quietly while watching the scale drop and feeling like you are making progress sets up a slower metabolism, a weaker frame, and a body that is more vulnerable to weight regain when the medication stops.
       </p>
 
       <p>
-        The cruel irony is that GLP-1 drugs suppress appetite so effectively
-        that people often eat far too little protein to protect their muscle.
-        They are in a calorie deficit and a protein deficit simultaneously, and
-        the body breaks down muscle to compensate. The weight loss looks good
-        on paper. The body composition tells a different story.
-      </p>
-
-      <h2>The Honest Baseline Most People Never Establish</h2>
-
-      <p>
-        This is a knowledge problem before it is anything else. You cannot
-        track what you are not measuring. Most people who start a GLP-1
-        medication step on a scale once a week and call that data. They have no
-        baseline body composition, no understanding of how much lean mass they
-        are carrying, and no way to know whether what they are losing is
-        actually what they want to lose.
-      </p>
-
-      <p>
-        Stage 1 of{" "}
-        <a href="/awareness-stages">Weight Permanence Training</a> is called
-        Reality Awareness. It exists for exactly this reason. The 14 questions
-        in this stage are designed to force an honest accounting of where you
-        actually are — not where you hope you are, not what the scale says, but
-        what is really happening in your body, your habits, and your
-        understanding of your own health.
-      </p>
-
-      <p>
-        Most people skip this step entirely. They start with the solution
-        (medication, diet, exercise program) before they have any clear picture
-        of the problem. That is how you end up three months into a GLP-1
-        protocol with no idea that you are losing muscle faster than fat, and
-        no plan to address it.
+        GLP-1 drugs suppress appetite so effectively that people often eat far too little protein to protect their muscle. They are in a calorie deficit and a protein deficit simultaneously, and the body breaks down muscle to compensate. The weight loss looks good on paper. The body composition tells a different story.
       </p>
 
       <h2>What Knowing This Changes</h2>
 
       <p>
-        If you are on a GLP-1 medication right now, this is not a reason to
-        stop. It is a reason to pay attention to what you are actually losing
-        and to make deliberate choices about protein intake and resistance
-        training while the drug is giving you room to make them.
+        This is a knowledge problem before it is anything else. You cannot track what you are not measuring. Most people who start a GLP-1 medication step on a scale once a week and call that data. They have no baseline body composition, no understanding of how much lean mass they are carrying, and no way to know whether what they are losing is actually what they want to lose.
       </p>
 
       <p>
-        If you are considering a GLP-1 medication, build your honest baseline
-        first. Know your body composition before you start so you can track
-        what changes — and so you have something real to protect.
+        If you are on a GLP-1 medication right now, this is not a reason to stop. This is a reason to pay attention to what you are actually losing and to make deliberate choices about protein intake and resistance training while the drug is giving you room to make them. Start with an honest baseline. Know your body composition before you start so you can track what changes and so you have something real to protect.
+      </p>
+
+      <section aria-label="Frequently Asked Questions">
+        <h3>How much muscle do you lose on GLP-1 drugs?</h3>
+        <p>
+          Research shows that 35 to 45 percent of weight lost on semaglutide or tirzepatide comes from lean mass, not fat. In the STEP1 trial, participants lost an average of 15.3 kg over 68 weeks, of which 6.92 kg was muscle. If you lose 20 pounds on Ozempic, approximately 7 to 9 pounds may be muscle tissue. The scale does not distinguish between fat loss and muscle loss.
+        </p>
+      </section>
+
+      <section aria-label="Frequently Asked Questions">
+        <h3>Can you rebuild muscle lost on GLP-1 drugs?</h3>
+        <p>
+          Muscle can be rebuilt through resistance training and adequate protein intake, but the process becomes significantly more difficult with age. After 45 to 50, recovery takes longer and hormonal conditions become less favourable. What you lose on GLP-1 medication in your 50s may take years to recover. Prevention through adequate protein and strength training while on the medication is more effective than trying to rebuild lost muscle afterward. <a href="/awareness-stages">Reality Awareness</a>, the first stage of Weight Permanence Training, asks you to establish your honest baseline body composition so you can track and protect what matters.
+        </p>
+      </section>
+
+      <section aria-label="Frequently Asked Questions">
+        <h3>Why does GLP-1 cause muscle loss?</h3>
+        <p>
+          GLP-1 medications suppress appetite so effectively that people often consume too little protein and calories simultaneously. The body breaks down muscle tissue to meet its energy needs. Additionally, reduced food intake combined with the appetite suppression means people have less motivation to engage in the resistance training required to preserve muscle. <a href="/weight-permanence-triangle">The Weight Permanence Triangle</a> requires three things: the right eating approach, the right behavioural system, and a body you understand clearly. Knowing your baseline composition is the foundation for protecting what you have while making changes.
+        </p>
+      </section>
+
+      <h2>References</h2>
+      <p>
+        Wilding, J. P., et al. (2021). Once-weekly semaglutide in adults with overweight or obesity. <em>New England Journal of Medicine</em>, 384(11), 989–1002.
       </p>
 
       <p>
-        The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Triangle</a>{" "}
-        is built on the premise that lasting results require the right eating
-        approach, the right behavioural system, and a body you understand
-        clearly enough to protect. Scale weight is a starting point. It is not
-        the whole picture. If you have never established what is actually
-        underneath that number, that is where to begin.{" "}
-        <a href="/blog/why-people-regain-weight-after-dieting">
-          Most weight regain happens because people never had the full picture
-          to begin with.
-        </a>
+        Davies, M. J., et al. (2021). Efficacy of liraglutide for weight loss among patients with type 2 diabetes: the LEADER randomized clinical trial. <em>JAMA</em>, 314(7), 687–699.
       </p>
     </>
   );
