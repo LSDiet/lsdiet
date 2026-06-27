@@ -353,19 +353,19 @@ export default function AwarenessStagesPage() {
           {/* Card A — Stages */}
           <button
             onClick={() => selectPath("stages")}
-            className={`text-left rounded-xl border overflow-hidden transition-colors ${
+            className={`text-left rounded-xl border overflow-hidden transition-colors flex flex-col ${
               chosenPath === "stages"
                 ? "border-primary"
                 : "border-border bg-card hover:border-accent/50"
             }`}
           >
-            <div className="w-full h-32 bg-primary flex flex-col items-center justify-center gap-1">
+            <div className="w-full h-32 bg-primary flex flex-col items-center justify-center gap-1 shrink-0">
               <p className="text-4xl font-extrabold text-white tracking-tight">10 min</p>
               <p className="text-[11px] uppercase tracking-widest text-accent font-semibold">Deep dive</p>
             </div>
-            <div className="p-4">
+            <div className="p-4 flex flex-col flex-1">
               <p className="text-base font-semibold text-foreground mb-1">Build the identity that makes weight loss permanent</p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3 flex-1">
                 Five stages of awareness training build your new identity and stack the motivations that keep working long after willpower runs out.
               </p>
               <span className="text-sm font-semibold text-foreground">Explore the stages →</span>
@@ -373,26 +373,22 @@ export default function AwarenessStagesPage() {
           </button>
 
           {/* Card B — Profile */}
-          <button
-            onClick={() => selectPath("profile")}
-            className={`text-left rounded-xl border overflow-hidden transition-colors ${
-              chosenPath === "profile"
-                ? "border-accent"
-                : "border-border bg-card hover:border-accent/50"
-            }`}
+          <a
+            href="/quiz/"
+            className="text-left rounded-xl border border-border bg-card hover:border-accent/50 overflow-hidden transition-colors flex flex-col"
           >
-            <div className="w-full h-32 bg-primary flex flex-col items-center justify-center gap-1">
-              <p className="text-4xl font-extrabold text-accent tracking-tight">30 sec</p>
-              <p className="text-[11px] uppercase tracking-widest text-white/60 font-semibold">Quick start</p>
+            <div className="w-full h-32 bg-primary flex flex-col items-center justify-center gap-1 shrink-0">
+              <p className="text-4xl font-extrabold text-white tracking-tight">30 sec</p>
+              <p className="text-[11px] uppercase tracking-widest text-accent font-semibold">Quick start</p>
             </div>
-            <div className="p-4">
+            <div className="p-4 flex flex-col flex-1">
               <p className="text-base font-semibold text-foreground mb-1">Do you know the real reason your weight keeps coming back?</p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3 flex-1">
                 Answer 5 quick questions. Get a personalised weight regain profile and a clear starting point — for free!
               </p>
               <span className="text-sm font-semibold text-foreground">Get my profile →</span>
             </div>
-          </button>
+          </a>
         </div>
 
         {/* Path content */}
@@ -401,8 +397,8 @@ export default function AwarenessStagesPage() {
           {/* Path A: Stages overview */}
           {chosenPath === "stages" && (
             <>
-              {/* Diagram */}
-              <div className="mb-10">
+              {/* Diagram — desktop only */}
+              <div className="hidden md:block mb-10">
                 <img
                   src={stagesDiagram}
                   alt="The 5 Stages of Awareness: Reality, Friction, Pattern, Consequence, Identity"
@@ -411,221 +407,46 @@ export default function AwarenessStagesPage() {
                 />
               </div>
 
-              {/* Stage icon row */}
-              <div className="mb-10">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-4 text-center">
-                  The 5 stages
-                </p>
-                <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4">
-                  {stageMeta.map((s, i) => (
-                    <a
-                      key={s.slug}
-                      href={`/blog/${s.slug}`}
-                      className="snap-start shrink-0 w-36 rounded-xl border border-border bg-card p-3 flex flex-col items-center text-center hover:border-accent/50 transition-colors"
-                    >
-                      <img src={stageIcons[i]} alt={s.full} className="w-14 h-14 object-contain mb-2" />
-                      <p className="text-xs font-semibold text-foreground leading-snug mb-1">{s.name}</p>
-                      <span className="text-[10px] text-muted-foreground">{s.questions} questions</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </>
-          )}
+              <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-4 text-center">
+                The 5 stages
+              </p>
 
-          {/* Path B: Quiz */}
-          {chosenPath === "profile" && (
-            <>
-              {/* Quiz section header */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="flex-1 h-px bg-border" />
-                <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold whitespace-nowrap">
-                  Try one question from each stage
-                </p>
-                <div className="flex-1 h-px bg-border" />
-              </div>
-
-              {/* Progress */}
-              <div className="mb-6">
-                <div className="flex gap-2 mb-3 flex-wrap">
-                  {["Start", "Reality", "Friction", "Pattern", "Consequence", "Identity"].map((label, i) => (
-                    <span
-                      key={i}
-                      className={`text-xs px-3 py-1 rounded-full border transition-all ${
-                        i <= unlocked
-                          ? "bg-foreground text-background border-foreground"
-                          : "text-muted-foreground border-border"
-                      }`}
-                    >
-                      {label}
-                    </span>
-                  ))}
-                </div>
-                <div className="h-[3px] bg-border rounded-full">
-                  <div
-                    className="h-full bg-foreground rounded-full transition-all duration-500"
-                    style={{ width: `${progressPct}%` }}
-                  />
-                </div>
-              </div>
-
-              {/* Stage cards */}
-              <div className="space-y-4">
-                {stageConfig.map((cfg, i) => {
-                  const locked = i > unlocked;
-                  const answered = isStageAnswered(i);
-                  const selectedOpt = selections[i] ?? null;
-
-                  return (
-                    <div
-                      key={i}
-                      id={`stage-${i}`}
-                      style={{ scrollMarginTop: "100px" }}
-                      className={`rounded-xl border bg-card p-5 transition-all duration-300 ${
-                        locked ? "opacity-30 pointer-events-none select-none" : "border-border"
-                      }`}
-                    >
-                      {/* Stage header */}
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 ${
-                          i === 0 ? "bg-zinc-100 text-zinc-500" :
-                          i === 1 ? "bg-blue-50 text-blue-700" :
-                          i === 2 ? "bg-amber-50 text-amber-700" :
-                          i === 3 ? "bg-green-50 text-green-700" :
-                          i === 4 ? "bg-red-50 text-red-700" :
-                          "bg-emerald-50 text-emerald-700"
-                        }`}>
-                          {cfg.num}
-                        </div>
-                        <div>
-                          <p className="text-[10px] uppercase tracking-widest text-muted-foreground">{cfg.label}</p>
-                          <p className="text-base font-semibold text-foreground capitalize">{cfg.title}</p>
-                        </div>
-                      </div>
-
-                      {/* Question */}
-                      <div className="bg-muted/40 rounded-lg p-4 mb-4">
-                        <p className="text-sm font-medium text-foreground mb-3">{cfg.question}</p>
-
-                        {cfg.isSlider ? (
-                          <div>
-                            <div className="flex items-center gap-3">
-                              <input
-                                type="range"
-                                min={cfg.sliderMin}
-                                max={cfg.sliderMax}
-                                value={sliderVal}
-                                onChange={(e) => setSliderVal(Number(e.target.value))}
-                                className="flex-1"
-                              />
-                              <span className="text-base font-semibold w-6 text-center">{sliderVal}</span>
-                            </div>
-                            <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
-                              <span>Not at all</span><span>Perfectly</span>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="flex flex-col gap-2">
-                            {cfg.options?.map((opt, oi) => (
-                              <button
-                                key={oi}
-                                onClick={() => handleOption(i, oi)}
-                                className={`text-left text-sm px-4 py-3 rounded-lg border transition-all ${
-                                  selectedOpt === oi
-                                    ? "border-foreground bg-background font-medium"
-                                    : "border-border bg-background hover:bg-muted/50"
-                                }`}
-                              >
-                                {opt.label}
-                              </button>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Reveal */}
-                      {answered && (
-                        <div className={`rounded-lg p-4 text-sm leading-relaxed mb-4 ${revealBg[cfg.revealType]}`}>
-                          {cfg.isSlider
-                            ? sliderReveal(sliderVal)
-                            : selectedOpt !== null && cfg.options
-                              ? (cfg.options[selectedOpt] as { label: string; reveal?: string }).reveal ?? cfg.reveal
-                              : cfg.reveal}
-                        </div>
-                      )}
-
-                      {/* Next button */}
-                      {answered && (
-                        <div className="flex items-center justify-between">
-                          {cfg.stageRef && (
-                            <a
-                              href={`/blog/${cfg.stageRef}`}
-                              className="text-xs text-muted-foreground underline underline-offset-2 hover:text-foreground"
-                            >
-                              Read full {cfg.title} →
-                            </a>
-                          )}
-                          <button
-                            onClick={() => handleNext(i)}
-                            className="ml-auto text-sm font-semibold bg-foreground text-background px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
-                          >
-                            {cfg.nextLabel}
-                          </button>
-                        </div>
-                      )}
+              {/* Mobile: vertical list */}
+              <div className="flex flex-col gap-2 mb-10 md:hidden">
+                {stageMeta.map((s, i) => (
+                  <a
+                    key={s.slug}
+                    href={`/blog/${s.slug}`}
+                    className="flex items-center gap-3 rounded-xl border border-border bg-card p-3 hover:border-accent/50 transition-colors"
+                  >
+                    <img src={stageIcons[i]} alt={s.full} className="w-10 h-10 object-contain shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-foreground leading-snug">{s.full}</p>
+                      <p className="text-xs text-muted-foreground truncate">{s.purpose}</p>
                     </div>
-                  );
-                })}
+                    <span className="text-[10px] text-muted-foreground shrink-0">{s.questions}q →</span>
+                  </a>
+                ))}
+              </div>
+
+              {/* Desktop: horizontal scroll */}
+              <div className="hidden md:flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 mb-10">
+                {stageMeta.map((s, i) => (
+                  <a
+                    key={s.slug}
+                    href={`/blog/${s.slug}`}
+                    className="snap-start shrink-0 w-36 rounded-xl border border-border bg-card p-3 flex flex-col items-center text-center hover:border-accent/50 transition-colors"
+                  >
+                    <img src={stageIcons[i]} alt={s.full} className="w-14 h-14 object-contain mb-2" />
+                    <p className="text-xs font-semibold text-foreground leading-snug mb-1">{s.name}</p>
+                    <span className="text-[10px] text-muted-foreground">{s.questions} questions</span>
+                  </a>
+                ))}
               </div>
             </>
           )}
 
         </div>
-
-        {/* Dual CTA */}
-        {showCta && (
-          <div className="mt-10 rounded-xl border border-accent/30 bg-accent/5 p-6 md:p-8">
-            <p className="text-xs uppercase tracking-widest text-accent font-semibold mb-2 text-center">
-              You just did what most people never do
-            </p>
-            <h2 className="text-2xl md:text-3xl font-serif font-normal text-primary mb-2 text-center leading-snug">
-              You went through all 5 stages.
-            </h2>
-            <p className="text-sm text-muted-foreground text-center mb-6">
-              The community gives you structure. The Navigator gives you answers in the moment.
-            </p>
-
-            <div className="flex flex-col md:flex-row gap-4">
-              {/* Card 1 — Skool */}
-              <div className="flex-1 rounded-xl border border-border bg-card p-5 flex flex-col">
-                <span className="text-[10px] uppercase tracking-widest text-emerald-600 font-semibold mb-2">Free</span>
-                <p className="text-base font-semibold text-foreground mb-2">Practice Training Community</p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                  30+ daily behaviour modules, group accountability, and guided exercises. No credit card required.
-                </p>
-                <Button variant="default" className="w-full" asChild>
-                  <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                    Join free on Skool →
-                  </a>
-                </Button>
-              </div>
-
-              {/* Card 2 — Motivation Navigator */}
-              <div className="flex-1 rounded-xl border border-border bg-card p-5 flex flex-col">
-                <span className="text-[10px] uppercase tracking-widest text-accent font-semibold mb-2">AI Coaching</span>
-                <p className="text-base font-semibold text-foreground mb-2">Motivation Navigator</p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
-                  Ask about your eating habits, motivation, and hurdles. Get personalised responses grounded in the WPT system, with clear stackable motivations for when you feel like quitting.
-                </p>
-                <Button variant="accent" className="w-full" asChild>
-                  <a href="/app">
-                    Try the Navigator →
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
 
       </main>
 
