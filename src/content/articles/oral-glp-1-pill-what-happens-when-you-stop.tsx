@@ -97,6 +97,9 @@ function Body() {
         Novo Nordisk. (2025, December 22). FDA approves Novo Nordisk's Wegovy pill, the first and only oral GLP-1 for weight loss in adults. https://prnewswire.com/news-releases/fda-approves-novo-nordisks-wegovy-pill-the-first-and-only-oral-glp-1-for-weight-loss-in-adults-302648344.html
       </p>
       <p>
+        Semaglutide oral regimen. (2026). <em>Gastroenterology Advisor</em>. Retrieved from https://www.gastroenterologyadvisor.com/news/fda-approves-oral-wegovy-for-weight-management/
+      </p>
+      <p>
         Wharton, S., Lingvay, I., Bogdanski, P., et al. (2025). Oral semaglutide 25 mg in adults with overweight or obesity and weight-related comorbidities. <em>OASIS 4 Phase 3 Trial</em>.
       </p>
     </>
