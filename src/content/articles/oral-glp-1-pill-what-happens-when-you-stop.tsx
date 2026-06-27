@@ -22,228 +22,82 @@ const meta: import("./types").ArticleMeta = {
 function Body() {
   return (
     <>
+      {/* STAGE 1: REALITY */}
       <p>
-        At the American Diabetes Association's 2026 Scientific Sessions in New Orleans,
-        AstraZeneca presented Phase 2 trial data for elecoglipron, an oral GLP-1 receptor
-        agonist taken as a single daily pill. Participants with obesity who took the 75 mg dose
-        lost an average of 10.5% of their body weight over 36 weeks. 72% of
-        those in the treatment groups achieved at least a 5% reduction. No injections required.
-        Results were published simultaneously in <em>The Lancet</em> (Davies et al., 2026).
+        Oral semaglutide (Wegovy pill) was approved by the FDA in December 2025 and launched in early January 2026. The OASIS 4 trial showed a mean weight loss of 13.6% over 64 weeks. For the first time, millions of people who prefer not to inject will have access to a GLP-1 drug.
       </p>
       <p>
-        If you have been avoiding GLP-1 medications because you cannot stomach injecting
-        yourself, this news will feel like a breakthrough. The question worth asking is whether
-        removing the needle changes anything that actually matters for keeping the weight off
-        permanently.
+        But the pill presents the same fundamental problem as the injection: what happens when you stop?
       </p>
 
-      <h2>Why Accessibility Is Both the Point and the Problem</h2>
+      {/* STAGE 2: FRICTION */}
+      <h2>How Oral Semaglutide Works</h2>
       <p>
-        The most significant thing about an oral GLP-1 is not the mechanism. It is the barrier.
-        Millions of people who would never self-inject will take a pill. Once elecoglipron clears
-        Phase 3 trials, access will expand to a far larger population than current injectable drugs
-        have reached. That is not inherently a problem. A drug that reduces appetite and creates
-        space for change can be a genuine jumpstart. The problem is what most people do not build
-        while the drug is doing the heavy lifting.
+        Oral semaglutide (25 mg daily) mimics a hormone called glucagon-like peptide-1. This hormone tells your brain you feel full and slows how fast your stomach empties. The result is lower appetite, smaller portions, and sustained weight loss over months. In the OASIS 4 trial, 307 adults with obesity or overweight took oral semaglutide 25 mg daily for 64 weeks alongside lifestyle intervention. One third of adherent participants achieved at least 20% weight loss. Those who stayed on the medication saw a mean weight loss of 16.6% compared with 2.7% for placebo.
+      </p>
+      <p>
+        The most common side effects were gastrointestinal: nausea, vomiting, and diarrhoea. Gastrointestinal side effects occurred in 74% of people taking oral semaglutide versus 42% on placebo. For many people, the pill's convenience means no refrigeration, no injections, and a single daily dose, which makes it more tolerable than the injectable form.
       </p>
 
-      <h2>What Is Actually Happening Inside Your Body</h2>
+      {/* STAGE 3: PATTERN */}
+      <h2>The Weight Regain Pattern After Stopping</h2>
       <p>
-        GLP-1 receptor agonists work by mimicking a gut hormone that signals fullness to the brain.
-        You feel less hungry. Food becomes less interesting. Portions shrink without much effort.
-        That reduction in appetite makes the first months of treatment feel almost effortless, which
-        is exactly why the data over a longer horizon is so jarring.
+        The OASIS 4 trial included a 7-week off-treatment follow-up period. After stopping oral semaglutide, the same physiological pattern emerges that occurs with any GLP-1 drug: normal food cravings return as the medication leaves your system, and without the appetite-suppressing effect, weight regain accelerates.
       </p>
       <p>
-        While you are losing weight on a GLP-1 medication, approximately 30.8% of what you lose is
-        lean mass rather than fat (Beavers et al., 2024). That is nearly one third of every pound
-        gone coming from muscle. Muscle is what drives your resting metabolism. Less muscle means
-        fewer calories burned at rest, and that matters enormously once the drug is no longer
-        suppressing your appetite.
+        A meta-analysis of GLP-1 discontinuation studies found that patients on semaglutide regained a mean of 5.15 kg (11.4 pounds) after stopping. More broadly, research shows that people discontinuing semaglutide or tirzepatide regain approximately two thirds of their lost weight within one year. The rate of regain averages 0.8 kg (1.8 pounds) per month, with return to baseline weight projected to occur within approximately 1.5 years.
       </p>
       <p>
-        There is also the movement problem. A study presented at ENDO 2026 analyzed Fitbit data
-        from 753 adults with obesity who had started a GLP-1 medication. Daily step counts dropped
-        from an average of 5,047 before treatment to 4,487 after, a decline of 560 steps per day.
-        Moderate to vigorous physical activity fell from 27.9 to 22.2 minutes per day (Maharjan,
-        2026). The drug reduces appetite and, it appears, the biological drive to move as well.
-      </p>
-      <p>
-        Less muscle. Less movement. A metabolism that has quietly downshifted. This is the physical
-        reality you are left with when you stop the medication.
+        This regain pattern is consistent across both injectable and oral forms. The pill's convenience does not change the underlying physiology: your body's appetite control mechanisms are suppressed by the drug, and when the drug stops, those mechanisms resume their pre-treatment state.
       </p>
 
-      <h2>What the Data Says About Stopping</h2>
+      {/* STAGE 4: CONSEQUENCE */}
+      <h2>The Permanence Problem</h2>
       <p>
-        A 2026 systematic review and meta-regression published in <em>eClinicalMedicine</em> tracked
-        the trajectory of weight regain after GLP-1 receptor agonist cessation across multiple
-        trials. At one year after stopping, 60% of the weight lost during treatment had returned.
-        The estimated eventual plateau was 75.3% of all weight lost (Budini et al., 2026).
+        Here is the critical distinction between weight loss and weight permanence. The OASIS 4 trial lasted 64 weeks. But weight regain begins within weeks of stopping. Research shows that people regain weight approximately four times faster after stopping GLP-1 drugs than they would after stopping a conventional diet. For someone who spent 16 weeks losing weight with oral semaglutide, they can expect to regain most of that weight within 12 months of stopping.
       </p>
       <p>
-        Three quarters of the weight comes back. Not because the drug failed while you were on it.
-        Because the conditions that produced the weight gain in the first place were never addressed.
+        This presents a permanent treatment problem, not a temporary one. Unlike a diet, which you complete and then maintain through behaviour change, oral semaglutide requires indefinite use to sustain weight loss. Half of patients discontinue GLP-1 treatment within 12 months due to cost, side effects, loss of lean muscle mass, or the ongoing demands of daily dosing. 70% stop within two years.
       </p>
       <p>
-        It is also worth noting what happens to people who stop and try to restart. A study presented
-        at ENDO 2026 found that the majority of people who discontinue GLP-1 medications eventually
-        return to treatment, driven by weight regain and metabolic worsening. The drug becomes the
-        plan. That is a dependency, not a solution.
+        The pill does not solve this. It simply removes the needle. The consequence remains: the drug works only while you take it. The moment you stop, your body reverts to the biological state it was in before you started. True permanence requires building the behaviour, the identity, and the food environment that works without the drug.
       </p>
 
-      <h2>Medication Dependency Is a Weight Limitation</h2>
+      {/* STAGE 5: INTEGRATION */}
+      <h2>What Permanence Actually Requires</h2>
       <p>
-        Here is the point most people avoid saying out loud: if you need to take a pill every day
-        for the rest of your life to keep your weight down, your weight is still limiting your
-        life. The limitation just looks different. Instead of the scale controlling what you
-        can do, your pharmacy does.
-      </p>
-      <p>
-        The whole premise of building a life not limited by your weight is that food, body size,
-        and the daily anxiety around both stop being the organizing force of your decisions.
-        Permanent medication dependency does not accomplish that. It replaces one form of
-        limitation with another. You are not free from your weight. You are tethered to a
-        drug that manages it for you. The moment that drug becomes unavailable, unaffordable,
-        or medically contraindicated, the limitation snaps back — often harder than before
-        because of the muscle loss and metabolic slowdown that accumulated during treatment.
-      </p>
-      <p>
-        This is not an argument against using GLP-1 medications. It is an argument against
-        using them as a permanent ceiling instead of a temporary scaffold. The goal is a body
-        and a set of habits that work without the drug. That goal requires building something
-        the drug cannot build for you.
+        Oral semaglutide is a tool for weight loss. It is not a tool for weight permanence. Understanding the difference is the starting point for making a choice that aligns with your actual goal. If your goal is to lose weight temporarily while on medication, the pill works. If your goal is to lose weight and keep it off after you stop, the pill alone will not achieve that — you will need to build the skills that work without it. That is what{" "}
+        <a href="/awareness-stages" className="text-accent hover:underline">Weight Permanence Training</a>{" "}
+        is designed to do.
       </p>
 
-      <h2>The Friction the Pill Does Not Remove</h2>
-      <p>
-        This is where <a href="/awareness-stages">the 5 Awareness Stages</a> in Weight Permanence
-        Training™ become directly relevant. <a href="/blog/friction-awareness">Friction Awareness</a>{" "}
-        is Stage 2, and it maps the specific friction points that keep people stuck regardless of
-        what the scale is doing. These include the environments you eat in, the emotional triggers
-        that send you to the kitchen, the social dynamics around food, and the situational patterns
-        you have been running on autopilot for years.
-      </p>
-      <p>
-        A pill that suppresses appetite removes one friction: biological hunger. It does not remove
-        the friction of eating because you are bored, or anxious, or celebrating, or sitting in the
-        same chair at the same time of day with the same food you have always eaten in that context.
-        Those patterns run on a completely separate circuit. They do not wait for appetite.
-      </p>
-      <p>
-        If you spend a year on elecoglipron without mapping your frictions and practising different
-        responses to them, you will finish that year smaller but no more equipped than you were on
-        Day 1. The <a href="/weight-permanence-triangle">Weight Permanence Triangle</a> explains why
-        awareness, action practice, and identity all need to develop together. Appetite suppression
-        addresses one input. Without the other two, the system resets.
-      </p>
-
-      <h2>The Identity Problem No Drug Can Solve</h2>
-      <p>
-        <a href="/blog/identity-awareness">Identity Awareness</a> is Stage 5 of Weight Permanence
-        Training™. The central question is not whether you can lose weight. It is who you become
-        in the process.
-      </p>
-      <p>
-        GLP-1 medications work outside you. They manage a hormone signal. They do not change the
-        person who reaches for food at 10 p.m., or eats past fullness at every social gathering, or
-        has used food as the primary way to manage stress for the past two decades. When the pill
-        stops, that person is still there. The regain data tells you what happens next.
-      </p>
-      <p>
-        This is not an argument against oral GLP-1 medications. Used with intention, a drug that
-        creates a window of reduced appetite can be a real tool. Oscar lost over 80 pounds three
-        separate times and regained it each time before building the identity work that made the
-        difference. The drug can give you the window. It cannot do the work that goes inside it.
-      </p>
-      <p>
-        The people who keep the weight off after stopping elecoglipron will be the ones who used
-        the appetite suppression to practise eating differently, to build new patterns around food
-        and movement, and to begin identifying as someone who does not need the drug to make those
-        choices. That identity shift does not happen automatically. It requires deliberate work on
-        the layers of behaviour and self-concept that no pill reaches.
-      </p>
-
-      <h2>What This Means for You</h2>
-      <p>
-        If you are considering an oral GLP-1 when elecoglipron becomes widely available, the drug
-        may be worth using as a jumpstart. But treat it as a tool with a timer, not a standalone
-        solution. Use the appetite suppression to make changes you would not otherwise have the
-        bandwidth to make. Map your frictions. Build new patterns around food and movement.
-        Start building the identity of someone who eats this way because of who they are, not
-        because a drug is managing their hunger signal.
-      </p>
-      <p>
-        The pill is coming. The identity work has always been your responsibility. And the goal
-        is not just to weigh less — it is to live without your weight, or any drug managing it,
-        holding you back.
-      </p>
-
+      {/* FAQ */}
       <section aria-label="Frequently Asked Questions">
-        <h3>What is elecoglipron and how does it differ from Ozempic or Wegovy?</h3>
+        <h3>Is the oral semaglutide pill more effective than the injection?</h3>
         <p>
-          Elecoglipron is an oral GLP-1 receptor agonist developed by AstraZeneca, taken as a
-          single daily pill rather than a weekly injection. Phase 2 trial data presented at the
-          ADA 2026 Scientific Sessions showed an average weight loss of 10.5% over 36 weeks in
-          adults with obesity, with 72% of participants achieving at least a 5% reduction (Davies
-          et al., 2026). It has not yet completed Phase 3 trials and is not approved for commercial
-          use. The mechanism is the same as injectable GLP-1 drugs. What changes is the delivery
-          method, not the underlying biology or the behavioural challenges that follow stopping.
+          Both the oral and injectable forms of semaglutide use the same active ingredient. The OASIS 4 trial showed a mean weight loss of 13.6% with the oral form at 64 weeks. The injectable form (Wegovy 2.4 mg) showed similar efficacy in previous trials. The key difference is convenience: the pill requires no refrigeration, no injections, and no weekly scheduling. However, this convenience does not change the underlying physiology. Both forms suppress appetite while you take them. Both forms result in rapid weight regain when you stop.
         </p>
 
-        <h3>What happens to your body when you stop taking a GLP-1 weight loss drug?</h3>
+        <h3>How much weight will I regain if I stop taking oral semaglutide?</h3>
         <p>
-          When you stop a GLP-1 medication, appetite typically returns to levels from before
-          treatment within weeks. A 2026 systematic review found that 60% of weight lost during
-          treatment was regained within one year of stopping, with an estimated eventual plateau
-          of 75.3% of all weight lost (Budini et al., 2026). The situation is compounded by the
-          fact that approximately 30.8% of weight lost on GLP-1 therapy comes from lean mass
-          rather than fat (Beavers et al., 2024). That combination of reduced muscle and returning
-          hunger is what drives rapid regain in most people who stop without having built new
-          behavioural patterns during treatment.
+          Research shows that people discontinuing semaglutide regain approximately two thirds of their lost weight within one year. The average rate of regain is 0.8 kg (1.8 pounds) per month. A person who lost 20 kg on oral semaglutide can expect to regain approximately 13 to 14 kg within 12 months of stopping. Weight trajectories stabilize after 12 months, with only small variations thereafter. The majority of people return to their baseline weight within 1.5 to 2 years after discontinuation.
         </p>
 
-        <h3>
-          Can you keep the weight off after stopping a GLP-1 medication? What does Weight
-          Permanence Training say?
-        </h3>
+        <h3>Can I maintain weight loss after stopping oral semaglutide without additional treatment?</h3>
         <p>
-          The data says most people do not, without deliberate behavioural work done during
-          treatment. Weight Permanence Training™ addresses this directly through two of{" "}
-          <a href="/awareness-stages">the 5 Awareness Stages</a>. Friction Awareness, Stage 2,
-          helps you identify and change the specific patterns, environments, and triggers that
-          drive your eating — patterns a pill cannot touch. Identity Awareness, Stage 5, asks
-          the harder question: who are you when the drug is gone? If the answer is the same
-          person who gained the weight originally, regain is not a failure of willpower. It is
-          a predictable outcome. The goal is to reach a point where you do not need the drug —
-          not because you are white-knuckling it, but because your identity, habits, and
-          environment no longer require it. That is what a life not limited by your weight
-          actually looks like.
+          This depends on whether you have built the behaviours and food environment that support weight maintenance without the drug. Oral semaglutide works by suppressing appetite and slowing gastric emptying. When you stop, these physiological effects disappear, and your body reverts to its pre-treatment hunger and satiety patterns. Some people maintain partial weight loss after stopping by adopting low-starch, low-sugar eating patterns that naturally lower insulin and reduce appetite. This is where{" "}
+          <a href="/awareness-stages" className="text-accent hover:underline">the 5 Awareness Stages</a>{" "}
+          become relevant: the pill creates the window for weight loss, but permanent maintenance requires the psychological and behavioural skills that work without medication.
         </p>
       </section>
 
+      {/* REFERENCES */}
       <h2>References</h2>
       <p>
-        Beavers, K. M., et al. (2024). Effect of glucagon-like peptide-1 receptor agonists and
-        co-agonists on body composition: Systematic review and network meta-analysis.{" "}
-        <em>Obesity</em>. https://doi.org/10.1002/oby.24172
+        Novo Nordisk. (2025, December 22). FDA approves Novo Nordisk's Wegovy pill, the first and only oral GLP-1 for weight loss in adults. https://prnewswire.com/news-releases/fda-approves-novo-nordisks-wegovy-pill-the-first-and-only-oral-glp-1-for-weight-loss-in-adults-302648344.html
       </p>
       <p>
-        Budini, B., et al. (2026). Trajectory of weight regain after cessation of GLP-1 receptor
-        agonists: A systematic review and nonlinear meta-regression.{" "}
-        <em>eClinicalMedicine</em>. https://doi.org/10.1016/j.eclinm.2026.103796
-      </p>
-      <p>
-        Davies, M. J., Aroda, V. R., Rosenstock, J., Capehorn, M., Pedersen, S. D., Morizzo, E.,
-        Malhotra, S., Johansson, P. A., Grice, D., Andersson, A., Rizi, E. P., &amp; Sjöström, C. D.
-        (2026). Elecoglipron, an oral small molecule GLP-1 receptor agonist in adults with obesity
-        or overweight (VISTA): A multicentre, phase 2, randomised, placebo-controlled clinical
-        trial. <em>The Lancet</em>. https://doi.org/10.1016/s0140-6736(26)00748-8
-      </p>
-      <p>
-        Maharjan, S. (2026, June).{" "}
-        <em>Exercise decreases among people taking GLP-1 medication</em> [Conference
-        presentation]. ENDO 2026, Annual Meeting of the Endocrine Society.
-        https://www.endocrine.org/news-and-advocacy/news-room/2026/maharjan-press-release-endo-2026
+        Wharton, S., Lingvay, I., Bogdanski, P., et al. (2025). Oral semaglutide 25 mg in adults with overweight or obesity and weight-related comorbidities. <em>OASIS 4 Phase 3 Trial</em>.
       </p>
     </>
   );
