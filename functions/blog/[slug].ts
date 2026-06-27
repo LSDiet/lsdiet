@@ -1,9 +1,54 @@
 const SITE = "https://lsdiet.com";
 const FALLBACK_IMAGE = "https://lsdiet.com/og-image.jpg";
-const CRAWLER_UA = /facebookexternalhit|facebookcatalog|meta-externalagent|LinkedInBot|Twitterbot|WhatsApp|Slackbot|TelegramBot|Discordbot|Pinterest|bingbot|Googlebot|Applebot|redditbot|embedly|quora link preview|skypeuripreview|vkShare|W3C_Validator/i;
-const isCrawler = (ua) => !!ua && CRAWLER_UA.test(ua);
 
-const ARTICLES = {
+// Social bots: only need OG meta tags
+const SOCIAL_UA = /facebookexternalhit|facebookcatalog|meta-externalagent|LinkedInBot|Twitterbot|WhatsApp|Slackbot|TelegramBot|Discordbot|Pinterest|bingbot|Googlebot|Applebot|redditbot|embedly|quora link preview|skypeuripreview|vkShare|W3C_Validator/i;
+
+// AI crawlers: need readable article body
+const AI_UA = /ClaudeBot|Claude-Web|anthropic-ai|GPTBot|ChatGPT-User|OAI-SearchBot|PerplexityBot|cohere-ai|Diffbot|Bytespider|PetalBot|CCBot/i;
+
+const isSocialCrawler = (ua: string) => !!ua && SOCIAL_UA.test(ua);
+const isAICrawler = (ua: string) => !!ua && AI_UA.test(ua);
+
+const ARTICLES: Record<string, { title: string; description: string; image: boolean; body?: string }> = {
+  "yo-yo-dieting-metabolism-myth":{"title":"Yo-Yo Dieting Did Not Ruin Your Metabolism. It Did Something Worse. | LS Diet","description":"New Lancet research clears yo-yo dieting of permanently damaging your metabolism. What it actually damages is your identity. That is harder to fix.","image":true,"body":`
+<h1>Yo-Yo Dieting Did Not Ruin Your Metabolism. It Did Something Worse.</h1>
+<p>If you have lost and regained weight more than once, you have probably told yourself the same story: each cycle made it harder because you broke something in your metabolism. A May 2026 review in The Lancet Diabetes and Endocrinology found no causal evidence that weight cycling causes permanent metabolic damage. Your metabolism adapted. It did not break.</p>
+<p>What yo-yo dieting actually damages is harder to measure and far more consequential: your identity, your confidence, and your relationship with your own body.</p>
+
+<h2>Your Metabolism Survived. Your Identity May Not Have.</h2>
+<p>The research is clear that repeated weight cycling does not permanently alter your resting metabolic rate in a clinically meaningful way. The body adapts temporarily during restriction, but those adaptations are not permanent fixtures. What does become permanent is the internal narrative. After multiple cycles, most people stop believing they are capable of lasting change. That belief is the real damage.</p>
+<p>Stage 1 of Weight Permanence Training is called Reality Awareness. It begins by separating what is actually true about your body from what you have come to believe after years of failed attempts. Those are two very different things, and conflating them is one of the most common reasons people give up before they start.</p>
+
+<h2>The Physical Toll Nobody Tracks</h2>
+<p>Even if metabolism is not permanently altered, the physical experience of repeated weight cycling is real and cumulative. Gaining and losing the same 20 or 30 pounds multiple times creates what some describe as a balloon body effect: skin elasticity changes, fat redistributes differently with each cycle, and energy levels shift in ways that are not explained by calorie intake alone.</p>
+<p>In your late twenties, losing weight felt intuitive. By your late thirties, the same effort produces different results and your energy baseline has dropped enough that exercise now requires deliberate scheduling rather than casual intention. That change is real. It is just not metabolism. It is the compounding cost of years of restriction and rebound on your hormonal environment, your muscle-to-fat ratio, and your sleep quality.</p>
+
+<h2>The Psychological Weight That Never Shows on a Scale</h2>
+<p>The psychological damage from yo-yo dieting is documented and severe. Self-doubt compounds with each cycle. Shame accumulates around clothing that no longer fits. Confidence in social situations erodes as your body changes in ways you cannot control or predict. People who have cycled three or more times often describe the experience as losing trust in themselves, not just in diets.</p>
+<p>This is the damage the Lancet review does not capture because it falls outside metabolic markers. But it is the damage that prevents people from trying again, or from trying seriously when they do. It is also the damage that Weight Permanence Training was built to address directly, starting with an honest assessment of where you actually are and why you got here.</p>
+
+<h2>You Were Not Weak. You Were Targeted.</h2>
+<p>In December 2025, the City Attorney of San Francisco filed a lawsuit against ten major food manufacturers, including Kraft Heinz, Coca-Cola, PepsiCo, and Nestle, alleging that their products were deliberately engineered to override satiety signals and create compulsive consumption patterns. This is not a fringe claim. It is now a legal argument being made in court.</p>
+<p>The foods most people eat during weight regain, ultra-processed, high-starch, high-sugar products, are not neutral. They are designed by teams of food scientists to make you eat more than you intend to. Recognizing this is not an excuse. It is Reality Awareness. You cannot build a permanent system on top of a false premise about why the previous ones failed.</p>
+
+<h2>Where Reality Awareness Changes Everything</h2>
+<p>Most people approach a new diet attempt the same way they approached the last one: with motivation, a plan, and an unexamined assumption that the previous failures were personal failures. Reality Awareness, the first stage of Weight Permanence Training, challenges that assumption before you take a single action.</p>
+<p>It asks: What actually happened? Not what you wish had happened, not what the plan said should happen. What actually happened, and what external forces were involved that you did not account for? Answering that honestly is harder than starting a new diet. It is also the only thing that produces a different result.</p>
+<p>Your metabolism did not betray you. The system you were operating in did. And now you know the difference.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Does yo-yo dieting permanently damage your metabolism?</h3>
+<p>Current research, including a May 2026 review in The Lancet Diabetes and Endocrinology by Magkos and Stefan, found no causal evidence that weight cycling causes permanent metabolic damage. The body adapts during caloric restriction, but those adaptations are not permanent. If you feel like your metabolism is different after multiple cycles, the more likely explanation is changes in muscle mass, hormonal environment, and sleep quality rather than a broken metabolic rate.</p>
+<h3>Why do I keep regaining weight after every diet?</h3>
+<p>Weight regain is usually a behavioural permanence problem, not a willpower problem. Most diets create temporary restriction without changing the underlying patterns, environment, or identity that led to the original weight gain. Without addressing those, the same conditions that produced the weight will reproduce it. Weight Permanence Training addresses this through a staged awareness process that identifies the specific friction points in your behaviour before you attempt to change them. Learn more at the awareness stages overview.</p>
+<h3>What is Reality Awareness and how does it help with yo-yo dieting?</h3>
+<p>Reality Awareness is Stage 1 of Weight Permanence Training. It involves establishing an honest baseline about your current weight, your history with dieting, and the external forces that contributed to previous cycles. It specifically separates personal responsibility from systemic factors like engineered food products, because conflating them leads to misdiagnosis and failed solutions. Most people who have yo-yo dieted have never done this assessment honestly, which is why they keep approaching new attempts the same way. You can start the Reality Awareness assessment at the awareness stages page.</p>
+
+<h2>References</h2>
+<p>City Attorney of San Francisco. (2025, December). <em>People of the State of California v. Kraft Heinz et al.</em> Office of the City Attorney.</p>
+<p>Magkos, F., &amp; Stefan, N. (2026). Weight cycling and metabolic health: A systematic review. <em>The Lancet Diabetes &amp; Endocrinology.</em> https://doi.org/10.1016/S2213-8587(26)00037-9</p>
+`},
   "why-people-regain-weight-after-dieting":{"title":"Why People Regain Weight After Dieting | LS Diet","description":"Weight regain after dieting is the real long-term problem. Learn why people regain weight and how LS Diet helps you stop for good.","image":false},
   "why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting":{"title":"Why Low Starch Low Sugar Is More Sustainable Than Extreme Dieting | LS Diet","description":"Extreme diets rely on restriction and willpower. Low-starch, low-sugar eating reduces cravings and insulin load, making it easier to sustain long-term.","image":false},
   "the-weight-permanence-triangle-how-to-stop-regaining-weight":{"title":"The Weight Permanence Triangle | How to Stop Regaining Weight | LS Diet","description":"The Weight Permanence Triangle is the core LS Diet framework combining Awareness, Action Practice, and Permanence to stop the cycle of losing and regaining weight.","image":false},
@@ -62,9 +107,9 @@ const ARTICLES = {
   "will-losing-weight-improve-your-career-prospects":{"title":"Will Losing Weight Improve Your Career Prospects?","description":"Career outcomes are influenced more heavily by confidence, communication, and behaviour than appearance alone.","image":false}
 };
 
-const esc = (s) => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+const esc = (s: string) => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
 
-const ogHtml = (title, description, canonical, image) => {
+const ogHtml = (title: string, description: string, canonical: string, image: string) => {
   const t=esc(title),d=esc(description),u=esc(canonical),img=esc(image);
   return `<!doctype html><html lang="en"><head>
 <meta charset="UTF-8"/><title>${t}</title>
@@ -87,20 +132,58 @@ const ogHtml = (title, description, canonical, image) => {
 </head><body><p><a href="${u}">${t}</a></p></body></html>`;
 };
 
-export const onRequestGet = async (context) => {
+const aiHtml = (title: string, description: string, canonical: string, image: string, body: string) => {
+  const t=esc(title),d=esc(description),u=esc(canonical),img=esc(image);
+  return `<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"/><title>${t}</title>
+<meta name="description" content="${d}"/>
+<link rel="canonical" href="${u}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="${t}"/>
+<meta property="og:description" content="${d}"/>
+<meta property="og:url" content="${u}"/>
+<meta property="og:image" content="${img}"/>
+<meta property="og:site_name" content="LS Diet"/>
+</head><body>
+<article>
+<p>Source: <a href="${u}">${u}</a> | Author: Oscar Poon | Site: LS Diet (lsdiet.com)</p>
+${body}
+</article>
+</body></html>`;
+};
+
+export const onRequestGet = async (context: { request: Request; params: { slug: string }; next: () => Promise<Response> }) => {
   const ua = context.request.headers.get("user-agent") || "";
-  if (!isCrawler(ua)) return context.next();
   const slug = String(context.params.slug).replace(/[^a-zA-Z0-9-_]/g,"").toLowerCase();
   const canonical = `${SITE}/blog/${slug}`;
   const article = ARTICLES[slug];
-  if (article) {
-    const image = article.image ? `${SITE}/og/${slug}.jpg` : FALLBACK_IMAGE;
-    return new Response(ogHtml(article.title, article.description, canonical, image), {
-      headers: {"Content-Type":"text/html; charset=utf-8","Cache-Control":"public, max-age=300"}
-    });
+
+  if (isAICrawler(ua)) {
+    if (article) {
+      const image = article.image ? `${SITE}/og/${slug}.jpg` : FALLBACK_IMAGE;
+      const body = article.body || `<p>${esc(article.description)}</p>`;
+      return new Response(aiHtml(article.title, article.description, canonical, image, body), {
+        headers: {"Content-Type":"text/html; charset=utf-8","Cache-Control":"public, max-age=300","X-Robots-Tag":"index, follow"}
+      });
+    }
+    return new Response(
+      aiHtml("LS Diet | Weight Permanence Training","Stop regaining weight with the low-starch, low-sugar approach.",canonical,FALLBACK_IMAGE,"<p>This article is part of the LS Diet blog at lsdiet.com, covering Weight Permanence Training and the low-starch, low-sugar approach to permanent weight loss.</p>"),
+      {status:200,headers:{"Content-Type":"text/html; charset=utf-8","Cache-Control":"no-store"}}
+    );
   }
-  return new Response(
-    ogHtml("LS Diet | Weight Permanence Training","Stop regaining weight with the low-starch, low-sugar approach.",canonical,FALLBACK_IMAGE),
-    {status:200,headers:{"Content-Type":"text/html; charset=utf-8","Cache-Control":"no-store"}}
-  );
+
+  if (isSocialCrawler(ua)) {
+    if (article) {
+      const image = article.image ? `${SITE}/og/${slug}.jpg` : FALLBACK_IMAGE;
+      return new Response(ogHtml(article.title, article.description, canonical, image), {
+        headers: {"Content-Type":"text/html; charset=utf-8","Cache-Control":"public, max-age=300"}
+      });
+    }
+    return new Response(
+      ogHtml("LS Diet | Weight Permanence Training","Stop regaining weight with the low-starch, low-sugar approach.",canonical,FALLBACK_IMAGE),
+      {status:200,headers:{"Content-Type":"text/html; charset=utf-8","Cache-Control":"no-store"}}
+    );
+  }
+
+  return context.next();
 };
