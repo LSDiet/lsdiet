@@ -1,6 +1,7 @@
 // Foundation pillar — code-managed (NOT Contentful).
 // canonicalTopic: stop-weight-regain
 import featuredImage from "@/assets/foundation-why-people-regain-weight.png";
+import weightRegainChart from "@/assets/foundation-weight-regain-chart.webp";
 import obviousSugarImg from "@/assets/foundation-obvious-sugar.png";
 import starchHiddenImg from "@/assets/foundation-starch-hidden-problem.png";
 import dietsComparisonImg from "@/assets/foundation-diets-comparison.png";
@@ -101,52 +102,11 @@ function Body() {
         the diet you chose.
       </p>
 
-      {/* Infographic: 5-year weight regain data */}
-      <div className="my-8 -mx-4 md:mx-0">
-        <svg
-          viewBox="0 0 640 400"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full md:rounded-xl"
-          role="img"
-          aria-label="Chart showing weight regain after dieting: approximately 50% of people regain all lost weight within 5 years"
-        >
-          <rect width="640" height="400" fill="#18181b" rx="12" />
-          <text x="48" y="52" fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="600" fill="#a1a1aa" letterSpacing="2">WHAT HAPPENS AFTER DIETING</text>
-          <text x="48" y="118" fontFamily="system-ui, sans-serif" fontSize="80" fontWeight="800" fill="hsl(38,90%,50%)">50%</text>
-          <text x="48" y="148" fontFamily="system-ui, sans-serif" fontSize="16" fill="#e4e4e7">of people who diet regain</text>
-          <text x="48" y="170" fontFamily="system-ui, sans-serif" fontSize="16" fill="#e4e4e7">
-            <tspan fontWeight="700" fill="#ffffff">all lost weight within 5 years</tspan>
-          </text>
-          <text x="48" y="192" fontFamily="system-ui, sans-serif" fontSize="12" fill="#71717a">Peer-reviewed clinical meta-analysis data</text>
-          <line x1="48" y1="210" x2="592" y2="210" stroke="#3f3f46" strokeWidth="1" />
-          <text x="48" y="240" fontFamily="system-ui, sans-serif" fontSize="11" fill="#71717a">% who regained all lost weight</text>
-          <rect x="80"  y={370 - 108} width="60" height="108" fill="#3f3f46" rx="4" />
-          <rect x="80"  y={370 - 108} width="60" height="108" fill="hsl(38,90%,50%)" fillOpacity="0.25" rx="4" />
-          <text x="110" y={370 - 114} fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="hsl(38,90%,50%)" textAnchor="middle">18%</text>
-          <text x="110" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fill="#a1a1aa" textAnchor="middle">Year 1</text>
-          <rect x="180" y={370 - 180} width="60" height="180" fill="#3f3f46" rx="4" />
-          <rect x="180" y={370 - 180} width="60" height="180" fill="hsl(38,90%,50%)" fillOpacity="0.35" rx="4" />
-          <text x="210" y={370 - 186} fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="hsl(38,90%,50%)" textAnchor="middle">30%</text>
-          <text x="210" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fill="#a1a1aa" textAnchor="middle">Year 2</text>
-          <rect x="280" y={370 - 228} width="60" height="228" fill="#3f3f46" rx="4" />
-          <rect x="280" y={370 - 228} width="60" height="228" fill="hsl(38,90%,50%)" fillOpacity="0.50" rx="4" />
-          <text x="310" y={370 - 234} fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="hsl(38,90%,50%)" textAnchor="middle">38%</text>
-          <text x="310" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fill="#a1a1aa" textAnchor="middle">Year 3</text>
-          <rect x="380" y={370 - 270} width="60" height="270" fill="#3f3f46" rx="4" />
-          <rect x="380" y={370 - 270} width="60" height="270" fill="hsl(38,90%,50%)" fillOpacity="0.65" rx="4" />
-          <text x="410" y={370 - 276} fontFamily="system-ui, sans-serif" fontSize="13" fontWeight="700" fill="hsl(38,90%,50%)" textAnchor="middle">45%</text>
-          <text x="410" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fill="#a1a1aa" textAnchor="middle">Year 4</text>
-          <rect x="480" y={370 - 300} width="60" height="300" fill="hsl(38,90%,50%)" rx="4" />
-          <text x="510" y={370 - 308} fontFamily="system-ui, sans-serif" fontSize="15" fontWeight="800" fill="hsl(38,90%,50%)" textAnchor="middle">50%</text>
-          <text x="510" y="388" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="700" fill="#ffffff" textAnchor="middle">Year 5</text>
-          <line x1="64" y1="370" x2="576" y2="370" stroke="#52525b" strokeWidth="1" />
-          <text x="48" y="400" fontFamily="system-ui, sans-serif" fontSize="11" fill="#52525b">lsdiet.com</text>
-          <text x="592" y="400" fontFamily="system-ui, sans-serif" fontSize="11" fill="#52525b" textAnchor="end">Source: Anderson et al. (2001), Am J Clin Nutr</text>
-        </svg>
-        <p className="mt-2 px-4 md:px-0 text-sm text-zinc-600 italic text-center">
-          Half of all dieters regain all lost weight within 5 years. The problem is not the diet. It is what happens after.
-        </p>
-      </div>
+      <Figure
+        src={weightRegainChart}
+        alt="Bar chart: 50% of people who diet regain all lost weight within 5 years — 18% by year 1, 30% year 2, 38% year 3, 45% year 4, 50% year 5. Source: Anderson et al. (2001), Am J Clin Nutr"
+        caption="Half of all dieters regain all lost weight within 5 years. The problem is not the diet. It is what happens after."
+      />
 
       <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mt-8 md:mt-12 mb-4 text-zinc-900">
         Why You Keep Regaining Weight (And It Is Not What You Think)
