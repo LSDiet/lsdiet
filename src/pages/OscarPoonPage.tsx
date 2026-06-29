@@ -41,11 +41,16 @@ const PERSON_LD = {
     name: "Weight Permanence Training",
     url: "https://lsdiet.com/awareness-stages",
   },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Simon Fraser University",
+    sameAs: "https://en.wikipedia.org/wiki/Simon_Fraser_University",
+  },
   sameAs: [
     "https://www.youtube.com/@JoinLSDiet",
     "https://www.instagram.com/JoinLSDiet",
     "https://www.tiktok.com/@JoinLSDiet",
-    "https://www.linkedin.com/in/poonoscar/",
+    "https://www.linkedin.com/in/oscarpoon",
   ],
 };
 

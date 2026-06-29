@@ -172,8 +172,8 @@ function Body() {
       </p>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>fat burning is suppressed</li>
-        <li>hunger tends to increase</li>
-        <li>cravings tend to increase</li>
+        <li>hunger increases</li>
+        <li>cravings increase</li>
         <li>energy becomes unstable</li>
       </ul>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">

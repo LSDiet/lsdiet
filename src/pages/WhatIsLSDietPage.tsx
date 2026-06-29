@@ -30,10 +30,11 @@ export default function WhatIsLSDietPage() {
           headline: "What Is LS Diet?",
           description: "LS Diet is low-starch, low-sugar eating that keeps insulin low enough for your body to burn fat. Learn the mechanism, the foods, and how it differs from keto.",
           about: [
-            { "@type": "Thing", name: "Low-starch low-sugar diet" },
-            { "@type": "Thing", name: "Insulin and fat burning" },
-            { "@type": "Thing", name: "Weight loss eating approach" },
-            { "@type": "Thing", name: "Weight Permanence Training" },
+            { "@type": "Thing", name: "Low-Carbohydrate Diet", sameAs: "https://en.wikipedia.org/wiki/Low-carbohydrate_diet" },
+            { "@type": "Thing", name: "Insulin", sameAs: "https://en.wikipedia.org/wiki/Insulin" },
+            { "@type": "Thing", name: "Insulin Resistance", sameAs: "https://en.wikipedia.org/wiki/Insulin_resistance" },
+            { "@type": "Thing", name: "Dieting", sameAs: "https://en.wikipedia.org/wiki/Dieting" },
+            { "@type": "Thing", name: "Weight Permanence Training", url: "https://lsdiet.com/weight-permanence-triangle" },
           ],
           datePublished: PUBLISHED,
           dateModified: UPDATED,
@@ -136,6 +137,58 @@ export default function WhatIsLSDietPage() {
           <p>
             Keto (No Carb) and LS Diet work on the same mechanism: lower insulin by reducing carbohydrates. The difference is how far they go and who can actually sustain them.
           </p>
+
+          <div className="overflow-x-auto my-6">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="bg-zinc-100 text-zinc-900 font-semibold text-left">
+                  <th className="px-4 py-3 border border-zinc-200"></th>
+                  <th className="px-4 py-3 border border-zinc-200 text-accent">LS Diet</th>
+                  <th className="px-4 py-3 border border-zinc-200">Keto</th>
+                  <th className="px-4 py-3 border border-zinc-200">Standard Diet</th>
+                </tr>
+              </thead>
+              <tbody className="text-zinc-700">
+                <tr>
+                  <td className="px-4 py-3 border border-zinc-200 font-medium text-zinc-900">Carb restriction</td>
+                  <td className="px-4 py-3 border border-zinc-200">Reduce starch + sugar</td>
+                  <td className="px-4 py-3 border border-zinc-200">Strict (&lt;20–50 g/day)</td>
+                  <td className="px-4 py-3 border border-zinc-200">None</td>
+                </tr>
+                <tr className="bg-zinc-50">
+                  <td className="px-4 py-3 border border-zinc-200 font-medium text-zinc-900">Fruit allowed</td>
+                  <td className="px-4 py-3 border border-zinc-200">Yes (low-sugar varieties)</td>
+                  <td className="px-4 py-3 border border-zinc-200">No</td>
+                  <td className="px-4 py-3 border border-zinc-200">Yes</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 border border-zinc-200 font-medium text-zinc-900">Grains allowed</td>
+                  <td className="px-4 py-3 border border-zinc-200">In controlled portions</td>
+                  <td className="px-4 py-3 border border-zinc-200">No</td>
+                  <td className="px-4 py-3 border border-zinc-200">Yes</td>
+                </tr>
+                <tr className="bg-zinc-50">
+                  <td className="px-4 py-3 border border-zinc-200 font-medium text-zinc-900">Mechanism</td>
+                  <td className="px-4 py-3 border border-zinc-200">Lowers insulin</td>
+                  <td className="px-4 py-3 border border-zinc-200">Ketosis</td>
+                  <td className="px-4 py-3 border border-zinc-200">No specific mechanism</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3 border border-zinc-200 font-medium text-zinc-900">Social flexibility</td>
+                  <td className="px-4 py-3 border border-zinc-200">High</td>
+                  <td className="px-4 py-3 border border-zinc-200">Low</td>
+                  <td className="px-4 py-3 border border-zinc-200">High</td>
+                </tr>
+                <tr className="bg-zinc-50">
+                  <td className="px-4 py-3 border border-zinc-200 font-medium text-zinc-900">Weight permanence focus</td>
+                  <td className="px-4 py-3 border border-zinc-200">Yes — WPT built in</td>
+                  <td className="px-4 py-3 border border-zinc-200">No</td>
+                  <td className="px-4 py-3 border border-zinc-200">No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <p>
             Keto eliminates fruit, most dairy, all grains, and most legumes. That works metabolically. But it also means that virtually every shared meal — a family dinner, a work lunch, a holiday gathering — requires a public explanation. For many people, especially those who grew up in food cultures where rice, noodles, or bread are the daily default, this creates a social identity conflict that eventually wins.
           </p>
