@@ -20,6 +20,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "why-you-regain-weight-after-stopping-ozempic",
       "youre-losing-muscle-not-just-fat-on-glp1-drugs",
       "oral-glp-1-pill-what-happens-when-you-stop",
+      "does-glp1-weight-loss-count",
     ],
   },
   {
