@@ -643,7 +643,7 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
 
         {article.meta.canonicalTopic !== "stop-weight-regain" && midSlot && createPortal(<MidArticleRelated items={midItems} />, midSlot)}
 
-        {article.meta.canonicalTopic !== "stop-weight-regain" && ctaSlots.map((s) => {
+        {ctaSlots.map((s) => {
           const copy = ctaCopyFor(ctaContext, s.placement);
           return createPortal(
             <LSDietCTA placement={s.placement} headline={copy.headline} body={copy.body} />,
