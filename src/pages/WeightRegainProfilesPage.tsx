@@ -69,15 +69,15 @@ export default function WeightRegainProfilesPage() {
               to={`/weight-regain-profile/${profile.slug}`}
               className="group rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-colors"
             >
-              <div className="aspect-[16/9] overflow-hidden">
+              <div className="overflow-hidden">
                 <img
                   src={profile.banner}
                   alt={profile.name}
-                  width={1200}
-                  height={675}
+                  width={1600}
+                  height={471}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="p-5">
