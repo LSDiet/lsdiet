@@ -80,6 +80,7 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
+      <P>Identity Awareness is Stage 5 of Weight Permanence Training™ — it builds PULL motivation by connecting permanent weight loss to the person you want to become, not just the number you want to see on a scale.</P>
       <Lead>You've been trying to change your behaviour. You should be trying to change who you are.</Lead>
       <P>
         Behaviour follows identity. What you do consistently is a reflection of how you see

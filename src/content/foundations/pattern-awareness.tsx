@@ -80,6 +80,7 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
+      <P>Pattern Awareness is Stage 3 of Weight Permanence Training™ — it maps the repeated behaviours, triggers, and environments that drive overeating, so you can interrupt cycles you cannot currently see.</P>
       <Lead>You keep doing the same things in the same situations. You just can't see them yet.</Lead>
       <P>
         Behaviour that repeats consistently is not random. It has a structure: a specific

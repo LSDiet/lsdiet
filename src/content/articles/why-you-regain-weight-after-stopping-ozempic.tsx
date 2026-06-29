@@ -21,10 +21,10 @@ function Body() {
     <>
       {/* STAGE 1: REALITY */}
       <p>
-        Semaglutide (Ozempic for diabetes, Wegovy for weight loss) has become one of the most prescribed GLP-1 medications in the world. Millions of people with type 2 diabetes use it to control blood sugar. Millions more use it for weight loss. Yet all of them face the same unavoidable question: what happens when I stop?
+        Most people who stop taking semaglutide (Ozempic or Wegovy) regain their weight rapidly — research shows approximately two-thirds of lost weight returns within one year of stopping the medication.
       </p>
       <p>
-        The answer is immediate and consistent across research: most people regain their weight rapidly.
+        Semaglutide has become one of the most prescribed GLP-1 medications in the world. Millions of people with type 2 diabetes use it to control blood sugar. Millions more use it for weight loss. Yet all of them face the same unavoidable question: what happens when I stop?
       </p>
 
       {/* STAGE 2: FRICTION */}

@@ -21,6 +21,9 @@ function Body() {
     <>
       {/* STAGE 1: REALITY */}
       <p>
+        Yo-yo dieting does not permanently damage your metabolism. A 2026 review in <em>The Lancet Diabetes &amp; Endocrinology</em> found no convincing causal evidence that weight cycling causes long-term metabolic harm in humans.
+      </p>
+      <p>
         For years, the conventional wisdom has been brutal: yo-yo dieting ruins your metabolism. Lose and regain weight enough times and you have permanently damaged your body's ability to burn fat. You are stuck, and it is your own fault.
       </p>
       <p>

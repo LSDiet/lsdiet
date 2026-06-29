@@ -80,6 +80,7 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
+      <P>Friction Awareness is Stage 2 of Weight Permanence Training™ — it identifies the specific tensions between your current behaviour and the future you want, so you can address them directly instead of blaming willpower.</P>
       <Lead>You know what you should do. Something keeps stopping you. This stage names it.</Lead>
       <P>
         Friction is the gap between your current behaviour and the life you actually want.

@@ -20,8 +20,27 @@ export function AboutAuthorBlock() {
             </a>
           </h3>
           <p className="text-sm text-zinc-700 leading-relaxed">
-            Founder of LS Diet and creator of the Weight Permanence Training™. Oscar has lost
-            80+ lbs three times — and built LS Diet from what those restarts taught him.{" "}
+            Founder of LS Diet and creator of the Weight Permanence Training™. Psychology
+            background from{" "}
+            <a
+              href="https://www.sfu.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              Simon Fraser University
+            </a>
+            . Oscar has lost 80+ lbs three times — and built LS Diet from what those restarts
+            taught him.{" "}
+            <a
+              href="https://www.linkedin.com/in/oscarpoon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline whitespace-nowrap"
+            >
+              LinkedIn
+            </a>{" "}
+            ·{" "}
             <a href="/oscar-poon" className="text-accent hover:underline whitespace-nowrap">
               Read his story →
             </a>

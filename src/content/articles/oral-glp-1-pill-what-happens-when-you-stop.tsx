@@ -24,6 +24,9 @@ function Body() {
     <>
       {/* STAGE 1: REALITY */}
       <p>
+        When you stop taking oral semaglutide (the Wegovy pill), most people rapidly regain the weight they lost — the same pattern seen with injectable GLP-1 drugs — because the medication suppresses appetite without changing the habits that caused weight gain.
+      </p>
+      <p>
         Oral semaglutide (Wegovy pill) was approved by the FDA in December 2025 and launched in early January 2026. The OASIS 4 trial showed a mean weight loss of 13.6% over 64 weeks. For the first time, millions of people who prefer not to inject will have access to a GLP-1 drug.
       </p>
       <p>

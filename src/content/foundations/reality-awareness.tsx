@@ -80,6 +80,7 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
+      <P>Reality Awareness is Stage 1 of Weight Permanence Training™ — a structured self-assessment that establishes your honest baseline before you try to change anything.</P>
       <Lead>Most people start weight loss without knowing where they actually are.</Lead>
       <P>
         Not approximately. Not emotionally. <strong className="text-zinc-900">Actually.</strong>

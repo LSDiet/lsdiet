@@ -80,6 +80,7 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
+      <P>Consequence Awareness is Stage 4 of Weight Permanence Training™ — it builds PUSH motivation by making the long-term cost of inaction concrete, personal, and impossible to ignore.</P>
       <Lead>Knowing you should change has never been enough. This stage makes the cost feel real.</Lead>
       <P>
         You already know weight regain is bad for you. You've known that for years.

@@ -85,6 +85,9 @@ const meta: Foundation["meta"] = {
 function Body() {
   return (
     <>
+      <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
+        Most people regain weight after dieting because they change what they eat without changing the behaviours that caused weight gain in the first place. The Weight Permanence Training™ system was built specifically to close that gap.
+      </p>
       <p className="text-xl md:text-2xl font-semibold text-zinc-900 leading-snug mb-6">
         Most people do not fail to lose weight. They fail to maintain it.
       </p>
