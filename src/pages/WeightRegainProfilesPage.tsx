@@ -67,7 +67,7 @@ export default function WeightRegainProfilesPage() {
             <Link
               key={profile.slug}
               to={`/weight-regain-profile/${profile.slug}`}
-              className="group rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-colors lg:max-w-md"
+              className="group rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-colors"
             >
               <div className="aspect-[16/9] overflow-hidden">
                 <img
