@@ -62,19 +62,19 @@ export default function WeightRegainProfilesPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {profiles.map((profile) => (
             <Link
               key={profile.slug}
               to={`/weight-regain-profile/${profile.slug}`}
-              className="group rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-colors"
+              className="group rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-colors lg:max-w-md"
             >
-              <div className="aspect-[16/7] overflow-hidden">
+              <div className="aspect-[16/9] overflow-hidden">
                 <img
                   src={profile.banner}
                   alt={profile.name}
                   width={1200}
-                  height={525}
+                  height={675}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
