@@ -29,7 +29,7 @@ function Figure({ src, alt, caption }: { src: string; alt: string; caption?: str
 
 const meta: Foundation["meta"] = {
   slug: "why-people-regain-weight-after-dieting",
-  title: "Why Do I Keep Gaining Weight? | LS Diet",
+  title: "Why Do I Keep Gaining Weight?",
   order: 1,
   excerpt:
     "Weight regain is the real failure mode of dieting. Most people lose weight successfully, then slowly regain it. This article explains why repeated weight regain happens, why one reason is never enough, and how LS Diet and WPT are built to stop the cycle permanently.",
