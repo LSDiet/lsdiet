@@ -19,6 +19,7 @@ const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const QAPage = lazy(() => import("./pages/QAPage"));
 const FreeResources = lazy(() => import("./pages/FreeResources"));
 const GLP1GuidePage = lazy(() => import("./pages/GLP1GuidePage"));
+const GLP1ReboundPage = lazy(() => import("./pages/GLP1ReboundPage"));
 const LSDietGuidePage = lazy(() => import("./pages/LSDietGuidePage"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
@@ -78,6 +79,7 @@ function AppContent() {
           <Route path="/free-resources" element={<FreeResources />} />
           <Route path="/FreeResources" element={<Navigate to="/free-resources" replace />} />
           <Route path="/does-glp-1-work" element={<GLP1GuidePage />} />
+          <Route path="/glp-1-rebound-analysis" element={<GLP1ReboundPage />} />
           <Route path="/ls-diet-guide" element={<LSDietGuidePage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsOfUse />} />
