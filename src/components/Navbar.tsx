@@ -13,6 +13,7 @@ const navLinks: NavLink[] = [
   { label: "Problem", href: "/blog/why-people-regain-weight-after-dieting" },
   { label: "The Solution", href: "/awareness-stages" },
   { label: "LS Diet", href: "/what-is-ls-diet" },
+  { label: "GLP-1 Rebound", href: "/glp-1-rebound-analysis" },
   { label: "Blog", href: "/blog" },
   { label: "Quiz", href: "/quiz" },
 ];

@@ -128,9 +128,9 @@ export default function GLP1ReboundPage() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
             {[
-              { stat: "–17.3%", label: "Average weight loss at 68 weeks (STEP 1)" },
-              { stat: "+11.6%", label: "Weight regained within 52 weeks of stopping" },
               { stat: "2 / 3", label: "Proportion of lost weight regained within 1 year" },
+              { stat: "+11.6%", label: "Mean weight regained within 52 weeks of stopping" },
+              { stat: "–17.3%", label: "Weight lost at peak (68 weeks on medication)" },
             ].map(({ stat, label }) => (
               <div key={stat} className="bg-white/10 border border-white/20 rounded-xl p-5">
                 <div className="text-3xl font-bold mb-1">{stat}</div>
@@ -146,6 +146,11 @@ export default function GLP1ReboundPage() {
 
         {/* Main content */}
         <article data-route-root className="lg:col-span-2 space-y-16">
+
+          {/* Opening verdict */}
+          <p className="text-base md:text-lg text-zinc-800 leading-relaxed font-semibold border-l-4 border-violet-500 pl-5">
+            The clinical verdict is consistent across every major trial: most people who stop GLP-1 medication regain two-thirds of their lost weight within one year. What follows is the evidence.
+          </p>
 
           {/* Section 1: STEP 1 */}
           <section id="step1">

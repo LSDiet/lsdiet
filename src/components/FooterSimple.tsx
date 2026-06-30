@@ -11,6 +11,7 @@ const learnLinks = [
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
   { label: "Resources", href: "/resources" },
+  { label: "GLP-1 Rebound Analysis", href: "/glp-1-rebound-analysis" },
 ];
 
 export function FooterSimple() {

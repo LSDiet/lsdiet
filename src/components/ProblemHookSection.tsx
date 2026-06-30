@@ -17,7 +17,7 @@
  *   - Neon glow = lightweight layered box-shadow only (dialed back ~20%)
  *   - Animation limited to the chevron bounce
  */
-import { ChevronDown, ChevronRight, ArrowRight, Compass, BatteryLow, TrendingDown, RotateCcw, CloudRain } from "lucide-react";
+import { ChevronDown, ChevronRight, ArrowRight, Compass, BatteryLow, TrendingDown, RotateCcw, CloudRain, Pill } from "lucide-react";
 
 const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
@@ -86,6 +86,7 @@ type Pain = {
 };
 
 const pains: Pain[] = [
+  { label: "I\u2019m thinking about GLP-1 medication", shortLabel: "Considering GLP-1", href: "/glp-1-rebound-analysis", hsl: "261 80% 65%", Icon: Pill },
   { label: "I don\u2019t know where to start", shortLabel: "Overwhelmed", href: "/weight-regain-profile/overwhelmed-beginner", hsl: "0 84% 60%", Icon: Compass },
   { label: "I always run out of motivation", shortLabel: "No motivation", href: "/weight-regain-profile/motivation-chaser", hsl: "212 90% 60%", Icon: BatteryLow },
   { label: "I lose weight but it always comes back", shortLabel: "Always regain", href: "/weight-regain-profile/weight-cycler", hsl: "38 92% 55%", Icon: TrendingDown },
@@ -97,6 +98,7 @@ const pains: Pain[] = [
  *  psychological stack, not 5 identical menu buttons (desktop, right-aligned). */
 const railWidths = [
   "md:w-full",
+  "md:w-full",
   "md:w-[90%]",
   "md:w-[98%]",
   "md:w-[85%]",
@@ -105,6 +107,7 @@ const railWidths = [
 
 /** Tiny vertical nudges so the stack feels hand-placed, not generated. */
 const railOffsets = [
+  "md:translate-x-0",
   "md:translate-x-0",
   "md:-translate-x-[3px]",
   "md:translate-x-[2px]",
