@@ -44,7 +44,7 @@ function Body() {
       <h2>Why This Hits Harder After 45</h2>
 
       <p>
-        Muscle is not easy to rebuild at any age. After 45 to 50, it becomes significantly harder. The biological process of building new muscle mass slows. The hormonal environment is less favourable. Recovery from resistance training takes longer.
+        Muscle is not easy to rebuild at any age. After 45 to 50, it becomes significantly harder. Your muscles rebuild slower. Your hormones work against you. Recovery from resistance training takes longer.
       </p>
 
       <p>
@@ -54,7 +54,7 @@ function Body() {
       <h2>The Cruel Irony Most People Never See</h2>
 
       <p>
-        Losing muscle quietly while watching the scale drop and feeling like you are making progress sets up a slower metabolism, a weaker frame, and a body that is more vulnerable to weight regain when the medication stops.
+        Here is what makes this dangerous: you lose muscle quietly while the scale drops. It feels like progress. But when the medication stops, you have a slower metabolism, a weaker frame, and a body primed for weight regain. This is why knowing what you are actually losing matters more than how much you lose.
       </p>
 
       <p>
@@ -69,6 +69,10 @@ function Body() {
 
       <p>
         If you are on a GLP-1 medication right now, this is not a reason to stop. This is a reason to pay attention to what you are actually losing and to make deliberate choices about protein intake and resistance training while the drug is giving you room to make them. Start with an honest baseline. Know your body composition before you start so you can track what changes and so you have something real to protect.
+      </p>
+
+      <p>
+        This kind of clarity is what <a href="/awareness-stages">Reality Awareness</a> is about. Not flinching from the data, but using it to build a body and a life that work without pills. If you are ready to build lasting change after medication, <a href="/quiz">take the quiz</a> to discover your path forward.
       </p>
 
       <section aria-label="Frequently Asked Questions">
