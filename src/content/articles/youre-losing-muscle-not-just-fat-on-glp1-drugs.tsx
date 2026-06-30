@@ -20,14 +20,14 @@ function Body() {
   return (
     <>
       <p>
-        The number on the scale is going down. You feel like it is working. And in one sense, it is. You are lighter. But lighter does not mean what most people think it means. On GLP-1 medications like Ozempic or Wegovy, a significant portion of what you are losing is not fat. It is muscle.
+        On GLP-1 medications like Ozempic or Wegovy, up to 45 percent of the weight you lose is muscle, not fat. Most people have no idea. The scale goes down and that feels like progress. But lighter does not mean what most people think it means.
       </p>
 
       <p>
         Most people on these drugs have no idea. And most do not ask.
       </p>
 
-      <h2>What the Research Actually Shows</h2>
+      <h2>How Much Muscle Do You Actually Lose on GLP-1?</h2>
 
       <p>
         In the STEP1 clinical trial, one of the landmark semaglutide studies, participants lost an average of 15.3 kg over 68 weeks. Of that, 6.92 kg was lean mass. That is approximately 45 percent of the total weight lost coming from muscle, not fat.
@@ -51,7 +51,7 @@ function Body() {
         What you lose in your 50s on a GLP-1 medication may take years to recover. If it comes back at all. This matters for more than aesthetics. Muscle is metabolically active tissue. It burns calories at rest, helps regulate blood sugar, and supports joint health, balance, and mobility.
       </p>
 
-      <h2>The Cruel Irony Most People Never See</h2>
+      <h2>Why You Regain Weight Faster When You Stop GLP-1</h2>
 
       <p>
         Here is what makes this dangerous: you lose muscle quietly while the scale drops. It feels like progress. But when the medication stops, you have a slower metabolism, a weaker frame, and a body primed for weight regain. This is why knowing what you are actually losing matters more than how much you lose.
@@ -61,7 +61,7 @@ function Body() {
         GLP-1 drugs suppress appetite so effectively that people often eat far too little protein to protect their muscle. They are in a calorie deficit and a protein deficit simultaneously, and the body breaks down muscle to compensate. The weight loss looks good on paper. The body composition tells a different story.
       </p>
 
-      <h2>What Knowing This Changes</h2>
+      <h2>How to Protect Your Muscle While on GLP-1</h2>
 
       <p>
         This is a knowledge problem before it is anything else. You cannot track what you are not measuring. Most people who start a GLP-1 medication step on a scale once a week and call that data. They have no baseline body composition, no understanding of how much lean mass they are carrying, and no way to know whether what they are losing is actually what they want to lose.
