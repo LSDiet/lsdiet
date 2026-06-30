@@ -17,7 +17,7 @@ type Message = {
 };
 
 const GREETING =
-  `Hi — I'm your Motivation Navigator.\n\nI'm here to help you build real, lasting motivation using Oscar's 5-stage awareness system. This isn't a standard chatbot. I'll ask you targeted questions to uncover what's actually been getting in your way.\n\nLet's start here: What's been the hardest part of staying consistent with your weight loss efforts?`;
+  `Hi — I'm your Motivation Navigator.\n\nI'm here to help you build real, lasting motivation using Oscar's 5-stage awareness system. This isn't a standard chatbot — I'll ask you targeted questions to uncover what's actually been getting in your way.\n\nBefore we begin, I want to set the stage for how this works.`;
 
 export default function AppPage() {
   const { user, loading, signOut } = useAuth();
