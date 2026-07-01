@@ -121,7 +121,7 @@ function FoundationDeck() {
         The four foundations.
       </h2>
       <p className="text-sm text-[hsl(0_0%_42%)] leading-relaxed mb-5 max-w-[480px]">
-        Swipe through, in order. Each builds on the one before — the rest of the library just goes deeper.
+        Swipe through, in order. Each one builds on the last. The rest of the library goes deeper from here.
       </p>
 
       <div className="relative h-[296px]">
@@ -371,7 +371,7 @@ function BrowseShelves({ clusterEntries }: { clusterEntries: Map<string, BlogInd
         Browse the shelves
       </h2>
       <p className="text-sm text-[hsl(0_0%_44%)] leading-relaxed mb-5 max-w-[480px]">
-        Four topics, four shelves. Tap one to slide it open and see what's inside.
+        Four topics. Tap one open to see what's inside.
       </p>
       <div className="flex flex-col gap-3.5">
         {SEARCH_ARTICLE_CLUSTERS.map((cluster, idx) => (
@@ -473,7 +473,7 @@ export default function BlogPage() {
                 Know exactly where to start.
               </h1>
               <p className="text-[clamp(15px,4vw,17px)] leading-relaxed text-[hsl(0_0%_38%)] max-w-[520px]">
-                The foundations, the latest thinking, and a quiet cabinet of topics you can open. No guessing where to begin.
+                The foundations, the newest articles, and four topics you can dig into anytime. Start wherever fits you right now.
               </p>
             </section>
 

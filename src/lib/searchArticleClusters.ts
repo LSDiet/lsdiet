@@ -32,7 +32,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
   {
     id: "low-starch-low-sugar-science",
     title: "Low Starch, Low Sugar Science",
-    tagline: "How everyday food quietly drives regain.",
+    tagline: "The science behind starch, sugar, and regain.",
     slugs: [
       "how-much-exercise-do-you-need-for-heart-health-and-weight-loss",
       "is-diet-or-exercise-more-important-for-weight-loss",
