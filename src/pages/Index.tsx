@@ -6,7 +6,6 @@ import { BookSection } from "@/components/BookSection";
 import { FAQSection } from "@/components/FAQSection";
 import { QuizTeaserSection } from "@/components/QuizTeaserSection";
 import { FooterSimple } from "@/components/FooterSimple";
-import { JoinFloatingBar } from "@/components/JoinFloatingBar";
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -117,7 +116,6 @@ const Index = () => {
         <QuizTeaserSection />
       </main>
       <FooterSimple />
-      <JoinFloatingBar />
     </div>
   );
 };

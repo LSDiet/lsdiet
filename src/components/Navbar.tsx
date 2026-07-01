@@ -11,9 +11,9 @@ type NavLink = {
 
 const navLinks: NavLink[] = [
   { label: "Problem", href: "/problem" },
+  { label: "GLP-1 Rebound", href: "/glp-1-rebound-analysis" },
   { label: "Solution", href: "/weight-permanence-training" },
   { label: "LS Diet", href: "/what-is-ls-diet" },
-  { label: "GLP-1 Rebound", href: "/glp-1-rebound-analysis" },
   { label: "Blog", href: "/blog" },
   { label: "Quiz", href: "/quiz" },
 ];

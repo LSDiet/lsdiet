@@ -128,18 +128,18 @@ export default function GLP1ReboundPage() {
         </video>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/65 to-black/80" />
 
         {/* Content */}
         <div className="relative z-10 flex items-center justify-center h-full px-6 py-16">
           <div className="max-w-4xl text-center">
-            <p className="text-xs uppercase tracking-widest font-semibold text-violet-200 mb-3">
+            <p className="text-xs uppercase tracking-widest font-bold text-violet-200 mb-3 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
               Clinical Research Synthesis
             </p>
-            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
+            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
               The Weight Rebound Reality
             </h1>
-            <p className="text-base md:text-lg text-violet-100 leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-base md:text-lg text-white leading-relaxed max-w-2xl mx-auto mb-10 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
               GLP-1 medications produce significant weight loss while you take them. Clinical trials confirm that discontinuation leads to rapid, substantial weight regain in most patients. Here is the evidence.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
@@ -148,9 +148,9 @@ export default function GLP1ReboundPage() {
                 { stat: "+11.6%", label: "Mean weight regained within 52 weeks of stopping" },
                 { stat: "–17.3%", label: "Weight lost at peak (68 weeks on medication)" },
               ].map(({ stat, label }) => (
-                <div key={stat} className="bg-white/10 border border-white/20 rounded-xl p-5">
-                  <div className="text-3xl font-bold mb-1">{stat}</div>
-                  <div className="text-xs text-violet-200 leading-tight">{label}</div>
+                <div key={stat} className="bg-black/60 backdrop-blur-sm border border-white/30 rounded-xl p-5 shadow-lg">
+                  <div className="text-3xl font-bold mb-1 text-white">{stat}</div>
+                  <div className="text-xs text-violet-100 leading-tight">{label}</div>
                 </div>
               ))}
             </div>
