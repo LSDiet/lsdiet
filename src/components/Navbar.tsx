@@ -10,7 +10,7 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: "Problem", href: "/blog/why-people-regain-weight-after-dieting" },
+  { label: "Problem", href: "/problem" },
   { label: "Solution", href: "/weight-permanence-training" },
   { label: "LS Diet", href: "/what-is-ls-diet" },
   { label: "GLP-1 Rebound", href: "/glp-1-rebound-analysis" },

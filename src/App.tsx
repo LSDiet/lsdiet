@@ -26,6 +26,7 @@ const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 const HealthDisclaimer = lazy(() => import("./pages/HealthDisclaimer"));
 const WhatIsLSDietPage = lazy(() => import("./pages/WhatIsLSDietPage"));
 const WeightPermanenceTrainingPage = lazy(() => import("./pages/WeightPermanenceTrainingPage"));
+const ProblemPage = lazy(() => import("./pages/ProblemPage"));
 const AwarenessStagesPage = lazy(() => import("./pages/AwarenessStagesPage"));
 const AboutOscarPoonPage = lazy(() => import("./pages/AboutOscarPoonPage"));
 const OscarPoonPage = lazy(() => import("./pages/OscarPoonPage"));
@@ -86,6 +87,7 @@ function AppContent() {
           <Route path="/disclaimer" element={<HealthDisclaimer />} />
           <Route path="/what-is-ls-diet" element={<WhatIsLSDietPage />} />
           <Route path="/weight-permanence-training" element={<WeightPermanenceTrainingPage />} />
+          <Route path="/problem" element={<ProblemPage />} />
           <Route path="/awareness-stages" element={<AwarenessStagesPage />} />
           <Route path="/about-oscar-poon" element={<AboutOscarPoonPage />} />
           <Route path="/oscar-poon" element={<OscarPoonPage />} />
