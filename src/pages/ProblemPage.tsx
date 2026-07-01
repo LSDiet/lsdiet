@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Users, ChevronRight, Sparkles } from "lucide-react";
 
-import regainProfiles from "@/assets/weight-regain-profiles.webp";
+import regainProfiles from "@/assets/weight-regain-profiles-banner.webp";
 
 const PUBLISHED = "2026-06-30T12:00:00+00:00";
 const UPDATED = "2026-06-30T12:00:00+00:00";
