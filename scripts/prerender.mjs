@@ -218,7 +218,10 @@ async function prerenderRoute(browser, route, baselineTitle) {
     // reintroduces one, this assertion fails the build loudly instead of
     // silently shipping duplicate canonicals/descriptions to crawlers.
     const tagCounts = await page.evaluate(() => ({
-      title: document.querySelectorAll("title").length,
+      // Scoped to <head> — SVG icons (lucide, recharts) can carry their own
+      // accessibility <title> elements, which a bare "title" selector would
+      // wrongly count as duplicate document titles.
+      title: document.head.querySelectorAll("title").length,
       description: document.querySelectorAll('meta[name="description"]').length,
       ogTitle: document.querySelectorAll('meta[property="og:title"]').length,
       ogDescription: document.querySelectorAll('meta[property="og:description"]').length,
