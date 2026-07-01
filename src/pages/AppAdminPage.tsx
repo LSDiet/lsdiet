@@ -13,6 +13,21 @@ type Member = {
   created_at: string;
 };
 
+type FlaggedMessage = {
+  id: string;
+  role: 'user' | 'assistant';
+  content: string;
+  flagged: boolean;
+};
+
+type FlaggedConversation = {
+  id: string;
+  title: string | null;
+  user_email: string;
+  updated_at: string;
+  messages: FlaggedMessage[];
+};
+
 export default function AppAdminPage() {
   const { user, loading, signOut } = useAuth();
   const navigate = useNavigate();
@@ -24,6 +39,10 @@ export default function AppAdminPage() {
   const [adding, setAdding] = useState(false);
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
 
+  const [flaggedConversations, setFlaggedConversations] = useState<FlaggedConversation[]>([]);
+  const [fetchingFlagged, setFetchingFlagged] = useState(true);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
   useEffect(() => {
     if (!loading) {
       if (!user) navigate('/app/login');
@@ -32,7 +51,10 @@ export default function AppAdminPage() {
   }, [user, loading, navigate]);
 
   useEffect(() => {
-    if (user?.email === ADMIN_EMAIL) loadMembers();
+    if (user?.email === ADMIN_EMAIL) {
+      loadMembers();
+      loadFlaggedConversations();
+    }
   }, [user]);
 
   async function getToken() {
@@ -93,6 +115,26 @@ export default function AppAdminPage() {
       body: JSON.stringify({ email: memberEmail }),
     });
     setMembers(prev => prev.filter(m => m.email !== memberEmail));
+  }
+
+  async function loadFlaggedConversations() {
+    setFetchingFlagged(true);
+    const res = await fetch('/api/admin/flagged-conversations', {
+      headers: { Authorization: `Bearer ${await getToken()}` },
+    });
+    const data = await res.json();
+    if (Array.isArray(data)) setFlaggedConversations(data);
+    setFetchingFlagged(false);
+  }
+
+  function copyForClaude(conv: FlaggedConversation) {
+    const transcript = conv.messages
+      .map(m => `${m.flagged ? '⚠️ FLAGGED: ' : ''}[${m.role === 'assistant' ? 'Navigator' : 'You'}]: ${m.content}`)
+      .join('\n\n');
+    navigator.clipboard.writeText(transcript).then(() => {
+      setCopiedId(conv.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    });
   }
 
   if (loading || !user) return null;
@@ -188,6 +230,42 @@ export default function AppAdminPage() {
                   )}
                 </div>
               ))}
+            </div>
+          )}
+        </section>
+
+        {/* Flagged conversations */}
+        <section>
+          <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wide mb-4">
+            Flagged Conversations ({flaggedConversations.length})
+          </h2>
+          {fetchingFlagged ? (
+            <p className="text-zinc-500 text-sm">Loading...</p>
+          ) : flaggedConversations.length === 0 ? (
+            <p className="text-zinc-500 text-sm">No conversations submitted for review yet.</p>
+          ) : (
+            <div className="space-y-2">
+              {flaggedConversations.map(c => {
+                const flagCount = c.messages.filter(m => m.flagged).length;
+                return (
+                  <div key={c.id} className="bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 flex items-center justify-between gap-4">
+                    <div className="min-w-0">
+                      <p className="text-sm text-white truncate">{c.title || c.user_email}</p>
+                      <p className="text-xs text-zinc-500 mt-0.5">
+                        {c.user_email} · {c.messages.length} messages
+                        {flagCount > 0 && <span className="text-amber-400"> · {flagCount} flagged</span>}
+                        {' '}· {new Date(c.updated_at).toLocaleDateString('en-CA', { month: 'short', day: 'numeric' })}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => copyForClaude(c)}
+                      className="text-zinc-400 hover:text-white text-xs transition flex-shrink-0"
+                    >
+                      {copiedId === c.id ? 'Copied!' : 'Copy for Claude'}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           )}
         </section>

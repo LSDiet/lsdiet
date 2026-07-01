@@ -14,6 +14,7 @@ type Message = {
   role: 'user' | 'assistant';
   content: string;
   created_at: string;
+  flagged?: boolean;
 };
 
 const GREETING =
@@ -30,6 +31,7 @@ export default function AppPage() {
   const [sending, setSending] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -64,10 +66,23 @@ export default function AppPage() {
   async function loadMessages(conversationId: string) {
     const { data } = await supabase
       .from('messages')
-      .select('id, role, content, created_at')
+      .select('id, role, content, created_at, flagged')
       .eq('conversation_id', conversationId)
       .order('created_at', { ascending: true });
     if (data) setMessages(data as Message[]);
+  }
+
+  async function toggleFlag(messageId: string, current: boolean) {
+    const next = !current;
+    setMessages(prev => prev.map(m => m.id === messageId ? { ...m, flagged: next } : m));
+    await supabase.from('messages').update({ flagged: next }).eq('id', messageId);
+  }
+
+  async function submitForReview() {
+    if (!activeId) return;
+    await supabase.from('conversations').update({ flagged_for_review: true }).eq('id', activeId);
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 2000);
   }
 
   async function startNewConversation() {
@@ -177,7 +192,7 @@ export default function AppPage() {
   function copyConversation() {
     if (!messages.length) return;
     const transcript = messages
-      .map(m => `[${m.role === 'assistant' ? 'Navigator' : 'You'}]: ${m.content}`)
+      .map(m => `${m.flagged ? '⚠️ FLAGGED: ' : ''}[${m.role === 'assistant' ? 'Navigator' : 'You'}]: ${m.content}`)
       .join('\n\n');
     navigator.clipboard.writeText(transcript).then(() => {
       setCopied(true);
@@ -280,9 +295,31 @@ export default function AppPage() {
 
         {/* Main area */}
         <main className="flex-1 flex flex-col overflow-hidden">
-          {/* Copy conversation button — shown when there are messages */}
+          {/* Copy / Submit buttons — shown when there are messages */}
           {activeId && messages.length > 0 && (
-            <div className="border-b border-zinc-800 px-4 py-2 flex justify-end flex-shrink-0">
+            <div className="border-b border-zinc-800 px-4 py-2 flex justify-end items-center gap-4 flex-shrink-0">
+              <button
+                onClick={submitForReview}
+                title="End & Submit for Review"
+                className="flex items-center gap-1.5 text-zinc-500 hover:text-zinc-300 transition text-xs"
+              >
+                {submitted ? (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Submitted!
+                  </>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M22 2 11 13" />
+                      <path d="M22 2 15 22l-4-9-9-4 20-7Z" />
+                    </svg>
+                    End & Submit for Review
+                  </>
+                )}
+              </button>
               <button
                 onClick={copyConversation}
                 title="Copy conversation"
@@ -327,8 +364,20 @@ export default function AppPage() {
                 {messages.map(m => (
                   <div
                     key={m.id}
-                    className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    className={`flex items-end gap-1.5 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
+                    {m.role === 'assistant' && (
+                      <button
+                        onClick={() => toggleFlag(m.id, !!m.flagged)}
+                        title={m.flagged ? 'Unflag this response' : 'Flag this response'}
+                        className={`flex-shrink-0 transition ${m.flagged ? 'text-amber-400' : 'text-zinc-700 hover:text-zinc-400'}`}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill={m.flagged ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2">
+                          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                          <line x1="4" y1="22" x2="4" y2="15" />
+                        </svg>
+                      </button>
+                    )}
                     <div
                       className={[
                         'max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap',
