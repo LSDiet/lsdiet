@@ -104,18 +104,18 @@ function Body() {
     <>
       <Lead>Awareness creates direction. Practice is what actually changes behaviour.</Lead>
       <P>
-        You can understand exactly why you regain weight, identify the patterns driving it,
-        feel the full cost of staying the same, and have a clear picture of who you want
-        to become — and still not change. Because none of that is implementation.
-        Understanding and doing are two completely different things.
-      </P>
-      <P>
         Action Practice is the implementation stage of the{" "}
         <a href="/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>
-        . It's where awareness becomes behaviour — not through motivation or willpower,
+        . It's where awareness becomes behaviour, not through motivation or willpower,
         but through deliberate, repeatable daily practice.
+      </P>
+      <P>
+        You can understand exactly why you regain weight, identify the patterns driving it,
+        feel the full cost of staying the same, and have a clear picture of who you want
+        to become, and still not change. None of that is implementation.
+        Understanding and doing are two completely different things.
       </P>
 
       <H2>What Is Action Practice?</H2>
@@ -143,7 +143,7 @@ function Body() {
         last until the behaviour stops requiring conscious effort.
       </P>
 
-      <H2>Why Awareness Alone Is Not Enough</H2>
+      <H2>Why Isn't Awareness Alone Enough to Stop Weight Regain?</H2>
       <P>
         The five{" "}
         <a href="/awareness-stages" className="text-accent hover:underline">
@@ -177,38 +177,38 @@ function Body() {
         way of understanding why you're stuck — but you stay stuck.
       </P>
       <P>
-        This is the most common failure mode in weight loss programs: people learn,
+        Here is the most common failure mode in weight loss programs: people learn,
         feel motivated, then life intervenes and behaviour defaults back to automatic.
         Action Practice is specifically designed to interrupt that default.
       </P>
 
-      <H2>Why Systems Beat Willpower</H2>
+      <H2>Why Does a System Beat Willpower?</H2>
       <P>
-        Willpower is finite. It depletes across the day. Every decision you make — at
-        work, in traffic, in relationships — draws from the same pool. By the time
+        Willpower is finite. It depletes across the day. Every decision you make, at
+        work, in traffic, in relationships, draws from the same pool. By the time
         you're making food decisions in the evening, that pool is often nearly empty.
       </P>
       <P>
         Systems don't deplete. A well-designed routine runs on habit, not decision.
-        When you've practised a behaviour enough times that it becomes automatic,
-        it no longer requires willpower to execute. It just happens — the same way
+        Once you've practised a behaviour enough times that it becomes automatic,
+        it no longer requires willpower to execute. It just happens, the same way
         brushing your teeth happens, regardless of how tired or stressed you are.
       </P>
       <P>
-        Action Practice builds those systems deliberately. Instead of trying to out-
-        discipline your patterns, you replace them with new ones that serve you better.
+        Action Practice builds those systems deliberately. Instead of trying to
+        out-discipline your patterns, you replace them with new ones that serve you better.
       </P>
 
-      <H2>Why Consistency Requires Environmental Design</H2>
+      <H2>Why Does Consistency Require Environmental Design?</H2>
       <P>
         Your environment is constantly making decisions for you. The food in your
-        kitchen, the route you drive, the habits of the people you eat with — these
-        aren't neutral. They're inputs that produce predictable outputs.
+        kitchen, the route you drive, the habits of the people you eat with are not
+        neutral. They're inputs that produce predictable outputs.
       </P>
       <P>
         Trying to maintain healthy behaviour in an environment designed to produce
-        unhealthy behaviour is like trying to stay dry while standing in the rain —
-        the effort is real, but the environment is working against you. Action Practice
+        unhealthy behaviour is like trying to stay dry while standing in the rain.
+        The effort is real, but the environment is working against you. Action Practice
         includes environmental redesign as a core component, not an afterthought.
       </P>
       <P>
@@ -217,7 +217,7 @@ function Body() {
         environment that makes consistency easier.
       </P>
 
-      <H2>Why Repetition Builds Identity</H2>
+      <H2>How Does Daily Repetition Build a New Identity?</H2>
       <P>
         Every time you practise a behaviour that aligns with the identity you're
         building in{" "}
@@ -225,17 +225,17 @@ function Body() {
           Identity Awareness
         </a>
         , you cast a vote for that identity. One vote doesn't change much. But
-        repeated votes — daily practice over weeks and months — fundamentally shift
+        repeated votes, daily practice over weeks and months, fundamentally shift
         how you see yourself.
       </P>
       <P>
-        This is the mechanism behind permanent change. You don't decide to be
-        a healthy person once and maintain it forever through discipline. You practise
-        being a healthy person daily until that's just who you are. The practice
-        creates the identity. The identity makes the behaviour feel natural.
+        You don't decide to be a healthy person once and maintain it forever through
+        discipline. You practise being a healthy person daily until that's just who
+        you are. The practice creates the identity. The identity makes the behaviour
+        feel natural.
       </P>
 
-      <H2>How Action Practice Connects to LS Diet</H2>
+      <H2>How Does Action Practice Connect to the LS Diet?</H2>
       <P>
         The{" "}
         <a href="/what-is-ls-diet" className="text-accent hover:underline">
