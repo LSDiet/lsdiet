@@ -1,44 +1,35 @@
-import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { FooterSimple } from '@/components/FooterSimple';
 import { Button } from '@/components/ui/button';
-import { EmailCaptureModal } from '@/components/EmailCaptureModal';
-import { useLeadCapture } from '@/hooks/useLeadCapture';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Download, Loader2, ArrowRight } from 'lucide-react';
-import glp1Cover from '@/assets/ebook-glp1-cover.png';
-
-const RESOURCE_ID = 'ebook-glp1-weight-loss';
-const FILE_PATH = 'Does GLP-1 work for weight loss.pdf';
-const RESOURCE_TITLE = 'Does GLP-1 Work for Weight Loss?';
+import { ArrowRight } from 'lucide-react';
 
 const faqs = [
   {
     question: 'Does GLP-1 work for weight loss?',
     answer:
-      'Yes, GLP-1 medications can support short term weight loss by suppressing appetite and slowing digestion. However, they do not teach eating behaviour or build habits that persist once appetite suppression fades.',
+      'Yes, GLP-1 medications support short term weight loss by suppressing appetite and slowing digestion. But they do not teach eating behaviour or build habits that persist once appetite suppression fades.',
   },
   {
     question: 'Why do many people regain weight after stopping GLP-1?',
     answer:
-      'Weight regain often occurs because the medication reduces hunger temporarily without changing eating patterns. When normal appetite signals return, people frequently return to familiar food choices and behaviours.',
+      'Weight regain happens because the medication reduces hunger temporarily without changing eating patterns. When normal appetite signals return, people go back to familiar food choices and behaviours.',
   },
   {
     question: 'Does GLP-1 change how people eat long term?',
     answer:
-      'GLP-1 can reduce appetite while it is active, but it does not retrain food decision making or address how people eat under stress, fatigue, or routine disruption.',
+      'GLP-1 reduces appetite while it is active, but it does not retrain food decision making or address how people eat under stress, fatigue, or routine disruption.',
   },
   {
     question: 'Is GLP-1 a permanent solution for weight management?',
     answer:
-      'For most people, GLP-1 is not a standalone long term solution. Sustainable weight management usually requires changes in food choices, routines, and behaviour that function even without medication.',
+      'For most people, no. Sustainable weight management requires changes in food choices, routines, and behaviour that function even without medication.',
   },
   {
     question: 'What should people understand before using GLP-1 for weight loss?',
@@ -81,22 +72,6 @@ const articleSchema = {
 };
 
 export default function GLP1GuidePage() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const { isLoading, hasEmail, captureAndDownload, downloadForReturningUser } =
-    useLeadCapture();
-
-  const handleDownloadClick = async () => {
-    if (hasEmail) {
-      await downloadForReturningUser(RESOURCE_ID, FILE_PATH, RESOURCE_TITLE);
-    } else {
-      setModalOpen(true);
-    }
-  };
-
-  const handleModalSubmit = async (email: string, firstName: string) => {
-    await captureAndDownload(email, RESOURCE_ID, FILE_PATH, RESOURCE_TITLE, firstName);
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
@@ -141,22 +116,15 @@ export default function GLP1GuidePage() {
               Does GLP-1 Work for Weight Loss?
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-              Many people experience significant weight loss on GLP-1 medications like Ozempic or
-              Wegovy. But what happens when the medication stops? This guide explores why weight
-              often returns—and what actually determines long-term results.
+              GLP-1 medications like Ozempic and Wegovy work for weight loss while you take them,
+              but most people regain the weight once they stop. This guide covers why the
+              medication works, why the results reverse, and what determines whether they last.
             </p>
-            <Button size="lg" onClick={handleDownloadClick} disabled={isLoading}>
-              {isLoading ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                  Loading...
-                </>
-              ) : (
-                <>
-                  <Download className="w-4 h-4 mr-2" />
-                  Download the Free Guide
-                </>
-              )}
+            <Button size="lg" asChild>
+              <a href="/glp-1-rebound-analysis">
+                See real data on drug effectiveness and rebound
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
             </Button>
           </header>
 
@@ -169,60 +137,56 @@ export default function GLP1GuidePage() {
               <p className="text-muted-foreground leading-relaxed">
                 GLP-1 stands for glucagon-like peptide-1, a hormone released from the gut after
                 eating. It signals fullness to the brain, slows gastric emptying, and regulates
-                insulin. Medications known as GLP-1 receptor agonists—such as semaglutide (Ozempic,
-                Wegovy) and tirzepatide (Mounjaro, Zepbound)—amplify this signal, making people
+                insulin. Medications called GLP-1 receptor agonists, such as semaglutide (Ozempic,
+                Wegovy) and tirzepatide (Mounjaro, Zepbound), amplify this signal, making people
                 feel satisfied with less food.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 For many, the effect is profound. Hunger fades. Portions shrink naturally. The
                 mental effort of managing intake decreases. During this phase, weight loss can be
-                significant—sometimes 10-15% of body weight or more.
+                significant, sometimes 10 to 15% of body weight or more.
               </p>
             </section>
 
             <section className="mb-10">
               <h2 className="text-2xl font-serif font-normal text-foreground mb-4">
-                What GLP-1 Medications Do Not Train
+                What Doesn't GLP-1 Train You to Do?
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                GLP-1 medications suppress appetite. They do not, however, retrain the underlying
-                eating behaviours that contributed to weight gain in the first place. The
-                medication does not teach you:
+                GLP-1 medications suppress appetite. They do not retrain the eating behaviours that
+                contributed to weight gain in the first place. The medication does not teach you
+                how to make food decisions when hunger returns, how to navigate food environments
+                full of starch and sugar, how to eat under stress or social pressure, or how to
+                build routines that support low-starch eating long term.
               </p>
-              <ul className="list-disc pl-6 text-muted-foreground space-y-2 mt-4">
-                <li>How to make food decisions when hunger returns</li>
-                <li>How to navigate food environments full of starch and sugar</li>
-                <li>How to eat under stress, fatigue, or social pressure</li>
-                <li>How to establish routines that support lower-starch eating long-term</li>
-              </ul>
               <p className="text-muted-foreground leading-relaxed mt-4">
                 While appetite is reduced, these skill gaps often go unnoticed. The medication
-                handles the heavy lifting. But the moment the medication stops—or its effect
-                diminishes—those gaps become visible.
+                handles the heavy lifting. The moment it stops, or its effect fades, those gaps
+                become visible.
               </p>
             </section>
 
             <section className="mb-10">
               <h2 className="text-2xl font-serif font-normal text-foreground mb-4">
-                What Happens After the Medication Stops
+                What Happens When You Stop Taking GLP-1?
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Clinical data shows that most people who discontinue GLP-1 medications regain a
-                significant portion of the weight they lost. In the STEP 1 extension trial,
-                participants regained roughly two-thirds of lost weight within one year of stopping
-                semaglutide. Similar trends have been observed across other GLP-1 trials.
+                Most people who discontinue GLP-1 medications regain a significant portion of the
+                weight they lost. In the STEP 1 extension trial, participants regained roughly
+                two-thirds of lost weight within one year of stopping semaglutide. Other GLP-1
+                trials show the same pattern.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                This is not because the medication failed. During active treatment, it did exactly
-                what it was designed to do: reduce hunger and support caloric deficit. The regain
-                happens because when normal appetite signals return, so do the patterns and
-                routines that led to weight gain originally.
+                This is not a medication failure. During active treatment, it did exactly what it
+                was designed to do: reduce hunger and support a calorie deficit. The regain happens
+                because when normal appetite signals return, so do the patterns and routines that
+                led to weight gain originally.
               </p>
             </section>
 
             <section className="mb-10">
               <h2 className="text-2xl font-serif font-normal text-foreground mb-4">
-                What GLP-1 Does Not Solve
+                What Does GLP-1 Not Solve?
               </h2>
 
               <h3 className="text-xl font-medium text-foreground mb-3 mt-6">1. Eating Habits</h3>
@@ -235,7 +199,7 @@ export default function GLP1GuidePage() {
                 2. Social and Cultural Pressure
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Eating is embedded in social contexts—family dinners, work lunches, holidays.
+                Eating is embedded in social contexts: family dinners, work lunches, holidays.
                 GLP-1 does not prepare people for navigating these situations once their appetite
                 normalises.
               </p>
@@ -249,35 +213,27 @@ export default function GLP1GuidePage() {
 
             <section className="mb-10">
               <h2 className="text-2xl font-serif font-normal text-foreground mb-4">
-                The Weight Permanence Training™ Solution
+                How Does Weight Permanence Training™ Fix This?
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                What determines long-term success is not the medication itself—it's what happens
-                during and after. The Weight Permanence Training™ (WPT) is a neurobehavioural
-                training framework designed to address exactly this.
+                What determines long-term success is not the medication itself. It's what happens
+                during and after. Weight Permanence Training™ (WPT) is a neurobehavioural training
+                framework built to address exactly this.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                WPT has three stages:
+                WPT runs in three stages, starting with{' '}
+                <a href="/awareness-stages" className="text-primary hover:underline">
+                  Awareness
+                </a>
+                : recognising how specific foods trigger hunger and how routines shape eating
+                patterns. Practice means building new behaviours through deliberate repetition in
+                real-world contexts. Permanence means reaching the point where low-starch eating
+                becomes automatic and stops requiring willpower.
               </p>
-              <ul className="list-disc pl-6 text-muted-foreground space-y-2 mt-4">
-                <li>
-                  <strong className="text-foreground">Awareness</strong> – Recognising how specific
-                  foods trigger hunger and how routines shape eating patterns
-                </li>
-                <li>
-                  <strong className="text-foreground">Practice</strong> – Building new behaviours
-                  through deliberate repetition in real-world contexts
-                </li>
-                <li>
-                  <strong className="text-foreground">Permanence</strong> – Reaching the point
-                  where low-starch eating becomes automatic, no longer requiring willpower
-                </li>
-              </ul>
               <p className="text-muted-foreground leading-relaxed mt-4">
-                When combined with GLP-1 medication, WPT transforms the window of appetite
-                suppression into an opportunity to build lasting skills. Instead of coasting on
-                reduced hunger, you actively train new defaults—so that when appetite returns, the
-                foundation is already in place.
+                Combined with GLP-1 medication, WPT turns the window of appetite suppression into
+                an opportunity to build lasting skills. Instead of coasting on reduced hunger, you
+                train new defaults, so when appetite returns, the foundation is already in place.
               </p>
             </section>
           </div>
@@ -301,89 +257,26 @@ export default function GLP1GuidePage() {
             </Accordion>
           </section>
 
-          {/* Download CTA Section */}
-          <section className="bg-secondary/30 rounded-2xl p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-accent/20 rounded-3xl blur-2xl" />
-                  <img
-                    src={glp1Cover}
-                    alt="Does GLP-1 Work for Weight Loss? Free Guide Cover"
-                    className="relative max-w-xs w-full drop-shadow-2xl rounded-lg"
-                  />
-                </div>
-              </div>
-              <div>
-                <h2 className="text-2xl font-serif font-normal text-foreground mb-4">
-                  Get the Full Guide
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  Download the complete guide to understand why GLP-1 works, why weight often
-                  returns, and how to use the medication window to build lasting change.
-                </p>
-                <Button
-                  size="lg"
-                  className="w-full sm:w-auto animate-pulse-glow"
-                  onClick={handleDownloadClick}
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                      Loading...
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-4 h-4 mr-2" />
-                      Download the Free Guide
-                    </>
-                  )}
-                </Button>
-              </div>
-            </div>
-          </section>
-
-          {/* Internal Link to Course */}
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground mb-4">
-              Want to start using Weight Permanence Training™ to lose weight?
+          {/* Primary CTA */}
+          <section className="bg-secondary/30 rounded-2xl p-8 md:p-12 text-center">
+            <h2 className="text-2xl font-serif font-normal text-foreground mb-4">
+              Want the Data Behind the Regain?
+            </h2>
+            <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+              See the real clinical numbers on how well GLP-1 drugs work and how much of the
+              weight loss reverses after people stop taking them.
             </p>
-            <a
-              href="/#book"
-              className="inline-flex items-center text-primary hover:underline font-medium"
-            >
-              Join the <span className="text-accent font-extrabold animate-pulse-glow">FREE</span> LS Diet Course
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </a>
-            <div className="mt-6 flex justify-center">
-              <Button size="lg" onClick={handleDownloadClick} disabled={isLoading}>
-                {isLoading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                    Loading...
-                  </>
-                ) : (
-                  <>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download the Free Guide
-                  </>
-                )}
-              </Button>
-            </div>
-          </div>
+            <Button size="lg" asChild>
+              <a href="/glp-1-rebound-analysis">
+                See real data on drug effectiveness and rebound
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
+            </Button>
+          </section>
         </article>
       </main>
 
       <FooterSimple />
-
-      <EmailCaptureModal
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-        resourceTitle={RESOURCE_TITLE}
-        onSubmit={handleModalSubmit}
-        isLoading={isLoading}
-      />
     </div>
   );
 }
