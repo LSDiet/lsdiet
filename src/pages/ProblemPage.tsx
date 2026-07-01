@@ -15,7 +15,7 @@ import heroSweetsVideo from "@/assets/hero-videos/hero-sweets.mp4";
 const PUBLISHED = "2026-06-30T12:00:00+00:00";
 const UPDATED = "2026-07-01T12:00:00+00:00";
 const CANONICAL = "https://lsdiet.com/problem";
-const FORK_HEADLINE = "What Happens Next Is Up to You.";
+const FORK_HEADLINE = "What Happens Next Is Up to You";
 
 const cycleWords = ["Loss", "Regain", "Rebound", "Restart"];
 
@@ -210,7 +210,7 @@ export default function ProblemPage() {
         <section className="py-14 px-4">
           <div className="max-w-md mx-auto text-center">
             <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">Three Ways It Goes Wrong</span>
-            <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">Same starting point.<br />Three different endings.</h2>
+            <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">Same starting point<br />Three different endings</h2>
 
             <div className="flex flex-col gap-6 text-left">
               {/* The Wall */}
@@ -368,14 +368,12 @@ export default function ProblemPage() {
                 <div className="text-[11px] text-primary-foreground/60 font-medium mt-1 normal-case">Low Starch, Low Sugar. Controls insulin so fat burning stays on.</div>
               </a>
               <span className="text-primary-foreground/60 text-lg font-black">+</span>
-              <div className="bg-white/5 border border-white/10 px-5 py-4 rounded-2xl w-full font-black">
+              <a href="/weight-permanence-training" className="block bg-white/5 border border-white/10 px-5 py-4 rounded-2xl w-full font-black hover:border-accent/50 transition-colors">
                 <div className="text-base">Weight Permanence Training™</div>
                 <div className="text-[11px] text-primary-foreground/60 font-medium mt-1 normal-case">
-                  <a href="/awareness-stages" className="underline underline-offset-2 hover:text-accent">Awareness Training</a>
-                  {" "}+{" "}
-                  <a href="/blog/action-practice" className="underline underline-offset-2 hover:text-accent">Practice Training</a>. The behavioural system that stops the weight from coming back.
+                  Awareness Training + Practice Training. The behavioural system that stops the weight from coming back.
                 </div>
-              </div>
+              </a>
               <span className="text-accent text-lg font-black">=</span>
               <a href="/weight-permanence-training" className="bg-accent text-accent-foreground px-5 py-5 rounded-2xl shadow-lg w-full font-black uppercase tracking-tight flex items-center justify-center gap-1 hover:opacity-95 transition-opacity">
                 Weight Permanence™ <ArrowRight size={16} />
