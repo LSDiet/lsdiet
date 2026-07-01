@@ -32,7 +32,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
   {
     id: "low-starch-low-sugar-science",
     title: "Low Starch, Low Sugar Science",
-    tagline: "The science behind starch, sugar, and regain.",
+    tagline: "The science behind starch, sugar, and insulin.",
     slugs: [
       "how-much-exercise-do-you-need-for-heart-health-and-weight-loss",
       "is-diet-or-exercise-more-important-for-weight-loss",

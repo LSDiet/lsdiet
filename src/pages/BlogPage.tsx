@@ -117,12 +117,9 @@ function FoundationDeck() {
           {i + 1} / {FOUNDATION_COUNT}
         </span>
       </div>
-      <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.12] text-[hsl(0_0%_10%)] mb-1.5">
-        The four foundations.
+      <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.12] text-[hsl(0_0%_10%)] mb-5">
+        The four foundations
       </h2>
-      <p className="text-sm text-[hsl(0_0%_42%)] leading-relaxed mb-5 max-w-[480px]">
-        Swipe through, in order. Each one builds on the last. The rest of the library goes deeper from here.
-      </p>
 
       <div className="relative h-[296px]">
         {FOUNDATION_CARDS.map((card, idx) => {
@@ -367,12 +364,9 @@ function BrowseShelves({ clusterEntries }: { clusterEntries: Map<string, BlogInd
   return (
     <section className="mt-12">
       <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_40%)] mb-1.5">Explore</p>
-      <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.1] text-[hsl(0_0%_10%)] mb-1.5">
+      <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.1] text-[hsl(0_0%_10%)] mb-5">
         Browse the shelves
       </h2>
-      <p className="text-sm text-[hsl(0_0%_44%)] leading-relaxed mb-5 max-w-[480px]">
-        Four topics. Tap one open to see what's inside.
-      </p>
       <div className="flex flex-col gap-3.5">
         {SEARCH_ARTICLE_CLUSTERS.map((cluster, idx) => (
           <Shelf
@@ -470,10 +464,10 @@ export default function BlogPage() {
                 The LS Diet Library
               </p>
               <h1 className="font-display font-extrabold text-[clamp(34px,8vw,46px)] leading-[1.06] tracking-[-0.018em] text-[hsl(0_0%_8%)] mb-4">
-                Know exactly where to start.
+                Stop Regaining Weight Today
               </h1>
               <p className="text-[clamp(15px,4vw,17px)] leading-relaxed text-[hsl(0_0%_38%)] max-w-[520px]">
-                The foundations, the newest articles, and four topics you can dig into anytime. Start wherever fits you right now.
+                The LS Diet foundations, the newest articles, and real-life topics that are worth your time.
               </p>
             </section>
 
