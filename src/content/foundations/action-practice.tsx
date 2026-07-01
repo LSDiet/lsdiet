@@ -5,6 +5,7 @@ import featuredImage from "@/assets/foundations/action-practice-classroom.png";
 import skoolCard from "@/assets/foundations/action-practice-skool-card.png";
 import consistencyRewards from "@/assets/foundations/action-practice-consistency-rewards.png";
 import unlockAccountability from "@/assets/foundations/action-practice-unlock-accountability.png";
+import mapQuote from "@/assets/foundations/action-practice-map-quote.png";
 import type { Foundation } from "./types";
 
 const P = ({ children }: { children: React.ReactNode }) => (
@@ -174,8 +175,13 @@ function Body() {
       <P>
         But awareness is a map, not a destination. The map tells you where to go.
         Action Practice is the walking. Without it, awareness becomes a sophisticated
-        way of understanding why you're stuck — but you stay stuck.
+        way of understanding why you're stuck, but you stay stuck.
       </P>
+      <Figure
+        src={mapQuote}
+        alt="Quote graphic: Awareness is a map, not a destination. The map tells you where to go. Action Practice is the walking."
+        caption="lsdiet.com/blog"
+      />
       <P>
         Here is the most common failure mode in weight loss programs: people learn,
         feel motivated, then life intervenes and behaviour defaults back to automatic.
