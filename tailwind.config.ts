@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         serif: ['Georgia', 'Cambria', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -42,6 +43,14 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+        },
+        tint: {
+          cream: "hsl(var(--tint-cream))",
+          "cream-border": "hsl(var(--tint-cream-border))",
+          sage: "hsl(var(--tint-sage))",
+          "sage-border": "hsl(var(--tint-sage-border))",
+          slate: "hsl(var(--tint-slate))",
+          "slate-border": "hsl(var(--tint-slate-border))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

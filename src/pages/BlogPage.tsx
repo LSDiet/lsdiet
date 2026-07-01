@@ -1,99 +1,273 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { ChevronDown } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
-import { JoinFloatingBar } from "@/components/JoinFloatingBar";
-import { formatPublishDate, type BlogPost } from "@/lib/blog";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
 import { SEARCH_ARTICLE_CLUSTERS } from "@/lib/searchArticleClusters";
 
 // ---------------------------------------------------------------------------
-// Types
+// Constants
 // ---------------------------------------------------------------------------
 
 const SUPPORTING_TYPES = new Set(["supporting", "comparison", "evergreen-faq"]);
 
+/** "JUN 30, 2026" — monospace catalog-card date used across this page. */
+function formatShortDate(iso: string): string {
+  const d = new Date(`${iso}T00:00:00`);
+  return d.toLocaleDateString("en-CA", { month: "short", day: "numeric", year: "numeric" }).toUpperCase();
+}
+
+interface FoundationCard {
+  n: string;
+  kicker: string;
+  title: string;
+  bullets: string[];
+  bg: string;
+  border: string;
+  href: string;
+}
+
+const FOUNDATION_CARDS: FoundationCard[] = [
+  {
+    n: "01",
+    kicker: "The Foundation · Step 1",
+    title: "The Problem",
+    bullets: ["Why loss never lasts", "The regain trap", "What willpower can't fix"],
+    bg: "bg-white",
+    border: "border-[hsl(0_0%_89%)]",
+    href: "/blog/why-people-regain-weight-after-dieting",
+  },
+  {
+    n: "02",
+    kicker: "The Foundation · Step 2",
+    title: "The Solution",
+    bullets: ["The LS Diet method", "Low starch, low sugar", "Built for permanence"],
+    bg: "bg-tint-cream",
+    border: "border-tint-cream-border",
+    href: "/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting",
+  },
+  {
+    n: "03",
+    kicker: "The Foundation · Step 3",
+    title: "Psychology Training",
+    bullets: ["Rewire the triggers", "The 5 awareness stages", "Change the identity"],
+    bg: "bg-tint-sage",
+    border: "border-tint-sage-border",
+    href: "/awareness-stages",
+  },
+  {
+    n: "04",
+    kicker: "The Foundation · Step 4",
+    title: "Behaviour Training",
+    bullets: ["The daily practice", "Small, repeatable actions", "Make it automatic"],
+    bg: "bg-tint-slate",
+    border: "border-tint-slate-border",
+    href: "/blog/action-practice",
+  },
+];
+
+const FOUNDATION_COUNT = FOUNDATION_CARDS.length;
+
 // ---------------------------------------------------------------------------
-// Hero — single latest article with image
+// Foundation — swipeable card deck
 // ---------------------------------------------------------------------------
 
-function HeroArticle({ entry }: { entry: BlogIndexEntry }) {
+function FoundationDeck() {
+  const [i, setI] = useState(0);
+  const [dragX, setDragX] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const startXRef = useRef(0);
+
+  const goTo = (idx: number) => setI(((idx % FOUNDATION_COUNT) + FOUNDATION_COUNT) % FOUNDATION_COUNT);
+  const next = () => goTo(i + 1);
+  const prev = () => goTo(i - 1);
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (dragging) return;
+    startXRef.current = e.clientX;
+    try {
+      e.currentTarget.setPointerCapture(e.pointerId);
+    } catch {
+      // ignore — pointer capture unsupported
+    }
+    setDragging(true);
+    setDragX(0);
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragging) return;
+    setDragX(e.clientX - startXRef.current);
+  };
+
+  const endDrag = () => {
+    if (!dragging) return;
+    if (dragX < -60) goTo(i + 1);
+    else if (dragX > 60) goTo(i - 1);
+    setDragging(false);
+    setDragX(0);
+  };
+
   return (
-    <a
-      href={`/blog/${entry.slug}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block rounded-2xl bg-zinc-900 border-l-4 border-accent px-7 py-8 md:px-12 md:py-10 hover:bg-zinc-800 transition-colors"
-    >
-      <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-accent mb-3">
-        The Problem
-      </p>
-      <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white leading-snug mb-3 group-hover:text-accent transition-colors">
-        {entry.title}
-      </h2>
-      {entry.excerpt && (
-        <p className="text-sm text-zinc-400 line-clamp-1 mb-6">
-          {entry.excerpt}
+    <section className="mt-9 md:mt-12">
+      <div className="flex items-baseline justify-between gap-3.5 mb-1.5">
+        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_38%)]">
+          Start here · The Foundation
         </p>
-      )}
-      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-zinc-900 bg-accent px-4 py-2 rounded-full group-hover:bg-white transition-colors">
-        Read the article →
-      </span>
-    </a>
+        <span className="text-[11px] font-semibold font-mono text-[hsl(0_0%_50%)] whitespace-nowrap shrink-0">
+          {i + 1} / {FOUNDATION_COUNT}
+        </span>
+      </div>
+      <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.12] text-[hsl(0_0%_10%)] mb-1.5">
+        The four foundations.
+      </h2>
+      <p className="text-sm text-[hsl(0_0%_42%)] leading-relaxed mb-5 max-w-[480px]">
+        Swipe through, in order. Each builds on the one before — the rest of the library just goes deeper.
+      </p>
+
+      <div className="relative h-[296px]">
+        {FOUNDATION_CARDS.map((card, idx) => {
+          const depth = (idx - i + FOUNDATION_COUNT) % FOUNDATION_COUNT;
+          const front = depth === 0;
+          const dx = front ? dragX : 0;
+          const tx = depth * 16 + dx;
+          const ty = depth * 12;
+          const scale = 1 - depth * 0.05;
+          const rot = front ? dx * 0.02 : 0;
+          const z = FOUNDATION_COUNT - depth;
+          const opacity = depth >= 3 ? 0.35 : 1;
+          const transition =
+            front && dragging ? "none" : "transform .4s cubic-bezier(.4,0,.2,1), opacity .4s ease";
+
+          return (
+            <div
+              key={card.title}
+              className={`absolute top-0 left-0 right-0 ${front ? "cursor-grab touch-pan-y" : "pointer-events-none"}`}
+              style={{
+                transform: `translate(${tx}px, ${ty}px) scale(${scale}) rotate(${rot}deg)`,
+                zIndex: z,
+                opacity,
+                transition,
+              }}
+              onPointerDown={front ? onPointerDown : undefined}
+              onPointerMove={front ? onPointerMove : undefined}
+              onPointerUp={front ? endDrag : undefined}
+              onPointerCancel={front ? endDrag : undefined}
+            >
+              <div
+                className={`h-[286px] rounded-[22px] border ${card.bg} ${card.border} flex flex-col px-7 pt-[26px] pb-[22px]`}
+                style={{ boxShadow: "0 24px 48px -26px rgba(0,0,0,.35)" }}
+              >
+                <div className="flex items-start justify-between">
+                  <span className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-[hsl(38_90%_40%)]">
+                    {card.kicker}
+                  </span>
+                  <span className="font-display font-extrabold text-[44px] leading-[0.8] text-primary/15">
+                    {card.n}
+                  </span>
+                </div>
+                <h3 className="font-display font-extrabold text-[clamp(24px,4.5vw,29px)] leading-[1.1] text-[hsl(0_0%_10%)] mt-3">
+                  {card.title}
+                </h3>
+                <div className="flex flex-col gap-2 mt-4 flex-1">
+                  {card.bullets.map((b) => (
+                    <span key={b} className="flex items-center gap-2.5 text-[14.5px] font-medium text-[hsl(0_0%_28%)]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                      {b}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between border-t border-black/[.07] pt-4 mt-1.5">
+                  <a
+                    href={card.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[12.5px] font-bold text-white bg-primary rounded-full px-4 py-2.5"
+                  >
+                    Read →
+                  </a>
+                  <span className="text-[10.5px] font-semibold text-[hsl(0_0%_48%)]">‹ Swipe for next</span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="flex items-center justify-between mt-4">
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Previous foundation"
+          className="w-10 h-10 rounded-full border border-[hsl(0_0%_84%)] bg-white text-[hsl(0_0%_30%)] font-bold text-base hover:border-[hsl(38_90%_55%)] transition-colors"
+        >
+          ‹
+        </button>
+        <div className="flex gap-2 items-center">
+          {FOUNDATION_CARDS.map((card, idx) => (
+            <button
+              key={card.title}
+              type="button"
+              onClick={() => goTo(idx)}
+              aria-label={`Go to foundation ${idx + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                idx === i ? "w-[22px] h-2 bg-primary" : "w-2 h-2 bg-[hsl(0_0%_78%)]"
+              }`}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Next foundation"
+          className="w-10 h-10 rounded-full border border-[hsl(0_0%_84%)] bg-white text-[hsl(0_0%_30%)] font-bold text-base hover:border-[hsl(38_90%_55%)] transition-colors"
+        >
+          ›
+        </button>
+      </div>
+    </section>
   );
 }
 
 // ---------------------------------------------------------------------------
-// Latest Articles — 3 most recent cards
+// Just Published — 6 latest supporting-content cards
 // ---------------------------------------------------------------------------
 
-function LatestArticles({ entries }: { entries: BlogIndexEntry[] }) {
+function JustPublished({ entries }: { entries: BlogIndexEntry[] }) {
   const latest = entries
     .filter((e) => SUPPORTING_TYPES.has(e.contentType))
     .sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1))
-    .slice(0, 3);
+    .slice(0, 6);
 
   if (latest.length === 0) return null;
 
   return (
-    <section>
-      <div className="mb-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1">
-          Just published
-        </p>
-        <h2 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight">
-          Latest Articles
-        </h2>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <section className="mt-11 md:mt-14">
+      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_40%)] mb-1.5">
+        Just published
+      </p>
+      <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.1] text-[hsl(0_0%_10%)] mb-5">
+        Latest articles
+      </h2>
+      <div className="grid grid-cols-2 gap-[18px]">
         {latest.map((e) => (
-          <a
-            key={e.slug}
-            href={`/blog/${e.slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col rounded-xl border border-zinc-200 overflow-hidden hover:border-accent transition-colors"
-          >
-            <div className="aspect-video bg-accent/10 overflow-hidden flex-shrink-0">
+          <a key={e.slug} href={`/blog/${e.slug}`} target="_blank" rel="noopener noreferrer" className="group flex flex-col gap-2.5">
+            <div className="relative aspect-[4/3] rounded-[14px] overflow-hidden border border-[hsl(0_0%_90%)]">
               {e.featuredImage?.url ? (
                 <img
                   src={e.featuredImage.url}
                   alt={e.featuredImage.alt || e.title}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[400ms] group-hover:scale-[1.06]"
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-accent/20 to-accent/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-tint-sage to-tint-cream transition-transform duration-[400ms] group-hover:scale-[1.06]" />
               )}
             </div>
-            <div className="p-4 flex flex-col gap-1 flex-1">
-              <p className="text-xs text-zinc-500">{formatPublishDate(e.publishDate)}</p>
-              <h3 className="text-sm font-bold text-zinc-900 group-hover:text-accent transition-colors leading-snug">
-                {e.title}
-              </h3>
-            </div>
+            <p className="text-[10px] font-semibold font-mono text-[hsl(0_0%_55%)]">{formatShortDate(e.publishDate)}</p>
+            <h3 className="text-[14.5px] font-bold leading-snug text-[hsl(0_0%_11%)] transition-colors group-hover:text-[hsl(152_40%_26%)]">
+              {e.title}
+            </h3>
           </a>
         ))}
       </div>
@@ -102,169 +276,113 @@ function LatestArticles({ entries }: { entries: BlogIndexEntry[] }) {
 }
 
 // ---------------------------------------------------------------------------
-// Start Here links — shown at top of each expanded category block
+// Browse the shelves — accordion, one open at a time
 // ---------------------------------------------------------------------------
 
-interface StartHereLink { label: string; href: string; }
-
-function StartHereRow({ links }: { links: StartHereLink[] }) {
-  return (
-    <div className="mb-4 px-4 py-3 rounded-lg bg-accent/5 border border-accent/10">
-      <p className="text-[10px] font-semibold uppercase tracking-widest text-accent mb-2">
-        Start here
-      </p>
-      <div className="flex flex-col gap-1">
-        {links.map((l) => (
-          <a
-            key={l.href}
-            href={l.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-semibold text-zinc-800 hover:text-accent transition-colors flex items-center gap-2"
-          >
-            <span className="text-accent">→</span>
-            {l.label}
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Category Block — accordion
-// ---------------------------------------------------------------------------
-
-const START_HERE: Record<string, StartHereLink[]> = {
-  "ozempic-and-weight-loss-drugs": [],
-  "mind-and-habits": [
-    { label: "The Weight Permanence Triangle", href: "/blog/the-weight-permanence-triangle-how-to-stop-regaining-weight" },
-    { label: "The 5 Awareness Stages", href: "/awareness-stages" },
-    { label: "Why People Regain Weight After Dieting", href: "/blog/why-people-regain-weight-after-dieting" },
-  ],
-  "body-and-what-to-eat": [
-    { label: "Why Low Starch, Low Sugar Works", href: "/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting" },
-    { label: "Action Practice", href: "/blog/action-practice" },
-  ],
-  "weight-loss-at-work": [],
-};
-
-interface CategoryBlockProps {
+function Shelf({
+  cluster,
+  entries,
+  isOpen,
+  onToggle,
+  index,
+}: {
   cluster: (typeof SEARCH_ARTICLE_CLUSTERS)[number];
   entries: BlogIndexEntry[];
-  defaultOpen?: boolean;
-}
-
-function CategoryBlock({ cluster, entries, defaultOpen = false }: CategoryBlockProps) {
-  const [open, setOpen] = useState(defaultOpen);
-  const startHere = START_HERE[cluster.id] ?? [];
+  isOpen: boolean;
+  onToggle: () => void;
+  index: number;
+}) {
   const count = entries.length;
 
   return (
-    <div className="border border-zinc-200 rounded-xl overflow-hidden">
-      {/* Header — always visible */}
+    <div
+      className={`border border-[hsl(0_0%_87%)] rounded-[18px] overflow-hidden transition-colors duration-300 ${
+        isOpen ? "bg-[hsl(152_30%_97%)]" : "bg-white"
+      }`}
+      style={{ boxShadow: isOpen ? "0 18px 40px -24px rgba(0,0,0,.4)" : "0 1px 2px rgba(0,0,0,.02)" }}
+    >
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-4 px-5 py-5 md:py-6 text-left hover:bg-zinc-50 transition-colors"
-        aria-expanded={open}
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="w-full text-left p-[18px] flex gap-3.5 items-center"
       >
-        <div className="min-w-0">
-          <h2 className="text-lg md:text-xl font-extrabold uppercase tracking-tight text-zinc-900 leading-tight">
-            {cluster.title}
-          </h2>
-          <p className="text-sm text-zinc-500 mt-0.5">{cluster.tagline}</p>
-        </div>
-        <div className="flex items-center gap-3 shrink-0">
-          <span className="hidden sm:block text-xs font-semibold text-zinc-400 uppercase tracking-wider">
+        <span className="w-11 h-11 shrink-0 rounded-xl bg-primary text-white font-display font-extrabold text-[17px] leading-[44px] text-center">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="flex-1 min-w-0">
+          <span className="block text-base font-bold leading-tight text-[hsl(0_0%_11%)]">{cluster.title}</span>
+          <span className="block text-[12.5px] leading-snug text-[hsl(0_0%_46%)] mt-0.5">{cluster.tagline}</span>
+        </span>
+        <span className="inline-flex items-center gap-2.5 shrink-0">
+          <span className="text-[10.5px] font-bold text-[hsl(0_0%_45%)] bg-[hsl(0_0%_95%)] rounded-full px-2.5 py-1.5">
             {count} {count === 1 ? "article" : "articles"}
           </span>
-          <ChevronDown
-            className={`h-5 w-5 text-zinc-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-            aria-hidden
-          />
-        </div>
+          <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[hsl(152_30%_94%)]">
+            <span
+              className="text-primary font-bold text-lg leading-none transition-transform duration-[350ms]"
+              style={{ transform: isOpen ? "rotate(135deg)" : "rotate(0deg)" }}
+            >
+              +
+            </span>
+          </span>
+        </span>
       </button>
-
-      {/* Expanded content */}
-      {open && (
-        <div className="border-t border-zinc-100 px-5 py-4">
-          {startHere.length > 0 && <StartHereRow links={startHere} />}
-          <ul className="divide-y divide-zinc-100">
-            {entries.map((e) => (
-              <li key={e.slug}>
-                <a
-                  href={`/blog/${e.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-3 py-3 hover:text-accent transition-colors"
-                >
-                  {e.featuredImage?.url && (
-                    <img
-                      src={e.featuredImage.url}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      className="w-12 h-12 rounded-md object-cover flex-shrink-0 mt-0.5"
-                    />
-                  )}
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm font-semibold text-zinc-800 group-hover:text-accent leading-snug transition-colors">
-                      {e.title}
-                    </p>
-                    <p className="text-xs text-zinc-400 mt-0.5">{formatPublishDate(e.publishDate)}</p>
-                  </div>
-                </a>
-              </li>
-            ))}
-          </ul>
+      <div
+        className="overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(.4,0,.2,1)]"
+        style={{ maxHeight: isOpen ? 220 : 0, opacity: isOpen ? 1 : 0 }}
+      >
+        <div className="flex gap-3 overflow-x-auto px-[18px] pb-5 pt-0.5">
+          {entries.slice(0, 6).map((e) => (
+            <a
+              key={e.slug}
+              href={`/blog/${e.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 w-[158px] bg-white border border-[hsl(0_0%_89%)] rounded-[13px] overflow-hidden hover:border-[hsl(38_90%_55%)] hover:-translate-y-0.5 transition-all duration-200"
+            >
+              {e.featuredImage?.url ? (
+                <img src={e.featuredImage.url} alt="" loading="lazy" decoding="async" className="block h-[86px] w-full object-cover" />
+              ) : (
+                <span className="block h-[86px] bg-gradient-to-br from-tint-sage to-tint-cream" />
+              )}
+              <span className="block text-[12.5px] font-bold leading-snug text-[hsl(0_0%_13%)] px-3 pt-2.5 pb-3">{e.title}</span>
+            </a>
+          ))}
+          <a
+            href={`/blog/topic/${cluster.id}`}
+            className="shrink-0 w-[120px] flex items-center justify-center text-center bg-primary text-white rounded-[13px] text-[12.5px] font-bold p-3"
+          >
+            View all {count} →
+          </a>
         </div>
-      )}
+      </div>
     </div>
   );
 }
 
-// ---------------------------------------------------------------------------
-// WPT Curriculum Strip — 5 awareness stages in order
-// ---------------------------------------------------------------------------
+function BrowseShelves({ clusterEntries }: { clusterEntries: Map<string, BlogIndexEntry[]> }) {
+  const [open, setOpen] = useState(-1);
 
-const STAGE_LABELS = ["Stage 1", "Stage 2", "Stage 3", "Stage 4", "Stage 5"];
-
-function WPTCurriculumStrip({ entries }: { entries: BlogIndexEntry[] }) {
-  if (entries.length === 0) return null;
   return (
-    <section>
-      <div className="mb-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1">
-          The Solution
-        </p>
-        <h2 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight">
-          How to Stop Regaining Weight
-        </h2>
-        <p className="text-sm text-zinc-500 mt-1">
-          Five stages. Work through them in order.
-        </p>
-      </div>
-      {/* Horizontal scroll on mobile, grid on md+ */}
-      <div className="flex gap-3 overflow-x-auto pb-2 md:pb-0 md:grid md:grid-cols-5 snap-x snap-mandatory">
-        {entries.map((e, i) => (
-          <a
-            key={e.slug}
-            href={`/blog/${e.slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex-shrink-0 w-52 md:w-auto snap-start flex flex-col rounded-xl border border-zinc-200 hover:border-accent transition-colors p-4 gap-2"
-          >
-            <span className="text-[10px] font-bold uppercase tracking-widest text-accent">
-              {STAGE_LABELS[i]}
-            </span>
-            <p className="text-sm font-bold text-zinc-900 group-hover:text-accent transition-colors leading-snug">
-              {e.title}
-            </p>
-            {e.excerpt && (
-              <p className="text-xs text-zinc-500 line-clamp-2">{e.excerpt}</p>
-            )}
-          </a>
+    <section className="mt-12">
+      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_40%)] mb-1.5">Explore</p>
+      <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.1] text-[hsl(0_0%_10%)] mb-1.5">
+        Browse the shelves
+      </h2>
+      <p className="text-sm text-[hsl(0_0%_44%)] leading-relaxed mb-5 max-w-[480px]">
+        Four topics, four shelves. Tap one to slide it open and see what's inside.
+      </p>
+      <div className="flex flex-col gap-3.5">
+        {SEARCH_ARTICLE_CLUSTERS.map((cluster, idx) => (
+          <Shelf
+            key={cluster.id}
+            cluster={cluster}
+            entries={clusterEntries.get(cluster.id) ?? []}
+            isOpen={open === idx}
+            onToggle={() => setOpen((o) => (o === idx ? -1 : idx))}
+            index={idx}
+          />
         ))}
       </div>
     </section>
@@ -281,28 +399,14 @@ export default function BlogPage() {
 
   useEffect(() => {
     fetchBlogIndex()
-      .then((data) => { setEntries(data); setLoading(false); })
+      .then((data) => {
+        setEntries(data);
+        setLoading(false);
+      })
       .catch(() => setLoading(false));
   }, []);
 
   const supporting = entries.filter((e) => SUPPORTING_TYPES.has(e.contentType));
-
-  // Hero: pin the Problem article; fall back to latest supporting post with image
-  const PROBLEM_SLUG = "why-people-regain-weight-after-dieting";
-  const hero =
-    entries.find((e) => e.slug === PROBLEM_SLUG) ??
-    supporting.filter((e) => !!e.featuredImage?.url).sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1))[0] ??
-    supporting[0];
-
-  // WPT Curriculum: 5 awareness stages in stage order
-  const STAGE_SLUGS = [
-    "reality-awareness",
-    "friction-awareness",
-    "pattern-awareness",
-    "consequence-awareness",
-    "identity-awareness",
-  ];
-  const stageEntries = STAGE_SLUGS.map((s) => entries.find((e) => e.slug === s)).filter(Boolean) as BlogIndexEntry[];
 
   // Build cluster → entry map
   const slugToCluster = new Map<string, string>();
@@ -313,14 +417,13 @@ export default function BlogPage() {
   const clusterEntries = new Map<string, BlogIndexEntry[]>();
   for (const c of SEARCH_ARTICLE_CLUSTERS) clusterEntries.set(c.id, []);
 
-  // Unmapped entries fall into "mind-and-habits"
+  // Unmapped entries fall into "weight-permanence-training"
   for (const e of supporting) {
-    const cid = slugToCluster.get(e.slug) ?? "mind-and-habits";
+    const cid = slugToCluster.get(e.slug) ?? "weight-permanence-training";
     const arr = clusterEntries.get(cid);
     if (arr) arr.push(e);
   }
 
-  // Sort each cluster by publishDate desc
   for (const arr of clusterEntries.values()) {
     arr.sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
   }
@@ -357,46 +460,33 @@ export default function BlogPage() {
 
       <Navbar />
 
-      <main className="container max-w-5xl mx-auto px-4 pt-24 pb-20 space-y-14">
+      <main className="max-w-[660px] mx-auto px-[22px] pt-24 pb-16">
+        {loading && <div className="text-zinc-500 text-sm pt-8">Loading…</div>}
 
-        {loading && (
-          <div className="text-zinc-500 text-sm pt-8">Loading…</div>
-        )}
-
-        {!loading && hero && <HeroArticle entry={hero} />}
-
-        {!loading && stageEntries.length > 0 && (
-          <WPTCurriculumStrip entries={stageEntries} />
-        )}
-
-        {!loading && supporting.length > 0 && (
-          <LatestArticles entries={supporting} />
-        )}
-
-        {!loading && supporting.length > 0 && (
-          <section className="space-y-4">
-            <div className="mb-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent mb-1">
-                Explore
+        {!loading && (
+          <>
+            <section className="pt-2 pb-2">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[hsl(38_90%_40%)] mb-3.5">
+                The LS Diet Library
               </p>
-              <h2 className="text-xl md:text-2xl font-extrabold uppercase tracking-tight">
-                Browse by Topic
-              </h2>
-            </div>
-            {SEARCH_ARTICLE_CLUSTERS.map((cluster) => (
-              <CategoryBlock
-                key={cluster.id}
-                cluster={cluster}
-                entries={clusterEntries.get(cluster.id) ?? []}
-              />
-            ))}
-          </section>
-        )}
+              <h1 className="font-display font-extrabold text-[clamp(34px,8vw,46px)] leading-[1.06] tracking-[-0.018em] text-[hsl(0_0%_8%)] mb-4">
+                Know exactly where to start.
+              </h1>
+              <p className="text-[clamp(15px,4vw,17px)] leading-relaxed text-[hsl(0_0%_38%)] max-w-[520px]">
+                The foundations, the latest thinking, and a quiet cabinet of topics you can open. No guessing where to begin.
+              </p>
+            </section>
 
+            <FoundationDeck />
+
+            <JustPublished entries={supporting} />
+
+            <BrowseShelves clusterEntries={clusterEntries} />
+          </>
+        )}
       </main>
 
       <FooterSimple />
-      <JoinFloatingBar />
     </div>
   );
 }

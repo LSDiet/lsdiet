@@ -81,8 +81,6 @@ import oralGlp1PillWhatHappensWhenYouStop from "./oral-glp-1-pill-what-happens-w
 import yoYoDietingMetabolismMyth from "./yo-yo-dieting-metabolism-myth";
 // Batch 14
 import doesGlp1WeightLossCount from "./does-glp1-weight-loss-count";
-// Batch 14
-import doesGlp1WeightLossCount from "./does-glp1-weight-loss-count";
 
 // Batch 15
 import whyOzempicFaceHappens from "./why-ozempic-face-happens";
