@@ -358,9 +358,7 @@ export default function ProblemPage() {
             <h2 className="text-3xl font-black mb-3 tracking-tight">What actually makes it stick</h2>
             <p className="text-primary-foreground/70 mb-10 text-xs leading-relaxed">
               Restriction and medication only ever address the food side.{" "}
-              <a href="/what-is-ls-diet" className="text-accent underline underline-offset-2">LS Diet</a> handles that half. The other half is behavioural:{" "}
-              <a href="/awareness-stages" className="text-accent underline underline-offset-2">Awareness Training</a> plus{" "}
-              <a href="/blog/action-practice" className="text-accent underline underline-offset-2">Practice Training</a>. Together, that is{" "}
+              <a href="/what-is-ls-diet" className="text-accent underline underline-offset-2">LS Diet</a> handles that half. The other half is behavioural: Awareness Training plus Practice Training. Together, that is{" "}
               <a href="/weight-permanence-training" className="text-accent underline underline-offset-2">Weight Permanence Training™</a>.
             </p>
 
@@ -398,20 +396,24 @@ export default function ProblemPage() {
               The Wall, the Trap, and the Cliff are not random. Each one is driven by a different underlying pattern. These are the five.
             </p>
 
-            <div className="rounded-3xl overflow-hidden border border-border shadow-sm mb-5">
+            <a href="/quiz" className="block rounded-3xl overflow-hidden border border-border shadow-sm mb-5 hover:opacity-95 transition-opacity">
               <img
                 src={regainProfiles}
                 alt="The five weight regain profiles: Motivation Chaser, Overwhelmed Beginner, Restarter, Stress Eater, and Weight Cycler"
                 className="w-full h-auto"
               />
-            </div>
+            </a>
 
             <div className="flex flex-col gap-2 mb-6">
               {profiles.map((p) => (
-                <div key={p.slug} className="flex items-center justify-between bg-card border border-border rounded-2xl px-4 py-3">
+                <a
+                  key={p.slug}
+                  href={`/weight-regain-profile/${p.slug}`}
+                  className="flex items-center justify-between bg-card border border-border rounded-2xl px-4 py-3 hover:border-primary transition-colors"
+                >
                   <span className="font-black text-sm text-foreground">{p.name}</span>
                   <span className="text-[11px] text-muted-foreground text-right ml-3">{p.tagline}</span>
-                </div>
+                </a>
               ))}
             </div>
 
