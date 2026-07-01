@@ -21,6 +21,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "youre-losing-muscle-not-just-fat-on-glp1-drugs",
       "oral-glp-1-pill-what-happens-when-you-stop",
       "does-glp1-weight-loss-count",
+      "why-ozempic-face-happens",
     ],
   },
   {
