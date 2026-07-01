@@ -68,7 +68,7 @@ function HeroVideoBackground() {
           }`}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/80 to-primary" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/45 to-primary/90" />
     </div>
   );
 }
