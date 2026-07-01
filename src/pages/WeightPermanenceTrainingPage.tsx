@@ -80,6 +80,33 @@ const stages = [
   },
 ];
 
+const cycleWords = ["Regaining.", "Restarting.", "Rebounding."];
+
+function RotatingWord() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % cycleWords.length), 2200);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <span className="relative inline-block align-top text-accent">
+      <span className="invisible">Restarting.</span>
+      {cycleWords.map((word, i) => (
+        <span
+          key={word}
+          aria-hidden={i !== index}
+          className={`absolute left-0 top-0 w-full transition-all duration-500 ease-in-out ${
+            i === index ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+          }`}
+        >
+          {word}
+        </span>
+      ))}
+      <span className="sr-only">Regaining, Restarting, and Rebounding.</span>
+    </span>
+  );
+}
+
 function RadialStat({ pct, ringColor, trackColor, labelColor }: { pct: number; ringColor: string; trackColor: string; labelColor: string }) {
   const r = 20;
   const c = 2 * Math.PI * r;
@@ -160,7 +187,7 @@ export default function WeightPermanenceTrainingPage() {
           </div>
           <h1 className="text-4xl font-black leading-none mb-6 tracking-tight uppercase">
             Stop <br />
-            <span className="text-accent">Restarting.</span>
+            <RotatingWord />
           </h1>
           <p className="text-sm text-primary-foreground/80 mb-8 leading-relaxed">
             The behavioural system that stops weight regain for good. Not another diet cycle. A permanent shift in how you think, decide, and act around food.{" "}
@@ -214,58 +241,17 @@ export default function WeightPermanenceTrainingPage() {
         </div>
       </section>
 
-      {/* Merged: 5 Stages -> Formula */}
-      <section ref={mergeSectionRef} className="py-16 px-4">
+      {/* The Solution — bridges Problem to Method */}
+      <section ref={mergeSectionRef} className="py-16 px-4 bg-muted/30">
         <div className="max-w-md mx-auto">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="text-accent" size={18} />
-            <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">The Method</span>
+            <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">The Solution</span>
           </div>
-          <h2 className="text-3xl font-black mb-2 tracking-tight text-foreground">The 5 Stages of Awareness</h2>
-          <p className="text-muted-foreground mb-8 text-xs">
-            Tap a stage to explore it. Keep scrolling to see how all 5 combine into the formula.
+          <h2 className="text-3xl font-black mb-3 tracking-tight text-foreground">One Formula. Two Halves.</h2>
+          <p className="text-muted-foreground mb-10 text-xs leading-relaxed">
+            Restriction and medication only ever address the food side. Weight Permanence Training™ closes the other gap: the behaviour that puts the weight back on.
           </p>
-
-          <div className="flex justify-between items-center bg-card p-2 rounded-2xl shadow-sm border border-border mb-6 gap-1 overflow-x-auto">
-            {stages.map((stage) => (
-              <button key={stage.id} onClick={() => setActiveStage(stage.id)} className="focus:outline-none shrink-0" aria-label={stage.name}>
-                <div
-                  className={`w-16 h-16 rounded-full overflow-hidden border-2 ${stage.ring} transition-all duration-300 ${activeStage === stage.id ? "opacity-100 scale-105" : "opacity-40"}`}
-                  style={{
-                    backgroundImage: `url(${stage.logo})`,
-                    backgroundSize: "176px 117px",
-                    backgroundPosition: "-56px -10px",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                />
-              </button>
-            ))}
-          </div>
-
-          <div className="bg-card rounded-3xl p-5 shadow-md border border-border min-h-[280px] mb-10">
-            {stages.map((stage) => (
-              <div key={stage.id} className={activeStage === stage.id ? "block animate-fade-in-up" : "hidden"}>
-                <div className="flex justify-between items-center mb-3">
-                  <span className={`text-[10px] font-black tracking-widest uppercase px-2.5 py-0.5 rounded-full ${stage.chip}`}>
-                    Stage {stage.id}
-                  </span>
-                  <a href="/awareness-stages" className="text-[10px] font-bold text-muted-foreground hover:text-accent flex items-center gap-1">
-                    All stages <ArrowRight size={10} />
-                  </a>
-                </div>
-                <h3 className="text-xl font-black text-foreground mb-1">{stage.name}</h3>
-                <p className="text-[10px] text-muted-foreground font-extrabold uppercase tracking-wider mb-3">{stage.tagline}</p>
-                <p className="text-muted-foreground text-xs leading-relaxed mb-4">{stage.definition}</p>
-                <div className="bg-muted/50 rounded-2xl p-4 border-l-4 border-primary mb-4">
-                  <div className="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-1">A question this stage asks</div>
-                  <p className="font-bold text-foreground italic text-xs leading-relaxed">"{stage.question}"</p>
-                </div>
-                <a href={`/blog/${stage.slug}`} className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider">
-                  Read the full {stage.name} →
-                </a>
-              </div>
-            ))}
-          </div>
 
           <div className="relative min-h-[220px] flex flex-col items-center justify-center">
             <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${mergePhase < 2 ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
@@ -297,6 +283,58 @@ export default function WeightPermanenceTrainingPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The 5 Stages of Awareness — deep dive on the first half of the formula */}
+      <section className="py-16 px-4">
+        <div className="max-w-md mx-auto">
+          <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">Awareness Training, Broken Down</span>
+          <h2 className="text-3xl font-black mb-2 tracking-tight text-foreground">The 5 Stages of Awareness</h2>
+          <p className="text-muted-foreground mb-8 text-xs">
+            Tap a stage to explore what it asks you to confront.
+          </p>
+
+          <div className="flex justify-between items-center bg-card p-2 rounded-2xl shadow-sm border border-border mb-6 gap-1 overflow-x-auto">
+            {stages.map((stage) => (
+              <button key={stage.id} onClick={() => setActiveStage(stage.id)} className="focus:outline-none shrink-0" aria-label={stage.name}>
+                <div
+                  className={`w-16 h-16 rounded-full overflow-hidden border-2 ${stage.ring} transition-all duration-300 ${activeStage === stage.id ? "opacity-100 scale-105" : "opacity-40"}`}
+                  style={{
+                    backgroundImage: `url(${stage.logo})`,
+                    backgroundSize: "176px 117px",
+                    backgroundPosition: "-56px -10px",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                />
+              </button>
+            ))}
+          </div>
+
+          <div className="bg-card rounded-3xl p-5 shadow-md border border-border min-h-[280px]">
+            {stages.map((stage) => (
+              <div key={stage.id} className={activeStage === stage.id ? "block animate-fade-in-up" : "hidden"}>
+                <div className="flex justify-between items-center mb-3">
+                  <span className={`text-[10px] font-black tracking-widest uppercase px-2.5 py-0.5 rounded-full ${stage.chip}`}>
+                    Stage {stage.id}
+                  </span>
+                  <a href="/awareness-stages" className="text-[10px] font-bold text-muted-foreground hover:text-accent flex items-center gap-1">
+                    All stages <ArrowRight size={10} />
+                  </a>
+                </div>
+                <h3 className="text-xl font-black text-foreground mb-1">{stage.name}</h3>
+                <p className="text-[10px] text-muted-foreground font-extrabold uppercase tracking-wider mb-3">{stage.tagline}</p>
+                <p className="text-muted-foreground text-xs leading-relaxed mb-4">{stage.definition}</p>
+                <div className="bg-muted/50 rounded-2xl p-4 border-l-4 border-primary mb-4">
+                  <div className="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-1">A question this stage asks</div>
+                  <p className="font-bold text-foreground italic text-xs leading-relaxed">"{stage.question}"</p>
+                </div>
+                <a href={`/blog/${stage.slug}`} className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider">
+                  Read the full {stage.name} →
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
