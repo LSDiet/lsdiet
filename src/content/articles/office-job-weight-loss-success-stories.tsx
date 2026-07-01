@@ -51,7 +51,7 @@ function Body() {
 
       <p>
         Temporary intensity always collapses eventually. The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         focuses on behavioural permanence, repeatable systems,
         environmental structure, and a sustainable eating baseline drawn
         from{" "}

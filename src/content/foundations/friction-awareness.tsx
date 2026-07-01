@@ -220,7 +220,7 @@ function Body() {
           Oscar Poon
         </a>
         , who spent years restarting before mapping why it kept happening. Explore the{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+        <a href="/weight-permanence-training" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>{" "}
         or{" "}

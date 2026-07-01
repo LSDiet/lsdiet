@@ -49,7 +49,7 @@ function Body() {
 
       <p>
         The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         focuses on awareness, implementation, reinforcement, and
         sustainability — the structural conditions that let behaviour
         survive real life. The implementation layer is{" "}

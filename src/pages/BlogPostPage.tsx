@@ -386,7 +386,7 @@ export default function BlogPostPage() {
                 <ul className="space-y-2 text-zinc-800">
                   <li><a href="/" className="text-accent hover:underline">LS Diet — homepage</a></li>
                   <li><a href="/what-is-ls-diet" className="text-accent hover:underline">What is the LS Diet?</a></li>
-                  <li><a href="/weight-permanence-triangle" className="text-accent hover:underline">The Weight Permanence Training™</a></li>
+                  <li><a href="/weight-permanence-training" className="text-accent hover:underline">The Weight Permanence Training™</a></li>
                   <li><a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a></li>
                 </ul>
               </section>

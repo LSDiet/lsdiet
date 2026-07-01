@@ -67,7 +67,7 @@ function Body() {
         Plenty of people drop weight during a hard physical season — then watch
         it return when the routine shifts. The fix isn't more exertion. It's
         the kind of behavioural permanence the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         is designed to build, supported by daily reps inside{" "}
         <a href="/blog/action-practice">Action Practice</a> and the
         environmental tuning of{" "}

@@ -124,7 +124,7 @@ function Body() {
 
       <p>
         The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         is built around that internal shift — not the reaction of the room.
         When your reasons are yours, the result doesn't depend on anyone else
         staying consistent.

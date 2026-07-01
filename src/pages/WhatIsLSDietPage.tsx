@@ -34,7 +34,7 @@ export default function WhatIsLSDietPage() {
             { "@type": "Thing", name: "Insulin", sameAs: "https://en.wikipedia.org/wiki/Insulin" },
             { "@type": "Thing", name: "Insulin Resistance", sameAs: "https://en.wikipedia.org/wiki/Insulin_resistance" },
             { "@type": "Thing", name: "Dieting", sameAs: "https://en.wikipedia.org/wiki/Dieting" },
-            { "@type": "Thing", name: "Weight Permanence Training", url: "https://lsdiet.com/weight-permanence-triangle" },
+            { "@type": "Thing", name: "Weight Permanence Training", url: "https://lsdiet.com/weight-permanence-training" },
           ],
           datePublished: PUBLISHED,
           dateModified: UPDATED,
@@ -226,7 +226,7 @@ export default function WhatIsLSDietPage() {
             The Behavioural Layer
           </h2>
           <p>
-            LS Diet handles the food. <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Training™</a> handles the habits and psychology that make it stick long-term. They work together but they are not the same thing. If you want to understand why the weight keeps coming back even when you know what to eat, start with the{" "}
+            LS Diet handles the food. <a href="/weight-permanence-training" className="text-accent hover:underline">Weight Permanence Training™</a> handles the habits and psychology that make it stick long-term. They work together but they are not the same thing. If you want to understand why the weight keeps coming back even when you know what to eat, start with the{" "}
             <a href="/awareness-stages" className="text-accent hover:underline">5 Awareness Stages</a>.
           </p>
         </div>

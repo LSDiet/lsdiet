@@ -69,7 +69,7 @@ function Body() {
       <p>
         Most diets only work on calm weeks. Real life is deadlines, fatigue,
         relationship pressure, financial pressure. The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         is built specifically for the moments when discipline thins out —
         because that's where regain begins.
       </p>

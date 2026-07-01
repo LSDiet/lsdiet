@@ -39,7 +39,7 @@ function Body() {
         That's why the 5 stages walked through in{" "}
         <a href="/awareness-stages">Awareness Stages</a> sit at the centre of
         the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         — they're what stabilises behaviour after the initial spark wears
         off.
       </p>

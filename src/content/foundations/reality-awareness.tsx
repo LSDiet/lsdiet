@@ -220,7 +220,7 @@ function Body() {
         <a href="/oscar-poon" className="text-accent hover:underline">Oscar Poon</a>{" "}
         lost 80+ lbs three times before building this system. Reality Awareness is where
         he wished he'd started. Explore the full{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+        <a href="/weight-permanence-training" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>{" "}
         or{" "}

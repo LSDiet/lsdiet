@@ -449,7 +449,7 @@ const faqCategories: FAQCategoryData[] = [
         question: "What makes LS Diet different?",
         answer:
           "Most weight-loss programs solve the \"now\" problem. They teach people what to do, but ignore why people stop doing it.\n\nLS Diet tackles the root cause: the emotional disconnect between knowing and doing. You'll learn how to make weight regain emotionally unacceptable, so you lose 5-7 lbs per month and have no desire to gain it back.",
-        internalLink: { text: "Explore the Weight Permanence Training™ →", url: "/weight-permanence-triangle" },
+        internalLink: { text: "Explore the Weight Permanence Training™ →", url: "/weight-permanence-training" },
       },
       {
         question: "Do I have to count calories or cut out entire food groups?",

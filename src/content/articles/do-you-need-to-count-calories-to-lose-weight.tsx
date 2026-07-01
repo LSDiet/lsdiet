@@ -47,7 +47,7 @@ function Body() {
         Most people aren't in that bucket. They want sustainable weight
         loss, fewer cravings, and a system they can hold for a decade —
         which is the goal the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         was built around.
       </p>
 

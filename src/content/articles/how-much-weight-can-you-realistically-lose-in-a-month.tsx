@@ -53,7 +53,7 @@ function Body() {
         The point isn't temporary weight loss. The point is repeatability:
         a system you can run through travel, stress, social events, and
         exhaustion. That's the work of the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         and the daily reps inside{" "}
         <a href="/blog/action-practice">Action Practice</a>.
       </p>

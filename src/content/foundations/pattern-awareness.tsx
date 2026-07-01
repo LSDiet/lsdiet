@@ -242,7 +242,7 @@ function Body() {
           Oscar Poon
         </a>
         , who recognised his own patterns only after years of restarting. Explore the{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+        <a href="/weight-permanence-training" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>{" "}
         or{" "}

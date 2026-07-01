@@ -121,7 +121,7 @@ function Body() {
         cravings that quietly undo exercise progress. Combined with a
         sustainable activity habit — even just the 150-minute baseline —
         it forms the practical side of the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>:
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>:
         awareness of what's driving regain, plus the practice habits that
         keep results in place.
       </p>

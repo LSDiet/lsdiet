@@ -42,7 +42,7 @@ function Body() {
         important enough. The bottleneck is rarely the calendar; it's the
         weight the behaviour carries in your week. That's the exact reframe
         the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         is built around — awareness, friction, prioritisation, and
         implementation as one system.
       </p>

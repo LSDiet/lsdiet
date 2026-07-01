@@ -276,7 +276,7 @@ function Body() {
         social habits, emotional coping, and convenience. One reason almost always loses.
       </p>
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-4">
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+        <a href="/weight-permanence-training" className="text-accent hover:underline">
           Weight Permanence Training (WPT)
         </a>{" "}
         asks a different question: what if you had ten?
@@ -335,7 +335,7 @@ function Body() {
       <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
         Short-term willpower gets you started. A routine aligned with your identity keeps you
         going. The emotional struggle of changing habits is real, but it is also finite.{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+        <a href="/weight-permanence-training" className="text-accent hover:underline">
           WPT
         </a>{" "}
         is designed to get you through that window, and build enough reasons on the other side that

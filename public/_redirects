@@ -1,3 +1,6 @@
 # Legacy case redirect
 /FreeResources  /free-resources 301
 
+# WPT rebrand: Weight Permanence Triangle -> Weight Permanence Training
+/weight-permanence-triangle  /weight-permanence-training  301
+

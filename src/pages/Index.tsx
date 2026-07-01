@@ -26,7 +26,7 @@ const organizationSchema = {
   description:
     "LS Diet (Low Starch, Low Sugar) helps men and women 35+ stop regaining weight through Weight Permanence Training™ — a behavioural identity system built for permanent change.",
   knowsAbout: [
-    { "@type": "Thing", name: "Weight Permanence Training", url: "https://lsdiet.com/weight-permanence-triangle" },
+    { "@type": "Thing", name: "Weight Permanence Training", url: "https://lsdiet.com/weight-permanence-training" },
     { "@type": "Thing", name: "Low-Carbohydrate Diet", sameAs: "https://en.wikipedia.org/wiki/Low-carbohydrate_diet" },
     { "@type": "Thing", name: "Behavioural Weight Loss", sameAs: "https://en.wikipedia.org/wiki/Behavioral_weight_loss" },
     { "@type": "Thing", name: "Insulin Resistance", sameAs: "https://en.wikipedia.org/wiki/Insulin_resistance" },
@@ -75,7 +75,7 @@ const webPageSchema = {
   isPartOf: { "@id": "https://lsdiet.com/#website" },
   about: [
     { "@type": "Thing", name: "Weight Regain Prevention", description: "Preventing weight regain after dieting through behavioural permanence and a low-starch, low-sugar lifestyle.", sameAs: "https://en.wikipedia.org/wiki/Weight_cycling" },
-    { "@type": "Thing", name: "Weight Permanence Training", url: "https://lsdiet.com/weight-permanence-triangle" },
+    { "@type": "Thing", name: "Weight Permanence Training", url: "https://lsdiet.com/weight-permanence-training" },
     { "@type": "Thing", name: "Insulin Resistance", sameAs: "https://en.wikipedia.org/wiki/Insulin_resistance" },
     { "@type": "Thing", name: "Low-Carbohydrate Diet", sameAs: "https://en.wikipedia.org/wiki/Low-carbohydrate_diet" },
   ],

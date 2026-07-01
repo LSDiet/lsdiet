@@ -45,7 +45,7 @@ function Body() {
         the work of{" "}
         <a href="/blog/identity-awareness">identity awareness</a> inside
         the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>.
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>.
       </p>
 
       <h2>Why Confidence Is Built, Not Found</h2>

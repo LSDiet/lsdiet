@@ -58,7 +58,7 @@ function Body() {
         Repeatable systems — sustainable eating, consistent movement, real
         recovery — increasingly become the only thing that produces results
         you can keep. That's the entire bet of the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>.
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>.
       </p>
 
       <h2>Why Restart Cycles Get Heavier</h2>

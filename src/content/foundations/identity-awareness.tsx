@@ -232,7 +232,7 @@ function Body() {
           Oscar Poon
         </a>
         . Identity Awareness is where the shift finally happened for him after years of losing and regaining the same weight. Explore the full{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+        <a href="/weight-permanence-training" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>{" "}
         or{" "}
@@ -252,7 +252,7 @@ function Body() {
           <p className="text-[10px] font-bold uppercase tracking-widest text-accent mb-1">Training Complete — What's Next</p>
           <p className="text-base font-bold text-zinc-900">See the full Weight Permanence Training™ framework</p>
         </div>
-        <a href="/weight-permanence-triangle" className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-accent-foreground hover:brightness-110 transition-all">
+        <a href="/weight-permanence-training" className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-accent-foreground hover:brightness-110 transition-all">
           Explore →
         </a>
       </div>

@@ -71,7 +71,7 @@ function Body() {
         Long term success leans on habits, environmental structure, awareness,
         and behavioural reinforcement — not on a single ingredient. That's the
         whole reason the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         exists, and why daily reps inside{" "}
         <a href="/blog/action-practice">Action Practice</a> matter more than
         any food list.

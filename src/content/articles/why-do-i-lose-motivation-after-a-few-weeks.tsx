@@ -47,7 +47,7 @@ function Body() {
 
       <p>
         The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         focuses on awareness, reinforcement, identity, implementation, and
         behavioural permanence — the actual machinery that keeps behaviour
         going after the initial spark is gone. Identity in particular is

@@ -424,7 +424,7 @@ export default function GLP1ReboundPage() {
               This is not a failure of the medication. It is a gap in the model. GLP-1 drugs were designed to address appetite biology, not behaviour. Addressing behaviour requires a different system entirely.
             </p>
             <p className="text-base md:text-lg text-zinc-800 leading-relaxed mb-6">
-              <a href="/weight-permanence-triangle" className="font-semibold text-accent hover:underline">
+              <a href="/weight-permanence-training" className="font-semibold text-accent hover:underline">
                 Weight Permanence Training™
               </a>{" "}
               was built to close that gap. It works through five structured stages of awareness that surface the patterns, triggers, and identity questions that determine whether any weight loss is permanent. It is not a replacement for GLP-1 therapy. It is the behavioural infrastructure that determines what happens after the drug stops.
@@ -434,7 +434,7 @@ export default function GLP1ReboundPage() {
                 <a href="/awareness-stages">See the 5 Awareness Stages</a>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="/weight-permanence-triangle">How Weight Permanence Training Works</a>
+                <a href="/weight-permanence-training">How Weight Permanence Training Works</a>
               </Button>
             </div>
           </section>
@@ -479,7 +479,7 @@ export default function GLP1ReboundPage() {
                 The behavioural system built to ensure weight loss is permanent whether you use GLP-1 medication or not.
               </p>
               <Button asChild variant="accent" size="sm" className="w-full">
-                <a href="/weight-permanence-triangle">Learn How It Works</a>
+                <a href="/weight-permanence-training">Learn How It Works</a>
               </Button>
             </div>
 
@@ -514,7 +514,7 @@ export default function GLP1ReboundPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild size="lg" variant="accent">
-              <a href="/weight-permanence-triangle">Learn About Weight Permanence Training™</a>
+              <a href="/weight-permanence-training">Learn About Weight Permanence Training™</a>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-zinc-900">
               <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">

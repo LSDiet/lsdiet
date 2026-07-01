@@ -49,7 +49,7 @@ function Body() {
       <p>
         The emotional spike of declaring a goal is fun. It isn't a
         behaviour. The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         is built around implementation, behavioural reinforcement, and
         identity development — not declarations. The daily reps inside{" "}
         <a href="/blog/action-practice">Action Practice</a> are what

@@ -48,7 +48,7 @@ function Body() {
       <p>
         People make time for what becomes emotionally important enough.
         That's why the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         spends so much time on behavioural prioritization, push motivation,
         and pull motivation — anchored in{" "}
         <a href="/blog/consequence-awareness">consequence awareness</a>.

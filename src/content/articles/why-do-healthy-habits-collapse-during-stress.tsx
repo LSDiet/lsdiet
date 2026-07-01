@@ -60,7 +60,7 @@ function Body() {
         Most people don't fully recognize their triggers, emotional
         patterns, environmental cues, or stress responses. The awareness
         stages inside the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         exist to make those patterns visible enough to change.
       </p>
 

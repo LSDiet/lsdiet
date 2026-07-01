@@ -103,7 +103,7 @@ export default function OscarPoonPage() {
           <p>
             Oscar Poon is a behavioural weight loss coach, the founder of{" "}
             <a href="/what-is-ls-diet" className="text-accent hover:underline">LS Diet</a>, and the creator of the{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+            <a href="/weight-permanence-training" className="text-accent hover:underline">
               Weight Permanence Training™
             </a>{" "}
             (WPT).
@@ -123,7 +123,7 @@ export default function OscarPoonPage() {
           </h2>
           <p>
             The{" "}
-            <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+            <a href="/weight-permanence-training" className="text-accent hover:underline">
               Weight Permanence Training
             </a>{" "}
             is built on five sequential{" "}

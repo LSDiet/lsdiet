@@ -52,7 +52,7 @@ function Body() {
       <p>
         You can't change behaviour you don't recognize. Pattern Awareness
         inside the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         forces the who, what, when, where, why, and how of repeated
         eating into the open — and{" "}
         <a href="/blog/action-practice">Action Practice</a> is where you

@@ -59,7 +59,7 @@ function Body() {
         "One bad week ruined everything." That mindset is the engine of
         the restart cycle. Long term consistency requires flexibility, not
         perfection — which is the entire premise of the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>.
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>.
       </p>
 
       <h2>Final Thoughts</h2>

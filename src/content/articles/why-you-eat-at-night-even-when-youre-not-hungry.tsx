@@ -84,7 +84,7 @@ function Body() {
       <section aria-label="Frequently Asked Questions">
         <h3>Is night eating really the problem with my weight?</h3>
         <p>
-          Night eating compounds over time. A single evening of eating when not hungry is not the issue. Months of consistent, unmapped behaviour are. Most people know they eat at night but have never mapped what is actually happening: the exact trigger, the emotional context, and what would work instead. That is the work of <a href="/weight-permanence-triangle">the Weight Permanence Triangle</a>. You cannot build permanent change on top of patterns you have never looked at directly.
+          Night eating compounds over time. A single evening of eating when not hungry is not the issue. Months of consistent, unmapped behaviour are. Most people know they eat at night but have never mapped what is actually happening: the exact trigger, the emotional context, and what would work instead. That is the work of <a href="/weight-permanence-training">the Weight Permanence Triangle</a>. You cannot build permanent change on top of patterns you have never looked at directly.
         </p>
       </section>
 

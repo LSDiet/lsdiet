@@ -88,7 +88,7 @@ export default function CoreFAQPage() {
         <p className="text-zinc-800 leading-relaxed text-base md:text-lg mb-10">
           The questions below come up most often from people exploring LS Diet for the first time. For a shorter
           intro, the homepage carries a top-level FAQ. For deeper context on the framework, see the{" "}
-          <a href="/weight-permanence-triangle" className="text-accent hover:underline">Weight Permanence Training™</a>
+          <a href="/weight-permanence-training" className="text-accent hover:underline">Weight Permanence Training™</a>
           {" "}or the{" "}
           <a href="/what-is-ls-diet" className="text-accent hover:underline">What Is LS Diet</a> overview.
         </p>

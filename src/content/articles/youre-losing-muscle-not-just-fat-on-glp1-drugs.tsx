@@ -92,7 +92,7 @@ function Body() {
       <section aria-label="Frequently Asked Questions">
         <h3>Why does GLP-1 cause muscle loss?</h3>
         <p>
-          GLP-1 medications suppress appetite so effectively that people often consume too little protein and calories simultaneously. The body breaks down muscle tissue to meet its energy needs. Additionally, reduced food intake combined with the appetite suppression means people have less motivation to engage in the resistance training required to preserve muscle. <a href="/weight-permanence-triangle">The Weight Permanence Triangle</a> requires three things: the right eating approach, the right behavioural system, and a body you understand clearly. Knowing your baseline composition is the foundation for protecting what you have while making changes.
+          GLP-1 medications suppress appetite so effectively that people often consume too little protein and calories simultaneously. The body breaks down muscle tissue to meet its energy needs. Additionally, reduced food intake combined with the appetite suppression means people have less motivation to engage in the resistance training required to preserve muscle. <a href="/weight-permanence-training">The Weight Permanence Triangle</a> requires three things: the right eating approach, the right behavioural system, and a body you understand clearly. Knowing your baseline composition is the foundation for protecting what you have while making changes.
         </p>
       </section>
 

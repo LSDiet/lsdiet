@@ -31,7 +31,7 @@ const faqs: FaqEntry[] = [
           LS Diet tackles the root cause: the emotional disconnect between knowing and doing. You'll learn how to make weight regain emotionally unacceptable, so you lose 5-7 lbs per month and have no desire to gain it back.
         </p>
         <p>
-          <a href="/weight-permanence-triangle" className={linkCls}>
+          <a href="/weight-permanence-training" className={linkCls}>
             Explore the Weight Permanence Training™ →
           </a>
         </p>

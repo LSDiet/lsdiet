@@ -319,7 +319,7 @@ function Body() {
       />
       <P>
         This is where the{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+        <a href="/weight-permanence-training" className="text-accent hover:underline">
           Weight Permanence Training
         </a>{" "}
         becomes important.
@@ -347,7 +347,7 @@ function Body() {
       <P>Learn more about the:</P>
       <ul className="list-disc list-outside pl-6 space-y-1 mb-6 text-zinc-800 text-base md:text-lg leading-relaxed">
         <li>
-          <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+          <a href="/weight-permanence-training" className="text-accent hover:underline">
             Weight Permanence Training
           </a>
         </li>

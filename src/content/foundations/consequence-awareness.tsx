@@ -234,7 +234,7 @@ function Body() {
           Oscar Poon
         </a>{" "}
         describes Consequence Awareness as the stage he kept skipping during the years he kept regaining weight. Explore the{" "}
-        <a href="/weight-permanence-triangle" className="text-accent hover:underline">
+        <a href="/weight-permanence-training" className="text-accent hover:underline">
           Weight Permanence Training™
         </a>{" "}
         or{" "}

@@ -70,7 +70,7 @@ function Body() {
 
       <p>
         Treat sleep the same way you treat meal prep: a designed input. The{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         treats recovery as part of the system, not a bonus — and a small,
         repeatable wind down routine from{" "}
         <a href="/blog/action-practice">Action Practice</a> usually

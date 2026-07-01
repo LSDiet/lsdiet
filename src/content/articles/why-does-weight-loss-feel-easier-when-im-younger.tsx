@@ -62,7 +62,7 @@ function Body() {
         Age affects the body. Behaviour still compounds daily on top of
         it. LS Diet leans on consistency, repeatability, and the
         behavioural permanence built inside the{" "}
-        <a href="/weight-permanence-triangle">Weight Permanence Training™</a>{" "}
+        <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
         and trained through{" "}
         <a href="/blog/action-practice">Action Practice</a>.
       </p>
