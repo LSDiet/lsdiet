@@ -18,7 +18,7 @@ type Message = {
 };
 
 const GREETING =
-  `Hi — I'm your Motivation Navigator.\n\nI'm here to help you build real, lasting motivation using Oscar's 5-stage awareness system. This isn't a standard chatbot — I'll ask you targeted questions to uncover what's actually been getting in your way.\n\nBefore we begin, I want to set the stage for how this works.`;
+  `Hi — I'm your Motivation Navigator.\n\nI'm here to help you build real, lasting motivation using Oscar's 5-stage awareness system. This isn't a standard chatbot — I'll ask you targeted questions to uncover what's actually been getting in your way.\n\nBefore we begin, I want to set the stage for how this works.\n\n1. Privacy — This conversation is yours. It stays completely private unless you choose to share it.\n\n2. Honesty — Because this is private, I need you to be 100% honest with your answers. The more honest you are, the more useful this will be.\n\n3. What you'll get — By the end, I'll give you a personal summary: your triggers, your patterns, and most importantly, your PUSH and PULL motivations — the real reasons change will stick this time. If it gets emotional at any point, take your time. There's no rush.\n\nType 'I am ready' when you're set to begin.`;
 
 export default function AppPage() {
   const { user, loading, signOut } = useAuth();

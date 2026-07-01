@@ -127,8 +127,20 @@ export default function AppAdminPage() {
     setFetchingFlagged(false);
   }
 
-  function copyForClaude(conv: FlaggedConversation) {
-    const transcript = conv.messages
+  async function copyForClaude(conv: FlaggedConversation) {
+    // Refetch fresh data first — the page's cached state may be stale if
+    // messages were flagged after this admin page last loaded.
+    const res = await fetch('/api/admin/flagged-conversations', {
+      headers: { Authorization: `Bearer ${await getToken()}` },
+    });
+    const data = await res.json();
+    const fresh: FlaggedConversation | undefined = Array.isArray(data)
+      ? data.find((c: FlaggedConversation) => c.id === conv.id)
+      : undefined;
+    const source = fresh ?? conv;
+    if (Array.isArray(data)) setFlaggedConversations(data);
+
+    const transcript = source.messages
       .map(m => `${m.flagged ? '⚠️ FLAGGED: ' : ''}[${m.role === 'assistant' ? 'Navigator' : 'You'}]: ${m.content}`)
       .join('\n\n');
     navigator.clipboard.writeText(transcript).then(() => {
@@ -236,9 +248,17 @@ export default function AppAdminPage() {
 
         {/* Flagged conversations */}
         <section>
-          <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wide mb-4">
-            Flagged Conversations ({flaggedConversations.length})
-          </h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wide">
+              Flagged Conversations ({flaggedConversations.length})
+            </h2>
+            <button
+              onClick={loadFlaggedConversations}
+              className="text-zinc-500 hover:text-white text-xs transition"
+            >
+              Refresh
+            </button>
+          </div>
           {fetchingFlagged ? (
             <p className="text-zinc-500 text-sm">Loading...</p>
           ) : flaggedConversations.length === 0 ? (
