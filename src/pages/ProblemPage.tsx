@@ -8,12 +8,16 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Users, ChevronRight, Sparkles } from "lucide-react";
 
 import regainProfiles from "@/assets/weight-regain-profiles-banner.webp";
+import heroCoupleVideo from "@/assets/hero-videos/hero-couple.mp4";
+import heroPushupsVideo from "@/assets/hero-videos/hero-pushups.mp4";
+import heroSweetsVideo from "@/assets/hero-videos/hero-sweets.mp4";
 
 const PUBLISHED = "2026-06-30T12:00:00+00:00";
-const UPDATED = "2026-06-30T12:00:00+00:00";
+const UPDATED = "2026-07-01T12:00:00+00:00";
 const CANONICAL = "https://lsdiet.com/problem";
+const FORK_HEADLINE = "What Happens Next Is Up to You.";
 
-const cycleWords = ["Loss.", "Regain.", "Rebound.", "Restart."];
+const cycleWords = ["Loss", "Regain", "Rebound", "Restart"];
 
 function RotatingCycleWord() {
   const [index, setIndex] = useState(0);
@@ -23,7 +27,7 @@ function RotatingCycleWord() {
   }, []);
   return (
     <span className="relative inline-block align-top text-accent">
-      <span className="invisible">Rebound.</span>
+      <span className="invisible">Rebound</span>
       {cycleWords.map((word, i) => (
         <span
           key={word}
@@ -37,6 +41,35 @@ function RotatingCycleWord() {
       ))}
       <span className="sr-only">Weight loss, regain, rebound, and restart.</span>
     </span>
+  );
+}
+
+const heroVideos = [heroCoupleVideo, heroPushupsVideo, heroSweetsVideo];
+
+function HeroVideoBackground() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % heroVideos.length), 6000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div className="absolute inset-0 z-0">
+      {heroVideos.map((src, i) => (
+        <video
+          key={src}
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload={i === 0 ? "auto" : "none"}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/80 to-primary" />
+    </div>
   );
 }
 
@@ -146,8 +179,8 @@ export default function ProblemPage() {
       <main data-route-root>
         {/* Hero */}
         <section className="bg-primary text-primary-foreground rounded-b-[2.5rem] shadow-xl relative overflow-hidden pt-4 pb-14 px-4">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="max-w-md mx-auto relative z-10">
+          <HeroVideoBackground />
+          <div className="max-w-md mx-auto relative z-10 text-center">
             <div className="inline-block px-3 py-1 bg-white/5 rounded-full text-xs font-bold tracking-wider text-accent mb-6 uppercase border border-white/10">
               The Problem · Why the Weight Comes Back
             </div>
@@ -175,11 +208,11 @@ export default function ProblemPage() {
 
         {/* Three ways it goes wrong */}
         <section className="py-14 px-4">
-          <div className="max-w-md mx-auto">
+          <div className="max-w-md mx-auto text-center">
             <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">Three Ways It Goes Wrong</span>
-            <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">Same starting point. Three different endings.</h2>
+            <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">Same starting point.<br />Three different endings.</h2>
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 text-left">
               {/* The Wall */}
               <a
                 ref={wall.ref}
@@ -214,7 +247,7 @@ export default function ProblemPage() {
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="font-black text-lg text-foreground">The Trap</span>
-                  <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-blue-600">Cycling</span>
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-blue-600">Yo-yo effect</span>
                 </div>
                 <div className="bg-muted/50 rounded-2xl p-3 mb-3">
                   <LineChart
@@ -263,14 +296,14 @@ export default function ProblemPage() {
 
         {/* Same starting point, two endings */}
         <section className="py-16 px-4 bg-muted/30">
-          <div className="max-w-md mx-auto">
+          <div className="max-w-md mx-auto text-center">
             <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">The Fork</span>
-            <h2 className="text-3xl font-black mb-3 tracking-tight text-foreground">Same starting point. Two endings.</h2>
+            <h2 className="text-3xl font-black mb-3 tracking-tight text-foreground">{FORK_HEADLINE}</h2>
             <p className="text-muted-foreground mb-8 text-xs leading-relaxed">
               Most plans get you down. Almost none keep you there. That gap is the difference between losing weight and making it permanent.
             </p>
 
-            <div ref={comparison.ref} className="bg-card rounded-3xl p-5 shadow-md border border-border">
+            <div ref={comparison.ref} className="bg-card rounded-3xl p-5 shadow-md border border-border text-left">
               <div className="text-[11px] font-black text-muted-foreground uppercase tracking-wider mb-3">Body weight over 12 months</div>
               <svg viewBox="0 0 300 180" className="w-full h-auto block overflow-visible" role="img" aria-label="Chart comparing weight rebounding upward with no plan versus staying down with Weight Permanence Training">
                 <line x1="20" y1="30" x2="280" y2="30" stroke="hsl(var(--border))" strokeWidth="1" />
@@ -317,25 +350,33 @@ export default function ProblemPage() {
 
         {/* What actually makes it stick */}
         <section ref={mergeSectionRef} className="py-16 px-4 bg-primary text-primary-foreground">
-          <div className="max-w-md mx-auto">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="max-w-md mx-auto text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
               <Sparkles className="text-accent" size={18} />
               <span className="text-xs font-black tracking-widest text-primary-foreground/70 uppercase block">The Solution</span>
             </div>
             <h2 className="text-3xl font-black mb-3 tracking-tight">What actually makes it stick</h2>
             <p className="text-primary-foreground/70 mb-10 text-xs leading-relaxed">
-              Restriction and medication only ever address the food side. Weight Permanence Training™ closes the other gap: the behaviour that puts the weight back on.
+              Restriction and medication only ever address the food side.{" "}
+              <a href="/what-is-ls-diet" className="text-accent underline underline-offset-2">LS Diet</a> handles that half. The other half is behavioural:{" "}
+              <a href="/awareness-stages" className="text-accent underline underline-offset-2">Awareness Training</a> plus{" "}
+              <a href="/blog/action-practice" className="text-accent underline underline-offset-2">Practice Training</a>. Together, that is{" "}
+              <a href="/weight-permanence-training" className="text-accent underline underline-offset-2">Weight Permanence Training™</a>.
             </p>
 
-            <div className={`flex flex-col items-center gap-3 text-center transition-all duration-700 ${mergePhase >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-              <div className="bg-white/5 border border-white/10 px-5 py-4 rounded-2xl w-full font-black">
+            <div className={`flex flex-col items-center gap-3 transition-all duration-700 ${mergePhase >= 1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
+              <a href="/what-is-ls-diet" className="block bg-white/5 border border-white/10 px-5 py-4 rounded-2xl w-full font-black hover:border-accent/50 transition-colors">
                 <div className="text-base">LS Diet</div>
                 <div className="text-[11px] text-primary-foreground/60 font-medium mt-1 normal-case">Low Starch, Low Sugar. Controls insulin so fat burning stays on.</div>
-              </div>
+              </a>
               <span className="text-primary-foreground/60 text-lg font-black">+</span>
               <div className="bg-white/5 border border-white/10 px-5 py-4 rounded-2xl w-full font-black">
                 <div className="text-base">Weight Permanence Training™</div>
-                <div className="text-[11px] text-primary-foreground/60 font-medium mt-1 normal-case">The behavioural system that stops the weight from coming back.</div>
+                <div className="text-[11px] text-primary-foreground/60 font-medium mt-1 normal-case">
+                  <a href="/awareness-stages" className="underline underline-offset-2 hover:text-accent">Awareness Training</a>
+                  {" "}+{" "}
+                  <a href="/blog/action-practice" className="underline underline-offset-2 hover:text-accent">Practice Training</a>. The behavioural system that stops the weight from coming back.
+                </div>
               </div>
               <span className="text-accent text-lg font-black">=</span>
               <a href="/weight-permanence-training" className="bg-accent text-accent-foreground px-5 py-5 rounded-2xl shadow-lg w-full font-black uppercase tracking-tight flex items-center justify-center gap-1 hover:opacity-95 transition-opacity">
@@ -347,8 +388,8 @@ export default function ProblemPage() {
 
         {/* The Regain Profiles */}
         <section className="py-16 px-4">
-          <div className="max-w-md mx-auto">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="max-w-md mx-auto text-center">
+            <div className="flex items-center justify-center gap-2 mb-2">
               <Users className="text-accent" size={18} />
               <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">Which One Caused Yours?</span>
             </div>
@@ -388,10 +429,10 @@ export default function ProblemPage() {
           <div className="max-w-md mx-auto">
             <h2 className="text-3xl font-black mb-4 tracking-tight text-foreground">This time, make it permanent.</h2>
             <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
-              Know your profile, so you know the real problem underneath it.
+              Naming the problem is step one. Here is the system built to solve it.
             </p>
             <Button variant="accent" size="lg" className="w-full" asChild>
-              <a href="/quiz">Find Your Regain Profile <ArrowRight size={18} /></a>
+              <a href="/weight-permanence-training">See Weight Permanence Training™ <ArrowRight size={18} /></a>
             </Button>
           </div>
         </section>
