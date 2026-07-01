@@ -11,6 +11,7 @@ import aware2 from "@/assets/awareness/aware2.png";
 import aware3 from "@/assets/awareness/aware3.png";
 import aware4 from "@/assets/awareness/aware4.png";
 import aware5 from "@/assets/awareness/aware5.png";
+import regainProfiles from "@/assets/weight-regain-profiles.webp";
 
 const PUBLISHED = "2026-05-14T12:00:00+00:00";
 const UPDATED = "2026-06-30T12:00:00+00:00";
@@ -79,14 +80,6 @@ const stages = [
   },
 ];
 
-const profiles = [
-  { id: "motivation-chaser", name: "The Motivation Chaser", tagline: "Starts strong when excited, loses steam the moment life gets busy.", note: "Works best with structure that does not depend on daily motivation." },
-  { id: "overwhelmed-beginner", name: "The Overwhelmed Beginner", tagline: "Wants to change but feels stuck under contradictory advice.", note: "Works best with one clear next step instead of ten options." },
-  { id: "restarter", name: "The Restarter", tagline: "Waits for next Monday to begin, again.", note: "Works best when the plan removes the concept of a restart entirely." },
-  { id: "stress-eater", name: "The Stress Eater", tagline: "Uses food to manage stress, not hunger.", note: "Works best by naming the trigger before it becomes the craving." },
-  { id: "weight-cycler", name: "The Weight Cycler", tagline: "Has lost 30 to 80 lbs more than once, and regained it every time.", note: "Works best by treating this as a behaviour problem, not a diet problem." },
-];
-
 function RadialStat({ pct, ringColor, trackColor, labelColor }: { pct: number; ringColor: string; trackColor: string; labelColor: string }) {
   const r = 20;
   const c = 2 * Math.PI * r;
@@ -103,12 +96,10 @@ function RadialStat({ pct, ringColor, trackColor, labelColor }: { pct: number; r
 
 export default function WeightPermanenceTrainingPage() {
   const [activeStage, setActiveStage] = useState(1);
-  const [activeProfileIdx, setActiveProfileIdx] = useState(0);
   const [identityToggle, setIdentityToggle] = useState<"dieter" | "permanent">("dieter");
   const [mergePhase, setMergePhase] = useState(0);
   const mergeTriggered = useRef(false);
   const mergeSectionRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = mergeSectionRef.current;
@@ -118,13 +109,14 @@ export default function WeightPermanenceTrainingPage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !mergeTriggered.current) {
             mergeTriggered.current = true;
-            setTimeout(() => setMergePhase(1), 200);
-            setTimeout(() => setMergePhase(2), 1000);
-            setTimeout(() => setMergePhase(3), 1900);
+            setMergePhase(0);
+            setTimeout(() => setMergePhase(1), 300);
+            setTimeout(() => setMergePhase(2), 1400);
+            setTimeout(() => setMergePhase(3), 2500);
           }
         });
       },
-      { threshold: 0.4 },
+      { threshold: 0.15 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -158,19 +150,20 @@ export default function WeightPermanenceTrainingPage() {
       <Navbar />
       <PageBreadcrumb items={[{ name: "Home", url: "/" }, { name: "Weight Permanence Training™", url: "/weight-permanence-training" }]} />
 
+      <main data-route-root>
       {/* Hero */}
       <section className="bg-primary text-primary-foreground rounded-b-[2.5rem] shadow-xl relative overflow-hidden pt-4 pb-14 px-4">
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-md mx-auto relative z-10">
           <div className="inline-block px-3 py-1 bg-white/5 rounded-full text-xs font-bold tracking-wider text-accent mb-6 uppercase border border-white/10">
-            Coined by Oscar Poon
+            Weight Permanence Training™ · Coined by Oscar Poon
           </div>
           <h1 className="text-4xl font-black leading-none mb-6 tracking-tight uppercase">
             Stop <br />
             <span className="text-accent">Restarting.</span>
           </h1>
           <p className="text-sm text-primary-foreground/80 mb-8 leading-relaxed">
-            Weight Permanence Training™ is the behavioural system that stops weight regain for good. Not another diet cycle. A permanent shift in how you think, decide, and act around food.{" "}
+            The behavioural system that stops weight regain for good. Not another diet cycle. A permanent shift in how you think, decide, and act around food.{" "}
             <a href="/what-is-ls-diet" className="text-accent underline underline-offset-2">See how LS Diet fits in</a>.
           </p>
 
@@ -192,37 +185,31 @@ export default function WeightPermanenceTrainingPage() {
           <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">Why the weight keeps coming back.</h2>
 
           <div className="flex flex-col gap-6">
-            <div className="bg-card p-6 rounded-3xl shadow-sm border border-border">
-              <div className="flex items-start justify-between mb-4">
+            <a href="/blog/why-people-regain-weight-after-dieting" className="block bg-card p-6 rounded-3xl shadow-sm border border-border hover:border-primary transition-colors">
+              <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="text-5xl font-black text-foreground tracking-tight">80%</div>
                   <div className="font-extrabold text-sm text-foreground mt-1">Regain weight within 5 years</div>
                 </div>
                 <RadialStat pct={0.8} ringColor="hsl(var(--primary))" trackColor="hsl(var(--muted))" labelColor="hsl(var(--primary))" />
               </div>
-              <p className="text-muted-foreground text-xs leading-relaxed mb-4">
-                Restriction alone does not teach you why you eat the way you do. Once the diet ends, the untouched patterns come right back.
-              </p>
-              <div className="text-[9px] text-muted-foreground/70 font-bold uppercase tracking-wider">
-                Cost of inaction on obesity in Canada: $27.6 billion per year
-              </div>
-            </div>
+              <span className="inline-flex items-center gap-1 text-[10px] font-black text-primary uppercase tracking-wider">
+                Why diets fail long-term <ArrowRight size={10} />
+              </span>
+            </a>
 
-            <div className="bg-primary text-primary-foreground p-6 rounded-3xl shadow-xl">
-              <div className="flex items-start justify-between mb-4">
+            <a href="/glp-1-rebound-analysis" className="block bg-primary text-primary-foreground p-6 rounded-3xl shadow-xl hover:opacity-95 transition-opacity">
+              <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="text-5xl font-black text-accent tracking-tight">66%</div>
                   <div className="font-extrabold text-sm mt-1">Weight regained after stopping GLP-1</div>
                 </div>
                 <RadialStat pct={0.66} ringColor="hsl(var(--accent))" trackColor="rgba(255,255,255,0.15)" labelColor="hsl(var(--accent))" />
               </div>
-              <p className="text-primary-foreground/70 text-xs leading-relaxed mb-4">
-                Semaglutide suppresses appetite. It does not build the identity or habits that hold the weight down once the medication stops.
-              </p>
-              <div className="text-[9px] text-primary-foreground/50 font-bold uppercase tracking-wider">
-                Source: STEP 1 trial extension, Wilding et al., 2022
-              </div>
-            </div>
+              <span className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider">
+                See the GLP-1 rebound data <ArrowRight size={10} />
+              </span>
+            </a>
           </div>
         </div>
       </section>
@@ -241,10 +228,16 @@ export default function WeightPermanenceTrainingPage() {
 
           <div className="flex justify-between items-center bg-card p-2 rounded-2xl shadow-sm border border-border mb-6 gap-1 overflow-x-auto">
             {stages.map((stage) => (
-              <button key={stage.id} onClick={() => setActiveStage(stage.id)} className="focus:outline-none shrink-0">
-                <div className={`w-11 h-11 rounded-full flex items-center justify-center border-2 ${stage.ring} ${activeStage === stage.id ? "bg-background" : "bg-muted opacity-50"} transition-all duration-300`}>
-                  <img src={stage.logo} alt={stage.name} className="w-2/3 h-2/3 object-contain" />
-                </div>
+              <button key={stage.id} onClick={() => setActiveStage(stage.id)} className="focus:outline-none shrink-0" aria-label={stage.name}>
+                <div
+                  className={`w-16 h-16 rounded-full overflow-hidden border-2 ${stage.ring} transition-all duration-300 ${activeStage === stage.id ? "opacity-100 scale-105" : "opacity-40"}`}
+                  style={{
+                    backgroundImage: `url(${stage.logo})`,
+                    backgroundSize: "176px 117px",
+                    backgroundPosition: "-56px -10px",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                />
               </button>
             ))}
           </div>
@@ -275,15 +268,15 @@ export default function WeightPermanenceTrainingPage() {
           </div>
 
           <div className="relative min-h-[220px] flex flex-col items-center justify-center">
-            <div className={`absolute inset-0 flex items-center justify-center gap-3 transition-all duration-700 ${mergePhase < 2 ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+            <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${mergePhase < 2 ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
               {stages.map((stage, i) => (
                 <div
                   key={stage.id}
-                  className={`w-8 h-8 rounded-full ${stage.dot} transition-all duration-700 ease-out`}
+                  className={`w-10 h-10 rounded-full ${stage.dot} transition-all duration-[1100ms] ease-in-out`}
                   style={
                     mergePhase >= 1
-                      ? { transform: `translateX(${(2 - i) * -6}px) scale(0.6)`, opacity: 0.9 }
-                      : { transform: "translateX(0) scale(1)", opacity: 1 }
+                      ? { transform: "translateX(0px) scale(0.3)", opacity: 0.5, marginLeft: "-8px", marginRight: "-8px" }
+                      : { transform: `translateX(${(i - 2) * 56}px) scale(1)`, opacity: 1 }
                   }
                 />
               ))}
@@ -347,7 +340,7 @@ export default function WeightPermanenceTrainingPage() {
                   <Check size={10} /> Identity aligned
                 </div>
                 <p className="font-extrabold text-sm mb-1.5 leading-snug">
-                  "I am someone who handles stress without food. That is just who I am now."
+                  "I am someone who chooses to eat healthy because I can. That is just who I am now."
                 </p>
                 <p className="text-primary-foreground/70 text-xs">
                   No negotiation needed. The choice is already made because it matches your identity.
@@ -366,39 +359,17 @@ export default function WeightPermanenceTrainingPage() {
             <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">Which one is you?</span>
           </div>
           <h2 className="text-3xl font-black mb-2 tracking-tight text-foreground">The Regain Profiles</h2>
-          <p className="text-muted-foreground mb-6 text-xs">Swipe to find the pattern that matches you.</p>
+          <p className="text-muted-foreground mb-6 text-xs">Tap to find the pattern that matches you.</p>
 
-          <div
-            ref={carouselRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            onScroll={(e) => {
-              const containerWidth = e.currentTarget.offsetWidth;
-              const cardWidth = containerWidth * 0.82 + 16;
-              const idx = Math.round(e.currentTarget.scrollLeft / cardWidth);
-              if (idx !== activeProfileIdx && idx >= 0 && idx < profiles.length) setActiveProfileIdx(idx);
-            }}
-          >
-            {profiles.map((profile, idx) => (
-              <div key={profile.id} className={`snap-center shrink-0 w-[82%] bg-card p-5 rounded-3xl border transition-all duration-300 ${activeProfileIdx === idx ? "border-accent shadow-lg ring-1 ring-accent/20" : "border-border opacity-60"}`}>
-                <span className="text-[9px] font-black uppercase text-muted-foreground block mb-2">Profile 0{idx + 1}</span>
-                <h3 className="font-black text-lg text-foreground mb-1">{profile.name}</h3>
-                <p className="text-muted-foreground text-xs leading-relaxed mb-4 min-h-[36px]">{profile.tagline}</p>
-                <div className="bg-muted/50 text-foreground text-xs font-semibold p-3.5 rounded-xl border border-border mb-4">
-                  <span className="uppercase text-[8px] block text-muted-foreground font-black mb-1">What tends to break this pattern</span>
-                  {profile.note}
-                </div>
-                <a href="/quiz" className="inline-flex items-center gap-1.5 text-xs font-black text-accent uppercase tracking-wider">
-                  Get my full profile <ChevronRight size={12} />
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex justify-center gap-1.5 mt-2">
-            {profiles.map((_, idx) => (
-              <span key={idx} className={`h-1.5 rounded-full transition-all ${activeProfileIdx === idx ? "w-5 bg-accent" : "w-1.5 bg-muted"}`} />
-            ))}
-          </div>
+          <a href="/quiz" className="block rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-shadow group">
+            <img src={regainProfiles} alt="The five weight regain profiles: Motivation Chaser, Weight Cycler, Overwhelmed Beginner, Stress Eater, and Restarter" className="w-full h-auto" />
+            <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
+              <span className="font-black text-sm uppercase tracking-wide">Find your profile</span>
+              <span className="inline-flex items-center gap-1 text-xs font-black text-accent uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                Take the quiz <ChevronRight size={14} />
+              </span>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -416,6 +387,7 @@ export default function WeightPermanenceTrainingPage() {
           </a>
         </div>
       </section>
+      </main>
 
       <FooterSimple />
     </div>
