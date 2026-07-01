@@ -115,28 +115,45 @@ export default function GLP1ReboundPage() {
       />
 
       {/* Hero */}
-      <header className="bg-gradient-to-br from-violet-700 to-purple-900 text-white py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-widest font-semibold text-violet-300 mb-3">
-            Clinical Research Synthesis
-          </p>
-          <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
-            The Weight Rebound Reality
-          </h1>
-          <p className="text-base md:text-lg text-violet-100 leading-relaxed max-w-2xl mx-auto mb-10">
-            GLP-1 medications produce significant weight loss while you take them. Clinical trials confirm that discontinuation leads to rapid, substantial weight regain in most patients. Here is the evidence.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {[
-              { stat: "2 / 3", label: "Proportion of lost weight regained within 1 year" },
-              { stat: "+11.6%", label: "Mean weight regained within 52 weeks of stopping" },
-              { stat: "–17.3%", label: "Weight lost at peak (68 weeks on medication)" },
-            ].map(({ stat, label }) => (
-              <div key={stat} className="bg-white/10 border border-white/20 rounded-xl p-5">
-                <div className="text-3xl font-bold mb-1">{stat}</div>
-                <div className="text-xs text-violet-200 leading-tight">{label}</div>
-              </div>
-            ))}
+      <header className="relative h-screen max-h-96 md:max-h-screen overflow-hidden text-white">
+        {/* Video background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/glp1-injection-hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center h-full px-6 py-16">
+          <div className="max-w-4xl text-center">
+            <p className="text-xs uppercase tracking-widest font-semibold text-violet-200 mb-3">
+              Clinical Research Synthesis
+            </p>
+            <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6">
+              The Weight Rebound Reality
+            </h1>
+            <p className="text-base md:text-lg text-violet-100 leading-relaxed max-w-2xl mx-auto mb-10">
+              GLP-1 medications produce significant weight loss while you take them. Clinical trials confirm that discontinuation leads to rapid, substantial weight regain in most patients. Here is the evidence.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+              {[
+                { stat: "2 / 3", label: "Proportion of lost weight regained within 1 year" },
+                { stat: "+11.6%", label: "Mean weight regained within 52 weeks of stopping" },
+                { stat: "–17.3%", label: "Weight lost at peak (68 weeks on medication)" },
+              ].map(({ stat, label }) => (
+                <div key={stat} className="bg-white/10 border border-white/20 rounded-xl p-5">
+                  <div className="text-3xl font-bold mb-1">{stat}</div>
+                  <div className="text-xs text-violet-200 leading-tight">{label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </header>
