@@ -39,7 +39,6 @@ import { LSDietCTA } from "@/components/LSDietCTA";
 import { ctaCopyFor, type CtaContext } from "@/lib/ctaVariants";
 import { useCtaInjection } from "@/lib/useCtaInjection";
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
-import { JoinFloatingBar } from "@/components/JoinFloatingBar";
 
 
 type ViewModel = {
@@ -397,8 +396,6 @@ export default function BlogPostPage() {
       </div>
 
       <FooterSimple />
-      <JoinFloatingBar />
-
     </div>
   );
 }
