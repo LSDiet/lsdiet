@@ -139,9 +139,54 @@ function Body() {
         ]}
       />
       <P>
-        The modules are available free inside the LS Diet Skool community. They run
-        daily, take minutes, and are designed to stack — each one building on the
-        last until the behaviour stops requiring conscious effort.
+        The modules are available free inside the LS Diet Skool community. They take
+        minutes to complete and are designed to stack, each one building on the last
+        until the behaviour stops requiring conscious effort.
+      </P>
+
+      <H2>What Can You Expect Inside the Skool Classroom?</H2>
+      <P>
+        Action Practice is the behavioural training arm of the LS Diet program, and it
+        lives inside{" "}
+        <a
+          href="https://www.skool.com/lsdiet/about"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent hover:underline"
+        >
+          Skool.com/LSDiet
+        </a>
+        . It is a self-paced library, not a locked drip sequence. You join, you see
+        every module, and you start wherever your own awareness work says you need
+        to start. New modules get added most weeks, so the library keeps growing
+        after you join.
+      </P>
+      <P>
+        Some modules target the mental side of change: interrupting the
+        self-licensing effect that lets one good choice justify a bad one, identifying
+        the triggers and environmental cues behind a pattern, and learning to respond
+        instead of react in the moment a craving actually hits.
+      </P>
+      <P>
+        Others rebuild the physical environment around you: restructuring your food
+        environment, reducing decision friction, reading a label correctly, and
+        building LS meals you can repeat without thinking. A few modules cover daily
+        physiology most people ignore, including how much water to drink, walking 30
+        minutes after waking, and stopping at the first burp instead of the point of
+        discomfort.
+      </P>
+      <P>
+        The rest work on identity and consistency directly: measuring weight in time
+        rather than a single number on the scale, telling the difference between
+        emotional and functional eating, tracking progress with LS pictures instead
+        of the scale alone, and building the mindset modules like gratitude training
+        and mastering the loser lifestyle that keep you showing up after the
+        motivation fades.
+      </P>
+      <P>
+        You don't need to finish the whole library before it works. Pick the module
+        that matches the pattern you're stuck in right now, do it, and move to the
+        next one when you're ready.
       </P>
 
       <H2>Why Isn't Awareness Alone Enough to Stop Weight Regain?</H2>
@@ -249,7 +294,7 @@ function Body() {
         </a>{" "}
         dramatically reduces the decision load around food. When cravings are lower
         and meals are simpler, the behavioural work becomes easier. Action Practice
-        is built on top of that foundation — using the reduced friction of LS eating
+        is built on top of that foundation, using the reduced friction of LS eating
         to make the daily practice of new behaviour more sustainable.
       </P>
       <P>
