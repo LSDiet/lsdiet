@@ -97,7 +97,7 @@ function Body() {
       <section aria-label="Frequently Asked Questions">
         <h3>Is Ozempic face a sign something is wrong with your health?</h3>
         <p>
-          Ozempic face itself is not dangerous and does not require treatment unless someone wants it addressed cosmetically (Cleveland Clinic, 2025). What it can indicate is a pace of weight and lean tissue loss happening faster than most people realize, since the same 25 to 45 percent lean mass loss found in GLP-1 trials is occurring throughout the body, not only in the face (Neeland et al., 2024). <a href="/weight-permanence-triangle">The Weight Permanence Triangle</a> treats an accurate read of body composition as one of three requirements for results that hold, alongside the right eating approach and the right behavioural system.
+          Ozempic face itself is not dangerous and does not require treatment unless someone wants it addressed cosmetically (Cleveland Clinic, 2025). What it can indicate is a pace of weight and lean tissue loss happening faster than most people realize, since the same 25 to 45 percent lean mass loss found in GLP-1 trials is occurring throughout the body, not only in the face (Neeland et al., 2024). <a href="/weight-permanence-training">Weight Permanence Training</a> treats an accurate read of body composition as one of three requirements for results that hold, alongside the right eating approach and the right behavioural system.
         </p>
       </section>
 

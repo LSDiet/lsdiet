@@ -81,7 +81,7 @@ function Body() {
       <section aria-label="Frequently Asked Questions">
         <h3>Why do people regain weight after stopping Ozempic if it works?</h3>
         <p>
-          The medication addresses appetite but not identity. Your body was never taught a different way to relate to food, stress, boredom, or celebration. When the drug stops, your brain and body return to their pre-treatment state. Without building new behavioural patterns and a new identity around food, regain is nearly inevitable. <a href="/weight-permanence-training">The Weight Permanence Triangle</a> requires three things working together: the right eating approach, the right behavioural system, and an identity that supports both.
+          The medication addresses appetite but not identity. Your body was never taught a different way to relate to food, stress, boredom, or celebration. When the drug stops, your brain and body return to their pre-treatment state. Without building new behavioural patterns and a new identity around food, regain is nearly inevitable. <a href="/weight-permanence-training">Weight Permanence Training</a> requires three things working together: the right eating approach, the right behavioural system, and an identity that supports both.
         </p>
       </section>
 
