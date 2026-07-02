@@ -115,7 +115,7 @@ export default function GLP1ReboundPage() {
       />
 
       {/* Hero */}
-      <header className="relative h-screen max-h-96 md:max-h-screen overflow-hidden text-white">
+      <header className="relative h-auto min-h-[420px] md:h-screen overflow-hidden text-white">
         {/* Video background */}
         <video
           autoPlay
