@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BrainCircuit, Users, BookOpen, Sparkles, Check, X, ChevronRight } from "lucide-react";
+import { ArrowRight, BrainCircuit, Users, BookOpen, Sparkles, Check, X, ChevronRight, Map, Repeat } from "lucide-react";
 
 import aware1 from "@/assets/awareness/aware1.png";
 import aware2 from "@/assets/awareness/aware2.png";
@@ -78,6 +78,23 @@ const stages = [
     definition: "You become what you repeatedly do. This stage builds the identity that makes the habit automatic.",
     question: "The version of you who never regains this weight again. Who are they?",
   },
+];
+
+const roadmap = [
+  { n: "01", title: "Find Your Profile", desc: "Know which regain pattern you're breaking." },
+  { n: "02", title: "Awareness Training", desc: "5 stages, 267 questions. Build the honest baseline." },
+  { n: "03", title: "Practice Training", desc: "Daily modules that turn insight into automatic behaviour." },
+  { n: "04", title: "Weight Permanence™", desc: "The habits and identity hold, even after the plan ends." },
+];
+
+const practiceCategories = [
+  "Environmental restructuring",
+  "Emotional eating awareness",
+  "Hydration systems",
+  "Habit integration",
+  "LS meal building",
+  "Behavioural interruption systems",
+  "Sustainable movement practices",
 ];
 
 const cycleWords = ["Regaining.", "Restarting.", "Rebounding."];
@@ -215,10 +232,10 @@ export default function WeightPermanenceTrainingPage() {
             <a href="/blog/why-people-regain-weight-after-dieting" className="block bg-card p-6 rounded-3xl shadow-sm border border-border hover:border-primary transition-colors">
               <div className="flex items-start justify-between mb-3">
                 <div>
-                  <div className="text-5xl font-black text-foreground tracking-tight">80%</div>
-                  <div className="font-extrabold text-sm text-foreground mt-1">Regain weight within 5 years</div>
+                  <div className="text-5xl font-black text-foreground tracking-tight">50%</div>
+                  <div className="font-extrabold text-sm text-foreground mt-1">Regain all lost weight within 5 years</div>
                 </div>
-                <RadialStat pct={0.8} ringColor="hsl(var(--primary))" trackColor="hsl(var(--muted))" labelColor="hsl(var(--primary))" />
+                <RadialStat pct={0.5} ringColor="hsl(var(--primary))" trackColor="hsl(var(--muted))" labelColor="hsl(var(--primary))" />
               </div>
               <span className="inline-flex items-center gap-1 text-[10px] font-black text-primary uppercase tracking-wider">
                 Why diets fail long-term <ArrowRight size={10} />
@@ -237,7 +254,68 @@ export default function WeightPermanenceTrainingPage() {
                 See the GLP-1 rebound data <ArrowRight size={10} />
               </span>
             </a>
+
+            <a href="/blog/youre-losing-muscle-not-just-fat-on-glp1-drugs" className="block bg-card p-6 rounded-3xl shadow-sm border border-border hover:border-primary transition-colors">
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <div className="text-5xl font-black text-foreground tracking-tight">45%</div>
+                  <div className="font-extrabold text-sm text-foreground mt-1">Of GLP-1 weight loss may be muscle, not fat</div>
+                </div>
+                <RadialStat pct={0.45} ringColor="hsl(var(--primary))" trackColor="hsl(var(--muted))" labelColor="hsl(var(--primary))" />
+              </div>
+              <span className="inline-flex items-center gap-1 text-[10px] font-black text-primary uppercase tracking-wider">
+                Why the scale lies on GLP-1 <ArrowRight size={10} />
+              </span>
+            </a>
           </div>
+        </div>
+      </section>
+
+      {/* How It Works — the roadmap, so every section below reads as one step, not a new feature */}
+      <section className="py-14 px-4 bg-muted/30">
+        <div className="max-w-md mx-auto">
+          <div className="flex items-center gap-2 mb-2">
+            <Map className="text-accent" size={18} />
+            <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">How It Works</span>
+          </div>
+          <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">One Program. Four Steps.</h2>
+
+          <ol className="relative">
+            <span aria-hidden="true" className="absolute left-[19px] top-2 bottom-2 w-px bg-border" />
+            {roadmap.map((step, i) => (
+              <li key={step.n} className="relative flex items-start gap-4 pb-6 last:pb-0">
+                <span className="relative z-10 shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-black text-xs">
+                  {step.n}
+                </span>
+                <div className="pt-1.5">
+                  <div className="font-black text-sm text-foreground uppercase tracking-wide">{step.title}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{step.desc}</div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Step 1 — Weight Regain Profiles, the actual entry point */}
+      <section className="py-16 px-4">
+        <div className="max-w-md mx-auto">
+          <div className="flex items-center gap-2 mb-2">
+            <Users className="text-accent" size={18} />
+            <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">Step 1 · Which one is you?</span>
+          </div>
+          <h2 className="text-3xl font-black mb-2 tracking-tight text-foreground">The Regain Profiles</h2>
+          <p className="text-muted-foreground mb-6 text-xs">Tap to find the pattern that matches you.</p>
+
+          <a href="/quiz" className="block rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-shadow group">
+            <img src={regainProfiles} alt="The five weight regain profiles: Motivation Chaser, Weight Cycler, Overwhelmed Beginner, Stress Eater, and Restarter" className="w-full h-auto" />
+            <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
+              <span className="font-black text-sm uppercase tracking-wide">Find your profile</span>
+              <span className="inline-flex items-center gap-1 text-xs font-black text-accent uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                Take the quiz <ChevronRight size={14} />
+              </span>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -274,7 +352,7 @@ export default function WeightPermanenceTrainingPage() {
                   Awareness Training
                 </div>
                 <span className="text-muted-foreground text-lg font-black">+</span>
-                <a href="/blog/action-practice" className="bg-card px-5 py-4 rounded-2xl shadow-sm border border-border w-full font-black text-foreground hover:border-accent hover:text-accent transition-colors flex items-center justify-center gap-1">
+                <a href="#practice-training" className="bg-card px-5 py-4 rounded-2xl shadow-sm border border-border w-full font-black text-foreground hover:border-accent hover:text-accent transition-colors flex items-center justify-center gap-1">
                   Practice Training <ArrowRight size={14} />
                 </a>
                 <span className="text-accent text-lg font-black">=</span>
@@ -287,10 +365,10 @@ export default function WeightPermanenceTrainingPage() {
         </div>
       </section>
 
-      {/* The 5 Stages of Awareness — deep dive on the first half of the formula */}
+      {/* Step 2 — The 5 Stages of Awareness, deep dive on the first half of the formula */}
       <section className="py-16 px-4">
         <div className="max-w-md mx-auto">
-          <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">Awareness Training, Broken Down</span>
+          <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">Step 2 · Awareness Training, Broken Down</span>
           <h2 className="text-3xl font-black mb-2 tracking-tight text-foreground">The 5 Stages of Awareness</h2>
           <p className="text-muted-foreground mb-8 text-xs">
             Tap a stage to explore what it asks you to confront.
@@ -330,6 +408,59 @@ export default function WeightPermanenceTrainingPage() {
                   <div className="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-1">A question this stage asks</div>
                   <p className="font-bold text-foreground italic text-xs leading-relaxed">"{stage.question}"</p>
                 </div>
+
+                {stage.id === 5 && (
+                  <div className="mb-4">
+                    <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-2">
+                      <BrainCircuit size={12} className="text-accent" /> The Identity Alignment Rule
+                    </div>
+                    <p className="font-bold text-foreground text-xs italic mb-3">
+                      "Smoker smokes. Healthy people prioritise healthy behaviour."
+                    </p>
+                    <div className="flex bg-muted/50 p-1 rounded-2xl border border-border mb-3">
+                      <button
+                        onClick={() => setIdentityToggle("dieter")}
+                        className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${identityToggle === "dieter" ? "bg-destructive text-destructive-foreground shadow-sm" : "text-muted-foreground"}`}
+                      >
+                        The Dieter
+                      </button>
+                      <button
+                        onClick={() => setIdentityToggle("permanent")}
+                        className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${identityToggle === "permanent" ? "bg-accent text-accent-foreground shadow-sm" : "text-muted-foreground"}`}
+                      >
+                        Weight Permanence
+                      </button>
+                    </div>
+                    <div className="bg-muted/30 p-4 rounded-2xl border border-border min-h-[110px] flex flex-col justify-center">
+                      {identityToggle === "dieter" ? (
+                        <div className="animate-fade-in-up">
+                          <div className="text-[9px] font-black text-destructive uppercase tracking-widest mb-1.5 flex items-center gap-1">
+                            <X size={10} /> Moral licensing
+                          </div>
+                          <p className="font-extrabold text-foreground text-xs mb-1.5 leading-snug">
+                            "I had a stressful day, so I have earned this."
+                          </p>
+                          <p className="text-muted-foreground text-[11px]">
+                            Treats healthy behaviour as a tax you pay off. The negotiation never ends.
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="animate-fade-in-up">
+                          <div className="text-[9px] font-black text-accent uppercase tracking-widest mb-1.5 flex items-center gap-1">
+                            <Check size={10} /> Identity aligned
+                          </div>
+                          <p className="font-extrabold text-foreground text-xs mb-1.5 leading-snug">
+                            "I am someone who chooses to eat healthy because I can. That is just who I am now."
+                          </p>
+                          <p className="text-muted-foreground text-[11px]">
+                            No negotiation needed. The choice is already made because it matches your identity.
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 <a href={`/blog/${stage.slug}`} className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider">
                   Read the full {stage.name} →
                 </a>
@@ -339,75 +470,47 @@ export default function WeightPermanenceTrainingPage() {
         </div>
       </section>
 
-      {/* Identity Alignment Rule */}
-      <section className="py-16 px-4 bg-primary text-primary-foreground">
+      {/* Step 3 — Practice Training, the half of the formula that was missing a section */}
+      <section id="practice-training" className="py-16 px-4 bg-primary text-primary-foreground">
         <div className="max-w-md mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <BrainCircuit className="text-accent" size={28} />
-            <h2 className="text-xl font-black tracking-tight uppercase">The Identity Alignment Rule</h2>
+          <div className="flex items-center gap-2 mb-2">
+            <Repeat className="text-accent" size={18} />
+            <span className="text-xs font-black tracking-widest text-primary-foreground/70 uppercase block">Step 3 · Practice Training</span>
           </div>
-          <p className="text-2xl font-black leading-tight mb-8">
-            "Smoker smokes. Healthy people prioritise healthy behaviour."
+          <h2 className="text-3xl font-black mb-3 tracking-tight">Where Awareness Becomes Behaviour</h2>
+          <p className="text-primary-foreground/70 mb-8 text-xs leading-relaxed">
+            Awareness creates direction. Practice is what actually changes behaviour. Daily modules inside the free community, built on one principle: consistency beats intensity.
           </p>
 
-          <div className="flex bg-white/5 p-1 rounded-2xl border border-white/10 mb-6">
-            <button onClick={() => setIdentityToggle("dieter")} className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${identityToggle === "dieter" ? "bg-destructive text-destructive-foreground shadow-md" : "text-primary-foreground/60"}`}>
-              The Dieter
-            </button>
-            <button onClick={() => setIdentityToggle("permanent")} className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${identityToggle === "permanent" ? "bg-accent text-accent-foreground shadow-md" : "text-primary-foreground/60"}`}>
-              Weight Permanence
-            </button>
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            {practiceCategories.map((category) => (
+              <a
+                key={category}
+                href="/blog/action-practice"
+                className="bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-xs font-extrabold hover:border-accent/50 hover:text-accent transition-colors flex items-center"
+              >
+                {category}
+              </a>
+            ))}
           </div>
 
-          <div className="bg-white/5 p-5 rounded-3xl border border-white/10 min-h-[140px] flex flex-col justify-center">
-            {identityToggle === "dieter" ? (
-              <div className="animate-fade-in-up">
-                <div className="text-[9px] font-black text-destructive uppercase tracking-widest mb-1.5 flex items-center gap-1">
-                  <X size={10} /> Moral licensing
-                </div>
-                <p className="font-extrabold text-sm mb-1.5 leading-snug">
-                  "I had a stressful day, so I have earned this."
-                </p>
-                <p className="text-primary-foreground/60 text-xs">
-                  Treats healthy behaviour as a tax you pay off. The negotiation never ends.
-                </p>
-              </div>
-            ) : (
-              <div className="animate-fade-in-up">
-                <div className="text-[9px] font-black text-accent uppercase tracking-widest mb-1.5 flex items-center gap-1">
-                  <Check size={10} /> Identity aligned
-                </div>
-                <p className="font-extrabold text-sm mb-1.5 leading-snug">
-                  "I am someone who chooses to eat healthy because I can. That is just who I am now."
-                </p>
-                <p className="text-primary-foreground/70 text-xs">
-                  No negotiation needed. The choice is already made because it matches your identity.
-                </p>
-              </div>
-            )}
-          </div>
+          <a href="/blog/action-practice" className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider">
+            See all the Practice modules <ArrowRight size={10} />
+          </a>
         </div>
       </section>
 
-      {/* Weight Regain Profiles */}
+      {/* Step 4 — Weight Permanence, the destination the roadmap started with */}
       <section className="py-16 px-4">
-        <div className="max-w-md mx-auto">
-          <div className="flex items-center gap-2 mb-2">
-            <Users className="text-accent" size={18} />
-            <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">Which one is you?</span>
-          </div>
-          <h2 className="text-3xl font-black mb-2 tracking-tight text-foreground">The Regain Profiles</h2>
-          <p className="text-muted-foreground mb-6 text-xs">Tap to find the pattern that matches you.</p>
-
-          <a href="/quiz" className="block rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-shadow group">
-            <img src={regainProfiles} alt="The five weight regain profiles: Motivation Chaser, Weight Cycler, Overwhelmed Beginner, Stress Eater, and Restarter" className="w-full h-auto" />
-            <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
-              <span className="font-black text-sm uppercase tracking-wide">Find your profile</span>
-              <span className="inline-flex items-center gap-1 text-xs font-black text-accent uppercase tracking-wider group-hover:translate-x-1 transition-transform">
-                Take the quiz <ChevronRight size={14} />
-              </span>
-            </div>
-          </a>
+        <div className="max-w-md mx-auto text-center">
+          <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">Step 4 · The Outcome</span>
+          <h2 className="text-3xl font-black mb-3 tracking-tight text-foreground">Weight Permanence™</h2>
+          <p className="text-muted-foreground text-xs mb-8 leading-relaxed">
+            Awareness Training + Practice Training. The behavioural system that stops the weight from coming back.
+          </p>
+          <Button variant="accent" size="lg" className="w-full" asChild>
+            <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Join the Free Community <ArrowRight size={18} /></a>
+          </Button>
         </div>
       </section>
 
