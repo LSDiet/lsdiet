@@ -4,14 +4,20 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BrainCircuit, Users, BookOpen, Sparkles, Check, X, ChevronRight, Map, Repeat } from "lucide-react";
+import { ArrowRight, BrainCircuit, Users, BookOpen, ChevronRight, Map, Repeat, Sparkles } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+import regainProfiles from "@/assets/weight-regain-profiles.webp";
 import aware1 from "@/assets/awareness/aware1.png";
 import aware2 from "@/assets/awareness/aware2.png";
 import aware3 from "@/assets/awareness/aware3.png";
 import aware4 from "@/assets/awareness/aware4.png";
 import aware5 from "@/assets/awareness/aware5.png";
-import regainProfiles from "@/assets/weight-regain-profiles.webp";
+import heroManVideo from "@/assets/hero-videos/hero-wpt-man.mp4";
+import heroOfficeVideo from "@/assets/hero-videos/hero-wpt-1.mp4";
+import practiceDonutVideo from "@/assets/hero-videos/practice-donut.mp4";
+import practiceRunningVideo from "@/assets/hero-videos/practice-running.mp4";
+import practiceBreadVideo from "@/assets/hero-videos/practice-bread.mp4";
 
 const PUBLISHED = "2026-05-14T12:00:00+00:00";
 const UPDATED = "2026-06-30T12:00:00+00:00";
@@ -22,79 +28,73 @@ const stages = [
     id: 1,
     name: "Reality Awareness",
     logo: aware1,
-    ring: "border-blue-500",
     chip: "bg-blue-50 text-blue-600",
     dot: "bg-blue-500",
     slug: "reality-awareness",
-    tagline: "Establishing your baseline",
-    definition: "Without an honest baseline, everything after this is guesswork, not strategy.",
-    question: "On a scale of 1 to 10, how accurately do you track what you actually eat each day?",
+    whatItIs: "Building an honest baseline of your current weight, habits, and patterns.",
+    whatFixes: "Guessing at solutions before you know the real problem.",
   },
   {
     id: 2,
     name: "Friction Awareness",
     logo: aware2,
-    ring: "border-orange-500",
     chip: "bg-orange-50 text-orange-600",
     dot: "bg-orange-500",
     slug: "friction-awareness",
-    tagline: "Recognising the gap",
-    definition: "Change starts when staying the same becomes harder to live with than changing.",
-    question: "Do you like your current weight, body, or energy? What are you tolerating that you are ready to stop tolerating?",
+    whatItIs: "Naming exactly what feels unsustainable about your current habits.",
+    whatFixes: "Staying comfortable enough to never actually change.",
   },
   {
     id: 3,
     name: "Pattern Awareness",
     logo: aware3,
-    ring: "border-green-600",
     chip: "bg-green-50 text-green-700",
     dot: "bg-green-600",
     slug: "pattern-awareness",
-    tagline: "Mapping who, what, when, where, and why",
-    definition: "Repeated behaviour builds the pattern, and the pattern predicts the outcome.",
-    question: "When do you find yourself eating even when you are not hungry?",
+    whatItIs: "Mapping the who, what, when, where, and why behind your eating.",
+    whatFixes: "Fighting the symptom instead of the trigger.",
   },
   {
     id: 4,
     name: "Consequence Awareness",
     logo: aware4,
-    ring: "border-red-600",
     chip: "bg-red-50 text-red-700",
     dot: "bg-red-600",
     slug: "consequence-awareness",
-    tagline: "The root of PUSH motivation",
-    definition: "This is not self-punishment. It is naming the real cost of staying the same.",
-    question: "If nothing changes, what is the most likely outcome in 5 years?",
+    whatItIs: "Facing the real cost of staying the same for another 5 years.",
+    whatFixes: "Change with no urgency behind it. Builds PUSH motivation.",
   },
   {
     id: 5,
     name: "Identity Awareness",
     logo: aware5,
-    ring: "border-teal-600",
     chip: "bg-teal-50 text-teal-700",
     dot: "bg-teal-600",
     slug: "identity-awareness",
-    tagline: "The root of PULL motivation",
-    definition: "You become what you repeatedly do. This stage builds the identity that makes the habit automatic.",
-    question: "The version of you who never regains this weight again. Who are they?",
+    whatItIs: "Defining who you're becoming, not just what you're losing.",
+    whatFixes: "Willpower running out before the weight does. Builds PULL motivation.",
   },
 ];
 
-const roadmap = [
-  { n: "01", title: "Find Your Profile", desc: "Know which regain pattern you're breaking." },
-  { n: "02", title: "Awareness Training", desc: "5 stages, 267 questions. Build the honest baseline." },
-  { n: "03", title: "Practice Training", desc: "Daily modules that turn insight into automatic behaviour." },
-  { n: "04", title: "Weight Permanence™", desc: "The habits and identity hold, even after the plan ends." },
+const roadmapSteps = [
+  { n: "1", title: "Find Your Profile", desc: "Know which regain pattern you're breaking.", icon: Users },
+  { n: "2", title: "Awareness Training (Psychology)", desc: "Find out the WHY and build the PUSH and PULL motivations.", icon: BrainCircuit },
+  { n: "3", title: "Practice Training (Behaviour)", desc: "Daily modules that turn insight into automatic behaviour.", icon: Repeat },
 ];
 
-const practiceCategories = [
-  "Environmental restructuring",
-  "Emotional eating awareness",
-  "Hydration systems",
-  "Habit integration",
-  "LS meal building",
-  "Behavioural interruption systems",
-  "Sustainable movement practices",
+const regainProfileNames = ["Motivation Chaser", "Overwhelmed Beginner", "Restarter", "Stress Eater", "Weight Cycler"];
+
+const practiceModules = [
+  "Interrupt the Trigger",
+  "Break Self-Licensing",
+  "Respond, Not React",
+  "Redesign Your Environment",
+  "Reduce Decision Friction",
+  "Build Repeatable LS Meals",
+  "Daily Physiology Basics",
+  "Measure Weight in Time",
+  "Emotional vs. Functional Eating",
+  "Build the Identity",
 ];
 
 const cycleWords = ["Regaining.", "Restarting.", "Rebounding."];
@@ -124,43 +124,122 @@ function RotatingWord() {
   );
 }
 
-function RadialStat({ pct, ringColor, trackColor, labelColor }: { pct: number; ringColor: string; trackColor: string; labelColor: string }) {
-  const r = 20;
-  const c = 2 * Math.PI * r;
+const heroVideos = [heroManVideo, heroOfficeVideo];
+const practiceVideos = [practiceDonutVideo, practiceRunningVideo, practiceBreadVideo];
+
+function VideoBackground({ videos, intervalMs, overlayClassName }: { videos: string[]; intervalMs: number; overlayClassName: string }) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % videos.length), intervalMs);
+    return () => clearInterval(id);
+  }, [videos.length, intervalMs]);
   return (
-    <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
-      <svg className="w-full h-full -rotate-90">
-        <circle cx="24" cy="24" r={r} stroke={trackColor} strokeWidth="4" fill="transparent" />
-        <circle cx="24" cy="24" r={r} stroke={ringColor} strokeWidth="4" fill="transparent" strokeDasharray={c} strokeDashoffset={c * (1 - pct)} strokeLinecap="round" />
-      </svg>
-      <span className="absolute text-[9px] font-black" style={{ color: labelColor }}>{Math.round(pct * 100)}%</span>
+    <div className="absolute inset-0 z-0">
+      {videos.map((src, i) => (
+        <video
+          key={src}
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload={i === 0 ? "auto" : "none"}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+            i === index ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className={`absolute inset-0 ${overlayClassName}`} />
+    </div>
+  );
+}
+
+function ProfileCarousel() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % regainProfileNames.length), 1600);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <div className="relative h-14 rounded-2xl border border-border bg-card flex items-center justify-center overflow-hidden">
+      {regainProfileNames.map((name, i) => (
+        <span
+          key={name}
+          aria-hidden={i !== index}
+          className={`absolute font-black text-sm uppercase tracking-wide text-foreground transition-all duration-400 ease-out ${
+            i === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+          }`}
+        >
+          {name}?
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function PracticeWordFlash() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % practiceModules.length), 1100);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <a
+      href="/blog/action-practice"
+      className="relative min-h-[130px] bg-black rounded-3xl flex items-center justify-center px-6 overflow-hidden"
+    >
+      {practiceModules.map((word, i) => (
+        <span
+          key={word}
+          aria-hidden={i !== index}
+          className={`absolute px-6 text-center text-2xl font-black uppercase tracking-tight text-white transition-all duration-300 ease-out ${
+            i === index ? "opacity-100 scale-100" : "opacity-0 scale-90"
+          }`}
+        >
+          {word}
+        </span>
+      ))}
+      <span className="sr-only">{practiceModules.join(", ")}</span>
+    </a>
+  );
+}
+
+function StatBar({ pct, fillColor, trackColor, visible }: { pct: number; fillColor: string; trackColor: string; visible: boolean }) {
+  return (
+    <div className="w-full h-4 rounded-full overflow-hidden mt-4" style={{ background: trackColor }}>
+      <div
+        className="h-full rounded-full transition-all duration-[1200ms] ease-out"
+        style={{ width: visible ? `${pct * 100}%` : "0%", background: fillColor }}
+      />
     </div>
   );
 }
 
 export default function WeightPermanenceTrainingPage() {
   const [activeStage, setActiveStage] = useState(1);
-  const [identityToggle, setIdentityToggle] = useState<"dieter" | "permanent">("dieter");
-  const [mergePhase, setMergePhase] = useState(0);
-  const mergeTriggered = useRef(false);
-  const mergeSectionRef = useRef<HTMLDivElement>(null);
+  const statsSection = useScrollAnimation(0.2);
+
+  const [roadmapPhase, setRoadmapPhase] = useState(0);
+  const roadmapTriggered = useRef(false);
+  const roadmapSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = mergeSectionRef.current;
+    const el = roadmapSectionRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !mergeTriggered.current) {
-            mergeTriggered.current = true;
-            setMergePhase(0);
-            setTimeout(() => setMergePhase(1), 300);
-            setTimeout(() => setMergePhase(2), 1400);
-            setTimeout(() => setMergePhase(3), 2500);
+          if (entry.isIntersecting && !roadmapTriggered.current) {
+            roadmapTriggered.current = true;
+            setRoadmapPhase(0);
+            setTimeout(() => setRoadmapPhase(1), 200);
+            setTimeout(() => setRoadmapPhase(2), 700);
+            setTimeout(() => setRoadmapPhase(3), 1200);
+            setTimeout(() => setRoadmapPhase(4), 1900);
           }
         });
       },
-      { threshold: 0.15 },
+      { threshold: 0.2 },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -197,17 +276,17 @@ export default function WeightPermanenceTrainingPage() {
       <main data-route-root>
       {/* Hero */}
       <section className="bg-primary text-primary-foreground rounded-b-[2.5rem] shadow-xl relative overflow-hidden pt-4 pb-14 px-4">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+        <VideoBackground videos={heroVideos} intervalMs={8000} overlayClassName="bg-gradient-to-b from-primary/60 via-primary/45 to-primary/90" />
         <div className="max-w-md mx-auto relative z-10">
           <div className="inline-block px-3 py-1 bg-white/5 rounded-full text-xs font-bold tracking-wider text-accent mb-6 uppercase border border-white/10">
-            Weight Permanence Training™ · Coined by Oscar Poon
+            Weight Permanence Training™ by Oscar Poon
           </div>
           <h1 className="text-4xl font-black leading-none mb-6 tracking-tight uppercase">
             Stop <br />
             <RotatingWord />
           </h1>
           <p className="text-sm text-primary-foreground/80 mb-8 leading-relaxed">
-            The behavioural system that stops weight regain for good. Not another diet cycle. A permanent shift in how you think, decide, and act around food.{" "}
+            A permanent shift in how you think, decide, and act around food.{" "}
             <a href="/what-is-ls-diet" className="text-accent underline underline-offset-2">See how LS Diet fits in</a>.
           </p>
 
@@ -216,7 +295,7 @@ export default function WeightPermanenceTrainingPage() {
               <a href="/quiz">Find Your Regain Profile <ArrowRight size={18} /></a>
             </Button>
             <Button variant="secondary" size="lg" className="w-full" asChild>
-              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Join the Free Community</a>
+              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Start Free Training Today</a>
             </Button>
           </div>
         </div>
@@ -224,46 +303,34 @@ export default function WeightPermanenceTrainingPage() {
 
       {/* Data section */}
       <section className="py-14 px-4">
-        <div className="max-w-md mx-auto">
+        <div ref={statsSection.ref} className="max-w-md mx-auto">
           <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">The Real Problem</span>
-          <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">Why the weight keeps coming back.</h2>
+          <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">Weight keeps coming back</h2>
 
           <div className="flex flex-col gap-6">
             <a href="/blog/why-people-regain-weight-after-dieting" className="block bg-card p-6 rounded-3xl shadow-sm border border-border hover:border-primary transition-colors">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <div className="text-5xl font-black text-foreground tracking-tight">50%</div>
-                  <div className="font-extrabold text-sm text-foreground mt-1">Regain all lost weight within 5 years</div>
-                </div>
-                <RadialStat pct={0.5} ringColor="hsl(var(--primary))" trackColor="hsl(var(--muted))" labelColor="hsl(var(--primary))" />
-              </div>
-              <span className="inline-flex items-center gap-1 text-[10px] font-black text-primary uppercase tracking-wider">
+              <div className="text-5xl font-black text-foreground tracking-tight">50%</div>
+              <div className="font-extrabold text-sm text-foreground mt-1">Regain all lost weight within 5 years</div>
+              <StatBar pct={0.5} fillColor="hsl(var(--primary))" trackColor="hsl(var(--muted))" visible={statsSection.isVisible} />
+              <span className="inline-flex items-center gap-1 text-[10px] font-black text-primary uppercase tracking-wider mt-4">
                 Why diets fail long-term <ArrowRight size={10} />
               </span>
             </a>
 
             <a href="/glp-1-rebound-analysis" className="block bg-primary text-primary-foreground p-6 rounded-3xl shadow-xl hover:opacity-95 transition-opacity">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <div className="text-5xl font-black text-accent tracking-tight">66%</div>
-                  <div className="font-extrabold text-sm mt-1">Weight regained after stopping GLP-1</div>
-                </div>
-                <RadialStat pct={0.66} ringColor="hsl(var(--accent))" trackColor="rgba(255,255,255,0.15)" labelColor="hsl(var(--accent))" />
-              </div>
-              <span className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider">
+              <div className="text-5xl font-black text-accent tracking-tight">66%</div>
+              <div className="font-extrabold text-sm mt-1">Weight regained after stopping GLP-1</div>
+              <StatBar pct={0.66} fillColor="hsl(var(--accent))" trackColor="rgba(255,255,255,0.15)" visible={statsSection.isVisible} />
+              <span className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider mt-4">
                 See the GLP-1 rebound data <ArrowRight size={10} />
               </span>
             </a>
 
             <a href="/blog/youre-losing-muscle-not-just-fat-on-glp1-drugs" className="block bg-card p-6 rounded-3xl shadow-sm border border-border hover:border-primary transition-colors">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <div className="text-5xl font-black text-foreground tracking-tight">45%</div>
-                  <div className="font-extrabold text-sm text-foreground mt-1">Of GLP-1 weight loss may be muscle, not fat</div>
-                </div>
-                <RadialStat pct={0.45} ringColor="hsl(var(--primary))" trackColor="hsl(var(--muted))" labelColor="hsl(var(--primary))" />
-              </div>
-              <span className="inline-flex items-center gap-1 text-[10px] font-black text-primary uppercase tracking-wider">
+              <div className="text-5xl font-black text-foreground tracking-tight">45%</div>
+              <div className="font-extrabold text-sm text-foreground mt-1">Of GLP-1 weight loss may be muscle, not fat</div>
+              <StatBar pct={0.45} fillColor="hsl(var(--primary))" trackColor="hsl(var(--muted))" visible={statsSection.isVisible} />
+              <span className="inline-flex items-center gap-1 text-[10px] font-black text-primary uppercase tracking-wider mt-4">
                 Why the scale lies on GLP-1 <ArrowRight size={10} />
               </span>
             </a>
@@ -271,29 +338,74 @@ export default function WeightPermanenceTrainingPage() {
         </div>
       </section>
 
-      {/* How It Works — the roadmap, so every section below reads as one step, not a new feature */}
-      <section className="py-14 px-4 bg-muted/30">
+      {/* How to Stop Weight Regain — 1 + 2 + 3 = Weight Permanence, animated */}
+      <section ref={roadmapSectionRef} className="py-14 px-4 bg-muted/30">
         <div className="max-w-md mx-auto">
           <div className="flex items-center gap-2 mb-2">
             <Map className="text-accent" size={18} />
-            <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">How It Works</span>
+            <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">How to Stop Weight Regain</span>
           </div>
-          <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">One Program. Four Steps.</h2>
+          <h2 className="text-3xl font-black mb-8 tracking-tight text-foreground">Step-by-Step Guide</h2>
 
-          <ol className="relative">
-            <span aria-hidden="true" className="absolute left-[19px] top-2 bottom-2 w-px bg-border" />
-            {roadmap.map((step, i) => (
-              <li key={step.n} className="relative flex items-start gap-4 pb-6 last:pb-0">
-                <span className="relative z-10 shrink-0 w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-black text-xs">
-                  {step.n}
-                </span>
-                <div className="pt-1.5">
-                  <div className="font-black text-sm text-foreground uppercase tracking-wide">{step.title}</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{step.desc}</div>
+          <div className="flex flex-col items-center gap-2">
+            {roadmapSteps.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <div key={step.n} className="w-full flex flex-col items-center gap-2">
+                  <div
+                    className={`relative w-full bg-card rounded-[28px] p-4 border border-border shadow-sm overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                      roadmapPhase > i ? "opacity-100 scale-100" : "opacity-0 scale-75"
+                    }`}
+                  >
+                    <div className="absolute -right-6 -top-6 w-20 h-20 rounded-full bg-accent/5 pointer-events-none" />
+                    <div className="flex items-center gap-4 relative">
+                      <div className="relative shrink-0">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/70 text-primary-foreground flex items-center justify-center shadow-md">
+                          <Icon size={20} />
+                        </div>
+                        <span className="absolute -bottom-1.5 -right-1.5 w-5 h-5 rounded-full bg-accent text-accent-foreground text-[10px] font-black flex items-center justify-center border-2 border-card">
+                          {step.n}
+                        </span>
+                      </div>
+                      <div>
+                        <div className="font-black text-sm text-foreground uppercase tracking-wide">{step.title}</div>
+                        <div className="text-xs text-muted-foreground mt-0.5">{step.desc}</div>
+                      </div>
+                    </div>
+                  </div>
+                  {i < roadmapSteps.length - 1 && (
+                    <span
+                      className={`w-8 h-8 shrink-0 rounded-full bg-card border border-border shadow-sm flex items-center justify-center text-muted-foreground font-black text-sm transition-opacity duration-300 ${
+                        roadmapPhase > i + 1 ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      +
+                    </span>
+                  )}
                 </div>
-              </li>
-            ))}
-          </ol>
+              );
+            })}
+
+            <span
+              className={`w-8 h-8 shrink-0 rounded-full bg-accent text-accent-foreground shadow-md flex items-center justify-center font-black text-sm transition-opacity duration-300 ${
+                roadmapPhase >= 4 ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              =
+            </span>
+
+            <div
+              className={`relative w-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-[28px] p-5 shadow-lg text-center overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                roadmapPhase >= 4 ? "opacity-100 scale-100" : "opacity-0 scale-75"
+              }`}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent pointer-events-none" />
+              <div className="relative flex items-center justify-center gap-2">
+                <Sparkles size={18} className="text-accent" />
+                <div className="font-black uppercase tracking-tight text-lg">Weight Permanence™</div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -307,7 +419,9 @@ export default function WeightPermanenceTrainingPage() {
           <h2 className="text-3xl font-black mb-2 tracking-tight text-foreground">The Regain Profiles</h2>
           <p className="text-muted-foreground mb-6 text-xs">Tap to find the pattern that matches you.</p>
 
-          <a href="/quiz" className="block rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-shadow group">
+          <ProfileCarousel />
+
+          <a href="/quiz" className="block rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-shadow group mt-4">
             <img src={regainProfiles} alt="The five weight regain profiles: Motivation Chaser, Weight Cycler, Overwhelmed Beginner, Stress Eater, and Restarter" className="w-full h-auto" />
             <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
               <span className="font-black text-sm uppercase tracking-wide">Find your profile</span>
@@ -319,78 +433,30 @@ export default function WeightPermanenceTrainingPage() {
         </div>
       </section>
 
-      {/* The Solution — bridges Problem to Method */}
-      <section ref={mergeSectionRef} className="py-16 px-4 bg-muted/30">
-        <div className="max-w-md mx-auto">
-          <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="text-accent" size={18} />
-            <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block">The Solution</span>
-          </div>
-          <h2 className="text-3xl font-black mb-3 tracking-tight text-foreground">One Formula. Two Halves.</h2>
-          <p className="text-muted-foreground mb-10 text-xs leading-relaxed">
-            Restriction and medication only ever address the food side. Weight Permanence Training™ closes the other gap: the behaviour that puts the weight back on.
-          </p>
-
-          <div className="relative min-h-[220px] flex flex-col items-center justify-center">
-            <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${mergePhase < 2 ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
-              {stages.map((stage, i) => (
-                <div
-                  key={stage.id}
-                  className={`w-10 h-10 rounded-full ${stage.dot} transition-all duration-[1100ms] ease-in-out`}
-                  style={
-                    mergePhase >= 1
-                      ? { transform: "translateX(0px) scale(0.3)", opacity: 0.5, marginLeft: "-8px", marginRight: "-8px" }
-                      : { transform: `translateX(${(i - 2) * 56}px) scale(1)`, opacity: 1 }
-                  }
-                />
-              ))}
-            </div>
-
-            <div className={`w-full transition-all duration-700 ${mergePhase >= 2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}>
-              <div className="flex flex-col items-center gap-3 text-center">
-                <div className="bg-card px-5 py-4 rounded-2xl shadow-sm border border-border w-full font-black text-foreground">
-                  Awareness Training
-                </div>
-                <span className="text-muted-foreground text-lg font-black">+</span>
-                <a href="#practice-training" className="bg-card px-5 py-4 rounded-2xl shadow-sm border border-border w-full font-black text-foreground hover:border-accent hover:text-accent transition-colors flex items-center justify-center gap-1">
-                  Practice Training <ArrowRight size={14} />
-                </a>
-                <span className="text-accent text-lg font-black">=</span>
-                <div className="bg-primary text-primary-foreground px-5 py-5 rounded-2xl shadow-lg w-full font-black uppercase tracking-tight">
-                  Weight Permanence™
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Step 2 — The 5 Stages of Awareness, deep dive on the first half of the formula */}
+      {/* Step 2 — The 5 Stages of Awareness */}
       <section className="py-16 px-4">
         <div className="max-w-md mx-auto">
-          <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">Step 2 · Awareness Training, Broken Down</span>
+          <span className="text-xs font-black tracking-widest text-muted-foreground uppercase block mb-2">Step 2 · Psychology Training for a New Identity</span>
           <h2 className="text-3xl font-black mb-2 tracking-tight text-foreground">The 5 Stages of Awareness</h2>
           <p className="text-muted-foreground mb-8 text-xs">
-            Tap a stage to explore what it asks you to confront.
+            Tap a stage to see what it is and what it fixes.
           </p>
 
-          <div className="flex justify-between items-center bg-card p-2 rounded-2xl shadow-sm border border-border mb-6 gap-1 overflow-x-auto">
+          <div className="flex justify-between items-center gap-2 mb-6">
             {stages.map((stage) => (
               <button key={stage.id} onClick={() => setActiveStage(stage.id)} className="focus:outline-none shrink-0" aria-label={stage.name}>
                 <div
-                  className={`w-16 h-16 rounded-full overflow-hidden border-2 ${stage.ring} transition-all duration-300 ${activeStage === stage.id ? "opacity-100 scale-105" : "opacity-40"}`}
-                  style={{
-                    backgroundImage: `url(${stage.logo})`,
-                    backgroundSize: "176px 117px",
-                    backgroundPosition: "-56px -10px",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                />
+                  className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-sm transition-all duration-300 ${
+                    activeStage === stage.id ? `${stage.dot} text-white scale-110 shadow-md` : "bg-muted text-muted-foreground opacity-60"
+                  }`}
+                >
+                  {stage.id}
+                </div>
               </button>
             ))}
           </div>
 
-          <div className="bg-card rounded-3xl p-5 shadow-md border border-border min-h-[280px]">
+          <div className="bg-card rounded-3xl p-5 shadow-md border border-border min-h-[220px]">
             {stages.map((stage) => (
               <div key={stage.id} className={activeStage === stage.id ? "block animate-fade-in-up" : "hidden"}>
                 <div className="flex justify-between items-center mb-3">
@@ -401,65 +467,23 @@ export default function WeightPermanenceTrainingPage() {
                     All stages <ArrowRight size={10} />
                   </a>
                 </div>
-                <h3 className="text-xl font-black text-foreground mb-1">{stage.name}</h3>
-                <p className="text-[10px] text-muted-foreground font-extrabold uppercase tracking-wider mb-3">{stage.tagline}</p>
-                <p className="text-muted-foreground text-xs leading-relaxed mb-4">{stage.definition}</p>
-                <div className="bg-muted/50 rounded-2xl p-4 border-l-4 border-primary mb-4">
-                  <div className="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-1">A question this stage asks</div>
-                  <p className="font-bold text-foreground italic text-xs leading-relaxed">"{stage.question}"</p>
+                <div className="mb-4 inline-block">
+                  <h3 className="text-2xl font-black text-foreground leading-none mb-2">{stage.name}</h3>
+                  <div className={`h-1.5 w-full rounded-full ${stage.dot}`} />
                 </div>
-
-                {stage.id === 5 && (
-                  <div className="mb-4">
-                    <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-2">
-                      <BrainCircuit size={12} className="text-accent" /> The Identity Alignment Rule
+                <div className="flex items-center gap-4 mb-4">
+                  <img src={stage.logo} alt="" className="w-24 shrink-0 h-auto object-contain" />
+                  <div className="flex-1 min-w-0 space-y-2">
+                    <div className={`rounded-2xl p-3 ${stage.chip}`}>
+                      <div className="text-[9px] font-black uppercase tracking-wider opacity-70 mb-1">What it is</div>
+                      <p className="text-xs leading-relaxed font-semibold">{stage.whatItIs}</p>
                     </div>
-                    <p className="font-bold text-foreground text-xs italic mb-3">
-                      "Smoker smokes. Healthy people prioritise healthy behaviour."
-                    </p>
-                    <div className="flex bg-muted/50 p-1 rounded-2xl border border-border mb-3">
-                      <button
-                        onClick={() => setIdentityToggle("dieter")}
-                        className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${identityToggle === "dieter" ? "bg-destructive text-destructive-foreground shadow-sm" : "text-muted-foreground"}`}
-                      >
-                        The Dieter
-                      </button>
-                      <button
-                        onClick={() => setIdentityToggle("permanent")}
-                        className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${identityToggle === "permanent" ? "bg-accent text-accent-foreground shadow-sm" : "text-muted-foreground"}`}
-                      >
-                        Weight Permanence
-                      </button>
-                    </div>
-                    <div className="bg-muted/30 p-4 rounded-2xl border border-border min-h-[110px] flex flex-col justify-center">
-                      {identityToggle === "dieter" ? (
-                        <div className="animate-fade-in-up">
-                          <div className="text-[9px] font-black text-destructive uppercase tracking-widest mb-1.5 flex items-center gap-1">
-                            <X size={10} /> Moral licensing
-                          </div>
-                          <p className="font-extrabold text-foreground text-xs mb-1.5 leading-snug">
-                            "I had a stressful day, so I have earned this."
-                          </p>
-                          <p className="text-muted-foreground text-[11px]">
-                            Treats healthy behaviour as a tax you pay off. The negotiation never ends.
-                          </p>
-                        </div>
-                      ) : (
-                        <div className="animate-fade-in-up">
-                          <div className="text-[9px] font-black text-accent uppercase tracking-widest mb-1.5 flex items-center gap-1">
-                            <Check size={10} /> Identity aligned
-                          </div>
-                          <p className="font-extrabold text-foreground text-xs mb-1.5 leading-snug">
-                            "I am someone who chooses to eat healthy because I can. That is just who I am now."
-                          </p>
-                          <p className="text-muted-foreground text-[11px]">
-                            No negotiation needed. The choice is already made because it matches your identity.
-                          </p>
-                        </div>
-                      )}
+                    <div className="rounded-2xl p-3 bg-muted/60">
+                      <div className="text-[9px] font-black uppercase tracking-wider text-muted-foreground mb-1">What this fixes</div>
+                      <p className="text-foreground text-xs leading-relaxed font-semibold">{stage.whatFixes}</p>
                     </div>
                   </div>
-                )}
+                </div>
 
                 <a href={`/blog/${stage.slug}`} className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider">
                   Read the full {stage.name} →
@@ -470,31 +494,24 @@ export default function WeightPermanenceTrainingPage() {
         </div>
       </section>
 
-      {/* Step 3 — Practice Training, the half of the formula that was missing a section */}
-      <section id="practice-training" className="py-16 px-4 bg-primary text-primary-foreground">
-        <div className="max-w-md mx-auto">
-          <div className="flex items-center gap-2 mb-2">
+      {/* Step 3 — Practice Training, one module flashing at a time */}
+      <section id="practice-training" className="relative py-16 px-4 bg-primary text-primary-foreground overflow-hidden text-center">
+        <VideoBackground videos={practiceVideos} intervalMs={5000} overlayClassName="bg-gradient-to-b from-primary/75 via-primary/70 to-primary/90" />
+        <div className="max-w-md mx-auto relative z-10">
+          <div className="flex items-center justify-center gap-2 mb-2">
             <Repeat className="text-accent" size={18} />
             <span className="text-xs font-black tracking-widest text-primary-foreground/70 uppercase block">Step 3 · Practice Training</span>
           </div>
-          <h2 className="text-3xl font-black mb-3 tracking-tight">Where Awareness Becomes Behaviour</h2>
+          <h2 className="text-3xl font-black mb-3 tracking-tight">Make Behaviour Change Intentional</h2>
           <p className="text-primary-foreground/70 mb-8 text-xs leading-relaxed">
-            Awareness creates direction. Practice is what actually changes behaviour. Daily modules inside the free community, built on one principle: consistency beats intensity.
+            Daily modules that bridge the gap between
+            <br />
+            wishing for a goal and actually doing it.
           </p>
 
-          <div className="grid grid-cols-2 gap-3 mb-6">
-            {practiceCategories.map((category) => (
-              <a
-                key={category}
-                href="/blog/action-practice"
-                className="bg-white/5 border border-white/10 rounded-2xl px-4 py-4 text-xs font-extrabold hover:border-accent/50 hover:text-accent transition-colors flex items-center"
-              >
-                {category}
-              </a>
-            ))}
-          </div>
+          <PracticeWordFlash />
 
-          <a href="/blog/action-practice" className="inline-flex items-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider">
+          <a href="/blog/action-practice" className="inline-flex items-center justify-center gap-1 text-[10px] font-black text-accent uppercase tracking-wider mt-6">
             See all the Practice modules <ArrowRight size={10} />
           </a>
         </div>
@@ -509,7 +526,7 @@ export default function WeightPermanenceTrainingPage() {
             Awareness Training + Practice Training. The behavioural system that stops the weight from coming back.
           </p>
           <Button variant="accent" size="lg" className="w-full" asChild>
-            <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Join the Free Community <ArrowRight size={18} /></a>
+            <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Start Free Training Today <ArrowRight size={18} /></a>
           </Button>
         </div>
       </section>
