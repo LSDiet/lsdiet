@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type TouchEvent as ReactTouchEvent } from "react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
@@ -208,7 +208,7 @@ function StatBar({ pct, fillColor, trackColor, visible }: { pct: number; fillCol
   return (
     <div className="w-full h-4 rounded-full overflow-hidden mt-4" style={{ background: trackColor }}>
       <div
-        className="h-full rounded-full transition-all duration-[1200ms] ease-out"
+        className="h-full rounded-full transition-all duration-[2600ms] ease-out"
         style={{ width: visible ? `${pct * 100}%` : "0%", background: fillColor }}
       />
     </div>
@@ -218,6 +218,22 @@ function StatBar({ pct, fillColor, trackColor, visible }: { pct: number; fillCol
 export default function WeightPermanenceTrainingPage() {
   const [activeStage, setActiveStage] = useState(1);
   const statsSection = useScrollAnimation(0.2);
+  const touchStartX = useRef<number | null>(null);
+
+  const handleStageTouchStart = (e: ReactTouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleStageTouchEnd = (e: ReactTouchEvent) => {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(deltaX) < 40) return;
+    setActiveStage((prev) => {
+      if (deltaX < 0) return prev < stages.length ? prev + 1 : prev;
+      return prev > 1 ? prev - 1 : prev;
+    });
+  };
 
   const [roadmapPhase, setRoadmapPhase] = useState(0);
   const roadmapTriggered = useRef(false);
@@ -456,7 +472,11 @@ export default function WeightPermanenceTrainingPage() {
             ))}
           </div>
 
-          <div className="bg-card rounded-3xl p-5 shadow-md border border-border min-h-[220px]">
+          <div
+            className="bg-card rounded-3xl p-5 shadow-md border border-border min-h-[220px] touch-pan-y"
+            onTouchStart={handleStageTouchStart}
+            onTouchEnd={handleStageTouchEnd}
+          >
             {stages.map((stage) => (
               <div key={stage.id} className={activeStage === stage.id ? "block animate-fade-in-up" : "hidden"}>
                 <div className="flex justify-between items-center mb-3">
@@ -467,9 +487,14 @@ export default function WeightPermanenceTrainingPage() {
                     All stages <ArrowRight size={10} />
                   </a>
                 </div>
-                <div className="mb-4 inline-block">
-                  <h3 className="text-2xl font-black text-foreground leading-none mb-2">{stage.name}</h3>
-                  <div className={`h-1.5 w-full rounded-full ${stage.dot}`} />
+                <div className="mb-4">
+                  <h3 className="text-2xl font-black text-foreground leading-none mb-2">
+                    <span className="inline-block">
+                      {stage.name.split(" ")[0]}
+                      <div className={`h-1.5 w-full rounded-full mt-2 ${stage.dot}`} />
+                    </span>{" "}
+                    {stage.name.split(" ").slice(1).join(" ")}
+                  </h3>
                 </div>
                 <div className="flex items-center gap-4 mb-4">
                   <img src={stage.logo} alt="" className="w-24 shrink-0 h-auto object-contain" />
