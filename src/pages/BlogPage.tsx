@@ -121,7 +121,7 @@ function FoundationDeck() {
         The four foundations
       </h2>
 
-      <div className="relative h-[296px]">
+      <div className="relative h-[296px] md:h-[340px] md:max-w-[520px]">
         {FOUNDATION_CARDS.map((card, idx) => {
           const depth = (idx - i + FOUNDATION_COUNT) % FOUNDATION_COUNT;
           const front = depth === 0;
@@ -151,7 +151,7 @@ function FoundationDeck() {
               onPointerCancel={front ? endDrag : undefined}
             >
               <div
-                className={`h-[286px] rounded-[22px] border ${card.bg} ${card.border} flex flex-col px-7 pt-[26px] pb-[22px]`}
+                className={`h-[286px] md:h-[330px] rounded-[22px] border ${card.bg} ${card.border} flex flex-col px-7 pt-[26px] pb-[22px]`}
                 style={{ boxShadow: "0 24px 48px -26px rgba(0,0,0,.35)" }}
               >
                 <div className="flex items-start justify-between">
@@ -245,7 +245,7 @@ function JustPublished({ entries }: { entries: BlogIndexEntry[] }) {
       <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.1] text-[hsl(0_0%_10%)] mb-5">
         Latest articles
       </h2>
-      <div className="grid grid-cols-2 gap-[18px]">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-[18px] md:gap-6">
         {latest.map((e) => (
           <a key={e.slug} href={`/blog/${e.slug}`} target="_blank" rel="noopener noreferrer" className="group flex flex-col gap-2.5">
             <div className="relative aspect-[4/3] rounded-[14px] overflow-hidden border border-[hsl(0_0%_90%)]">
@@ -261,8 +261,8 @@ function JustPublished({ entries }: { entries: BlogIndexEntry[] }) {
                 <div className="absolute inset-0 bg-gradient-to-br from-tint-sage to-tint-cream transition-transform duration-[400ms] group-hover:scale-[1.06]" />
               )}
             </div>
-            <p className="text-[10px] font-semibold font-mono text-[hsl(0_0%_55%)]">{formatShortDate(e.publishDate)}</p>
-            <h3 className="text-[14.5px] font-bold leading-snug text-[hsl(0_0%_11%)] transition-colors group-hover:text-[hsl(152_40%_26%)]">
+            <p className="text-[10px] md:text-xs font-semibold font-mono text-[hsl(0_0%_55%)]">{formatShortDate(e.publishDate)}</p>
+            <h3 className="text-[14.5px] md:text-base font-bold leading-snug text-[hsl(0_0%_11%)] transition-colors group-hover:text-[hsl(152_40%_26%)]">
               {e.title}
             </h3>
           </a>
@@ -454,7 +454,7 @@ export default function BlogPage() {
 
       <Navbar />
 
-      <main className="max-w-[660px] mx-auto px-[22px] pt-24 pb-16">
+      <main className="max-w-[660px] md:max-w-[1180px] mx-auto px-[22px] md:px-10 pt-24 pb-16">
         {loading && <div className="text-zinc-500 text-sm pt-8">Loading…</div>}
 
         {!loading && (
