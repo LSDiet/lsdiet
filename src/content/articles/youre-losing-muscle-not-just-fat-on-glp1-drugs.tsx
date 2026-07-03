@@ -90,6 +90,13 @@ function Body() {
       </section>
 
       <section aria-label="Frequently Asked Questions">
+        <h3>How many days a week should you do resistance training on GLP-1 medication?</h3>
+        <p>
+          Two to three days a week of resistance training, hitting every major muscle group, is enough to protect muscle while on a GLP-1 medication. It does not need to be more than that. What matters more than frequency is consistency and protein intake on training days, since appetite suppression makes it easy to under-eat protein precisely when your muscles need it most.
+        </p>
+      </section>
+
+      <section aria-label="Frequently Asked Questions">
         <h3>Why does GLP-1 cause muscle loss?</h3>
         <p>
           GLP-1 medications suppress appetite so effectively that people often consume too little protein and calories simultaneously. The body breaks down muscle tissue to meet its energy needs. Additionally, reduced food intake combined with the appetite suppression means people have less motivation to engage in the resistance training required to preserve muscle. <a href="/weight-permanence-training">Weight Permanence Training</a> requires three things: the right eating approach, the right behavioural system, and a body you understand clearly. Knowing your baseline composition is the foundation for protecting what you have while making changes.

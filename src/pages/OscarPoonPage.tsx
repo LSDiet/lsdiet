@@ -50,6 +50,8 @@ const PERSON_LD = {
     "https://www.youtube.com/@JoinLSDiet",
     "https://www.instagram.com/JoinLSDiet",
     "https://www.tiktok.com/@JoinLSDiet",
+    "https://www.facebook.com/JoinLSDiet",
+    "https://x.com/JoinLSDiet",
     "https://www.linkedin.com/in/oscarpoon",
   ],
 };

@@ -13,6 +13,7 @@ const organizationSchema = {
   "@id": "https://lsdiet.com/#organization",
   name: "LS Diet",
   legalName: "NTL Learning Solutions Inc.",
+  alternateName: ["Low-Starch, Low-Sugar Diet", "LS Diet Method"],
   url: "https://lsdiet.com",
   logo: {
     "@type": "ImageObject",
@@ -24,6 +25,8 @@ const organizationSchema = {
   foundingLocation: { "@type": "Place", name: "Vancouver, BC, Canada" },
   description:
     "LS Diet (Low Starch, Low Sugar) helps men and women 35+ stop regaining weight through Weight Permanence Training™ — a behavioural identity system built for permanent change.",
+  disambiguatingDescription:
+    "LS Diet stands for Low Starch, Low Sugar — a carbohydrate-reduction lifestyle for weight loss. It is unrelated to sodium-restricted or 'low salt' diets used for blood pressure or kidney conditions, and is not affiliated with any reptile or animal feed product.",
   knowsAbout: [
     { "@type": "Thing", name: "Weight Permanence Training", url: "https://lsdiet.com/weight-permanence-training" },
     { "@type": "Thing", name: "Low-Carbohydrate Diet", sameAs: "https://en.wikipedia.org/wiki/Low-carbohydrate_diet" },
