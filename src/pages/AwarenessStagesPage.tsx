@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { Button } from "@/components/ui/button";
+import { RelatedArticles } from "@/components/RelatedArticles";
+import { getArticlesByFoundation } from "@/content/articles";
 
 import stagesDiagram from "@/assets/5-stages-of-awareness-v3.jpg";
 import aware1 from "@/assets/awareness/aware1.png";
@@ -52,6 +54,15 @@ const stages = [
 ];
 
 const stageIcons = [aware1, aware2, aware3, aware4, aware5];
+
+// One or two articles pulled from each stage foundation, deduped, capped at 6.
+const stageArticles = Array.from(
+  new Map(
+    stages
+      .flatMap((s) => getArticlesByFoundation(s.slug, 2))
+      .map((a) => [a.meta.slug, a]),
+  ).values(),
+).slice(0, 6);
 
 const stageMeta = [
   { name: "Reality",     full: "Reality Awareness",     purpose: "Establish your honest baseline",          questions: 14, slug: "reality-awareness"     },
@@ -448,6 +459,8 @@ export default function AwarenessStagesPage() {
           )}
 
         </div>
+
+        <RelatedArticles items={stageArticles} />
 
       </main>
 

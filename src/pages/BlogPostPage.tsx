@@ -23,7 +23,7 @@ import { WPTAwarenessCallout } from "@/components/WPTAwarenessCallout";
 import { RelatedFoundations } from "@/components/RelatedFoundations";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { getFoundationBySlug, type Foundation } from "@/content/foundations";
-import { getArticleBySlug, type Article } from "@/content/articles";
+import { getArticleBySlug, getArticlesByFoundation, type Article } from "@/content/articles";
 import { ArticleBreadcrumb } from "@/components/ArticleBreadcrumb";
 import { ArticleProgression } from "@/components/ArticleProgression";
 import { MidArticleRelated } from "@/components/MidArticleRelated";
@@ -243,6 +243,7 @@ export default function BlogPostPage() {
 
 
   const isArticle = vm.source === "article" && !!vm.article;
+  const foundationArticles = vm.source === "foundation" ? getArticlesByFoundation(vm.slug) : [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -368,6 +369,8 @@ export default function BlogPostPage() {
             </div>
 
             <RelatedFoundations excludeSlug={vm.slug} />
+
+            {vm.source === "foundation" && <RelatedArticles items={foundationArticles} />}
 
             <AboutAuthorBlock />
 

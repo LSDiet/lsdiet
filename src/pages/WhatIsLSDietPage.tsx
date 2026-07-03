@@ -3,10 +3,16 @@ import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { PageBreadcrumb } from "@/components/PageBreadcrumb";
 import { Button } from "@/components/ui/button";
+import { RelatedArticles } from "@/components/RelatedArticles";
+import { getArticlesByFoundation } from "@/content/articles";
 import foodComparisonTable from "@/assets/what-is-ls-diet/ls-diet-food-comparison-table.webp";
 
 const PUBLISHED = "2026-05-14T12:00:00+00:00";
 const UPDATED = "2026-06-26T12:00:00+00:00";
+const relatedArticles = getArticlesByFoundation(
+  "why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting",
+  6,
+);
 
 export default function WhatIsLSDietPage() {
   return (
@@ -230,6 +236,8 @@ export default function WhatIsLSDietPage() {
             <a href="/awareness-stages" className="text-accent hover:underline">5 Awareness Stages</a>.
           </p>
         </div>
+
+        <RelatedArticles items={relatedArticles} />
 
         <div className="mt-10 p-6 rounded-xl border border-accent/30 bg-accent/5 text-center space-y-3">
           <p className="text-base font-semibold text-zinc-900">Start the free LS Diet training.</p>

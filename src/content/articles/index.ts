@@ -158,4 +158,16 @@ export function getArticleBySlug(slug: string): Article | undefined {
   return ARTICLES.find((a) => a.meta.slug === slug);
 }
 
+// Reverse lookup for foundation pages: articles that feed into this pillar,
+// primary matches first, then articles that merely reference it as related.
+export function getArticlesByFoundation(foundationSlug: string, limit = 6): Article[] {
+  const primary = ARTICLES.filter((a) => a.meta.primaryFoundationSlug === foundationSlug);
+  const related = ARTICLES.filter(
+    (a) =>
+      a.meta.primaryFoundationSlug !== foundationSlug &&
+      a.meta.relatedFoundationSlugs.includes(foundationSlug),
+  );
+  return [...primary, ...related].slice(0, limit);
+}
+
 export type { Article, ArticleMeta } from "./types";
