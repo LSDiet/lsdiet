@@ -283,6 +283,7 @@ export default function WeightPermanenceTrainingPage() {
           author: { "@type": "Person", name: "Oscar Poon", url: "https://lsdiet.com/oscar-poon" },
           publisher: { "@type": "Organization", name: "LS Diet", url: "https://lsdiet.com" },
           mainEntityOfPage: CANONICAL,
+          about: { "@id": "https://lsdiet.com/awareness-stages#weight-permanence-training" },
         })}</script>
       </Helmet>
 
