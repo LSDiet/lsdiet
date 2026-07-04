@@ -85,6 +85,9 @@ import doesGlp1WeightLossCount from "./does-glp1-weight-loss-count";
 // Batch 15
 import whyOzempicFaceHappens from "./why-ozempic-face-happens";
 
+// Batch 16
+import goodFatBadFatHighProteinDiet from "./good-fat-bad-fat-high-protein-diet";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -151,6 +154,8 @@ export const ARTICLES: Article[] = [
   doesGlp1WeightLossCount,
   // Batch 15
   whyOzempicFaceHappens,
+  // Batch 16
+  goodFatBadFatHighProteinDiet,
 ];
 
 
