@@ -22,13 +22,16 @@ export function BookSection() {
           {/* Header */}
           <div className="text-center mb-10 md:mb-14">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-3">
-              Now Live on Skool · 100% Free
+              Access the Free LS Diet & Weight Permanence Training Vault
+            </p>
+            <p className="mx-auto max-w-xl text-sm text-muted-foreground mb-3">
+              Get instant, direct access to the entire step-by-step video system, tracking tools, and support chat.
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight">
               A Peek Inside
             </h2>
             <p className="mt-3 text-sm md:text-base text-muted-foreground">
-              Psychology Training + Action Practice
+              How We Rewire Your Metabolic Habitats
             </p>
           </div>
 
@@ -69,7 +72,7 @@ export function BookSection() {
                     Psychology Training
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Why you regain · self-paced
+                    🧠 The Rebound Deactivation Blueprint: Understand the exact psychological triggers that cause your body to panic and demand food after a diet.
                   </p>
                 </div>
               </figcaption>
@@ -94,7 +97,7 @@ export function BookSection() {
                     Action Practice
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    40+ videos · 1 a day · 30 days
+                    ⏱️ 3-Minute Daily Adjustments: No long lectures. Just one micro-habit video a day to cement your weight loss into place permanently.
                   </p>
                 </div>
               </figcaption>
@@ -120,12 +123,12 @@ export function BookSection() {
                   })
                 }
               >
-                JOIN THE COMMUNITY{"\n"}
+                CLAIM YOUR FREE TRAINING ACCOUNT{"\n"}
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
             </Button>
             <p className="mt-3 text-[11px] font-medium text-muted-foreground">
-              100% FREE · Cancel anytime
+              Free training • Hosted on a secure, private learning platform
             </p>
           </div>
         </div>

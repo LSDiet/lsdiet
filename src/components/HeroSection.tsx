@@ -22,6 +22,7 @@ type Pair = {
   after: PictureSrc;
   afterLbs: string;
   afterPos: string;
+  tagline: string;
 };
 
 const pairs: Pair[] = [
@@ -29,16 +30,19 @@ const pairs: Pair[] = [
     year: "2019",
     before: img2019a, beforeLbs: "300 LBS", beforePos: "object-top",
     after: img2019b, afterLbs: "180 LBS", afterPos: "object-top",
+    tagline: "Losing weight via strict calorie counting + daily exercise. (Gained it all back by 2021.)",
   },
   {
     year: "2022",
     before: img2021a, beforeLbs: "280 LBS", beforePos: "object-right",
     after: img2021b, afterLbs: "200 LBS", afterPos: "object-top",
+    tagline: "Losing weight via extreme low-carb Keto. (Gained it all back by 2023.)",
   },
   {
     year: "2024",
     before: img2024a, beforeLbs: "310 LBS", beforePos: "object-top",
     after: img2024b, afterLbs: "190 LBS", afterPos: "object-top",
+    tagline: "Switched to LS Diet. Lost the weight without the rebound.",
   },
 ];
 
@@ -97,6 +101,7 @@ function TransformationCard({
         <span className="text-xl font-extrabold text-accent">{pair.year}</span>
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">After</span>
       </div>
+      <p className="px-4 pb-3.5 text-center text-xs leading-snug text-muted-foreground">{pair.tagline}</p>
 
     </div>
   );
@@ -198,7 +203,7 @@ export function HeroSection() {
             For people who keep regaining weight
           </p>
           <h2 className="mt-2 text-2xl md:text-4xl lg:text-5xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground">
-            I LOST 80+ LBS <span className="text-accent">THREE TIMES</span>
+            I lost 80+ pounds three times. <span className="text-accent">But I only figured out how to keep it off once.</span>
           </h2>
         </div>
         {/* DESKTOP (md+): 3-card grid — transformation shown first */}
@@ -222,7 +227,10 @@ export function HeroSection() {
 
         <div>
           <p className="text-center text-sm font-medium text-foreground sm:text-base">
-            … and finally learned how to stop this
+            LS Diet works wonders and everyone suffering from weight rebound should try this method.
+          </p>
+          <p className="mt-1 text-center text-xs font-semibold uppercase tracking-wide text-accent sm:text-sm">
+            Free training · What do you get to lose other than your weight?
           </p>
         </div>
 

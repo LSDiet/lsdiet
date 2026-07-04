@@ -39,7 +39,7 @@ const faqs: FaqEntry[] = [
     ),
   },
   {
-    q: "How much does the program cost?",
+    q: "Is this actually free, or is there a hidden catch?",
     schemaAnswer:
       "100% free to join. The Standard plan includes unlimited access to the Weight Permanence Training™, the full Action Practice module (30+ videos), and the LS Diet community. An optional upgrade to Accountability Coaching is available for members who want guided practice and weekly group coaching. The upgrade is not required to learn the weight regain prevention skill.",
     render: () => (
@@ -117,7 +117,7 @@ const faqs: FaqEntry[] = [
     ),
   },
   {
-    q: "Is this for busy professionals?",
+    q: "I have no time. Will this work for me?",
     schemaAnswer:
       "Yes. LS Diet was designed for people with jobs, families, responsibilities, and limited time. You do not need long workouts, complicated meal plans, or hours of meal preparation. The system is built around real-life, not ideal circumstances.",
     render: () => (
@@ -135,7 +135,7 @@ const faqs: FaqEntry[] = [
     ),
   },
   {
-    q: "What happens inside the class?",
+    q: "What exactly do I get when I click get access?",
     schemaAnswer:
       "Inside the class, you'll learn: the weight problem (weight regain, information trap, how motivation disappears, and emotional priorities); the Weight Permanence Training; the 5 Stages of Awareness (Reality, Friction, Pattern, Consequence, and Identity); guided step-by-step to build your PUSH and PULL motivations; 30+ Action Practice; and practical behaviours that support long-term weight management.",
     render: () => (

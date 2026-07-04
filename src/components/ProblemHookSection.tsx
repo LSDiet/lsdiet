@@ -18,7 +18,7 @@
  *   - Animation limited to the chevron bounce
  */
 import { useEffect, useRef } from "react";
-import { ChevronDown, ArrowRight, Compass, BatteryLow, TrendingDown, RotateCcw, CloudRain, Pill } from "lucide-react";
+import { ChevronDown, ArrowRight, Compass, BatteryLow, Repeat, RotateCcw, CloudRain, Pill } from "lucide-react";
 
 const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
@@ -26,7 +26,7 @@ function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
   return (
     <div className="mx-auto mt-5 flex w-full max-w-md flex-col items-center text-center">
       <p className="text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center text-sm font-bold mt-[10px] my-0 uppercase tracking-[0.15em]">
-        What's your weight regain profile?
+        Not sure why keeping the weight off is so hard?
       </p>
       <a
         href="/quiz"
@@ -39,7 +39,7 @@ function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
         }
         className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5 md:text-lg"
       >
-        Find Your Profile
+        Find Out Why
         <ArrowRight className="h-5 w-5" aria-hidden />
       </a>
       <p className="mt-2 text-[11px] font-medium text-white/60">
@@ -92,7 +92,7 @@ const pains: Pain[] = [
   { label: "I\u2019m thinking about GLP-1 medication", shortLabel: "On GLP-1 Medication", href: "/glp-1-rebound-analysis", hsl: "261 80% 65%", Icon: Pill },
   { label: "I don\u2019t know where to start", shortLabel: "Overwhelmed", href: "/weight-regain-profile/overwhelmed-beginner", hsl: "0 84% 60%", Icon: Compass },
   { label: "I always run out of motivation", shortLabel: "Unmotivated", href: "/weight-regain-profile/motivation-chaser", hsl: "212 90% 60%", Icon: BatteryLow },
-  { label: "I lose weight but it always comes back", shortLabel: "Regaining Again", href: "/weight-regain-profile/weight-cycler", hsl: "38 92% 55%", Icon: TrendingDown },
+  { label: "I keep switching to a new diet plan", shortLabel: "Switching Diets Again", href: "/weight-regain-profile/weight-cycler", hsl: "38 92% 55%", Icon: Repeat },
   { label: "I jump from one method to the next before seeing results", shortLabel: "Restarting Again", href: "/weight-regain-profile/restarter", hsl: "150 70% 48%", Icon: RotateCcw },
   { label: "I eat when I\u2019m stressed", shortLabel: "Stress Eating", href: "/weight-regain-profile/stress-eater", hsl: "280 70% 65%", Icon: CloudRain },
 ];
@@ -285,7 +285,7 @@ function FloatingCarousel3D({
 function Headline() {
   return (
     <h1 className="text-center font-sans font-extrabold uppercase leading-[1.05] tracking-tight text-white text-[1.7rem] sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-      How to <span className="text-accent">prevent regaining weight</span> when I am&hellip;
+      How to <span className="text-accent">Stop the Rebound and Keep the Weight Off</span> when I am&hellip;
     </h1>
   );
 }
@@ -324,6 +324,9 @@ export function ProblemHookSection() {
               carousel, scaled up for the extra room on desktop/tablet. */}
           <div className="mt-8 flex flex-1 items-center justify-end">
             <nav aria-label="Common weight-loss struggles" className="ml-auto w-full max-w-[36rem]">
+              <p className="text-right text-sm font-bold uppercase tracking-[0.15em] text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+                Which one sounds like you right now?
+              </p>
               <FloatingCarousel3D
                 pains={pains}
                 variant="carousel_3d_desktop"
@@ -374,7 +377,10 @@ export function ProblemHookSection() {
 
           {/* 3D carousel — replaces the old blocking pill stack. Decorative/
               atmospheric; the quiz CTA below is the real routing path. */}
-          <FloatingCarousel3D pains={pains} variant="carousel_3d_mobile" className="mt-6" />
+          <p className="mt-6 text-center text-sm font-bold uppercase tracking-[0.15em] text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+            Which one sounds like you right now?
+          </p>
+          <FloatingCarousel3D pains={pains} variant="carousel_3d_mobile" className="mt-3" />
 
           <HeroJoinCTA placement="mobile" />
 
