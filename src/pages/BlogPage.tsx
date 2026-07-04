@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Command as CommandPrimitive } from "cmdk";
+import { Search } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { FooterSimple } from "@/components/FooterSimple";
 import { fetchBlogIndex, type BlogIndexEntry } from "@/lib/blogIndex";
@@ -234,10 +236,96 @@ function FoundationDeck() {
 }
 
 // ---------------------------------------------------------------------------
+// Blog search — inline autocomplete dropdown, title match as you type
+// ---------------------------------------------------------------------------
+
+function BlogSearch({ entries }: { entries: BlogIndexEntry[] }) {
+  const [query, setQuery] = useState("");
+  const [open, setOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onClickOutside(e: MouseEvent) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    return () => document.removeEventListener("mousedown", onClickOutside);
+  }, []);
+
+  const searchable = entries.filter((e) => e.title && e.slug);
+
+  const goToArticle = (slug: string) => {
+    window.open(`/blog/${slug}`, "_blank", "noopener,noreferrer");
+    setOpen(false);
+    setQuery("");
+  };
+
+  return (
+    <div ref={wrapperRef} className="relative w-full md:w-[300px]">
+      <CommandPrimitive shouldFilter className="relative">
+        <div className="flex items-center gap-2 rounded-full border border-[hsl(0_0%_85%)] bg-white px-4 py-2.5 transition-colors focus-within:border-primary">
+          <Search className="h-4 w-4 shrink-0 text-[hsl(0_0%_55%)]" aria-hidden="true" />
+          <CommandPrimitive.Input
+            value={query}
+            onValueChange={(v) => {
+              setQuery(v);
+              setOpen(v.trim().length > 0);
+            }}
+            onFocus={() => {
+              if (query.trim().length > 0) setOpen(true);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") setOpen(false);
+            }}
+            placeholder="Search articles…"
+            className="w-full bg-transparent text-sm outline-none placeholder:text-[hsl(0_0%_60%)]"
+          />
+        </div>
+
+        {open && (
+          <CommandPrimitive.List className="absolute left-0 right-0 top-[calc(100%+8px)] z-20 max-h-[360px] overflow-y-auto rounded-2xl border border-[hsl(0_0%_88%)] bg-white shadow-[0_18px_40px_-16px_rgba(0,0,0,.25)]">
+            <CommandPrimitive.Empty className="px-4 py-6 text-center text-sm text-[hsl(0_0%_50%)]">
+              No articles found.
+            </CommandPrimitive.Empty>
+            {searchable.map((e) => (
+              <CommandPrimitive.Item
+                key={e.slug}
+                value={e.title}
+                onSelect={() => goToArticle(e.slug)}
+                className="flex cursor-pointer items-center gap-3 border-b border-[hsl(0_0%_93%)] px-4 py-3 last:border-b-0 data-[selected=true]:bg-[hsl(152_30%_96%)]"
+              >
+                <div className="h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-[hsl(0_0%_90%)]">
+                  {e.featuredImage?.url ? (
+                    <img
+                      src={e.featuredImage.url}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="h-full w-full bg-gradient-to-br from-tint-sage to-tint-cream" />
+                  )}
+                </div>
+                <span className="min-w-0 flex-1 text-[13.5px] font-bold leading-snug text-[hsl(0_0%_13%)]">
+                  {e.title}
+                </span>
+              </CommandPrimitive.Item>
+            ))}
+          </CommandPrimitive.List>
+        )}
+      </CommandPrimitive>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Just Published — 6 latest supporting-content cards
 // ---------------------------------------------------------------------------
 
-function JustPublished({ entries }: { entries: BlogIndexEntry[] }) {
+function JustPublished({ entries, allEntries }: { entries: BlogIndexEntry[]; allEntries: BlogIndexEntry[] }) {
   const latest = entries
     .filter((e) => SUPPORTING_TYPES.has(e.contentType))
     .sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1))
@@ -247,12 +335,17 @@ function JustPublished({ entries }: { entries: BlogIndexEntry[] }) {
 
   return (
     <section className="mt-11 md:mt-14">
-      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_40%)] mb-1.5">
-        Just published
-      </p>
-      <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.1] text-[hsl(0_0%_10%)] mb-5">
-        Latest articles
-      </h2>
+      <div className="flex flex-col gap-4 mb-5 md:flex-row md:items-end md:justify-between md:gap-6">
+        <div>
+          <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_40%)] mb-1.5">
+            Just published
+          </p>
+          <h2 className="font-display font-extrabold text-[clamp(22px,5.5vw,27px)] leading-[1.1] text-[hsl(0_0%_10%)]">
+            Latest articles
+          </h2>
+        </div>
+        <BlogSearch entries={allEntries} />
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-[18px] md:gap-6">
         {latest.map((e) => (
           <a key={e.slug} href={`/blog/${e.slug}`} target="_blank" rel="noopener noreferrer" className="group flex flex-col gap-2.5">
@@ -297,7 +390,9 @@ function Shelf({
   onToggle: () => void;
   index: number;
 }) {
+  const [showAll, setShowAll] = useState(false);
   const count = entries.length;
+  const visible = showAll ? entries : entries.slice(0, 6);
 
   return (
     <div
@@ -338,7 +433,7 @@ function Shelf({
         style={{ maxHeight: isOpen ? 220 : 0, opacity: isOpen ? 1 : 0 }}
       >
         <div className="flex gap-3 overflow-x-auto px-[18px] pb-5 pt-0.5">
-          {entries.slice(0, 6).map((e) => (
+          {visible.map((e) => (
             <a
               key={e.slug}
               href={`/blog/${e.slug}`}
@@ -354,12 +449,15 @@ function Shelf({
               <span className="block text-[12.5px] font-bold leading-snug text-[hsl(0_0%_13%)] px-3 pt-2.5 pb-3">{e.title}</span>
             </a>
           ))}
-          <a
-            href={`/blog/topic/${cluster.id}`}
-            className="shrink-0 w-[120px] flex items-center justify-center text-center bg-primary text-white rounded-[13px] text-[12.5px] font-bold p-3"
-          >
-            View all {count} →
-          </a>
+          {!showAll && count > 6 && (
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="shrink-0 w-[120px] flex items-center justify-center text-center bg-primary text-white rounded-[13px] text-[12.5px] font-bold p-3"
+            >
+              View all {count} →
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -487,7 +585,7 @@ export default function BlogPage() {
               <FoundationDeck />
             </div>
 
-            <JustPublished entries={supporting} />
+            <JustPublished entries={supporting} allEntries={entries} />
 
             <BrowseShelves clusterEntries={clusterEntries} />
           </>
