@@ -108,7 +108,7 @@ function FoundationDeck() {
   };
 
   return (
-    <section className="mt-9 md:mt-12 md:max-w-[520px]">
+    <section className="mt-9 md:mt-12">
       <div className="flex items-baseline justify-between gap-3.5 mb-1.5">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_38%)]">
           Start here · The Foundation
@@ -419,7 +419,11 @@ export default function BlogPage() {
   }
 
   for (const arr of clusterEntries.values()) {
-    arr.sort((a, b) => (a.publishDate < b.publishDate ? 1 : -1));
+    arr.sort((a, b) => {
+      const aDate = a.updatedAt || a.publishDate;
+      const bDate = b.updatedAt || b.publishDate;
+      return aDate < bDate ? 1 : -1;
+    });
   }
 
   const collectionSchema = {
@@ -459,19 +463,21 @@ export default function BlogPage() {
 
         {!loading && (
           <>
-            <section className="pt-2 pb-2">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[hsl(38_90%_40%)] mb-3.5">
-                The LS Diet Library
-              </p>
-              <h1 className="font-display font-extrabold text-[clamp(34px,8vw,46px)] leading-[1.06] tracking-[-0.018em] text-[hsl(0_0%_8%)] mb-4">
-                Stop Regaining Weight Today
-              </h1>
-              <p className="text-[clamp(15px,4vw,17px)] leading-relaxed text-[hsl(0_0%_38%)] max-w-[520px]">
-                The LS Diet foundations, the newest articles, and real-life topics that are worth your time.
-              </p>
-            </section>
+            <div className="md:max-w-[560px] md:mx-auto">
+              <section className="pt-2 pb-2">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[hsl(38_90%_40%)] mb-3.5">
+                  The LS Diet Library
+                </p>
+                <h1 className="font-display font-extrabold text-[clamp(34px,8vw,46px)] leading-[1.06] tracking-[-0.018em] text-[hsl(0_0%_8%)] mb-4">
+                  Stop Regaining Weight Today
+                </h1>
+                <p className="text-[clamp(15px,4vw,17px)] leading-relaxed text-[hsl(0_0%_38%)]">
+                  The LS Diet foundations, the newest articles, and real-life topics that are worth your time.
+                </p>
+              </section>
 
-            <FoundationDeck />
+              <FoundationDeck />
+            </div>
 
             <JustPublished entries={supporting} />
 
