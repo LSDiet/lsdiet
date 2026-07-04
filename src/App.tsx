@@ -46,6 +46,7 @@ const AppPage = lazy(() => import("./pages/AppPage"));
 const AppLoginPage = lazy(() => import("./pages/AppLoginPage"));
 const AppRegisterPage = lazy(() => import("./pages/AppRegisterPage"));
 const AppAdminPage = lazy(() => import("./pages/AppAdminPage"));
+const AISOPage = lazy(() => import("./pages/AISOPage"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -106,6 +107,8 @@ function AppContent() {
           <Route path="/app/register" element={<AppRegisterPage />} />
           <Route path="/app/chat" element={<AppPage />} />
           <Route path="/app/admin" element={<AppAdminPage />} />
+          <Route path="/aiso" element={<AISOPage />} />
+          <Route path="/AISO" element={<Navigate to="/aiso" replace />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
