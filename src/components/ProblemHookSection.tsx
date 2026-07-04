@@ -18,7 +18,7 @@
  *   - Animation limited to the chevron bounce
  */
 import { useEffect, useRef } from "react";
-import { ChevronDown, ChevronRight, ArrowRight, Compass, BatteryLow, TrendingDown, RotateCcw, CloudRain, Pill } from "lucide-react";
+import { ChevronDown, ArrowRight, Compass, BatteryLow, TrendingDown, RotateCcw, CloudRain, Pill } from "lucide-react";
 
 const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
@@ -97,75 +97,6 @@ const pains: Pain[] = [
   { label: "I eat when I\u2019m stressed", shortLabel: "Stress Eating", href: "/weight-regain-profile/stress-eater", hsl: "280 70% 65%", Icon: CloudRain },
 ];
 
-/** Slightly varied widths so the right-edge cluster reads as ONE organic
- *  psychological stack, not 5 identical menu buttons (desktop, right-aligned). */
-const railWidths = [
-  "md:w-full",
-  "md:w-full",
-  "md:w-[90%]",
-  "md:w-[98%]",
-  "md:w-[85%]",
-  "md:w-[95%]",
-];
-
-/** Tiny vertical nudges so the stack feels hand-placed, not generated. */
-const railOffsets = [
-  "md:translate-x-0",
-  "md:translate-x-0",
-  "md:-translate-x-[3px]",
-  "md:translate-x-[2px]",
-  "md:-translate-x-[2px]",
-  "md:translate-x-[1px]",
-];
-
-
-
-/** Subtle grey border shadow for glass cards. */
-function cardShadow() {
-  return "0 0 0 1px hsl(0 0% 100% / 0.08), 0 8px 24px -16px rgba(0,0,0,0.8)";
-}
-
-
-/**
- * DESKTOP rail item — dark glass, white text, subtle grey border.
- * Only the icon retains its colour.
- */
-function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: string; offsetClass: string }) {
-  const { Icon } = pain;
-  return (
-    <a
-      href={pain.href}
-      onClick={() =>
-        trackEvent("problem_card_click", {
-          location: "problem_hook",
-          variant: "desktop_rail",
-          label: pain.shortLabel,
-          destination: pain.href,
-          type: "profile",
-        })
-      }
-      className={`group relative flex w-full items-center gap-3.5 rounded-xl border border-white/15 bg-black/60 px-5 py-4 text-left backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-white/25 hover:bg-black/75 ${widthClass} ${offsetClass}`}
-      style={{ boxShadow: cardShadow() }}
-    >
-      <span
-        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/[0.05] transition-colors duration-300 group-hover:bg-white/[0.10]"
-        style={{ color: `hsl(${pain.hsl})` }}
-      >
-        <Icon className="h-[1.4rem] w-[1.4rem] opacity-90 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
-      </span>
-      <span className="flex min-w-0 flex-col">
-        <span className="text-[1.02rem] font-bold leading-snug text-white transition-colors duration-300">
-          {pain.label}
-        </span>
-        <span className="mt-0.5 max-h-0 overflow-hidden text-xs font-medium tracking-wide text-white/50 opacity-0 transition-all duration-300 group-hover:max-h-6 group-hover:opacity-100">
-          Read article &rarr;
-        </span>
-      </span>
-    </a>
-  );
-}
-
-
 /**
  * FloatingCarousel3D — true 3D cylinder of pain point cards.
  *
@@ -186,8 +117,36 @@ const CAROUSEL_DEG_PER_MS = 360 / 28000; // same pace as the original 28s/revolu
 const CAROUSEL_DRAG_SENSITIVITY = 0.5; // degrees rotated per pixel dragged
 const CAROUSEL_RESUME_DELAY_MS = 500;
 
-function FloatingCarousel3D({ pains }: { pains: Pain[] }) {
-  const radius = 210; // px — distance of each card from the centre axis
+function FloatingCarousel3D({
+  pains,
+  variant,
+  className = "",
+  height = 380,
+  radius = 210,
+  cardWidth = 176,
+  cardHeight = 76,
+  spotlightSize = 240,
+  iconSize = 30,
+  fontSize = 12.8,
+  gap = 10,
+  paddingX = 14,
+  paddingY = 12,
+}: {
+  pains: Pain[];
+  /** distinguishes desktop vs mobile in analytics events */
+  variant: string;
+  className?: string;
+  height?: number;
+  radius?: number;
+  cardWidth?: number;
+  cardHeight?: number;
+  spotlightSize?: number;
+  iconSize?: number;
+  fontSize?: number;
+  gap?: number;
+  paddingX?: number;
+  paddingY?: number;
+}) {
   const step = 360 / pains.length;
 
   const trackRef = useRef<HTMLDivElement>(null);
@@ -246,8 +205,8 @@ function FloatingCarousel3D({ pains }: { pains: Pain[] }) {
 
   return (
     <div
-      className="relative mt-6 h-[380px] cursor-grab active:cursor-grabbing"
-      style={{ perspective: "900px", touchAction: "pan-y" }}
+      className={`relative cursor-grab active:cursor-grabbing ${className}`}
+      style={{ perspective: "900px", touchAction: "pan-y", height }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={endDrag}
@@ -256,16 +215,23 @@ function FloatingCarousel3D({ pains }: { pains: Pain[] }) {
     >
       {/* soft spotlight so whatever is currently frontmost reads as "in focus" */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[240px] w-[240px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
+          width: spotlightSize,
+          height: spotlightSize,
           background:
             "radial-gradient(circle, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 70%)",
         }}
       />
       <div
         ref={trackRef}
-        className="absolute left-1/2 top-1/2 h-[76px] w-[176px]"
-        style={{ transformStyle: "preserve-3d", transform: "translate(-50%, -50%) rotateY(0deg)" }}
+        className="absolute left-1/2 top-1/2"
+        style={{
+          width: cardWidth,
+          height: cardHeight,
+          transformStyle: "preserve-3d",
+          transform: "translate(-50%, -50%) rotateY(0deg)",
+        }}
       >
         {pains.map((pain, i) => {
           const { Icon } = pain;
@@ -276,29 +242,36 @@ function FloatingCarousel3D({ pains }: { pains: Pain[] }) {
               onClick={() =>
                 trackEvent("problem_card_click", {
                   location: "problem_hook",
-                  variant: "carousel_3d_mobile",
+                  variant,
                   label: pain.shortLabel,
                   destination: pain.href,
                   type: "profile",
                 })
               }
-              className="absolute inset-0 flex items-center gap-2.5 rounded-2xl border border-white/15 bg-black/55 px-3.5 py-3"
+              className="absolute inset-0 flex items-center rounded-2xl border border-white/15 bg-black/55"
               style={{
                 transform: `rotateY(${i * step}deg) translateZ(${radius}px)`,
                 boxShadow: "0 10px 26px -14px rgba(0,0,0,0.9)",
+                gap,
+                paddingLeft: paddingX,
+                paddingRight: paddingX,
+                paddingTop: paddingY,
+                paddingBottom: paddingY,
               }}
             >
               <span
-                className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border"
+                className="flex shrink-0 items-center justify-center rounded-full border"
                 style={{
+                  width: iconSize,
+                  height: iconSize,
                   borderColor: `hsl(${pain.hsl} / 0.55)`,
                   backgroundColor: `hsl(${pain.hsl} / 0.16)`,
                   color: `hsl(${pain.hsl})`,
                 }}
               >
-                <Icon className="h-4 w-4" aria-hidden="true" />
+                <Icon size={Math.round(iconSize * 0.55)} aria-hidden="true" />
               </span>
-              <span className="text-[0.8rem] font-bold leading-tight text-white">
+              <span className="font-bold leading-tight text-white" style={{ fontSize }}>
                 {pain.shortLabel}
               </span>
             </a>
@@ -306,41 +279,6 @@ function FloatingCarousel3D({ pains }: { pains: Pain[] }) {
         })}
       </div>
     </div>
-  );
-}
-
-function PillChip({ pain }: { pain: Pain }) {
-  const { Icon } = pain;
-  return (
-    <a
-      href={pain.href}
-      onClick={() =>
-        trackEvent("problem_card_click", {
-          location: "problem_hook",
-          variant: "pill_chip",
-          label: pain.shortLabel,
-          destination: pain.href,
-          type: "profile",
-        })
-      }
-      className="group mx-auto flex w-full max-w-[20rem] items-center gap-3 rounded-full border border-white/15 bg-black/55 pl-2 pr-4 py-1.5 backdrop-blur-md transition-all duration-300 ease-out hover:border-white/30 hover:bg-black/70"
-      style={{ boxShadow: "0 4px 14px -8px rgba(0,0,0,0.7)" }}
-    >
-      <span
-        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border"
-        style={{
-          borderColor: `hsl(${pain.hsl} / 0.55)`,
-          backgroundColor: `hsl(${pain.hsl} / 0.12)`,
-          color: `hsl(${pain.hsl})`,
-        }}
-      >
-        <Icon className="h-[1.05rem] w-[1.05rem]" aria-hidden="true" />
-      </span>
-      <span className="flex-1 text-[0.95rem] font-bold uppercase tracking-wide text-white">
-        {pain.shortLabel}
-      </span>
-      <ChevronRight className="h-4 w-4 shrink-0 text-white/55 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden="true" />
-    </a>
   );
 }
 
@@ -382,15 +320,24 @@ export function ProblemHookSection() {
             <Headline />
           </div>
 
-          {/* Pill stack pinned to the right — tight, connected, "tap to explore" */}
+          {/* 3D carousel pinned to the right — larger version of the mobile
+              carousel, scaled up for the extra room on desktop/tablet. */}
           <div className="mt-8 flex flex-1 items-center justify-end">
-            <nav
-              aria-label="Common weight-loss struggles"
-              className="ml-auto flex w-full max-w-[24rem] flex-col gap-1.5 lg:max-w-[26rem]"
-            >
-              {pains.map((pain) => (
-                <PillChip key={pain.label} pain={pain} />
-              ))}
+            <nav aria-label="Common weight-loss struggles" className="ml-auto w-full max-w-[36rem]">
+              <FloatingCarousel3D
+                pains={pains}
+                variant="carousel_3d_desktop"
+                height={420}
+                radius={230}
+                cardWidth={210}
+                cardHeight={84}
+                spotlightSize={280}
+                iconSize={34}
+                fontSize={15}
+                gap={12}
+                paddingX={18}
+                paddingY={14}
+              />
             </nav>
           </div>
 
@@ -427,7 +374,7 @@ export function ProblemHookSection() {
 
           {/* 3D carousel — replaces the old blocking pill stack. Decorative/
               atmospheric; the quiz CTA below is the real routing path. */}
-          <FloatingCarousel3D pains={pains} />
+          <FloatingCarousel3D pains={pains} variant="carousel_3d_mobile" className="mt-6" />
 
           <HeroJoinCTA placement="mobile" />
 
