@@ -30,19 +30,19 @@ const pairs: Pair[] = [
     year: "2019",
     before: img2019a, beforeLbs: "300 LBS", beforePos: "object-top",
     after: img2019b, afterLbs: "180 LBS", afterPos: "object-top",
-    tagline: "Losing weight via strict calorie counting + daily exercise. (Gained it all back by 2021.)",
+    tagline: "Losing weight via strict calorie counting + daily exercise. (Gained it all back by 2021)",
   },
   {
     year: "2022",
     before: img2021a, beforeLbs: "280 LBS", beforePos: "object-right",
     after: img2021b, afterLbs: "200 LBS", afterPos: "object-top",
-    tagline: "Losing weight via extreme low-carb Keto. (Gained it all back by 2023.)",
+    tagline: "Losing weight via extreme low-carb Keto.\n(Gained it all back by 2023)",
   },
   {
     year: "2024",
     before: img2024a, beforeLbs: "310 LBS", beforePos: "object-top",
     after: img2024b, afterLbs: "190 LBS", afterPos: "object-top",
-    tagline: "Switched to LS Diet. Lost the weight without the rebound.",
+    tagline: "Switched to LS Diet. Lost the weight\nwithout the rebound.",
   },
 ];
 
@@ -101,7 +101,14 @@ function TransformationCard({
         <span className="text-xl font-extrabold text-accent">{pair.year}</span>
         <span className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">After</span>
       </div>
-      <p className="px-4 pb-3.5 text-center text-xs leading-snug text-muted-foreground">{pair.tagline}</p>
+      <div className="px-4 pb-3.5">
+        <p
+          className="whitespace-pre-line rounded-lg text-center text-xs leading-snug text-muted-foreground"
+          style={{ background: "#f9f9f9", padding: "12px", borderRadius: "8px" }}
+        >
+          {pair.tagline}
+        </p>
+      </div>
 
     </div>
   );
@@ -202,8 +209,8 @@ export function HeroSection() {
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
             For people who keep regaining weight
           </p>
-          <h2 className="mt-2 text-2xl md:text-4xl lg:text-5xl font-extrabold uppercase leading-[1.05] tracking-tight text-foreground">
-            I lost 80+ pounds three times. <span className="text-accent">But I only figured out how to keep it off once.</span>
+          <h2 className="mt-2 text-2xl md:text-4xl lg:text-5xl font-extrabold leading-[1.25] tracking-tight text-foreground">
+            I lost 80+ lbs three times <br /><span className="text-accent">LSDiet is how I finally broke the cycle once and for all</span>
           </h2>
         </div>
         {/* DESKTOP (md+): 3-card grid — transformation shown first */}
@@ -226,11 +233,8 @@ export function HeroSection() {
         </div>
 
         <div>
-          <p className="text-center text-sm font-medium text-foreground sm:text-base">
-            LS Diet works wonders and everyone suffering from weight rebound should try this method.
-          </p>
-          <p className="mt-1 text-center text-xs font-semibold uppercase tracking-wide text-accent sm:text-sm">
-            Free training · What do you get to lose other than your weight?
+          <p className="text-center text-sm italic text-muted-foreground sm:text-base">
+            &ldquo;LSDiet fixes my broken metabolism and makes diet sustainable. I am giving the entire system away for free so you can fix yours.&rdquo;
           </p>
         </div>
 
@@ -249,11 +253,11 @@ export function HeroSection() {
             }
             className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5"
           >
-            JOIN THE COMMUNITY{"\n"}
+            Get the Free System
             <ArrowRight className="h-5 w-5" aria-hidden />
           </a>
-          <p className="mt-2 text-[11px] font-medium text-muted-foreground">
-            100% Free. No credit card.
+          <p className="mt-2 mb-6 text-[11px] font-medium text-muted-foreground">
+            Free &amp; instant access to 5 modules, 30+ videos
           </p>
         </div>
 
