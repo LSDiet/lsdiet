@@ -101,6 +101,10 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-3px)" },
         },
+        "carousel-spin": {
+          from: { transform: "translate(-50%, -50%) rotateY(0deg)" },
+          to: { transform: "translate(-50%, -50%) rotateY(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -109,6 +113,7 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
+        "carousel-spin": "carousel-spin 28s linear infinite",
       },
     },
   },

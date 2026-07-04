@@ -163,6 +163,82 @@ function RailItem({ pain, widthClass, offsetClass }: { pain: Pain; widthClass: s
 }
 
 
+/**
+ * FloatingCarousel3D — true 3D cylinder of pain point cards.
+ *
+ * Each card is placed around a circle using rotateY + translateZ, then the
+ * whole cylinder spins continuously via rotateY keyframe. This is real CSS
+ * 3D (perspective + preserve-3d), not a scale/opacity fake — cards genuinely
+ * foreshorten as they rotate toward the edge, same as any object turning
+ * away from a camera.
+ *
+ * Function note: only the front facing card is legible at any moment. This
+ * is intentional and approved — the carousel is decorative/atmospheric, not
+ * the primary routing mechanism. The quiz CTA below it (Find Your Profile)
+ * is the real conversion path. Each card keeps its href for graceful
+ * degradation (a visitor who taps mid rotation still lands correctly), but
+ * do not treat tap rate on individual cards as a meaningful metric.
+ */
+function FloatingCarousel3D({ pains }: { pains: Pain[] }) {
+  const radius = 180; // px — distance of each card from the centre axis
+  const step = 360 / pains.length;
+
+  return (
+    <div className="relative mt-7 h-[320px]" style={{ perspective: "900px" }}>
+      {/* soft spotlight so whatever is currently frontmost reads as "in focus" */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 70%)",
+        }}
+      />
+      <div
+        className="animate-carousel-spin absolute left-1/2 top-1/2 h-16 w-[150px]"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {pains.map((pain, i) => {
+          const { Icon } = pain;
+          return (
+            <a
+              key={pain.label}
+              href={pain.href}
+              onClick={() =>
+                trackEvent("problem_card_click", {
+                  location: "problem_hook",
+                  variant: "carousel_3d_mobile",
+                  label: pain.shortLabel,
+                  destination: pain.href,
+                  type: "profile",
+                })
+              }
+              className="absolute inset-0 flex items-center gap-2 rounded-2xl border border-white/15 bg-black/55 px-3 py-2.5"
+              style={{
+                transform: `rotateY(${i * step}deg) translateZ(${radius}px)`,
+                boxShadow: "0 10px 26px -14px rgba(0,0,0,0.9)",
+              }}
+            >
+              <span
+                className="flex h-[26px] w-[26px] shrink-0 items-center justify-center rounded-full border"
+                style={{
+                  borderColor: `hsl(${pain.hsl} / 0.55)`,
+                  backgroundColor: `hsl(${pain.hsl} / 0.16)`,
+                  color: `hsl(${pain.hsl})`,
+                }}
+              >
+                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+              <span className="text-[0.72rem] font-bold leading-tight text-white">
+                {pain.shortLabel}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function PillChip({ pain }: { pain: Pain }) {
   const { Icon } = pain;
   return (
@@ -254,21 +330,23 @@ export function ProblemHookSection() {
 
 
       {/* ============ PHONE (<md) ============ */}
-      <div className="relative flex flex-col md:hidden">
+      <div className="relative flex min-h-[100svh] flex-col md:hidden">
         {/* Dominant video/image fills the screen; everything overlays it */}
         <BackgroundVideo clips={mobileClips} poster={posterUrl} alt={POSTER_ALT} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/95" />
+        {/* Lighter than the old solid pill stack — the video is meant to
+            stay visible, not be buried. Just enough gradient for text
+            legibility at top and bottom. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-transparent to-black/80" />
 
-        <div className="relative z-10 flex flex-col px-4 pt-16 pb-6">
+        <div className="relative z-10 flex flex-1 flex-col px-4 pt-16 pb-6">
           <div className="mt-3">
             <Headline />
           </div>
-          {/* Pill stack — tight spacing, reads as one connected list */}
-          <div className="mt-6 flex flex-col gap-1.5">
-            {pains.map((pain) => (
-              <PillChip key={pain.label} pain={pain} />
-            ))}
-          </div>
+
+          {/* 3D carousel — replaces the old blocking pill stack. Decorative/
+              atmospheric; the quiz CTA below is the real routing path. */}
+          <FloatingCarousel3D pains={pains} />
+
           <HeroJoinCTA placement="mobile" />
 
         </div>
