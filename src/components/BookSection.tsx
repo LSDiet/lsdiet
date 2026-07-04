@@ -1,11 +1,84 @@
+import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ResponsivePicture } from "@/components/ui/ResponsivePicture";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { trackEvent } from "@/lib/analytics";
-import skoolActionPractice from "@/assets/skool-action-practice.png";
-import skoolStartHere from "@/assets/skool-start-here.png";
+import vaultDailyVideos from "@/assets/vault-daily-videos.png?w=500;900;1300&format=avif;webp&as=picture";
+import vaultCurriculumMap from "@/assets/vault-curriculum-map.png?w=500;900;1300&format=avif;webp&as=picture";
 
 const SKOOL_URL = "https://www.skool.com/lsdiet/about";
+
+const vaultTabs = [
+  {
+    key: "daily-videos",
+    tabLabel: "1. Daily Videos",
+    eyebrow: "Action Practice",
+    description: "Daily behavioural exercises to make your new habits automatic.",
+    image: vaultDailyVideos,
+    alt: "Action Practice classroom inside the LS Diet training vault, showing daily behavioural video lessons",
+  },
+  {
+    key: "curriculum-map",
+    tabLabel: "2. The Curriculum Map",
+    eyebrow: "Start Here",
+    description: "Your starting point for the Weight Permanence Training tool.",
+    image: vaultCurriculumMap,
+    alt: "Full course curriculum map inside the LS Diet training vault, listing every module and lesson",
+  },
+];
+
+function VaultShowcase() {
+  const [active, setActive] = useState(0);
+  const item = vaultTabs[active];
+
+  return (
+    <div className="mx-auto mb-12 max-w-md md:mb-16">
+      <div
+        role="tablist"
+        aria-label="Inside the LS Diet training vault"
+        className="mb-5 grid grid-cols-2 gap-1.5 rounded-full bg-muted p-1"
+      >
+        {vaultTabs.map((tab, i) => (
+          <button
+            key={tab.key}
+            type="button"
+            role="tab"
+            aria-selected={active === i}
+            onClick={() => {
+              setActive(i);
+              trackEvent("vault_tab_click", { location: "book_section", tab: tab.key });
+            }}
+            className={`rounded-full px-2 py-2.5 text-[11px] font-bold uppercase tracking-wide transition-colors sm:text-xs ${
+              active === i
+                ? "bg-accent text-accent-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {tab.tabLabel}
+          </button>
+        ))}
+      </div>
+
+      <div
+        className="overflow-hidden rounded-xl bg-background"
+        style={{ boxShadow: "0 10px 30px rgba(0,0,0,0.15)", borderRadius: "12px" }}
+      >
+        <ResponsivePicture
+          src={item.image}
+          alt={item.alt}
+          sizes="(min-width: 768px) 400px, 90vw"
+          className="block h-auto w-full"
+        />
+      </div>
+
+      <div className="mt-4 text-center">
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">{item.eyebrow}</p>
+        <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
+      </div>
+    </div>
+  );
+}
 
 export function BookSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -35,79 +108,9 @@ export function BookSection() {
             </p>
           </div>
 
-          {/* Layered screenshot composition */}
-          <a
-            href={SKOOL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() =>
-              trackEvent("cta_click", {
-                location: "book_section",
-                placement: "screenshot_composition",
-                destination: SKOOL_URL,
-              })
-            }
-            className="group relative block mx-auto max-w-3xl mb-12 md:mb-16"
-            aria-label="Open the LS Diet community on Skool"
-          >
-            {/* Glow */}
-            <div className="absolute -inset-8 rounded-[2rem] bg-accent/10 blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-700" aria-hidden="true" />
+          <VaultShowcase />
 
-            {/* Screenshot 1 — Psychology Training (back-left) */}
-            <figure className="relative md:absolute md:left-0 md:top-0 md:w-[58%] md:-rotate-[3deg] md:translate-y-2 transition-transform duration-500 group-hover:-rotate-[1deg] group-hover:-translate-y-1">
-              <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-background">
-                <img
-                  src={skoolStartHere}
-                  alt="Psychology training modules inside the LS Diet course"
-                  className="w-full h-auto block"
-                  loading="lazy"
-                />
-              </div>
-              <figcaption className="mt-3 md:mt-4 flex items-center gap-2 justify-center md:justify-start md:pl-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent/15 text-accent text-[11px] font-extrabold ring-1 ring-accent/40">
-                  01
-                </span>
-                <div className="text-left leading-tight">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">
-                    Psychology Training
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    🧠 The Rebound Deactivation Blueprint: Understand the exact psychological triggers that cause your body to panic and demand food after a diet.
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
-
-            {/* Screenshot 2 — Action Practice (front-right) */}
-            <figure className="relative mt-8 md:mt-0 md:absolute md:right-0 md:top-16 md:w-[62%] md:rotate-[3deg] transition-transform duration-500 group-hover:rotate-[1deg] group-hover:-translate-y-1">
-              <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-background">
-                <img
-                  src={skoolActionPractice}
-                  alt="Action Practice classroom: 40+ short daily video lessons"
-                  className="w-full h-auto block"
-                  loading="lazy"
-                />
-              </div>
-              <figcaption className="mt-3 md:mt-4 flex items-center gap-2 justify-center md:justify-end md:pr-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent/15 text-accent text-[11px] font-extrabold ring-1 ring-accent/40">
-                  02
-                </span>
-                <div className="text-left leading-tight">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">
-                    Action Practice
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    ⏱️ 3-Minute Daily Adjustments: No long lectures. Just one micro-habit video a day to cement your weight loss into place permanently.
-                  </p>
-                </div>
-              </figcaption>
-            </figure>
-
-            {/* Spacer to give the absolutely-positioned figures height on md+ */}
-            <div className="hidden md:block" style={{ paddingTop: "62%" }} aria-hidden="true" />
-          </a>
-
-          {/* Single CTA */}
+          {/* Single CTA — the one logical exit point for this section */}
           <div className="text-center">
             <Button variant="accent" size="lg" className="px-8" asChild>
               <a
@@ -118,12 +121,12 @@ export function BookSection() {
                   trackEvent("cta_click", {
                     location: "book_section",
                     placement: "primary_button",
-                    label: "START YOUR FREE TRAINING TODAY",
+                    label: "GET THE FREE SYSTEM",
                     destination: SKOOL_URL,
                   })
                 }
               >
-                CLAIM YOUR FREE TRAINING ACCOUNT{"\n"}
+                Get the Free System
                 <ArrowRight className="h-5 w-5" aria-hidden="true" />
               </a>
             </Button>
