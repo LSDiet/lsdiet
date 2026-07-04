@@ -30,31 +30,32 @@ function Body() {
   return (
     <>
       <p>
-        Sleep is one of the most under credited levers in weight loss. Most
-        people pour energy into calories, exercise, and meal plans while
-        quietly ignoring recovery — and recovery is where cravings,
-        emotional regulation, and decision making either hold or fall apart.
+        Poor sleep raises cortisol and cravings, which is why short nights
+        undermine weight loss even when your diet and exercise stay
+        consistent. Most people pour energy into calories, exercise, and
+        meal plans while quietly ignoring recovery. Recovery is where
+        cravings, emotional regulation, and decision making either hold or
+        fall apart.
       </p>
 
-      <h2>Why Poor Sleep Spikes Cravings</h2>
+      <h2>Why Does Poor Sleep Spike Cravings?</h2>
 
       <p>
         After a short night, behaviour shifts predictably: more snacking,
         more emotional eating, more carbohydrate cravings, more quick
-        dopamine hunting. None of it feels like a choice — which is exactly
+        dopamine hunting. None of it feels like a choice, which is exactly
         why{" "}
         <a href="/blog/pattern-awareness">pattern awareness</a> matters more
         than willpower here.
       </p>
 
-      <h2>Sleep, Cortisol, and Drift</h2>
+      <h2>How Does Cortisol Cause Behavioural Drift?</h2>
 
       <p>
-        Sustained poor sleep tends to elevate cortisol, and elevated
-        cortisol is associated with stress eating, fatigue, visceral fat
-        retention, and behavioural inconsistency. People rarely "lose
-        discipline" overnight. Energy drops, stress rises, and the routines
-        quietly stop running.
+        Sustained poor sleep raises cortisol, and elevated cortisol drives
+        stress eating, fatigue, visceral fat retention, and behavioural
+        inconsistency. People rarely "lose discipline" overnight. Energy
+        drops, stress rises, and the routines quietly stop running.
       </p>
 
       <p>
@@ -62,22 +63,23 @@ function Body() {
         <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
           low-starch low-sugar baseline
         </a>{" "}
-        makes those drift days less catastrophic — you're not also riding a
+        makes those drift days less catastrophic. You're not also riding a
         sugar rollercoaster on top of three hours of sleep debt.
       </p>
 
-      <h2>Sleep Is a Behaviour, Not a Coincidence</h2>
+      <h2>Why Should You Treat Sleep Like a Designed Behaviour?</h2>
 
       <p>
-        Treat sleep the same way you treat meal prep: a designed input. The{" "}
+        Treat sleep the same way you treat meal prep: a designed input.
+        The{" "}
         <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
-        treats recovery as part of the system, not a bonus — and a small,
+        treats recovery as part of the system, not a bonus. A small,
         repeatable wind down routine from{" "}
-        <a href="/blog/action-practice">Action Practice</a> usually
-        outperforms any single "I'll sleep more this week" intention.
+        <a href="/blog/action-practice">Action Practice</a> outperforms any
+        single "I'll sleep more this week" intention.
       </p>
 
-      <h2>Final Thoughts</h2>
+      <h2>What's the Bottom Line on Sleep and Weight Loss?</h2>
 
       <p>
         Weight loss isn't only about food. Sleep affects cravings, stress,
