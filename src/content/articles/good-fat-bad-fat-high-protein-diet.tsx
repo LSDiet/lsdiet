@@ -8,8 +8,8 @@ const meta: import("./types").ArticleMeta = {
     "High protein diets vary widely in which fats they pair with that protein, and that difference affects your heart differently.",
   metaDescription:
     "High protein, high fat diets are not all equal. Learn which fats support heart health, which do not, and why age changes how your body responds.",
-  publishDate: "2026-07-04",
-  updatedAt: "2026-07-04",
+  publishDate: "2026-07-03",
+  updatedAt: "2026-07-03",
   topics: ["dietary-fat", "saturated-fat", "trans-fat", "insulin-sensitivity", "cardiovascular-health"],
   primaryFoundationSlug: "why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting",
   relatedFoundationSlugs: ["pattern-awareness", "why-does-weight-loss-feel-easier-when-im-younger"],
