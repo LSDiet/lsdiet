@@ -66,8 +66,8 @@ function Body() {
         <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
           low-starch low-sugar baseline
         </a>{" "}
-        tends to produce that steady but real progress without dragging
-        you through a fragile starvation phase.
+        produces that steady, real progress without dragging you through
+        a fragile starvation phase.
       </p>
 
       <h2>Why Do Expectations Matter Psychologically?</h2>
