@@ -235,6 +235,27 @@ function AISODashboard() {
     }
   };
 
+  // OpenAI and Perplexity don't send CORS headers, so the browser can't call them directly.
+  // This routes the call through our own Cloudflare Function (functions/api/proxy.js),
+  // which executes the request server-side and hands the response back.
+  const fetchViaProxy = async (targetUrl: string, headers: Record<string, string>, body: any, retries = 5, delay = 1000): Promise<any> => {
+    try {
+      const response = await fetch("/api/proxy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: targetUrl, headers, body }),
+      });
+      if (!response.ok) throw new Error(`Proxy error status ${response.status}`);
+      return await response.json();
+    } catch (error) {
+      if (retries > 1) {
+        await new Promise((resolve) => setTimeout(resolve, delay));
+        return fetchViaProxy(targetUrl, headers, body, retries - 1, delay * 2);
+      }
+      throw error;
+    }
+  };
+
   const parseHtmlAndGrade = (htmlString: string) => {
     try {
       const parser = new DOMParser();
@@ -379,11 +400,7 @@ function AISODashboard() {
         const url = "https://api.openai.com/v1/chat/completions";
         const payload = { model: openaiModel, messages: [{ role: "user", content: textToQuery }] };
 
-        const result = await fetchWithRetry(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${openaiKey}` },
-          body: JSON.stringify(payload),
-        });
+        const result = await fetchViaProxy(url, { Authorization: `Bearer ${openaiKey}` }, payload);
 
         rawText = result.choices?.[0]?.message?.content || "";
         const annotations = result.choices?.[0]?.message?.annotations || [];
@@ -392,11 +409,7 @@ function AISODashboard() {
         const url = "https://api.perplexity.ai/chat/completions";
         const payload = { model: "sonar", messages: [{ role: "user", content: textToQuery }] };
 
-        const result = await fetchWithRetry(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${perplexityKey}` },
-          body: JSON.stringify(payload),
-        });
+        const result = await fetchViaProxy(url, { Authorization: `Bearer ${perplexityKey}` }, payload);
 
         rawText = result.choices?.[0]?.message?.content || "";
         citations = result.citations || [];
@@ -921,7 +934,7 @@ ${generatedSchema}
               <div>
                 <h2 className="text-lg font-bold">API Account Integration</h2>
                 <p className={`text-xs ${COLORS.textMuted} mt-1`}>
-                  These keys are held only in this browser tab's memory for this session — they are sent directly to the official OpenAI, Perplexity, or Google Gemini API servers and never saved anywhere. Re-enter them if you reload the page.
+                  These keys are held only in this browser tab's memory for this session and never saved anywhere. The Gemini key is sent directly to Google's API; OpenAI and Perplexity keys are relayed through our own /api/proxy Cloudflare Function (those APIs block direct browser calls). Re-enter them if you reload the page.
                 </p>
               </div>
 
