@@ -24,6 +24,7 @@ interface FoundationCard {
   bullets: string[];
   bg: string;
   border: string;
+  blob: string;
   href: string;
 }
 
@@ -33,8 +34,9 @@ const FOUNDATION_CARDS: FoundationCard[] = [
     kicker: "The Foundation · Step 1",
     title: "The Problem",
     bullets: ["Why loss never lasts", "The regain trap", "What willpower can't fix"],
-    bg: "bg-white",
+    bg: "bg-gradient-to-br from-white to-[hsl(0_0%_96%)]",
     border: "border-[hsl(0_0%_89%)]",
+    blob: "bg-accent/[0.09]",
     href: "/blog/why-people-regain-weight-after-dieting",
   },
   {
@@ -42,8 +44,9 @@ const FOUNDATION_CARDS: FoundationCard[] = [
     kicker: "The Foundation · Step 2",
     title: "The Solution",
     bullets: ["The LS Diet method", "Low starch, low sugar", "Built for permanence"],
-    bg: "bg-tint-cream",
+    bg: "bg-gradient-to-br from-white to-[hsl(0_0%_96%)]",
     border: "border-tint-cream-border",
+    blob: "bg-[hsl(38_90%_55%/0.16)]",
     href: "/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting",
   },
   {
@@ -51,8 +54,9 @@ const FOUNDATION_CARDS: FoundationCard[] = [
     kicker: "The Foundation · Step 3",
     title: "Psychology Training",
     bullets: ["Rewire the triggers", "The 5 awareness stages", "Change the identity"],
-    bg: "bg-tint-sage",
+    bg: "bg-gradient-to-br from-white to-[hsl(0_0%_96%)]",
     border: "border-tint-sage-border",
+    blob: "bg-[hsl(152_45%_40%/0.16)]",
     href: "/awareness-stages",
   },
   {
@@ -60,8 +64,9 @@ const FOUNDATION_CARDS: FoundationCard[] = [
     kicker: "The Foundation · Step 4",
     title: "Behaviour Training",
     bullets: ["The daily practice", "Small, repeatable actions", "Make it automatic"],
-    bg: "bg-tint-slate",
+    bg: "bg-gradient-to-br from-white to-[hsl(0_0%_96%)]",
     border: "border-tint-slate-border",
+    blob: "bg-[hsl(210_60%_45%/0.16)]",
     href: "/blog/action-practice",
   },
 ];
@@ -151,10 +156,13 @@ function FoundationDeck() {
               onPointerCancel={front ? endDrag : undefined}
             >
               <div
-                className={`h-[286px] md:h-[330px] rounded-[22px] border ${card.bg} ${card.border} flex flex-col px-7 pt-[26px] pb-[22px]`}
+                className={`relative overflow-hidden h-[286px] md:h-[330px] rounded-[22px] border ${card.bg} ${card.border} flex flex-col px-7 pt-[26px] pb-[22px]`}
                 style={{ boxShadow: "0 24px 48px -26px rgba(0,0,0,.35)" }}
               >
-                <div className="flex items-start justify-between">
+                <div className={`absolute -right-10 -top-14 w-48 h-48 rounded-full blur-2xl pointer-events-none ${card.blob}`} />
+                <div className={`absolute -left-12 -bottom-16 w-40 h-40 rounded-full blur-2xl pointer-events-none ${card.blob}`} />
+
+                <div className="relative flex items-start justify-between">
                   <span className="text-[10.5px] font-bold uppercase tracking-[0.14em] text-[hsl(38_90%_40%)]">
                     {card.kicker}
                   </span>
@@ -162,10 +170,10 @@ function FoundationDeck() {
                     {card.n}
                   </span>
                 </div>
-                <h3 className="font-display font-extrabold text-[clamp(24px,4.5vw,29px)] leading-[1.1] text-[hsl(0_0%_10%)] mt-3">
+                <h3 className="relative font-display font-extrabold text-[clamp(24px,4.5vw,29px)] leading-[1.1] text-[hsl(0_0%_10%)] mt-3">
                   {card.title}
                 </h3>
-                <div className="flex flex-col gap-2 mt-4 flex-1">
+                <div className="relative flex flex-col gap-2 mt-4 flex-1">
                   {card.bullets.map((b) => (
                     <span key={b} className="flex items-center gap-2.5 text-[14.5px] font-medium text-[hsl(0_0%_28%)]">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
@@ -173,7 +181,7 @@ function FoundationDeck() {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center justify-between border-t border-black/[.07] pt-4 mt-1.5">
+                <div className="relative flex items-center justify-between border-t border-black/[.07] pt-4 mt-1.5">
                   <a
                     href={card.href}
                     target="_blank"

@@ -30,6 +30,7 @@ const stages = [
     logo: aware1,
     chip: "bg-blue-50 text-blue-600",
     dot: "bg-blue-500",
+    blob: "bg-blue-500/[0.14]",
     slug: "reality-awareness",
     whatItIs: "Building an honest baseline of your current weight, habits, and patterns.",
     whatFixes: "Guessing at solutions before you know the real problem.",
@@ -40,6 +41,7 @@ const stages = [
     logo: aware2,
     chip: "bg-orange-50 text-orange-600",
     dot: "bg-orange-500",
+    blob: "bg-orange-500/[0.14]",
     slug: "friction-awareness",
     whatItIs: "Naming exactly what feels unsustainable about your current habits.",
     whatFixes: "Staying comfortable enough to never actually change.",
@@ -50,6 +52,7 @@ const stages = [
     logo: aware3,
     chip: "bg-green-50 text-green-700",
     dot: "bg-green-600",
+    blob: "bg-green-600/[0.14]",
     slug: "pattern-awareness",
     whatItIs: "Mapping the who, what, when, where, and why behind your eating.",
     whatFixes: "Fighting the symptom instead of the trigger.",
@@ -60,6 +63,7 @@ const stages = [
     logo: aware4,
     chip: "bg-red-50 text-red-700",
     dot: "bg-red-600",
+    blob: "bg-red-600/[0.14]",
     slug: "consequence-awareness",
     whatItIs: "Facing the real cost of staying the same for another 5 years.",
     whatFixes: "Change with no urgency behind it. Builds PUSH motivation.",
@@ -70,6 +74,7 @@ const stages = [
     logo: aware5,
     chip: "bg-teal-50 text-teal-700",
     dot: "bg-teal-600",
+    blob: "bg-teal-600/[0.14]",
     slug: "identity-awareness",
     whatItIs: "Defining who you're becoming, not just what you're losing.",
     whatFixes: "Willpower running out before the weight does. Builds PULL motivation.",
@@ -219,6 +224,7 @@ export default function WeightPermanenceTrainingPage() {
   const [activeStage, setActiveStage] = useState(1);
   const statsSection = useScrollAnimation(0.2);
   const touchStartX = useRef<number | null>(null);
+  const activeStageData = stages.find((s) => s.id === activeStage) ?? stages[0];
 
   const handleStageTouchStart = (e: ReactTouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -474,12 +480,16 @@ export default function WeightPermanenceTrainingPage() {
           </div>
 
           <div
-            className="bg-card rounded-3xl p-5 shadow-md border border-border min-h-[220px] touch-pan-y"
+            className="relative overflow-hidden bg-gradient-to-br from-card to-[hsl(0_0%_96%)] rounded-3xl p-5 border border-border min-h-[220px] touch-pan-y"
+            style={{ boxShadow: "0 24px 48px -26px rgba(0,0,0,.35)" }}
             onTouchStart={handleStageTouchStart}
             onTouchEnd={handleStageTouchEnd}
           >
+            <div className={`absolute -right-10 -top-14 w-48 h-48 rounded-full blur-2xl pointer-events-none transition-colors duration-300 ${activeStageData.blob}`} />
+            <div className={`absolute -left-12 -bottom-16 w-40 h-40 rounded-full blur-2xl pointer-events-none transition-colors duration-300 ${activeStageData.blob}`} />
+
             {stages.map((stage) => (
-              <div key={stage.id} className={activeStage === stage.id ? "block animate-fade-in-up" : "hidden"}>
+              <div key={stage.id} className={activeStage === stage.id ? "relative block animate-fade-in-up" : "hidden"}>
                 <div className="flex justify-between items-center mb-3">
                   <span className={`text-[10px] font-black tracking-widest uppercase px-2.5 py-0.5 rounded-full ${stage.chip}`}>
                     Stage {stage.id}
