@@ -108,7 +108,7 @@ function FoundationDeck() {
   };
 
   return (
-    <section className="mt-9 md:mt-12">
+    <section className="mt-9 md:mt-12 md:max-w-[520px]">
       <div className="flex items-baseline justify-between gap-3.5 mb-1.5">
         <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_38%)]">
           Start here · The Foundation
@@ -121,7 +121,7 @@ function FoundationDeck() {
         The four foundations
       </h2>
 
-      <div className="relative h-[296px] md:h-[340px] md:max-w-[520px]">
+      <div className="relative h-[296px] md:h-[340px]">
         {FOUNDATION_CARDS.map((card, idx) => {
           const depth = (idx - i + FOUNDATION_COUNT) % FOUNDATION_COUNT;
           const front = depth === 0;
