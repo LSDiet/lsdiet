@@ -1,4 +1,5 @@
 import type { ArticleMeta, Article } from "./types";
+import heroImage from "@/assets/blog/how-does-sleep-affect-your-ability-to-lose-weight-hero.jpg";
 
 const meta: ArticleMeta = {
   slug: "how-does-sleep-affect-your-ability-to-lose-weight",
@@ -24,6 +25,8 @@ const meta: ArticleMeta = {
     "action-practice",
     "why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting",
   ],
+  heroImage,
+  heroImageAlt: "A woman lying awake in bed next to a scale, unable to sleep",
 };
 
 function Body() {
