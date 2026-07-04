@@ -1,4 +1,5 @@
 import type { ArticleMeta, Article } from "./types";
+import heroImage from "@/assets/blog/how-much-weight-can-you-realistically-lose-in-a-month-hero.webp";
 
 const meta: ArticleMeta = {
   slug: "how-much-weight-can-you-realistically-lose-in-a-month",
@@ -6,7 +7,7 @@ const meta: ArticleMeta = {
   excerpt:
     "Most sustainable weight loss happens more gradually than extreme diet marketing suggests.",
   metaDescription:
-    "Sustainable weight loss is usually slower than extreme dieting promises. Learn what realistic progress often looks like inside LS Diet.",
+    "Real, sustainable weight loss with LS Diet usually looks like 5 to 7 lbs a month, not the extreme drops diet marketing promises. Here's why slower wins.",
   publishDate: "2026-05-20",
   updatedAt: "2026-05-20",
   canonicalTopic: "stop-weight-regain",
@@ -23,31 +24,33 @@ const meta: ArticleMeta = {
     "action-practice",
     "the-weight-permanence-triangle-how-to-stop-regaining-weight",
   ],
+  heroImage,
+  heroImageAlt:
+    "A hand watering a small growth chart, representing slow, steady progress",
 };
 
 function Body() {
   return (
     <>
       <p>
-        Realistic answer: around <strong>5–7 lbs per month</strong> is what
-        most people inside LS Diet land on once the system stabilises.
-        Faster is possible. Lasting faster is much rarer than the marketing
-        suggests.
+        Most people inside LS Diet lose 5 to 7 lbs a month once the system
+        stabilizes. Faster is possible. Lasting faster is much rarer than
+        the marketing suggests.
       </p>
 
-      <h2>Why Aggressive Expectations Backfire</h2>
+      <h2>Why Do Aggressive Expectations Backfire?</h2>
 
       <p>
-        Crash diets and aggressive cuts produce fast early numbers — a lot
-        of it water, some of it muscle — followed by frustration, burnout,
-        and the regain cycle unpacked in{" "}
+        Crash diets and aggressive cuts produce fast early numbers. A lot
+        of that is water, some of it is muscle. Then comes the frustration,
+        the burnout, and the regain cycle unpacked in{" "}
         <a href="/blog/why-people-regain-weight-after-dieting">
           Why People Regain Weight After Dieting
         </a>
-        . The number on the scale moves; the underlying behaviour doesn't.
+        . The number on the scale moves. The underlying behaviour doesn't.
       </p>
 
-      <h2>Why Slow and Repeatable Wins</h2>
+      <h2>Why Does Slow and Repeatable Progress Win?</h2>
 
       <p>
         The point isn't temporary weight loss. The point is repeatability:
@@ -67,20 +70,21 @@ function Body() {
         you through a fragile starvation phase.
       </p>
 
-      <h2>Why Expectations Are a Psychological Variable</h2>
+      <h2>Why Do Expectations Matter Psychologically?</h2>
 
       <p>
         Unrealistic expectations create discouragement even when progress
         is meaningful. People quit at month two of a system that would
-        have changed their next decade. Calibrating to 5–7 lbs/month
+        have changed their next decade. Calibrating to 5 to 7 lbs a month
         protects the behaviour from the emotional swings.
       </p>
 
-      <h2>Final Thoughts</h2>
+      <h2>Is 5 to 7 Pounds a Month Actually Enough?</h2>
 
       <p>
-        Slower than extreme marketing promises — but far more likely to
-        still be working a year from now. That tradeoff is the whole game.
+        It's slower than extreme marketing promises. It's also far more
+        likely to still be working a year from now. That tradeoff is the
+        whole game.
       </p>
 
       <p>
