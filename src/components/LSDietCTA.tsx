@@ -1,19 +1,22 @@
 // Reusable, crawlable conversion CTA injected into every blog post.
 //
 // Rules (do not break):
+//  - Exactly one per post, near the conclusion. No intro/mid variants —
+//    a second in-body CTA reads as noise and dilutes the ask.
 //  - Renders a real <a href="..."> — no JS-only handlers, no portals to
 //    hidden DOM, no client-only widgets. SSR/crawlers see the link.
 //  - Visually distinct from article prose: bordered card on a soft amber
 //    surface, generous padding, mobile-first.
-//  - Messaging is concise and varies by category + placement. No aggressive
-//    sales language.
+//  - Points at the Weight Regain Profile quiz (lsdiet.com/quiz), not Skool.
+//    The quiz is the qualifying step; Skool is offered after someone has
+//    identified their blockage, not as the first ask inside an article.
 
 import { ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
-export const LS_DIET_SKOOL_URL = "https://www.skool.com/lsdiet/about";
+export const LS_DIET_QUIZ_URL = "/quiz";
 
-export type CtaPlacement = "intro" | "mid" | "bottom";
+export type CtaPlacement = "bottom";
 
 export interface LSDietCTAProps {
   headline: string;
@@ -26,8 +29,8 @@ export interface LSDietCTAProps {
 export function LSDietCTA({
   headline,
   body,
-  buttonLabel = "START YOUR FREE TRAINING TODAY",
-  trustLine = "Free to join · No credit card · Cancel anytime",
+  buttonLabel = "TAKE THE WEIGHT REGAIN PROFILE",
+  trustLine = "Free · 2 minutes · Find your blockage",
   placement,
 }: LSDietCTAProps) {
   return (
@@ -36,7 +39,7 @@ export function LSDietCTA({
       className="not-prose my-10 rounded-2xl border border-accent/40 bg-accent/5 px-5 py-6 md:px-7 md:py-7 shadow-[0_1px_0_rgba(0,0,0,0.02)]"
     >
       <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-accent mb-2">
-        The Free LS Diet Course
+        The Weight Regain Profile
       </p>
       <h3 className="text-lg md:text-xl font-extrabold tracking-tight text-zinc-900 leading-snug mb-2">
         {headline}
@@ -45,15 +48,13 @@ export function LSDietCTA({
         {body}
       </p>
       <a
-        href={LS_DIET_SKOOL_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={LS_DIET_QUIZ_URL}
         onClick={() =>
           trackEvent("cta_click", {
             location: "lsdiet_cta",
             placement,
             label: buttonLabel,
-            destination: LS_DIET_SKOOL_URL,
+            destination: LS_DIET_QUIZ_URL,
           })
         }
         className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-bold uppercase tracking-wider text-accent-foreground hover:bg-accent/90 transition-colors"

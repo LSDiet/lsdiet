@@ -19,7 +19,6 @@ import {
 import { RichText } from "@/lib/contentfulRenderers";
 import { ShareButtons } from "@/components/ShareButtons";
 import { AboutAuthorBlock } from "@/components/AboutAuthorBlock";
-import { WPTAwarenessCallout } from "@/components/WPTAwarenessCallout";
 import { RelatedFoundations } from "@/components/RelatedFoundations";
 import { RelatedArticles } from "@/components/RelatedArticles";
 import { getFoundationBySlug, type Foundation } from "@/content/foundations";
@@ -643,20 +642,14 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
 
         {article.meta.canonicalTopic !== "stop-weight-regain" && midSlot && createPortal(<MidArticleRelated items={midItems} />, midSlot)}
 
-        {ctaSlots
-          .filter((s) => article.meta.canonicalTopic !== "stop-weight-regain" || s.placement === "bottom")
-          .map((s) => {
-          const copy = ctaCopyFor(ctaContext, s.placement);
+        {ctaSlots.map((s) => {
+          const copy = ctaCopyFor(ctaContext);
           return createPortal(
             <LSDietCTA placement={s.placement} headline={copy.headline} body={copy.body} />,
             s.node,
             `cta-${s.placement}`,
           );
         })}
-
-        {article.meta.canonicalTopic !== "stop-weight-regain" && (
-          <WPTAwarenessCallout primaryFoundationSlug={article.meta.primaryFoundationSlug} />
-        )}
 
         <div className="pt-6 border-t border-zinc-200 flex items-center justify-between gap-4 flex-wrap">
           <p className="text-xs text-zinc-500">Found this useful? Share it.</p>
@@ -675,7 +668,7 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
 
 /* ----------------------------------------------------------------
    Shared prose wrapper for foundation + Contentful posts.
-   Owns CTA injection (1–3 <LSDietCTA /> blocks based on word count)
+   Owns CTA injection (single <LSDietCTA /> after the conclusion)
    so the same logic runs across every blog template.
    ---------------------------------------------------------------- */
 
@@ -693,7 +686,7 @@ function ProseBody({ slug, ctaContext, children, disableCta }: ProseBodyProps) {
     <div ref={bodyRef} className="prose-content">
       {children}
       {!disableCta && ctaSlots.map((s) => {
-        const copy = ctaCopyFor(ctaContext, s.placement);
+        const copy = ctaCopyFor(ctaContext);
         return createPortal(
           <LSDietCTA placement={s.placement} headline={copy.headline} body={copy.body} />,
           s.node,

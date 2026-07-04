@@ -1,120 +1,52 @@
-// Category- and placement-aware copy for <LSDietCTA />.
+// Category-aware copy for the single <LSDietCTA /> every post gets.
 //
 // Inputs that drive variant selection (first match wins):
 //   1. Search-article cluster id (for code-managed articles)
 //   2. Contentful category label
 //   3. Foundation slug pillar
 //
-// Each variant exposes copy for the three placements: intro, mid, bottom.
-// Messaging stays concise — no aggressive sales language. Crawlable copy
-// only, no dynamic substitution at runtime.
-
-import type { CtaPlacement } from "@/components/LSDietCTA";
+// Every variant points at the same place — the Weight Regain Profile quiz —
+// framed as finding the specific blockage between where the reader is and
+// where they want to be. Only the headline/body angle changes per category.
 
 interface VariantCopy {
   headline: string;
   body: string;
 }
 
-interface Variant {
-  intro: VariantCopy;
-  mid: VariantCopy;
-  bottom: VariantCopy;
-}
-
-const DEFAULT: Variant = {
-  intro: {
-    headline: "Stop the regain cycle for good",
-    body: "The free LS Diet Course turns low-starch, low-sugar eating into a system you can run for life — not another restart.",
-  },
-  mid: {
-    headline: "The system behind everything you're reading",
-    body: "LS Diet teaches you the Awareness stages and daily Action Practice that make weight loss permanent. Join free, work at your own pace.",
-  },
-  bottom: {
-    headline: "Ready to make it permanent?",
-    body: "Join the free LS Diet Course to follow the full Weight Permanence Training — Awareness, Practice, Permanence — step by step.",
-  },
+const DEFAULT: VariantCopy = {
+  headline: "Find what's actually blocking you",
+  body: "The Weight Regain Profile pinpoints the exact gap between where you are and where you want to be, so you fix the real blockage instead of guessing.",
 };
 
-const PERMANENCE: Variant = {
-  intro: {
-    headline: "Why this time can actually stick",
-    body: "Most diets work short-term and collapse long-term. LS Diet is built around permanence — the Weight Permanence Training that stops regain at the root.",
-  },
-  mid: {
-    headline: "Permanence is a skill, not a willpower contest",
-    body: "Inside the free LS Diet Course you'll learn the Awareness stages and Action Practice that prevent the rebound most diets cause.",
-  },
-  bottom: {
-    headline: "Break the lose-regain loop",
-    body: "Join the free LS Diet Course to build the awareness and practice that make weight loss stay lost.",
-  },
+const PERMANENCE: VariantCopy = {
+  headline: "Why the regain keeps happening",
+  body: "The Weight Regain Profile identifies the specific pattern behind your regain cycle, so you can close that gap instead of repeating it.",
 };
 
-const PSYCHOLOGY: Variant = {
-  intro: {
-    headline: "Make weight loss a mental priority, not a chore",
-    body: "Restarting, emotional eating, lost motivation — these are awareness problems, not willpower problems. LS Diet rebuilds the mental layer first.",
-  },
-  mid: {
-    headline: "Behaviour change starts with awareness",
-    body: "The free LS Diet Course walks you through the five Awareness stages so the habit changes hold even on hard days.",
-  },
-  bottom: {
-    headline: "Train the mental layer first",
-    body: "Join the free LS Diet Course to rewire the daily triggers behind restarting, emotional eating, and motivation crashes.",
-  },
+const PSYCHOLOGY: VariantCopy = {
+  headline: "The blockage is rarely willpower",
+  body: "The Weight Regain Profile surfaces the awareness gap driving restarts, emotional eating, or lost motivation, so you know what to fix first.",
 };
 
-const OFFICE: Variant = {
-  intro: {
-    headline: "Made for busy schedules, not a perfect week",
-    body: "LS Diet is designed for people with desk jobs, long hours, and zero time to cook elaborate meals. Sustainable, not extreme.",
-  },
-  mid: {
-    headline: "A system that survives your work week",
-    body: "Inside the free LS Diet Course you'll learn the Action Practice that fits around meetings, fatigue, and unpredictable days.",
-  },
-  bottom: {
-    headline: "Build it around the job you already have",
-    body: "Join the free LS Diet Course to make low-starch, low-sugar eating fit your real schedule — not a fantasy one.",
-  },
+const OFFICE: VariantCopy = {
+  headline: "Find the blockage your schedule is hiding",
+  body: "The Weight Regain Profile shows exactly where your routine breaks down, so the fix fits the job and hours you actually have.",
 };
 
-const FOOD: Variant = {
-  intro: {
-    headline: "Eat until full — without the regain",
-    body: "Low-starch, low-sugar eating lets you stop counting and stop suffering. The FREE LS Diet Course shows you how to run it sustainably.",
-  },
-  mid: {
-    headline: "Sustainable eating, no calorie spreadsheets",
-    body: "The free LS Diet Course covers the food rules, fullness signals, and meal structure that make the system run on autopilot.",
-  },
-  bottom: {
-    headline: "Make low-starch low-sugar second nature",
-    body: "Join the free LS Diet Course for the full food framework — what to eat, when to stop, and how to keep it going.",
-  },
+const FOOD: VariantCopy = {
+  headline: "Find your specific food blockage",
+  body: "The Weight Regain Profile pinpoints which eating pattern is keeping you stuck, so you know precisely what to change.",
 };
 
-const IDENTITY: Variant = {
-  intro: {
-    headline: "Weight loss is an identity shift",
-    body: "Lasting change happens when 'someone who eats this way' becomes who you are. LS Diet teaches that shift directly.",
-  },
-  mid: {
-    headline: "Identity is the deepest awareness layer",
-    body: "Inside the free LS Diet Course, Identity Awareness is one of the five stages that decide whether change holds for life.",
-  },
-  bottom: {
-    headline: "Become the person who doesn't regain",
-    body: "Join the free LS Diet Course to work through the identity layer that makes new behaviour feel like you.",
-  },
+const IDENTITY: VariantCopy = {
+  headline: "Find the identity gap that's holding you back",
+  body: "The Weight Regain Profile shows the specific gap between who you are now and who you need to become to stop regaining.",
 };
 
 // ---- Lookups ----
 
-const CLUSTER_MAP: Record<string, Variant> = {
+const CLUSTER_MAP: Record<string, VariantCopy> = {
   "office-work-life": OFFICE,
   "psychology-behaviour": PSYCHOLOGY,
   "food-hunger-eating": FOOD,
@@ -122,7 +54,7 @@ const CLUSTER_MAP: Record<string, Variant> = {
   "confidence-identity-social": IDENTITY,
 };
 
-const CATEGORY_MAP: Record<string, Variant> = {
+const CATEGORY_MAP: Record<string, VariantCopy> = {
   "Office & Work Life": OFFICE,
   "Psychology & Behaviour": PSYCHOLOGY,
   "Nutrition & Meal Prep": FOOD,
@@ -134,7 +66,7 @@ const CATEGORY_MAP: Record<string, Variant> = {
   "Exercise & Movement": OFFICE,
 };
 
-const FOUNDATION_SLUG_MAP: Record<string, Variant> = {
+const FOUNDATION_SLUG_MAP: Record<string, VariantCopy> = {
   "why-people-regain-weight-after-dieting": PERMANENCE,
   "the-weight-permanence-triangle-how-to-stop-regaining-weight": PERMANENCE,
   "why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting": FOOD,
@@ -152,7 +84,7 @@ export interface CtaContext {
   foundationSlug?: string;
 }
 
-export function selectVariant(ctx: CtaContext): Variant {
+export function selectVariant(ctx: CtaContext): VariantCopy {
   if (ctx.clusterId && CLUSTER_MAP[ctx.clusterId]) return CLUSTER_MAP[ctx.clusterId];
   if (ctx.category && CATEGORY_MAP[ctx.category]) return CATEGORY_MAP[ctx.category];
   if (ctx.foundationSlug && FOUNDATION_SLUG_MAP[ctx.foundationSlug]) {
@@ -161,6 +93,6 @@ export function selectVariant(ctx: CtaContext): Variant {
   return DEFAULT;
 }
 
-export function ctaCopyFor(ctx: CtaContext, placement: CtaPlacement): VariantCopy {
-  return selectVariant(ctx)[placement];
+export function ctaCopyFor(ctx: CtaContext): VariantCopy {
+  return selectVariant(ctx);
 }
