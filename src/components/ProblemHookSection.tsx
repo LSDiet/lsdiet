@@ -25,7 +25,7 @@ const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
   return (
     <div className="mx-auto mt-5 flex w-full max-w-md flex-col items-center text-center">
-      <p className="text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center text-sm font-bold mt-[10px] my-0 uppercase tracking-[0.15em]">
+      <p className="whitespace-nowrap text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center text-[11px] font-bold mt-[10px] my-0 uppercase tracking-[0.02em] sm:text-sm sm:tracking-[0.15em]">
         Not sure why keeping the weight off is so hard?
       </p>
       <a
@@ -154,6 +154,7 @@ function FloatingCarousel3D({
   const pausedRef = useRef(false);
   const draggingRef = useRef(false);
   const lastXRef = useRef(0);
+  const dragDistanceRef = useRef(0);
   const resumeTimerRef = useRef<number>();
 
   useEffect(() => {
@@ -183,6 +184,7 @@ function FloatingCarousel3D({
     draggingRef.current = true;
     pausedRef.current = true;
     lastXRef.current = e.clientX;
+    dragDistanceRef.current = 0;
     window.clearTimeout(resumeTimerRef.current);
     e.currentTarget.setPointerCapture(e.pointerId);
   };
@@ -191,6 +193,7 @@ function FloatingCarousel3D({
     if (!draggingRef.current) return;
     const dx = e.clientX - lastXRef.current;
     lastXRef.current = e.clientX;
+    dragDistanceRef.current += Math.abs(dx);
     rotationRef.current += dx * CAROUSEL_DRAG_SENSITIVITY;
   };
 
@@ -201,6 +204,18 @@ function FloatingCarousel3D({
     resumeTimerRef.current = window.setTimeout(() => {
       pausedRef.current = false;
     }, CAROUSEL_RESUME_DELAY_MS);
+  };
+
+  // iOS Safari fires a synthetic click on the underlying <a> at touch-end
+  // even after a real horizontal drag, because touch-action: pan-y blocks
+  // native pan gesture recognition on that axis. Suppress navigation once
+  // the finger has actually moved past a small threshold; real taps (no
+  // meaningful movement) still navigate normally.
+  const CARD_CLICK_DRAG_THRESHOLD = 6;
+  const handleCardClick = (e: React.MouseEvent) => {
+    if (dragDistanceRef.current > CARD_CLICK_DRAG_THRESHOLD) {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -239,16 +254,19 @@ function FloatingCarousel3D({
             <a
               key={pain.label}
               href={pain.href}
-              onClick={() =>
+              draggable={false}
+              onClick={(e) => {
+                handleCardClick(e);
+                if (e.defaultPrevented) return;
                 trackEvent("problem_card_click", {
                   location: "problem_hook",
                   variant,
                   label: pain.shortLabel,
                   destination: pain.href,
                   type: "profile",
-                })
-              }
-              className="absolute inset-0 flex items-center rounded-2xl border border-white/15 bg-black/55"
+                });
+              }}
+              className="absolute inset-0 flex items-center rounded-2xl border border-white/15 bg-black/55 select-none [-webkit-touch-callout:none]"
               style={{
                 transform: `rotateY(${i * step}deg) translateZ(${radius}px)`,
                 boxShadow: "0 10px 26px -14px rgba(0,0,0,0.9)",
@@ -284,8 +302,10 @@ function FloatingCarousel3D({
 
 function Headline() {
   return (
-    <h1 className="text-center font-sans font-extrabold uppercase leading-[1.05] tracking-tight text-white text-[1.7rem] sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-      How to <span className="text-accent">Stop the Rebound and Keep the Weight Off</span> when I am&hellip;
+    <h1 className="text-center font-sans font-extrabold uppercase leading-[1.15] tracking-tight text-white text-[1.6rem] sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+      <span className="block">Lose the Weight</span>
+      <span className="mt-1 block text-accent">Stop the Rebound</span>
+      <span className="mt-2 block">But how when I am&hellip;</span>
     </h1>
   );
 }
@@ -325,7 +345,7 @@ export function ProblemHookSection() {
           <div className="mt-8 flex flex-1 items-center justify-end">
             <nav aria-label="Common weight-loss struggles" className="ml-auto w-full max-w-[36rem]">
               <p className="text-right text-sm font-bold uppercase tracking-[0.15em] text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
-                Which one sounds like you right now?
+                Which one sounds like you?
               </p>
               <FloatingCarousel3D
                 pains={pains}
@@ -371,14 +391,14 @@ export function ProblemHookSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-transparent to-black/80" />
 
         <div className="relative z-10 flex flex-1 flex-col px-4 pt-16 pb-6">
-          <div className="mt-3">
+          <div className="mt-3 rounded-2xl bg-black/30 px-3 py-3 backdrop-blur-[2px]">
             <Headline />
           </div>
 
           {/* 3D carousel — replaces the old blocking pill stack. Decorative/
               atmospheric; the quiz CTA below is the real routing path. */}
           <p className="mt-6 text-center text-sm font-bold uppercase tracking-[0.15em] text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
-            Which one sounds like you right now?
+            Which one sounds like you?
           </p>
           <FloatingCarousel3D pains={pains} variant="carousel_3d_mobile" className="mt-3" />
 
