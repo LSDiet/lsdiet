@@ -30,10 +30,10 @@ function Body() {
   return (
     <>
       <p>
-        If you've lost the same 20 pounds three or four times, the issue is
-        almost never information. You already know what to eat. The problem is
-        that the underlying behaviour never changed — so the weight came back
-        the moment life got loud again.
+        Repeated weight regain almost never comes from missing information.
+        If you've lost the same 20 pounds three or four times, you already
+        know what to eat. The real problem is that the underlying behaviour
+        never changed. The weight came back the moment life got loud again.
       </p>
 
       <p>
@@ -45,16 +45,16 @@ function Body() {
         .
       </p>
 
-      <h2>The Restart Cycle, Up Close</h2>
+      <h2>What Does the Restart Cycle Actually Look Like?</h2>
 
       <p>
-        It usually looks like this: motivation spikes, weight drops, life gets
-        stressful, routines collapse, old defaults return — stress eating,
-        emotional eating, convenience eating — and the regain begins. The
-        details vary. The pattern almost never does.
+        It usually looks like this. Motivation spikes, weight drops, then
+        life gets stressful and routines collapse. Old defaults return:
+        stress eating, emotional eating, convenience eating. The regain
+        begins. The details vary, but the pattern almost never does.
       </p>
 
-      <h2>Why Motivation Alone Keeps Failing</h2>
+      <h2>Why Does Motivation Alone Keep Failing?</h2>
 
       <p>
         Motivation is reactive. It shows up after embarrassment, after a
@@ -63,25 +63,26 @@ function Body() {
       </p>
 
       <p>
-        Permanence is built differently. The{" "}
+        Permanence works differently. The{" "}
         <a href="/weight-permanence-training">Weight Permanence Training™</a>{" "}
-        treats motivation as one ingredient, not the whole recipe — paired
-        with friction reduction, pattern recognition, and repeatable practice.
+        treats motivation as one ingredient, not the whole recipe. It pairs
+        motivation with friction reduction, pattern recognition, and
+        repeatable practice.
       </p>
 
-      <h2>Awareness Comes Before Change</h2>
+      <h2>Why Do You Need Awareness Before You Can Change?</h2>
 
       <p>
-        You can't fix a pattern you can't see. Most people don't fully clock
-        their own triggers — the time of day, the emotion, the environment,
+        You can't fix a pattern you can't see. Most people never fully clock
+        their own triggers: the time of day, the emotion, the environment,
         the drift after a hard week. Walking through the{" "}
-        <a href="/awareness-stages">5 Awareness Stages</a> is what makes those
-        invisible loops finally visible, especially{" "}
+        <a href="/awareness-stages">5 Awareness Stages</a> makes those
+        invisible loops visible, especially{" "}
         <a href="/blog/pattern-awareness">pattern awareness</a> and{" "}
         <a href="/blog/friction-awareness">friction awareness</a>.
       </p>
 
-      <h2>Why Extreme Dieting Multiplies Restarts</h2>
+      <h2>Why Does Extreme Dieting Multiply Restarts?</h2>
 
       <p>
         Crash diets, starvation phases, and brutal exercise blocks produce
@@ -91,12 +92,12 @@ function Body() {
       </p>
 
       <p>
-        Sustainable LS eating plus repeatable behaviour — the{" "}
-        <a href="/blog/action-practice">Action Practice</a> approach — points
+        Sustainable LS eating plus repeatable behaviour, the{" "}
+        <a href="/blog/action-practice">Action Practice</a> approach, points
         the opposite direction.
       </p>
 
-      <h2>Final Thoughts</h2>
+      <h2>What Actually Stops the Restart Cycle?</h2>
 
       <p>
         The real goal isn't another round of weight loss. It's stopping the
