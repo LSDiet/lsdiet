@@ -23,7 +23,7 @@ const classroomItems = [
     image: vaultDailyVideos,
     alt: "Action Practice classroom inside the LS Diet training vault, showing daily behavioural video lessons",
     eyebrow: "Action Practice",
-    description: "Daily behavioural exercises to make your new habits automatic.",
+    description: "Daily practices to make your new habits automatic.",
   },
 ];
 
@@ -128,7 +128,7 @@ export function BookSection() {
               A Peek Inside the Vault
             </h2>
             <p className="mt-3 text-sm md:text-base text-muted-foreground">
-              No long lectures. Just 3-minute daily tools that protect your metabolism.
+              No long lectures. Just 3-minute daily tools that help you lose 5-7 lbs a month.
             </p>
           </div>
 

@@ -33,9 +33,6 @@ export function QuizTeaserSection() {
             Claim Your Free Access
             <ArrowRight className="h-5 w-5" aria-hidden />
           </a>
-          <p className="mt-3 text-[11px] font-medium text-muted-foreground">
-            100% free. No credit card.
-          </p>
         </div>
       </div>
     </section>

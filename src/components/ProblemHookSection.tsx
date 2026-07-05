@@ -180,21 +180,37 @@ function FloatingCarousel3D({
     };
   }, []);
 
+  // Drag tracking is done via window-level listeners (added on pointerdown,
+  // removed on pointerup/cancel) rather than relying on setPointerCapture —
+  // iOS Safari has had long-standing bugs where pointer capture silently
+  // fails on touch input, which made the carousel driftable in desktop
+  // preview but inert on real phones. touch-action: none on the surface
+  // (below) hands the whole gesture to JS instead of letting WebKit's
+  // native gesture recognizer intercept it.
+  const handleWindowPointerMove = (e: PointerEvent) => {
+    if (!draggingRef.current) return;
+    const dx = e.clientX - lastXRef.current;
+    lastXRef.current = e.clientX;
+    dragDistanceRef.current += Math.abs(dx);
+    rotationRef.current += dx * CAROUSEL_DRAG_SENSITIVITY;
+  };
+
+  const handleWindowPointerUp = () => {
+    endDrag();
+    window.removeEventListener("pointermove", handleWindowPointerMove);
+    window.removeEventListener("pointerup", handleWindowPointerUp);
+    window.removeEventListener("pointercancel", handleWindowPointerUp);
+  };
+
   const handlePointerDown = (e: React.PointerEvent) => {
     draggingRef.current = true;
     pausedRef.current = true;
     lastXRef.current = e.clientX;
     dragDistanceRef.current = 0;
     window.clearTimeout(resumeTimerRef.current);
-    e.currentTarget.setPointerCapture(e.pointerId);
-  };
-
-  const handlePointerMove = (e: React.PointerEvent) => {
-    if (!draggingRef.current) return;
-    const dx = e.clientX - lastXRef.current;
-    lastXRef.current = e.clientX;
-    dragDistanceRef.current += Math.abs(dx);
-    rotationRef.current += dx * CAROUSEL_DRAG_SENSITIVITY;
+    window.addEventListener("pointermove", handleWindowPointerMove);
+    window.addEventListener("pointerup", handleWindowPointerUp);
+    window.addEventListener("pointercancel", handleWindowPointerUp);
   };
 
   const endDrag = () => {
@@ -206,11 +222,10 @@ function FloatingCarousel3D({
     }, CAROUSEL_RESUME_DELAY_MS);
   };
 
-  // iOS Safari fires a synthetic click on the underlying <a> at touch-end
-  // even after a real horizontal drag, because touch-action: pan-y blocks
-  // native pan gesture recognition on that axis. Suppress navigation once
-  // the finger has actually moved past a small threshold; real taps (no
-  // meaningful movement) still navigate normally.
+  // iOS Safari can still fire a synthetic click on the underlying <a> at
+  // touch-end after a real drag. Suppress navigation once the finger has
+  // actually moved past a small threshold; real taps (no meaningful
+  // movement) still navigate normally.
   const CARD_CLICK_DRAG_THRESHOLD = 6;
   const handleCardClick = (e: React.MouseEvent) => {
     if (dragDistanceRef.current > CARD_CLICK_DRAG_THRESHOLD) {
@@ -221,12 +236,8 @@ function FloatingCarousel3D({
   return (
     <div
       className={`relative cursor-grab active:cursor-grabbing ${className}`}
-      style={{ perspective: "900px", touchAction: "pan-y", height }}
+      style={{ perspective: "900px", touchAction: "none", height }}
       onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      onPointerUp={endDrag}
-      onPointerCancel={endDrag}
-      onPointerLeave={endDrag}
     >
       {/* soft spotlight so whatever is currently frontmost reads as "in focus" */}
       <div
@@ -305,7 +316,7 @@ function Headline() {
     <h1 className="text-center font-sans font-extrabold uppercase leading-[1.15] tracking-tight text-white text-[1.6rem] sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
       <span className="block">Lose the Weight</span>
       <span className="mt-1 block text-accent">Stop the Rebound</span>
-      <span className="mt-2 block">But how when I am&hellip;</span>
+      <span className="mt-2 block normal-case">But <span className="uppercase">how</span> when I am&hellip;</span>
     </h1>
   );
 }

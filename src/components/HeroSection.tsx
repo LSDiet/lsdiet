@@ -210,7 +210,7 @@ export function HeroSection() {
             For people who keep regaining weight
           </p>
           <h2 className="mt-2 text-2xl md:text-4xl lg:text-5xl font-extrabold leading-[1.25] tracking-tight text-foreground">
-            I lost 80+ lbs three times <br /><span className="text-accent">LSDiet is how I finally broke the cycle once and for all</span>
+            I lost 80+ lbs three times <br /><span className="text-accent">LSDiet helped me break the cycle once and for all</span>
           </h2>
         </div>
         {/* DESKTOP (md+): 3-card grid — transformation shown first */}
