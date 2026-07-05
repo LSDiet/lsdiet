@@ -10,12 +10,12 @@ type NavLink = {
 };
 
 const navLinks: NavLink[] = [
-  { label: "Problem", href: "/problem" },
-  { label: "GLP-1 Rebound", href: "/glp-1-rebound-analysis" },
-  { label: "Solution", href: "/weight-permanence-training" },
-  { label: "LS Diet", href: "/what-is-ls-diet" },
-  { label: "Blog", href: "/blog" },
-  { label: "Quiz", href: "/quiz" },
+  { label: "Problem", href: "/problem/" },
+  { label: "GLP-1 Rebound", href: "/glp-1-rebound-analysis/" },
+  { label: "Solution", href: "/weight-permanence-training/" },
+  { label: "LS Diet", href: "/what-is-ls-diet/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Quiz", href: "/quiz/" },
 ];
 
 const CTA_HREF = "https://www.skool.com/lsdiet/about";

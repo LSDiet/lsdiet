@@ -187,7 +187,7 @@ export default function GLP1ReboundPage() {
                 STEP 1: Mean Body Weight Change Over 120 Weeks (%)
               </h3>
               <ResponsiveContainer width="100%" height={280}>
-                <LineChart data={step1Data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
+                <LineChart data={step1Data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }} title="Mean body weight change over 120 weeks on semaglutide, STEP 1 Extension trial">
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis dataKey="week" tick={{ fontSize: 11 }} />
                   <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 11 }} />
@@ -262,6 +262,7 @@ export default function GLP1ReboundPage() {
                 <BarChart
                   data={surmount4Data}
                   margin={{ top: 5, right: 20, left: 0, bottom: 20 }}
+                  title="SURMOUNT-4 cumulative weight loss: continued tirzepatide vs switched to placebo"
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
                   <XAxis dataKey="label" tick={{ fontSize: 11 }} />
@@ -343,7 +344,7 @@ export default function GLP1ReboundPage() {
                 Index scale (0–100). Higher score = better clinical outcome.
               </p>
               <ResponsiveContainer width="100%" height={300}>
-                <RadarChart data={radarData}>
+                <RadarChart data={radarData} title="Metabolic health score during GLP-1 treatment versus after discontinuation">
                   <PolarGrid />
                   <PolarAngleAxis dataKey="marker" tick={{ fontSize: 11 }} />
                   <Radar name="During Treatment" dataKey="onDrug" stroke={CHART_COLOR_PRIMARY} fill={CHART_COLOR_PRIMARY} fillOpacity={0.25} />
