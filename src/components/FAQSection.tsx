@@ -196,7 +196,7 @@ export function FAQSection() {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
-      <section id="faq" className="py-14 md:py-20">
+      <section id="faq" className="pt-14 pb-8 md:pt-20 md:pb-10">
         <div className="container max-w-3xl mx-auto px-4">
           <div className="text-center mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">

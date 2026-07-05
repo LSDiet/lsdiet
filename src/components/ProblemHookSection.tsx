@@ -24,8 +24,8 @@ const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
 function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
   return (
-    <div className="mx-auto mt-5 flex w-full max-w-md flex-col items-center text-center">
-      <p className="whitespace-nowrap text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center text-[11px] font-bold mt-[10px] my-0 uppercase tracking-[0.02em] sm:text-sm sm:tracking-[0.15em]">
+    <div className="mx-auto mt-3 flex w-full max-w-md flex-col items-center text-center md:mt-2">
+      <p className="whitespace-nowrap text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] text-center text-[11px] font-bold mt-[10px] my-0 uppercase tracking-[0.02em] sm:text-sm sm:tracking-[0.15em] md:mt-0">
         Not sure why keeping the weight off is so hard?
       </p>
       <a
@@ -37,7 +37,7 @@ function HeroJoinCTA({ placement }: { placement: "desktop" | "mobile" }) {
             destination: "/quiz",
           })
         }
-        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5 md:text-lg"
+        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-4 text-base font-extrabold uppercase tracking-wider text-accent-foreground shadow-[0_8px_24px_-8px_hsl(var(--accent)/0.7)] transition-all hover:brightness-110 hover:-translate-y-0.5 md:py-3 md:text-lg"
       >
         Find Out Why
         <ArrowRight className="h-5 w-5" aria-hidden />
@@ -313,7 +313,7 @@ function FloatingCarousel3D({
 
 function Headline() {
   return (
-    <h1 className="text-center font-sans font-extrabold uppercase leading-[1.15] tracking-tight text-white text-[1.6rem] sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
+    <h1 className="text-center font-sans font-extrabold uppercase leading-[1.15] tracking-tight text-white text-[1.6rem] sm:text-4xl md:text-5xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)]">
       <span className="block">Lose the Weight</span>
       <span className="mt-1 block text-accent">Stop the Rebound</span>
       <span className="mt-2 block normal-case">But <span className="uppercase">how</span> when I am&hellip;</span>
@@ -326,7 +326,7 @@ export function ProblemHookSection() {
   return (
     <section className="relative w-full overflow-hidden bg-[#0a0a0a] text-white">
       {/* ============ DESKTOP / TABLET (md+) ============ */}
-      <div className="relative hidden min-h-[100svh] md:block">
+      <div className="relative hidden min-h-[92svh] md:block">
         {/* Video is intentionally NOT full-bleed: it anchors centre-left and
             fades into a darker right panel so the pain cluster commands the
             right side. Reduced width + brightness + dominance. */}
@@ -346,37 +346,36 @@ export function ProblemHookSection() {
         </div>
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 to-transparent" />
 
-        <div className="relative z-10 flex min-h-[100svh] flex-col px-8 pt-20 pb-8 lg:px-12">
-          <div className="mt-3">
+        <div className="relative z-10 flex min-h-[92svh] flex-col px-8 pb-6 pt-14 lg:px-12">
+          {/* Headline lives in the same right-hand column as the carousel on
+              wide screens (lg:ml-auto + capped width) so it never sits on
+              top of the woman in the video — only the dark panel behind it. */}
+          <div className="flex flex-1 flex-col items-center justify-center text-center lg:ml-auto lg:w-[46%] lg:min-w-[420px]">
             <Headline />
-          </div>
 
-          {/* 3D carousel pinned to the right — larger version of the mobile
-              carousel, scaled up for the extra room on desktop/tablet. */}
-          <div className="mt-8 flex flex-1 items-center justify-end">
-            <nav aria-label="Common weight-loss struggles" className="ml-auto w-full max-w-[36rem]">
-              <p className="text-right text-sm font-bold uppercase tracking-[0.15em] text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
+            <nav aria-label="Common weight-loss struggles" className="mt-6 w-full max-w-[30rem]">
+              <p className="text-center text-sm font-bold uppercase tracking-[0.15em] text-white/70 drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">
                 Which one sounds like you?
               </p>
               <FloatingCarousel3D
                 pains={pains}
                 variant="carousel_3d_desktop"
-                height={420}
-                radius={230}
-                cardWidth={210}
-                cardHeight={84}
-                spotlightSize={280}
-                iconSize={34}
-                fontSize={15}
-                gap={12}
-                paddingX={18}
-                paddingY={14}
+                height={260}
+                radius={200}
+                cardWidth={190}
+                cardHeight={76}
+                spotlightSize={240}
+                iconSize={30}
+                fontSize={13.5}
+                gap={10}
+                paddingX={16}
+                paddingY={12}
               />
             </nav>
           </div>
 
           <HeroJoinCTA placement="desktop" />
-          <ChevronDown className="mx-auto mt-4 h-7 w-7 animate-bounce text-accent/80" aria-hidden="true" />
+          <ChevronDown className="mx-auto mt-2 h-6 w-6 animate-bounce text-accent/80" aria-hidden="true" />
 
         </div>
 

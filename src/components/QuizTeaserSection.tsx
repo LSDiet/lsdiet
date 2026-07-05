@@ -5,7 +5,7 @@ const SKOOL_URL = "https://www.skool.com/lsdiet/about";
 
 export function QuizTeaserSection() {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="pt-8 pb-16 md:pt-12 md:pb-24 bg-background">
       <div className="container max-w-3xl">
         <div className="rounded-2xl border border-accent/30 bg-card p-8 md:p-12 text-center shadow-xl">
           <p className="text-xs md:text-sm uppercase tracking-[0.18em] text-accent font-semibold mb-3">

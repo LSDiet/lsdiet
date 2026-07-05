@@ -8,6 +8,10 @@ import { QuizTeaserSection } from "@/components/QuizTeaserSection";
 import { SkepticHubSection } from "@/components/SkepticHubSection";
 import { FooterSimple } from "@/components/FooterSimple";
 
+function SectionDivider() {
+  return <div className="h-px w-full bg-border" />;
+}
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -110,14 +114,19 @@ const Index = () => {
       <main>
         {/* 1 — Problem hook + quiz CTA (hero) */}
         <ProblemHookSection />
+        <SectionDivider />
         {/* 2 — Before/after carousel (credibility) */}
         <HeroSection />
+        <SectionDivider />
         {/* 4 — What's inside the community */}
         <BookSection />
+        <SectionDivider />
         {/* 5 — FAQ / objection handling */}
         <FAQSection />
+        <SectionDivider />
         {/* 6 — Final join CTA */}
         <QuizTeaserSection />
+        <SectionDivider />
         {/* 7 — Skeptic hub: authority links for readers who want proof first */}
         <SkepticHubSection />
       </main>
