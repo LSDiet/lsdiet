@@ -5,6 +5,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { BookSection } from "@/components/BookSection";
 import { FAQSection } from "@/components/FAQSection";
 import { QuizTeaserSection } from "@/components/QuizTeaserSection";
+import { SkepticHubSection } from "@/components/SkepticHubSection";
 import { FooterSimple } from "@/components/FooterSimple";
 
 const organizationSchema = {
@@ -117,6 +118,8 @@ const Index = () => {
         <FAQSection />
         {/* 6 — Final join CTA */}
         <QuizTeaserSection />
+        {/* 7 — Skeptic hub: authority links for readers who want proof first */}
+        <SkepticHubSection />
       </main>
       <FooterSimple />
     </div>
