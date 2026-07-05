@@ -1,4 +1,5 @@
 import type { Article } from "./types";
+import heroImage from "@/assets/blog/why-do-i-keep-restarting-weight-loss-hero.jpg";
 
 const meta: import("./types").ArticleMeta = {
   slug: "why-do-i-keep-restarting-weight-loss",
@@ -24,6 +25,9 @@ const meta: import("./types").ArticleMeta = {
     "pattern-awareness",
     "action-practice",
   ],
+  heroImage,
+  heroImageAlt:
+    "Couple embracing at the bottom of a staircase, representing the support that sustains lasting change",
 };
 
 function Body() {
