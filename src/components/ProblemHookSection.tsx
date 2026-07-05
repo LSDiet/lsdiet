@@ -346,11 +346,14 @@ export function ProblemHookSection() {
         </div>
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/85 to-transparent" />
 
-        <div className="relative z-10 flex min-h-[92svh] flex-col px-8 pb-6 pt-14 lg:px-12">
+        <div className="relative z-10 flex min-h-[92svh] flex-col px-8 pb-4 pt-32 lg:px-12 lg:pt-36">
           {/* Headline lives in the same right-hand column as the carousel on
               wide screens (lg:ml-auto + capped width) so it never sits on
-              top of the woman in the video — only the dark panel behind it. */}
-          <div className="flex flex-1 flex-col items-center justify-center text-center lg:ml-auto lg:w-[46%] lg:min-w-[420px]">
+              top of the woman in the video — only the dark panel behind it.
+              justify-start (not center) keeps a fixed, predictable gap under
+              the navbar instead of collapsing to ~0 when content fills the
+              available height. */}
+          <div className="flex flex-1 flex-col items-center justify-start text-center lg:ml-auto lg:w-[46%] lg:min-w-[420px]">
             <Headline />
 
             <nav aria-label="Common weight-loss struggles" className="mt-6 w-full max-w-[30rem]">
@@ -360,7 +363,7 @@ export function ProblemHookSection() {
               <FloatingCarousel3D
                 pains={pains}
                 variant="carousel_3d_desktop"
-                height={260}
+                height={240}
                 radius={200}
                 cardWidth={190}
                 cardHeight={76}
