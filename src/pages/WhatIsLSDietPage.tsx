@@ -221,7 +221,7 @@ export default function WhatIsLSDietPage() {
             The third time, he went No Carb. He lost the weight again. But as an Asian Canadian surrounded by family and friends for whom rice and noodles are a daily ritual, every shared meal became a negotiation. Every gathering came with a side of explanation. The approach that worked metabolically was quietly destroying his social life.
           </p>
           <p>
-            LS Diet was built as the fourth attempt — the one that does not require choosing between your health and your culture. In 2025, Oscar went from 270 to 200 pounds in 9 months using LS Diet. He hiked three peaks. He ran his first 10K. He has not regained the weight.
+            LS Diet was built as the fourth attempt — the one that does not require choosing between your health and your culture. Using LS Diet, Oscar went from 310 lbs to 190 lbs, reaching that weight around November 2024. He hiked three peaks. He ran his first 10K. He has not regained the weight.
           </p>
 
           <blockquote className="border-l-4 border-accent pl-5 my-8 text-xl md:text-2xl italic text-zinc-900 font-semibold leading-snug">

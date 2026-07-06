@@ -182,7 +182,7 @@ export function MissingPieceSection() {
               <div className="mx-auto md:mx-0">
                 <img 
                   src={imgTippingPoint} 
-                  alt="Oscar at 300 lbs in November 2024" 
+                  alt="Oscar at 300 lbs in 2024"
                   className="w-64 md:w-full aspect-[4/5] object-cover rounded-xl"
                 />
               </div>

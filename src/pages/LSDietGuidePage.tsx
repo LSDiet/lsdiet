@@ -225,7 +225,7 @@ export default function LSDietGuidePage() {
                 burning increased. The weight dropped again—but I was changing my social identity.
                 Every gathering became a negotiation.
               </p>
-              <p className="text-muted-foreground leading-relaxed">In 2025, I tested a different approach: vegetables, meats, moderate fruit, and occasional intentional carbohydrates. I lost 8–10 pounds per month consistently, going from 270 to 200 pounds in nine months. During that time, I hiked three peaks and completed my first Vancouver 10K Sun Run in 66 minutes.
+              <p className="text-muted-foreground leading-relaxed">Then I tested a different approach: vegetables, meats, moderate fruit, and occasional intentional carbohydrates. Using LS Diet, I went from 310 lbs to 190 lbs, reaching that weight around November 2024. During that time, I hiked three peaks and completed my first Vancouver 10K Sun Run in 66 minutes.
 
 
 
