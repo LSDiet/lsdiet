@@ -88,6 +88,9 @@ import whyOzempicFaceHappens from "./why-ozempic-face-happens";
 // Batch 16
 import goodFatBadFatHighProteinDiet from "./good-fat-bad-fat-high-protein-diet";
 
+// Batch 17
+import howToAvoidGainingWeightWhileTravelingForWork from "./how-to-avoid-gaining-weight-while-traveling-for-work";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -156,6 +159,8 @@ export const ARTICLES: Article[] = [
   whyOzempicFaceHappens,
   // Batch 16
   goodFatBadFatHighProteinDiet,
+  // Batch 17
+  howToAvoidGainingWeightWhileTravelingForWork,
 ];
 
 

@@ -88,6 +88,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "can-a-physical-job-help-you-lose-weight",
       "can-you-lose-weight-without-going-to-the-gym",
       "what-should-you-eat-for-lunch-to-lose-weight",
+      "how-to-avoid-gaining-weight-while-traveling-for-work",
     ],
   },
 ];
