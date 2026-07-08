@@ -25,7 +25,6 @@ import { getFoundationBySlug, type Foundation } from "@/content/foundations";
 import { getArticleBySlug, getArticlesByFoundation, type Article } from "@/content/articles";
 import { ArticleBreadcrumb } from "@/components/ArticleBreadcrumb";
 import { ArticleProgression } from "@/components/ArticleProgression";
-import { MidArticleRelated } from "@/components/MidArticleRelated";
 import { clusterOfSlug } from "@/lib/searchArticleClusters";
 import {
   getPathway,
@@ -522,28 +521,12 @@ interface ArticleLayoutProps {
 
 function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }: ArticleLayoutProps) {
   const bodyRef = useRef<HTMLDivElement | null>(null);
-  const [midSlot, setMidSlot] = useState<HTMLDivElement | null>(null);
   const [readingMin, setReadingMin] = useState<number | null>(null);
 
   const pathway = useMemo(() => getPathway(article), [article]);
-  const related = useMemo(() => {
-    const exclude = pathwaySlugSet(pathway);
-    return getRelatedArticles(article, exclude, 5);
-  }, [article, pathway]);
-
-  const midItems = related.slice(0, 4).map((a) => ({
-    title: a.meta.title,
-    href: `/blog/${a.meta.slug}`,
-  }));
-
-  const midSlugSet = new Set(related.slice(0, 4).map((a) => a.meta.slug));
   const footerRelated = useMemo(() => {
-    const exclude = new Set<string>([
-      ...pathwaySlugSet(pathway),
-      ...midSlugSet,
-    ]);
+    const exclude = pathwaySlugSet(pathway);
     return getRelatedArticles(article, exclude, 4);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [article, pathway]);
 
   useLayoutEffect(() => {
@@ -551,30 +534,7 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
     if (!wrapper) return;
     const text = wrapper.textContent || "";
     setReadingMin(readingTimeMinutes(text));
-    wrapper.querySelectorAll("[data-mid-related-slot]").forEach((n) => n.remove());
-    if (midItems.length === 0) return;
-    const slot = document.createElement("div");
-    slot.setAttribute("data-mid-related-slot", "");
-    const headings = wrapper.querySelectorAll(":scope > h2");
-    if (headings.length >= 2) {
-      const target = headings[1];
-      target.parentNode?.insertBefore(slot, target);
-    } else {
-      const paragraphs = Array.from(wrapper.querySelectorAll(":scope > p"));
-      if (paragraphs.length >= 3) {
-        const target = paragraphs[Math.floor(paragraphs.length * 0.4)];
-        target.parentNode?.insertBefore(slot, target);
-      } else {
-        wrapper.appendChild(slot);
-      }
-    }
-    setMidSlot(slot);
-    return () => {
-      slot.remove();
-      setMidSlot(null);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [article.meta.slug, midItems.length]);
+  }, [article.meta.slug]);
 
   const cluster = clusterOfSlug(article.meta.slug);
   const foundationTitle = getFoundationTitle(article.meta.primaryFoundationSlug);
@@ -639,8 +599,6 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
         <div ref={bodyRef} className="prose-article">
           <article.Body />
         </div>
-
-        {article.meta.canonicalTopic !== "stop-weight-regain" && midSlot && createPortal(<MidArticleRelated items={midItems} />, midSlot)}
 
         {ctaSlots.map((s) => {
           const copy = ctaCopyFor(ctaContext);
