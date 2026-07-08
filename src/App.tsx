@@ -22,6 +22,7 @@ const GLP1GuidePage = lazy(() => import("./pages/GLP1GuidePage"));
 const GLP1ReboundPage = lazy(() => import("./pages/GLP1ReboundPage"));
 const LSDietGuidePage = lazy(() => import("./pages/LSDietGuidePage"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const ATTLPrivacyPage = lazy(() => import("./pages/ATTLPrivacyPage"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 const HealthDisclaimer = lazy(() => import("./pages/HealthDisclaimer"));
 const WhatIsLSDietPage = lazy(() => import("./pages/WhatIsLSDietPage"));
@@ -84,6 +85,7 @@ function AppContent() {
           <Route path="/glp-1-rebound-analysis" element={<GLP1ReboundPage />} />
           <Route path="/ls-diet-guide" element={<LSDietGuidePage />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/ATTL_Privacy" element={<ATTLPrivacyPage />} />
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/disclaimer" element={<HealthDisclaimer />} />
           <Route path="/what-is-ls-diet" element={<WhatIsLSDietPage />} />
