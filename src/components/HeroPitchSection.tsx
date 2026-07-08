@@ -93,7 +93,7 @@ export function HeroPitchSection() {
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("cta_click", { location: "pitch", destination: "skool" })}
               >
-                START YOUR FREE TRAINING TODAY
+                Claim Your Free Access
               </a>
             </Button>
           </div>

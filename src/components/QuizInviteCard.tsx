@@ -31,7 +31,7 @@ export function QuizInviteCard() {
               </h3>
             </div>
             <span className="hidden sm:inline-flex shrink-0 items-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-accent-foreground transition-transform group-hover:translate-x-0.5">
-              Take the quiz
+              Discover Your Regain Profile (Free)
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </span>
           </div>

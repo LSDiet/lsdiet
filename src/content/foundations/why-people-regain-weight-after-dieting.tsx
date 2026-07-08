@@ -364,7 +364,7 @@ function Body() {
           rel="noopener noreferrer"
           className="inline-block bg-accent text-white font-semibold px-5 py-3 rounded-lg text-center hover:opacity-90 transition-opacity"
         >
-          Join the free community
+          Claim Your Free Access
         </a>
       </div>
 

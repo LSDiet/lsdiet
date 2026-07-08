@@ -123,7 +123,7 @@ function QuizCard() {
         <div className="flex flex-col sm:flex-row gap-3">
           <Button size="lg" className="w-full sm:w-auto px-8 animate-pulse-glow" asChild>
             <a href="/quiz">
-              Take the Quiz
+              Discover Your Regain Profile (Free)
               <ArrowRight className="w-4 h-4 ml-2" />
             </a>
           </Button>

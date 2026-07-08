@@ -315,10 +315,10 @@ export default function WeightPermanenceTrainingPage() {
 
           <div className="flex flex-col gap-4">
             <Button variant="accent" size="lg" className="w-full" asChild>
-              <a href="/quiz">Find Your Regain Profile <ArrowRight size={18} /></a>
+              <a href="/quiz">Discover Your Regain Profile (Free) <ArrowRight size={18} /></a>
             </Button>
             <Button variant="secondary" size="lg" className="w-full" asChild>
-              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Start Free Training Today</a>
+              <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Claim Your Free Access</a>
             </Button>
           </div>
         </div>
@@ -449,7 +449,7 @@ export default function WeightPermanenceTrainingPage() {
             <div className="bg-primary text-primary-foreground p-4 flex items-center justify-between">
               <span className="font-black text-sm uppercase tracking-wide">Find your profile</span>
               <span className="inline-flex items-center gap-1 text-xs font-black text-accent uppercase tracking-wider group-hover:translate-x-1 transition-transform">
-                Take the quiz <ChevronRight size={14} />
+                Discover Your Regain Profile (Free) <ChevronRight size={14} />
               </span>
             </div>
           </a>
@@ -562,7 +562,7 @@ export default function WeightPermanenceTrainingPage() {
             Awareness Training + Practice Training. The behavioural system that stops the weight from coming back.
           </p>
           <Button variant="accent" size="lg" className="w-full" asChild>
-            <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Start Free Training Today <ArrowRight size={18} /></a>
+            <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Claim Your Free Access <ArrowRight size={18} /></a>
           </Button>
         </div>
       </section>

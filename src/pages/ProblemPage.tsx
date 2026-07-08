@@ -197,10 +197,10 @@ export default function ProblemPage() {
 
             <div className="flex flex-col gap-4">
               <Button variant="accent" size="lg" className="w-full" asChild>
-                <a href="/quiz">Find Your Regain Profile <ArrowRight size={18} /></a>
+                <a href="/quiz">Discover Your Regain Profile (Free) <ArrowRight size={18} /></a>
               </Button>
               <Button variant="secondary" size="lg" className="w-full" asChild>
-                <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Join the Free Community</a>
+                <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">Claim Your Free Access</a>
               </Button>
             </div>
           </div>
@@ -418,7 +418,7 @@ export default function ProblemPage() {
             <a href="/quiz" className="block bg-primary text-primary-foreground rounded-2xl px-5 py-4 flex items-center justify-between hover:opacity-95 transition-opacity">
               <span className="font-black text-sm uppercase tracking-wide">Find your profile</span>
               <span className="inline-flex items-center gap-1 text-xs font-black text-accent uppercase tracking-wider">
-                Take the quiz <ChevronRight size={14} />
+                Discover Your Regain Profile (Free) <ChevronRight size={14} />
               </span>
             </a>
           </div>

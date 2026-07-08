@@ -245,7 +245,7 @@ export default function WhatIsLSDietPage() {
           <div className="flex flex-wrap gap-3 justify-center">
             <Button variant="accent" size="lg" asChild>
               <a href="https://www.skool.com/lsdiet/about" target="_blank" rel="noopener noreferrer">
-                Join the free community
+                Claim Your Free Access
               </a>
             </Button>
           </div>

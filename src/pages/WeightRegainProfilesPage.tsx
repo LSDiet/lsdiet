@@ -98,7 +98,7 @@ export default function WeightRegainProfilesPage() {
             to="/quiz"
             className="inline-block bg-primary text-primary-foreground font-semibold px-7 py-3 rounded-lg hover:opacity-90 transition-opacity"
           >
-            Take the Quiz
+            Discover Your Regain Profile (Free)
           </Link>
         </div>
 
