@@ -91,6 +91,9 @@ import goodFatBadFatHighProteinDiet from "./good-fat-bad-fat-high-protein-diet";
 // Batch 17
 import howToAvoidGainingWeightWhileTravelingForWork from "./how-to-avoid-gaining-weight-while-traveling-for-work";
 
+// Batch 18
+import medicareGlp1CopayWontFixTheRealProblem from "./medicare-glp1-copay-wont-fix-the-real-problem";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -161,6 +164,8 @@ export const ARTICLES: Article[] = [
   goodFatBadFatHighProteinDiet,
   // Batch 17
   howToAvoidGainingWeightWhileTravelingForWork,
+  // Batch 18
+  medicareGlp1CopayWontFixTheRealProblem,
 ];
 
 

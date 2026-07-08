@@ -8,6 +8,7 @@ Last verified: 2026-07-03, by direct browser render of lsdiet.com/blog.
 
 | Publish Date | Title | Slug | Core Angle Already Used |
 |---|---|---|---|
+| 2026-07-08 | Medicare's $50 GLP-1 Copay Won't Fix the Real Problem | `medicare-glp1-copay-wont-fix-the-real-problem` | Medicare Bridge policy driven mass adoption, discontinuation/reinitiation cycling as the real dependency risk |
 | 2026-07-02 | Why Ozempic Face Happens, and What It Reveals About Muscle Loss | `why-ozempic-face-happens` | Facial fat/lean tissue loss outpaces skin adjustment |
 | 2026-06-30 | Does Losing Weight on a GLP-1 Drug Actually Count? | `does-glp1-weight-loss-count` | Legitimacy of drug assisted loss |
 | 2026-06-28 | Yo-Yo Dieting Did Not Ruin Your Metabolism. It Did Something Worse. | `yo-yo-dieting-metabolism-myth` | Metabolic damage myth (canonicalTopic: stop-weight-regain) |

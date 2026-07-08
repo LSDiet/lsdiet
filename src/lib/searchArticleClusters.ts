@@ -61,6 +61,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "why-ozempic-wont-keep-the-weight-off",
       "youre-losing-muscle-not-just-fat-on-glp1-drugs",
       "why-ozempic-face-happens",
+      "medicare-glp1-copay-wont-fix-the-real-problem",
     ],
   },
   {
