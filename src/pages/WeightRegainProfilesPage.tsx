@@ -9,7 +9,7 @@ const profiles = [
     name: "Motivation Chaser",
     banner: "/profiles/motivation-chaser.webp",
     tagline: "Starts strong. Loses steam. Restarts. Repeat.",
-    description: "You run on one tank of motivation — great for getting started, but it was never going to last the whole trip. Once it's empty, the weight quietly comes back.",
+    description: "You run on one tank of motivation. Great for getting started, but it was never going to last the whole trip. Once it's empty, the weight quietly comes back.",
   },
   {
     slug: "overwhelmed-beginner",
@@ -23,21 +23,21 @@ const profiles = [
     name: "Restarter",
     banner: "/profiles/restarter.webp",
     tagline: "Leaves before results show up. Every time.",
-    description: "You switch diets before any of them get a real chance to work — like changing lanes in traffic because the other one looks faster, and never getting ahead.",
+    description: "You switch diets before any of them get a real chance to work, like changing lanes in traffic because the other one looks faster, and never getting ahead.",
   },
   {
     slug: "stress-eater",
     name: "Stress Eater",
     banner: "/profiles/stress-eater.webp",
-    tagline: "Food has a second job — and it's not nutrition.",
-    description: "You know exactly what to eat. But when stress hits, you eat anyway — like knowing exactly where the fire exit is, then bolting for the nearest door in a panic.",
+    tagline: "Food has a second job, and it's not nutrition.",
+    description: "You know exactly what to eat. But when stress hits, you eat anyway, like knowing exactly where the fire exit is, then bolting for the nearest door in a panic.",
   },
   {
     slug: "weight-cycler",
     name: "Weight Cycler",
     banner: "/profiles/weight-cycler.webp",
     tagline: "Loses weight. Gains it back. Loses it again.",
-    description: "You already know how to lose weight — you've done it more than once. What you've never had is a plan for keeping it off, so it always creeps back.",
+    description: "You already know how to lose weight. You've done it more than once. What you've never had is a plan for keeping it off, so it always creeps back.",
   },
 ];
 
@@ -48,8 +48,8 @@ export default function WeightRegainProfilesPage() {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>The 5 Weight Regain Profiles — Find Yours | LS Diet</title>
-        <meta name="description" content="Five distinct profiles that explain why people regain weight after losing it. Each profile points to a different root cause — and a different WPT solution." />
+        <title>The 5 Weight Regain Profiles | LS Diet</title>
+        <meta name="description" content="Five distinct profiles that explain why people regain weight after losing it. Each profile points to a different root cause, and a different WPT solution." />
         <link rel="canonical" href="https://lsdiet.com/weight-regain-profiles" />
       </Helmet>
 
@@ -61,7 +61,7 @@ export default function WeightRegainProfilesPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">Weight Regain Profiles</p>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">The 5 Weight Regain Profiles</h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            Weight regain isn't random. Five distinct patterns — each with a different root cause. Find out which one fits you.
+            Weight regain isn't random. Five distinct patterns, each with a different root cause. Find out which one fits you.
           </p>
         </div>
 
@@ -117,7 +117,7 @@ export default function WeightRegainProfilesPage() {
               </span>
               <h3 className="text-xl font-bold">Get the Comprehensive Assessment</h3>
               <p className="text-white/70 text-sm max-w-xs mx-auto">
-                Everything in the free quiz, plus an in-depth personality test that uncovers the real root cause behind your weight struggles.
+                Everything in the free quiz, plus an extensive personality test that uncovers the real root cause behind your weight struggles.
               </p>
               <a
                 href={COMPREHENSIVE_ASSESSMENT_URL}

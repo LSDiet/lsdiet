@@ -29,12 +29,12 @@ const profiles: Record<string, {
     youtubeId: "ot6uJo7In24",
     banner: "/profiles/motivation-chaser.webp",
     painStatement: "I always run out of motivation.",
-    mobileInsight: "Motivation is like a single tank of gas — it gets you moving, but the distance is fixed the moment you start driving. There's no way to refuel once it runs dry, so when it's gone, so is your progress.",
+    mobileInsight: "Motivation is like a single tank of gas. It gets you moving, but the distance is fixed the moment you start driving. There's no way to refuel once it runs dry, so when it's gone, so is your progress.",
     tagline: "The person who never restarts isn't more motivated than you. They just stopped needing motivation to show up every day.",
-    whatItMeans: "You start strong. The pantry gets cleaned out, the gym bag comes back out, and for a few weeks everything works. Then life gets ordinary again, the excitement fades, and so does the effort. This can happen before you even start, halfway through, or right after you hit your goal — because your whole plan is running on one feeling, and feelings don't last forever.",
+    whatItMeans: "You start strong. The pantry gets cleaned out, the gym bag comes back out, and for a few weeks everything works. Then life gets ordinary again, the excitement fades, and so does the effort. This can happen before you even start, halfway through, or right after you hit your goal, because your whole plan is running on one feeling, and feelings don't last forever.",
     whyYouStruggle: "Motivation is a spark, not fuel. If a single feeling is the only thing driving you, you're always one bad week away from stopping. And once you stop, restarting feels even harder, because now there's guilt attached too.",
-    biggestMistake: "Thinking the fix is \"more motivation\" — a new video, a better quote, a fresh program. The real issue is that your plan has no backup source of drive once the spark burns out.",
-    howWPTHelps: "Weight Permanence Training gives you two separate reasons to keep going, so losing one doesn't cost you the other: a PUSH reason, something real you want to move away from that creates urgency right now, and a PULL reason, the person you're becoming, which still matters even after the urgency fades. Think of it as a two-tank system — if one runs low, the other keeps you moving.",
+    biggestMistake: "Thinking the fix is \"more motivation\": a new video, a better quote, a fresh program. The real issue is that your plan has no backup source of drive once the spark burns out.",
+    howWPTHelps: "Weight Permanence Training gives you two separate reasons to keep going, so losing one doesn't cost you the other: a PUSH reason, something real you want to move away from that creates urgency right now, and a PULL reason, the person you're becoming, which still matters even after the urgency fades. It works like two separate fuel tanks: if one runs low, the other keeps you moving.",
     helpPoints: [
       "Find a PUSH reason: something real you want to stop happening, that gets you moving today",
       "Find a PULL reason: the person you're actually becoming, not just a number on a scale",
@@ -43,7 +43,7 @@ const profiles: Record<string, {
     ],
     outcome: "You don't need more motivation. You need a plan that still works on the days you don't have any.",
     seoTitle: "Motivation Chaser Weight Regain Profile | Why Motivation Alone Fails",
-    seoDescription: "You're not lazy — you're dependent on motivation. Learn why Motivation Chasers regain weight and how Weight Permanence Training builds lasting commitment.",
+    seoDescription: "You're not lazy. You're dependent on motivation. Learn why Motivation Chasers regain weight and how Weight Permanence Training builds lasting commitment.",
   },
   "overwhelmed-beginner": {
     slug: "overwhelmed-beginner",
@@ -51,14 +51,14 @@ const profiles: Record<string, {
     youtubeId: "XvJoKFvXe0M",
     banner: "/profiles/overwhelmed-beginner.webp",
     painStatement: "I don’t know where to start.",
-    mobileInsight: "It's like reading every book and watching every tutorial on swimming, buying all the gear, and studying technique for months — and never actually getting in the water.",
+    mobileInsight: "It's like reading every book and watching every tutorial on swimming, buying all the gear, and studying technique for months, but never actually getting in the water.",
     tagline: "You don't need a better diet. You need to stop searching for the perfect one and start the one in front of you.",
-    whatItMeans: "You're eager to lose weight. You read, you research, you take quizzes, you watch videos. But somehow you never actually start. That's not laziness — it's that all your effort is going into preparing instead of doing. One expert says eat less, another says that's outdated. One study says skip breakfast, another says never skip it. After enough of this, you stop trusting any answer, including your own.",
-    whyYouStruggle: "Research never runs out — there's always one more article. Without a clear starting line, you can keep \"preparing\" forever and never risk actually trying. And a vague feeling of not being ready yet isn't something you can act on, because it isn't a real, specific problem.",
-    biggestMistake: "Believing that more research will eventually make you feel ready. It usually does the opposite — every new article is just another reason to wait one more day.",
-    howWPTHelps: "Weight Permanence Training doesn't hand you more information — you already have more than enough. It gives you an honest starting point, so there's nothing left to \"prepare\" for, and helps you name the one specific thing actually in your way, instead of a vague feeling of not knowing enough.",
+    whatItMeans: "You're eager to lose weight. You read, you research, you take quizzes, you watch videos. But somehow you never actually start. That's not laziness. It's that all your effort is going into preparing instead of doing. One expert says eat less, another says that's outdated. One study says skip breakfast, another says never skip it. After enough of this, you stop trusting any answer, including your own.",
+    whyYouStruggle: "Research never runs out. There's always one more article. Without a clear starting line, you can keep \"preparing\" forever and never risk actually trying. And a vague feeling of not being ready yet isn't something you can act on, because it isn't a real, specific problem.",
+    biggestMistake: "Believing that more research will eventually make you feel ready. It usually does the opposite. Every new article is just another reason to wait one more day.",
+    howWPTHelps: "Weight Permanence Training doesn't hand you more information. You already have more than enough. It gives you an honest starting point, so there's nothing left to \"prepare\" for, and helps you name the one specific thing actually in your way, instead of a vague feeling of not knowing enough.",
     helpPoints: [
-      "Get a clear, honest starting point — no more research needed",
+      "Get a clear, honest starting point instead of more research",
       "Name the one real thing that's stopping you, instead of a vague feeling",
       "Build confidence by doing something small, not by reading something else",
       "Learn to trust your own judgment instead of chasing expert consensus",
@@ -73,14 +73,14 @@ const profiles: Record<string, {
     youtubeId: "L45rGwguXWA",
     banner: "/profiles/restarter.webp",
     painStatement: "I jump from one method to the next before seeing results.",
-    mobileInsight: "It's like changing lanes in traffic because the other one looks faster — over and over, never staying in one lane long enough to actually get ahead.",
+    mobileInsight: "It's like changing lanes in traffic because the other one looks faster, over and over, never staying in one lane long enough to actually get ahead.",
     tagline: "Nothing works because you leave before anything has time to.",
     whatItMeans: "You try diet A for a week, switch to diet B in week two, and conclude neither one works. But look closer: the pattern isn't any single diet failing, it's the switching itself. No method ever gets run long enough to actually produce a result.",
-    whyYouStruggle: "You act fast when something feels urgent, but you've never practiced sitting still while you wait for slow results. Most methods need several weeks before real change shows up — and you're usually gone by week two, so you never make it that far.",
-    biggestMistake: "Believing the problem is the method — that the \"right\" diet is still out there waiting to be found. It isn't. Any solid method, followed long enough, would have worked. The switching is the problem, not the diets.",
-    howWPTHelps: "Weight Permanence Training first shows you the pattern in black and white: every time you've switched, and what set it off. Once \"diets don't work for me\" becomes \"I switch too early,\" you have something you can actually fix. From there, it trains the specific skill you're missing — staying with something past the point where the excitement wears off, but before the results arrive.",
+    whyYouStruggle: "You act fast when something feels urgent, but you've never practised sitting still while you wait for slow results. Most methods need several weeks before real change shows up, and you're usually gone by week two, so you never make it that far.",
+    biggestMistake: "Believing the problem is the method: that the \"right\" diet is still out there waiting to be found. It isn't. Any solid method, followed long enough, would have worked. The switching is the problem, not the diets.",
+    howWPTHelps: "Weight Permanence Training first shows you the pattern in black and white: every time you've switched, and what set it off. Once \"diets don't work for me\" becomes \"I switch too early,\" you have something you can actually fix. From there, it trains the specific skill you're missing: staying with something past the point where the excitement wears off, but before the results arrive.",
     helpPoints: [
-      "See your exact switching pattern — how many methods, how fast you left each one",
+      "See your exact switching pattern: how many methods, how fast you left each one",
       "Understand why results take longer than you've been giving them",
       "Learn to commit to a direction, not a specific program",
       "Tell the difference between \"this isn't working\" and \"this just needs more time\"",
@@ -95,21 +95,21 @@ const profiles: Record<string, {
     youtubeId: "3gvPOGk03qs",
     banner: "/profiles/stress-eater.webp",
     painStatement: "I eat when I’m stressed.",
-    mobileInsight: "It's like knowing exactly where the fire exit is — then running for the nearest door in a panic anyway when the alarm actually goes off. Knowing the right move doesn't automatically mean you'll make it under pressure.",
+    mobileInsight: "It's like knowing exactly where the fire exit is, then running for the nearest door in a panic anyway when the alarm actually goes off. Knowing the right move doesn't automatically mean you'll make it under pressure.",
     tagline: "You don't need to remove all the stress from your life. You need food to stop being your default reaction to it.",
-    whatItMeans: "You already know what to eat. That's never been the issue. The problem is that when stress, exhaustion, or emotion shows up, that knowledge gets overridden before you can use it. This isn't a knowledge gap — it's the gap between what you know when you're calm and what you actually do under pressure.",
-    whyYouStruggle: "You can't think your way out of a habit your body already trusts. Food reliably makes stress quieter, even if just for a few minutes, so your brain has filed it as \"this works\" — and it keeps reaching for it under pressure, no matter what you know.",
-    biggestMistake: "Focusing only on food rules — stricter macros, no eating after 8pm, clearing junk food from the house. These make food a little harder to reach for, but they don't touch the real trigger. The next stressful moment finds a way through anyway.",
+    whatItMeans: "You already know what to eat. That's never been the issue. The problem is that when stress, exhaustion, or emotion shows up, that knowledge gets overridden before you can use it. This isn't a knowledge gap. It's the gap between what you know when you're calm and what you actually do under pressure.",
+    whyYouStruggle: "You can't think your way out of a habit your body already trusts. Food reliably makes stress quieter, even if just for a few minutes, so your brain has filed it as \"this works,\" and it keeps reaching for it under pressure, no matter what you know.",
+    biggestMistake: "Focusing only on food rules: stricter macros, no eating after 8pm, clearing junk food from the house. These make food a little harder to reach for, but they don't touch the real trigger. The next stressful moment finds a way through anyway.",
     howWPTHelps: "Weight Permanence Training starts by finding your specific stress triggers, not \"stress causes overeating\" in general, but the exact situations that set it off for you. From there, it works on lowering how much stress you're carrying day to day, and trains a steadier response you can count on when pressure hits, because willpower alone tends to fail at the exact moment you need it most.",
     helpPoints: [
-      "Find your specific triggers — the situations and emotions that set it off, not stress in general",
+      "Find your specific triggers: the situations and emotions that set it off, not stress in general",
       "Catch the urge before it fires, not after",
       "Lower your everyday stress load so the trigger fires less often",
       "Build a steady response that holds up under pressure, not just when things are calm",
     ],
     outcome: "The food was never the problem. It's the symptom. This fixes what's underneath it.",
     seoTitle: "Stress Eater Weight Regain Profile | Emotional Eating and Weight Regain",
-    seoDescription: "You're not weak — your brain learned to cope with food. Learn why Stress Eaters regain weight and how Weight Permanence Training rewires that pattern.",
+    seoDescription: "You're not weak. Your brain learned to cope with food. Learn why Stress Eaters regain weight and how Weight Permanence Training rewires that pattern.",
   },
   "weight-cycler": {
     slug: "weight-cycler",
@@ -119,9 +119,9 @@ const profiles: Record<string, {
     painStatement: "I lose weight but it always comes back.",
     mobileInsight: "It's like quitting smoking every January through sheer willpower, staying quit for months, relapsing, and repeating that same cycle for years. The ability to quit was never the question. What's missing is something that makes it stick.",
     tagline: "You already know how to lose weight. What you need to learn is how to become someone who doesn't have to.",
-    whatItMeans: "You're determined and good at losing weight — you've hit your goal before, more than once. This isn't a motivation problem; motivation was never what you were missing. The failure happens after the goal: the weight comes back, again and again, sometimes 50 pounds or more, over years. That's not a one-time slip. That's a repeating cycle.",
+    whatItMeans: "You're determined and good at losing weight. You've hit your goal before, more than once. This isn't a motivation problem; motivation was never what you were missing. The failure happens after the goal: the weight comes back, again and again, sometimes 50 pounds or more, over years. That's not a single slip. That's a repeating cycle.",
     whyYouStruggle: "Every program you've followed was built to get you to a number on the scale, and then it stopped. Nobody taught you what to do with your life once you got there. The people, places, and habits that were there before the diet are still there after it, so without a real plan for what comes next, old habits slowly move back in.",
-    biggestMistake: "Looking for a better weight loss plan. You don't need one — you've already proven you can lose weight. What you need is a maintenance plan, built before you hit your goal, not after.",
+    biggestMistake: "Looking for a better weight loss plan. You don't need one. You've already proven you can lose weight. What you need is a maintenance plan, built before you hit your goal, not after.",
     howWPTHelps: "Weight Permanence Training treats this the way it should be treated: as a permanent shift in how you eat, not a phase with an end date. It pairs that mindset with full training on how to actually maintain, since staying at your goal weight is its own separate skill, one that was never supposed to happen automatically just because the weight came off.",
     helpPoints: [
       "Understand exactly why the weight came back each time, not just that it did",
@@ -131,7 +131,7 @@ const profiles: Record<string, {
     ],
     outcome: "The real finish line isn't losing the weight. It's never having to lose it again.",
     seoTitle: "Weight Cycler Profile | Why You Keep Regaining Weight After Losing It",
-    seoDescription: "You've lost weight before — but it keeps coming back. Learn why Weight Cyclers regain and how Weight Permanence Training ends the cycle for good.",
+    seoDescription: "You've lost weight before, but it keeps coming back. Learn why Weight Cyclers regain and how Weight Permanence Training ends the cycle for good.",
   },
 };
 
@@ -177,7 +177,7 @@ export default function WeightRegainProfilePage() {
           <iframe
             className="w-full h-full"
             src={`https://www.youtube.com/embed/${profile.youtubeId}`}
-            title={`${profile.name} — Weight Regain Profile`}
+            title={`${profile.name} | Weight Regain Profile`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
@@ -232,7 +232,7 @@ export default function WeightRegainProfilePage() {
                 </span>
                 <h3 className="text-lg font-bold">Comprehensive Assessment</h3>
                 <p className="text-xs text-white/70 leading-relaxed">
-                  The quiz, plus an in-depth personality test that finds the root cause behind your weight struggles.
+                  The quiz, plus an extensive personality test that finds the root cause behind your weight struggles.
                 </p>
                 <a
                   href={COMPREHENSIVE_ASSESSMENT_URL}
