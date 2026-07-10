@@ -9,37 +9,40 @@ const profiles = [
     name: "Motivation Chaser",
     banner: "/profiles/motivation-chaser.webp",
     tagline: "Starts strong. Loses steam. Restarts. Repeat.",
-    description: "Motivation gets you started but can't sustain you. This profile is for people whose consistency collapses the moment the initial excitement fades.",
+    description: "You run on one tank of motivation — great for getting started, but it was never going to last the whole trip. Once it's empty, the weight quietly comes back.",
   },
   {
     slug: "overwhelmed-beginner",
     name: "Overwhelmed Beginner",
     banner: "/profiles/overwhelmed-beginner.webp",
     tagline: "Too much advice. Zero clarity. Stuck in research mode.",
-    description: "Not a beginner at dieting — a beginner at deciding. Years of conflicting information have made starting feel impossible.",
+    description: "You've read every article and watched every video, but never actually started. Like studying swimming for months and never getting in the water.",
   },
   {
     slug: "restarter",
     name: "Restarter",
     banner: "/profiles/restarter.webp",
     tagline: "Leaves before results show up. Every time.",
-    description: "You've tried more methods than most people have heard of — and left each one in week two. The problem isn't the method. It's that results take longer than your patience does.",
+    description: "You switch diets before any of them get a real chance to work — like changing lanes in traffic because the other one looks faster, and never getting ahead.",
   },
   {
     slug: "stress-eater",
     name: "Stress Eater",
     banner: "/profiles/stress-eater.webp",
     tagline: "Food has a second job — and it's not nutrition.",
-    description: "You know what to eat. The problem is that stress, exhaustion, and emotion keep overriding that knowledge before you can act on it.",
+    description: "You know exactly what to eat. But when stress hits, you eat anyway — like knowing exactly where the fire exit is, then bolting for the nearest door in a panic.",
   },
   {
     slug: "weight-cycler",
     name: "Weight Cycler",
     banner: "/profiles/weight-cycler.webp",
     tagline: "Loses weight. Gains it back. Loses it again.",
-    description: "You've already proven you can lose weight. The problem is what happens after — no system for maintenance, so old habits slowly refill the space.",
+    description: "You already know how to lose weight — you've done it more than once. What you've never had is a plan for keeping it off, so it always creeps back.",
   },
 ];
+
+// TODO: replace with the real checkout/assessment URL once provided.
+const COMPREHENSIVE_ASSESSMENT_URL = "#";
 
 export default function WeightRegainProfilesPage() {
   return (
@@ -90,16 +93,40 @@ export default function WeightRegainProfilesPage() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-xl border border-border bg-card p-6 md:p-8 text-center space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary">Not sure which one is you?</p>
-          <h3 className="text-xl font-bold text-foreground">Take the Free Quiz — 60 seconds</h3>
-          <p className="text-muted-foreground text-sm">You'll get your profile by email plus a personalised next step.</p>
-          <Link
-            to="/quiz"
-            className="inline-block bg-primary text-primary-foreground font-semibold px-7 py-3 rounded-lg hover:opacity-90 transition-opacity"
-          >
-            Discover Your Regain Profile (Free)
-          </Link>
+        <div className="mt-12">
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary text-center mb-4">Not sure which one is you?</p>
+          <div className="rounded-xl border border-border overflow-hidden grid grid-cols-1 md:grid-cols-2">
+            <div className="p-6 md:p-8 text-center space-y-3 bg-card">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-widest bg-muted text-muted-foreground px-3 py-1 rounded-full">
+                Free · 60 Seconds
+              </span>
+              <h3 className="text-xl font-bold text-foreground">Take the Free Quiz</h3>
+              <p className="text-muted-foreground text-sm max-w-xs mx-auto">
+                Find your #1 weight-regain trigger and the exact WPT training that fixes it.
+              </p>
+              <Link
+                to="/quiz"
+                className="inline-flex w-full sm:w-auto items-center justify-center bg-primary text-primary-foreground font-semibold px-7 py-3 rounded-lg hover:opacity-90 transition-opacity"
+              >
+                Start the Free Quiz
+              </Link>
+            </div>
+            <div className="p-6 md:p-8 text-center space-y-3 bg-zinc-950 text-white border-t md:border-t-0 md:border-l border-border">
+              <span className="inline-block text-[11px] font-bold uppercase tracking-widest bg-accent text-accent-foreground px-3 py-1 rounded-full">
+                $4.99 · Full Assessment
+              </span>
+              <h3 className="text-xl font-bold">Get the Comprehensive Assessment</h3>
+              <p className="text-white/70 text-sm max-w-xs mx-auto">
+                Everything in the free quiz, plus an in-depth personality test that uncovers the real root cause behind your weight struggles.
+              </p>
+              <a
+                href={COMPREHENSIVE_ASSESSMENT_URL}
+                className="inline-flex w-full sm:w-auto items-center justify-center bg-accent text-accent-foreground font-semibold px-7 py-3 rounded-lg hover:brightness-110 transition-all"
+              >
+                Get the Full Assessment
+              </a>
+            </div>
+          </div>
         </div>
 
       </main>
