@@ -113,7 +113,7 @@ export default function WeightRegainProfilesPage() {
             </div>
             <div className="p-6 md:p-8 text-center space-y-3 bg-zinc-950 text-white border-t md:border-t-0 md:border-l border-border">
               <span className="inline-block text-[11px] font-bold uppercase tracking-widest bg-accent text-accent-foreground px-3 py-1 rounded-full">
-                $4.99 · Full Assessment
+                Full Assessment
               </span>
               <h3 className="text-xl font-bold">Get the Comprehensive Assessment</h3>
               <p className="text-white/70 text-sm max-w-xs mx-auto">
