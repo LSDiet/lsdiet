@@ -67,66 +67,62 @@ export default function WeightRegainProfilesPage() {
 
         <div className="grid grid-cols-1 gap-6">
           {profiles.map((profile) => (
-            <Link
+            <div
               key={profile.slug}
-              to={`/weight-regain-profile/${profile.slug}`}
-              className="group rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-colors"
+              className="rounded-xl border border-border bg-card overflow-hidden"
             >
-              <div className="overflow-hidden">
-                <img
-                  src={profile.banner}
-                  alt={profile.name}
-                  width={1600}
-                  height={471}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-5">
-                <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">Profile</p>
-                <h2 className="text-lg font-bold text-foreground mb-1">{profile.name}</h2>
-                <p className="text-sm font-medium text-muted-foreground mb-2 italic">{profile.tagline}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{profile.description}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-12">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary text-center mb-4">Not sure which one is you?</p>
-          <div className="rounded-xl border border-border overflow-hidden grid grid-cols-1 md:grid-cols-2">
-            <div className="p-6 md:p-8 text-center space-y-3 bg-card">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-widest bg-muted text-muted-foreground px-3 py-1 rounded-full">
-                Free · 60 Seconds
-              </span>
-              <h3 className="text-xl font-bold text-foreground">Take the Free Quiz</h3>
-              <p className="text-muted-foreground text-sm max-w-xs mx-auto">
-                Find your #1 weight-regain trigger and the exact WPT training that fixes it.
-              </p>
               <Link
-                to="/quiz"
-                className="inline-flex w-full sm:w-auto items-center justify-center bg-primary text-primary-foreground font-semibold px-7 py-3 rounded-lg hover:opacity-90 transition-opacity"
+                to={`/weight-regain-profile/${profile.slug}`}
+                className="group block hover:opacity-95 transition-opacity"
               >
-                Start the Free Quiz
+                <div className="overflow-hidden">
+                  <img
+                    src={profile.banner}
+                    alt={profile.name}
+                    width={1600}
+                    height={471}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-5 pb-0">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-1">Profile</p>
+                  <h2 className="text-lg font-bold text-foreground mb-1">{profile.name}</h2>
+                  <p className="text-sm font-medium text-muted-foreground mb-2 italic">{profile.tagline}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{profile.description}</p>
+                </div>
               </Link>
+
+              <div className="p-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                  <Link
+                    to="/quiz"
+                    className="inline-flex items-center justify-center rounded-lg bg-primary text-primary-foreground font-semibold px-5 py-3 text-sm hover:opacity-90 transition-opacity"
+                  >
+                    Take the Free Quiz · 60 Seconds
+                  </Link>
+                  <a
+                    href={COMPREHENSIVE_ASSESSMENT_URL}
+                    className="inline-flex items-center justify-center rounded-lg bg-accent text-accent-foreground font-semibold px-5 py-3 text-sm hover:brightness-110 transition-all"
+                  >
+                    Get the Full Assessment
+                  </a>
+                </div>
+                <p className="text-center text-xs text-muted-foreground mt-3">
+                  Already took the quiz?{" "}
+                  <a
+                    href="https://www.skool.com/lsdiet/about"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-foreground underline underline-offset-2 hover:text-primary transition-colors"
+                  >
+                    Start your free training today
+                  </a>
+                </p>
+              </div>
             </div>
-            <div className="p-6 md:p-8 text-center space-y-3 bg-zinc-950 text-white border-t md:border-t-0 md:border-l border-border">
-              <span className="inline-block text-[11px] font-bold uppercase tracking-widest bg-accent text-accent-foreground px-3 py-1 rounded-full">
-                Full Assessment
-              </span>
-              <h3 className="text-xl font-bold">Get the Comprehensive Assessment</h3>
-              <p className="text-white/70 text-sm max-w-xs mx-auto">
-                Everything in the free quiz, plus an extensive personality test that uncovers the real root cause behind your weight struggles.
-              </p>
-              <a
-                href={COMPREHENSIVE_ASSESSMENT_URL}
-                className="inline-flex w-full sm:w-auto items-center justify-center bg-accent text-accent-foreground font-semibold px-7 py-3 rounded-lg hover:brightness-110 transition-all"
-              >
-                Get the Full Assessment
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
 
       </main>
