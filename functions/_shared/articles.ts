@@ -19,11 +19,17 @@ export const ARTICLES: Record<string, ArticleEntry> = {
         Fibermaxxing helps you lose weight when the fiber comes from whole
         foods that also slow how fast sugar hits your bloodstream, and it
         does almost nothing when the fiber comes from an isolated additive
-        stirred into a processed product. Searches for fibermaxxing have more
-        than doubled in the past 90 days, following the same pattern as
-        proteinmaxxing before it. The trend itself is simple: eat enough
-        fiber to hit or beat the daily target most people miss, currently set
-        at 25 grams for women and 38 grams for men.
+        stirred into a processed product. Fibermaxxing itself is a newer
+        term, not one most people have heard yet. It describes a social
+        media trend rather than an established medical or nutrition concept.
+      </p>
+
+      <p>
+        Searches for it have more than doubled in the past 90 days,
+        following the same pattern as proteinmaxxing before it. The trend
+        itself is simple: eat enough fiber to hit or beat the daily target
+        most people miss, currently set at 25 grams for women and 38 grams
+        for men.
       </p>
 
       <p>
@@ -66,16 +72,40 @@ export const ARTICLES: Record<string, ArticleEntry> = {
 
       <p>
         This is where fibermaxxing splits into two very different diets
-        wearing the same name. One version adds lentils, broccoli, berries,
-        chia, and beans to meals that are already lower in starch and sugar.
+        wearing the same name.
+      </p>
+
+      <p>
+        One version builds meals that are already lower in starch and sugar
+        around whole foods such as:
+      </p>
+
+      <ul>
+        <li>Lentils and other legumes</li>
+        <li>Broccoli and other fibrous vegetables</li>
+        <li>Berries</li>
+        <li>Chia seeds</li>
+        <li>Oats</li>
+      </ul>
+
+      <p>
         The fiber and the insulin benefit arrive together, in the same food.
       </p>
 
       <p>
-        The other version keeps the starch and sugar exactly where it was and
-        adds a fiber gummy, a fortified bar, or a fiber supplement drink on
-        top. The fiber gram count goes up. The insulin problem underneath it
-        does not move, because an isolated additive is not doing the same
+        The other version keeps the starch and sugar exactly where it was
+        and adds extras such as:
+      </p>
+
+      <ul>
+        <li>A fiber gummy</li>
+        <li>A fortified snack bar</li>
+        <li>A fiber supplement drink</li>
+      </ul>
+
+      <p>
+        The fiber gram count goes up. The insulin problem underneath it does
+        not move, because an isolated additive is not doing the same
         physical job as the intact fiber inside a lentil or an oat.
       </p>
 

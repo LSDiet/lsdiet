@@ -285,20 +285,6 @@ All colors MUST be HSL.
   color: hsl(0 0% 18%);
 }
 
-/* Lead sentence rhythm: first paragraph after any H2 gets extra weight */
-.prose-article h2 + p {
-  font-size: 18px;
-  font-weight: 500;
-  color: hsl(0 0% 10%);
-}
-
-/* Article intro: the very first paragraph of the body */
-.prose-article > p:first-child {
-  font-size: 18px;
-  font-weight: 500;
-  color: hsl(0 0% 10%);
-}
-
 .prose-article h2 {
   position: relative;
   font-size: 1.5rem;
