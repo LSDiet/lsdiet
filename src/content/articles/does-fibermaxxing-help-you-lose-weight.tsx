@@ -31,17 +31,35 @@ function Body() {
         Fibermaxxing helps you lose weight when the fiber comes from whole
         foods that also slow how fast sugar hits your bloodstream, and it
         does almost nothing when the fiber comes from an isolated additive
-        stirred into a processed product. Fibermaxxing itself is a newer
-        term, not one most people have heard yet. It describes a social
-        media trend rather than an established medical or nutrition concept.
+        stirred into a processed product.
       </p>
 
       <p>
-        Searches for it have more than doubled in the past 90 days,
-        following the same pattern as proteinmaxxing before it. The trend
-        itself is simple: eat enough fiber to hit or beat the daily target
-        most people miss, currently set at 25 grams for women and 38 grams
-        for men.
+        Fibermaxxing itself is a newer term, not one most people have heard
+        yet. It is a social media trend that took off on TikTok in 2026,
+        named the same way as proteinmaxxing before it: take one nutrient
+        and deliberately build every meal around getting as much of it as
+        possible.
+      </p>
+
+      <p>
+        That naming pattern is the actual difference from ordinary fiber
+        eating. Someone who already eats vegetables and whole grains gets
+        fiber by accident, whatever ends up on the plate that day.
+        Fibermaxxing treats fiber as a number to hit on purpose, the same
+        way a protein tracker counts grams of chicken and eggs.
+      </p>
+
+      <p>
+        That distinction matters because most people fall short without
+        realizing it. Searches for fibermaxxing have more than doubled in
+        the past 90 days, and more than 90 percent of women and 97 percent
+        of men do not meet the standard fiber target, set at 25 grams a day
+        for women and 38 grams for men. In food terms, that is roughly a cup
+        of cooked lentils, a pear, and a cup of cooked broccoli for the 25
+        gram target, about 26 grams altogether. Add half a cup of black
+        beans and a small handful of almonds and the total climbs to
+        roughly 37, close to the 38 gram target.
       </p>
 
       <p>
