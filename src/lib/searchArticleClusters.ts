@@ -34,6 +34,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
     title: "Low Starch, Low Sugar Science",
     tagline: "The science behind starch, sugar, and insulin.",
     slugs: [
+      "does-fibermaxxing-help-you-lose-weight",
       "good-fat-bad-fat-high-protein-diet",
       "how-much-exercise-do-you-need-for-heart-health-and-weight-loss",
       "is-diet-or-exercise-more-important-for-weight-loss",
