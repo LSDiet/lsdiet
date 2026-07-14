@@ -47,6 +47,7 @@ const PERSON_LD = {
     sameAs: "https://en.wikipedia.org/wiki/Simon_Fraser_University",
   },
   sameAs: [
+    "https://oscarpoon.ca",
     "https://www.youtube.com/@JoinLSDiet",
     "https://www.instagram.com/JoinLSDiet",
     "https://www.tiktok.com/@JoinLSDiet",
@@ -118,6 +119,12 @@ export default function OscarPoonPage() {
           </p>
           <p>
             The experience became the foundation for the Weight Permanence Training, a system designed to help people stop restarting weight loss and prevent weight regain.
+          </p>
+          <p>
+            Beyond LS Diet, Oscar is the founder of NTL Learning Solutions Inc., building the Anti-Time-Theft Logger Chrome extension and original music. See his full portfolio at{" "}
+            <a href="https://oscarpoon.ca" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+              oscarpoon.ca
+            </a>.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-extrabold uppercase tracking-tight pt-6 mt-2 text-foreground">
