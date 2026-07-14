@@ -97,6 +97,9 @@ import medicareGlp1CopayWontFixTheRealProblem from "./medicare-glp1-copay-wont-f
 // Batch 19
 import doesFibermaxxingHelpYouLoseWeight from "./does-fibermaxxing-help-you-lose-weight";
 
+// Batch 20
+import isLosingWeightTooFastBadForYou from "./is-losing-weight-too-fast-bad-for-you";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -171,6 +174,8 @@ export const ARTICLES: Article[] = [
   medicareGlp1CopayWontFixTheRealProblem,
   // Batch 19
   doesFibermaxxingHelpYouLoseWeight,
+  // Batch 20
+  isLosingWeightTooFastBadForYou,
 ];
 
 
