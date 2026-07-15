@@ -121,7 +121,7 @@ export default function OscarPoonPage() {
             The experience became the foundation for the Weight Permanence Training, a system designed to help people stop restarting weight loss and prevent weight regain.
           </p>
           <p>
-            Beyond LS Diet, Oscar is the founder of NTL Learning Solutions Inc., building the Anti-Time-Theft Logger Chrome extension and original music. See his full portfolio at{" "}
+            Beyond LS Diet, Oscar is the founder of NTL Learning Solutions Inc., building other independent digital products. See his full portfolio at{" "}
             <a href="https://oscarpoon.ca" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
               oscarpoon.ca
             </a>.
