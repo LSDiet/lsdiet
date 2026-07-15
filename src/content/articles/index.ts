@@ -100,6 +100,9 @@ import doesFibermaxxingHelpYouLoseWeight from "./does-fibermaxxing-help-you-lose
 // Batch 20
 import isLosingWeightTooFastBadForYou from "./is-losing-weight-too-fast-bad-for-you";
 
+// Batch 21
+import whyLettingYourselfGoIsntWhatHappened from "./why-letting-yourself-go-isnt-what-happened";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -176,6 +179,8 @@ export const ARTICLES: Article[] = [
   doesFibermaxxingHelpYouLoseWeight,
   // Batch 20
   isLosingWeightTooFastBadForYou,
+  // Batch 21
+  whyLettingYourselfGoIsntWhatHappened,
 ];
 
 

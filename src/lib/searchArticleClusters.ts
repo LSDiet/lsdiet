@@ -28,6 +28,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "how-weight-loss-changes-confidence-and-social-behaviour",
       "does-weight-loss-change-dating-and-attraction",
       "is-losing-weight-too-fast-bad-for-you",
+      "why-letting-yourself-go-isnt-what-happened",
     ],
   },
   {
