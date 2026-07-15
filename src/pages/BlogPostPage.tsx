@@ -560,7 +560,7 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
             {readingMin !== null && (
               <>
                 <span aria-hidden> · </span>
-                {readingMin} min read
+                <span data-testid="reading-time">{readingMin} min read</span>
               </>
             )}
           </p>
@@ -571,11 +571,12 @@ function ArticleLayout({ article, url, crawlerShareUrl, publishDate, updatedAt }
           )}
 
           {foundationTitle && (
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-zinc-500" data-testid="topic-line">
               Part of the LS Diet Foundations ecosystem ·{" "}
               <a
                 href={`/blog/${article.meta.primaryFoundationSlug}`}
                 className="text-zinc-700 hover:text-accent font-medium underline-offset-2 hover:underline transition-colors"
+                data-testid="topic-value"
               >
                 {foundationTitle}
               </a>

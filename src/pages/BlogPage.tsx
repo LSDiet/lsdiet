@@ -334,7 +334,7 @@ function JustPublished({ entries, allEntries }: { entries: BlogIndexEntry[]; all
   if (latest.length === 0) return null;
 
   return (
-    <section className="mt-11 md:mt-14">
+    <section className="mt-11 md:mt-14" id="just-published" data-testid="just-published">
       <div className="flex flex-col gap-4 mb-5 md:flex-row md:items-end md:justify-between md:gap-6">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[hsl(38_90%_40%)] mb-1.5">
@@ -348,7 +348,15 @@ function JustPublished({ entries, allEntries }: { entries: BlogIndexEntry[]; all
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-[18px] md:gap-6">
         {latest.map((e) => (
-          <a key={e.slug} href={`/blog/${e.slug}`} target="_blank" rel="noopener noreferrer" className="group flex flex-col gap-2.5">
+          <a
+            key={e.slug}
+            href={`/blog/${e.slug}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col gap-2.5"
+            data-testid="just-published-card"
+            data-slug={e.slug}
+          >
             <div className="relative aspect-[4/3] rounded-[14px] overflow-hidden border border-[hsl(0_0%_90%)]">
               {e.featuredImage?.url ? (
                 <img
