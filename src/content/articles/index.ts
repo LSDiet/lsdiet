@@ -103,6 +103,9 @@ import isLosingWeightTooFastBadForYou from "./is-losing-weight-too-fast-bad-for-
 // Batch 21
 import whyLettingYourselfGoIsntWhatHappened from "./why-letting-yourself-go-isnt-what-happened";
 
+// Batch 22
+import whyOneRelaxDayTurnsIntoARelapse from "./why-one-relax-day-turns-into-a-relapse";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -181,6 +184,8 @@ export const ARTICLES: Article[] = [
   isLosingWeightTooFastBadForYou,
   // Batch 21
   whyLettingYourselfGoIsntWhatHappened,
+  // Batch 22
+  whyOneRelaxDayTurnsIntoARelapse,
 ];
 
 
