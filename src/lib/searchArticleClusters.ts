@@ -52,6 +52,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "how-much-protein-should-you-eat-to-lose-weight",
       "why-does-weight-loss-feel-easier-when-im-younger",
       "how-does-sleep-affect-your-ability-to-lose-weight",
+      "why-you-cant-eat-carbs-like-you-used-to",
     ],
   },
   {

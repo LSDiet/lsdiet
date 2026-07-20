@@ -105,6 +105,8 @@ import whyLettingYourselfGoIsntWhatHappened from "./why-letting-yourself-go-isnt
 
 // Batch 22
 import whyOneRelaxDayTurnsIntoARelapse from "./why-one-relax-day-turns-into-a-relapse";
+// Batch 23
+import whyYouCantEatCarbsLikeYouUsedTo from "./why-you-cant-eat-carbs-like-you-used-to";
 
 export const ARTICLES: Article[] = [
   // Batch 1
@@ -186,6 +188,8 @@ export const ARTICLES: Article[] = [
   whyLettingYourselfGoIsntWhatHappened,
   // Batch 22
   whyOneRelaxDayTurnsIntoARelapse,
+  // Batch 23
+  whyYouCantEatCarbsLikeYouUsedTo,
 ];
 
 
