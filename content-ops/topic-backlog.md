@@ -17,3 +17,4 @@ Read by: weight-loss-audience-briefing skill, Phase 1, before presenting its 3 f
 
 | Date Added | Title | Source Article | Status | Notes |
 |---|---|---|---|---|
+| 2026-07-20 | The Exercise Paradox: Workouts Don't Drive Weight Loss, But They Prevent Regain | SciTechDaily, "The Exercise Paradox: Why Workouts Don't Guarantee Weight Loss" (https://scitechdaily.com/the-exercise-paradox-why-workouts-dont-guarantee-weight-loss/) | pending | Exercise is weak for initial weight loss (appetite compensation, reduced non-exercise movement) but disproportionately useful for preventing regain, resistance training preserves muscle and resting energy expenditure. Fits Permanence framing directly. |
