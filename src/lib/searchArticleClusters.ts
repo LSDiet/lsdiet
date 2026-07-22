@@ -53,6 +53,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "why-does-weight-loss-feel-easier-when-im-younger",
       "how-does-sleep-affect-your-ability-to-lose-weight",
       "why-you-cant-eat-carbs-like-you-used-to",
+      "do-you-need-to-exercise-to-lose-weight",
     ],
   },
   {

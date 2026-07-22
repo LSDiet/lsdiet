@@ -108,6 +108,9 @@ import whyOneRelaxDayTurnsIntoARelapse from "./why-one-relax-day-turns-into-a-re
 // Batch 23
 import whyYouCantEatCarbsLikeYouUsedTo from "./why-you-cant-eat-carbs-like-you-used-to";
 
+// Batch 24
+import doYouNeedToExercise from "./do-you-need-to-exercise-to-lose-weight";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -190,6 +193,8 @@ export const ARTICLES: Article[] = [
   whyOneRelaxDayTurnsIntoARelapse,
   // Batch 23
   whyYouCantEatCarbsLikeYouUsedTo,
+  // Batch 24
+  doYouNeedToExercise,
 ];
 
 
