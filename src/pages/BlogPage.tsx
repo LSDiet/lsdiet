@@ -589,13 +589,15 @@ export default function BlogPage() {
                   The LS Diet foundations, the newest articles, and real-life topics that are worth your time.
                 </p>
               </section>
-
-              <FoundationDeck />
             </div>
 
             <JustPublished entries={supporting} allEntries={entries} />
 
             <BrowseShelves clusterEntries={clusterEntries} />
+
+            <div className="md:max-w-[560px] md:mx-auto">
+              <FoundationDeck />
+            </div>
           </>
         )}
       </main>
