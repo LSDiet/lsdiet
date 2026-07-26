@@ -68,6 +68,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "youre-losing-muscle-not-just-fat-on-glp1-drugs",
       "why-ozempic-face-happens",
       "medicare-glp1-copay-wont-fix-the-real-problem",
+      "why-glp1-drugs-alone-wont-solve-europes-obesity-crisis",
     ],
   },
   {

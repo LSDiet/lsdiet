@@ -8,6 +8,7 @@ Last verified: 2026-07-03, by direct browser render of lsdiet.com/blog.
 
 | Publish Date | Title | Slug | Core Angle Already Used |
 |---|---|---|---|
+| 2026-07-24 | Why GLP-1 Drugs Alone Won't Solve Europe's Obesity Crisis | `why-glp1-drugs-alone-wont-solve-europes-obesity-crisis` | OBEClust/Lancet Regional Health Europe policy paper, GLP-1 drugs reinforce rather than replace the case for structural prevention |
 | 2026-07-08 | Medicare's $50 GLP-1 Copay Won't Fix the Real Problem | `medicare-glp1-copay-wont-fix-the-real-problem` | Medicare Bridge policy driven mass adoption, discontinuation/reinitiation cycling as the real dependency risk |
 | 2026-07-02 | Why Ozempic Face Happens, and What It Reveals About Muscle Loss | `why-ozempic-face-happens` | Facial fat/lean tissue loss outpaces skin adjustment |
 | 2026-06-30 | Does Losing Weight on a GLP-1 Drug Actually Count? | `does-glp1-weight-loss-count` | Legitimacy of drug assisted loss |
@@ -23,9 +24,10 @@ Last verified: 2026-07-03, by direct browser render of lsdiet.com/blog.
 - Regain speed and mechanics after stopping
 - Long term maintenance without behavioural change
 - Muscle loss vs fat loss on GLP-1s (see also: youre-losing-muscle-not-just-fat-on-glp1-drugs, present in blog homepage preview, date not confirmed, confirm before use)
+- EU/national policy debate over prevention vs pharmacotherapy investment (OBEClust position paper)
 
 ## Known gap
-This pillar had exactly 6 articles at last check, so this list is complete for Medication Independence. The other three pillars (Weight Permanence Training, Low Starch Low Sugar Science, Busy Professional Execution) were NOT fully audited, the site's topic archive pages 404 on direct navigation. Only the 6 newest per pillar were visible from the blog homepage. Treat any new topic in those three pillars as unverified against their full archives until that gap is closed.
+As of the 2026-07-24 run this pillar has 8 articles. The other three pillars (Weight Permanence Training, Low Starch Low Sugar Science, Busy Professional Execution) were NOT fully audited, the site's topic archive pages 404 on direct navigation. Only the 6 newest per pillar were visible from the blog homepage. Treat any new topic in those three pillars as unverified against their full archives until that gap is closed.
 
 ## Maintenance
 Append a new row here every time a Medication Independence article is published. If this file is committed into the lsdiet-pub repo (e.g. `content-ops/glp1-titles.md`), it will be available on every future sparse clone without needing a browser check. It will only be checked automatically if the skill's instructions are updated to reference it, since this session cannot modify the skill file directly.

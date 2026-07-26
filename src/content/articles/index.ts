@@ -110,6 +110,7 @@ import whyYouCantEatCarbsLikeYouUsedTo from "./why-you-cant-eat-carbs-like-you-u
 
 // Batch 24
 import doYouNeedToExercise from "./do-you-need-to-exercise-to-lose-weight";
+import whyGlp1DrugsAloneWontSolveEuropesObesityCrisis from "./why-glp1-drugs-alone-wont-solve-europes-obesity-crisis";
 
 export const ARTICLES: Article[] = [
   // Batch 1
@@ -195,6 +196,8 @@ export const ARTICLES: Article[] = [
   whyYouCantEatCarbsLikeYouUsedTo,
   // Batch 24
   doYouNeedToExercise,
+  // Batch 25
+  whyGlp1DrugsAloneWontSolveEuropesObesityCrisis,
 ];
 
 
