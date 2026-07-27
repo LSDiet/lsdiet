@@ -112,6 +112,9 @@ import whyYouCantEatCarbsLikeYouUsedTo from "./why-you-cant-eat-carbs-like-you-u
 import doYouNeedToExercise from "./do-you-need-to-exercise-to-lose-weight";
 import whyGlp1DrugsAloneWontSolveEuropesObesityCrisis from "./why-glp1-drugs-alone-wont-solve-europes-obesity-crisis";
 
+// Batch 26
+import whyAiCalorieTrackingWontFixAWillpowerProblem from "./why-ai-calorie-tracking-wont-fix-a-willpower-problem";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -198,6 +201,7 @@ export const ARTICLES: Article[] = [
   doYouNeedToExercise,
   // Batch 25
   whyGlp1DrugsAloneWontSolveEuropesObesityCrisis,
+  whyAiCalorieTrackingWontFixAWillpowerProblem,
 ];
 
 
