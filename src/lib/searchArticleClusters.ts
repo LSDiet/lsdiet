@@ -31,6 +31,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "why-letting-yourself-go-isnt-what-happened",
       "why-ai-calorie-tracking-wont-fix-a-willpower-problem",
       "why-one-relax-day-turns-into-a-relapse",
+      "why-goal-weight-doesnt-feel-like-enough",
     ],
   },
   {

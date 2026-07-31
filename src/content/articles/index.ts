@@ -114,6 +114,7 @@ import whyGlp1DrugsAloneWontSolveEuropesObesityCrisis from "./why-glp1-drugs-alo
 
 // Batch 26
 import whyAiCalorieTrackingWontFixAWillpowerProblem from "./why-ai-calorie-tracking-wont-fix-a-willpower-problem";
+import whyGoalWeightDoesntFeelLikeEnough from "./why-goal-weight-doesnt-feel-like-enough";
 
 export const ARTICLES: Article[] = [
   // Batch 1
@@ -202,6 +203,8 @@ export const ARTICLES: Article[] = [
   // Batch 25
   whyGlp1DrugsAloneWontSolveEuropesObesityCrisis,
   whyAiCalorieTrackingWontFixAWillpowerProblem,
+  // Batch 26
+  whyGoalWeightDoesntFeelLikeEnough,
 ];
 
 
