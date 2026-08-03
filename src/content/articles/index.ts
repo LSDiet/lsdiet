@@ -116,6 +116,9 @@ import whyGlp1DrugsAloneWontSolveEuropesObesityCrisis from "./why-glp1-drugs-alo
 import whyAiCalorieTrackingWontFixAWillpowerProblem from "./why-ai-calorie-tracking-wont-fix-a-willpower-problem";
 import whyGoalWeightDoesntFeelLikeEnough from "./why-goal-weight-doesnt-feel-like-enough";
 
+// Batch 27
+import whySayingYoureFineWithYourWeight from "./why-saying-youre-fine-with-your-weight-doesnt-mean-you-are";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -205,6 +208,9 @@ export const ARTICLES: Article[] = [
   whyAiCalorieTrackingWontFixAWillpowerProblem,
   // Batch 26
   whyGoalWeightDoesntFeelLikeEnough,
+  // Batch 27
+  whySayingYoureFineWithYourWeight,
+
 ];
 
 

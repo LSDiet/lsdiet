@@ -32,6 +32,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "why-ai-calorie-tracking-wont-fix-a-willpower-problem",
       "why-one-relax-day-turns-into-a-relapse",
       "why-goal-weight-doesnt-feel-like-enough",
+      "why-saying-youre-fine-with-your-weight-doesnt-mean-you-are",
     ],
   },
   {
