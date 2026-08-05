@@ -57,6 +57,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "how-does-sleep-affect-your-ability-to-lose-weight",
       "why-you-cant-eat-carbs-like-you-used-to",
       "do-you-need-to-exercise-to-lose-weight",
+      "do-you-need-a-continuous-glucose-monitor-to-lose-weight",
     ],
   },
   {

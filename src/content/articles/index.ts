@@ -119,6 +119,9 @@ import whyGoalWeightDoesntFeelLikeEnough from "./why-goal-weight-doesnt-feel-lik
 // Batch 27
 import whySayingYoureFineWithYourWeight from "./why-saying-youre-fine-with-your-weight-doesnt-mean-you-are";
 
+// Batch 28
+import doYouNeedACgmToLoseWeight from "./do-you-need-a-continuous-glucose-monitor-to-lose-weight";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -210,6 +213,8 @@ export const ARTICLES: Article[] = [
   whyGoalWeightDoesntFeelLikeEnough,
   // Batch 27
   whySayingYoureFineWithYourWeight,
+  // Batch 28
+  doYouNeedACgmToLoseWeight,
 
 ];
 
