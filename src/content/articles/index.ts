@@ -122,6 +122,9 @@ import whySayingYoureFineWithYourWeight from "./why-saying-youre-fine-with-your-
 // Batch 28
 import doYouNeedACgmToLoseWeight from "./do-you-need-a-continuous-glucose-monitor-to-lose-weight";
 
+// Batch 29
+import whatToEatWhenYouDontWantToCook from "./what-to-eat-when-you-dont-want-to-cook";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -215,6 +218,8 @@ export const ARTICLES: Article[] = [
   whySayingYoureFineWithYourWeight,
   // Batch 28
   doYouNeedACgmToLoseWeight,
+  // Batch 29
+  whatToEatWhenYouDontWantToCook,
 
 ];
 

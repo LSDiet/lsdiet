@@ -101,6 +101,7 @@ export const SEARCH_ARTICLE_CLUSTERS: SearchArticleCluster[] = [
       "can-you-lose-weight-without-going-to-the-gym",
       "what-should-you-eat-for-lunch-to-lose-weight",
       "how-to-avoid-gaining-weight-while-traveling-for-work",
+      "what-to-eat-when-you-dont-want-to-cook",
     ],
   },
 ];
