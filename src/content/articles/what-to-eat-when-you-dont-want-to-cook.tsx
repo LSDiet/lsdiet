@@ -33,12 +33,14 @@ function Body() {
       <p>
         Cottage cheese, a ready to drink protein shake, and a tuna pouch
         each get real protein into you in under a minute, no stove
-        required, and none of them are interchangeable. In 2023, 48% of
-        American men and 28% of American women did no cooking at all on an
-        average day (Ewoldt et al., 2025). That's not a discipline
-        problem, it's a scheduling reality for a huge share of adults,
-        and most diet advice still assumes a recipe nobody working a full
-        day is going to cook on a Tuesday.
+        required. None of them are interchangeable, though. In 2023, 48%
+        of American men and 28% of American women did no cooking at all
+        on an average day (Ewoldt et al., 2025).
+      </p>
+      <p>
+        That's not a discipline problem, it's a scheduling reality for a
+        huge share of adults. Most diet advice still assumes a recipe
+        nobody working a full day is going to cook on a Tuesday.
       </p>
 
       <h2>Why These Three Aren't Interchangeable</h2>
@@ -85,17 +87,17 @@ function Body() {
         minute and want the fullness to last through a 2pm meeting
         without a vending machine detour. The tuna pouch wins when sugar
         and carbs need to hit zero for the day and you already have a
-        filling side on hand, an apple, a handful of nuts, because on its
-        own it won't hold you.
+        filling side on hand, an apple, a handful of nuts. On its own, it
+        won't hold you.
       </p>
       <p>
         Most people default to whichever one is already in their bag out
         of habit, not because they thought about what the next four hours
-        require. Matching the option to the moment is what turns
-        a fridge, a shake, and a random office pantry into a system you
-        barely have to think about, which is the whole point of building{" "}
-        <a href="/blog/friction-awareness">friction awareness</a> into a
-        schedule that will not slow down for you.
+        require. Matching the option to the moment is what turns a
+        fridge, a shake, and a random office pantry into a system you
+        barely have to think about. That's the whole point of building
+        {" "}<a href="/blog/friction-awareness">friction awareness</a> into
+        a schedule that will not slow down for you.
       </p>
 
       <h2>The Tradeoff Nobody Mentions</h2>
@@ -103,23 +105,29 @@ function Body() {
         The personal cost of picking wrong is small and it repeats daily.
         Grab the shake when you actually needed the cottage cheese, and
         you're hungry again by 3, reaching for whatever is closest,
-        usually starchier and sweeter than any of these three. Fairlife Core Power Elite costs more than Premier Protein
-        for a reason, 42 grams of protein against 30, but neither solves
-        the liquid satiety gap. Good Culture and the newer MULU cottage
-        cheese both land under 100 calories with under 2 grams of sugar a
-        half cup, MULU carries more protein, Good Culture is easier to
-        find.
+        usually starchier and sweeter than any of these three. Fairlife
+        Core Power Elite costs more than Premier Protein for a reason, 42
+        grams of protein against 30, but neither solves the liquid
+        satiety gap.
       </p>
       <p>
-        The systemic cost is what gets sold around these products.
-        Protein shake marketing leans hard on the number on the label, 30
-        grams, 42 grams, without mentioning that the same grams eaten as
-        solid food would carry you further into the afternoon. That is
-        not dishonest exactly, it is an incomplete picture that favours
-        whichever product is easiest to manufacture and ship, and a shake
-        is far easier to bottle at scale than a cottage cheese line. The
-        convenience is real, the equivalence to solid food is not, and
-        nobody selling the shake has a reason to say so.
+        Good Culture and the newer MULU cottage cheese both land under
+        100 calories with under 2 grams of sugar a half cup. MULU carries
+        more protein, Good Culture is easier to find.
+      </p>
+      <p>
+        There's a systemic cost too, in what gets sold around these
+        products. Protein shake marketing leans hard on the number on the
+        label, 30 grams, 42 grams. It rarely mentions that the same
+        grams eaten as solid food would carry you further into the
+        afternoon.
+      </p>
+      <p>
+        That's not dishonest exactly, it's an incomplete picture that
+        favours whichever product is easiest to manufacture and ship. A
+        shake is far easier to bottle at scale than a cottage cheese
+        line. The convenience is real, the equivalence to solid food is
+        not, and nobody selling the shake has a reason to say so.
       </p>
 
       <h2>Pick One and Keep It in the Fridge</h2>
@@ -147,9 +155,9 @@ function Body() {
 
         <h3>Is cottage cheese good for weight loss?</h3>
         <p>
-          Yes, cottage cheese is high in protein, low in sugar for a dairy
-          product, and the casein protein digests slowly enough to blunt
-          hunger for a couple of hours (Boirie et al., 1997). It fits
+          Yes, cottage cheese is high in protein and low in sugar for a
+          dairy product. The casein protein digests slowly enough to
+          blunt hunger for a couple of hours (Boirie et al., 1997). It fits
           easily onto a low-starch, low-sugar plate without needing any
           preparation. The main tradeoff is sodium, higher than most
           people expect from a dairy product.
@@ -158,8 +166,8 @@ function Body() {
         <h3>How do I lose weight if I hate cooking?</h3>
         <p>
           Start by keeping two or three no cook, high protein foods in the
-          fridge or pantry at all times, so the default choice during a
-          busy day is already the right one. This is{" "}
+          fridge or pantry at all times. That way, the default choice
+          during a busy day is already the right one. This is{" "}
           <a href="/blog/friction-awareness">friction awareness</a> in
           practice, removing the decision instead of trying to win it
           through willpower every time. The{" "}
