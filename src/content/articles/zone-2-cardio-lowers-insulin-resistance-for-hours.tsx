@@ -32,10 +32,14 @@ function Body() {
         study found the effect from a single session lasts up to 48 hours,
         then disappears entirely by day five with no further exercise
         (Mikines et al., 1988). That part of the 2026 Zone 2 trend is
-        accurate. What gets left out of the after workout coverage is the
-        other half of the clock, a starch or sugar heavy meal can start
-        pushing insulin back up within 15 to 30 minutes, well before the
-        next training session arrives to renew the benefit.
+        accurate.
+      </p>
+
+      <p>
+        What gets left out of the after workout coverage is the other half
+        of the clock. A starch or sugar heavy meal can start pushing
+        insulin back up within 15 to 30 minutes, well before the next
+        training session arrives to renew the benefit.
       </p>
 
       <p>
@@ -50,39 +54,45 @@ function Body() {
 
       <p>
         Working muscle pulls glucose out of the bloodstream through a
-        transporter called GLUT4, and each Zone 2 session pushes more of it
-        to the muscle cell surface, lowering how much insulin the body
-        needs to clear the same meal (Richter &amp; Hargreaves, 2013).
+        transporter called GLUT4. Each Zone 2 session pushes more of it to
+        the muscle cell surface, lowering how much insulin the body needs
+        to clear the same meal (Richter &amp; Hargreaves, 2013).
       </p>
 
       <p>
         The size of that window is unusually well measured. In one of the
         studies behind this research, insulin mediated glucose uptake was
         measurably higher immediately after a single bout of moderate
-        exercise and stayed elevated a full 48 hours later, then returned
-        to baseline by day five (Mikines et al., 1988). A broader analysis
-        across people with type 2 diabetes found the same pattern held up
-        across dozens of trials, regular aerobic training reliably improves
-        insulin sensitivity, not as a myth or a placebo effect (Way et al.,
-        2016).
+        exercise. It stayed elevated a full 48 hours later, then returned
+        to baseline by day five (Mikines et al., 1988).
+      </p>
+
+      <p>
+        A broader analysis across people with type 2 diabetes found the
+        same pattern held up across dozens of trials. Regular aerobic
+        training reliably improves insulin sensitivity, not as a myth or a
+        placebo effect (Way et al., 2016).
       </p>
 
       <p>
         I built LS Diet on the belief that starch and sugar decide insulin
-        more than movement does, and I still assumed the Zone 2 benefit
+        more than movement does. I still assumed the Zone 2 benefit
         behaved like a savings account, each session adding to a growing
         balance that made the occasional bowl of rice less of a problem.
-        The clamp data does not support that. The window closes in under 48
-        hours whether or not anything gets eaten during it, and what gets
-        eaten inside that window decides whether those 48 hours did
-        anything useful at all.
+        The clamp data does not support that.
+      </p>
+
+      <p>
+        The window closes in under 48 hours whether or not anything gets
+        eaten during it. What gets eaten inside that window decides
+        whether those 48 hours did anything useful at all.
       </p>
 
       <p>
         Insulin does not wait for the workout benefit to fade on its own. A
         starch or sugar heavy meal, white rice, a bagel, a sports drink,
         starts raising blood glucose within 15 to 30 minutes of the first
-        bite, and insulin follows the same curve to bring it back down
+        bite. Insulin follows the same curve to bring it back down
         (Ludwig, 2002). That response fires whether the meal happens two
         hours after a Zone 2 session or two days after, and a large enough
         spike can outweigh whatever sensitivity the workout bought.
@@ -94,31 +104,34 @@ function Body() {
         This shows up almost exclusively in people already doing the
         workout right. Someone tracking heart rate zones on a wearable,
         hitting three to five Zone 2 sessions a week, watching their VO2
-        max climb on an app, still is not seeing their energy, cravings, or
-        waistline change the way the training plan promised.
+        max climb on an app, fits this pattern exactly. Energy, cravings,
+        and waistline are not changing the way the training plan promised.
       </p>
 
       <p>
         The pattern is not laziness. It is treating the workout like it
-        purchased permission. A post training breakfast gets bigger because
-        the session happened, a sports drink gets added because the heart
-        rate zone was held for 45 minutes, a starch heavy dinner gets
-        justified because tomorrow is a rest day anyway. Every one of these
-        decisions happens inside the same 48 hour window the exercise was
-        supposed to be protecting, and each one is a small failure of{" "}
+        purchased permission. A post training breakfast gets bigger
+        because the session happened.
+      </p>
+
+      <p>
+        A sports drink gets added because the heart rate zone was held for
+        45 minutes, and a starch heavy dinner gets justified because
+        tomorrow is a rest day anyway. Every one of these decisions
+        happens inside the same 48 hour window the exercise was supposed
+        to be protecting. Each one is a small failure of{" "}
         <a href="/blog/friction-awareness">friction awareness</a>, not
         willpower.
       </p>
 
       <p>
         It also tends to show up in people who moved from high intensity
-        training to Zone 2 specifically because they read it was gentler on
-        the body and better for fat burning, then kept the rest of the
-        week's eating exactly the same as before. The giveaway is
-        frustration that builds after weeks of consistency, not after a
-        single missed workout. That is the signature of a real mechanism
-        being cancelled by something else, not a training plan that
-        failed.
+        training to Zone 2, thinking it was gentler on the body and better
+        for fat burning. They kept the rest of the week's eating exactly
+        the same as before. The giveaway is frustration that builds after
+        weeks of consistency, not after a single missed workout. That is
+        the signature of a real mechanism being cancelled by something
+        else, not a training plan that failed.
       </p>
 
       <h2>What the Gap Actually Costs</h2>
@@ -126,25 +139,25 @@ function Body() {
       <p>
         The personal cost is usually misdiagnosed. Someone doing everything
         the fitness content told them concludes Zone 2 does not work for
-        them personally, and either abandons it for something more intense
-        or doubles the duration, chasing a bigger effect from the same side
-        of the equation that was never the limiting factor. Neither move
-        touches the actual gap, what happens on the plate inside the 48
-        hour window.
+        them personally. They either abandon it for something more intense
+        or double the duration, chasing a bigger effect from the wrong
+        side of the equation. Neither move touches the actual gap, what
+        happens on the plate inside the 48 hour window.
       </p>
 
       <p>
-        The systemic cost sits with how Zone 2 gets sold. Wearable and
-        fitness content markets the heart rate zone as a complete metabolic
-        fix on its own, fat burning, insulin friendly, because that is the
-        sellable half of the story, a subscription, a watch, a training
-        plan. Mentioning that the benefit depends on the next meal is a
-        harder message, and it does not move as much hardware.
+        Zone 2 also gets sold in a way that reinforces the mistake.
+        Wearable and fitness content markets the heart rate zone as a
+        complete metabolic fix on its own, fat burning and insulin
+        friendly. That is the sellable half of the story, a subscription,
+        a watch, a training plan. Mentioning that the benefit depends on
+        the next meal is a harder message, and it does not move as much
+        hardware.
       </p>
 
       <p>
         None of this makes the training plan wrong. It means the plan was
-        only ever solving half the insulin problem, and the{" "}
+        only ever solving half the insulin problem. The{" "}
         <a href="/blog/why-low-starch-low-sugar-is-more-sustainable-than-extreme-dieting">
           low starch, low sugar
         </a>{" "}
@@ -197,9 +210,9 @@ function Body() {
         <h3>What should I eat to pair with Zone 2 training for insulin control?</h3>
         <p>
           A low starch, low sugar plate keeps the glucose and insulin
-          response small enough that the exercise induced sensitivity has
-          something left to work with, rather than getting overridden by
-          the next meal. Pairing the two is more effective than either one
+          response small. That leaves the exercise induced sensitivity
+          something to work with, rather than getting overridden by the
+          next meal. Pairing the two is more effective than either one
           used alone.
         </p>
       </section>
