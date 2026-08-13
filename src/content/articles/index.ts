@@ -125,6 +125,9 @@ import doYouNeedACgmToLoseWeight from "./do-you-need-a-continuous-glucose-monito
 // Batch 29
 import whatToEatWhenYouDontWantToCook from "./what-to-eat-when-you-dont-want-to-cook";
 
+// Batch 30
+import zone2CardioLowersInsulinResistanceForHours from "./zone-2-cardio-lowers-insulin-resistance-for-hours";
+
 export const ARTICLES: Article[] = [
   // Batch 1
   howToLoseWeightWithADeskJob,
@@ -220,6 +223,8 @@ export const ARTICLES: Article[] = [
   doYouNeedACgmToLoseWeight,
   // Batch 29
   whatToEatWhenYouDontWantToCook,
+  // Batch 30
+  zone2CardioLowersInsulinResistanceForHours,
 
 ];
 
